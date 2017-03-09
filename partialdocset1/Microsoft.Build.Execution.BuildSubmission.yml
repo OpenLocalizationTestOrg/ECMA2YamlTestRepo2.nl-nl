@@ -1,0 +1,349 @@
+### YamlMime:ManagedReference
+items:
+- uid: Microsoft.Build.Execution.BuildSubmission
+  id: BuildSubmission
+  children:
+  - Microsoft.Build.Execution.BuildSubmission.AsyncContext
+  - Microsoft.Build.Execution.BuildSubmission.BuildManager
+  - Microsoft.Build.Execution.BuildSubmission.BuildResult
+  - Microsoft.Build.Execution.BuildSubmission.Execute
+  - Microsoft.Build.Execution.BuildSubmission.ExecuteAsync(Microsoft.Build.Execution.BuildSubmissionCompleteCallback,System.Object)
+  - Microsoft.Build.Execution.BuildSubmission.IsCompleted
+  - Microsoft.Build.Execution.BuildSubmission.SubmissionId
+  - Microsoft.Build.Execution.BuildSubmission.WaitHandle
+  langs:
+  - csharp
+  name: BuildSubmission
+  nameWithType: BuildSubmission
+  fullName: Microsoft.Build.Execution.BuildSubmission
+  type: Class
+  summary: "Vertegenwoordigt een aanvraag voor het samenstellen die is ingediend bij de manager build voor verwerking. De methoden van deze klasse kunnen worden gebruikt om uit te voeren synchroon of asynchroon build aanvragen en voor toegang tot de resultaten na voltooiing."
+  remarks: "Deze klasse is thread-safe."
+  syntax:
+    content: public class BuildSubmission
+  inheritance:
+  - System.Object
+  implements: []
+  inheritedMembers: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Execution.BuildSubmission.AsyncContext
+  id: AsyncContext
+  parent: Microsoft.Build.Execution.BuildSubmission
+  langs:
+  - csharp
+  name: AsyncContext
+  nameWithType: BuildSubmission.AsyncContext
+  fullName: Microsoft.Build.Execution.BuildSubmission.AsyncContext
+  type: Property
+  assemblies:
+  - Microsoft.Build
+  namespace: Microsoft.Build.Execution
+  summary: "Opgehaald of ingesteld van de asynchrone context die <xref:Microsoft.Build.Execution.BuildSubmission.ExecuteAsync*>, indien van toepassing.</xref:Microsoft.Build.Execution.BuildSubmission.ExecuteAsync*>"
+  syntax:
+    content: public object AsyncContext { get; }
+    return:
+      type: System.Object
+      description: "Retourneert de asynchrone context opgegeven voor <xref:Microsoft.Build.Execution.BuildSubmission.ExecuteAsync*>.</xref:Microsoft.Build.Execution.BuildSubmission.ExecuteAsync*> Retourneert null als er geen context is opgegeven."
+  overload: Microsoft.Build.Execution.BuildSubmission.AsyncContext*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Execution.BuildSubmission.BuildManager
+  id: BuildManager
+  parent: Microsoft.Build.Execution.BuildSubmission
+  langs:
+  - csharp
+  name: BuildManager
+  nameWithType: BuildSubmission.BuildManager
+  fullName: Microsoft.Build.Execution.BuildSubmission.BuildManager
+  type: Property
+  assemblies:
+  - Microsoft.Build
+  namespace: Microsoft.Build.Execution
+  summary: "Opgehaald of ingesteld van de build manager die deze verzending build is gekoppeld."
+  syntax:
+    content: public Microsoft.Build.Execution.BuildManager BuildManager { get; }
+    return:
+      type: Microsoft.Build.Execution.BuildManager
+      description: "Retourneert de build manager die deze verzending build is gekoppeld aan."
+  overload: Microsoft.Build.Execution.BuildSubmission.BuildManager*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Execution.BuildSubmission.BuildResult
+  id: BuildResult
+  parent: Microsoft.Build.Execution.BuildSubmission
+  langs:
+  - csharp
+  name: BuildResult
+  nameWithType: BuildSubmission.BuildResult
+  fullName: Microsoft.Build.Execution.BuildSubmission.BuildResult
+  type: Property
+  assemblies:
+  - Microsoft.Build
+  namespace: Microsoft.Build.Execution
+  summary: "Opgehaald of ingesteld van het resultaat van de build."
+  remarks: "Het resultaat is niet geldig tot <xref:Microsoft.Build.Execution.BuildSubmission.WaitHandle%2A>is heeft gekregen.</xref:Microsoft.Build.Execution.BuildSubmission.WaitHandle%2A>"
+  syntax:
+    content: public Microsoft.Build.Execution.BuildResult BuildResult { get; set; }
+    return:
+      type: Microsoft.Build.Execution.BuildResult
+      description: "Retourneert het resultaat van de build."
+  overload: Microsoft.Build.Execution.BuildSubmission.BuildResult*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Execution.BuildSubmission.Execute
+  id: Execute
+  parent: Microsoft.Build.Execution.BuildSubmission
+  langs:
+  - csharp
+  name: Execute()
+  nameWithType: BuildSubmission.Execute()
+  fullName: Microsoft.Build.Execution.BuildSubmission.Execute()
+  type: Method
+  assemblies:
+  - Microsoft.Build
+  namespace: Microsoft.Build.Execution
+  summary: "Een aanvraag voor het samenstellen synchroon wordt gestart en wordt gewacht totdat de resultaten beschikbaar zijn."
+  syntax:
+    content: public Microsoft.Build.Execution.BuildResult Execute ();
+    parameters: []
+    return:
+      type: Microsoft.Build.Execution.BuildResult
+      description: "Retourneert de aanvraag voor het samenstellen."
+  overload: Microsoft.Build.Execution.BuildSubmission.Execute*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: "De aanvraag is al gestart of is al voltooid."
+  platform:
+  - net462
+- uid: Microsoft.Build.Execution.BuildSubmission.ExecuteAsync(Microsoft.Build.Execution.BuildSubmissionCompleteCallback,System.Object)
+  id: ExecuteAsync(Microsoft.Build.Execution.BuildSubmissionCompleteCallback,System.Object)
+  parent: Microsoft.Build.Execution.BuildSubmission
+  langs:
+  - csharp
+  name: ExecuteAsync(BuildSubmissionCompleteCallback,Object)
+  nameWithType: BuildSubmission.ExecuteAsync(BuildSubmissionCompleteCallback,Object)
+  fullName: Microsoft.Build.Execution.BuildSubmission.ExecuteAsync(BuildSubmissionCompleteCallback,Object)
+  type: Method
+  assemblies:
+  - Microsoft.Build
+  namespace: Microsoft.Build.Execution
+  summary: "Hiermee start u een aanvraag voor het samenstellen asynchroon en binnen de opgegeven context. Retourneert onmiddellijk besturingselement aan de aanvrager."
+  syntax:
+    content: public void ExecuteAsync (Microsoft.Build.Execution.BuildSubmissionCompleteCallback callback, object context);
+    parameters:
+    - id: callback
+      type: Microsoft.Build.Execution.BuildSubmissionCompleteCallback
+      description: "De terugbelmethode om aan te roepen wanneer de verzending van het build voltooid is."
+    - id: context
+      type: System.Object
+      description: "De context waarin de verzending van het build zich voordoet."
+  overload: Microsoft.Build.Execution.BuildSubmission.ExecuteAsync*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: "De aanvraag is al gestart of is al voltooid."
+  platform:
+  - net462
+- uid: Microsoft.Build.Execution.BuildSubmission.IsCompleted
+  id: IsCompleted
+  parent: Microsoft.Build.Execution.BuildSubmission
+  langs:
+  - csharp
+  name: IsCompleted
+  nameWithType: BuildSubmission.IsCompleted
+  fullName: Microsoft.Build.Execution.BuildSubmission.IsCompleted
+  type: Property
+  assemblies:
+  - Microsoft.Build
+  namespace: Microsoft.Build.Execution
+  summary: "Bepaalt of de verzending van deze build voltooid is."
+  syntax:
+    content: public bool IsCompleted { get; }
+    return:
+      type: System.Boolean
+      description: "Retourneert waar als de verzending van deze build voltooid is. de waarde False anders."
+  overload: Microsoft.Build.Execution.BuildSubmission.IsCompleted*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Execution.BuildSubmission.SubmissionId
+  id: SubmissionId
+  parent: Microsoft.Build.Execution.BuildSubmission
+  langs:
+  - csharp
+  name: SubmissionId
+  nameWithType: BuildSubmission.SubmissionId
+  fullName: Microsoft.Build.Execution.BuildSubmission.SubmissionId
+  type: Property
+  assemblies:
+  - Microsoft.Build
+  namespace: Microsoft.Build.Execution
+  summary: "Opgehaald of ingesteld van een ID identificeren deze build-verzending."
+  remarks: "Deze ID wordt gebruikt voor de verzending van deze build van andere inzendingen build binnen dezelfde build onderscheiden."
+  syntax:
+    content: public int SubmissionId { get; }
+    return:
+      type: System.Int32
+      description: "Retourneert een ID identificeren deze build-verzending."
+  overload: Microsoft.Build.Execution.BuildSubmission.SubmissionId*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Execution.BuildSubmission.WaitHandle
+  id: WaitHandle
+  parent: Microsoft.Build.Execution.BuildSubmission
+  langs:
+  - csharp
+  name: WaitHandle
+  nameWithType: BuildSubmission.WaitHandle
+  fullName: Microsoft.Build.Execution.BuildSubmission.WaitHandle
+  type: Property
+  assemblies:
+  - Microsoft.Build
+  namespace: Microsoft.Build.Execution
+  summary: "Haalt een <xref:System.Threading.WaitHandle>-object dat zal worden heeft gekregen wanneer de build voltooid is.</xref:System.Threading.WaitHandle>"
+  syntax:
+    content: public System.Threading.WaitHandle WaitHandle { get; }
+    return:
+      type: System.Threading.WaitHandle
+      description: "Retourneert null tot <> </> *> of <> </> *> retourneert en geeft vervolgens de WaitHandle-object."
+  overload: Microsoft.Build.Execution.BuildSubmission.WaitHandle*
+  exceptions: []
+  platform:
+  - net462
+references:
+- uid: System.Object
+  isExternal: false
+  name: System.Object
+- uid: System.InvalidOperationException
+  isExternal: true
+  name: System.InvalidOperationException
+- uid: Microsoft.Build.Execution.BuildSubmission.AsyncContext
+  parent: Microsoft.Build.Execution.BuildSubmission
+  isExternal: false
+  name: AsyncContext
+  nameWithType: BuildSubmission.AsyncContext
+  fullName: Microsoft.Build.Execution.BuildSubmission.AsyncContext
+- uid: Microsoft.Build.Execution.BuildSubmission.BuildManager
+  parent: Microsoft.Build.Execution.BuildSubmission
+  isExternal: false
+  name: BuildManager
+  nameWithType: BuildSubmission.BuildManager
+  fullName: Microsoft.Build.Execution.BuildSubmission.BuildManager
+- uid: Microsoft.Build.Execution.BuildManager
+  parent: Microsoft.Build.Execution
+  isExternal: false
+  name: BuildManager
+  nameWithType: BuildManager
+  fullName: Microsoft.Build.Execution.BuildManager
+- uid: Microsoft.Build.Execution.BuildSubmission.BuildResult
+  parent: Microsoft.Build.Execution.BuildSubmission
+  isExternal: false
+  name: BuildResult
+  nameWithType: BuildSubmission.BuildResult
+  fullName: Microsoft.Build.Execution.BuildSubmission.BuildResult
+- uid: Microsoft.Build.Execution.BuildResult
+  parent: Microsoft.Build.Execution
+  isExternal: false
+  name: BuildResult
+  nameWithType: BuildResult
+  fullName: Microsoft.Build.Execution.BuildResult
+- uid: Microsoft.Build.Execution.BuildSubmission.Execute
+  parent: Microsoft.Build.Execution.BuildSubmission
+  isExternal: false
+  name: Execute()
+  nameWithType: BuildSubmission.Execute()
+  fullName: Microsoft.Build.Execution.BuildSubmission.Execute()
+- uid: Microsoft.Build.Execution.BuildSubmission.ExecuteAsync(Microsoft.Build.Execution.BuildSubmissionCompleteCallback,System.Object)
+  parent: Microsoft.Build.Execution.BuildSubmission
+  isExternal: false
+  name: ExecuteAsync(BuildSubmissionCompleteCallback,Object)
+  nameWithType: BuildSubmission.ExecuteAsync(BuildSubmissionCompleteCallback,Object)
+  fullName: Microsoft.Build.Execution.BuildSubmission.ExecuteAsync(BuildSubmissionCompleteCallback,Object)
+- uid: Microsoft.Build.Execution.BuildSubmissionCompleteCallback
+  parent: Microsoft.Build.Execution
+  isExternal: false
+  name: BuildSubmissionCompleteCallback
+  nameWithType: BuildSubmissionCompleteCallback
+  fullName: Microsoft.Build.Execution.BuildSubmissionCompleteCallback
+- uid: Microsoft.Build.Execution.BuildSubmission.IsCompleted
+  parent: Microsoft.Build.Execution.BuildSubmission
+  isExternal: false
+  name: IsCompleted
+  nameWithType: BuildSubmission.IsCompleted
+  fullName: Microsoft.Build.Execution.BuildSubmission.IsCompleted
+- uid: System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Microsoft.Build.Execution.BuildSubmission.SubmissionId
+  parent: Microsoft.Build.Execution.BuildSubmission
+  isExternal: false
+  name: SubmissionId
+  nameWithType: BuildSubmission.SubmissionId
+  fullName: Microsoft.Build.Execution.BuildSubmission.SubmissionId
+- uid: System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: Microsoft.Build.Execution.BuildSubmission.WaitHandle
+  parent: Microsoft.Build.Execution.BuildSubmission
+  isExternal: false
+  name: WaitHandle
+  nameWithType: BuildSubmission.WaitHandle
+  fullName: Microsoft.Build.Execution.BuildSubmission.WaitHandle
+- uid: System.Threading.WaitHandle
+  parent: System.Threading
+  isExternal: true
+  name: WaitHandle
+  nameWithType: WaitHandle
+  fullName: System.Threading.WaitHandle
+- uid: Microsoft.Build.Execution.BuildSubmission.AsyncContext*
+  parent: Microsoft.Build.Execution.BuildSubmission
+  isExternal: false
+  name: AsyncContext
+  nameWithType: BuildSubmission.AsyncContext
+- uid: Microsoft.Build.Execution.BuildSubmission.BuildManager*
+  parent: Microsoft.Build.Execution.BuildSubmission
+  isExternal: false
+  name: BuildManager
+  nameWithType: BuildSubmission.BuildManager
+- uid: Microsoft.Build.Execution.BuildSubmission.BuildResult*
+  parent: Microsoft.Build.Execution.BuildSubmission
+  isExternal: false
+  name: BuildResult
+  nameWithType: BuildSubmission.BuildResult
+- uid: Microsoft.Build.Execution.BuildSubmission.Execute*
+  parent: Microsoft.Build.Execution.BuildSubmission
+  isExternal: false
+  name: Execute
+  nameWithType: BuildSubmission.Execute
+- uid: Microsoft.Build.Execution.BuildSubmission.ExecuteAsync*
+  parent: Microsoft.Build.Execution.BuildSubmission
+  isExternal: false
+  name: ExecuteAsync
+  nameWithType: BuildSubmission.ExecuteAsync
+- uid: Microsoft.Build.Execution.BuildSubmission.IsCompleted*
+  parent: Microsoft.Build.Execution.BuildSubmission
+  isExternal: false
+  name: IsCompleted
+  nameWithType: BuildSubmission.IsCompleted
+- uid: Microsoft.Build.Execution.BuildSubmission.SubmissionId*
+  parent: Microsoft.Build.Execution.BuildSubmission
+  isExternal: false
+  name: SubmissionId
+  nameWithType: BuildSubmission.SubmissionId
+- uid: Microsoft.Build.Execution.BuildSubmission.WaitHandle*
+  parent: Microsoft.Build.Execution.BuildSubmission
+  isExternal: false
+  name: WaitHandle
+  nameWithType: BuildSubmission.WaitHandle

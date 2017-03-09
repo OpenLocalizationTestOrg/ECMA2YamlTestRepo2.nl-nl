@@ -1,0 +1,164 @@
+### YamlMime:ManagedReference
+items:
+- uid: Microsoft.Build.Framework.IBuildEngine4
+  id: IBuildEngine4
+  children:
+  - Microsoft.Build.Framework.IBuildEngine4.GetRegisteredTaskObject(System.Object,Microsoft.Build.Framework.RegisteredTaskObjectLifetime)
+  - Microsoft.Build.Framework.IBuildEngine4.RegisterTaskObject(System.Object,System.Object,Microsoft.Build.Framework.RegisteredTaskObjectLifetime,System.Boolean)
+  - Microsoft.Build.Framework.IBuildEngine4.UnregisterTaskObject(System.Object,Microsoft.Build.Framework.RegisteredTaskObjectLifetime)
+  langs:
+  - csharp
+  name: IBuildEngine4
+  nameWithType: IBuildEngine4
+  fullName: Microsoft.Build.Framework.IBuildEngine4
+  type: Interface
+  summary: "Deze interface breidt IBuildEngine om aan te bieden een mechanisme waardoor het taken voor het delen van gegevens tussen aanroepen van de taak."
+  syntax:
+    content: 'public interface IBuildEngine4 : Microsoft.Build.Framework.IBuildEngine3'
+  implements:
+  - Microsoft.Build.Framework.IBuildEngine3
+  platform:
+  - net462
+- uid: Microsoft.Build.Framework.IBuildEngine4.GetRegisteredTaskObject(System.Object,Microsoft.Build.Framework.RegisteredTaskObjectLifetime)
+  id: GetRegisteredTaskObject(System.Object,Microsoft.Build.Framework.RegisteredTaskObjectLifetime)
+  parent: Microsoft.Build.Framework.IBuildEngine4
+  langs:
+  - csharp
+  name: GetRegisteredTaskObject(Object,RegisteredTaskObjectLifetime)
+  nameWithType: IBuildEngine4.GetRegisteredTaskObject(Object,RegisteredTaskObjectLifetime)
+  fullName: Microsoft.Build.Framework.IBuildEngine4.GetRegisteredTaskObject(Object,RegisteredTaskObjectLifetime)
+  type: Method
+  assemblies:
+  - Microsoft.Build.Framework
+  namespace: Microsoft.Build.Framework
+  summary: "Een eerder geregistreerde taakobject opgeslagen met de opgegeven sleutel opgehaald."
+  syntax:
+    content: public object GetRegisteredTaskObject (object key, Microsoft.Build.Framework.RegisteredTaskObjectLifetime lifetime);
+    parameters:
+    - id: key
+      type: System.Object
+      description: "De sleutel gebruikt voor het ophalen van het object."
+    - id: lifetime
+      type: Microsoft.Build.Framework.RegisteredTaskObjectLifetime
+      description: "De levensduur van het object."
+    return:
+      type: System.Object
+      description: "Retourneert een geregistreerde object of null als er geen object geregistreerd onder deze sleutel of als het object via vroege verzameling is verwijderd."
+  overload: Microsoft.Build.Framework.IBuildEngine4.GetRegisteredTaskObject*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Framework.IBuildEngine4.RegisterTaskObject(System.Object,System.Object,Microsoft.Build.Framework.RegisteredTaskObjectLifetime,System.Boolean)
+  id: RegisterTaskObject(System.Object,System.Object,Microsoft.Build.Framework.RegisteredTaskObjectLifetime,System.Boolean)
+  parent: Microsoft.Build.Framework.IBuildEngine4
+  langs:
+  - csharp
+  name: RegisterTaskObject(Object,Object,RegisteredTaskObjectLifetime,Boolean)
+  nameWithType: IBuildEngine4.RegisterTaskObject(Object,Object,RegisteredTaskObjectLifetime,Boolean)
+  fullName: Microsoft.Build.Framework.IBuildEngine4.RegisterTaskObject(Object,Object,RegisteredTaskObjectLifetime,Boolean)
+  type: Method
+  assemblies:
+  - Microsoft.Build.Framework
+  namespace: Microsoft.Build.Framework
+  summary: "Registreert een object met het systeem dat op een opgegeven periode in de toekomst zal worden verwijderd."
+  remarks: "Deze methode kan worden aangeroepen door taken die moeten status behouden tussen aanroepen van de taak, bijvoorbeeld gegevens opslaan in cache taken. Het is raadzaam die `allowEarlyCollection` worden ingesteld op `true` als het object, een aanzienlijke hoeveelheid gegevens behouden.       De thread waarop het object is afgestoten willekeurig mogelijk, maar zal niet worden verwijderd terwijl de taak wordt uitgevoerd, zelfs als `allowEarlyCollection` is ingesteld op `true`.       Als het object IDisposable implementeert, wordt IDisposable.Dispose aangeroepen op het object eerst."
+  syntax:
+    content: public void RegisterTaskObject (object key, object obj, Microsoft.Build.Framework.RegisteredTaskObjectLifetime lifetime, bool allowEarlyCollection);
+    parameters:
+    - id: key
+      type: System.Object
+      description: "De sleutel gebruikt voor het ophalen van het object."
+    - id: obj
+      type: System.Object
+      description: "Het object dat hoger beschikking worden gesteld."
+    - id: lifetime
+      type: Microsoft.Build.Framework.RegisteredTaskObjectLifetime
+      description: "De levensduur van het object."
+    - id: allowEarlyCollection
+      type: System.Boolean
+      description: "Markering waarmee wordt aangegeven of het object ouder is dan de gevraagde tijd kan worden verwijderd."
+  overload: Microsoft.Build.Framework.IBuildEngine4.RegisterTaskObject*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Framework.IBuildEngine4.UnregisterTaskObject(System.Object,Microsoft.Build.Framework.RegisteredTaskObjectLifetime)
+  id: UnregisterTaskObject(System.Object,Microsoft.Build.Framework.RegisteredTaskObjectLifetime)
+  parent: Microsoft.Build.Framework.IBuildEngine4
+  langs:
+  - csharp
+  name: UnregisterTaskObject(Object,RegisteredTaskObjectLifetime)
+  nameWithType: IBuildEngine4.UnregisterTaskObject(Object,RegisteredTaskObjectLifetime)
+  fullName: Microsoft.Build.Framework.IBuildEngine4.UnregisterTaskObject(Object,RegisteredTaskObjectLifetime)
+  type: Method
+  assemblies:
+  - Microsoft.Build.Framework
+  namespace: Microsoft.Build.Framework
+  summary: "De registratie van een eerder geregistreerde task-object."
+  syntax:
+    content: public object UnregisterTaskObject (object key, Microsoft.Build.Framework.RegisteredTaskObjectLifetime lifetime);
+    parameters:
+    - id: key
+      type: System.Object
+      description: "De sleutel gebruikt voor het ophalen van het object."
+    - id: lifetime
+      type: Microsoft.Build.Framework.RegisteredTaskObjectLifetime
+      description: "De levensduur van het object."
+    return:
+      type: System.Object
+      description: "Retourneert een eerder geregistreerde object of null als er geen object geregistreerd onder deze sleutel of als het object via vroege verzameling is verwijderd."
+  overload: Microsoft.Build.Framework.IBuildEngine4.UnregisterTaskObject*
+  exceptions: []
+  platform:
+  - net462
+references:
+- uid: Microsoft.Build.Framework.IBuildEngine4.GetRegisteredTaskObject(System.Object,Microsoft.Build.Framework.RegisteredTaskObjectLifetime)
+  parent: Microsoft.Build.Framework.IBuildEngine4
+  isExternal: false
+  name: GetRegisteredTaskObject(Object,RegisteredTaskObjectLifetime)
+  nameWithType: IBuildEngine4.GetRegisteredTaskObject(Object,RegisteredTaskObjectLifetime)
+  fullName: Microsoft.Build.Framework.IBuildEngine4.GetRegisteredTaskObject(Object,RegisteredTaskObjectLifetime)
+- uid: System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Microsoft.Build.Framework.RegisteredTaskObjectLifetime
+  parent: Microsoft.Build.Framework
+  isExternal: false
+  name: RegisteredTaskObjectLifetime
+  nameWithType: RegisteredTaskObjectLifetime
+  fullName: Microsoft.Build.Framework.RegisteredTaskObjectLifetime
+- uid: Microsoft.Build.Framework.IBuildEngine4.RegisterTaskObject(System.Object,System.Object,Microsoft.Build.Framework.RegisteredTaskObjectLifetime,System.Boolean)
+  parent: Microsoft.Build.Framework.IBuildEngine4
+  isExternal: false
+  name: RegisterTaskObject(Object,Object,RegisteredTaskObjectLifetime,Boolean)
+  nameWithType: IBuildEngine4.RegisterTaskObject(Object,Object,RegisteredTaskObjectLifetime,Boolean)
+  fullName: Microsoft.Build.Framework.IBuildEngine4.RegisterTaskObject(Object,Object,RegisteredTaskObjectLifetime,Boolean)
+- uid: System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Microsoft.Build.Framework.IBuildEngine4.UnregisterTaskObject(System.Object,Microsoft.Build.Framework.RegisteredTaskObjectLifetime)
+  parent: Microsoft.Build.Framework.IBuildEngine4
+  isExternal: false
+  name: UnregisterTaskObject(Object,RegisteredTaskObjectLifetime)
+  nameWithType: IBuildEngine4.UnregisterTaskObject(Object,RegisteredTaskObjectLifetime)
+  fullName: Microsoft.Build.Framework.IBuildEngine4.UnregisterTaskObject(Object,RegisteredTaskObjectLifetime)
+- uid: Microsoft.Build.Framework.IBuildEngine4.GetRegisteredTaskObject*
+  parent: Microsoft.Build.Framework.IBuildEngine4
+  isExternal: false
+  name: GetRegisteredTaskObject
+  nameWithType: IBuildEngine4.GetRegisteredTaskObject
+- uid: Microsoft.Build.Framework.IBuildEngine4.RegisterTaskObject*
+  parent: Microsoft.Build.Framework.IBuildEngine4
+  isExternal: false
+  name: RegisterTaskObject
+  nameWithType: IBuildEngine4.RegisterTaskObject
+- uid: Microsoft.Build.Framework.IBuildEngine4.UnregisterTaskObject*
+  parent: Microsoft.Build.Framework.IBuildEngine4
+  isExternal: false
+  name: UnregisterTaskObject
+  nameWithType: IBuildEngine4.UnregisterTaskObject
