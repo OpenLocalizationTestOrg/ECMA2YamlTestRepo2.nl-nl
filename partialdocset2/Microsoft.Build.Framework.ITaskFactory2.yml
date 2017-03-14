@@ -1,0 +1,192 @@
+### YamlMime:ManagedReference
+items:
+- uid: Microsoft.Build.Framework.ITaskFactory2
+  id: ITaskFactory2
+  children:
+  - Microsoft.Build.Framework.ITaskFactory2.CreateTask(Microsoft.Build.Framework.IBuildEngine,System.Collections.Generic.IDictionary{System.String,System.String})
+  - Microsoft.Build.Framework.ITaskFactory2.Initialize(System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Collections.Generic.IDictionary{System.String,Microsoft.Build.Framework.TaskPropertyInfo},System.String,Microsoft.Build.Framework.IBuildEngine)
+  langs:
+  - csharp
+  name: ITaskFactory2
+  nameWithType: ITaskFactory2
+  fullName: Microsoft.Build.Framework.ITaskFactory2
+  type: Interface
+  summary: "Hierin wordt beschreven en uitgebreid <xref href=&quot;Microsoft.Build.Framework.ITaskFactory&quot;> </xref> interface die een exemplaar van de fabriek taak te implementeren."
+  syntax:
+    content: 'public interface ITaskFactory2 : Microsoft.Build.Framework.ITaskFactory'
+  implements:
+  - Microsoft.Build.Framework.ITaskFactory
+  platform:
+  - net462
+- uid: Microsoft.Build.Framework.ITaskFactory2.CreateTask(Microsoft.Build.Framework.IBuildEngine,System.Collections.Generic.IDictionary{System.String,System.String})
+  id: CreateTask(Microsoft.Build.Framework.IBuildEngine,System.Collections.Generic.IDictionary{System.String,System.String})
+  parent: Microsoft.Build.Framework.ITaskFactory2
+  langs:
+  - csharp
+  name: CreateTask(IBuildEngine,IDictionary<String,String>)
+  nameWithType: ITaskFactory2.CreateTask(IBuildEngine,IDictionary<String,String>)
+  fullName: Microsoft.Build.Framework.ITaskFactory2.CreateTask(IBuildEngine,IDictionary<String,String>)
+  type: Method
+  assemblies:
+  - Microsoft.Build.Framework
+  namespace: Microsoft.Build.Framework
+  summary: "Maak een instantie van de taak moet worden gebruikt met een optionele set &quot;speciale&quot; parameters op voor de afzonderlijke taak aanroepen met de parameters MSBuildRuntime en MSBuildArchitecture standaard taak instellen. MSBuild voorziet in een implementatie van deze interface, TaskHostFactory die gebruikmaakt van &quot;MSBuildRuntime&quot; met de waarden &quot;CLR2&quot;, &quot;CLR4&quot;, &quot;CurrentRuntime&quot; en &quot;*&quot; (Any); en &quot;MSBuildArchitecture&quot; waarden &quot;x86&quot;, &quot;x64&quot;, &quot;CurrentArchitecture&quot; en &quot;\\*&quot; (toepassing). Een persoon van ITaskFactory2 kunt kiezen om deze vooraf gedefinieerde waarden MSBuildRuntime en MSBuildArchitecture gebruiken of nieuwe waarden in voor deze parameters kunt opgeven."
+  remarks: "Als een taak factory ITaskFactory2 implementeert, wordt deze methode in plaats van ITaskFactory.CreateTask MSBuild niet aanroepen."
+  syntax:
+    content: public Microsoft.Build.Framework.ITask CreateTask (Microsoft.Build.Framework.IBuildEngine taskFactoryLoggingHost, System.Collections.Generic.IDictionary<string,string> taskIdentityParameters);
+    parameters:
+    - id: taskFactoryLoggingHost
+      type: Microsoft.Build.Framework.IBuildEngine
+      description: "De taak factory logboekregistratie host loggen berichten in de context van de taak."
+    - id: taskIdentityParameters
+      type: System.Collections.Generic.IDictionary{System.String,System.String}
+      description: "Speciale parameters die de fabriek taak gebruiken kunt om te wijzigen hoe taken, zoals Runtime en architectuur wordt uitgevoerd."
+    return:
+      type: Microsoft.Build.Framework.ITask
+      description: "De gegenereerde taak of `null` als de taak kan niet worden gemaakt."
+  overload: Microsoft.Build.Framework.ITaskFactory2.CreateTask*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Framework.ITaskFactory2.Initialize(System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Collections.Generic.IDictionary{System.String,Microsoft.Build.Framework.TaskPropertyInfo},System.String,Microsoft.Build.Framework.IBuildEngine)
+  id: Initialize(System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Collections.Generic.IDictionary{System.String,Microsoft.Build.Framework.TaskPropertyInfo},System.String,Microsoft.Build.Framework.IBuildEngine)
+  parent: Microsoft.Build.Framework.ITaskFactory2
+  langs:
+  - csharp
+  name: Initialize(String,IDictionary<String,String>,IDictionary<String,TaskPropertyInfo>,String,IBuildEngine)
+  nameWithType: ITaskFactory2.Initialize(String,IDictionary<String,String>,IDictionary<String,TaskPropertyInfo>,String,IBuildEngine)
+  fullName: Microsoft.Build.Framework.ITaskFactory2.Initialize(String,IDictionary<String,String>,IDictionary<String,TaskPropertyInfo>,String,IBuildEngine)
+  type: Method
+  assemblies:
+  - Microsoft.Build.Framework
+  namespace: Microsoft.Build.Framework
+  summary: "Deze factory voor instantiëren van taken met een bepaalde inline taak blokkeren en in een aantal parameters UsingTask initialiseert. MSBuild voorziet in een implementatie van deze interface, TaskHostFactory die gebruikmaakt van &quot;Runtime&quot;, met daarin de waarden &quot;CLR2&quot;, &quot;CLR4&quot;, &quot;CurrentRuntime&quot; en &quot;*&quot; (Any); en &quot;Architectuur&quot;, met daarin de waarden &quot;x86&quot;, &quot;x64&quot;, &quot;CurrentArchitecture&quot; en &quot;\\*&quot; (toepassing). Een persoon van ITaskFactory2 kunt kiezen om deze vooraf gedefinieerde waarden voor de architectuur en Runtime gebruiken of nieuwe waarden in voor deze parameters kunt opgeven."
+  remarks: "MSBuild-engine wordt gebeld dit om te initialiseren van de fabriek. Dit moet de fabriek initialiseren genoeg zodat de fabriek kunt worden gevraagd of namen van taken kunnen worden gemaakt door de factory. Als een taak factory ITaskFactory2 implementeert, wordt deze initialisatiemethode in plaats van ITaskFactory.Initialize worden aangeroepen.       De taskFactoryLoggingHost loggen berichten in de context van het doel waar de taak voor het eerst wordt gebruikt."
+  syntax:
+    content: public bool Initialize (string taskName, System.Collections.Generic.IDictionary<string,string> factoryIdentityParameters, System.Collections.Generic.IDictionary<string,Microsoft.Build.Framework.TaskPropertyInfo> parameterGroup, string taskBody, Microsoft.Build.Framework.IBuildEngine taskFactoryLoggingHost);
+    parameters:
+    - id: taskName
+      type: System.String
+      description: "Naam van de taak."
+    - id: factoryIdentityParameters
+      type: System.Collections.Generic.IDictionary{System.String,System.String}
+      description: "Speciale parameters die de fabriek taak gebruiken kunt om te wijzigen hoe taken, zoals Runtime en architectuur wordt uitgevoerd. De sleutel is de naam van de parameter en de waarde is van de parameter-waarde. Dit is de set parameters die is ingesteld op de UsingTask met bijvoorbeeld de UsingTask Runtime en de architectuur van parameters."
+    - id: parameterGroup
+      type: System.Collections.Generic.IDictionary{System.String,Microsoft.Build.Framework.TaskPropertyInfo}
+      description: "De parameter-groep."
+    - id: taskBody
+      type: System.String
+      description: "De hoofdtekst van de taak."
+    - id: taskFactoryLoggingHost
+      type: Microsoft.Build.Framework.IBuildEngine
+      description: "De taak factory logboekregistratie host."
+    return:
+      type: System.Boolean
+      description: "Een waarde die aangeeft of de initialisatie voltooid is."
+  overload: Microsoft.Build.Framework.ITaskFactory2.Initialize*
+  exceptions: []
+  platform:
+  - net462
+references:
+- uid: Microsoft.Build.Framework.ITaskFactory2.CreateTask(Microsoft.Build.Framework.IBuildEngine,System.Collections.Generic.IDictionary{System.String,System.String})
+  parent: Microsoft.Build.Framework.ITaskFactory2
+  isExternal: false
+  name: CreateTask(IBuildEngine,IDictionary<String,String>)
+  nameWithType: ITaskFactory2.CreateTask(IBuildEngine,IDictionary<String,String>)
+  fullName: Microsoft.Build.Framework.ITaskFactory2.CreateTask(IBuildEngine,IDictionary<String,String>)
+- uid: Microsoft.Build.Framework.ITask
+  parent: Microsoft.Build.Framework
+  isExternal: false
+  name: ITask
+  nameWithType: ITask
+  fullName: Microsoft.Build.Framework.ITask
+- uid: Microsoft.Build.Framework.IBuildEngine
+  parent: Microsoft.Build.Framework
+  isExternal: false
+  name: IBuildEngine
+  nameWithType: IBuildEngine
+  fullName: Microsoft.Build.Framework.IBuildEngine
+- uid: System.Collections.Generic.IDictionary{System.String,System.String}
+  parent: System.Collections.Generic
+  isExternal: true
+  name: IDictionary<String,String>
+  nameWithType: IDictionary<String,String>
+  fullName: System.Collections.Generic.IDictionary<System.String,System.String>
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    nameWithType: IDictionary
+    fullName: IDictionary<System.String,System.String>
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: String
+  - name: ','
+    nameWithType: ','
+    fullName: ','
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: String
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+- uid: Microsoft.Build.Framework.ITaskFactory2.Initialize(System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Collections.Generic.IDictionary{System.String,Microsoft.Build.Framework.TaskPropertyInfo},System.String,Microsoft.Build.Framework.IBuildEngine)
+  parent: Microsoft.Build.Framework.ITaskFactory2
+  isExternal: false
+  name: Initialize(String,IDictionary<String,String>,IDictionary<String,TaskPropertyInfo>,String,IBuildEngine)
+  nameWithType: ITaskFactory2.Initialize(String,IDictionary<String,String>,IDictionary<String,TaskPropertyInfo>,String,IBuildEngine)
+  fullName: Microsoft.Build.Framework.ITaskFactory2.Initialize(String,IDictionary<String,String>,IDictionary<String,TaskPropertyInfo>,String,IBuildEngine)
+- uid: System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Collections.Generic.IDictionary{System.String,Microsoft.Build.Framework.TaskPropertyInfo}
+  parent: System.Collections.Generic
+  isExternal: true
+  name: IDictionary<String,TaskPropertyInfo>
+  nameWithType: IDictionary<String,TaskPropertyInfo>
+  fullName: System.Collections.Generic.IDictionary<System.String,Microsoft.Build.Framework.TaskPropertyInfo>
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    nameWithType: IDictionary
+    fullName: IDictionary<System.String,Microsoft.Build.Framework.TaskPropertyInfo>
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: String
+  - name: ','
+    nameWithType: ','
+    fullName: ','
+  - uid: Microsoft.Build.Framework.TaskPropertyInfo
+    name: TaskPropertyInfo
+    nameWithType: TaskPropertyInfo
+    fullName: TaskPropertyInfo
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+- uid: Microsoft.Build.Framework.ITaskFactory2.CreateTask*
+  parent: Microsoft.Build.Framework.ITaskFactory2
+  isExternal: false
+  name: CreateTask
+  nameWithType: ITaskFactory2.CreateTask
+- uid: Microsoft.Build.Framework.ITaskFactory2.Initialize*
+  parent: Microsoft.Build.Framework.ITaskFactory2
+  isExternal: false
+  name: Initialize
+  nameWithType: ITaskFactory2.Initialize
