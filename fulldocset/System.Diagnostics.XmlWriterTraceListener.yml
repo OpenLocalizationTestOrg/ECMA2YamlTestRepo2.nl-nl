@@ -24,7 +24,7 @@ items:
   nameWithType: XmlWriterTraceListener
   fullName: System.Diagnostics.XmlWriterTraceListener
   type: Class
-  summary: "Directs tracing or debugging output as XML-encoded data to a <xref:System.IO.TextWriter> or to a <xref:System.IO.Stream>, such as a <xref href=&quot;System.IO.FileStream&quot;></xref>."
+  summary: "Directe ondergeschikten tracering of foutopsporing van uitvoer als XML-gecodeerde gegevens naar een <xref:System.IO.TextWriter>of naar een <xref:System.IO.Stream>, zoals een <xref href=&quot;System.IO.FileStream&quot;> </xref>.</xref:System.IO.Stream> </xref:System.IO.TextWriter>"
   remarks: "> [!NOTE]\n>  You must have unmanaged code permission to create an instance of the XmlWriterTraceListener class.  \n  \n The XmlWriterTraceListener class converts tracing and debugging information into an XML-encoded text stream. The description of the XML output is shown in the tables that follow. You can use the [Service Trace Viewer Tool (SvcTraceViewer.exe)](http://go.microsoft.com/fwlink/p/?LinkId=240129) to display the XML output.  \n  \n You can enable or disable an XmlWriterTraceListener through the application configuration file and then use the configured XmlWriterTraceListener in your application. Alternately, you can create an XmlWriterTraceListener in your code.  \n  \n To configure an XmlWriterTraceListener, edit the configuration file that corresponds to the name of your application. In this file, you can add or remove a listener, set the properties for a listener, or remove listeners. The configuration file should be formatted like the following example.  \n  \n```  \n<configuration>  \n  <system.diagnostics>  \n    <trace autoflush=\"false\" indentsize=\"4\">  \n      <listeners>  \n        <add name=\"xmlListener\"   \n          type=\"System.Diagnostics.XmlWriterTraceListener\"   \n          initializeData=\"xmlOutput.xml\"   \n          traceOutputOptions=\"ProcessId, DateTime\" />  \n        <remove name=\"Default\" />  \n      </listeners>  \n    </trace>  \n  </system.diagnostics>  \n</configuration>  \n```  \n  \n The XmlWriterTraceListener class inherits the <xref:System.Diagnostics.TraceListener.Filter%2A> property from the base class <xref:System.Diagnostics.TraceListener>.  The <xref:System.Diagnostics.TraceListener.Filter%2A> property allows an additional level of trace output filtering at the listener.  If there is a filter present, the `Trace` methods of the trace listener call the <xref:System.Diagnostics.TraceFilter.ShouldTrace%2A> method of the filter to determine whether to emit the trace.  \n  \n> [!NOTE]\n>  If an attempt is made to write to a file that is in use or unavailable, the file name is automatically prefixed by a GUID.  \n  \n> [!NOTE]\n>  Listener methods are intended to be called by methods of the <xref:System.Diagnostics.Debug>, <xref:System.Diagnostics.Trace>, and <xref:System.Diagnostics.TraceSource> classes.  The listener methods are not intended to be called directly from application code. The XmlWriterTraceListener listener is primarily intended for use by the <xref:System.Diagnostics.TraceSource> class. The <xref:System.Diagnostics.XmlWriterTraceListener.Write%2A> and <xref:System.Diagnostics.XmlWriterTraceListener.WriteLine%2A> methods can be called by the <xref:System.Diagnostics.Trace> and <xref:System.Diagnostics.Debug> classes, and default values are provided for the XML elements that <xref:System.Diagnostics.Trace> and <xref:System.Diagnostics.Debug> do not supply values for.  \n  \n The following table describes the elements and attributes of the XML output.  \n  \n|Element|Attributes|Output|Notes|  \n|-------------|----------------|------------|-----------|  \n|`CallStack`|None|Depends on the presence of the <xref:System.Diagnostics.TraceOptions> flag in the <xref:System.Diagnostics.TraceListener.TraceOutputOptions%2A> property.|Special characters such as > or < are replaced with escape sequences. See the escaped character translation table that follows.|  \n|`Computer`|None|Always present.|The value of the <xref:System.Environment.MachineName%2A> property.|  \n|`Correlation`|`ActivityID`|Always present|If not specified, the default is an empty GUID.|  \n||`RelatedActivityID`|Depends on the presence of the `relatedActivityId` parameter in the Trace method call.|The `relatedActivityId` parameter of the <xref:System.Diagnostics.XmlWriterTraceListener.TraceTransfer%2A> method.|  \n|`DataItem`|None|Depends on the `data` parameter of the <xref:System.Diagnostics.XmlWriterTraceListener.TraceData%2A> method.|This element can contain an array of elements or one element, so the values are written as a set of `DataItem` nodes under the `TraceData` element.<br /><br /> The data output uses the `ToString` method of the passed-in data objects.|  \n|`EventID`|None|Always present.|Parameter input (`id`).|  \n|`Execution`|`ProcessName`|Always present.|From the <xref:System.Diagnostics.TraceEventCache>.|  \n||`ProcessID`|Always present.|From the <xref:System.Diagnostics.TraceEventCache>. On Windows 98 and Windows Me operating systems, if `ProcessID` is greater than 2,147,483,647 it is a positive representation of a negative number and should be converted to obtain the correct process identifier.|  \n||`ThreadID`|Always present.|From the <xref:System.Diagnostics.TraceEventCache>.|  \n|`Level`|None|Always present.|Parameter input (the numeric value of `eventType`). Parameter values greater than 255 are output as 255.|  \n|`LogicalOperationStack`|None|Depends on the presence of the <xref:System.Diagnostics.TraceOptions> flag in the <xref:System.Diagnostics.TraceListener.TraceOutputOptions%2A> property.|There can be more than one logical operation, so the values are written as `LogicalOperation` nodes under the `LogicalOperationStack` element.|  \n|`Message`|None|Depends on the presence of a message in the Trace method call.|This element is a formatted message if formatting arguments are provided.|  \n|`Source`|`Name`|Always present.|Parameter input.|  \n|`SubType`|`Name`|Always present.|Parameter input.|  \n|`TimeCreated`|`SystemTime`|Always present.|If not present in the <xref:System.Diagnostics.TraceEventCache>, the default is the current time.|  \n|`TimeStamp`|None|Depends on the presence of the <xref:System.Diagnostics.TraceOptions> flag in the <xref:System.Diagnostics.TraceListener.TraceOutputOptions%2A> property.|From the <xref:System.Diagnostics.TraceEventCache>.|  \n|`Type`|None|Always present.|Always the value 3.|  \n  \n The following table shows the characters that are escaped in the XML output. Escaping occurs in all the elements and attributes with the exception of the `DataItem` element, which is not escaped if the object passed to the `data` parameter of the <xref:System.Diagnostics.XmlWriterTraceListener.TraceData%2A> method is an <xref:System.Xml.XPath.XPathNavigator> object. If an <xref:System.Xml.XPath.XPathNavigator> is used for the data object, the <xref:System.Xml.XPath.XPathNavigator.MoveToRoot%2A> method is called and the entire root node is traced as unescaped data.  \n  \n|Escaped character|Value|  \n|-----------------------|-----------|  \n|&|&amp;|  \n|\\<|&lt;|  \n|>|&gt;|  \n|\"|&quot;|  \n|\\|&apos;|  \n|0xD|&\\#xD;|  \n|0xA|&\\#xA;|"
   example:
   - "The following code example shows the use of the XmlWriterTraceListener class to write both escaped and non-escaped data to file logs.  \n  \n [!code-vb[System.Diagnostics.XmlWriterTraceListener#1](~/add/codesnippet/visualbasic/t-system.diagnostics.xml_1.vb)]\n [!code-cs[System.Diagnostics.XmlWriterTraceListener#1](~/add/codesnippet/csharp/t-system.diagnostics.xml_1.cs)]"
@@ -77,19 +77,19 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Initializes a new instance of the <xref href=&quot;System.Diagnostics.XmlWriterTraceListener&quot;></xref> class, using the specified stream as the recipient of the debugging and tracing output."
-  remarks: "The <xref:System.Diagnostics.TraceListener.Name%2A> property is initialized to an empty string (&quot;&quot;)."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Diagnostics.XmlWriterTraceListener&quot;> </xref> klasse, met de opgegeven stroom als de ontvanger van de foutopsporing en tracering uitvoer."
+  remarks: "De <xref:System.Diagnostics.TraceListener.Name%2A>eigenschap wordt geïnitialiseerd in een lege tekenreeks (&quot;&quot;).</xref:System.Diagnostics.TraceListener.Name%2A>"
   syntax:
     content: public XmlWriterTraceListener (System.IO.Stream stream);
     parameters:
     - id: stream
       type: System.IO.Stream
-      description: "A <xref:System.IO.Stream> that represents the stream the trace listener writes to."
+      description: "Een <xref:System.IO.Stream>die staat voor de stroom die de traceringslistener naar schrijft.</xref:System.IO.Stream>"
   overload: System.Diagnostics.XmlWriterTraceListener.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>stream</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>stream</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Diagnostics.XmlWriterTraceListener.#ctor(System.IO.TextWriter)
@@ -104,19 +104,19 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Initializes a new instance of the <xref href=&quot;System.Diagnostics.XmlWriterTraceListener&quot;></xref> class using the specified writer as the recipient of the debugging and tracing output."
-  remarks: "The <xref:System.Diagnostics.TraceListener.Name%2A> property is initialized to an empty string (&quot;&quot;)."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Diagnostics.XmlWriterTraceListener&quot;> </xref> klasse met de opgegeven schrijver als de ontvanger van de foutopsporing en tracering uitvoer."
+  remarks: "De <xref:System.Diagnostics.TraceListener.Name%2A>eigenschap wordt geïnitialiseerd in een lege tekenreeks (&quot;&quot;).</xref:System.Diagnostics.TraceListener.Name%2A>"
   syntax:
     content: public XmlWriterTraceListener (System.IO.TextWriter writer);
     parameters:
     - id: writer
       type: System.IO.TextWriter
-      description: "A <xref:System.IO.TextWriter> that receives the output from the trace listener."
+      description: "Een <xref:System.IO.TextWriter>ontvangt dat de uitvoer van de traceringslistener.</xref:System.IO.TextWriter>"
   overload: System.Diagnostics.XmlWriterTraceListener.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>writer</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>writer</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Diagnostics.XmlWriterTraceListener.#ctor(System.String)
@@ -131,19 +131,19 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Initializes a new instance of the <xref href=&quot;System.Diagnostics.XmlWriterTraceListener&quot;></xref> class, using the specified file as the recipient of the debugging and tracing output."
-  remarks: "This constructor initializes a new instance of the <xref:System.IO.StreamWriter> class for the specified file on the specified path, using <xref:System.Text.Encoding.UTF8%2A> encoding. If the file exists, it is appended to. If the file does not exist, a new file is created.      > [!NOTE] >  To reduce the chance of an exception, any character that might invalidate the output is replaced with a &quot;?&quot; character.       The <xref:System.Diagnostics.TraceListener.Name%2A> property is initialized to an empty string (&quot;&quot;)."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Diagnostics.XmlWriterTraceListener&quot;> </xref> klasse, met het opgegeven bestand als de ontvanger van de foutopsporing en tracering uitvoer."
+  remarks: "Deze constructor initialiseert een nieuw exemplaar van de <xref:System.IO.StreamWriter>klasse voor het opgegeven bestand op het opgegeven pad met <xref:System.Text.Encoding.UTF8%2A>codering.</xref:System.Text.Encoding.UTF8%2A> </xref:System.IO.StreamWriter> Als het bestand bestaat, wordt deze toegevoegd aan. Als het bestand niet bestaat, wordt een nieuw bestand gemaakt.      > [!NOTE] > Als u de kans op een uitzondering, willekeurig teken dat de uitvoer ongeldig is vervangen door een &quot;? &quot; teken.       De <xref:System.Diagnostics.TraceListener.Name%2A>eigenschap wordt geïnitialiseerd in een lege tekenreeks (&quot;&quot;).</xref:System.Diagnostics.TraceListener.Name%2A>"
   syntax:
     content: public XmlWriterTraceListener (string filename);
     parameters:
     - id: filename
       type: System.String
-      description: "The name of the file to write to."
+      description: "De naam van het bestand te schrijven."
   overload: System.Diagnostics.XmlWriterTraceListener.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>filename</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>filename</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Diagnostics.XmlWriterTraceListener.#ctor(System.IO.Stream,System.String)
@@ -158,22 +158,22 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Initializes a new instance of the <xref href=&quot;System.Diagnostics.XmlWriterTraceListener&quot;></xref> class with the specified name, using the specified stream as the recipient of the debugging and tracing output."
-  remarks: "This constructor initializes the <xref:System.Diagnostics.TraceListener.Name%2A> property to the `name` parameter value or to an empty string (&quot;&quot;) if the `name` parameter is `null`. The name can be used as an index into the <xref:System.Diagnostics.Trace.Listeners%2A?displayProperty=fullName> collection to programmatically change the properties for the listener. For example, the following code sets the <xref:System.Diagnostics.TraceListener.TraceOutputOptions%2A> property for an instance of <xref:System.Diagnostics.XmlWriterTraceListener> whose <xref:System.Diagnostics.TraceListener.Name%2A> property is &quot;xmlListener&quot;.      ```   ((XmlWriterTraceListener)Trace.Listeners[&quot;xmlListener&quot;]).TraceOutputOptions =        TraceOptions.Timestamp   ```"
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Diagnostics.XmlWriterTraceListener&quot;> </xref> klasse met de opgegeven naam met behulp van de opgegeven stroom als de ontvanger van de foutopsporing en tracering uitvoer."
+  remarks: "Deze constructor initialiseert de <xref:System.Diagnostics.TraceListener.Name%2A>eigenschap in op de `name` parameterwaarde of op een lege tekenreeks (&quot;&quot;) als de `name` parameter `null`.</xref:System.Diagnostics.TraceListener.Name%2A> De naam kan worden gebruikt als een index in de <xref:System.Diagnostics.Trace.Listeners%2A?displayProperty=fullName>verzameling programmatisch eigenschappen te wijzigen voor de listener.</xref:System.Diagnostics.Trace.Listeners%2A?displayProperty=fullName> Bijvoorbeeld de volgende sets code de <xref:System.Diagnostics.TraceListener.TraceOutputOptions%2A>eigenschap voor een exemplaar van <xref:System.Diagnostics.XmlWriterTraceListener>waarvan <xref:System.Diagnostics.TraceListener.Name%2A>eigenschap is &quot;xmlListener&quot;.</xref:System.Diagnostics.TraceListener.Name%2A> </xref:System.Diagnostics.XmlWriterTraceListener> </xref:System.Diagnostics.TraceListener.TraceOutputOptions%2A>      ```   ((XmlWriterTraceListener)Trace.Listeners[&quot;xmlListener&quot;]).TraceOutputOptions =        TraceOptions.Timestamp   ```"
   syntax:
     content: public XmlWriterTraceListener (System.IO.Stream stream, string name);
     parameters:
     - id: stream
       type: System.IO.Stream
-      description: "A <xref:System.IO.Stream> that represents the stream the trace listener writes to."
+      description: "Een <xref:System.IO.Stream>die staat voor de stroom die de traceringslistener naar schrijft.</xref:System.IO.Stream>"
     - id: name
       type: System.String
-      description: "The name of the new instance."
+      description: "De naam van het nieuwe exemplaar."
   overload: System.Diagnostics.XmlWriterTraceListener.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>stream</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>stream</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Diagnostics.XmlWriterTraceListener.#ctor(System.IO.TextWriter,System.String)
@@ -188,22 +188,22 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Initializes a new instance of the <xref href=&quot;System.Diagnostics.XmlWriterTraceListener&quot;></xref> class with the specified name, using the specified writer as the recipient of the debugging and tracing output."
-  remarks: "This constructor initializes the <xref:System.Diagnostics.TraceListener.Name%2A> property to the `name` parameter value or to an empty string (&quot;&quot;) if the `name` parameter is `null`. The name can be used as an index into the <xref:System.Diagnostics.Trace.Listeners%2A?displayProperty=fullName> collection to programmatically change the properties for the listener. For example, the following code sets the <xref:System.Diagnostics.TraceListener.TraceOutputOptions%2A> property for an instance of <xref:System.Diagnostics.XmlWriterTraceListener> whose <xref:System.Diagnostics.TraceListener.Name%2A> property is &quot;xmlListener&quot;.      ```   ((XmlWriterTraceListener)Trace.Listeners[&quot;xmlListener&quot;]).TraceOutputOptions =        TraceOptions.Timestamp.   ```"
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Diagnostics.XmlWriterTraceListener&quot;> </xref> klasse met de opgegeven naam met behulp van de opgegeven schrijver als de ontvanger van de foutopsporing en tracering uitvoer."
+  remarks: "Deze constructor initialiseert de <xref:System.Diagnostics.TraceListener.Name%2A>eigenschap in op de `name` parameterwaarde of op een lege tekenreeks (&quot;&quot;) als de `name` parameter `null`.</xref:System.Diagnostics.TraceListener.Name%2A> De naam kan worden gebruikt als een index in de <xref:System.Diagnostics.Trace.Listeners%2A?displayProperty=fullName>verzameling programmatisch eigenschappen te wijzigen voor de listener.</xref:System.Diagnostics.Trace.Listeners%2A?displayProperty=fullName> Bijvoorbeeld de volgende sets code de <xref:System.Diagnostics.TraceListener.TraceOutputOptions%2A>eigenschap voor een exemplaar van <xref:System.Diagnostics.XmlWriterTraceListener>waarvan <xref:System.Diagnostics.TraceListener.Name%2A>eigenschap is &quot;xmlListener&quot;.</xref:System.Diagnostics.TraceListener.Name%2A> </xref:System.Diagnostics.XmlWriterTraceListener> </xref:System.Diagnostics.TraceListener.TraceOutputOptions%2A>      ```   ((XmlWriterTraceListener)Trace.Listeners[&quot;xmlListener&quot;]).TraceOutputOptions =        TraceOptions.Timestamp.   ```"
   syntax:
     content: public XmlWriterTraceListener (System.IO.TextWriter writer, string name);
     parameters:
     - id: writer
       type: System.IO.TextWriter
-      description: "A <xref:System.IO.TextWriter> that receives the output from the trace listener."
+      description: "Een <xref:System.IO.TextWriter>ontvangt dat de uitvoer van de traceringslistener.</xref:System.IO.TextWriter>"
     - id: name
       type: System.String
-      description: "The name of the new instance."
+      description: "De naam van het nieuwe exemplaar."
   overload: System.Diagnostics.XmlWriterTraceListener.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>writer</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>writer</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Diagnostics.XmlWriterTraceListener.#ctor(System.String,System.String)
@@ -218,22 +218,22 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Initializes a new instance of the <xref href=&quot;System.Diagnostics.XmlWriterTraceListener&quot;></xref> class with the specified name, using the specified file as the recipient of the debugging and tracing output."
-  remarks: "This constructor initializes a new instance of the <xref:System.IO.StreamWriter> class for the specified file on the specified path, using <xref:System.Text.Encoding.UTF8%2A> encoding. If the file exists, it is appended to. If the file does not exist, a new file is created.      > [!NOTE] >  To reduce the chance of an exception, any character that might invalidate the output is replaced with a &quot;?&quot; character.       The <xref:System.Diagnostics.TraceListener.Name%2A> property is set to the `name` parameter value or to an empty string (&quot;&quot;) if the `name` parameter is `null`. The name can be used as an index into the <xref:System.Diagnostics.Trace.Listeners%2A?displayProperty=fullName> collection to programmatically change the properties for the listener. For example, the following code sets the <xref:System.Diagnostics.TraceListener.TraceOutputOptions%2A> property for an instance of <xref:System.Diagnostics.XmlWriterTraceListener> whose <xref:System.Diagnostics.TraceListener.Name%2A> property is &quot;xmlListener&quot;.      ```   ((XmlWriterTraceListener)Trace.Listeners[&quot;xmlListener&quot;]).TraceOutputOptions =       TraceOptions.Timestamp.   ```"
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Diagnostics.XmlWriterTraceListener&quot;> </xref> klasse met de opgegeven naam met het opgegeven bestand als de ontvanger van de foutopsporing en tracering uitvoer."
+  remarks: "Deze constructor initialiseert een nieuw exemplaar van de <xref:System.IO.StreamWriter>klasse voor het opgegeven bestand op het opgegeven pad met <xref:System.Text.Encoding.UTF8%2A>codering.</xref:System.Text.Encoding.UTF8%2A> </xref:System.IO.StreamWriter> Als het bestand bestaat, wordt deze toegevoegd aan. Als het bestand niet bestaat, wordt een nieuw bestand gemaakt.      > [!NOTE] > Als u de kans op een uitzondering, willekeurig teken dat de uitvoer ongeldig is vervangen door een &quot;? &quot; teken.       De <xref:System.Diagnostics.TraceListener.Name%2A>eigenschap is ingesteld op de `name` parameterwaarde of op een lege tekenreeks (&quot;&quot;) als de `name` parameter `null`.</xref:System.Diagnostics.TraceListener.Name%2A> De naam kan worden gebruikt als een index in de <xref:System.Diagnostics.Trace.Listeners%2A?displayProperty=fullName>verzameling programmatisch eigenschappen te wijzigen voor de listener.</xref:System.Diagnostics.Trace.Listeners%2A?displayProperty=fullName> Bijvoorbeeld de volgende sets code de <xref:System.Diagnostics.TraceListener.TraceOutputOptions%2A>eigenschap voor een exemplaar van <xref:System.Diagnostics.XmlWriterTraceListener>waarvan <xref:System.Diagnostics.TraceListener.Name%2A>eigenschap is &quot;xmlListener&quot;.</xref:System.Diagnostics.TraceListener.Name%2A> </xref:System.Diagnostics.XmlWriterTraceListener> </xref:System.Diagnostics.TraceListener.TraceOutputOptions%2A>      ```   ((XmlWriterTraceListener)Trace.Listeners[&quot;xmlListener&quot;]).TraceOutputOptions =       TraceOptions.Timestamp.   ```"
   syntax:
     content: public XmlWriterTraceListener (string filename, string name);
     parameters:
     - id: filename
       type: System.String
-      description: "The name of the file to write to."
+      description: "De naam van het bestand te schrijven."
     - id: name
       type: System.String
-      description: "The name of the new instance."
+      description: "De naam van het nieuwe exemplaar."
   overload: System.Diagnostics.XmlWriterTraceListener.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>stream</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>stream</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Diagnostics.XmlWriterTraceListener.Close
@@ -248,7 +248,7 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Closes the <xref:System.Diagnostics.TextWriterTraceListener.Writer*> for this listener so that it no longer receives tracing or debugging output."
+  summary: "Hiermee sluit u de <xref:System.Diagnostics.TextWriterTraceListener.Writer*>voor deze listener zodanig dat deze niet langer tracering of foutopsporing van uitvoer ontvangt.</xref:System.Diagnostics.TextWriterTraceListener.Writer*>"
   syntax:
     content: public override void Close ();
     parameters: []
@@ -268,17 +268,17 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Writes trace information including an error message and a detailed error message to the file or stream."
-  remarks: "The default behavior is to display the message and detailed message in a message box when the application is running in user-interface mode, and to the <xref:System.Diagnostics.TraceListener> instances in the <xref:System.Diagnostics.Trace.Listeners%2A?displayProperty=fullName> collection. By default, the collection contains an instance of <xref:System.Diagnostics.DefaultTraceListener>. You can customize this behavior by adding or removing a <xref:System.Diagnostics.TraceListener> from the collection."
+  summary: "Schrijfbewerkingen traceringsinformatie met inbegrip van een foutbericht weergegeven en een gedetailleerd foutbericht naar het bestand of stroom."
+  remarks: "Het standaardgedrag wordt het bericht en gedetailleerd bericht in een berichtvenster worden weergegeven wanneer de toepassing wordt uitgevoerd in de gebruikersinterface-modus en zo de <xref:System.Diagnostics.TraceListener>exemplaren de <xref:System.Diagnostics.Trace.Listeners%2A?displayProperty=fullName>verzameling.</xref:System.Diagnostics.Trace.Listeners%2A?displayProperty=fullName> </xref:System.Diagnostics.TraceListener> De verzameling bevat standaard een exemplaar van <xref:System.Diagnostics.DefaultTraceListener>.</xref:System.Diagnostics.DefaultTraceListener> U kunt dit gedrag aanpassen door het toevoegen of verwijderen van een <xref:System.Diagnostics.TraceListener>uit de verzameling.</xref:System.Diagnostics.TraceListener>"
   syntax:
     content: public override void Fail (string message, string detailMessage);
     parameters:
     - id: message
       type: System.String
-      description: "The error message to write."
+      description: "Het foutbericht te schrijven."
     - id: detailMessage
       type: System.String
-      description: "The detailed error message to append to the error message."
+      description: "Het gedetailleerde foutbericht toe te voegen aan het foutbericht."
   overload: System.Diagnostics.XmlWriterTraceListener.Fail*
   exceptions: []
   platform:
@@ -295,26 +295,26 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Writes trace information, a data object, and event information to the file or stream."
-  remarks: "The `eventCache`, `source`, `eventType`, and `id` parameters are used in the header and footer of the trace. The `id` parameter is converted to an unsigned integer before writing, so a negative `id` value is written as a large positive integer. The `data` parameter is written as a `DataItem` node in the `TraceData` element. The `ToString` method of the data object is used to convert the object to a string.      > [!IMPORTANT] >  This method is not intended to be called directly by application code.  It is called by methods of the <xref:System.Diagnostics.Debug>, <xref:System.Diagnostics.Trace>, and <xref:System.Diagnostics.TraceSource> classes to write trace data."
+  summary: "Traceringsinformatie schrijfbewerkingen, een gegevensobject en informatie over de gebeurtenis naar het bestand of stroom."
+  remarks: "De `eventCache`, `source`, `eventType`, en `id` parameters worden gebruikt in de kop- en voettekst van de tracering. De `id` parameter wordt geconverteerd naar een geheel getal zonder teken voordat het wordt overschreven, dus een negatief `id` waarde wordt aangeduid met een grote positief geheel getal. De `data` parameter wordt geschreven als een `DataItem` knooppunt in de `TraceData` element. De `ToString` methode van het gegevensobject wordt gebruikt voor het object niet converteren naar een tekenreeks.      > [!IMPORTANT] > Deze methode is niet bedoeld om rechtstreeks door de toepassingscode worden aangeroepen.  Deze wordt aangeroepen door de methoden van de <xref:System.Diagnostics.Debug>, <xref:System.Diagnostics.Trace>, en <xref:System.Diagnostics.TraceSource>klassen traceergegevens schrijven.</xref:System.Diagnostics.TraceSource> </xref:System.Diagnostics.Trace> </xref:System.Diagnostics.Debug>"
   syntax:
     content: public override void TraceData (System.Diagnostics.TraceEventCache eventCache, string source, System.Diagnostics.TraceEventType eventType, int id, object data);
     parameters:
     - id: eventCache
       type: System.Diagnostics.TraceEventCache
-      description: "A <xref href=&quot;System.Diagnostics.TraceEventCache&quot;></xref> that contains the current process ID, thread ID, and stack trace information."
+      description: "Een <xref href=&quot;System.Diagnostics.TraceEventCache&quot;> </xref> die bevat het huidige proces-ID, thread-ID en stack trace-informatie."
     - id: source
       type: System.String
-      description: "The source name."
+      description: "De naam van de bron."
     - id: eventType
       type: System.Diagnostics.TraceEventType
-      description: "One of the <xref href=&quot;System.Diagnostics.TraceEventType&quot;></xref> values."
+      description: "Een van de <xref href=&quot;System.Diagnostics.TraceEventType&quot;> </xref> waarden."
     - id: id
       type: System.Int32
-      description: "A numeric identifier for the event."
+      description: "Een numerieke id voor de gebeurtenis."
     - id: data
       type: System.Object
-      description: "A data object to emit."
+      description: "Een object van de gegevens te verzenden."
   overload: System.Diagnostics.XmlWriterTraceListener.TraceData*
   exceptions: []
   platform:
@@ -331,26 +331,26 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Writes trace information, data objects, and event information to the file or stream."
-  remarks: "The `eventCache`, `source`, `eventType`, and `id` parameters are used in the header and footer of the trace. The `id` parameter is converted to an unsigned integer before writing, so a negative `id` value is written as a large positive integer. The objects in the `data` parameter array are written as `DataItem` nodes in the `TraceData` element. The `ToString` method of each data object is used to convert the object to a string.      > [!IMPORTANT] >  This method is not intended to be called directly by application code.  It is called by methods of the <xref:System.Diagnostics.Debug>, <xref:System.Diagnostics.Trace>, and <xref:System.Diagnostics.TraceSource> classes to write trace data."
+  summary: "Traceringsinformatie schrijfbewerkingen, gegevensobjecten en informatie over de gebeurtenis naar het bestand of stroom."
+  remarks: "De `eventCache`, `source`, `eventType`, en `id` parameters worden gebruikt in de kop- en voettekst van de tracering. De `id` parameter wordt geconverteerd naar een geheel getal zonder teken voordat het wordt overschreven, dus een negatief `id` waarde wordt aangeduid met een grote positief geheel getal. De objecten in de `data` parametermatrix worden geschreven als `DataItem` knooppunten in de `TraceData` element. De `ToString` methode van elk gegevensobject wordt gebruikt voor het object niet converteren naar een tekenreeks.      > [!IMPORTANT] > Deze methode is niet bedoeld om rechtstreeks door de toepassingscode worden aangeroepen.  Deze wordt aangeroepen door de methoden van de <xref:System.Diagnostics.Debug>, <xref:System.Diagnostics.Trace>, en <xref:System.Diagnostics.TraceSource>klassen traceergegevens schrijven.</xref:System.Diagnostics.TraceSource> </xref:System.Diagnostics.Trace> </xref:System.Diagnostics.Debug>"
   syntax:
     content: public override void TraceData (System.Diagnostics.TraceEventCache eventCache, string source, System.Diagnostics.TraceEventType eventType, int id, object[] data);
     parameters:
     - id: eventCache
       type: System.Diagnostics.TraceEventCache
-      description: "A <xref href=&quot;System.Diagnostics.TraceEventCache&quot;></xref> that contains the current process ID, thread ID, and stack trace information."
+      description: "Een <xref href=&quot;System.Diagnostics.TraceEventCache&quot;> </xref> die bevat het huidige proces-ID, thread-ID en stack trace-informatie."
     - id: source
       type: System.String
-      description: "The source name."
+      description: "De naam van de bron."
     - id: eventType
       type: System.Diagnostics.TraceEventType
-      description: "One of the <xref href=&quot;System.Diagnostics.TraceEventType&quot;></xref> values."
+      description: "Een van de <xref href=&quot;System.Diagnostics.TraceEventType&quot;> </xref> waarden."
     - id: id
       type: System.Int32
-      description: "A numeric identifier for the event."
+      description: "Een numerieke id voor de gebeurtenis."
     - id: data
       type: System.Object[]
-      description: "An array of data objects to emit."
+      description: "Een matrix met gegevensobjecten te verzenden."
   overload: System.Diagnostics.XmlWriterTraceListener.TraceData*
   exceptions: []
   platform:
@@ -367,26 +367,26 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Writes trace information, a message, and event information to the file or stream."
-  remarks: "The `eventCache`, `source`, `eventType`, and `id` parameters are used in the header and footer of the trace. The `id` parameter is converted to an unsigned integer before writing, so a negative `id` value is written as a large positive integer. The `message` parameter is written as the `Message` element.      > [!IMPORTANT] >  This method is not intended to be called directly by application code.  It is called by methods of the <xref:System.Diagnostics.Debug>, <xref:System.Diagnostics.Trace>, and <xref:System.Diagnostics.TraceSource> classes to write trace data."
+  summary: "Schrijfbewerkingen trace-informatie, een bericht en informatie over de gebeurtenis naar het bestand of stroom."
+  remarks: "De `eventCache`, `source`, `eventType`, en `id` parameters worden gebruikt in de kop- en voettekst van de tracering. De `id` parameter wordt geconverteerd naar een geheel getal zonder teken voordat het wordt overschreven, dus een negatief `id` waarde wordt aangeduid met een grote positief geheel getal. De `message` parameter wordt geschreven als de `Message` element.      > [!IMPORTANT] > Deze methode is niet bedoeld om rechtstreeks door de toepassingscode worden aangeroepen.  Deze wordt aangeroepen door de methoden van de <xref:System.Diagnostics.Debug>, <xref:System.Diagnostics.Trace>, en <xref:System.Diagnostics.TraceSource>klassen traceergegevens schrijven.</xref:System.Diagnostics.TraceSource> </xref:System.Diagnostics.Trace> </xref:System.Diagnostics.Debug>"
   syntax:
     content: public override void TraceEvent (System.Diagnostics.TraceEventCache eventCache, string source, System.Diagnostics.TraceEventType eventType, int id, string message);
     parameters:
     - id: eventCache
       type: System.Diagnostics.TraceEventCache
-      description: "A <xref href=&quot;System.Diagnostics.TraceEventCache&quot;></xref> that contains the current process ID, thread ID, and stack trace information."
+      description: "Een <xref href=&quot;System.Diagnostics.TraceEventCache&quot;> </xref> die bevat het huidige proces-ID, thread-ID en stack trace-informatie."
     - id: source
       type: System.String
-      description: "The source name."
+      description: "De naam van de bron."
     - id: eventType
       type: System.Diagnostics.TraceEventType
-      description: "One of the <xref href=&quot;System.Diagnostics.TraceEventType&quot;></xref> values."
+      description: "Een van de <xref href=&quot;System.Diagnostics.TraceEventType&quot;> </xref> waarden."
     - id: id
       type: System.Int32
-      description: "A numeric identifier for the event."
+      description: "Een numerieke id voor de gebeurtenis."
     - id: message
       type: System.String
-      description: "The message to write."
+      description: "Het bericht om te schrijven."
   overload: System.Diagnostics.XmlWriterTraceListener.TraceEvent*
   exceptions: []
   platform:
@@ -403,29 +403,29 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Writes trace information, a formatted message, and event information to the file or stream."
+  summary: "Traceringsinformatie schrijfbewerkingen, een bericht en informatie over de gebeurtenis naar het bestand of stroom."
   remarks: "The `eventCache`, `source`, `eventType`, and `id` parameters are used in the header and footer of the trace. The `id` parameter is converted to an unsigned integer before writing, so a negative `id` value is written as a large positive integer. The [String.Format(String, Object\\[\\])](assetId:///M:System.String.Format(System.String,System.Object[])?qualifyHint=True&autoUpgrade=False) method is called, passing in the `format` string and `args` array as parameters, to format the `args` object array as the `Message` element.  \n  \n> [!IMPORTANT]\n>  This method is not intended to be called directly by application code.  It is called by methods of the <xref:System.Diagnostics.Debug>, <xref:System.Diagnostics.Trace>, and <xref:System.Diagnostics.TraceSource> classes to write trace data."
   syntax:
     content: public override void TraceEvent (System.Diagnostics.TraceEventCache eventCache, string source, System.Diagnostics.TraceEventType eventType, int id, string format, object[] args);
     parameters:
     - id: eventCache
       type: System.Diagnostics.TraceEventCache
-      description: "A <xref href=&quot;System.Diagnostics.TraceEventCache&quot;></xref> that contains the current process ID, thread ID, and stack trace information."
+      description: "Een <xref href=&quot;System.Diagnostics.TraceEventCache&quot;> </xref> die bevat het huidige proces-ID, thread-ID en stack trace-informatie."
     - id: source
       type: System.String
-      description: "The source name."
+      description: "De naam van de bron."
     - id: eventType
       type: System.Diagnostics.TraceEventType
-      description: "One of the <xref href=&quot;System.Diagnostics.TraceEventType&quot;></xref> values."
+      description: "Een van de <xref href=&quot;System.Diagnostics.TraceEventType&quot;> </xref> waarden."
     - id: id
       type: System.Int32
-      description: "A numeric identifier for the event."
+      description: "Een numerieke id voor de gebeurtenis."
     - id: format
       type: System.String
-      description: "A format string that contains zero or more format items that correspond to objects in the `args` array."
+      description: "Een indelingstekenreeks die nul of meer indeling items bevat die overeenkomen met de objecten in de `args` matrix."
     - id: args
       type: System.Object[]
-      description: "An object array containing zero or more objects to format."
+      description: "Een objectmatrix met nul of meer objecten om te formatteren."
   overload: System.Diagnostics.XmlWriterTraceListener.TraceEvent*
   exceptions: []
   platform:
@@ -442,26 +442,26 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Writes trace information including the identity of a related activity, a message, and event information to the file or stream."
-  remarks: "The TraceTransfer method is used for the correlation of related traces. The `eventCache`, `source`, `id`, and `relatedActivityId` parameters are used in the header and footer of the trace. The `id` parameter is converted to an unsigned integer before writing, so a negative `id` value is written as a large positive integer. The `message` parameter is written as the `Message` element. The <xref:System.Guid.ToString%28System.String%29?displayProperty=fullName> method is called to convert the `relatedActivityId`value to a &quot;B&quot; formatted string, which appears in the header. The `SubTypeName` element in the footer identifies the trace event type as a <xref:System.Diagnostics.TraceEventType>.      > [!IMPORTANT] >  The TraceTransfer method is not intended to be called by application code.  It is intended to be called by a <xref:System.Diagnostics.TraceSource> object to emit the trace information for its <xref:System.Diagnostics.TraceSource.TraceTransfer%2A> method."
+  summary: "Schrijfbewerkingen trace-informatie, met inbegrip van de identiteit van een verwante informatie voor de activiteit, een bericht en de gebeurtenis naar het bestand of stroom."
+  remarks: "De methode TraceTransfer wordt gebruikt voor de correlatie van gerelateerde traceringen. De `eventCache`, `source`, `id`, en `relatedActivityId` parameters worden gebruikt in de kop- en voettekst van de tracering. De `id` parameter wordt geconverteerd naar een geheel getal zonder teken voordat het wordt overschreven, dus een negatief `id` waarde wordt aangeduid met een grote positief geheel getal. De `message` parameter wordt geschreven als de `Message` element. De <xref:System.Guid.ToString%28System.String%29?displayProperty=fullName>methode wordt aangeroepen om te converteren de `relatedActivityId`waarde in een &quot;B&quot; opgemaakt tekenreeks die wordt weergegeven in de koptekst.</xref:System.Guid.ToString%28System.String%29?displayProperty=fullName> De `SubTypeName` -element in de voettekst identificeert het gebeurtenistype trace als een <xref:System.Diagnostics.TraceEventType>.</xref:System.Diagnostics.TraceEventType>      > [!IMPORTANT] > De TraceTransfer methode is niet bedoeld om te worden aangeroepen door de toepassingscode.  Het is bedoeld om te worden aangeroepen door een <xref:System.Diagnostics.TraceSource>-object op voor het verzenden van de trace-informatie voor de <xref:System.Diagnostics.TraceSource.TraceTransfer%2A>methode.</xref:System.Diagnostics.TraceSource.TraceTransfer%2A> </xref:System.Diagnostics.TraceSource>"
   syntax:
     content: public override void TraceTransfer (System.Diagnostics.TraceEventCache eventCache, string source, int id, string message, Guid relatedActivityId);
     parameters:
     - id: eventCache
       type: System.Diagnostics.TraceEventCache
-      description: "A <xref href=&quot;System.Diagnostics.TraceEventCache&quot;></xref> that contains the current process ID, thread ID, and stack trace information."
+      description: "Een <xref href=&quot;System.Diagnostics.TraceEventCache&quot;> </xref> die bevat het huidige proces-ID, thread-ID en stack trace-informatie."
     - id: source
       type: System.String
-      description: "The source name."
+      description: "De naam van de bron."
     - id: id
       type: System.Int32
-      description: "A numeric identifier for the event."
+      description: "Een numerieke id voor de gebeurtenis."
     - id: message
       type: System.String
-      description: "A trace message to write."
+      description: "Een bericht trace schrijven."
     - id: relatedActivityId
       type: System.Guid
-      description: "A <xref:System.Guid> structure that identifies a related activity."
+      description: "Een <xref:System.Guid>-structuur die een bijbehorende activiteit wordt aangeduid.</xref:System.Guid>"
   overload: System.Diagnostics.XmlWriterTraceListener.TraceTransfer*
   exceptions: []
   platform:
@@ -478,14 +478,14 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Writes a verbatim message without any additional context information to the file or stream."
-  remarks: "Use the <xref:System.Diagnostics.XmlWriterTraceListener.TraceData%2A> method to include context information in the log output."
+  summary: "Schrijft een verbatim bericht zonder aanvullende contextinformatie naar het bestand of stroom."
+  remarks: "Gebruik de <xref:System.Diagnostics.XmlWriterTraceListener.TraceData%2A>methode met contextinformatie in de logboekuitvoer.</xref:System.Diagnostics.XmlWriterTraceListener.TraceData%2A>"
   syntax:
     content: public override void Write (string message);
     parameters:
     - id: message
       type: System.String
-      description: "The message to write."
+      description: "Het bericht om te schrijven."
   overload: System.Diagnostics.XmlWriterTraceListener.Write*
   exceptions: []
   platform:
@@ -502,14 +502,14 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Writes a verbatim message without any additional context information followed by the current line terminator to the file or stream."
-  remarks: "Use the <xref:System.Diagnostics.XmlWriterTraceListener.TraceData%2A> method to include context information in the log output."
+  summary: "Schrijft een verbatim bericht zonder aanvullende contextinformatie gevolgd door de huidige regel terminator naar het bestand of stroom."
+  remarks: "Gebruik de <xref:System.Diagnostics.XmlWriterTraceListener.TraceData%2A>methode met contextinformatie in de logboekuitvoer.</xref:System.Diagnostics.XmlWriterTraceListener.TraceData%2A>"
   syntax:
     content: public override void WriteLine (string message);
     parameters:
     - id: message
       type: System.String
-      description: "The message to write."
+      description: "Het bericht om te schrijven."
   overload: System.Diagnostics.XmlWriterTraceListener.WriteLine*
   exceptions: []
   platform:
