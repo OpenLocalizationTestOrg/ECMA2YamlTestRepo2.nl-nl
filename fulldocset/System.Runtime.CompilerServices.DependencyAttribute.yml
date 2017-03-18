@@ -12,8 +12,8 @@ items:
   nameWithType: DependencyAttribute
   fullName: System.Runtime.CompilerServices.DependencyAttribute
   type: Class
-  summary: "Indicates when a dependency is to be loaded by the referring assembly. This class cannot be inherited."
-  remarks: "This attribute is used by the [Ngen.exe (Native Image Generator)](~/add/includes/ajax-current-ext-md.md) to generate native assembly images.       Apply the DependencyAttribute attribute to a dependent assembly with a value of the <xref:System.Runtime.CompilerServices.LoadHint> enumeration to specify when a referring assembly is to load a dependency.       A dependency that is likely to be loaded (<xref:System.Runtime.CompilerServices.LoadHint>) will cause Ngen.exe to bind to that dependency.  Using this hint allows Ngen.exe to generate code that will result in a reduced working set and improved throughput  but at the cost of always loading the dependency when the parent assembly is loaded."
+  summary: "Geeft aan wanneer een afhankelijkheid worden geladen met de verwijzende assembly. Deze klasse kan niet worden overgenomen."
+  remarks: "Dit kenmerk wordt gebruikt door de [Ngen.exe (systeemeigen afbeeldingsgenerator)](~/add/includes/ajax-current-ext-md.md) systeemeigen assembly afbeeldingen te genereren.       Het kenmerk DependencyAttribute toepassen op een afhankelijke assembly met een waarde van de <xref:System.Runtime.CompilerServices.LoadHint>opsomming om op te geven wanneer een verwijzende assembly te laden van een afhankelijkheid.</xref:System.Runtime.CompilerServices.LoadHint>       Een afhankelijkheid die kunnen worden geladen (<xref:System.Runtime.CompilerServices.LoadHint>) zullen Ngen.exe binden aan deze afhankelijkheid.</xref:System.Runtime.CompilerServices.LoadHint>  Met behulp van deze hint kunt Ngen.exe om code te genereren die resulteren in een beperkte werkset en verbeterde doorvoer echter ten koste van de afhankelijkheid altijd geladen wanneer de bovenliggende assembly geladen is."
   example:
   - "The following example specifies that the native image generation service always binds to `AssemblyA` and sometimes binds to `AssemblyB`.  \n  \n [!code-vb[Runtime.CompilerServices.DependencyAttribute#1](~/add/codesnippet/visualbasic/t-system.runtime.compile_4_1.vb)]\n [!code-cs[Runtime.CompilerServices.DependencyAttribute#1](~/add/codesnippet/csharp/t-system.runtime.compile_4_1.cs)]"
   syntax:
@@ -39,8 +39,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.CompilerServices
-  summary: "Initializes a new instance of the <xref href=&quot;System.Runtime.CompilerServices.DependencyAttribute&quot;></xref> class with the specified <xref href=&quot;System.Runtime.CompilerServices.LoadHint&quot;></xref> value."
-  remarks: "The <xref:System.Runtime.CompilerServices.DependencyAttribute> attribute gives the common language runtime hints on how tightly to bind to the dependency. The runtime uses these hints to help settle tradeoffs between lazy dependency load and efficient binding to the dependency. For example, hard binding allows the runtime to encode pointers to dependent native images, which results in a reduced working set. This attribute guides the runtime in making these decisions."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Runtime.CompilerServices.DependencyAttribute&quot;> </xref> klasse met de opgegeven <xref href=&quot;System.Runtime.CompilerServices.LoadHint&quot;> </xref> waarde."
+  remarks: "De <xref:System.Runtime.CompilerServices.DependencyAttribute>kenmerk geeft de common language runtime-hints op het nauw koppelen aan de afhankelijkheid.</xref:System.Runtime.CompilerServices.DependencyAttribute> De runtime gebruikt deze hints te helpen vereffenen balans vinden tussen vertraagde afhankelijkheid belasting en efficiënte binding met de afhankelijkheid. Harde-binding kan bijvoorbeeld de runtime voor het coderen van verwijzingen naar afhankelijke Systeemeigen afbeeldingen, wat in een beperkte werkset resulteert. Dit kenmerk helpt de runtime in deze beslissingen."
   example:
   - "The following example specifies that the native image generation service always binds to `AssemblyA` and sometimes binds to `AssemblyB`.  \n  \n [!code-vb[Runtime.CompilerServices.DependencyAttribute#1](~/add/codesnippet/visualbasic/477f6992-2013-45a5-998f-_1.vb)]\n [!code-cs[Runtime.CompilerServices.DependencyAttribute#1](~/add/codesnippet/csharp/477f6992-2013-45a5-998f-_1.cs)]"
   syntax:
@@ -48,10 +48,10 @@ items:
     parameters:
     - id: dependentAssemblyArgument
       type: System.String
-      description: "The dependent assembly to bind to."
+      description: "De afhankelijke assembly moet worden gebonden."
     - id: loadHintArgument
       type: System.Runtime.CompilerServices.LoadHint
-      description: "One of the <xref href=&quot;System.Runtime.CompilerServices.LoadHint&quot;></xref> values."
+      description: "Een van de <xref href=&quot;System.Runtime.CompilerServices.LoadHint&quot;> </xref> waarden."
   overload: System.Runtime.CompilerServices.DependencyAttribute.#ctor*
   exceptions: []
   platform:
@@ -68,13 +68,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.CompilerServices
-  summary: "Gets the value of the dependent assembly."
-  remarks: "Use this property to return the name of the assembly that the native image generation service binds to."
+  summary: "Hiermee wordt de waarde van de afhankelijke assembly."
+  remarks: "Gebruik deze eigenschap te retourneren van de naam van de assembly die de generatie systeemeigen afbeelding service gebonden aan."
   syntax:
     content: public string DependentAssembly { get; }
     return:
       type: System.String
-      description: "The name of the dependent assembly."
+      description: "De naam van de afhankelijke assembly."
   overload: System.Runtime.CompilerServices.DependencyAttribute.DependentAssembly*
   exceptions: []
   platform:
@@ -91,13 +91,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.CompilerServices
-  summary: "Gets the <xref href=&quot;System.Runtime.CompilerServices.LoadHint&quot;></xref> value that indicates when an assembly is to load a dependency."
-  remarks: "Use this property to return the value of the <xref:System.Runtime.CompilerServices.LoadHint> enumeration used by the <xref:System.Runtime.CompilerServices.DependencyAttribute> attribute."
+  summary: "Haalt de <xref href=&quot;System.Runtime.CompilerServices.LoadHint&quot;> </xref> waarde die wanneer een assembly aangeeft te laden van een afhankelijkheid."
+  remarks: "Gebruik deze eigenschap de waarde van de <xref:System.Runtime.CompilerServices.LoadHint>opsomming gebruikt door de <xref:System.Runtime.CompilerServices.DependencyAttribute>kenmerk.</xref:System.Runtime.CompilerServices.DependencyAttribute> </xref:System.Runtime.CompilerServices.LoadHint>"
   syntax:
     content: public System.Runtime.CompilerServices.LoadHint LoadHint { get; }
     return:
       type: System.Runtime.CompilerServices.LoadHint
-      description: "One of the <xref href=&quot;System.Runtime.CompilerServices.LoadHint&quot;></xref> values."
+      description: "Een van de <xref href=&quot;System.Runtime.CompilerServices.LoadHint&quot;> </xref> waarden."
   overload: System.Runtime.CompilerServices.DependencyAttribute.LoadHint*
   exceptions: []
   platform:
