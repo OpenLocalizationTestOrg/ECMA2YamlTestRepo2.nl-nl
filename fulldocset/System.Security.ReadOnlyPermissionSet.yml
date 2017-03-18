@@ -19,8 +19,8 @@ items:
   nameWithType: ReadOnlyPermissionSet
   fullName: System.Security.ReadOnlyPermissionSet
   type: Class
-  summary: "Represents a read-only collection that can contain many different types of permissions."
-  remarks: "Read-only permission sets are created from explicit XML and cannot be modified after creation. This restriction ensures that the permission set will be restored to the same XML encoding that it was originally created from. Attempting to add or remove a permission from the ReadOnlyPermissionSet results in an <xref:System.InvalidOperationException>.       Note that any permission you obtain from the ReadOnlyPermissionSet is only a copy of the permission. If the copy is mutable and is changed, the permission that is in the ReadOnlyPermissionSet is not changed."
+  summary: "Vertegenwoordigt een verzameling alleen-lezen die veel verschillende soorten machtigingen kan bevatten."
+  remarks: "Alleen-lezen machtigingensets worden gemaakt van expliciete XML en kunnen niet worden gewijzigd nadat de is gemaakt. Deze beperking zorgt ervoor dat de machtigingenset wordt hersteld naar de dezelfde XML-codering oorspronkelijk is gemaakt van. Bij het toevoegen of verwijderen van een machtiging uit de resultaten ReadOnlyPermissionSet in een <xref:System.InvalidOperationException>.</xref:System.InvalidOperationException>       Houd er rekening mee dat eventuele toestemming verkrijgen van de ReadOnlyPermissionSet alleen een kopie van de machtiging is. Als de veranderlijke en kopie wordt gewijzigd, wordt de machtiging die zich in de ReadOnlyPermissionSet niet gewijzigd."
   syntax:
     content: 'public sealed class ReadOnlyPermissionSet : System.Security.PermissionSet'
   inheritance:
@@ -67,18 +67,18 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.ReadOnlyPermissionSet&quot;></xref> class."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Security.ReadOnlyPermissionSet&quot;> </xref> klasse."
   syntax:
     content: public ReadOnlyPermissionSet (System.Security.SecurityElement permissionSetXml);
     parameters:
     - id: permissionSetXml
       type: System.Security.SecurityElement
-      description: "The XML element from which to take the value of the new <xref href=&quot;System.Security.ReadOnlyPermissionSet&quot;></xref>."
+      description: "Het XML-element van waaruit de waarde van de nieuwe <xref href=&quot;System.Security.ReadOnlyPermissionSet&quot;> </xref>."
   overload: System.Security.ReadOnlyPermissionSet.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>permissionSetXml</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>permissionSetXml</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Security.ReadOnlyPermissionSet.AddPermissionImpl(System.Security.IPermission)
@@ -98,10 +98,10 @@ items:
     parameters:
     - id: perm
       type: System.Security.IPermission
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     return:
       type: System.Security.IPermission
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   overload: System.Security.ReadOnlyPermissionSet.AddPermissionImpl*
   exceptions: []
   platform:
@@ -118,13 +118,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Creates a copy of the <xref href=&quot;System.Security.ReadOnlyPermissionSet&quot;></xref>."
+  summary: "Maakt een kopie van de <xref href=&quot;System.Security.ReadOnlyPermissionSet&quot;> </xref>."
   syntax:
     content: public override System.Security.PermissionSet Copy ();
     parameters: []
     return:
       type: System.Security.PermissionSet
-      description: "A copy of the read-only permission set."
+      description: "Een kopie van de alleen-lezen-machtiging instellen."
   overload: System.Security.ReadOnlyPermissionSet.Copy*
   exceptions: []
   platform:
@@ -141,14 +141,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Reconstructs a security object with a specified state from an XML encoding."
-  remarks: "This override of <xref:System.Security.PermissionSet.FromXml%2A?displayProperty=fullName> is intended to be called by the base class <xref:System.Security.PermissionSet> when it is deserializing the permission set. An exception is thrown if you attempt to call FromXml directly. You cannot modify a read-only permission set with a FromXml call."
+  summary: "Hiermee reconstrueert een beveiligingsobject met een opgegeven status van een XML-codering."
+  remarks: "Met deze overschrijving van <xref:System.Security.PermissionSet.FromXml%2A?displayProperty=fullName>is bedoeld om te worden aangeroepen door de basisklasse <xref:System.Security.PermissionSet>wanneer deze is deserialiseren van de machtigingenset.</xref:System.Security.PermissionSet> </xref:System.Security.PermissionSet.FromXml%2A?displayProperty=fullName> Als u probeert te FromXml rechtstreeks wordt aangeroepen, wordt er een uitzondering gegenereerd. U kunt een alleen-lezen-machtiging ingesteld met een aanroep van FromXml niet wijzigen."
   syntax:
     content: public override void FromXml (System.Security.SecurityElement et);
     parameters:
     - id: et
       type: System.Security.SecurityElement
-      description: "The XML encoding to use to reconstruct the security object."
+      description: "De XML-codering voor het gebruik van het object opnieuw."
   overload: System.Security.ReadOnlyPermissionSet.FromXml*
   exceptions:
   - type: System.ArgumentNullException
@@ -156,10 +156,10 @@ items:
     description: "The <code>et</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>et</code> parameter is not a valid permission element.       -or-       The <code>et</code> parameter&quot;s version number is not supported."
+    description: "De <code> et </code> parameter is niet geldig machtigingselement.       - of - de <code> et </code> versienummer van de parameter wordt niet ondersteund."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The object is not being deserialized; that is, <xref href=&quot;System.Security.PermissionSet&quot;></xref> did not call back into FromXml during deserialization."
+    description: "Het object is niet is gedeserialiseerd; dat wil zeggen, <xref href=&quot;System.Security.PermissionSet&quot;> </xref> heeft geen aanroep doen terug naar FromXml tijdens de deserialisatie."
   platform:
   - net462
 - uid: System.Security.ReadOnlyPermissionSet.GetEnumeratorImpl
@@ -179,7 +179,7 @@ items:
     parameters: []
     return:
       type: System.Collections.IEnumerator
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   overload: System.Security.ReadOnlyPermissionSet.GetEnumeratorImpl*
   exceptions: []
   platform:
@@ -201,10 +201,10 @@ items:
     parameters:
     - id: permClass
       type: System.Type
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     return:
       type: System.Security.IPermission
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   overload: System.Security.ReadOnlyPermissionSet.GetPermissionImpl*
   exceptions: []
   platform:
@@ -221,8 +221,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Gets a value that indicates whether the collection is read-only."
-  remarks: "A <xref:System.Security.ReadOnlyPermissionSet> is always read-only, so this value must always be `true`."
+  summary: "Haalt een waarde die aangeeft of de verzameling alleen-lezen is."
+  remarks: "Een <xref:System.Security.ReadOnlyPermissionSet>is altijd alleen-lezen, zodat deze waarde altijd moet `true`.</xref:System.Security.ReadOnlyPermissionSet>"
   syntax:
     content: public override bool IsReadOnly { get; }
     return:
@@ -249,10 +249,10 @@ items:
     parameters:
     - id: permClass
       type: System.Type
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     return:
       type: System.Security.IPermission
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   overload: System.Security.ReadOnlyPermissionSet.RemovePermissionImpl*
   exceptions: []
   platform:
@@ -274,10 +274,10 @@ items:
     parameters:
     - id: perm
       type: System.Security.IPermission
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     return:
       type: System.Security.IPermission
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   overload: System.Security.ReadOnlyPermissionSet.SetPermissionImpl*
   exceptions: []
   platform:
@@ -294,13 +294,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Creates an XML encoding of the security object and its current state."
+  summary: "Hiermee maakt u een XML-codering van het object en de huidige status."
   syntax:
     content: public override System.Security.SecurityElement ToXml ();
     parameters: []
     return:
       type: System.Security.SecurityElement
-      description: "An XML encoding of the security object, including any state information."
+      description: "Een XML-codering van het object, met inbegrip van eventuele statusgegevens."
   overload: System.Security.ReadOnlyPermissionSet.ToXml*
   exceptions: []
   platform:

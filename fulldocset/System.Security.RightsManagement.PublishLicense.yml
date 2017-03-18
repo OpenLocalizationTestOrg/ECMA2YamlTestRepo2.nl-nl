@@ -18,8 +18,8 @@ items:
   nameWithType: PublishLicense
   fullName: System.Security.RightsManagement.PublishLicense
   type: Class
-  summary: "Represents a signed rights managed publish license."
-  remarks: "PublishLicense defines security data about rights, users, and other security-related information.  The license defines how a specific user on a specific computer can use specified rights managed content.       The publishing process begins with the document author, who defines rights information in an <xref:System.Security.RightsManagement.UnsignedPublishLicense>.  Next, the author creates a signed PublishLicense by calling the <xref:System.Security.RightsManagement.UnsignedPublishLicense.Sign%2A> method of the <xref:System.Security.RightsManagement.UnsignedPublishLicense>.  The serialized form of the signed PublishLicense can then be provided to end users who can use it to acquire a <xref:System.Security.RightsManagement.UseLicense> by calling the <xref:System.Security.RightsManagement.PublishLicense.AcquireUseLicense%2A> method of the PublishLicense.  The returned <xref:System.Security.RightsManagement.UseLicense> then allows the client application to exercise the rights that were granted to the user.       As with other <xref:System.Security.RightsManagement> types, PublishLicense is only usable in full trust applications."
+  summary: "Vertegenwoordigt een ondertekende IRM uitgiftelicentie."
+  remarks: "PublishLicense definieert beveiligingsgegevens over rechten, gebruikers en andere beveiligingsinformatie.  De licentie wordt gedefinieerd hoe een specifieke gebruiker op een specifieke computer opgegeven rechten beheerde inhoud kunt gebruiken.       Het publicatieproces begint met de auteur van het document, die informatie over gebruikersrechten gedefinieerd in een <xref:System.Security.RightsManagement.UnsignedPublishLicense>.</xref:System.Security.RightsManagement.UnsignedPublishLicense>  Vervolgens de auteur van een ondertekende PublishLicense maakt door het aanroepen van de <xref:System.Security.RightsManagement.UnsignedPublishLicense.Sign%2A>methode van de <xref:System.Security.RightsManagement.UnsignedPublishLicense>.</xref:System.Security.RightsManagement.UnsignedPublishLicense> </xref:System.Security.RightsManagement.UnsignedPublishLicense.Sign%2A>  De geserialiseerde vorm van de ondertekende PublishLicense kan vervolgens worden opgegeven voor eindgebruikers die gebruiken kunt om te verkrijgen van een <xref:System.Security.RightsManagement.UseLicense>door het aanroepen van de <xref:System.Security.RightsManagement.PublishLicense.AcquireUseLicense%2A>methode van de PublishLicense.</xref:System.Security.RightsManagement.PublishLicense.AcquireUseLicense%2A> </xref:System.Security.RightsManagement.UseLicense>  De geretourneerde <xref:System.Security.RightsManagement.UseLicense>toestaat dat de client-toepassing de rechten zijn verleend aan de gebruiker.</xref:System.Security.RightsManagement.UseLicense>       Net als bij andere <xref:System.Security.RightsManagement>typen PublishLicense is alleen kan worden gebruikt in toepassingen met volledig vertrouwen.</xref:System.Security.RightsManagement>"
   example:
   - "The following example shows how to initialize a PublishLicense by using the <xref:System.Security.RightsManagement.UnsignedPublishLicense.Sign%2A> method.  \n  \n [!code-vb[RightsManagedPackagePublish#RmPkgPubEncrypt](~/add/codesnippet/visualbasic/rmpackagepublish/window1.xaml.vb#rmpkgpubencrypt)]\n [!code-cs[RightsManagedPackagePublish#RmPkgPubEncrypt](~/add/codesnippet/csharp/RmPackagePublish/Window1.xaml.cs#rmpkgpubencrypt)]"
   syntax:
@@ -45,21 +45,21 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Security.RightsManagement
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.RightsManagement.PublishLicense&quot;></xref> class from a specified serialized and signed <xref href=&quot;System.Security.RightsManagement.PublishLicense&quot;></xref>."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Security.RightsManagement.PublishLicense&quot;> </xref> klasse vanuit een opgegeven geserialiseerd en ondertekend <xref href=&quot;System.Security.RightsManagement.PublishLicense&quot;> </xref>."
   syntax:
     content: public PublishLicense (string signedPublishLicense);
     parameters:
     - id: signedPublishLicense
       type: System.String
-      description: "A signed and serialized publish license."
+      description: "Een ondertekend en geserialiseerd uitgiftelicentie."
   overload: System.Security.RightsManagement.PublishLicense.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>signedPublishLicense</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>signedPublishLicense</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.RightsManagement.RightsManagementException
     commentId: T:System.Security.RightsManagement.RightsManagementException
-    description: "The license is invalid."
+    description: "De licentie is ongeldig."
   platform:
   - net462
 - uid: System.Security.RightsManagement.PublishLicense.AcquireUseLicense(System.Security.RightsManagement.SecureEnvironment)
@@ -74,24 +74,24 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Security.RightsManagement
-  summary: "Attempts to acquire a <xref href=&quot;System.Security.RightsManagement.UseLicense&quot;></xref> for a user or user group in a specified <xref href=&quot;System.Security.RightsManagement.SecureEnvironment&quot;></xref>."
+  summary: "Probeert te verkrijgen van een <xref href=&quot;System.Security.RightsManagement.UseLicense&quot;> </xref> voor een gebruiker of gebruikersgroep in een opgegeven <xref href=&quot;System.Security.RightsManagement.SecureEnvironment&quot;> </xref>."
   syntax:
     content: public System.Security.RightsManagement.UseLicense AcquireUseLicense (System.Security.RightsManagement.SecureEnvironment secureEnvironment);
     parameters:
     - id: secureEnvironment
       type: System.Security.RightsManagement.SecureEnvironment
-      description: "The secure environment for license activation and binding."
+      description: "De beveiligde omgeving voor activering van licenties en binding."
     return:
       type: System.Security.RightsManagement.UseLicense
-      description: "The <xref href=&quot;System.Security.RightsManagement.UseLicense&quot;></xref> for a user or user group in the specified <code>secureEnvironment</code>."
+      description: "De <xref href=&quot;System.Security.RightsManagement.UseLicense&quot;> </xref> voor een gebruiker of gebruikersgroep in de opgegeven <code> secureEnvironment </code>."
   overload: System.Security.RightsManagement.PublishLicense.AcquireUseLicense*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>secureEnvironment</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>secureEnvironment</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.RightsManagement.RightsManagementException
     commentId: T:System.Security.RightsManagement.RightsManagementException
-    description: "The authentication failed."
+    description: "De verificatie is mislukt."
   platform:
   - net462
 - uid: System.Security.RightsManagement.PublishLicense.AcquireUseLicenseNoUI(System.Security.RightsManagement.SecureEnvironment)
@@ -106,25 +106,25 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Security.RightsManagement
-  summary: "Attempts to acquire a <xref href=&quot;System.Security.RightsManagement.UseLicense&quot;></xref> for a user or user group in a specified <xref href=&quot;System.Security.RightsManagement.SecureEnvironment&quot;></xref>."
-  remarks: "The AcquireUseLicenseNoUI method suppresses the Windows network authentication dialog box. If the license request is denied because the user does not have permission, AcquireUseLicenseNoUI prevents the network authentication dialog box from displaying. Use silent acquisition when attempting to obtain licenses in a background task or in a non-user interface that might display confusing dialog boxes."
+  summary: "Probeert te verkrijgen van een <xref href=&quot;System.Security.RightsManagement.UseLicense&quot;> </xref> voor een gebruiker of gebruikersgroep in een opgegeven <xref href=&quot;System.Security.RightsManagement.SecureEnvironment&quot;> </xref>."
+  remarks: "De methode AcquireUseLicenseNoUI onderdrukt Windows-verificatie in het dialoogvenster netwerk. Als de licentieaanvraag wordt geweigerd omdat de gebruiker niet gemachtigd, voorkomt AcquireUseLicenseNoUI in het dialoogvenster voor netwerk-verificatie om weer te geven. Gebruik achtergrond overname bij een poging om licenties in achtergrondtaak of in een niet-gebruikersinterface die kan dit leiden tot verwarring dialoogvensters weergeven."
   syntax:
     content: public System.Security.RightsManagement.UseLicense AcquireUseLicenseNoUI (System.Security.RightsManagement.SecureEnvironment secureEnvironment);
     parameters:
     - id: secureEnvironment
       type: System.Security.RightsManagement.SecureEnvironment
-      description: "The secure environment for license activation and binding."
+      description: "De beveiligde omgeving voor activering van licenties en binding."
     return:
       type: System.Security.RightsManagement.UseLicense
-      description: "The <xref href=&quot;System.Security.RightsManagement.UseLicense&quot;></xref> for a user or user group in the specified <code>secureEnvironment</code>."
+      description: "De <xref href=&quot;System.Security.RightsManagement.UseLicense&quot;> </xref> voor een gebruiker of gebruikersgroep in de opgegeven <code> secureEnvironment </code>."
   overload: System.Security.RightsManagement.PublishLicense.AcquireUseLicenseNoUI*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>secureEnvironment</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>secureEnvironment</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.RightsManagement.RightsManagementException
     commentId: T:System.Security.RightsManagement.RightsManagementException
-    description: "The authentication failed."
+    description: "De verificatie is mislukt."
   platform:
   - net462
 - uid: System.Security.RightsManagement.PublishLicense.ContentId
@@ -139,13 +139,13 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Security.RightsManagement
-  summary: "Gets the publisher-created content identifier."
-  remarks: "Publishers create a <xref:System.Security.RightsManagement.UnsignedPublishLicense.ContentId%2A> to identify the protected content."
+  summary: "De publisher is gemaakt de inhouds-id opgehaald."
+  remarks: "Uitgevers maken een <xref:System.Security.RightsManagement.UnsignedPublishLicense.ContentId%2A>aan de beveiligde inhoud te identificeren.</xref:System.Security.RightsManagement.UnsignedPublishLicense.ContentId%2A>"
   syntax:
     content: public Guid ContentId { get; }
     return:
       type: System.Guid
-      description: "The publisher-created content identifier."
+      description: "De publisher gemaakt inhoud id."
   overload: System.Security.RightsManagement.PublishLicense.ContentId*
   exceptions: []
   platform:
@@ -162,22 +162,22 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Security.RightsManagement
-  summary: "Returns a decrypted <xref href=&quot;System.Security.RightsManagement.UnsignedPublishLicense&quot;></xref> version of this signed <xref href=&quot;System.Security.RightsManagement.PublishLicense&quot;></xref>."
-  remarks: "The DecryptUnsignedPublishLicense method allows the license owner and users who were granted <xref:System.Security.RightsManagement.ContentRight> to extract the original information that was encrypted when the <xref:System.Security.RightsManagement.PublishLicense> was created."
+  summary: "Retourneert een ontsleutelde <xref href=&quot;System.Security.RightsManagement.UnsignedPublishLicense&quot;> </xref> versie van dit ondertekend <xref href=&quot;System.Security.RightsManagement.PublishLicense&quot;> </xref>."
+  remarks: "De methode DecryptUnsignedPublishLicense kan de eigenaar van licentie en gebruikers die zijn verleend <xref:System.Security.RightsManagement.ContentRight>uitpakken van de oorspronkelijke informatie die is versleuteld wanneer het <xref:System.Security.RightsManagement.PublishLicense>is gemaakt.</xref:System.Security.RightsManagement.PublishLicense> </xref:System.Security.RightsManagement.ContentRight>"
   syntax:
     content: public System.Security.RightsManagement.UnsignedPublishLicense DecryptUnsignedPublishLicense (System.Security.RightsManagement.CryptoProvider cryptoProvider);
     parameters:
     - id: cryptoProvider
       type: System.Security.RightsManagement.CryptoProvider
-      description: "The rights management service to use for decrypting the license."
+      description: "De rights management-service moet worden gebruikt voor het ontsleutelen van de licentie."
     return:
       type: System.Security.RightsManagement.UnsignedPublishLicense
-      description: "A decrypted, unsigned version of this license."
+      description: "Een versie gedecodeerde, niet-ondertekende van deze licentie."
   overload: System.Security.RightsManagement.PublishLicense.DecryptUnsignedPublishLicense*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>cryptoProvider</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>cryptoProvider</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Security.RightsManagement.PublishLicense.ReferralInfoName
@@ -192,13 +192,13 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Security.RightsManagement
-  summary: "Gets the contact name for the author or publisher of the content."
-  remarks: "The string returned by the ReferralInfoName property is not encrypted and can be accessed even when the user does not yet have a <xref:System.Security.RightsManagement.UseLicense>.  The returned string permits users to contact the publisher to request a <xref:System.Security.RightsManagement.UseLicense>."
+  summary: "Hiermee haalt u de naam van de contactpersoon voor de auteur of de uitgever van de inhoud."
+  remarks: "De tekenreeks die is geretourneerd door de eigenschap ReferralInfoName is niet versleuteld en kan worden geopend, zelfs wanneer de gebruiker nog geen een <xref:System.Security.RightsManagement.UseLicense>.</xref:System.Security.RightsManagement.UseLicense>  De geretourneerde tekenreeks kan gebruikers contact opnemen met de uitgever om aan te vragen een <xref:System.Security.RightsManagement.UseLicense>.</xref:System.Security.RightsManagement.UseLicense>"
   syntax:
     content: public string ReferralInfoName { get; }
     return:
       type: System.String
-      description: "The contact name for the author or publisher of the content."
+      description: "De naam van de contactpersoon voor de auteur of de uitgever van de inhoud."
   overload: System.Security.RightsManagement.PublishLicense.ReferralInfoName*
   exceptions: []
   platform:
@@ -215,13 +215,13 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Security.RightsManagement
-  summary: "Gets the contact [!INCLUDE[TLA2#tla_uri](~/add/includes/tla2sharptla-uri-md.md)] for the author or publisher of the content."
-  remarks: "The string returned by the ReferralInfoUri property is not encrypted and can be accessed even when the user does not yet have a <xref:System.Security.RightsManagement.UseLicense>.  The returned string permits users to contact the publisher to request a <xref:System.Security.RightsManagement.UseLicense>."
+  summary: "Opgehaald van de contactpersoon [!INCLUDE[TLA2#tla_uri](~/add/includes/tla2sharptla-uri-md.md)] voor de auteur of de uitgever van de inhoud."
+  remarks: "De tekenreeks die is geretourneerd door de eigenschap ReferralInfoUri is niet versleuteld en kan worden geopend, zelfs wanneer de gebruiker nog geen een <xref:System.Security.RightsManagement.UseLicense>.</xref:System.Security.RightsManagement.UseLicense>  De geretourneerde tekenreeks kan gebruikers contact opnemen met de uitgever om aan te vragen een <xref:System.Security.RightsManagement.UseLicense>.</xref:System.Security.RightsManagement.UseLicense>"
   syntax:
     content: public Uri ReferralInfoUri { get; }
     return:
       type: System.Uri
-      description: "The contact [!INCLUDE[TLA#tla_uri](~/add/includes/tlasharptla-uri-md.md)] for the author or publisher of the content."
+      description: "De contactpersoon [!INCLUDE[TLA#tla_uri](~/add/includes/tlasharptla-uri-md.md)] voor de auteur of de uitgever van de inhoud."
   overload: System.Security.RightsManagement.PublishLicense.ReferralInfoUri*
   exceptions: []
   platform:
@@ -238,13 +238,13 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Security.RightsManagement
-  summary: "Returns the serialized [!INCLUDE[TLA2#tla_xrml](~/add/includes/tla2sharptla-xrml-md.md)] string that was used to create this license."
+  summary: "Retourneert de geserialiseerde [!INCLUDE[TLA2#tla_xrml](~/add/includes/tla2sharptla-xrml-md.md)] tekenreeks die is gebruikt voor het maken van deze licentie."
   syntax:
     content: public override string ToString ();
     parameters: []
     return:
       type: System.String
-      description: "The serialized [!INCLUDE[TLA#tla_xrml](~/add/includes/ajax-current-ext-md.md)] string that was used to create this license."
+      description: "De geserialiseerde [!INCLUDE[TLA#tla_xrml](~/add/includes/ajax-current-ext-md.md)] tekenreeks die is gebruikt voor het maken van deze licentie."
   overload: System.Security.RightsManagement.PublishLicense.ToString*
   exceptions: []
   platform:
@@ -261,13 +261,13 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Security.RightsManagement
-  summary: "Gets the [!INCLUDE[TLA2#tla_uri](~/add/includes/tla2sharptla-uri-md.md)] to use for acquiring a <xref href=&quot;System.Security.RightsManagement.UseLicense&quot;></xref>."
-  remarks: "The UseLicenseAcquisitionUrl property is used by the <xref:System.Security.RightsManagement.PublishLicense.AcquireUseLicense%2A> method when a user acquires a <xref:System.Security.RightsManagement.UseLicense>."
+  summary: "Haalt de [!INCLUDE[TLA2#tla_uri](~/add/includes/tla2sharptla-uri-md.md)] moet worden gebruikt voor het ophalen van een <xref href=&quot;System.Security.RightsManagement.UseLicense&quot;> </xref>."
+  remarks: "De eigenschap UseLicenseAcquisitionUrl wordt gebruikt door de <xref:System.Security.RightsManagement.PublishLicense.AcquireUseLicense%2A>methode wanneer een gebruiker een <xref:System.Security.RightsManagement.UseLicense>.</xref:System.Security.RightsManagement.UseLicense> krijgt</xref:System.Security.RightsManagement.PublishLicense.AcquireUseLicense%2A>"
   syntax:
     content: public Uri UseLicenseAcquisitionUrl { get; }
     return:
       type: System.Uri
-      description: "The [!INCLUDE[TLA2#tla_uri](~/add/includes/tla2sharptla-uri-md.md)] to use for acquiring a <xref href=&quot;System.Security.RightsManagement.UseLicense&quot;></xref>."
+      description: "De [!INCLUDE[TLA2#tla_uri](~/add/includes/tla2sharptla-uri-md.md)] moet worden gebruikt voor het ophalen van een <xref href=&quot;System.Security.RightsManagement.UseLicense&quot;> </xref>."
   overload: System.Security.RightsManagement.PublishLicense.UseLicenseAcquisitionUrl*
   exceptions: []
   platform:
