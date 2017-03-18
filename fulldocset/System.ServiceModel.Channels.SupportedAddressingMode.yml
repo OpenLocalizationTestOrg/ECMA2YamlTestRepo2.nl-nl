@@ -12,8 +12,8 @@ items:
   nameWithType: SupportedAddressingMode
   fullName: System.ServiceModel.Channels.SupportedAddressingMode
   type: Enum
-  summary: "Specifies whether a service supports sending responses to anonymous addresses only, to non-anonymous addresses only, or to both."
-  remarks: "This enumeration is used to specify the capability of a server, which, in turn, imposes a requirement on its clients.       [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)] has a variety of addressing controls for specifying where messages should be sent. For example, there is the logical <xref:System.ServiceModel.Channels.MessageHeaders.To%2A> address for the message destination, the physical (&quot;Via&quot;) address, used by the transport, at which a service listens, and the <xref:System.ServiceModel.Channels.MessageHeaders.ReplyTo%2A> address of the endpoint that provides the address of the client endpoint.       In the most basic case, when two parties exchange messages between themselves only, it is not necessary to specify these addresses separately. But because exchanges can involve other message destinations, you must be able to specify when addresses must be explicitly provided. Even between just two parties this ability is sometimes required, as with dual HTTP where the server must create its own HTTP request. The following kinds of relationships are defined by the SupportedAddressingMode enumeration to capture these messaging patterns:      -   Anonymous addresses are the most basic form of addressing. Anonymous addressing is used when there is a default path for a response. TCP is a bi-directional communication transport and the response to a TCP message can be sent back to the other side of the socket that sent the original message. Similarly, the request-reply model of HTTP sends responses through the HTTP reply channel. Neither of these responses requires specifying where the response messages are going. When a server requires anonymous responses from the client, it uses the Anonymous value of the enumeration. The [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] system-provided <xref:System.ServiceModel.NetTcpBinding>, <xref:System.ServiceModel.BasicHttpBinding> and <xref:System.ServiceModel.WSHttpBinding> bindings always use Anonymous addresses.      -   NonAnonymous addresses are used when sending the response requires creating a new channel for communication. The [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] system-provided <xref:System.ServiceModel.WSDualHttpBinding> binding uses a NonAnonymous address. With dual HTTP, the client creates an HTTP request to send a message and then the server must create its own HTTP request to send a response. Because the server is initiating the send, it must have a specific endpoint to establish the connection. You must provide the server the address of an endpoint for its response. Similarly, if a service must respond to a one-way message that it received, it also requires a NonAnonymous address because there is no back channel available for communication. If the server sends a message back, a completely separate operation from that used to send the first message is required.      -   Mixed is a third form of addressing which combines Anonymous and NonAnonymous addresses depending on the message that is being sent. A typical example of mixed-mode addressing is the use of a dedicated machine for processing fault or acknowledgment messages. If the standard exchange sequence for replies is HTTP or TCP, the responses use Anonymous addressing but the faults use non-anonymous addressing. While [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] does not provide Mixed addressing functionality in one of its standard bindings, it is possible to write a channel that allows the service to send responses directly on the back-channel (when the response address is Anonymous) or on a separate channel (when the response address is NonAnonymous). In such a case, the binding element of the channel is used to setSupportedAddressingMode to Mixed."
+  summary: "Hiermee geeft u op of een service verzenden reacties op anonieme adressen alleen alleen niet-anonieme adressen, of beide ondersteunt."
+  remarks: "Deze opsomming wordt gebruikt om op te geven van de mogelijkheid van een server die op zijn beurt een vereiste voor de clients legt.       [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)]heeft een aantal verschillende adressering besturingselementen voor het opgeven van waar de berichten moeten worden verzonden. Er is bijvoorbeeld de logische <xref:System.ServiceModel.Channels.MessageHeaders.To%2A>adres voor de doel-bericht, de fysieke (&quot;Via&quot;), adres, dat wordt gebruikt voor het transport, waarmee een service luistert, en de <xref:System.ServiceModel.Channels.MessageHeaders.ReplyTo%2A>adres van het eindpunt waarmee het adres van de client-endpoint.</xref:System.ServiceModel.Channels.MessageHeaders.ReplyTo%2A> </xref:System.ServiceModel.Channels.MessageHeaders.To%2A>       In het meest eenvoudige geval wanneer twee partijen uitwisselen van berichten tussen zichzelf, is het niet nodig deze adressen afzonderlijk opgeven. Maar omdat uitwisselingen betrekking op andere message bestemmingen hebben kunnen, moet u kunnen opgeven wanneer het adres moet expliciet worden opgegeven. Zelfs tussen twee partijen is deze mogelijkheid ook vereist als met dubbele HTTP waar de server een eigen HTTP-aanvraag moet maken. De volgende soorten relaties worden gedefinieerd door inventarisatie SupportedAddressingMode voor het vastleggen van deze berichtpatronen:-anonieme adressen zijn de meest eenvoudige vorm van adressering. Anonieme adressering wordt gebruikt wanneer er een standaardpad voor een antwoord. TCP is een transport bidirectionele communicatie en het antwoord op een TCP-bericht kan worden verzonden naar de andere kant van de socket die het oorspronkelijke bericht verzonden. Op dezelfde manier verzendt het request-reply-model van de HTTP-antwoorden via het HTTP-antwoord-kanaal. Geen van deze antwoorden vereist opgeven waar de responsberichten gaat. Wanneer een server anonieme reacties van de client vereist, gebruikt de anonieme waarde van de inventarisatie. De [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] systeem geleverde <xref:System.ServiceModel.NetTcpBinding>, <xref:System.ServiceModel.BasicHttpBinding>en <xref:System.ServiceModel.WSHttpBinding>Bindingen altijd anonieme adressen gebruiken.</xref:System.ServiceModel.WSHttpBinding> </xref:System.ServiceModel.BasicHttpBinding> </xref:System.ServiceModel.NetTcpBinding>      -Niet-anonieme adressen worden gebruikt wanneer het antwoord wordt verzonden, moet er een nieuw kanaal voor communicatie. De [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] systeem geleverde <xref:System.ServiceModel.WSDualHttpBinding>binding een niet-anonieme adres gebruikt.</xref:System.ServiceModel.WSDualHttpBinding> De client maakt een HTTP-aanvraag om een bericht te verzenden met dubbele HTTP en vervolgens de server een eigen HTTP-aanvraag voor het verzenden van een antwoord moet maken. Omdat de server is bezig met het starten van de verzenden, moet een specifieke eindpunt om de verbinding te maken hebben. U moet de server het adres van een eindpunt opgeven voor het antwoord. Op dezelfde manier als een service op een eenzijdige bericht ontvangen reageren moet, is er ook vereist een niet-anoniem adres omdat er is geen back-kanaal beschikbaar zijn voor communicatie. Als de server een bericht weer verzendt, is een volledig gescheiden bewerking die u gebruikt voor het verzenden van het eerste bericht is vereist.      -Gemengde is een derde vorm van adressering die worden gecombineerd voor anonieme en niet-anoniem adres, afhankelijk van het bericht dat wordt verzonden. Een typisch voorbeeld van gemengde modus adressering is het gebruik van een toegewezen machine voor het verwerken van de fout of een bevestiging berichten. Als de volgorde van de standaard exchange voor antwoorden HTTP of TCP is, wordt de antwoorden gebruiken anonieme adressering maar wordt de fouten gebruiken niet-anonieme adressering. Terwijl [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] biedt geen gemengde adressering functionaliteit in een van de standaard bindingen, is het mogelijk om te schrijven van een kanaal dat kan de service voor het verzenden van antwoorden rechtstreeks op het back-kanaal (als het antwoordadres anoniem is) of op een afzonderlijke kanaal (als het antwoordadres niet-anoniem is). In dat geval moet het element van de binding van het kanaal wordt gebruikt voor setSupportedAddressingMode in Mixed."
   syntax:
     content: public enum SupportedAddressingMode
   inheritance:
@@ -32,12 +32,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "The server only supports anonymous addresses and clients must provide an anonymous response address."
+  summary: "De server ondersteunt alleen anonieme adressen en clients een antwoordadres anonieme moeten opgeven."
   syntax:
     content: Anonymous
     return:
       type: System.ServiceModel.Channels.SupportedAddressingMode
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -53,12 +53,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "The server supports both anonymous and non-anonymous addresses and clients may choose to use either or both."
+  summary: "De server ondersteunt zowel anoniem als niet-anonieme adressen en clients kunnen ervoor kiezen om te gebruiken een of beide."
   syntax:
     content: Mixed
     return:
       type: System.ServiceModel.Channels.SupportedAddressingMode
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -74,12 +74,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "The server only supports non-anonymous addresses and clients must provide a non-anonymous response address."
+  summary: "De server ondersteunt alleen niet-anonieme adressen en clients moeten een niet-anonieme antwoordadres opgeven."
   syntax:
     content: NonAnonymous
     return:
       type: System.ServiceModel.Channels.SupportedAddressingMode
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462

@@ -10,8 +10,8 @@ items:
   nameWithType: IApplicationTrustManager
   fullName: System.Security.Policy.IApplicationTrustManager
   type: Interface
-  summary: "Determines whether an application should be executed and which set of permissions should be granted to it."
-  remarks: "Trust managers must implement the IApplicationTrustManager interface. The host calls the <xref:System.Security.Policy.IApplicationTrustManager.DetermineApplicationTrust%2A?displayProperty=fullName> method to determine whether an application should be executed and which permissions should be granted to the application.       In the [!INCLUDE[net_v40_long](~/add/includes/net-v40-long-md.md)] and later, there is only one trust manager, which can be a custom implementation of the IApplicationTrustManager interface. The default trust manager implementation prompts the user for permission to install the application and to elevate the permissions granted to the application. Other trust manager implementations might provide different user experiences. For example, an implementation might check an enterprise list for trusted applications instead of prompting the user for that information."
+  summary: "Bepaalt of een toepassing moet worden uitgevoerd en welke reeks machtigingen moet worden verleend."
+  remarks: "Vertrouwen managers moeten de IApplicationTrustManager-interface implementeren. Het aanroepen van de host de <xref:System.Security.Policy.IApplicationTrustManager.DetermineApplicationTrust%2A?displayProperty=fullName>methode om te bepalen of een toepassing moet worden uitgevoerd en welke machtigingen moeten worden toegekend aan de toepassing.</xref:System.Security.Policy.IApplicationTrustManager.DetermineApplicationTrust%2A?displayProperty=fullName>       In de [!INCLUDE[net_v40_long](~/add/includes/net-v40-long-md.md)] en later, er is slechts één vertrouwensrelatie-servicebeheer, die een aangepaste implementatie van de interface IApplicationTrustManager kan zijn. De standaardimplementatie van de vertrouwensrelatie-manager vraagt de gebruiker om toestemming om de toepassing te installeren en wilt uitbreiden, de machtigingen te krijgen tot de toepassing. Andere trust manager-implementaties kunnen andere gebruikerservaringen bieden. Een implementatie kan bijvoorbeeld een lijst van enterprise voor vertrouwde toepassingen in plaats van de gebruiker die informatie wordt gevraagd te controleren."
   example:
   - "The following example shows a simple implementation of IApplicationTrustManager.  \n  \n [!code-cs[System.Security.Policy.IApplicationTrustManager#1](~/add/codesnippet/csharp/t-system.security.policy_3_1.cs)]\n [!code-vb[System.Security.Policy.IApplicationTrustManager#1](~/add/codesnippet/visualbasic/t-system.security.policy_3_1.vb)]"
   syntax:
@@ -35,8 +35,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Determines whether an application should be executed and which set of permissions should be granted to it."
-  remarks: "The DetermineApplicationTrust method is called by the host to determine whether an application should be executed and which set of permissions it should be granted. DetermineApplicationTrust returns an <xref:System.Security.Policy.ApplicationTrust> object with a <xref:System.Security.Policy.ApplicationTrust.DefaultGrantSet%2A> property that contains a permission set representing the permissions to be granted to each assembly executing within the context of the application. The granted permissions do not apply to assemblies in the global assembly cache. The <xref:System.Security.Policy.ApplicationTrust> object also has an <xref:System.Security.Policy.ApplicationTrust.IsApplicationTrustedToRun%2A> property that the trust manager sets to indicate whether the application should be trusted. If the trust manager indicates that the application can be trusted, the host activates the application and grants its assemblies the set of permissions provided in the <xref:System.Security.Policy.ApplicationTrust> collection."
+  summary: "Bepaalt of een toepassing moet worden uitgevoerd en welke reeks machtigingen moet worden verleend."
+  remarks: "De methode DetermineApplicationTrust wordt aangeroepen door de host om te bepalen of een toepassing moet worden uitgevoerd en welke set machtigingen het moet worden verleend. DetermineApplicationTrust retourneert een <xref:System.Security.Policy.ApplicationTrust>object met een <xref:System.Security.Policy.ApplicationTrust.DefaultGrantSet%2A>eigenschap met een machtiging ingesteld voor de machtigingen om te worden toegekend aan elke assembly in de context van de toepassing wordt uitgevoerd.</xref:System.Security.Policy.ApplicationTrust.DefaultGrantSet%2A> </xref:System.Security.Policy.ApplicationTrust> De verleende machtigingen zijn niet van toepassing op assembly&quot;s in de global assemblycache. De <xref:System.Security.Policy.ApplicationTrust>-object heeft ook een <xref:System.Security.Policy.ApplicationTrust.IsApplicationTrustedToRun%2A>eigenschap die de manager van de vertrouwensrelatie wordt ingesteld om aan te geven of de toepassing vertrouwd worden moet.</xref:System.Security.Policy.ApplicationTrust.IsApplicationTrustedToRun%2A> </xref:System.Security.Policy.ApplicationTrust> Als de manager van de vertrouwensrelatie wordt aangegeven dat de toepassing vertrouwd worden kan, de host de toepassing wordt geactiveerd en de assembly&quot;s verleent de reeks machtigingen die zijn opgegeven in de <xref:System.Security.Policy.ApplicationTrust>verzameling.</xref:System.Security.Policy.ApplicationTrust>"
   example:
   - "The following example shows an implementation of the DetermineApplicationTrust method for a custom trust manager. This code example is part of a larger example provided for the <xref:System.Security.Policy.IApplicationTrustManager> interface.  \n  \n [!code-cs[System.Security.Policy.IApplicationTrustManager#2](~/add/codesnippet/csharp/24b6db65-f82b-47e4-ac93-_1.cs)]\n [!code-vb[System.Security.Policy.IApplicationTrustManager#2](~/add/codesnippet/visualbasic/24b6db65-f82b-47e4-ac93-_1.vb)]"
   syntax:
@@ -44,13 +44,13 @@ items:
     parameters:
     - id: activationContext
       type: System.ActivationContext
-      description: "The activation context for the application."
+      description: "De activeringscontext voor de toepassing."
     - id: context
       type: System.Security.Policy.TrustManagerContext
-      description: "The trust manager context for the application."
+      description: "De context van de manager vertrouwensrelatie voor de toepassing."
     return:
       type: System.Security.Policy.ApplicationTrust
-      description: "An object that contains security decisions about the application."
+      description: "Een object dat beveiliging beslissingen over de toepassing bevat."
   overload: System.Security.Policy.IApplicationTrustManager.DetermineApplicationTrust*
   exceptions: []
   platform:

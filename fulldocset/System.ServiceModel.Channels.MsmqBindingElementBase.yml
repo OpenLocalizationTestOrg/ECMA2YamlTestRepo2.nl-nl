@@ -28,7 +28,7 @@ items:
   nameWithType: MsmqBindingElementBase
   fullName: System.ServiceModel.Channels.MsmqBindingElementBase
   type: Class
-  summary: "The base class for <xref href=&quot;System.ServiceModel.MsmqIntegration.MsmqIntegrationBindingElement&quot;></xref> and <xref href=&quot;System.ServiceModel.Channels.MsmqTransportBindingElement&quot;></xref>."
+  summary: "De basisklasse voor <xref href=&quot;System.ServiceModel.MsmqIntegration.MsmqIntegrationBindingElement&quot;> </xref> en <xref href=&quot;System.ServiceModel.Channels.MsmqTransportBindingElement&quot;> </xref>."
   syntax:
     content: 'public abstract class MsmqBindingElementBase : System.ServiceModel.Channels.TransportBindingElement, System.ServiceModel.Channels.ITransactedBindingElement, System.ServiceModel.Description.IPolicyExportExtension, System.ServiceModel.Description.IWsdlExportExtension'
   inheritance:
@@ -52,13 +52,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Gets or sets a <xref:System.Uri> that identifies a custom dead-letter queue where expired messages or messages that failed to be delivered are sent."
-  remarks: "A dead-letter queue is a queue managed by the sending application&quot;s queue manager that stores messages that have failed to be delivered or have expired. The CustomDeadLetterQueue property allows you to specify a custom dead-letter queue rather than using the default system-wide dead-letter queue.       The URI that is specified by CustomDeadLetterQueue must use the `net.msmq scheme`.       If <xref:System.ServiceModel.Channels.MsmqBindingElementBase.DeadLetterQueue%2A> is set to <xref:System.ServiceModel.DeadLetterQueue> or <xref:System.ServiceModel.DeadLetterQueue>, then CustomDeadLetterQueue must be set to `null`. If CustomDeadLetterQueue is not `null`, then <xref:System.ServiceModel.Channels.MsmqBindingElementBase.DeadLetterQueue%2A> must be set to <xref:System.ServiceModel.DeadLetterQueue>.       The CustomDeadLetterQueue property can be set only on operating systems starting with [!INCLUDE[wv](~/add/includes/wv-md.md)]."
+  summary: "Opgehaald of ingesteld een <xref:System.Uri>waarmee u een aangepaste wachtrij met onbestelde waarnaar verlopen berichten of berichten die niet konden worden bezorgd worden verzonden.</xref:System.Uri>"
+  remarks: "Een wachtrij met onbestelbare berichten is een wachtrij beheerd door de betreffende toepassing wachtrijbeheer dat berichten worden opgeslagen die niet worden bezorgd of vervallen. De eigenschap CustomDeadLetterQueue kunt u een aangepaste wachtrij met onbestelbare berichten in plaats van met behulp van de wachtrij hele systeem onbestelbare opgeven.       De URI die is opgegeven door CustomDeadLetterQueue moet gebruikmaken van de `net.msmq scheme`.       Als <xref:System.ServiceModel.Channels.MsmqBindingElementBase.DeadLetterQueue%2A>is ingesteld op <xref:System.ServiceModel.DeadLetterQueue>of <xref:System.ServiceModel.DeadLetterQueue>, en vervolgens CustomDeadLetterQueue moet worden ingesteld op `null`.</xref:System.ServiceModel.DeadLetterQueue> </xref:System.ServiceModel.DeadLetterQueue> </xref:System.ServiceModel.Channels.MsmqBindingElementBase.DeadLetterQueue%2A> Als de CustomDeadLetterQueue is niet `null`, <xref:System.ServiceModel.Channels.MsmqBindingElementBase.DeadLetterQueue%2A>moet worden ingesteld op <xref:System.ServiceModel.DeadLetterQueue>.</xref:System.ServiceModel.DeadLetterQueue> </xref:System.ServiceModel.Channels.MsmqBindingElementBase.DeadLetterQueue%2A>       De eigenschap CustomDeadLetterQueue kan alleen worden ingesteld op besturingssystemen vanaf [!INCLUDE[wv](~/add/includes/wv-md.md)]."
   syntax:
     content: public Uri CustomDeadLetterQueue { get; set; }
     return:
       type: System.Uri
-      description: "The URI of the custom dead-letter queue."
+      description: "De URI van de aangepaste wachtrij met onbestelbare berichten."
   overload: System.ServiceModel.Channels.MsmqBindingElementBase.CustomDeadLetterQueue*
   exceptions: []
   platform:
@@ -75,18 +75,18 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Gets or sets the <xref href=&quot;System.ServiceModel.DeadLetterQueue&quot;></xref> setting for this binding."
-  remarks: "The dead-letter queue is a queue managed by the sending application&quot;s queue manager that stores messages that have failed to be delivered or have expired. The reasons that a message can fail to reach the receiving application include:      -   A transactional message is sent to a non-transactional queue.      -   A non-transactional message is sent to a transactional queue.      -   An unauthenticated message is sent to a queue that accepts only authenticated messages.      -   An unencrypted message is sent to a queue that accepts only encrypted messages.      -   The message expires before the message is delivered to a receiver.      -   The message storage quota of the target computer or the storage quota of the destination queue is exceeded, or there is no available storage space on the target computer when the message arrives.      -   The sender does not have the [access rights](http://go.microsoft.com/fwlink/?LinkId=96167) required to place the message in the destination queue.      -   The digital signature attached to the message is not valid.      -   An encrypted message cannot be decrypted by the destination queue manager.      -   The destination queue is purged or deleted before the message is retrieved."
+  summary: "Opgehaald of ingesteld de <xref href=&quot;System.ServiceModel.DeadLetterQueue&quot;> </xref> instellen voor deze binding."
+  remarks: "De wachtrij voor onbestelbare berichten is een wachtrij beheerd door de betreffende toepassing wachtrijbeheer dat berichten worden opgeslagen die niet worden bezorgd of vervallen. De oorzaken dat een bericht niet kan bereiken van de ontvangende toepassing zijn:-een transactioneel bericht is verzonden naar een niet-transactionele wachtrij.      -Een niet-transactionele bericht wordt verzonden naar een transactionele wachtrij.      -Een niet-geverifieerde bericht is verzonden naar een wachtrij alleen geverifieerde berichten accepteert.      -Een niet-versleutelde bericht is verzonden naar een wachtrij die alleen versleutelde berichten accepteert.      -Het bericht is verlopen voordat het bericht wordt geleverd aan een ontvanger.      -De bericht-opslagquotum van de doelcomputer of de opslaglimiet van de doelwachtrij is overschreden of er geen opslagruimte beschikbaar is op de doelcomputer wanneer het bericht aankomt.      -De afzender niet over de [toegangsrechten](http://go.microsoft.com/fwlink/?LinkId=96167) vereist voor het bericht in de doelwachtrij plaatsen.      -De digitale handtekening die is gekoppeld aan het bericht is niet geldig.      -Een gecodeerd bericht kan niet worden ontsleuteld door de wachtrijbeheerder van de bestemming.      -De doelwachtrij is opgeschoond of verwijderd voordat het bericht wordt opgehaald."
   syntax:
     content: public System.ServiceModel.DeadLetterQueue DeadLetterQueue { get; set; }
     return:
       type: System.ServiceModel.DeadLetterQueue
-      description: "The type of dead-letter queue to use, if any."
+      description: "Het type van de wachtrij voor onbestelbare berichten moet worden gebruikt, indien van toepassing."
   overload: System.ServiceModel.Channels.MsmqBindingElementBase.DeadLetterQueue*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The value is not within the range of values defined in <xref href=&quot;System.ServiceModel.DeadLetterQueue&quot;></xref>."
+    description: "De waarde valt niet binnen het bereik van waarden die zijn gedefinieerd in <xref href=&quot;System.ServiceModel.DeadLetterQueue&quot;> </xref>."
   platform:
   - net462
 - uid: System.ServiceModel.Channels.MsmqBindingElementBase.Durable
@@ -101,13 +101,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Gets or sets a value that specifies whether messages sent with this binding are durable or volatile."
-  remarks: "If this property is set to `true`, messages are durable; otherwise, messages are volatile. Durable messages are not lost if the queue manager crashes. The default value for this property is `true`. When exactly once assurances are required (<xref:System.ServiceModel.Channels.MsmqBindingElementBase.ExactlyOnce%2A> is set to `true`), this property must be set to `true`."
+  summary: "Opgehaald of ingesteld van een waarde die aangeeft of berichten die worden verzonden bij deze binding duurzaam of vluchtig zijn."
+  remarks: "Als deze eigenschap is ingesteld op `true`, berichten zijn duurzame, anders, berichten vluchtige zijn. Duurzame berichten zijn niet verloren als de wachtrijbeheerder vastloopt. De standaardwaarde voor deze eigenschap is `true`. Als slechts één keer garantie zijn vereist (<xref:System.ServiceModel.Channels.MsmqBindingElementBase.ExactlyOnce%2A> is ingesteld op `true`), moet deze eigenschap worden ingesteld op `true`.</xref:System.ServiceModel.Channels.MsmqBindingElementBase.ExactlyOnce%2A>"
   syntax:
     content: public bool Durable { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the messages processed by this binding are durable; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if they are volatile. The default is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de berichten die door deze binding duurzame; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> als ze vluchtige zijn. De standaardwaarde is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>."
   overload: System.ServiceModel.Channels.MsmqBindingElementBase.Durable*
   exceptions: []
   platform:
@@ -124,13 +124,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Gets or sets a value that specifies whether messages sent with this binding have exactly once assurances."
-  remarks: "ExactlyOnce, when set to `true`, indicates that Message Queuing (MSMQ) ensures that a sent message is delivered to the receiving message queue once and only once, and, if delivery fails, the message is sent to the dead-letter queue, depending on the `DeadLetterQueue` property setting. Setting ExactlyOnce to `true` requires the queue to be transactional."
+  summary: "Opgehaald of ingesteld van een waarde die aangeeft of berichten die worden verzonden bij deze binding slechts één keer garantie hebben."
+  remarks: "ExactlyOnce, als de waarde `true`, geeft aan dat Message Queuing (MSMQ) zorgt ervoor dat een verzonden bericht is geleverd aan de ontvangende berichtenwachtrij slechts eenmaal en, als mislukt de levering van het bericht is verzonden naar de wachtrij voor onbestelbare berichten, afhankelijk van de `DeadLetterQueue` instelling van de eigenschap. ExactlyOnce instelt op `true` vereist dat de wachtrij transactieberichten zijn."
   syntax:
     content: public bool ExactlyOnce { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if messages sent with this binding have exactly once assurances; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als berichten bij deze binding slechts één keer garantie hebben; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ServiceModel.Channels.MsmqBindingElementBase.ExactlyOnce*
   exceptions: []
   platform:
@@ -152,10 +152,10 @@ items:
     parameters:
     - id: context
       type: System.ServiceModel.Channels.BindingContext
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     return:
       type: T
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   overload: System.ServiceModel.Channels.MsmqBindingElementBase.GetProperty<T>*
   exceptions: []
   platform:
@@ -172,18 +172,18 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Gets or sets the maximum number of retry cycles to attempt delivery of messages to the receiving application."
-  remarks: "A retry cycle is when a message is transferred from the retry queue to the application queue to attempt delivery to the application. Messages are placed in the retry queue after failing a number of immediate retries as specified by <xref:System.ServiceModel.Configuration.MsmqBindingElementBase.ReceiveRetryCount%2A>. `MaxRetryCycles` specifies the number of retry cycles and does not include the initial attempt to send the message. An attempt to deliver a message is made a maximum of (1 + MaxRetryCycles) * (ReceiveRetryCount + 1) times. For example, if ReceiveRetryCount = 0 and MaxRetryCycles is 1, there is a maximum of two attempts to deliver the message. This property is used only on operating systems starting with [!INCLUDE[wv](~/add/includes/wv-md.md)]."
+  summary: "Opgehaald of ingesteld van het maximum aantal cycli voor opnieuw proberen om levering van berichten aan de ontvangende toepassing."
+  remarks: "Een cyclus opnieuw proberen is wanneer een bericht uit de wachtrij opnieuw wordt overgedragen aan de toepassingswachtrij probeert te bezorgen bij de toepassing. Berichten worden geplaatst in de wachtrij opnieuw lukt een aantal directe nieuwe pogingen zoals opgegeven door <xref:System.ServiceModel.Configuration.MsmqBindingElementBase.ReceiveRetryCount%2A>.</xref:System.ServiceModel.Configuration.MsmqBindingElementBase.ReceiveRetryCount%2A> `MaxRetryCycles`Hiermee geeft u het aantal nieuwe pogingen cycli en omvat niet de eerste poging om het bericht te verzenden. Een bericht te bezorgen wordt geprobeerd een maximum van (1 + MaxRetryCycles) * (ReceiveRetryCount + 1) tijden. Bijvoorbeeld, als ReceiveRetryCount = 0 en MaxRetryCycles 1, er is een maximum van twee pogingen om het bericht te leveren. Deze eigenschap wordt alleen gebruikt om besturingssystemen vanaf [!INCLUDE[wv](~/add/includes/wv-md.md)]."
   syntax:
     content: public int MaxRetryCycles { get; set; }
     return:
       type: System.Int32
-      description: "A value that specifies the number of retry cycles to attempt prior to transferring a message to the poison-message queue."
+      description: "Een waarde waarmee het aantal cycli nieuwe pogingen geprobeerd vóór de overdracht van een bericht naar de wachtrij poison-bericht."
   overload: System.ServiceModel.Channels.MsmqBindingElementBase.MaxRetryCycles*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The value is less than zero."
+    description: "De waarde kleiner is dan nul."
   platform:
   - net462
 - uid: System.ServiceModel.Channels.MsmqBindingElementBase.MsmqTransportSecurity
@@ -198,13 +198,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Gets the <xref href=&quot;System.ServiceModel.MsmqTransportSecurity&quot;></xref> that is associated with this binding element."
-  remarks: "<xref:System.ServiceModel.MsmqTransportSecurity> encapsulates the security settings for the MSMQ integration transport. The settings are the same for both the MSMQ integration and queued transports. <xref:System.ServiceModel.MsmqTransportSecurity> allows you to set the authentication mode, encryption algorithm, secure hash algorithm, and protection level."
+  summary: "Haalt de <xref href=&quot;System.ServiceModel.MsmqTransportSecurity&quot;> </xref> dat is gekoppeld aan dit bindingselement."
+  remarks: "<xref:System.ServiceModel.MsmqTransportSecurity>de beveiligingsinstellingen voor het transport van MSMQ-integratie ingekapseld.</xref:System.ServiceModel.MsmqTransportSecurity> De instellingen zijn hetzelfde voor de MSMQ-integratie en in de wachtrij transporten. <xref:System.ServiceModel.MsmqTransportSecurity>kunt u de verificatiemodus, versleutelingsalgoritme, veilige hash-algoritme en beveiligingsniveau instellen.</xref:System.ServiceModel.MsmqTransportSecurity>"
   syntax:
     content: public System.ServiceModel.MsmqTransportSecurity MsmqTransportSecurity { get; }
     return:
       type: System.ServiceModel.MsmqTransportSecurity
-      description: "The <xref href=&quot;System.ServiceModel.MsmqTransportSecurity&quot;></xref> that is associated with this binding element."
+      description: "De <xref href=&quot;System.ServiceModel.MsmqTransportSecurity&quot;> </xref> dat is gekoppeld aan dit bindingselement."
   overload: System.ServiceModel.Channels.MsmqBindingElementBase.MsmqTransportSecurity*
   exceptions: []
   platform:
@@ -221,12 +221,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Gets or sets a value that indicates whether the receive context behavior is requested."
+  summary: "Opgehaald of ingesteld van een waarde die aangeeft of het gedrag van de context ontvangen is aangevraagd."
   syntax:
     content: public bool ReceiveContextEnabled { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the binding supports receive contextbehavior ; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de binding ondersteunt ontvangen contextbehavior; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ServiceModel.Channels.MsmqBindingElementBase.ReceiveContextEnabled*
   exceptions: []
   platform:
@@ -243,18 +243,18 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Gets or sets an enumeration value that specifies how poison and other messages that cannot be dispatched are handled."
-  remarks: "When this property is set to <xref:System.ServiceModel.ReceiveErrorHandling>, the channel listener is faulted and a <xref:System.ServiceModel.ProtocolException> (wrapping a <xref:System.ServiceModel.MsmqPoisonMessageException>) is traced and thrown. The message is left in the queue and must be removed by some manual method. The <xref:System.ServiceModel.MsmqPoisonMessageException> contains a <xref:System.ServiceModel.MsmqPoisonMessageException.MessageLookupId%2A> that can be used to identify and manually remove the offending message from the poison-message queue.       When this property is set to <xref:System.ServiceModel.ReceiveErrorHandling>, the message is dropped.       When this property is set to <xref:System.ServiceModel.ReceiveErrorHandling>, a negative acknowledgment is sent to the client and the message is removed from the poison-message queue. This option is available only on Message Queuing 4.0.       When set to <xref:System.ServiceModel.ReceiveErrorHandling>, the message is moved to the final poison sub-queue. This option is available only on Message Queuing 4.0."
+  summary: "Opgehaald of ingesteld van een inventarisatiewaarde die hoe poison en andere aangeeft-kunnen niet worden verzonden berichten worden verwerkt."
+  remarks: "Als deze eigenschap is ingesteld op <xref:System.ServiceModel.ReceiveErrorHandling>, de kanaal-listener is mislukt en een <xref:System.ServiceModel.ProtocolException>(wrapping een <xref:System.ServiceModel.MsmqPoisonMessageException>) wordt getraceerd en geretourneerd.</xref:System.ServiceModel.MsmqPoisonMessageException> </xref:System.ServiceModel.ProtocolException> </xref:System.ServiceModel.ReceiveErrorHandling> Het bericht is achtergebleven in de wachtrij en een handmatige methode moet worden verwijderd. De <xref:System.ServiceModel.MsmqPoisonMessageException>bevat een <xref:System.ServiceModel.MsmqPoisonMessageException.MessageLookupId%2A>die kunnen worden gebruikt om te bepalen en de strijdige bericht handmatig verwijderen uit de wachtrij poison-bericht.</xref:System.ServiceModel.MsmqPoisonMessageException.MessageLookupId%2A> </xref:System.ServiceModel.MsmqPoisonMessageException>       Als deze eigenschap is ingesteld op <xref:System.ServiceModel.ReceiveErrorHandling>, het bericht is verwijderd.</xref:System.ServiceModel.ReceiveErrorHandling>       Als deze eigenschap is ingesteld op <xref:System.ServiceModel.ReceiveErrorHandling>, een negatieve bevestiging is verzonden naar de client en het bericht is verwijderd uit de wachtrij poison-bericht.</xref:System.ServiceModel.ReceiveErrorHandling> Deze optie is alleen beschikbaar voor Message Queuing 4.0.       Als de waarde <xref:System.ServiceModel.ReceiveErrorHandling>, het bericht is verplaatst naar de uiteindelijke verontreinigd onderliggende wachtrij.</xref:System.ServiceModel.ReceiveErrorHandling> Deze optie is alleen beschikbaar voor Message Queuing 4.0."
   syntax:
     content: public System.ServiceModel.ReceiveErrorHandling ReceiveErrorHandling { get; set; }
     return:
       type: System.ServiceModel.ReceiveErrorHandling
-      description: "A <xref href=&quot;System.ServiceModel.ReceiveErrorHandling&quot;></xref> value that specifies how poison and other messages that cannot be dispatched are handled."
+      description: "Een <xref href=&quot;System.ServiceModel.ReceiveErrorHandling&quot;> </xref> waarde die hoe poison en andere aangeeft-kunnen niet worden verzonden berichten worden verwerkt."
   overload: System.ServiceModel.Channels.MsmqBindingElementBase.ReceiveErrorHandling*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The value is not within the range of values defined in <xref href=&quot;System.ServiceModel.ReceiveErrorHandling&quot;></xref>."
+    description: "De waarde valt niet binnen het bereik van waarden die zijn gedefinieerd in <xref href=&quot;System.ServiceModel.ReceiveErrorHandling&quot;> </xref>."
   platform:
   - net462
 - uid: System.ServiceModel.Channels.MsmqBindingElementBase.ReceiveRetryCount
@@ -269,18 +269,18 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Gets or sets the maximum number of times the queue manager should attempt to send a message before transferring it to the retry queue."
-  remarks: "If the maximum number of delivery attempts is reached and the message is not accessed by the application, then the message is sent to a retry queue for redelivery at some later point in time. The amount of time before the message is transferred back to the sending queue is controlled by <xref:System.ServiceModel.Channels.MsmqBindingElementBase.RetryCycleDelay%2A>. If retry cycles reach the MaxRetryCycles value, then the message is dispatched based on the value of the <xref:System.ServiceModel.Channels.MsmqBindingElementBase.ReceiveErrorHandling%2A> property.       [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)] <xref:System.ServiceModel.Channels.MsmqBindingElementBase.MaxRetryCycles%2A> and <xref:System.ServiceModel.Channels.MsmqBindingElementBase.RetryCycleDelay%2A>."
+  summary: "Opgehaald of ingesteld van het maximum aantal keren dat de wachtrijbeheerder proberen moet een bericht te verzenden voor het overdragen naar de wachtrij opnieuw."
+  remarks: "Als het maximum aantal leveringspogingen is bereikt en het bericht is niet toegankelijk voor de toepassing, klikt u vervolgens het bericht is verzonden naar een wachtrij opnieuw voor redelivery op een later tijdstip in de tijd. De hoeveelheid tijd voordat het bericht wordt overgebracht naar de wachtrij verzenden wordt beheerd door <xref:System.ServiceModel.Channels.MsmqBindingElementBase.RetryCycleDelay%2A>.</xref:System.ServiceModel.Channels.MsmqBindingElementBase.RetryCycleDelay%2A> Als de cycli voor opnieuw proberen de MaxRetryCycles-waarde wordt bereikt, wordt het bericht is verzonden op basis van de waarde van de <xref:System.ServiceModel.Channels.MsmqBindingElementBase.ReceiveErrorHandling%2A>eigenschap.</xref:System.ServiceModel.Channels.MsmqBindingElementBase.ReceiveErrorHandling%2A>       [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)]<xref:System.ServiceModel.Channels.MsmqBindingElementBase.MaxRetryCycles%2A> and <xref:System.ServiceModel.Channels.MsmqBindingElementBase.RetryCycleDelay%2A>.</xref:System.ServiceModel.Channels.MsmqBindingElementBase.RetryCycleDelay%2A></xref:System.ServiceModel.Channels.MsmqBindingElementBase.MaxRetryCycles%2A>"
   syntax:
     content: public int ReceiveRetryCount { get; set; }
     return:
       type: System.Int32
-      description: "A value that specifies the maximum number of times the queue manager should attempt to send a message before transferring it to the retry queue."
+      description: "Een waarde waarmee het maximum aantal keren dat de wachtrijbeheerder moet een bericht te verzenden voor het overdragen naar de wachtrij opnieuw proberen."
   overload: System.ServiceModel.Channels.MsmqBindingElementBase.ReceiveRetryCount*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The value is less than zero."
+    description: "De waarde kleiner is dan nul."
   platform:
   - net462
 - uid: System.ServiceModel.Channels.MsmqBindingElementBase.RetryCycleDelay
@@ -295,18 +295,18 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Gets or sets a value that specifies how long to wait before attempting another retry cycle when attempting to deliver a message that could not be delivered."
-  remarks: "A single retry cycle makes repeated attempts to deliver a message to the receiving application (specified by the <xref:System.ServiceModel.Configuration.MsmqBindingElementBase.MaxRetryCycles%2A> property). If all attempts fail, the message is placed back in the retry queue. This property specifies how long the message remains in the retry queue before it is transferred to the application queue for another retry cycle. This property can only be used on operating systems starting with [!INCLUDE[wv](~/add/includes/wv-md.md)]."
+  summary: "Opgehaald of ingesteld van een waarde die hoe lang aangeeft moet worden gewacht voordat u probeert een ander opnieuw cyclus voor het afleveren van een bericht kan niet worden bezorgd."
+  remarks: "Een cyclus één opnieuw herhaalde pogingen tot het leveren van een bericht aan de ontvangende toepassing maakt (opgegeven door de <xref:System.ServiceModel.Configuration.MsmqBindingElementBase.MaxRetryCycles%2A>eigenschap).</xref:System.ServiceModel.Configuration.MsmqBindingElementBase.MaxRetryCycles%2A> Als alle pogingen mislukken, wordt het bericht wordt geplaatst in de wachtrij opnieuw. Deze eigenschap geeft aan hoe lang het bericht blijft in de wachtrij voor nieuwe pogingen voordat deze worden overgedragen naar de wachtrij voor de volgende cyclus van probeer het opnieuw. Deze eigenschap kan alleen worden gebruikt op besturingssystemen vanaf [!INCLUDE[wv](~/add/includes/wv-md.md)]."
   syntax:
     content: public TimeSpan RetryCycleDelay { get; set; }
     return:
       type: System.TimeSpan
-      description: "The <xref:System.TimeSpan> that specifies the interval of time to wait before starting the next cycle of delivery attempts to the receiving application. The default value is 30 (minutes)."
+      description: "De <xref:System.TimeSpan>die aangeeft dat de tijdsinterval moet worden gewacht voordat de volgende cyclus van bezorgingspogingen aan de ontvangende toepassing wordt gestart.</xref:System.TimeSpan> De standaardwaarde is 30 (minuten)."
   overload: System.ServiceModel.Channels.MsmqBindingElementBase.RetryCycleDelay*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The value is not infinite and larger than Int32.MaxValue milliseconds."
+    description: "De waarde is niet oneindig en groter zijn dan Int32.MaxValue milliseconden."
   platform:
   - net462
 - uid: System.ServiceModel.Channels.MsmqBindingElementBase.System#ServiceModel#Description#IPolicyExportExtension#ExportPolicy(System.ServiceModel.Description.MetadataExporter,System.ServiceModel.Description.PolicyConversionContext)
@@ -322,17 +322,17 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Exports custom policy assertions about bindings."
-  remarks: '[!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)] <xref:System.ServiceModel.Description.IPolicyExportExtension>.'
+  summary: "Aangepaste beleidsverklaringen over bindingen exporteert."
+  remarks: '[!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)]<xref:System.ServiceModel.Description.IPolicyExportExtension>.</xref:System.ServiceModel.Description.IPolicyExportExtension>'
   syntax:
     content: void IPolicyExportExtension.ExportPolicy (System.ServiceModel.Description.MetadataExporter exporter, System.ServiceModel.Description.PolicyConversionContext context);
     parameters:
     - id: exporter
       type: System.ServiceModel.Description.MetadataExporter
-      description: "A <xref href=&quot;System.ServiceModel.Description.MetadataExporter&quot;></xref> that you can use to modify the exporting process."
+      description: "Een <xref href=&quot;System.ServiceModel.Description.MetadataExporter&quot;> </xref> waarmee u kunt het exportproces wijzigen."
     - id: context
       type: System.ServiceModel.Description.PolicyConversionContext
-      description: "A <xref href=&quot;System.ServiceModel.Description.PolicyConversionContext&quot;></xref> that you can use to insert a custom policy assertion."
+      description: "Een <xref href=&quot;System.ServiceModel.Description.PolicyConversionContext&quot;> </xref> waarmee u kunt een aangepaste TransportBinding invoegen."
   overload: System.ServiceModel.Channels.MsmqBindingElementBase.System#ServiceModel#Description#IPolicyExportExtension#ExportPolicy*
   exceptions: []
   platform:
@@ -350,17 +350,17 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Writes custom Web Services Description Language (WSDL) elements into the generated WSDL for a contract."
-  remarks: '[!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)] <xref:System.ServiceModel.Description.IWsdlExportExtension>.'
+  summary: "Schrijft aangepaste beschrijving taal WSDL (Web Services)-elementen in de gegenereerde WSDL voor een contract."
+  remarks: '[!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)]<xref:System.ServiceModel.Description.IWsdlExportExtension>.</xref:System.ServiceModel.Description.IWsdlExportExtension>'
   syntax:
     content: void IWsdlExportExtension.ExportContract (System.ServiceModel.Description.WsdlExporter exporter, System.ServiceModel.Description.WsdlContractConversionContext context);
     parameters:
     - id: exporter
       type: System.ServiceModel.Description.WsdlExporter
-      description: "A <xref href=&quot;System.ServiceModel.Description.WsdlExporter&quot;></xref> that exports the contract information."
+      description: "Een <xref href=&quot;System.ServiceModel.Description.WsdlExporter&quot;> </xref> die exporteert de contractgegevens."
     - id: context
       type: System.ServiceModel.Description.WsdlContractConversionContext
-      description: "Provides mappings from exported WSDL elements to the contract description."
+      description: "Biedt de toewijzingen van de geëxporteerde WSDL-elementen in de contractbeschrijving."
   overload: System.ServiceModel.Channels.MsmqBindingElementBase.System#ServiceModel#Description#IWsdlExportExtension#ExportContract*
   exceptions: []
   platform:
@@ -378,17 +378,17 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Writes custom Web Services Description Language (WSDL) elements into the generated WSDL for an endpoint."
-  remarks: '[!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)] <xref:System.ServiceModel.Description.IWsdlExportExtension>.'
+  summary: "Schrijft aangepaste beschrijving taal WSDL (Web Services)-elementen in de gegenereerde WSDL voor een eindpunt."
+  remarks: '[!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)]<xref:System.ServiceModel.Description.IWsdlExportExtension>.</xref:System.ServiceModel.Description.IWsdlExportExtension>'
   syntax:
     content: void IWsdlExportExtension.ExportEndpoint (System.ServiceModel.Description.WsdlExporter exporter, System.ServiceModel.Description.WsdlEndpointConversionContext endpointContext);
     parameters:
     - id: exporter
       type: System.ServiceModel.Description.WsdlExporter
-      description: "A <xref href=&quot;System.ServiceModel.Description.WsdlExporter&quot;></xref> that exports the endpoint information."
+      description: "Een <xref href=&quot;System.ServiceModel.Description.WsdlExporter&quot;> </xref> die exporteert de eindpuntgegevens."
     - id: endpointContext
       type: System.ServiceModel.Description.WsdlEndpointConversionContext
-      description: "Provides mappings from exported WSDL elements to the endpoint description."
+      description: "Biedt de toewijzingen van de geëxporteerde WSDL-elementen in de beschrijving van het eindpunt."
   overload: System.ServiceModel.Channels.MsmqBindingElementBase.System#ServiceModel#Description#IWsdlExportExtension#ExportEndpoint*
   exceptions: []
   platform:
@@ -405,18 +405,18 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Gets or sets a value that specifies how long messages are valid. When this time has elapsed the message is placed in a dead-letter queue depending on the <xref uid=&quot;langword_csharp_DeadLetterQueue&quot; name=&quot;DeadLetterQueue&quot; href=&quot;&quot;></xref> setting."
-  remarks: "Queued applications work in a disconnected manner. This means that the sending and receiving applications may not be running at the same time; therefore, a message sent by the sending application may not be processed immediately by the receiving application. Some messages contain information that is valid only for a certain period of time. If such a message is not delivered within that period of time, it no longer contains useful information and should be dropped. This property enables you to specify a time limit for how long a message is kept prior to delivery to the application queue. If this time limit elapses prior to the message being delivered to the application queue, the message is placed in the dead-letter queue if one is available (determined by the <xref:System.ServiceModel.Configuration.MsmqBindingElementBase.DeadLetterQueue%2A> property); otherwise, the message is dropped."
+  summary: "Opgehaald of ingesteld van een waarde die aangeeft hoe lang de berichten zijn geldig. Als deze tijd is verstreken het bericht wordt geplaatst in een wachtrij met onbestelbare berichten afhankelijk van de <xref uid=&quot;langword_csharp_DeadLetterQueue&quot; name=&quot;DeadLetterQueue&quot; href=&quot;&quot;> </xref> instelling."
+  remarks: "In de wachtrij toepassingen in een niet-verbonden wijze werken. Dit betekent dat de verzendende en ontvangende toepassingen mogelijk niet uitgevoerd op hetzelfde moment; daarom een bericht wordt verzonden door de betreffende toepassing mogelijk niet worden verwerkt onmiddellijk door de ontvangende toepassing. Sommige berichten bevatten informatie die geldt alleen voor een bepaalde periode. Als het bericht is niet bezorgd binnen die periode, wordt deze niet langer bevat nuttige informatie en moet worden verwijderd. Deze eigenschap kunt u opgeven dat een tijdslimiet voor hoe lang een bericht bewaard voordat ze aan de wachtrij. Als deze limiet tijd voordat het bericht dat wordt geleverd aan de wachtrij verstrijkt, het bericht in de wachtrij voor onbestelbare berichten wordt geplaatst als deze beschikbaar is (bepaald door de <xref:System.ServiceModel.Configuration.MsmqBindingElementBase.DeadLetterQueue%2A>eigenschap); anders wordt het bericht is verwijderd.</xref:System.ServiceModel.Configuration.MsmqBindingElementBase.DeadLetterQueue%2A>"
   syntax:
     content: public TimeSpan TimeToLive { get; set; }
     return:
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> value that specifies how long messages are valid. The default value is 24 hours."
+      description: "Een <xref:System.TimeSpan>waarde die aangeeft hoe lang de berichten zijn geldig.</xref:System.TimeSpan> De standaardwaarde is 24 uur."
   overload: System.ServiceModel.Channels.MsmqBindingElementBase.TimeToLive*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The value is not infinite and larger than Int32.MaxValue milliseconds."
+    description: "De waarde is niet oneindig en groter zijn dan Int32.MaxValue milliseconden."
   platform:
   - net462
 - uid: System.ServiceModel.Channels.MsmqBindingElementBase.TransactedReceiveEnabled
@@ -431,13 +431,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Gets a value that specifies whether a transaction is required to receive messages with this binding."
-  remarks: "The dispatcher accesses this property to determine whether a transaction is required for a receive operation.       The queued transport in [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] returns `true` for this property if, and only if, <xref:System.ServiceModel.Channels.MsmqBindingElementBase.ExactlyOnce%2A> is set to `true`."
+  summary: "Haalt een waarde die aangeeft of een transactie vereist is voor het ontvangen van berichten bij deze binding."
+  remarks: "De dispatcher heeft toegang tot deze eigenschap om te bepalen of een transactie vereist voor een ontvangstbewerking is.       Transport in de wachtrij in [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] retourneert `true` voor deze eigenschap als en slechts als <xref:System.ServiceModel.Channels.MsmqBindingElementBase.ExactlyOnce%2A>is ingesteld op `true`.</xref:System.ServiceModel.Channels.MsmqBindingElementBase.ExactlyOnce%2A>"
   syntax:
     content: public bool TransactedReceiveEnabled { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the binding requires a transaction for a receive operation; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de binding is een transactie om een ontvangstbewerking vereist; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ServiceModel.Channels.MsmqBindingElementBase.TransactedReceiveEnabled*
   exceptions: []
   platform:
@@ -454,13 +454,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Gets or sets a value that enables or disables the Message Queuing (MSMQ) built-in message tracing facility."
-  remarks: "When <xref:System.ServiceModel.Configuration.MsmqBindingElementBase.UseMsmqTracing%2A> is set to `true`, the queued channel uses the Message Queuing built-in message tracing facility. Through this facility a report message is sent to a specified report queue each time a message enters and leaves a queue manager."
+  summary: "Opgehaald of ingesteld van een waarde waarmee of de Message Queuing (MSMQ) ingebouwde bericht tracering faciliteit uitgeschakeld."
+  remarks: "Wanneer <xref:System.ServiceModel.Configuration.MsmqBindingElementBase.UseMsmqTracing%2A>is ingesteld op `true`, het kanaal in de wachtrij maakt gebruik van de Message Queuing ingebouwde bericht tracering faciliteit.</xref:System.ServiceModel.Configuration.MsmqBindingElementBase.UseMsmqTracing%2A> Via deze functie een rapportbericht wordt verzonden naar een opgegeven rapportenwachtrij telkens wanneer een bericht binnenkomende en uitgaande van een wachtrij manager."
   syntax:
     content: public bool UseMsmqTracing { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if Message Queuing (MSMQ) built-in message tracing should be enabled; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als u tracering voor Message Queuing (MSMQ)-ingebouwde bericht moet worden ingeschakeld; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ServiceModel.Channels.MsmqBindingElementBase.UseMsmqTracing*
   exceptions: []
   platform:
@@ -477,13 +477,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Gets or sets a value that indicates whether copies of messages processed by this binding should be stored in the source journal queue."
-  remarks: "Queued applications that keep a record of messages that have left the source computer&quot;s outgoing queue can have the messages copied to a journal queue. After a message leaves the outgoing queue and an acknowledgment is received that the message was received on the destination computer, a copy of the message is kept in the sending computer&quot;s system journal queue."
+  summary: "Opgehaald of ingesteld van een waarde die aangeeft of kopieën van berichten die door deze binding worden verwerkt moeten worden opgeslagen in de wachtrij van het bronjournaal."
+  remarks: "In de wachtrij toepassingen die een record van berichten die uitgaande wachtrijen van de broncomputer uit houden, kunnen de berichten die zijn gekopieerd naar een logboekwachtrij hebben. Nadat een bericht de uitgaande wachtrij verlaat en een bevestiging is ontvangen dat het bericht is ontvangen op de doelcomputer, wordt een kopie van het bericht in de verzendende computer system logboekwachtrij bewaard."
   syntax:
     content: public bool UseSourceJournal { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if messages processed by this binding are copied to the source journal queue; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default value is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als berichten die door deze binding worden verwerkt, worden gekopieerd naar de wachtrij van het bronjournaal; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. De standaardwaarde is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ServiceModel.Channels.MsmqBindingElementBase.UseSourceJournal*
   exceptions: []
   platform:
@@ -500,18 +500,18 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Gets or sets a value that specifies the duration a message will be locked by the receive context feature."
-  remarks: "The default value is 5 minutes. Receive context locks the message for inspection until it is either consumed or released back onto the queue. The validity duration property specifies how long the message will remain locked by receive context before it is automatically released back onto the queue.      > [!IMPORTANT] >  If ValidityDuration expires for a message, any transaction that may be used for its processing will be aborted along with the workflow instance if the expiration occurs during the transaction."
+  summary: "Opgehaald of ingesteld van een waarde die opgeeft hoe lang die een bericht wordt vergrendeld door de functie receive-context."
+  remarks: "De standaardwaarde is 5 minuten. Context vergrendelingen het bericht voor inspectie totdat dit is verbruikt of terug naar de wachtrij uitgebracht. De eigenschap geeft u op hoe lang het bericht wordt vergrendeld blijven door geldigheidsduur ontvangen context voordat deze automatisch terug naar de wachtrij is uitgebracht.      > [!IMPORTANT] > Als ValidityDuration voor een bericht is verstreken, een transactie die kan worden gebruikt voor de verwerking wordt afgebroken samen met het workflowexemplaar als de vervaldatum plaatsvindt tijdens de transactie."
   syntax:
     content: public TimeSpan ValidityDuration { get; set; }
     return:
       type: System.TimeSpan
-      description: "The duration a message will be locked by the receive context feature."
+      description: "De duur van die een bericht wordt vergrendeld door de functie receive-context."
   overload: System.ServiceModel.Channels.MsmqBindingElementBase.ValidityDuration*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The value is less than zero or is larger than Int32.MaxValue."
+    description: "De waarde is kleiner dan nul of groter is dan Int32.MaxValue."
   platform:
   - net462
 references:

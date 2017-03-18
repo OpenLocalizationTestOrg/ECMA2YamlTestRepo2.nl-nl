@@ -14,8 +14,8 @@ items:
   nameWithType: IPermission
   fullName: System.Security.IPermission
   type: Interface
-  summary: "Defines methods implemented by permission types."
-  remarks: "Permissions in the common language runtime are objects that describe sets of operations that can be secured for specified resources. A permission object describes operations or access that is subject to security control; it does not represent access or a right to perform operations. Permissions are used by both application code and the .NET Framework security system in the following ways.      -   Code requests the permissions it needs in order to run.      -   The security system policy grants permissions to code in order for it to run.      -   Code demands that calling code has a permission.      -   Code overrides the security stack using assert/deny/permit-only.      > [!NOTE] >  If you write a new permission, you must implement this interface in your class.      > [!IMPORTANT] >  A permission can be accessed by multiple threads. When implementing this interface, you must guarantee that the <xref:System.Security.IPermission.IsSubsetOf%2A>, <xref:System.Security.IPermission.Intersect%2A>, <xref:System.Security.IPermission.Union%2A>, and <xref:System.Security.IPermission.Copy%2A> method implementations are thread safe."
+  summary: "Methoden die worden geïmplementeerd door machtigingstypen definieert."
+  remarks: "Machtigingen in de common language runtime zijn objecten die worden beschreven sets van bewerkingen die voor de opgegeven bronnen kunnen worden beveiligd. Een object machtiging beschrijft operations of toegang die is onderworpen aan beveiligingscontrole; Dit vormt geen toegang tot of het recht bewerkingen uit te voeren. Machtigingen worden gebruikt door de toepassingscode en het beveiligingssysteem .NET Framework op de volgende manieren.      -Code vraagt om de machtigingen nodig om te kunnen uitvoeren.      -Het beveiligingsbeleid van het systeem verleent machtigingen voor de code in om deze te worden uitgevoerd.      -Code vereist code aanroepen, heeft een machtiging.      -Code overschrijft de stack beveiliging assert / / toestaan alleen-weigeren.      > [!NOTE] > Als u een nieuwe machtiging schrijft, moet u deze interface implementeren in uw klasse.      > [!IMPORTANT] > Een machtiging kan worden geopend door meerdere threads. Bij het implementeren van deze interface, moet u garanderen dat de <xref:System.Security.IPermission.IsSubsetOf%2A>, <xref:System.Security.IPermission.Intersect%2A>, <xref:System.Security.IPermission.Union%2A>, en <xref:System.Security.IPermission.Copy%2A>implementaties van methoden zijn thread-veilig.</xref:System.Security.IPermission.Copy%2A> </xref:System.Security.IPermission.Union%2A> </xref:System.Security.IPermission.Intersect%2A> </xref:System.Security.IPermission.IsSubsetOf%2A>"
   example:
   - "This example shows how to define a permission class for use with code access security. All of the necessary permission interfaces are implemented.  \n  \n [!code-cs[Permission#1](~/add/codesnippet/csharp/t-system.security.ipermi_1.cs)]\n [!code-vb[Permission#1](~/add/codesnippet/visualbasic/t-system.security.ipermi_1.vb)]\n [!code-cpp[Permission#1](~/add/codesnippet/cpp/t-system.security.ipermi_1.cpp)]"
   syntax:
@@ -39,8 +39,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Creates and returns an identical copy of the current permission."
-  remarks: "A copy of a permission represents the same access to resources as the original permission."
+  summary: "Maakt en retourneert een identieke kopie van de huidige machtiging."
+  remarks: "Een kopie van een machtiging vertegenwoordigt dezelfde toegang tot bronnen als de oorspronkelijke machtiging."
   example:
   - "The following code example demonstrates implementing the Copy method. This code example is part of a larger example provided for the <xref:System.Security.IPermission> class.  \n  \n [!code-cs[Permission#4](~/add/codesnippet/csharp/m-system.security.ipermi_2_1.cs)]\n [!code-vb[Permission#4](~/add/codesnippet/visualbasic/m-system.security.ipermi_2_1.vb)]\n [!code-cpp[Permission#4](~/add/codesnippet/cpp/m-system.security.ipermi_2_1.cpp)]"
   syntax:
@@ -48,7 +48,7 @@ items:
     parameters: []
     return:
       type: System.Security.IPermission
-      description: "A copy of the current permission."
+      description: "Een kopie van de huidige machtiging."
   overload: System.Security.IPermission.Copy*
   exceptions: []
   platform:
@@ -65,8 +65,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Throws a <xref:System.Security.SecurityException> at run time if the security requirement is not met."
-  remarks: "This method is typically used by secure libraries to ensure that callers have permission to access a resource. For example, a file class in a secure class library calls <xref:System.Security.CodeAccessPermission.Demand%2A> for the necessary <xref:System.Security.Permissions.FileIOPermission> before performing a file operation requested by the caller.       Although the majority of the classes that implement this interface method satisfy the security criteria by performing a full stack walk, a stack walk is not necessarily performed. An example of an implementation that does not perform a stack walk is <xref:System.Security.Permissions.PrincipalPermission.Demand%2A?displayProperty=fullName>.       When a stack walk is performed, the permissions of the code that calls this method are not examined; the check begins from the immediate caller of that code and proceeds up the stack. The call stack is typically represented as growing down, so that methods higher in the call stack call methods lower in the call stack. <xref:System.Security.CodeAccessPermission.Demand%2A> succeeds only if no <xref:System.Security.SecurityException> is raised."
+  summary: "Genereert een <xref:System.Security.SecurityException>tijdens het uitvoeren als de beveiligingsvereiste niet voldaan is.</xref:System.Security.SecurityException>"
+  remarks: "Deze methode wordt doorgaans gebruikt door beveiligde bibliotheken om ervoor te zorgen dat aanroepfuncties gemachtigd voor toegang tot een bron. Een klasse bestand in een beveiligde class-bibliotheek wordt bijvoorbeeld <xref:System.Security.CodeAccessPermission.Demand%2A>voor de benodigde <xref:System.Security.Permissions.FileIOPermission>voordat u een bestandsbewerking aangevraagd door de aanroeper uitvoert.</xref:System.Security.Permissions.FileIOPermission> </xref:System.Security.CodeAccessPermission.Demand%2A>       Hoewel het merendeel van de klassen die deze interfacemethode implementeren voldoen aan de beveiligingscriteria door het uitvoeren van een volledige stackwalk, wordt niet per se een stackwalk uitgevoerd. Een voorbeeld van een implementatie die niet met een stackwalk werkt is <xref:System.Security.Permissions.PrincipalPermission.Demand%2A?displayProperty=fullName>.</xref:System.Security.Permissions.PrincipalPermission.Demand%2A?displayProperty=fullName>       Wanneer een stackwalk wordt uitgevoerd, worden de machtigingen van de code die deze methode aanroept niet onderzocht; de controle van de onmiddellijke aanroeper van die code begint en verloopt van de stack. De aanroepstack wordt doorgaans weergegeven als groeit, zodat de methoden die boven in de aanroepstack methoden lager in de aanroepstack aanroepen. <xref:System.Security.CodeAccessPermission.Demand%2A>lukt alleen als er geen <xref:System.Security.SecurityException>is gegenereerd.</xref:System.Security.SecurityException></xref:System.Security.CodeAccessPermission.Demand%2A>"
   syntax:
     content: public void Demand ();
     parameters: []
@@ -86,8 +86,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Creates and returns a permission that is the intersection of the current permission and the specified permission."
-  remarks: "The intersection of two permissions is a permission that describes the set of operations they both describe in common. Only a demand that passes both original permissions will pass the intersection.       The following statements are required to be true for all implementations of the Intersect method. `X` and `Y` represent <xref:System.Security.IPermission> object references that are not `null`.      -   `X`.Intersect(`X`) returns a value equal to `X`.      -   `X`.Intersect(`Y`) returns the same value as `Y`.Intersect(`X`).      -   `X`.Intersect(`null`) returns `null`."
+  summary: "Maakt en retourneert een machtiging die is het snijpunt van de huidige machtigingen en de opgegeven."
+  remarks: "Het snijpunt van twee machtigingen is een machtiging die wordt beschreven welke bewerkingen die ze beide gemeenschappelijk beschrijven. Alleen een vraag die wordt doorgegeven zowel oorspronkelijke machtigingen geeft het snijpunt.       De volgende instructies zijn vereist voor niet true zijn voor alle implementaties van de methode Intersect. `X`en `Y` vertegenwoordigen <xref:System.Security.IPermission>objectverwijzingen die niet `null`.</xref:System.Security.IPermission>      -   `X`. Intersect (`X`) retourneert een waarde gelijk is aan `X`.      -   `X`. Intersect (`Y`) retourneert dezelfde waarde als `Y`. Intersect (`X`).      -   `X`. Intersect (`null`) retourneert `null`."
   example:
   - "The following code example demonstrates implementing the Intersect method. This code example is part of a larger example provided for the <xref:System.Security.IPermission> class.  \n  \n [!code-cs[Permission#2](~/add/codesnippet/csharp/m-system.security.ipermi_3_1.cs)]\n [!code-vb[Permission#2](~/add/codesnippet/visualbasic/m-system.security.ipermi_3_1.vb)]\n [!code-cpp[Permission#2](~/add/codesnippet/cpp/m-system.security.ipermi_3_1.cpp)]"
   syntax:
@@ -95,15 +95,15 @@ items:
     parameters:
     - id: target
       type: System.Security.IPermission
-      description: "A permission to intersect with the current permission. It must be of the same type as the current permission."
+      description: "Een machtiging voor intersect met de huidige machtiging. Deze moeten van hetzelfde type als de huidige machtiging."
     return:
       type: System.Security.IPermission
-      description: "A new permission that represents the intersection of the current permission and the specified permission. This new permission is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the intersection is empty."
+      description: "Een nieuwe machtiging die het snijpunt van de huidige machtigingen en de opgegeven vertegenwoordigt. Deze nieuwe machtiging is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> als het snijpunt leeg is."
   overload: System.Security.IPermission.Intersect*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>target</code> parameter is not <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> and is not an instance of the same class as the current permission."
+    description: "De <code> target </code> parameter is niet <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> en is niet een exemplaar van dezelfde klasse als de huidige machtiging."
   platform:
   - net462
 - uid: System.Security.IPermission.IsSubsetOf(System.Security.IPermission)
@@ -118,7 +118,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Determines whether the current permission is a subset of the specified permission."
+  summary: "Hiermee wordt bepaald of de huidige machtiging een subset van de opgegeven machtiging."
   remarks: "The current permission is a subset of the specified permission if the current permission specifies a set of operations that is wholly contained by the specified permission. For example, a permission that represents access to C:\\example.txt is a subset of a permission that represents access to C:\\\\. If this method returns `true`, the current permission represents no more access to the protected resource than does the specified permission.  \n  \n The following statements are required to be true for all implementations of the IsSubsetOf method. `X`, `Y`, and `Z` represent <xref:System.Security.IPermission> objects that are not `null`.  \n  \n-   `X`.IsSubsetOf(`X`) returns `true`.  \n  \n-   `X`.IsSubsetOf(`Y`) returns the same value as `Y`.IsSubsetOf(`X`) if and only if `X` and `Y` represent the same set of permissions.  \n  \n-   If `X`.IsSubsetOf(`Y`) and `Y`.IsSubsetOf(`Z`) both return `true`, `X`.IsSubsetOf(`Z`) returns `true`.  \n  \n If `X` represents an empty <xref:System.Security.IPermission> object with a permission state of <xref:System.Security.Permissions.PermissionState> and `Y` represents an <xref:System.Security.IPermission> object that is `null`, `X`.IsSubsetOf(`Y`) returns `true`. If `Z` is also an empty permission, the compound set operation `X`.Union(Z).IsSubsetOf(Y) also returns `true` because the union of two empty permissions is an empty permission."
   example:
   - "The following code example demonstrates implementing the IsSubsetOf method. This code example is part of a larger example provided for the <xref:System.Security.IPermission> class.  \n  \n [!code-cs[Permission#3](~/add/codesnippet/csharp/m-system.security.ipermi_1_1.cs)]\n [!code-vb[Permission#3](~/add/codesnippet/visualbasic/m-system.security.ipermi_1_1.vb)]\n [!code-cpp[Permission#3](~/add/codesnippet/cpp/m-system.security.ipermi_1_1.cpp)]"
@@ -127,15 +127,15 @@ items:
     parameters:
     - id: target
       type: System.Security.IPermission
-      description: "A permission that is to be tested for the subset relationship. This permission must be of the same type as the current permission."
+      description: "Een machtiging die moet worden getest voor de relatie subset. Deze machtiging moet van hetzelfde type als de huidige machtiging."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the current permission is a subset of the specified permission; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de huidige machtiging een subset van de opgegeven machtiging is; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.IPermission.IsSubsetOf*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>target</code> parameter is not <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> and is not of the same type as the current permission."
+    description: "De <code> target </code> parameter is niet <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> en is niet van hetzelfde type als de huidige machtiging."
   platform:
   - net462
 - uid: System.Security.IPermission.Union(System.Security.IPermission)
@@ -150,8 +150,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Creates a permission that is the union of the current permission and the specified permission."
-  remarks: "The result of a call to Union is a permission that represents all the operations represented by both the current permission and the specified permission. Any demand that passes either permission passes their union.       The following statements are required to be true for all implementations of the Union method. `X` and `Y` represent <xref:System.Security.IPermission> objects that are not `null`.      -   `X`.Union(`X`) returns an object that has the same value as `X`.      -   `X`.Union(`Y`) returns an object that has the same value as the object returned by `Y`.Union(`X`).      -   `X`.Union(`null`) returns an object that has the same value as `X`."
+  summary: "Hiermee maakt u een machtiging die is de vereniging van de huidige machtigingen en de opgegeven."
+  remarks: "Het resultaat van een aanroep naar Union is een machtiging die staat voor alle bewerkingen die worden vertegenwoordigd door zowel de huidige machtigingen en de opgegeven. Elke vraag die beide toestemming geeft hun union is geslaagd.       De volgende instructies zijn vereist voor niet true zijn voor alle implementaties van de methode Union. `X`en `Y` vertegenwoordigen <xref:System.Security.IPermission>objecten die geen `null`.</xref:System.Security.IPermission>      -   `X`. Union (`X`) retourneert een object met dezelfde waarde als `X`.      -   `X`. Union (`Y`) retourneert een object met dezelfde waarde als het object dat wordt geretourneerd door `Y`. Union (`X`).      -   `X`. Union (`null`) retourneert een object met dezelfde waarde als `X`."
   example:
   - "The following code example demonstrates implementing the Union method. This code example is part of a larger example provided for the <xref:System.Security.IPermission> class.  \n  \n [!code-cs[Permission#5](~/add/codesnippet/csharp/m-system.security.ipermi_0_1.cs)]\n [!code-vb[Permission#5](~/add/codesnippet/visualbasic/m-system.security.ipermi_0_1.vb)]\n [!code-cpp[Permission#5](~/add/codesnippet/cpp/m-system.security.ipermi_0_1.cpp)]  \n  \n-"
   syntax:
@@ -159,15 +159,15 @@ items:
     parameters:
     - id: target
       type: System.Security.IPermission
-      description: "A permission to combine with the current permission. It must be of the same type as the current permission."
+      description: "Een machtiging te combineren met de huidige machtiging. Deze moeten van hetzelfde type als de huidige machtiging."
     return:
       type: System.Security.IPermission
-      description: "A new permission that represents the union of the current permission and the specified permission."
+      description: "Een nieuwe machtiging die de samenvoeging van de huidige machtigingen en de opgegeven vertegenwoordigt."
   overload: System.Security.IPermission.Union*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>target</code> parameter is not <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> and is not of the same type as the current permission."
+    description: "De <code> target </code> parameter is niet <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> en is niet van hetzelfde type als de huidige machtiging."
   platform:
   - net462
 references:
