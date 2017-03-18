@@ -20,8 +20,8 @@ items:
   nameWithType: Timer
   fullName: System.Windows.Forms.Timer
   type: Class
-  summary: "Implements a timer that raises an event at user-defined intervals. This timer is optimized for use in Windows Forms applications and must be used in a window."
-  remarks: "A Timer is used to raise an event at user-defined intervals. This Windows timer is designed for a single-threaded environment where UI threads are used to perform processing. It requires that the user code have a UI message pump available and always operate from the same thread, or marshal the call onto another thread.       When you use this timer, use the <xref:System.Windows.Forms.Timer.Tick> event to perform a polling operation or to display a splash screen for a specified period of time. Whenever the <xref:System.Windows.Forms.Timer.Enabled%2A> property is set to `true` and the <xref:System.Windows.Forms.Timer.Interval%2A> property is greater than zero, the <xref:System.Windows.Forms.Timer.Tick> event is raised at intervals based on the <xref:System.Windows.Forms.Timer.Interval%2A> property setting.       This class provides methods to set the interval, and to start and stop the timer.      > [!NOTE] >  The Windows Forms Timer component is single-threaded, and is limited to an accuracy of 55 milliseconds. If you require a multithreaded timer with greater accuracy, use the <xref:System.Timers.Timer> class in the <xref:System.Timers> namespace."
+  summary: "Implementeert een timer die een gebeurtenis op de gebruiker gedefinieerde intervallen veroorzaakt. Deze timer is geoptimaliseerd voor gebruik in Windows Forms-toepassingen en moet worden gebruikt in een venster."
+  remarks: "Een Timer wordt gebruikt voor het genereren van een gebeurtenis op de gebruiker gedefinieerde intervallen. Deze timer Windows is ontworpen voor een omgeving met één thread waar UI threads worden gebruikt om te verwerken. Hiervoor is dat de gebruikerscode een gebruikersinterface bericht pomp die beschikbaar zijn en altijd werken vanuit dezelfde thread of marshallen van de aanroep naar een andere thread.       Wanneer u deze timer, gebruik de <xref:System.Windows.Forms.Timer.Tick>gebeurtenis een pollingbewerking uit te voeren of een opstartscherm weergegeven voor een opgegeven periode.</xref:System.Windows.Forms.Timer.Tick> Wanneer de <xref:System.Windows.Forms.Timer.Enabled%2A>eigenschap is ingesteld op `true` en de <xref:System.Windows.Forms.Timer.Interval%2A>eigenschap groter is dan nul, de <xref:System.Windows.Forms.Timer.Tick>gebeurtenis is opgetreden met tussenpozen op basis van de <xref:System.Windows.Forms.Timer.Interval%2A>eigenschapsinstelling.</xref:System.Windows.Forms.Timer.Interval%2A> </xref:System.Windows.Forms.Timer.Tick> </xref:System.Windows.Forms.Timer.Interval%2A> </xref:System.Windows.Forms.Timer.Enabled%2A>       Deze klasse biedt methoden voor het interval instellen en voor het starten en stoppen van de timer.      > [!NOTE] > Onderdeel van het Windows Forms-Timer is één thread en is beperkt tot een nauwkeurigheid van 55 milliseconden. Als u een multithreaded timer nauwkeuriger vereist, gebruikt de <xref:System.Timers.Timer>-klasse in de <xref:System.Timers>naamruimte.</xref:System.Timers> </xref:System.Timers.Timer>"
   example:
   - "The following example implements a simple interval timer, which sets off an alarm every five seconds. When the alarm occurs, a <xref:System.Windows.Forms.MessageBox> displays a count of the number of times the alarm has started and prompts the user as to whether the timer should continue to run.  \n  \n [!code-cpp[Classic Timer Example 2#1](~/add/codesnippet/cpp/t-system.windows.forms.t_2_1.cpp)]\n [!code-vb[Classic Timer Example 2#1](~/add/codesnippet/visualbasic/t-system.windows.forms.t_2_1.vb)]\n [!code-cs[Classic Timer Example 2#1](~/add/codesnippet/csharp/t-system.windows.forms.t_2_1.cs)]"
   syntax:
@@ -65,8 +65,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Forms.Timer&quot;></xref> class."
-  remarks: "When a new timer is created, it is disabled; that is, <xref:System.Windows.Forms.Timer.Enabled%2A> is set to `false`. To enable the timer, call the <xref:System.Windows.Forms.Timer.Start%2A> method or set <xref:System.Windows.Forms.Timer.Enabled%2A> to `true`.       If the timer is disabled and the timer is out of scope, the timer will be disposed when garbage collection occurs. If the timer is enabled, even if it is out of scope, it is not subject to garbage collection."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Windows.Forms.Timer&quot;> </xref> klasse."
+  remarks: "Wanneer een nieuwe timer wordt gemaakt, is het uitgeschakeld; dat wil zeggen <xref:System.Windows.Forms.Timer.Enabled%2A>is ingesteld op `false`.</xref:System.Windows.Forms.Timer.Enabled%2A> Aanroepen om de timer, de <xref:System.Windows.Forms.Timer.Start%2A>methode of set <xref:System.Windows.Forms.Timer.Enabled%2A>naar `true`.</xref:System.Windows.Forms.Timer.Enabled%2A> </xref:System.Windows.Forms.Timer.Start%2A>       Als de timer is uitgeschakeld en de timer buiten het bereik valt, wordt de timer wordt verwijderd zodra de garbage collector. Als de timer wordt ingeschakeld, zelfs als deze buiten het bereik, is het niet onderworpen aan garbagecollection."
   syntax:
     content: public Timer ();
     parameters: []
@@ -86,14 +86,14 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Forms.Timer&quot;></xref> class together with the specified container."
-  remarks: "The <xref:System.Windows.Forms.Timer> constructor enables you to associate a <xref:System.Windows.Forms.Timer> with any <xref:System.ComponentModel.Container> object. By associating the <xref:System.Windows.Forms.Timer> like this, you hand over control of the lifetime of the <xref:System.Windows.Forms.Timer> to the <xref:System.ComponentModel.Container>. This can be useful if you use a number of components in your application and want to dispose of all of them simultaneously. For example, if you associate a <xref:System.Windows.Forms.ToolTip>, an <xref:System.Windows.Forms.ImageList>, and a <xref:System.Windows.Forms.Timer> with a <xref:System.ComponentModel.Container>, calling <xref:System.ComponentModel.Container.Dispose%2A> on the <xref:System.ComponentModel.Container> will force disposal of all of these components as well.       When a new timer is created, it is disabled; that is, <xref:System.Windows.Forms.Timer.Enabled%2A> is set to `false`. To enable the timer, call the <xref:System.Windows.Forms.Timer.Start%2A> method or set <xref:System.Windows.Forms.Timer.Enabled%2A> to `true`.       This instance will exist until its container releases it to garbage collection."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Windows.Forms.Timer&quot;> </xref> klasse samen met de opgegeven container."
+  remarks: "De <xref:System.Windows.Forms.Timer>constructor kunt u koppelt een <xref:System.Windows.Forms.Timer>met een <xref:System.ComponentModel.Container>object.</xref:System.ComponentModel.Container> </xref:System.Windows.Forms.Timer> </xref:System.Windows.Forms.Timer> Door het <xref:System.Windows.Forms.Timer>als volgt, wordt u via beheer van de levensduur van de <xref:System.Windows.Forms.Timer>aan de <xref:System.ComponentModel.Container>.</xref:System.ComponentModel.Container> </xref:System.Windows.Forms.Timer> </xref:System.Windows.Forms.Timer> koppelen Dit is handig als u een aantal onderdelen in uw toepassing gebruiken en wilt ze allemaal tegelijkertijd verwijderen. Bijvoorbeeld, als u koppelt een <xref:System.Windows.Forms.ToolTip>, een <xref:System.Windows.Forms.ImageList>, en een <xref:System.Windows.Forms.Timer>met een <xref:System.ComponentModel.Container>, aanroepende <xref:System.ComponentModel.Container.Dispose%2A>op de <xref:System.ComponentModel.Container>buitengebruikstelling van al deze onderdelen ook worden geforceerd.</xref:System.ComponentModel.Container> </xref:System.ComponentModel.Container.Dispose%2A> </xref:System.ComponentModel.Container> </xref:System.Windows.Forms.Timer> </xref:System.Windows.Forms.ImageList> </xref:System.Windows.Forms.ToolTip>       Wanneer een nieuwe timer wordt gemaakt, is het uitgeschakeld; dat wil zeggen <xref:System.Windows.Forms.Timer.Enabled%2A>is ingesteld op `false`.</xref:System.Windows.Forms.Timer.Enabled%2A> Aanroepen om de timer, de <xref:System.Windows.Forms.Timer.Start%2A>methode of set <xref:System.Windows.Forms.Timer.Enabled%2A>naar `true`.</xref:System.Windows.Forms.Timer.Enabled%2A> </xref:System.Windows.Forms.Timer.Start%2A>       Dit exemplaar wordt bestaan totdat de container releases deze garbagecollection."
   syntax:
     content: public Timer (System.ComponentModel.IContainer container);
     parameters:
     - id: container
       type: System.ComponentModel.IContainer
-      description: "An <xref href=&quot;System.ComponentModel.IContainer&quot;></xref> that represents the container for the timer."
+      description: "Een <xref href=&quot;System.ComponentModel.IContainer&quot;> </xref> die staat voor de container voor de timer."
   overload: System.Windows.Forms.Timer.#ctor*
   exceptions: []
   platform:
@@ -110,14 +110,14 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Disposes of the resources, other than memory, used by the timer."
-  remarks: "Call Dispose when you are finished using the timer. The Dispose method leaves the timer in an unusable state. After you call Dispose, you must release all references to the timer so the memory it was occupying can be reclaimed by garbage collection.      > [!NOTE] >  Always call Dispose before you release your last reference to the timer. Otherwise, the resources the timer is using will not be freed until garbage collection calls the destructor of the timer object."
+  summary: "Verwijdert de resources, dan gebruikt door de timer voor het geheugen."
+  remarks: "Dispose aanroepen wanneer u klaar bent met de timer. De methode Dispose laat de timer voor het in een onbruikbare status. Nadat u Dispose aangeroepen, moet u alle verwijzingen naar de timer voor het vrijgeven, zodat het geheugen dat deze is die kan worden vrijgemaakt door garbagecollection.      > [!NOTE] > Altijd aanroep Dispose voordat u uw laatste verwijzing naar de timer voor het vrijgeven. Anders wordt wordt de resources die van de timer gebruikmaakt pas vrijgemaakt als garbagecollection de destructor van het timerobject roept."
   syntax:
     content: protected override void Dispose (bool disposing);
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to release both managed and unmanaged resources. <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to release only the unmanaged resources."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>zowel beheerde als onbeheerde resources vrijgeven. <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>alleen de niet-beheerde resources vrijgeven."
   overload: System.Windows.Forms.Timer.Dispose*
   exceptions: []
   platform:
@@ -134,15 +134,15 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Gets or sets whether the timer is running."
-  remarks: "The timer is not subject to garbage collection when the value is `true`.       Calling the <xref:System.Windows.Forms.Timer.Start%2A> method is the same as setting Enabled to `true`. Likewise, calling the <xref:System.Windows.Forms.Timer.Stop%2A> method is the same as setting Enabled to `false`."
+  summary: "Opgehaald of ingesteld of de timer wordt uitgevoerd."
+  remarks: "De timer is niet beheerst door de garbage collector als de waarde `true`.       Het aanroepen van de <xref:System.Windows.Forms.Timer.Start%2A>methode is hetzelfde als ingeschakeld instellen op `true`.</xref:System.Windows.Forms.Timer.Start%2A> Evenzo aanroepen van de <xref:System.Windows.Forms.Timer.Stop%2A>methode is hetzelfde als ingeschakeld instellen op `false`.</xref:System.Windows.Forms.Timer.Stop%2A>"
   example:
   - "The following example implements a simple interval timer, which sets off an alarm every five seconds. When the alarm occurs, a <xref:System.Windows.Forms.MessageBox> displays a count of the number of times the alarm has started and prompts the user whether the timer should continue to run.  \n  \n [!code-cpp[Classic Timer Example 2#1](~/add/codesnippet/cpp/p-system.windows.forms.t_233_1.cpp)]\n [!code-vb[Classic Timer Example 2#1](~/add/codesnippet/visualbasic/p-system.windows.forms.t_233_1.vb)]\n [!code-cs[Classic Timer Example 2#1](~/add/codesnippet/csharp/p-system.windows.forms.t_233_1.cs)]"
   syntax:
     content: public virtual bool Enabled { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the timer is currently enabled; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de timer is momenteel ingeschakeld; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. De standaardwaarde is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Forms.Timer.Enabled*
   exceptions: []
   platform:
@@ -159,15 +159,15 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Gets or sets the time, in milliseconds, before the <xref href=&quot;System.Windows.Forms.Timer.Tick&quot;></xref> event is raised relative to the last occurrence of the <xref href=&quot;System.Windows.Forms.Timer.Tick&quot;></xref> event."
-  remarks: "To get the number of seconds in the interval, divide this number by 1,000."
+  summary: "Opgehaald of ingesteld van de tijd in milliseconden voordat de <xref href=&quot;System.Windows.Forms.Timer.Tick&quot;> </xref> gebeurtenis is opgetreden ten opzichte van het laatste exemplaar van de <xref href=&quot;System.Windows.Forms.Timer.Tick&quot;> </xref> gebeurtenis."
+  remarks: "Als u het aantal seconden in het interval, dit nummer door 1.000 te delen."
   example:
   - "The following code example implements a simple interval timer, which sets off an alarm every five seconds. When the alarm occurs, a <xref:System.Windows.Forms.MessageBox> displays a count of the number of times the alarm has started and prompts the user whether the timer should continue to run.  \n  \n [!code-cpp[Classic Timer Example 2#1](~/add/codesnippet/cpp/p-system.windows.forms.t_13_1.cpp)]\n [!code-vb[Classic Timer Example 2#1](~/add/codesnippet/visualbasic/p-system.windows.forms.t_13_1.vb)]\n [!code-cs[Classic Timer Example 2#1](~/add/codesnippet/csharp/p-system.windows.forms.t_13_1.cs)]"
   syntax:
     content: public int Interval { get; set; }
     return:
       type: System.Int32
-      description: "An <xref:System.Int32> specifying the number of milliseconds before the <xref href=&quot;System.Windows.Forms.Timer.Tick&quot;></xref> event is raised relative to the last occurrence of the <xref href=&quot;System.Windows.Forms.Timer.Tick&quot;></xref> event. The value cannot be less than one."
+      description: "Een <xref:System.Int32>waarmee het aantal milliseconden voordat de <xref href=&quot;System.Windows.Forms.Timer.Tick&quot;> </xref> gebeurtenis is opgetreden ten opzichte van het laatste exemplaar van de <xref href=&quot;System.Windows.Forms.Timer.Tick&quot;> </xref> gebeurtenis.</xref:System.Int32> De waarde mag niet minder dan één."
   overload: System.Windows.Forms.Timer.Interval*
   exceptions: []
   platform:
@@ -184,14 +184,14 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Raises the <xref href=&quot;System.Windows.Forms.Timer.Tick&quot;></xref> event."
-  remarks: "This method is called for each timer tick. It calls any methods that are added through <xref:System.Windows.Forms.Timer.Tick>. If you are inheriting from <xref:System.Windows.Forms.Timer>, you can override this method.       Raising an event invokes the event handler through a delegate. For more information, see [Handling and Raising Events](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Geeft de <xref href=&quot;System.Windows.Forms.Timer.Tick&quot;> </xref> gebeurtenis."
+  remarks: "Deze methode is aangeroepen voor elke timer maatstreepjes. Alle methoden die zijn toegevoegd via <xref:System.Windows.Forms.Timer.Tick>.</xref:System.Windows.Forms.Timer.Tick> ontvangt Als u van overneemt <xref:System.Windows.Forms.Timer>, kunt u deze methode overschrijven.</xref:System.Windows.Forms.Timer>       Een gebeurtenis te verhogen, roept de gebeurtenis-handler via een gemachtigde. Zie voor meer informatie [verwerking en gebeurtenissen verhogen](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: protected virtual void OnTick (EventArgs e);
     parameters:
     - id: e
       type: System.EventArgs
-      description: "An <xref:System.EventArgs> that contains the event data. This is always <xref:System.EventArgs>."
+      description: "Een <xref:System.EventArgs>waarin de gebeurtenisgegevens.</xref:System.EventArgs> Dit is altijd <xref:System.EventArgs>.</xref:System.EventArgs>"
   overload: System.Windows.Forms.Timer.OnTick*
   exceptions: []
   platform:
@@ -208,8 +208,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Starts the timer."
-  remarks: "You can also start the timer by setting the <xref:System.Windows.Forms.Timer.Enabled%2A> property to `true`."
+  summary: "De timer gestart."
+  remarks: "U kunt ook de timer starten door in te stellen de <xref:System.Windows.Forms.Timer.Enabled%2A>eigenschap `true`.</xref:System.Windows.Forms.Timer.Enabled%2A>"
   example:
   - "The following code example implements a simple interval timer, which sets off an alarm every five seconds. When the alarm occurs, a <xref:System.Windows.Forms.MessageBox> displays a count of the number of times the alarm has started and prompts the user whether the timer should continue to run.  \n  \n [!code-cpp[Classic Timer Example 2#1](~/add/codesnippet/cpp/m-system.windows.forms.t_9_1.cpp)]\n [!code-vb[Classic Timer Example 2#1](~/add/codesnippet/visualbasic/m-system.windows.forms.t_9_1.vb)]\n [!code-cs[Classic Timer Example 2#1](~/add/codesnippet/csharp/m-system.windows.forms.t_9_1.cs)]"
   syntax:
@@ -231,8 +231,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Stops the timer."
-  remarks: "You can also stop the timer by setting the <xref:System.Windows.Forms.Timer.Enabled%2A> property to `false`. A <xref:System.Windows.Forms.Timer> object may be enabled and disabled multiple times within the same application session.       Calling <xref:System.Windows.Forms.Timer.Start%2A> after you have disabled a <xref:System.Windows.Forms.Timer> by calling Stop will cause the <xref:System.Windows.Forms.Timer> to restart the interrupted interval. If your <xref:System.Windows.Forms.Timer> is set for a 5000-millisecond interval, and you call Stop at around 3000 milliseconds, calling <xref:System.Windows.Forms.Timer.Start%2A> will cause the <xref:System.Windows.Forms.Timer> to wait 5000 milliseconds before raising the <xref:System.Windows.Forms.Timer.Tick> event.      > [!NOTE] >  Calling Stop on any <xref:System.Windows.Forms.Timer> within a Windows Forms application can cause messages from other <xref:System.Windows.Forms.Timer> components in the application to be processed immediately, because all <xref:System.Windows.Forms.Timer> components operate on the main application thread. If you have two <xref:System.Windows.Forms.Timer> components, one set to 700 milliseconds and one set to 500 milliseconds, and you call Stop on the first <xref:System.Windows.Forms.Timer>, your application may receive an event callback for the second component first. If this proves problematic, consider using the <xref:System.Threading.Timer> class in the <xref:System.Threading> namespace instead."
+  summary: "Stopt de timer."
+  remarks: "U kunt ook de timer voorkomen door in te stellen de <xref:System.Windows.Forms.Timer.Enabled%2A>eigenschap `false`.</xref:System.Windows.Forms.Timer.Enabled%2A> Een <xref:System.Windows.Forms.Timer>object zijn ingeschakeld en worden meerdere keren binnen dezelfde toepassingssessie uitgeschakeld.</xref:System.Windows.Forms.Timer>       Het aanroepen van <xref:System.Windows.Forms.Timer.Start%2A>nadat u hebt uitgeschakeld een <xref:System.Windows.Forms.Timer>door aanroepen stoppen, zal de <xref:System.Windows.Forms.Timer>opnieuw opstarten van het interval onderbroken.</xref:System.Windows.Forms.Timer> </xref:System.Windows.Forms.Timer> </xref:System.Windows.Forms.Timer.Start%2A> Als uw <xref:System.Windows.Forms.Timer>is ingesteld voor een interval 5000 milliseconde, en u stoppen roept op ongeveer 3000 milliseconden aanroepen <xref:System.Windows.Forms.Timer.Start%2A>, wordt de <xref:System.Windows.Forms.Timer>5000 milliseconden wachttijd voordat het verhogen van de <xref:System.Windows.Forms.Timer.Tick>gebeurtenis.</xref:System.Windows.Forms.Timer.Tick> </xref:System.Windows.Forms.Timer> </xref:System.Windows.Forms.Timer.Start%2A> </xref:System.Windows.Forms.Timer>      > [!NOTE] > Aanroepen stoppen op een <xref:System.Windows.Forms.Timer>binnen een Windows Forms toepassing berichten kan veroorzaken van andere <xref:System.Windows.Forms.Timer>onderdelen in de toepassing moet onmiddellijk worden verwerkt omdat alle <xref:System.Windows.Forms.Timer>onderdelen werken op de hoofdtoepassing-thread.</xref:System.Windows.Forms.Timer> </xref:System.Windows.Forms.Timer> </xref:System.Windows.Forms.Timer> Als u twee hebt <xref:System.Windows.Forms.Timer>onderdelen, een ingesteld op 700 milliseconden en één set op 500 en u stoppen aanroepen voor de eerste <xref:System.Windows.Forms.Timer>, uw toepassing wordt een gebeurtenis retouraanroep voor het tweede onderdeel eerst.</xref:System.Windows.Forms.Timer> </xref:System.Windows.Forms.Timer> Als dit is uw bewijs problematisch, kunt u overwegen de <xref:System.Threading.Timer>-klasse in de <xref:System.Threading>naamruimte in plaats daarvan.</xref:System.Threading> </xref:System.Threading.Timer>"
   example:
   - "The following code example implements a simple interval timer, which sets off an alarm every five seconds. When the alarm occurs, a <xref:System.Windows.Forms.MessageBox> displays a count of the number of times the alarm has started and prompts the user whether the timer should continue to run.  \n  \n [!code-cpp[Classic Timer Example 2#1](~/add/codesnippet/cpp/m-system.windows.forms.t_32_1.cpp)]\n [!code-vb[Classic Timer Example 2#1](~/add/codesnippet/visualbasic/m-system.windows.forms.t_32_1.vb)]\n [!code-cs[Classic Timer Example 2#1](~/add/codesnippet/csharp/m-system.windows.forms.t_32_1.cs)]"
   syntax:
@@ -254,12 +254,12 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Gets or sets an arbitrary string representing some type of user state."
+  summary: "Opgehaald of ingesteld van een willekeurige tekenreeks die een type van de gebruikersstatus vertegenwoordigt."
   syntax:
     content: public object Tag { get; set; }
     return:
       type: System.Object
-      description: "An arbitrary string representing some type of user state."
+      description: "Een willekeurige tekenreeks die een type van de gebruikersstatus vertegenwoordigt."
   overload: System.Windows.Forms.Timer.Tag*
   exceptions: []
   platform:
@@ -276,15 +276,15 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Occurs when the specified timer interval has elapsed and the timer is enabled."
-  remarks: "Calling the <xref:System.Diagnostics.Debug.Assert%2A> method on the <xref:System.Diagnostics.Debug> class from within the Tick event may not behave as expected, as displaying the assertion dialog box may cause Windows to raise the Tick event repeatedly. We recommend that you refrain from testing assertions within this event, and use the <xref:System.Diagnostics.Debug.Write%2A>, <xref:System.Diagnostics.Debug.WriteIf%2A>, <xref:System.Diagnostics.Debug.WriteLine%2A>, or <xref:System.Diagnostics.Debug.WriteLineIf%2A> methods instead.       For more information about handling events, see [Handling and Raising Events](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Deze gebeurtenis treedt op wanneer de van de opgegeven TimerInterval is verstreken en de timer wordt ingeschakeld."
+  remarks: "Het aanroepen van de <xref:System.Diagnostics.Debug.Assert%2A>methode op de <xref:System.Diagnostics.Debug>klasse vanuit de gebeurtenis maatstreepjes werken niet zoals verwacht, als het weergeven van het dialoogvenster assertion vak Windows herhaaldelijk verhogen van de maatstreepjes gebeurtenis veroorzaken.</xref:System.Diagnostics.Debug> </xref:System.Diagnostics.Debug.Assert%2A> Het is raadzaam af van het testen van asserties binnen deze gebeurtenis te zien en gebruiken de <xref:System.Diagnostics.Debug.Write%2A>, <xref:System.Diagnostics.Debug.WriteIf%2A>, <xref:System.Diagnostics.Debug.WriteLine%2A>, of <xref:System.Diagnostics.Debug.WriteLineIf%2A>methoden in plaats daarvan.</xref:System.Diagnostics.Debug.WriteLineIf%2A> </xref:System.Diagnostics.Debug.WriteLine%2A> </xref:System.Diagnostics.Debug.WriteIf%2A> </xref:System.Diagnostics.Debug.Write%2A>       Zie voor meer informatie over het verwerken van gebeurtenissen [verwerking en gebeurtenissen verhogen](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following code example implements a simple interval timer, which sets off an alarm every five seconds. When the alarm occurs, a <xref:System.Windows.Forms.MessageBox> displays a count of the number of times the alarm has started and prompts the user whether the timer should continue to run.  \n  \n [!code-cpp[Classic Timer Example 2#1](~/add/codesnippet/cpp/e-system.windows.forms.t_22_1.cpp)]\n [!code-vb[Classic Timer Example 2#1](~/add/codesnippet/visualbasic/e-system.windows.forms.t_22_1.vb)]\n [!code-cs[Classic Timer Example 2#1](~/add/codesnippet/csharp/e-system.windows.forms.t_22_1.cs)]"
   syntax:
     content: public event EventHandler Tick;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -300,14 +300,14 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Returns a string that represents the <xref href=&quot;System.Windows.Forms.Timer&quot;></xref>."
-  remarks: "The ToString method returns a string that includes the value of the <xref:System.Windows.Forms.Timer.Interval%2A> property."
+  summary: "Retourneert een tekenreeks met de <xref href=&quot;System.Windows.Forms.Timer&quot;> </xref>."
+  remarks: "De methode ToString retourneert een tekenreeks met de waarde van de <xref:System.Windows.Forms.Timer.Interval%2A>eigenschap.</xref:System.Windows.Forms.Timer.Interval%2A>"
   syntax:
     content: public override string ToString ();
     parameters: []
     return:
       type: System.String
-      description: "A string that represents the current <xref href=&quot;System.Windows.Forms.Timer&quot;></xref>."
+      description: "Een tekenreeks met de huidige <xref href=&quot;System.Windows.Forms.Timer&quot;> </xref>."
   overload: System.Windows.Forms.Timer.ToString*
   exceptions: []
   platform:
