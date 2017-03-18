@@ -10,7 +10,7 @@ items:
   nameWithType: IObjectReference
   fullName: System.Runtime.Serialization.IObjectReference
   type: Interface
-  summary: "Indicates that the current interface implementer is a reference to another object."
+  summary: "Geeft aan dat de huidige interface implementeerder een verwijzing naar een ander object."
   remarks: ''
   example:
   - >-
@@ -37,8 +37,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "Returns the real object that should be deserialized, rather than the object that the serialized stream specifies."
-  remarks: "This method is useful in a remoting situation where you serialize a proxy-creator object, not an actual object. When the proxy-creator object is deserialized, deserialization calls its GetRealObject method. At this point, the proxy-creator object creates a new instance of the proxy object that refers back to the original actual object, perhaps on a remote computer. Finally, the proxy-creator object is discarded and reclaimed later by garbage collection.       For example, consider how <xref:System.Type> objects are serialized. Instead of transmitting the data from the <xref:System.Type> object, the system transmits a holder object with the name of the type object and information on the assembly where it is found in an object implementing <xref:System.Runtime.Serialization.IObjectReference>. When both the type name and assembly name are available, the deserialization infrastructure calls GetRealObject on the holder object that has been transmitted. This holder returns the <xref:System.Type> object that is inserted into the graph.       This method is protected by a <xref:System.Security.Permissions.SecurityAction?displayProperty=fullName> for the <xref:System.Security.Permissions.SecurityPermission> with the <xref:System.Security.Permissions.SecurityPermissionFlag?displayProperty=fullName> specified."
+  summary: "Retourneert het werkelijke object dat moet worden gedeserialiseerd in plaats van het object waarmee de geserialiseerde stroom."
+  remarks: "Deze methode is handig in een situatie met een externe communicatie waar het serialiseren van een proxy Maker-object, niet een werkelijke object. Wanneer de maker van de proxy-object wordt gedeserialiseerd, roept deserialisatie de GetRealObject-methode. De maker van de proxy-object maakt op dit moment een nieuw exemplaar van de proxyobject dat naar het oorspronkelijke object mogelijk op een externe computer terugverwijst. Ten slotte is de maker van de proxy-object verwijderd en later vrijgemaakt door garbagecollection.       Neem bijvoorbeeld hoe <xref:System.Type>objecten worden geserialiseerd.</xref:System.Type> In plaats van het verzenden van gegevens uit het <xref:System.Type>object, het systeem verzendt een houder-object met de naam van het object van het type en de informatie van de assembly waar deze zich in een object <xref:System.Runtime.Serialization.IObjectReference>.</xref:System.Runtime.Serialization.IObjectReference> implementeren</xref:System.Type> Wanneer de naam en de naam van assembly beschikbaar zijn, roept de deserialisatie-infrastructuur GetRealObject op het houder-object dat is verzonden. Deze houder retourneert de <xref:System.Type>-object dat is ingevoegd in de grafiek.</xref:System.Type>       Deze methode wordt beveiligd door een <xref:System.Security.Permissions.SecurityAction?displayProperty=fullName>voor de <xref:System.Security.Permissions.SecurityPermission>met de <xref:System.Security.Permissions.SecurityPermissionFlag?displayProperty=fullName>opgegeven.</xref:System.Security.Permissions.SecurityPermissionFlag?displayProperty=fullName> </xref:System.Security.Permissions.SecurityPermission> </xref:System.Security.Permissions.SecurityAction?displayProperty=fullName>"
   example:
   - >-
     [!code-cs[IObjectReference Interface Example#1](~/add/codesnippet/csharp/cd60c7d2-ba12-4220-8a1f-_1.cs)]
@@ -49,15 +49,15 @@ items:
     parameters:
     - id: context
       type: System.Runtime.Serialization.StreamingContext
-      description: "The <xref:System.Runtime.Serialization.StreamingContext> from which the current object is deserialized."
+      description: "De <xref:System.Runtime.Serialization.StreamingContext>van het huidige object is gedeserialiseerd.</xref:System.Runtime.Serialization.StreamingContext>"
     return:
       type: System.Object
-      description: "Returns the actual object that is put into the graph."
+      description: "Retourneert het werkelijke object dat in de grafiek geplaatst."
   overload: System.Runtime.Serialization.IObjectReference.GetRealObject*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the required permission. The call will not work on a medium trusted server."
+    description: "De aanroeper heeft niet de vereiste machtiging. De aanroep werkt niet op een gemiddeld vertrouwde server."
   platform:
   - net462
 references:

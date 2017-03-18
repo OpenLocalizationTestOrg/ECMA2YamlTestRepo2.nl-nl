@@ -12,8 +12,8 @@ items:
   nameWithType: IApplicationSettingsProvider
   fullName: System.Configuration.IApplicationSettingsProvider
   type: Interface
-  summary: "Defines extended capabilities for client-based application settings providers."
-  remarks: "The application settings architecture enables you to provide a custom storage mechanism for application settings by creating a custom settings provider, which is a class derived from <xref:System.Configuration.SettingsProvider>. Such a class contains the basic functionality for storing and retrieving properties. However, you can add additional standardized functionality by implementing the IApplicationSettingsProvider interface in the custom settings provider. This interface contains three methods that primarily enable the settings provider to more intelligently handle application version changes. Typically, the settings provider will store application settings for different versions of an application separately to anticipate the following circumstances:      -   Side-by-side execution of different versions of an application.      -   Retaining application settings when upgrading an application.      -   Resetting the application settings to their default values for the currently used version.       The <xref:System.Configuration.LocalFileSettingsProvider> class implements the IApplicationSettingsProvider interface. The same set of methods contained by IApplicationSettingsProvider is also found in the <xref:System.Configuration.ApplicationSettingsBase> class, enabling the establishment of a predefined communication channel between an application settings wrapper and its settings provider.      > [!NOTE] >  This interface is optional. If a provider does not implement this interface, the settings infrastructure will fail without notification if it attempts to access any of the methods defined by this interface."
+  summary: "Hiermee definieert u uitgebreide mogelijkheden voor providers van toepassing op basis van een client-instellingen."
+  remarks: "De architectuur van de instellingen voor toepassing kunt u een aangepaste opslagmechanisme voor toepassingsinstellingen door het maken van een aangepaste instellingen provider, waarmee een klasse is afgeleid van <xref:System.Configuration.SettingsProvider>.</xref:System.Configuration.SettingsProvider> opgeven Deze klasse bevat de basisfunctionaliteit voor het opslaan en ophalen van eigenschappen. U kunt echter aanvullende gestandaardiseerde functionaliteit toevoegen door het implementeren van de interface IApplicationSettingsProvider in de provider van aangepaste instellingen. Deze interface bevat drie methoden die voornamelijk in staat de provider van instellingen voor meer multiplext ingang versiewijzigingen in de toepassing stellen. Normaal gesproken de provider van instellingen toepassingsinstellingen voor verschillende versies van een toepassing afzonderlijk om te anticiperen op de volgende omstandigheden worden opgeslagen:-Side-by-side uitvoering van verschillende versies van een toepassing.      -Toepassingsinstellingen behouden bij het upgraden van een toepassing.      -Opnieuw instellen van de toepassingsinstellingen op de standaardwaarden voor de huidige gebruikte versie.       De <xref:System.Configuration.LocalFileSettingsProvider>klasse implementeert de interface IApplicationSettingsProvider.</xref:System.Configuration.LocalFileSettingsProvider> Dezelfde set van methoden die deel uitmaken van IApplicationSettingsProvider staat ook in de <xref:System.Configuration.ApplicationSettingsBase>klasse, het inschakelen van de inrichting van een vooraf gedefinieerde communicatiekanaal tussen een wrapper toepassing-instellingen en de instellingen-provider.</xref:System.Configuration.ApplicationSettingsBase>      > [!NOTE] > Deze interface is optioneel. Als een provider deze interface niet implementeren kan, mislukt de instellingen voor infrastructuur zonder melding als deze probeert te krijgen tot een van de methoden die door deze interface is gedefinieerd."
   syntax:
     content: public interface IApplicationSettingsProvider
   implements: []
@@ -31,20 +31,20 @@ items:
   assemblies:
   - System
   namespace: System.Configuration
-  summary: "Returns the value of the specified settings property for the previous version of the same application."
-  remarks: "You can use the GetPreviousVersion method in conjunction with the <xref:System.Configuration.IApplicationSettingsProvider.Upgrade%2A> method to migrate application settings during or after the installation of a new version of an application."
+  summary: "Retourneert de waarde van de eigenschap opgegeven instellingen voor de vorige versie van dezelfde toepassing."
+  remarks: "U kunt de methode GetPreviousVersion gebruiken in combinatie met de <xref:System.Configuration.IApplicationSettingsProvider.Upgrade%2A>methode voor het migreren van toepassingsinstellingen tijdens of na de installatie van een nieuwe versie van een toepassing.</xref:System.Configuration.IApplicationSettingsProvider.Upgrade%2A>"
   syntax:
     content: public System.Configuration.SettingsPropertyValue GetPreviousVersion (System.Configuration.SettingsContext context, System.Configuration.SettingsProperty property);
     parameters:
     - id: context
       type: System.Configuration.SettingsContext
-      description: "A <xref href=&quot;System.Configuration.SettingsContext&quot;></xref> describing the current application usage."
+      description: "Een <xref href=&quot;System.Configuration.SettingsContext&quot;> </xref> met een beschrijving van het huidige toepassingsgebruik."
     - id: property
       type: System.Configuration.SettingsProperty
-      description: "The <xref href=&quot;System.Configuration.SettingsProperty&quot;></xref> whose value is to be returned."
+      description: "De <xref href=&quot;System.Configuration.SettingsProperty&quot;> </xref> waarvan de waarde moet worden geretourneerd."
     return:
       type: System.Configuration.SettingsPropertyValue
-      description: "A <xref href=&quot;System.Configuration.SettingsPropertyValue&quot;></xref> containing the value of the specified property setting as it was last set in the previous version of the application; or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the setting cannot be found."
+      description: "Een <xref href=&quot;System.Configuration.SettingsPropertyValue&quot;> </xref> met de waarde van de instelling van de opgegeven eigenschap omdat deze laatste is ingesteld in de vorige versie van de toepassing; of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> als de instelling kan niet worden gevonden."
   overload: System.Configuration.IApplicationSettingsProvider.GetPreviousVersion*
   exceptions: []
   platform:
@@ -61,14 +61,14 @@ items:
   assemblies:
   - System
   namespace: System.Configuration
-  summary: "Resets the application settings associated with the specified application to their default values."
-  remarks: "The Reset method reinitializes the stored values of the specified application settings group. In contrast, <xref:System.Configuration.DefaultSettingValueAttribute> supplies a default value for a single settings property during property initialization, if it has no stored value.       The settings provider determines what reasonable defaults are for the specified group of application settings. For example, the implementation in <xref:System.Configuration.LocalFileSettingsProvider> resets user-scoped settings to their shared values in the `application.exe.config` file; in contrast, it leaves the application-scoped settings unchanged."
+  summary: "Hiermee stelt u de instellingen die zijn gekoppeld aan de opgegeven toepassing op hun standaardwaarden."
+  remarks: "De methode voor opnieuw instellen wordt opnieuw geïnitialiseerd met de opgeslagen waarden van de opgegeven instellingen van de toepassingsgroep. Daarentegen <xref:System.Configuration.DefaultSettingValueAttribute>levert een standaardwaarde voor een eigenschap van enkele instellingen tijdens de initialisatie van de eigenschap als er geen opgeslagen waarde heeft.</xref:System.Configuration.DefaultSettingValueAttribute>       De provider van instellingen bepaalt wat redelijke standaardinstellingen zijn voor de opgegeven groep van toepassingsinstellingen. Bijvoorbeeld, de implementatie in <xref:System.Configuration.LocalFileSettingsProvider>stelt instellingen gericht op de gebruiker naar de gedeelde waarden in de `application.exe.config` bestand; daarentegen de toepassingsbereik instellingen ongewijzigd laat.</xref:System.Configuration.LocalFileSettingsProvider>"
   syntax:
     content: public void Reset (System.Configuration.SettingsContext context);
     parameters:
     - id: context
       type: System.Configuration.SettingsContext
-      description: "A <xref href=&quot;System.Configuration.SettingsContext&quot;></xref> describing the current application usage."
+      description: "Een <xref href=&quot;System.Configuration.SettingsContext&quot;> </xref> met een beschrijving van het huidige toepassingsgebruik."
   overload: System.Configuration.IApplicationSettingsProvider.Reset*
   exceptions: []
   platform:
@@ -85,17 +85,17 @@ items:
   assemblies:
   - System
   namespace: System.Configuration
-  summary: "Indicates to the provider that the application has been upgraded. This offers the provider an opportunity to upgrade its stored settings as appropriate."
-  remarks: "The .NET Framework enables side-by-side installation and execution of different versions of the same application. The application settings provider stores the application settings for each version of an application separately to ensure isolation. However, you may want to migrate settings from the previous version of an application to the current one. To provide this migration functionality, use the Upgrade method, implemented in a class derived from <xref:System.Configuration.SettingsProvider>.       You can use the Upgrade method in conjunction with the <xref:System.Configuration.IApplicationSettingsProvider.GetPreviousVersion%2A> method to migrate application settings during or after the installation of a new version of an application.       This method should be suppressed for every application setting that has the <xref:System.Configuration.NoSettingsVersionUpgradeAttribute> is applied to it, or to the entire settings wrapper class, derived from <xref:System.Configuration.ApplicationSettingsBase>."
+  summary: "Hiermee wordt aangegeven met de provider de toepassing is bijgewerkt. Dit biedt een kans om de upgrade van de opgeslagen instellingen zo nodig de provider."
+  remarks: ".NET Framework kunnen side-by-side-installatie en uitvoering van verschillende versies van dezelfde toepassing. De provider van de instellingen toepassing slaat de toepassingsinstellingen voor elke versie van een toepassing afzonderlijk om isolatie. Daarom is het raadzaam om instellingen te migreren van de vorige versie van een toepassing in het huidige proces. Deze om migratiefunctionaliteit te bieden, gebruiken de upgrademethode, geïmplementeerd in een klasse die is afgeleid van <xref:System.Configuration.SettingsProvider>.</xref:System.Configuration.SettingsProvider>       U kunt de upgrademethode gebruiken in combinatie met de <xref:System.Configuration.IApplicationSettingsProvider.GetPreviousVersion%2A>methode voor het migreren van toepassingsinstellingen tijdens of na de installatie van een nieuwe versie van een toepassing.</xref:System.Configuration.IApplicationSettingsProvider.GetPreviousVersion%2A>       Deze methode moet worden onderdrukt voor elke toepassingsinstelling met de <xref:System.Configuration.NoSettingsVersionUpgradeAttribute>is toegepast, of op de hele wrapper-klasse, afgeleid van <xref:System.Configuration.ApplicationSettingsBase>.</xref:System.Configuration.ApplicationSettingsBase> </xref:System.Configuration.NoSettingsVersionUpgradeAttribute>"
   syntax:
     content: public void Upgrade (System.Configuration.SettingsContext context, System.Configuration.SettingsPropertyCollection properties);
     parameters:
     - id: context
       type: System.Configuration.SettingsContext
-      description: "A <xref href=&quot;System.Configuration.SettingsContext&quot;></xref> describing the current application usage."
+      description: "Een <xref href=&quot;System.Configuration.SettingsContext&quot;> </xref> met een beschrijving van het huidige toepassingsgebruik."
     - id: properties
       type: System.Configuration.SettingsPropertyCollection
-      description: "A <xref href=&quot;System.Configuration.SettingsPropertyCollection&quot;></xref> containing the settings property group whose values are to be retrieved."
+      description: "Een <xref href=&quot;System.Configuration.SettingsPropertyCollection&quot;> </xref> met de eigenschap instellingengroep waarvan de waarden moeten worden opgehaald."
   overload: System.Configuration.IApplicationSettingsProvider.Upgrade*
   exceptions: []
   platform:

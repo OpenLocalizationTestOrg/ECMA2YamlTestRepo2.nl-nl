@@ -23,8 +23,8 @@ items:
   nameWithType: SignerInfo
   fullName: System.Security.Cryptography.Pkcs.SignerInfo
   type: Class
-  summary: 'The SignerInfo class represents a signer associated with a <xref href=&quot;System.Security.Cryptography.Pkcs.SignedCms&quot;></xref> object that represents a CMS/PKCS #7 message.'
-  remarks: "The signatures represented by the SignerInfo class can be either over message content or a signature. The latter kind of signature is referred to as a *countersignature*.       This implementation of CMS/PKCS #7 supports only one level of countersignature.  That is, a signature can be signed, which forms a countersignature, but that countersignature cannot be signed again.       This class does not have a public constructor; therefore, it cannot be publicly instantiated. It is a read-only class accessible from the <xref:System.Security.Cryptography.Pkcs.SignedCms.SignerInfos%2A?displayProperty=fullName> property."
+  summary: 'De klasse SignerInfo vertegenwoordigt een ondertekenaar die zijn gekoppeld aan een <xref href=&quot;System.Security.Cryptography.Pkcs.SignedCms&quot;> </xref> -object met een CMS/PKCS #7-bericht.'
+  remarks: "De handtekeningen die wordt vertegenwoordigd door de klasse SignerInfo kunnen worden via de inhoud van het bericht of een handtekening. Het laatste soort handtekening wordt aangeduid als een *controlehandtekening*.       Deze implementatie van CMS/PKCS #7 ondersteunt slechts één niveau van controlehandtekening.  Dat wil zeggen, een handtekening kan worden ondertekend, die een controlehandtekening vormt, maar die controlehandtekening kan niet opnieuw worden ondertekend.       Deze klasse heeft geen openbare constructor; worden daarom deze kan niet openbaar gemaakt. Er is een alleen-lezen klasse die toegankelijk is vanaf de <xref:System.Security.Cryptography.Pkcs.SignedCms.SignerInfos%2A?displayProperty=fullName>eigenschap.</xref:System.Security.Cryptography.Pkcs.SignedCms.SignerInfos%2A?displayProperty=fullName>"
   syntax:
     content: public sealed class SignerInfo
   inheritance:
@@ -45,13 +45,13 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Pkcs
-  summary: "The Certificate property retrieves the signing certificate associated with the signer information."
-  remarks: "If the signing certificate is not included at signing time by using the <xref:System.Security.Cryptography.Pkcs.CmsSigner.IncludeOption%2A?displayProperty=fullName> property, then the certificate will not be returned."
+  summary: "De eigenschap certificaat haalt het handtekeningcertificaat die zijn gekoppeld aan de gegevens van de ondertekenaar."
+  remarks: "Als het handtekeningcertificaat niet opgenomen is op het tijdstip van handtekening met behulp van de <xref:System.Security.Cryptography.Pkcs.CmsSigner.IncludeOption%2A?displayProperty=fullName>eigenschap en vervolgens het certificaat wordt niet geretourneerd.</xref:System.Security.Cryptography.Pkcs.CmsSigner.IncludeOption%2A?displayProperty=fullName>"
   syntax:
     content: public System.Security.Cryptography.X509Certificates.X509Certificate2 Certificate { get; }
     return:
       type: System.Security.Cryptography.X509Certificates.X509Certificate2
-      description: "An <xref href=&quot;System.Security.Cryptography.X509Certificates.X509Certificate2&quot;></xref> object that represents the signing certificate."
+      description: "Een <xref href=&quot;System.Security.Cryptography.X509Certificates.X509Certificate2&quot;> </xref> object dat het handtekeningcertificaat vertegenwoordigt."
   overload: System.Security.Cryptography.Pkcs.SignerInfo.Certificate*
   exceptions: []
   platform:
@@ -68,8 +68,8 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Pkcs
-  summary: 'The CheckHash method verifies the data integrity of the CMS/PKCS #7 message signer information. CheckHash is a specialized method used in specific security infrastructure applications in which the subject uses the **HashOnly** member of the <xref href=&quot;System.Security.Cryptography.Pkcs.SubjectIdentifierType&quot;></xref> enumeration when setting up a <xref href=&quot;System.Security.Cryptography.Pkcs.CmsSigner&quot;></xref> object. CheckHash does not authenticate the signer information because this method does not involve verifying a digital signature. For general-purpose checking of the integrity and authenticity of CMS/PKCS #7 message signer information and countersignatures, use the &lt;xref:System.Security.Cryptography.Pkcs.SignerInfo.CheckSignature%28System.Boolean%29&gt; or &lt;xref:System.Security.Cryptography.Pkcs.SignerInfo.CheckSignature%28System.Security.Cryptography.X509Certificates.X509Certificate2Collection%2CSystem.Boolean%29&gt; methods.'
-  remarks: 'This method does not provide authentication of the CMS/PKCS #7 message signer information.'
+  summary: 'De methode CheckHash controleert of de integriteit van gegevens van de gegevens van de ondertekenaar CMS/PKCS #7-bericht. CheckHash is een speciale methode gebruikt in toepassingen met specifieke beveiligings-infrastructuur waarop het onderwerp gebruikt de **HashOnly** lid is van de <xref href=&quot;System.Security.Cryptography.Pkcs.SubjectIdentifierType&quot;> </xref> opsomming bij het instellen van een <xref href=&quot;System.Security.Cryptography.Pkcs.CmsSigner&quot;> </xref> object. CheckHash heeft niet de gegevens van de ondertekenaar worden geverifieerd omdat deze methode wordt geen gebruikgemaakt van een digitale handtekening gecontroleerd. Voor algemene controleren de integriteit en de echtheid van de ondertekenaar berichtinformatie CMS/PKCS #7- en controlehandtekeningen, gebruikt u de &lt;xref:System.Security.Cryptography.Pkcs.SignerInfo.CheckSignature%28System.Boolean%29&gt; of &lt;xref:System.Security.Cryptography.Pkcs.SignerInfo.CheckSignature%28System.Security.Cryptography.X509Certificates.X509Certificate2Collection%2CSystem.Boolean%29&gt; methoden.'
+  remarks: 'Deze methode biedt geen verificatie van de gegevens van de ondertekenaar CMS/PKCS #7-bericht.'
   syntax:
     content: public void CheckHash ();
     parameters: []
@@ -77,7 +77,7 @@ items:
   exceptions:
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "A cryptographic operation could not be completed."
+    description: "Een cryptografische bewerking kan niet worden voltooid."
   platform:
   - net462
 - uid: System.Security.Cryptography.Pkcs.SignerInfo.CheckSignature(System.Boolean)
@@ -92,25 +92,25 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Pkcs
-  summary: "The CheckSignature method verifies the digital signature of the message and, optionally, validates the certificate."
-  remarks: "This method throws an exception if the verification of the digital signature fails or any validation requirements are not met.       If more complex validation is required, the caller can specify that only the signature is verified and then use an <xref:System.Security.Cryptography.X509Certificates.X509Chain> object to perform custom validation."
+  summary: "De methode CheckSignature controleert of de digitale handtekening van het bericht en, desgewenst valideert het certificaat."
+  remarks: "Deze methode er een uitzondering gegenereerd als de verificatie van de digitale handtekening mislukt of niet aan de van validatievereisten wordt voldaan.       Als u complexere validatie is vereist, de aanroeper kunt opgeven dat alleen de handtekening wordt gecontroleerd en gebruik vervolgens een <xref:System.Security.Cryptography.X509Certificates.X509Chain>object aangepaste validatie uitvoeren.</xref:System.Security.Cryptography.X509Certificates.X509Chain>"
   syntax:
     content: public void CheckSignature (bool verifySignatureOnly);
     parameters:
     - id: verifySignatureOnly
       type: System.Boolean
-      description: "A bool value that specifies whether only the digital signature is verified. If `verifySignatureOnly` is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, only the signature is verified. If `verifySignatureOnly` is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>, the digital signature is verified, the certificate chain is validated, and the purposes of the certificates are validated. The purposes of the certificate are considered valid if the certificate has no key usage or if the key usage supports digital signature or nonrepudiation."
+      description: "Een Boole-waarde die aangeeft of alleen de digitale handtekening is geverifieerd. Als `verifySignatureOnly` is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>, alleen de handtekening is geverifieerd. Als `verifySignatureOnly` is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>, de digitale handtekening is geverifieerd, de certificaatketen is gevalideerd en de toepassing van de certificaten worden gevalideerd. De toepassing van het certificaat als geldig beschouwd als het certificaat geen gebruik van de sleutel heeft of als het sleutelgebruik digitale handtekening of niet-afwijzing ondersteunt."
   overload: System.Security.Cryptography.Pkcs.SignerInfo.CheckSignature*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "A null reference was passed to a method that does not accept it as a valid argument."
+    description: "Een null-verwijzing is doorgegeven aan een methode die wordt niet geaccepteerd als een ongeldig argument."
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "A cryptographic operation could not be completed."
+    description: "Een cryptografische bewerking kan niet worden voltooid."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "A method call was invalid for the object&quot;s current state."
+    description: "Een methodeaanroep van is ongeldig voor de huidige status van het object."
   platform:
   - net462
 - uid: System.Security.Cryptography.Pkcs.SignerInfo.CheckSignature(System.Security.Cryptography.X509Certificates.X509Certificate2Collection,System.Boolean)
@@ -125,28 +125,28 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Pkcs
-  summary: "The CheckSignature method verifies the digital signature of the message by using the specified collection of certificates and, optionally, validates the certificate."
-  remarks: "This method throws an exception if the verification of the digital signature fails or any validation requirements are not met.       If more complex validation is required, the caller can specify that only the signature is verified and then use an <xref:System.Security.Cryptography.X509Certificates.X509Chain> object to perform custom validation."
+  summary: "De methode CheckSignature controleert of de digitale handtekening van het bericht met behulp van de opgegeven verzameling van certificaten en eventueel valideert het certificaat."
+  remarks: "Deze methode er een uitzondering gegenereerd als de verificatie van de digitale handtekening mislukt of niet aan de van validatievereisten wordt voldaan.       Als u complexere validatie is vereist, de aanroeper kunt opgeven dat alleen de handtekening wordt gecontroleerd en gebruik vervolgens een <xref:System.Security.Cryptography.X509Certificates.X509Chain>object aangepaste validatie uitvoeren.</xref:System.Security.Cryptography.X509Certificates.X509Chain>"
   syntax:
     content: public void CheckSignature (System.Security.Cryptography.X509Certificates.X509Certificate2Collection extraStore, bool verifySignatureOnly);
     parameters:
     - id: extraStore
       type: System.Security.Cryptography.X509Certificates.X509Certificate2Collection
-      description: "An <xref href=&quot;System.Security.Cryptography.X509Certificates.X509Certificate2Collection&quot;></xref> object that can be used to validate the chain. If no additional certificates are to be used to validate the chain, use &lt;xref:System.Security.Cryptography.Pkcs.SignerInfo.CheckSignature%28System.Boolean%29&gt; instead of CheckSignature."
+      description: "Een <xref href=&quot;System.Security.Cryptography.X509Certificates.X509Certificate2Collection&quot;> </xref> -object dat kan worden gebruikt voor het valideren van de keten. Als er geen extra certificaten zijn moeten worden gebruikt voor het valideren van de keten, gebruikt u &lt;xref:System.Security.Cryptography.Pkcs.SignerInfo.CheckSignature%28System.Boolean%29&gt; in plaats van CheckSignature."
     - id: verifySignatureOnly
       type: System.Boolean
-      description: "A bool value that specifies whether only the digital signature is verified. If `verifySignatureOnly` is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, only the signature is verified. If `verifySignatureOnly` is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>, the digital signature is verified, the certificate chain is validated, and the purposes of the certificates are validated. The purposes of the certificate are considered valid if the certificate has no key usage or if the key usage supports digital signature or nonrepudiation."
+      description: "Een Boole-waarde die aangeeft of alleen de digitale handtekening is geverifieerd. Als `verifySignatureOnly` is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>, alleen de handtekening is geverifieerd. Als `verifySignatureOnly` is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>, de digitale handtekening is geverifieerd, de certificaatketen is gevalideerd en de toepassing van de certificaten worden gevalideerd. De toepassing van het certificaat als geldig beschouwd als het certificaat geen gebruik van de sleutel heeft of als het sleutelgebruik digitale handtekening of niet-afwijzing ondersteunt."
   overload: System.Security.Cryptography.Pkcs.SignerInfo.CheckSignature*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "A null reference was passed to a method that does not accept it as a valid argument."
+    description: "Een null-verwijzing is doorgegeven aan een methode die wordt niet geaccepteerd als een ongeldig argument."
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "A cryptographic operation could not be completed."
+    description: "Een cryptografische bewerking kan niet worden voltooid."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "A method call was invalid for the object&quot;s current state."
+    description: "Een methodeaanroep van is ongeldig voor de huidige status van het object."
   platform:
   - net462
 - uid: System.Security.Cryptography.Pkcs.SignerInfo.ComputeCounterSignature
@@ -161,8 +161,8 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Pkcs
-  summary: 'The ComputeCounterSignature method prompts the user to select a signing certificate, creates a countersignature, and adds the signature to the CMS/PKCS #7 message. Countersignatures are restricted to one level.'
-  remarks: "This implementation of CMS/PKCS #7 supports only one level of countersignature.  That is, a signature can be signed, which forms a countersignature, but that countersignature cannot be signed again.       This method displays a user interface in which you choose signers for this message. This requires that the current process is running in *user interactive mode*, meaning that the <xref:System.Environment.UserInteractive%2A?displayProperty=fullName> property is set to `true`. A process is normally in user interactive mode unless it is a service process or running inside a Web application.       Signers whose certificates meet the following conditions will be displayed in the list:      -   The certificate has an associated private key.      -   The certificate is within its validity period.      -   The certificate has no key usage or a key usage that supports digital signatures or nonrepudiation.       Signer certificates are chosen from the My store.      ## .NET Framework Security    The following permissions are required to display the user interface:      -   <xref:System.Security.Permissions.UIPermissionWindow?displayProperty=fullName>       The following permissions are required to access the signature key:      -   <xref:System.Security.Permissions.KeyContainerPermissionFlags?displayProperty=fullName>      -   <xref:System.Security.Permissions.KeyContainerPermissionFlags?displayProperty=fullName>"
+  summary: 'De methode ComputeCounterSignature vraagt de gebruiker een handtekeningcertificaat selecteren, maakt u een controlehandtekening en voegt de handtekening op het CMS/PKCS #7-bericht. Controlehandtekeningen zijn beperkt tot één niveau.'
+  remarks: "Deze implementatie van CMS/PKCS #7 ondersteunt slechts één niveau van controlehandtekening.  Dat wil zeggen, een handtekening kan worden ondertekend, die een controlehandtekening vormt, maar die controlehandtekening kan niet opnieuw worden ondertekend.       Een gebruikersinterface waarin u de gebruikers voor dit bericht wordt weergegeven. Dit is vereist dat het huidige proces wordt uitgevoerd in *gebruiker interactieve modus*, dit houdt die de <xref:System.Environment.UserInteractive%2A?displayProperty=fullName>eigenschap is ingesteld op `true`.</xref:System.Environment.UserInteractive%2A?displayProperty=fullName> Een proces is normaal gesproken in de interactieve gebruikersmodus tenzij het een serviceproces of in een webtoepassing die wordt uitgevoerd.       Gebruikers waarvan de certificaten voldoen aan de volgende voorwaarden wordt weergegeven in de lijst:-het certificaat heeft een bijbehorende persoonlijke sleutel.      -Het certificaat is binnen de geldigheidsperiode.      -Het certificaat heeft geen gebruik van de sleutel of een Sleutelgebruik die ondersteuning biedt voor digitale handtekeningen of niet-afwijzing.       Ondertekenaar certificaten worden gekozen vanaf de winkel.      ## .NET framework-beveiliging is de volgende machtigingen zijn vereist om de gebruikersinterface weer te geven:- <xref:System.Security.Permissions.UIPermissionWindow?displayProperty=fullName>de volgende machtigingen zijn vereist voor toegang tot de handtekeningsleutel:- <xref:System.Security.Permissions.KeyContainerPermissionFlags?displayProperty=fullName>- <xref:System.Security.Permissions.KeyContainerPermissionFlags?displayProperty=fullName></xref:System.Security.Permissions.KeyContainerPermissionFlags?displayProperty=fullName> </xref:System.Security.Permissions.KeyContainerPermissionFlags?displayProperty=fullName> </xref:System.Security.Permissions.UIPermissionWindow?displayProperty=fullName>"
   syntax:
     content: public void ComputeCounterSignature ();
     parameters: []
@@ -170,10 +170,10 @@ items:
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "A null reference was passed to a method that does not accept it as a valid argument."
+    description: "Een null-verwijzing is doorgegeven aan een methode die wordt niet geaccepteerd als een ongeldig argument."
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "A cryptographic operation could not be completed."
+    description: "Een cryptografische bewerking kan niet worden voltooid."
   platform:
   - net462
 - uid: System.Security.Cryptography.Pkcs.SignerInfo.ComputeCounterSignature(System.Security.Cryptography.Pkcs.CmsSigner)
@@ -188,22 +188,22 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Pkcs
-  summary: 'The ComputeCounterSignature method creates a countersignature by using the specified signer and adds the signature to the CMS/PKCS #7 message. Countersignatures are restricted to one level.'
-  remarks: "This implementation of CMS/PKCS #7 supports only one level of countersignature.  That is, a signature can be signed, which forms a countersignature, but that countersignature cannot be signed again.      ## .NET Framework Security    The following permissions are required to access the signature key:      -   <xref:System.Security.Permissions.KeyContainerPermissionFlags?displayProperty=fullName>      -   <xref:System.Security.Permissions.KeyContainerPermissionFlags?displayProperty=fullName>"
+  summary: 'De methode ComputeCounterSignature een controlehandtekening maakt met behulp van de opgegeven ondertekenaar en de handtekening toegevoegd aan het CMS/PKCS #7-bericht. Controlehandtekeningen zijn beperkt tot één niveau.'
+  remarks: "Deze implementatie van CMS/PKCS #7 ondersteunt slechts één niveau van controlehandtekening.  Dat wil zeggen, een handtekening kan worden ondertekend, die een controlehandtekening vormt, maar die controlehandtekening kan niet opnieuw worden ondertekend.      ## .NET framework-beveiliging is de volgende machtigingen zijn vereist voor toegang tot de handtekeningsleutel:- <xref:System.Security.Permissions.KeyContainerPermissionFlags?displayProperty=fullName>- <xref:System.Security.Permissions.KeyContainerPermissionFlags?displayProperty=fullName></xref:System.Security.Permissions.KeyContainerPermissionFlags?displayProperty=fullName> </xref:System.Security.Permissions.KeyContainerPermissionFlags?displayProperty=fullName>"
   syntax:
     content: public void ComputeCounterSignature (System.Security.Cryptography.Pkcs.CmsSigner signer);
     parameters:
     - id: signer
       type: System.Security.Cryptography.Pkcs.CmsSigner
-      description: "A <xref href=&quot;System.Security.Cryptography.Pkcs.CmsSigner&quot;></xref> object that represents the counter signer."
+      description: "Een <xref href=&quot;System.Security.Cryptography.Pkcs.CmsSigner&quot;> </xref> object dat de teller ondertekenaar vertegenwoordigt."
   overload: System.Security.Cryptography.Pkcs.SignerInfo.ComputeCounterSignature*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "A null reference was passed to a method that does not accept it as a valid argument."
+    description: "Een null-verwijzing is doorgegeven aan een methode die wordt niet geaccepteerd als een ongeldig argument."
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "A cryptographic operation could not be completed."
+    description: "Een cryptografische bewerking kan niet worden voltooid."
   platform:
   - net462
 - uid: System.Security.Cryptography.Pkcs.SignerInfo.CounterSignerInfos
@@ -218,13 +218,13 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Pkcs
-  summary: "The CounterSignerInfos property retrieves the set of counter signers associated with the signer information."
-  remarks: 'This implementation of CMS/PKCS #7 supports only one level of countersignature. That is, a signature can be signed, which forms a countersignature, but that countersignature cannot be signed again.'
+  summary: "De eigenschap CounterSignerInfos haalt de set prestatiemeteritems personen die zijn gekoppeld aan de gegevens van de ondertekenaar."
+  remarks: 'Deze implementatie van CMS/PKCS #7 ondersteunt slechts één niveau van controlehandtekening. Dat wil zeggen, een handtekening kan worden ondertekend, die een controlehandtekening vormt, maar die controlehandtekening kan niet opnieuw worden ondertekend.'
   syntax:
     content: public System.Security.Cryptography.Pkcs.SignerInfoCollection CounterSignerInfos { get; }
     return:
       type: System.Security.Cryptography.Pkcs.SignerInfoCollection
-      description: "A <xref href=&quot;System.Security.Cryptography.Pkcs.SignerInfoCollection&quot;></xref> collection that represents the counter signers for the signer information. If there are no counter signers, the property is an empty collection."
+      description: "Een <xref href=&quot;System.Security.Cryptography.Pkcs.SignerInfoCollection&quot;> </xref> collectie met de teller personen voor de gegevens van de ondertekenaar. Als er geen teller personen, is de eigenschap een lege verzameling."
   overload: System.Security.Cryptography.Pkcs.SignerInfo.CounterSignerInfos*
   exceptions: []
   platform:
@@ -241,12 +241,12 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Pkcs
-  summary: "The DigestAlgorithm property retrieves the <xref href=&quot;System.Security.Cryptography.Oid&quot;></xref> object that represents the hash algorithm used in the computation of the signatures."
+  summary: "De eigenschap DigestAlgorithm haalt de <xref href=&quot;System.Security.Cryptography.Oid&quot;> </xref> -object met de hash-algoritme dat in de berekening van de handtekeningen."
   syntax:
     content: public System.Security.Cryptography.Oid DigestAlgorithm { get; }
     return:
       type: System.Security.Cryptography.Oid
-      description: "An <xref href=&quot;System.Security.Cryptography.Oid&quot;></xref> object that represents the hash algorithm used with the signature."
+      description: "Een <xref href=&quot;System.Security.Cryptography.Oid&quot;> </xref> -object met de hash-algoritme dat met de handtekening."
   overload: System.Security.Cryptography.Pkcs.SignerInfo.DigestAlgorithm*
   exceptions: []
   platform:
@@ -263,18 +263,18 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Pkcs
-  summary: "The RemoveCounterSignature method removes the countersignature at the specified index of the <xref:System.Security.Cryptography.Pkcs.SignerInfo.CounterSignerInfos*> collection."
+  summary: "De methode RemoveCounterSignature verwijdert u de controlehandtekening bij de opgegeven index van de <xref:System.Security.Cryptography.Pkcs.SignerInfo.CounterSignerInfos*>verzameling.</xref:System.Security.Cryptography.Pkcs.SignerInfo.CounterSignerInfos*>"
   syntax:
     content: public void RemoveCounterSignature (int index);
     parameters:
     - id: index
       type: System.Int32
-      description: "The zero-based index of the countersignature to remove."
+      description: "De op nul gebaseerde index van de controlehandtekening te verwijderen."
   overload: System.Security.Cryptography.Pkcs.SignerInfo.RemoveCounterSignature*
   exceptions:
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "A cryptographic operation could not be completed."
+    description: "Een cryptografische bewerking kan niet worden voltooid."
   platform:
   - net462
 - uid: System.Security.Cryptography.Pkcs.SignerInfo.RemoveCounterSignature(System.Security.Cryptography.Pkcs.SignerInfo)
@@ -289,24 +289,24 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Pkcs
-  summary: "The RemoveCounterSignature method removes the countersignature for the specified <xref href=&quot;System.Security.Cryptography.Pkcs.SignerInfo&quot;></xref> object."
+  summary: "De methode RemoveCounterSignature verwijdert u de controlehandtekening voor het opgegeven <xref href=&quot;System.Security.Cryptography.Pkcs.SignerInfo&quot;> </xref> object."
   syntax:
     content: public void RemoveCounterSignature (System.Security.Cryptography.Pkcs.SignerInfo counterSignerInfo);
     parameters:
     - id: counterSignerInfo
       type: System.Security.Cryptography.Pkcs.SignerInfo
-      description: "A <xref href=&quot;System.Security.Cryptography.Pkcs.SignerInfo&quot;></xref> object that represents the countersignature being removed."
+      description: "Een <xref href=&quot;System.Security.Cryptography.Pkcs.SignerInfo&quot;> </xref> -object met de controlehandtekening wordt verwijderd."
   overload: System.Security.Cryptography.Pkcs.SignerInfo.RemoveCounterSignature*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "A null reference was passed to a method that does not accept it as a valid argument."
+    description: "Een null-verwijzing is doorgegeven aan een methode die wordt niet geaccepteerd als een ongeldig argument."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The value of an argument was outside the allowable range of values as defined by the called method."
+    description: "De waarde van een argument ligt buiten het toegestane bereik van waarden zoals gedefinieerd door de aangeroepen methode."
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "A cryptographic operation could not be completed."
+    description: "Een cryptografische bewerking kan niet worden voltooid."
   platform:
   - net462
 - uid: System.Security.Cryptography.Pkcs.SignerInfo.SignedAttributes
@@ -321,13 +321,13 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Pkcs
-  summary: "The SignedAttributes property retrieves the <xref href=&quot;System.Security.Cryptography.CryptographicAttributeObjectCollection&quot;></xref> collection of signed attributes that is associated with the signer information. Signed attributes are signed along with the rest of the message content."
-  remarks: "An example of a signed attribute that might be included in the <xref:System.Security.Cryptography.CryptographicAttributeObjectCollection> collection retrieved by the SignedAttributes property is the <xref:System.Security.Cryptography.Pkcs.Pkcs9SigningTime> signing time attribute.       Signed attributes are signed along with the rest of the <xref:System.Security.Cryptography.Pkcs.SignedCms> message content. This means that a party that successfully verifies the signature can have confidence that the contents of these attributes are authentic and have not been altered.       A <xref:System.Security.Cryptography.Pkcs.Pkcs9ContentType> object and a <xref:System.Security.Cryptography.Pkcs.Pkcs9MessageDigest> object will be automatically generated and placed in the SignedAttributes property whenever the <xref:System.Security.Cryptography.Pkcs.CmsSigner.SignedAttributes%2A?displayProperty=fullName> property for the corresponding signer is not empty."
+  summary: "De eigenschap SignedAttributes haalt de <xref href=&quot;System.Security.Cryptography.CryptographicAttributeObjectCollection&quot;> </xref> verzameling ondertekende kenmerken die is gekoppeld aan de gegevens van de ondertekenaar. Ondertekende kenmerken zijn samen met de rest van de inhoud van het bericht ondertekend."
+  remarks: "Een voorbeeld van een ondertekende-kenmerk dat kan worden opgenomen in de <xref:System.Security.Cryptography.CryptographicAttributeObjectCollection>verzameling opgehaald door de eigenschap SignedAttributes is de <xref:System.Security.Cryptography.Pkcs.Pkcs9SigningTime>tijd kenmerk ondertekening.</xref:System.Security.Cryptography.Pkcs.Pkcs9SigningTime> </xref:System.Security.Cryptography.CryptographicAttributeObjectCollection>       Ondertekende kenmerken zijn ondertekend samen met de rest van de <xref:System.Security.Cryptography.Pkcs.SignedCms>bericht inhoud.</xref:System.Security.Cryptography.Pkcs.SignedCms> Dit betekent dat een partij die met succes de handtekening verifieert kan vertrouwen dat de inhoud van deze kenmerken authentiek zijn en niet is gewijzigd.       Een <xref:System.Security.Cryptography.Pkcs.Pkcs9ContentType>object en een <xref:System.Security.Cryptography.Pkcs.Pkcs9MessageDigest>object automatisch gegenereerd en in de eigenschap SignedAttributes geplaatst wanneer de <xref:System.Security.Cryptography.Pkcs.CmsSigner.SignedAttributes%2A?displayProperty=fullName>eigenschap voor de bijbehorende ondertekenaar is niet leeg.</xref:System.Security.Cryptography.Pkcs.CmsSigner.SignedAttributes%2A?displayProperty=fullName> </xref:System.Security.Cryptography.Pkcs.Pkcs9MessageDigest> </xref:System.Security.Cryptography.Pkcs.Pkcs9ContentType>"
   syntax:
     content: public System.Security.Cryptography.CryptographicAttributeObjectCollection SignedAttributes { get; }
     return:
       type: System.Security.Cryptography.CryptographicAttributeObjectCollection
-      description: "A <xref href=&quot;System.Security.Cryptography.CryptographicAttributeObjectCollection&quot;></xref> collection that represents the signed attributes. If there are no signed attributes, the property is an empty collection."
+      description: "Een <xref href=&quot;System.Security.Cryptography.CryptographicAttributeObjectCollection&quot;> </xref> collectie met de ondertekende kenmerken. Als er geen kenmerken zijn ondertekend, is de eigenschap een lege verzameling."
   overload: System.Security.Cryptography.Pkcs.SignerInfo.SignedAttributes*
   exceptions: []
   platform:
@@ -344,12 +344,12 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Pkcs
-  summary: "The SignerIdentifier property retrieves the certificate identifier of the signer associated with the signer information."
+  summary: "De eigenschap SignerIdentifier haalt de certificaat-id van de ondertekenaar die zijn gekoppeld aan de gegevens van de ondertekenaar."
   syntax:
     content: public System.Security.Cryptography.Pkcs.SubjectIdentifier SignerIdentifier { get; }
     return:
       type: System.Security.Cryptography.Pkcs.SubjectIdentifier
-      description: "A <xref href=&quot;System.Security.Cryptography.Pkcs.SubjectIdentifier&quot;></xref> object that uniquely identifies the certificate associated with the signer information."
+      description: "Een <xref href=&quot;System.Security.Cryptography.Pkcs.SubjectIdentifier&quot;> </xref> -object dat een unieke identificatie van het certificaat dat is gekoppeld aan de gegevens van de ondertekenaar."
   overload: System.Security.Cryptography.Pkcs.SignerInfo.SignerIdentifier*
   exceptions: []
   platform:
@@ -366,13 +366,13 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Pkcs
-  summary: "The UnsignedAttributes property retrieves the <xref href=&quot;System.Security.Cryptography.CryptographicAttributeObjectCollection&quot;></xref> collection of unsigned attributes that is associated with the <xref href=&quot;System.Security.Cryptography.Pkcs.SignerInfo&quot;></xref> content. Unsigned attributes can be modified without invalidating the signature."
-  remarks: "Unsigned attributes are not signed along with the rest of the <xref:System.Security.Cryptography.Pkcs.SignedCms> message content. Even though a party successfully verifies the signature, the unsigned attributes may have been altered and should not be considered to have authenticity or integrity.       An example of an unsigned attribute that might be included in the <xref:System.Security.Cryptography.CryptographicAttributeObjectCollection> collection retrieved by the UnsignedAttributes property is a countersignature."
+  summary: "De eigenschap UnsignedAttributes haalt de <xref href=&quot;System.Security.Cryptography.CryptographicAttributeObjectCollection&quot;> </xref> verzameling van niet-ondertekende kenmerken die is gekoppeld aan de <xref href=&quot;System.Security.Cryptography.Pkcs.SignerInfo&quot;> </xref> inhoud. Niet-ondertekende kenmerken kunnen worden gewijzigd zonder de handtekening ongeldig te maken."
+  remarks: "Niet-ondertekende kenmerken zijn niet ondertekend samen met de rest van de <xref:System.Security.Cryptography.Pkcs.SignedCms>bericht inhoud.</xref:System.Security.Cryptography.Pkcs.SignedCms> Hoewel een partij is verifieert de handtekening, wordt de niet-ondertekende kenmerken is gewijzigd en mag niet worden beschouwd om echtheid of integriteit.       Een voorbeeld van een niet-ondertekende kenmerk dat kan worden opgenomen in de <xref:System.Security.Cryptography.CryptographicAttributeObjectCollection>verzameling opgehaald door de eigenschap UnsignedAttributes is een controlehandtekening.</xref:System.Security.Cryptography.CryptographicAttributeObjectCollection>"
   syntax:
     content: public System.Security.Cryptography.CryptographicAttributeObjectCollection UnsignedAttributes { get; }
     return:
       type: System.Security.Cryptography.CryptographicAttributeObjectCollection
-      description: "A <xref href=&quot;System.Security.Cryptography.CryptographicAttributeObjectCollection&quot;></xref> collection that represents the unsigned attributes. If there are no unsigned attributes, the property is an empty collection."
+      description: "Een <xref href=&quot;System.Security.Cryptography.CryptographicAttributeObjectCollection&quot;> </xref> verzameling die de niet-ondertekende kenmerken vertegenwoordigt. Als er geen niet-ondertekende kenmerken, is de eigenschap een lege verzameling."
   overload: System.Security.Cryptography.Pkcs.SignerInfo.UnsignedAttributes*
   exceptions: []
   platform:
@@ -389,13 +389,13 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography.Pkcs
-  summary: "The Version property retrieves the signer information version."
-  remarks: 'The version determines whether the message is a PKCS #7 message or a Cryptographic Message Syntax (CMS) message. CMS is a newer superset of PKCS #7.'
+  summary: "De eigenschap Version haalt de informatie ondertekenaar versie."
+  remarks: 'De versie bepaalt of het bericht een PKCS #7-bericht of een bericht Cryptographic Message-syntaxis (CMS is). CMS is een nieuwere hoofdverzameling van PKCS #7.'
   syntax:
     content: public int Version { get; }
     return:
       type: System.Int32
-      description: "An int value that specifies the signer information version."
+      description: "Een int-waarde waarmee de versie van de informatie ondertekenaar."
   overload: System.Security.Cryptography.Pkcs.SignerInfo.Version*
   exceptions: []
   platform:

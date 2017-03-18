@@ -13,8 +13,8 @@ items:
   nameWithType: ProviderBase
   fullName: System.Configuration.Provider.ProviderBase
   type: Class
-  summary: "Provides a base implementation for the extensible provider model."
-  remarks: "The provider model is intended to encapsulate all or part of the functionality of multiple ASP.NET features, such as membership, profiles, and protected configuration. It allows the developer to create supporting classes that provide multiple implementations of the encapsulated functionality. In addition, developers can write new features using the provider model. This can be an effective way to support multiple implementations of a feature&quot;s functionality without duplicating the feature code or recoding the application layer if the implementation method needs to be changed.       The ProviderBase class is simple, containing only a few basic methods and properties that are common to all providers. Feature-specific providers (such as <xref:System.Web.Security.MembershipProvider>) inherit from ProviderBase and establish the necessary methods and properties that the implementation-specific providers for that feature must support. Implementation-specific providers (such as <xref:System.Web.Security.SqlMembershipProvider>) inherit in turn from a feature-specific provider (in this case, <xref:System.Web.Security.MembershipProvider>).       The most important aspect of the provider model is that the implementation (for example, whether data is persisted as a text file or in a database) is abstracted from the application code. The type of the implementation-specific provider for the given feature is designated in a configuration file. The feature-level provider then reads in the type from the configuration file and acts as a factory to the feature code. The application developer can then use the feature classes in the application code. The implementation type can be swapped out in the configuration file, eliminating the need to rewrite the code to accommodate the different implementation methodology.       The providers included with ASP.NET are mostly abstractions of data persistence implementations for features like profiles or membership. However, this model can be applied to any other kind of feature functionality that could be abstracted and implemented in multiple ways."
+  summary: "Biedt een basisimplementatie voor het providermodel extensible."
+  remarks: "Het providermodel is bedoeld om inkapselen of een deel van de functionaliteit van meerdere ASP.NET-functies, zoals lidmaatschap, profielen en beveiligde configuratie. Hierdoor kan de ontwikkelaar ondersteunende klassen maken die meerdere implementaties van de ingekapselde functionaliteit bieden. Ontwikkelaars kunnen bovendien, nieuwe functies die gebruikmaken van de providermodel schrijven. Dit is een effectieve manier ter ondersteuning van meerdere implementaties van een functie functionaliteit zonder de code van de functie dupliceren of de toepassingslaag coderen als de implementatie-methode moet worden gewijzigd.       De klasse ProviderBase is eenvoudig, met slechts enkele eenvoudige methoden en eigenschappen die gemeenschappelijk voor alle providers zijn. Functiespecifieke providers (zoals <xref:System.Web.Security.MembershipProvider>) overnemen van ProviderBase en verbinding maken met de benodigde methoden en eigenschappen die de implementatie-providers voor deze functie moeten ondersteunen.</xref:System.Web.Security.MembershipProvider> Implementatie-providers (zoals <xref:System.Web.Security.SqlMembershipProvider>) op zijn beurt overnemen van een provider onderdeelspecifieke (in dit geval <xref:System.Web.Security.MembershipProvider>).</xref:System.Web.Security.MembershipProvider> </xref:System.Web.Security.SqlMembershipProvider>       De belangrijkste aspecten van het providermodel is dat de implementatie (bijvoorbeeld, of gegevens worden bewaard als een tekstbestand of in een database) is gescheiden van de toepassingscode. Het type van de implementatie-provider voor de opgegeven functie is aangewezen in een configuratiebestand. De provider functieniveau vervolgens in het type van het configuratiebestand leest en fungeert als een fabriek aan de functie-code. Vervolgens kunt ontwikkelaar van de toepassing de functie klassen gebruiken in de toepassingscode. Het implementatietype kan worden gewisseld in het configuratiebestand, hoeft u de code voor de andere implementatie-methode te herschrijven.       De opgenomen met ASP.NET-providers zijn voornamelijk abstracties van gegevens persistentie implementaties voor functies zoals of lidmaatschap van profielen. Dit model kan echter worden toegepast op een ander soort functionaliteit die kan worden gescheiden en geïmplementeerd op verschillende manieren."
   example:
   - For an example of how to use the ProviderBase class, see [Profile Provider Implementation Example](~/add/includes/ajax-current-ext-md.md).
   syntax:
@@ -37,7 +37,7 @@ items:
   assemblies:
   - System.Configuration
   namespace: System.Configuration.Provider
-  summary: "Initializes a new instance of the <xref href=&quot;System.Configuration.Provider.ProviderBase&quot;></xref> class."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Configuration.Provider.ProviderBase&quot;> </xref> klasse."
   syntax:
     content: protected ProviderBase ();
     parameters: []
@@ -57,13 +57,13 @@ items:
   assemblies:
   - System.Configuration
   namespace: System.Configuration.Provider
-  summary: "Gets a brief, friendly description suitable for display in administrative tools or other user interfaces (UIs)."
-  remarks: "If a configured provider does not supply a description, the value of the <xref:System.Configuration.Provider.ProviderBase.Name%2A> property is returned as a default."
+  summary: "Hiermee haalt een korte, beschrijvende beschrijving geschikt is voor weergave in de beheerprogramma&quot;s of andere gebruikersinterface (UI)."
+  remarks: "Als een geconfigureerde provider verschaft geen een beschrijving, de waarde van de <xref:System.Configuration.Provider.ProviderBase.Name%2A>eigenschap wordt geretourneerd als standaardwaarde.</xref:System.Configuration.Provider.ProviderBase.Name%2A>"
   syntax:
     content: public virtual string Description { get; }
     return:
       type: System.String
-      description: "A brief, friendly description suitable for display in administrative tools or other UIs."
+      description: "Een korte, beschrijvende beschrijving geschikt is voor weergave in de beheerprogramma&quot;s of andere UI."
   overload: System.Configuration.Provider.ProviderBase.Description*
   exceptions: []
   platform:
@@ -80,8 +80,8 @@ items:
   assemblies:
   - System.Configuration
   namespace: System.Configuration.Provider
-  summary: "Initializes the provider."
-  remarks: "The base class implementation internally tracks the number of times the provider&quot;s `Initialize` method has been called. If a provider is initialized more than once, an `InvalidOperationException` is thrown stating that the provider is already initialized.       Because most feature providers call Initialize prior to performing provider-specific initialization, this method is a central location for preventing double initialization."
+  summary: "Initialiseert de provider."
+  remarks: "De implementatie van de basisklasse intern houdt het aantal keren van de provider `Initialize` methode is aangeroepen. Als een provider is geïnitialiseerd, meer dan één keer een `InvalidOperationException` gegenereerd met de mededeling dat de provider is al geïnitialiseerd.       Omdat de meeste aanroep voor functie-providers initialiseren voordat u de initialisatie van de provider-specifieke uitvoert, is deze methode een centrale locatie voor het verhinderen van dubbele initialisatie."
   example:
   - For an example of how to use Initialize, see [Profile Provider Implementation Example](~/add/includes/ajax-current-ext-md.md).
   syntax:
@@ -89,21 +89,21 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The friendly name of the provider."
+      description: "De beschrijvende naam van de provider."
     - id: config
       type: System.Collections.Specialized.NameValueCollection
-      description: "A collection of the name/value pairs representing the provider-specific attributes specified in the configuration for this provider."
+      description: "Een verzameling van de naam/waarde-paren die de provider-specifieke kenmerken opgegeven in de configuratie voor deze provider vertegenwoordigt."
   overload: System.Configuration.Provider.ProviderBase.Initialize*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The name of the provider is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "De naam van de provider is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The name of the provider has a length of zero."
+    description: "De naam van de provider heeft een lengte van nul."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "An attempt is made to call Initialize on a provider after the provider has already been initialized."
+    description: "Een poging is gedaan Initialize is aangeroepen voor een provider nadat de provider is al geïnitialiseerd."
   platform:
   - net462
 - uid: System.Configuration.Provider.ProviderBase.Name
@@ -118,13 +118,13 @@ items:
   assemblies:
   - System.Configuration
   namespace: System.Configuration.Provider
-  summary: "Gets the friendly name used to refer to the provider during configuration."
-  remarks: 'The recommended pattern for this string is: [*Provider Creator*][*Implementation Type*][*Feature*]Provider. Although the <xref:System.Configuration.Provider.ProviderBase.Description%2A> property also provides a friendly description, the Name property is used as an identifier for the provider.'
+  summary: "Hiermee haalt u de beschrijvende naam die wordt gebruikt om te verwijzen naar de provider tijdens de configuratie."
+  remarks: 'Het aanbevolen patroon voor deze tekenreeks is: [*Provider Maker*] [*implementatietype*] [*functie*] Provider. Hoewel de <xref:System.Configuration.Provider.ProviderBase.Description%2A>eigenschap biedt ook een beschrijving, de eigenschap Name wordt gebruikt als een id voor de provider.</xref:System.Configuration.Provider.ProviderBase.Description%2A>'
   syntax:
     content: public virtual string Name { get; }
     return:
       type: System.String
-      description: "The friendly name used to refer to the provider during configuration."
+      description: "De beschrijvende naam die wordt gebruikt om te verwijzen naar de provider tijdens de configuratie."
   overload: System.Configuration.Provider.ProviderBase.Name*
   exceptions: []
   platform:

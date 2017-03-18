@@ -11,8 +11,8 @@ items:
   nameWithType: IComponentInitializer
   fullName: System.ComponentModel.Design.IComponentInitializer
   type: Interface
-  summary: "Provides a set of recommended default values during component creation."
-  remarks: "The IComponentInitializer interface can be implemented by any designer, which is a component that also implements <xref:System.ComponentModel.Design.IDesigner>, which receives a recommended set of default values for the component it is designing. IComponentInitializer is queried during new component creation. Recommended default values for the component&quot;s properties are passed in as name/value pairs in a dictionary.       This design provides two customization points: the toolbox item itself can be replaced or changed to perform custom actions, or the designer for a component can be changed to provide a custom action. A designer that implements IComponentInitializer should not depend on either of its methods—<xref:System.ComponentModel.Design.IComponentInitializer.InitializeNewComponent%2A> or <xref:System.ComponentModel.Design.IComponentInitializer.InitializeExistingComponent%2A>—being called, because toolbox items are not obligated to call these methods.       For an overview of creating design components, see [Extending Design-Time Support](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Biedt een set van aanbevolen standaardwaarden tijdens het maken van het onderdeel."
+  remarks: "De interface IComponentInitializer kan worden geïmplementeerd door een designer is een onderdeel dat ook <xref:System.ComponentModel.Design.IDesigner>, die een aanbevolen set van standaardwaarden voor het onderdeel deze ontwerpt ontvangt.</xref:System.ComponentModel.Design.IDesigner> IComponentInitializer wordt opgevraagd tijdens het maken van nieuwe onderdeel. Aanbevolen standaardwaarden voor de eigenschappen van het onderdeel worden doorgegeven als naam/waarde-paren in een woordenlijst.       Dit ontwerp biedt twee aanpassing punten: item in de werkset zelf kan worden vervangen of gewijzigd om aangepaste acties uitvoeren of de ontwerpfunctie voor een onderdeel om een aangepaste actie kan worden gewijzigd. Een ontwerpfunctie dat IComponentInitializer implementeert niet afhankelijk zijn van een van de bijbehorende methoden:<xref:System.ComponentModel.Design.IComponentInitializer.InitializeNewComponent%2A> of <xref:System.ComponentModel.Design.IComponentInitializer.InitializeExistingComponent%2A>— wordt aangeroepen, omdat de items in de werkset zijn niet verplicht om aan te roepen van deze methoden.</xref:System.ComponentModel.Design.IComponentInitializer.InitializeExistingComponent%2A> </xref:System.ComponentModel.Design.IComponentInitializer.InitializeNewComponent%2A>       Zie voor een overzicht van het maken van ontwerp onderdelen [uitbreiden ontwerptijd ondersteuning](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public interface IComponentInitializer
   implements: []
@@ -30,14 +30,14 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Restores an instance of a component to its default state."
-  remarks: "The InitializeExistingComponent method is called when a designer will re-initialize an existing component. For example, InitializeExistingComponent is commonly called after a drag-and-drop operation. The `defaultValues` parameter is a dictionary containing name/value pairs of default values that should be applied to properties of the associated component. This dictionary may be `null` if no default values have been specified.      > [!CAUTION] >  When implementing this method, generally you should not modify the component properties beyond those recommendations found in `defaultValue`. The existing component may already have had its properties set by the user or other design-time code."
+  summary: "Een exemplaar van een onderdeel worden teruggezet in de standaardstatus heeft."
+  remarks: "De methode InitializeExistingComponent wordt aangeroepen wanneer een ontwerpfunctie opnieuw van een bestaand onderdeel initialiseren wordt. InitializeExistingComponent heet bijvoorbeeld gewoonlijk nadat een bewerking slepen en neerzetten. De `defaultValues` parameter is een dictionary met naam/waardeparen met standaardwaarden die moeten worden toegepast op de eigenschappen van het bijbehorende onderdeel. Deze woordenlijst is mogelijk `null` als er geen standaardwaarden zijn opgegeven.      > [!CAUTION] > Bij het implementeren van deze methode, in het algemeen moet u niet wijzigen de onderdeeleigenschappen afgezien van deze aanbevelingen in `defaultValue`. Het bestaande onderdeel al had mogelijk de eigenschappen zijn ingesteld door de gebruiker of een andere code moment van ontwerp."
   syntax:
     content: public void InitializeExistingComponent (System.Collections.IDictionary defaultValues);
     parameters:
     - id: defaultValues
       type: System.Collections.IDictionary
-      description: "A dictionary of default property values, which are name/value pairs, with which to reset the component&quot;s state."
+      description: "Een woordenlijst met de naam/waarde-paren, waarmee de status van het onderdeel opnieuw instellen voor eigenschap-waarden van het standaard."
   overload: System.ComponentModel.Design.IComponentInitializer.InitializeExistingComponent*
   exceptions: []
   platform:
@@ -54,14 +54,14 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Initializes a new component using a set of recommended values."
-  remarks: "The InitializeNewComponent method is called after a new component is created. It is typically called by the toolbox item itself and is used to configure the component’s default values.       This dictionary may be `null` if no default values are specified. If the dictionary is `null`, the component properties should be left in their implicit default states."
+  summary: "Initialiseert een nieuw onderdeel met behulp van een set van de aanbevolen waarden."
+  remarks: "De methode InitializeNewComponent wordt aangeroepen nadat een nieuw onderdeel is gemaakt. Het doorgaans wordt aangeroepen door het item in de werkset zelf en wordt gebruikt voor het configureren van de standaardwaarden van het onderdeel.       Deze woordenlijst is mogelijk `null` als er geen standaardwaarden worden opgegeven. Als de woordenlijst `null`, de eigenschappen van onderdeel te laten de impliciete standaardwaarden hebben."
   syntax:
     content: public void InitializeNewComponent (System.Collections.IDictionary defaultValues);
     parameters:
     - id: defaultValues
       type: System.Collections.IDictionary
-      description: "A dictionary of default property values, which are name/value pairs, with which to initialize the component&quot;s state."
+      description: "Een woordenlijst met de naam/waardeparen, waarbij initialiseren van het onderdeel de status voor eigenschap-waarden van het standaard."
   overload: System.ComponentModel.Design.IComponentInitializer.InitializeNewComponent*
   exceptions: []
   platform:
