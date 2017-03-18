@@ -14,8 +14,8 @@ items:
   nameWithType: EntityState
   fullName: System.Data.EntityState
   type: Enum
-  summary: "The state of an entity object."
-  remarks: "The object context must know the state of an object to save changes back to the data source. <xref:System.Data.Objects.ObjectStateEntry> objects store EntityState information. The `SaveChanges` methods of the <xref:System.Data.Objects.ObjectContext> process entities that are attached to the context and update the data source depending on the EntityState of each object. For more information, see [Creating, Adding, Modifying, and Deleting Objects](http://msdn.microsoft.com/en-us/f76f1fad-c553-4b59-820b-89b3dec2fad1).       The state of objects inside an object context is managed by the <xref:System.Data.Objects.ObjectStateManager>. To find out the state of an object, call one of the following <xref:System.Data.Objects.ObjectStateManager> methods: <xref:System.Data.Objects.ObjectStateManager.TryGetObjectStateEntry%2A>, <xref:System.Data.Objects.ObjectStateManager.GetObjectStateEntry%2A>, or <xref:System.Data.Objects.ObjectStateManager.GetObjectStateEntries%2A>. The <xref:System.Data.Objects.ObjectStateEntry.State%2A> property of the <xref:System.Data.Objects.ObjectStateEntry> defines the state of the object."
+  summary: "De status van een entiteitsobject."
+  remarks: "De context van het object moet de status van een object wijzigingen opslaan in de gegevensbron weten. <xref:System.Data.Objects.ObjectStateEntry>objecten bevatten EntityState-informatie.</xref:System.Data.Objects.ObjectStateEntry> De `SaveChanges` methoden van de <xref:System.Data.Objects.ObjectContext>entiteiten die zijn gekoppeld aan de context en bijwerken van de gegevensbron, afhankelijk van de EntityState van elk object worden verwerkt.</xref:System.Data.Objects.ObjectContext> Zie voor meer informatie [maken, toevoegen, wijzigen en verwijderen van objecten](http://msdn.microsoft.com/en-us/f76f1fad-c553-4b59-820b-89b3dec2fad1).       De status van objecten binnen de ObjectContext van een wordt beheerd door de <xref:System.Data.Objects.ObjectStateManager>.</xref:System.Data.Objects.ObjectStateManager> Voor meer informatie over de status van een object, een van de volgende aanroepen <xref:System.Data.Objects.ObjectStateManager>methoden: <xref:System.Data.Objects.ObjectStateManager.TryGetObjectStateEntry%2A>, <xref:System.Data.Objects.ObjectStateManager.GetObjectStateEntry%2A>, of <xref:System.Data.Objects.ObjectStateManager.GetObjectStateEntries%2A>.</xref:System.Data.Objects.ObjectStateManager.GetObjectStateEntries%2A> </xref:System.Data.Objects.ObjectStateManager.GetObjectStateEntry%2A> </xref:System.Data.Objects.ObjectStateManager.TryGetObjectStateEntry%2A> </xref:System.Data.Objects.ObjectStateManager> De <xref:System.Data.Objects.ObjectStateEntry.State%2A>eigenschap van de <xref:System.Data.Objects.ObjectStateEntry>definieert u de status van het object.</xref:System.Data.Objects.ObjectStateEntry> </xref:System.Data.Objects.ObjectStateEntry.State%2A>"
   syntax:
     content: >-
       [System.ComponentModel.DataAnnotations.BindableType(IsBindable=false)]
@@ -39,12 +39,12 @@ items:
   assemblies:
   - System.Data.Entity
   namespace: System.Data
-  summary: "The object is new, has been added to the object context, and the <xref:System.Data.Objects.ObjectContext.SaveChanges*> method has not been called. After the changes are saved, the object state changes to Unchanged. Objects in the Added state do not have original values in the <xref href=&quot;System.Data.Objects.ObjectStateEntry&quot;></xref>."
+  summary: "Het object is er nieuw, is toegevoegd aan de context van het object en de <xref:System.Data.Objects.ObjectContext.SaveChanges*>methode is niet aangeroepen.</xref:System.Data.Objects.ObjectContext.SaveChanges*> Nadat de wijzigingen zijn opgeslagen, het object status wordt gewijzigd naar ongewijzigd. Objecten in de status Added heeft geen oorspronkelijke waarden in de <xref href=&quot;System.Data.Objects.ObjectStateEntry&quot;> </xref>."
   syntax:
     content: Added
     return:
       type: System.Data.EntityState
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -60,12 +60,12 @@ items:
   assemblies:
   - System.Data.Entity
   namespace: System.Data
-  summary: "The object has been deleted from the object context. After the changes are saved, the object state changes to Detached."
+  summary: "Het object is verwijderd uit de ObjectContext. Nadat u de wijzigingen hebt opgeslagen, de wijzigingen van de status object in de Detached."
   syntax:
     content: Deleted
     return:
       type: System.Data.EntityState
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -81,12 +81,12 @@ items:
   assemblies:
   - System.Data.Entity
   namespace: System.Data
-  summary: "The object exists but is not being tracked. An entity is in this state immediately after it has been created and before it is added to the object context. An entity is also in this state after it has been removed from the context by calling the <xref:System.Data.Objects.ObjectContext.Detach*> method or if it is loaded by using a <xref:System.Data.Objects.MergeOption.NoTracking><xref href=&quot;System.Data.Objects.MergeOption&quot;></xref>. There is no <xref href=&quot;System.Data.Objects.ObjectStateEntry&quot;></xref> instance associated with objects in the Detached state."
+  summary: "Het object bestaat, maar wordt niet bijgehouden. Er is een entiteit in deze status onmiddellijk nadat deze is gemaakt en voordat deze wordt toegevoegd aan de ObjectContext. Een entiteit is in deze status bevindt nadat deze is verwijderd uit de context door het aanroepen van de <xref:System.Data.Objects.ObjectContext.Detach*>methode of als deze is geladen met behulp van een <xref:System.Data.Objects.MergeOption.NoTracking> <xref href=&quot;System.Data.Objects.MergeOption&quot;> </xref>.</xref:System.Data.Objects.MergeOption.NoTracking> </xref:System.Data.Objects.ObjectContext.Detach*> Er is geen <xref href=&quot;System.Data.Objects.ObjectStateEntry&quot;> </xref> exemplaar die zijn gekoppeld aan objecten in de Detached-status."
   syntax:
     content: Detached
     return:
       type: System.Data.EntityState
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -102,12 +102,12 @@ items:
   assemblies:
   - System.Data.Entity
   namespace: System.Data
-  summary: "One of the scalar properties on the object was modified and the <xref:System.Data.Objects.ObjectContext.SaveChanges*> method has not been called. In POCO entities without change-tracking proxies, the state of the modified properties changes to Modified when the <xref:System.Data.Objects.ObjectContext.DetectChanges*> method is called. After the changes are saved, the object state changes to Unchanged."
+  summary: "Een van de scalaire eigenschappen op het object is gewijzigd en de <> </> *> methode is niet aangeroepen. De status van de wijzigingen van gewijzigde eigenschappen gewijzigd in POCO-entiteiten zonder wijzigingen bijhouden proxy&quot;s, als de <> </> *> methode wordt aangeroepen. Nadat de wijzigingen zijn opgeslagen, het object status wordt gewijzigd naar ongewijzigd."
   syntax:
     content: Modified
     return:
       type: System.Data.EntityState
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -123,12 +123,12 @@ items:
   assemblies:
   - System.Data.Entity
   namespace: System.Data
-  summary: "The object has not been modified since it was attached to the context or since the last time that the <xref:System.Data.Objects.ObjectContext.SaveChanges*> method was called."
+  summary: "Het object niet is gewijzigd sinds deze is gekoppeld aan de context of sinds de laatste keer dat de <xref:System.Data.Objects.ObjectContext.SaveChanges*>methode is aangeroepen.</xref:System.Data.Objects.ObjectContext.SaveChanges*>"
   syntax:
     content: Unchanged
     return:
       type: System.Data.EntityState
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462

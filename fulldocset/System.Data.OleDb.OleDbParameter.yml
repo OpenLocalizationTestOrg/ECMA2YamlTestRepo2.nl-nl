@@ -32,8 +32,8 @@ items:
   nameWithType: OleDbParameter
   fullName: System.Data.OleDb.OleDbParameter
   type: Class
-  summary: "Represents a parameter to an <xref href=&quot;System.Data.OleDb.OleDbCommand&quot;></xref> and optionally its mapping to a <xref href=&quot;System.Data.DataSet&quot;></xref> column. This class cannot be inherited."
-  remarks: "The OLE DB.NET Framework Data Provider uses positional parameters that are marked with a question mark (?) instead of named parameters.       When querying an Oracle database using the Microsoft OLE DB Provider for Oracle (MSDAORA) and the OLE DB.NET Framework Data Provider, using the `LIKE` clause to query values in fixed-length fields may not return all expected matches. The reason is that when Oracle matches values for fixed-length fields in a `LIKE` clause, it matches the entire length of the string, including any padding trailing spaces. For example, if a table in an Oracle database contains a field named &quot;Field1&quot; that is defined as `char(3)`, and you enter the value &quot;a&quot; into a row of that table, the following code does not return the row.      ```vb#   Dim queryString As String = &quot;SELECT * FROM Table1 WHERE Field1 LIKE ?&quot;   Dim command As OleDbCommand = New OleDbCommand(queryString, connection)   command.Parameters.Add(&quot;@p1&quot;, OleDbType.Char, 3).Value = &quot;a&quot;   Dim reader As OleDbDataReader = command.ExecuteReader()   ```      ```c#   string queryString = &quot;SELECT * FROM Table1 WHERE Field1 LIKE ?&quot;;   OleDbCommand command = new OleDbCommand(queryString, connection);   command.Parameters.Add(&quot;@p1&quot;, OleDbType.Char, 3).Value = &quot;a&quot;;   OleDbDataReader reader = command.ExecuteReader();   ```       This is because Oracle stores the column value as &quot;a  &quot; (padding &quot;a&quot;, with trailing spaces, to the fixed field length of 3), which Oracle does not treat as a match for the parameter value of &quot;a&quot; in the case of a `LIKE` comparison of fixed-length fields.       To resolve this problem, append a percentage (&quot;%&quot;) wildcard character to the parameter value (`&quot;a%&quot;`), or use an SQL `=` comparison instead."
+  summary: "Hiermee geeft u een parameter voor een <xref href=&quot;System.Data.OleDb.OleDbCommand&quot;> </xref> en eventueel de toewijzing aan een <xref href=&quot;System.Data.DataSet&quot;> </xref> kolom. Deze klasse kan niet worden overgenomen."
+  remarks: "De OLE DB.NET Framework-gegevensprovider gebruikt positionele parameters die zijn gemarkeerd met een vraagteken (?) in plaats van benoemde parameters.       Tijdens het opvragen van een Oracle-database met behulp van de Microsoft OLE DB-Provider voor Oracle (MSDAORA) en de OLE DB.NET Framework-gegevensprovider gebruiken de `LIKE` component aan de querywaarden in de velden met vaste lengte kan niet alle verwachte overeenkomsten retourneren. De reden is dat de Oracle overeenkomt met de waarden voor velden met vaste lengte in een `LIKE` component, overeenkomt met de hele lengte van de tekenreeks, inclusief eventuele opvulling afsluitende spaties. Bijvoorbeeld, als een tabel in een Oracle-database bevat een veld met de naam &quot;Veld1&quot; die is gedefinieerd als `char(3)`, en voert u de waarde &quot;a&quot; in een rij van de tabel, de volgende code resulteert niet in de rij.      ```vb#   Dim queryString As String = &quot;SELECT * FROM Table1 WHERE Field1 LIKE ?&quot;   Dim command As OleDbCommand = New OleDbCommand(queryString, connection)   command.Parameters.Add(&quot;@p1&quot;, OleDbType.Char, 3).Value = &quot;a&quot;   Dim reader As OleDbDataReader = command.ExecuteReader()   ```      ```c#   string queryString = &quot;SELECT * FROM Table1 WHERE Field1 LIKE ?&quot;;   OleDbCommand command = new OleDbCommand(queryString, connection);   command.Parameters.Add(&quot;@p1&quot;, OleDbType.Char, 3).Value = &quot;a&quot;;   OleDbDataReader reader = command.ExecuteReader();   ```Dit komt doordat Oracle de kolomwaarde als &quot;a slaat&quot; (opvulling &quot;a&quot;, met de afsluitende spaties aan het veld vaste lengte 3), die Oracle biedt niet behandelen als een overeenkomst voor de parameterwaarde van &quot;a&quot; in het geval van een `LIKE` vergelijking van velden met vaste lengte.       U lost dit probleem, voor het jokerteken percentage (&quot;%&quot;) toevoegen aan de waarde van parameter (`&quot;a%&quot;`), of gebruik een SQL `=` vergelijking in plaats daarvan."
   example:
   - "The following example creates multiple instances of OleDbParameter through the <xref:System.Data.OleDb.OleDbParameterCollection> collection within the <xref:System.Data.OleDb.OleDbDataAdapter>. These parameters are used to select data from the data source and place the data in the <xref:System.Data.DataSet>. This example assumes that a <xref:System.Data.DataSet> and an <xref:System.Data.OleDb.OleDbDataAdapter> have already been created by using the appropriate schema, commands, and connection.  \n  \n [!code-vb[Classic WebData OleDbParameter Example#1](~/add/codesnippet/visualbasic/t-system.data.oledb.oled_5_1.vb)]\n [!code-cs[Classic WebData OleDbParameter Example#1](~/add/codesnippet/csharp/t-system.data.oledb.oled_5_1.cs)]"
   syntax:
@@ -68,7 +68,7 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.OleDb.OleDbParameter&quot;></xref> class."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Data.OleDb.OleDbParameter&quot;> </xref> klasse."
   remarks: ''
   example:
   - "The following example creates an <xref:System.Data.OleDb.OleDbParameter> and sets some of its properties.  \n  \n [!code-cs[Classic WebData OleDbParameter.OleDbParameter Example#1](~/add/codesnippet/csharp/m-system.data.oledb.oled_3_1.cs)]\n [!code-vb[Classic WebData OleDbParameter.OleDbParameter Example#1](~/add/codesnippet/visualbasic/m-system.data.oledb.oled_3_1.vb)]"
@@ -91,8 +91,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.OleDb.OleDbParameter&quot;></xref> class that uses the parameter name and data type."
-  remarks: "The data type, and if appropriate, <xref:System.Data.OleDb.OleDbParameter.Size%2A> and <xref:System.Data.OleDb.OleDbParameter.Precision%2A> are inferred from the value of the `dataType` parameter."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Data.OleDb.OleDbParameter&quot;> </xref> klasse die gebruikmaakt van het parametertype naam en het gegevenstype."
+  remarks: "Het gegevenstype en zo nodig, <xref:System.Data.OleDb.OleDbParameter.Size%2A>en <xref:System.Data.OleDb.OleDbParameter.Precision%2A>zijn afgeleid van de waarde van de `dataType` parameter.</xref:System.Data.OleDb.OleDbParameter.Precision%2A> </xref:System.Data.OleDb.OleDbParameter.Size%2A>"
   example:
   - "The following example creates an <xref:System.Data.OleDb.OleDbParameter> and sets some of its properties.  \n  \n [!code-cs[Classic WebData OleDbParameter.OleDbParameter1 Example#1](~/add/codesnippet/csharp/9545ec3c-a337-4c06-a8da-_1.cs)]\n [!code-vb[Classic WebData OleDbParameter.OleDbParameter1 Example#1](~/add/codesnippet/visualbasic/9545ec3c-a337-4c06-a8da-_1.vb)]"
   syntax:
@@ -100,15 +100,15 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name of the parameter to map."
+      description: "De naam van de parameter om toe te wijzen."
     - id: dataType
       type: System.Data.OleDb.OleDbType
-      description: "One of the <xref href=&quot;System.Data.OleDb.OleDbType&quot;></xref> values."
+      description: "Een van de <xref href=&quot;System.Data.OleDb.OleDbType&quot;> </xref> waarden."
   overload: System.Data.OleDb.OleDbParameter.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value supplied in the <code>dataType</code> parameter is an invalid back-end data type."
+    description: "De waarde die is opgegeven de <code> dataType </code> parameter is een ongeldige back-end-gegevenstype."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbParameter.#ctor(System.String,System.Object)
@@ -123,8 +123,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.OleDb.OleDbParameter&quot;></xref> class that uses the parameter name and the value of the new <xref href=&quot;System.Data.OleDb.OleDbParameter&quot;></xref>."
-  remarks: "Use caution when you are using this overload of the <xref:System.Data.OleDb.OleDbParameter> constructor to specify integer parameter values. Because this overload takes a `value` of type <xref:System.Object>, you must convert the integral value to an <xref:System.Object> type when the value is zero, as the following C# example demonstrates.      ```   Parameter = new OleDbParameter(&quot;@pname&quot;, Convert.ToInt32(0));   ```       If you do not perform this conversion, the compiler assumes that you are trying to call the <xref:System.Data.OleDb.OleDbParameter.%23ctor%2A> constructor overload."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Data.OleDb.OleDbParameter&quot;> </xref> klasse die gebruikmaakt van de parameternaam en de waarde van de nieuwe <xref href=&quot;System.Data.OleDb.OleDbParameter&quot;> </xref>."
+  remarks: "Wees voorzichtig wanneer u van deze overbelasting van gebruikmaakt de <xref:System.Data.OleDb.OleDbParameter>constructor voor het opgeven van parameterwaarden geheel getal.</xref:System.Data.OleDb.OleDbParameter> Omdat deze overbelasting duurt voordat een `value` van het type <xref:System.Object>, moet u de integrale waarde te converteren een <xref:System.Object>type wanneer de waarde nul, is het volgende C#-voorbeeld toont.</xref:System.Object> </xref:System.Object>      ```   Parameter = new OleDbParameter(&quot;@pname&quot;, Convert.ToInt32(0));   ```Als u deze conversie niet uitvoert, wordt de compiler aangenomen dat u probeert aan te roepen de <xref:System.Data.OleDb.OleDbParameter.%23ctor%2A>constructor overbelasting.</xref:System.Data.OleDb.OleDbParameter.%23ctor%2A>"
   example:
   - "The following example creates an <xref:System.Data.OleDb.OleDbParameter>.  \n  \n [!code-cs[Classic WebData OleDbParameter.OleDbParameter5 Example#1](~/add/codesnippet/csharp/m-system.data.oledb.oled_16_1.cs)]\n [!code-vb[Classic WebData OleDbParameter.OleDbParameter5 Example#1](~/add/codesnippet/visualbasic/m-system.data.oledb.oled_16_1.vb)]"
   syntax:
@@ -132,10 +132,10 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name of the parameter to map."
+      description: "De naam van de parameter om toe te wijzen."
     - id: value
       type: System.Object
-      description: "The value of the new <xref href=&quot;System.Data.OleDb.OleDbParameter&quot;></xref> object."
+      description: "De waarde van de nieuwe <xref href=&quot;System.Data.OleDb.OleDbParameter&quot;> </xref> object."
   overload: System.Data.OleDb.OleDbParameter.#ctor*
   exceptions: []
   platform:
@@ -152,8 +152,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.OleDb.OleDbParameter&quot;></xref> class that uses the parameter name, data type, and length."
-  remarks: "The <xref:System.Data.OleDb.OleDbParameter.Size%2A> is inferred from the value of the `dataType` parameter if it is not explicitly set in the `size` parameter."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Data.OleDb.OleDbParameter&quot;> </xref> klasse die gebruikmaakt van de parameternaam, gegevenstype en lengte."
+  remarks: "De <xref:System.Data.OleDb.OleDbParameter.Size%2A>is afgeleid van de waarde van de `dataType` parameter als deze niet expliciet is ingesteld de `size` parameter.</xref:System.Data.OleDb.OleDbParameter.Size%2A>"
   example:
   - "The following example creates an <xref:System.Data.OleDb.OleDbParameter> and sets some of its properties.  \n  \n [!code-vb[Classic WebData OleDbParameter.OleDbParameter2 Example#1](~/add/codesnippet/visualbasic/258d96fc-eacc-4579-be65-_1.vb)]\n [!code-cs[Classic WebData OleDbParameter.OleDbParameter2 Example#1](~/add/codesnippet/csharp/258d96fc-eacc-4579-be65-_1.cs)]"
   syntax:
@@ -161,18 +161,18 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name of the parameter to map."
+      description: "De naam van de parameter om toe te wijzen."
     - id: dataType
       type: System.Data.OleDb.OleDbType
-      description: "One of the <xref href=&quot;System.Data.OleDb.OleDbType&quot;></xref> values."
+      description: "Een van de <xref href=&quot;System.Data.OleDb.OleDbType&quot;> </xref> waarden."
     - id: size
       type: System.Int32
-      description: "The length of the parameter."
+      description: "De lengte van de parameter."
   overload: System.Data.OleDb.OleDbParameter.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value supplied in the <code>dataType</code> parameter is an invalid back-end data type."
+    description: "De waarde die is opgegeven de <code> dataType </code> parameter is een ongeldige back-end-gegevenstype."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbParameter.#ctor(System.String,System.Data.OleDb.OleDbType,System.Int32,System.String)
@@ -187,8 +187,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.OleDb.OleDbParameter&quot;></xref> class that uses the parameter name, data type, length, and source column name."
-  remarks: "The <xref:System.Data.OleDb.OleDbParameter.Size%2A> is inferred from the value of the `dataType` parameter if it is not explicitly set in the `size` parameter."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Data.OleDb.OleDbParameter&quot;> </xref> klasse die gebruikmaakt van de parameternaam, het gegevenstype, de lengte en de naam van bronkolom."
+  remarks: "De <xref:System.Data.OleDb.OleDbParameter.Size%2A>is afgeleid van de waarde van de `dataType` parameter als deze niet expliciet is ingesteld de `size` parameter.</xref:System.Data.OleDb.OleDbParameter.Size%2A>"
   example:
   - "The following example creates an <xref:System.Data.OleDb.OleDbParameter> and sets some of its properties.  \n  \n [!code-vb[Classic WebData OleDbParameter.OleDbParameter3 Example#1](~/add/codesnippet/visualbasic/a2a04a3a-d9c0-49e2-8704-_1.vb)]\n [!code-cs[Classic WebData OleDbParameter.OleDbParameter3 Example#1](~/add/codesnippet/csharp/a2a04a3a-d9c0-49e2-8704-_1.cs)]"
   syntax:
@@ -196,21 +196,21 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name of the parameter to map."
+      description: "De naam van de parameter om toe te wijzen."
     - id: dataType
       type: System.Data.OleDb.OleDbType
-      description: "One of the <xref href=&quot;System.Data.OleDb.OleDbType&quot;></xref> values."
+      description: "Een van de <xref href=&quot;System.Data.OleDb.OleDbType&quot;> </xref> waarden."
     - id: size
       type: System.Int32
-      description: "The length of the parameter."
+      description: "De lengte van de parameter."
     - id: srcColumn
       type: System.String
-      description: "The name of the source column."
+      description: "De naam van de bronkolom."
   overload: System.Data.OleDb.OleDbParameter.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value supplied in the <code>dataType</code> parameter is an invalid back-end data type."
+    description: "De waarde die is opgegeven de <code> dataType </code> parameter is een ongeldige back-end-gegevenstype."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbParameter.#ctor(System.String,System.Data.OleDb.OleDbType,System.Int32,System.Data.ParameterDirection,System.Boolean,System.Byte,System.Byte,System.String,System.Data.DataRowVersion,System.Object)
@@ -225,8 +225,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.OleDb.OleDbParameter&quot;></xref> class that uses the parameter name, data type, length, source column name, parameter direction, numeric precision, and other properties."
-  remarks: "The <xref:System.Data.OleDb.OleDbParameter.Size%2A> and <xref:System.Data.OleDb.OleDbParameter.Precision%2A> are inferred from the value of the `dataType` parameter if they are not explicitly set in the `size` and `precision` parameters."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Data.OleDb.OleDbParameter&quot;> </xref> klasse die gebruikmaakt van de parameternaam, gegevenstype, lengte, naam van bronkolom, parameterrichting, numerieke precisie en andere eigenschappen."
+  remarks: "De <xref:System.Data.OleDb.OleDbParameter.Size%2A>en <xref:System.Data.OleDb.OleDbParameter.Precision%2A>zijn afgeleid van de waarde van de `dataType` parameter als ze niet expliciet zijn ingesteld de `size` en `precision` parameters.</xref:System.Data.OleDb.OleDbParameter.Precision%2A> </xref:System.Data.OleDb.OleDbParameter.Size%2A>"
   example:
   - "The following example creates an <xref:System.Data.OleDb.OleDbParameter> and displays the <xref:System.Data.OleDb.OleDbParameter.ParameterName%2A>.  \n  \n [!code-cs[Classic WebData OleDbParameter.OleDbParameter4 Example#1](~/add/codesnippet/csharp/21acfaf3-4211-4231-915b-_1.cs)]\n [!code-vb[Classic WebData OleDbParameter.OleDbParameter4 Example#1](~/add/codesnippet/visualbasic/21acfaf3-4211-4231-915b-_1.vb)]"
   syntax:
@@ -234,39 +234,39 @@ items:
     parameters:
     - id: parameterName
       type: System.String
-      description: "The name of the parameter."
+      description: "De naam van de parameter."
     - id: dbType
       type: System.Data.OleDb.OleDbType
-      description: "One of the <xref href=&quot;System.Data.OleDb.OleDbType&quot;></xref> values."
+      description: "Een van de <xref href=&quot;System.Data.OleDb.OleDbType&quot;> </xref> waarden."
     - id: size
       type: System.Int32
-      description: "The length of the parameter."
+      description: "De lengte van de parameter."
     - id: direction
       type: System.Data.ParameterDirection
-      description: "One of the <xref href=&quot;System.Data.ParameterDirection&quot;></xref> values."
+      description: "Een van de <xref href=&quot;System.Data.ParameterDirection&quot;> </xref> waarden."
     - id: isNullable
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the value of the field can be null; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de waarde van het veld kan niet null; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     - id: precision
       type: System.Byte
-      description: "The total number of digits to the left and right of the decimal point to which <xref:System.Data.OleDb.OleDbParameter.Value*> is resolved."
+      description: "Het totaal aantal cijfers links en rechts van het decimaalteken waarnaar <xref:System.Data.OleDb.OleDbParameter.Value*>is opgelost.</xref:System.Data.OleDb.OleDbParameter.Value*>"
     - id: scale
       type: System.Byte
-      description: "The total number of decimal places to which <xref:System.Data.OleDb.OleDbParameter.Value*> is resolved."
+      description: "Het totale aantal decimalen waarop <xref:System.Data.OleDb.OleDbParameter.Value*>is opgelost.</xref:System.Data.OleDb.OleDbParameter.Value*>"
     - id: srcColumn
       type: System.String
-      description: "The name of the source column."
+      description: "De naam van de bronkolom."
     - id: srcVersion
       type: System.Data.DataRowVersion
-      description: "One of the <xref href=&quot;System.Data.DataRowVersion&quot;></xref> values."
+      description: "Een van de <xref href=&quot;System.Data.DataRowVersion&quot;> </xref> waarden."
     - id: value
       type: System.Object
-      description: "An <xref:System.Object> that is the value of the <xref href=&quot;System.Data.OleDb.OleDbParameter&quot;></xref>."
+      description: "Een <xref:System.Object>die de waarde van de <xref href=&quot;System.Data.OleDb.OleDbParameter&quot;> </xref>.</xref:System.Object>"
   overload: System.Data.OleDb.OleDbParameter.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value supplied in the <code>dataType</code> parameter is an invalid back-end data type."
+    description: "De waarde die is opgegeven de <code> dataType </code> parameter is een ongeldige back-end-gegevenstype."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbParameter.#ctor(System.String,System.Data.OleDb.OleDbType,System.Int32,System.Data.ParameterDirection,System.Byte,System.Byte,System.String,System.Data.DataRowVersion,System.Boolean,System.Object)
@@ -281,8 +281,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.OleDb.OleDbParameter&quot;></xref> class that uses the parameter name, data type, length, source column name, parameter direction, numeric precision, and other properties."
-  remarks: "The <xref:System.Data.OleDb.OleDbParameter.Size%2A> and <xref:System.Data.OleDb.OleDbParameter.Precision%2A> are inferred from the value of the `dataType` parameter if they are not explicitly set in the `size` and `precision` parameters."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Data.OleDb.OleDbParameter&quot;> </xref> klasse die gebruikmaakt van de parameternaam, gegevenstype, lengte, naam van bronkolom, parameterrichting, numerieke precisie en andere eigenschappen."
+  remarks: "De <xref:System.Data.OleDb.OleDbParameter.Size%2A>en <xref:System.Data.OleDb.OleDbParameter.Precision%2A>zijn afgeleid van de waarde van de `dataType` parameter als ze niet expliciet zijn ingesteld de `size` en `precision` parameters.</xref:System.Data.OleDb.OleDbParameter.Precision%2A> </xref:System.Data.OleDb.OleDbParameter.Size%2A>"
   example:
   - "The following example creates an <xref:System.Data.OleDb.OleDbParameter> and displays the <xref:System.Data.OleDb.OleDbParameter.ParameterName%2A>.  \n  \n [!code-cs[Classic WebData OleDbParameter.OleDbParameter4 Example#1](~/add/codesnippet/csharp/93078b65-3e17-4ead-9f09-_1.cs)]\n [!code-vb[Classic WebData OleDbParameter.OleDbParameter4 Example#1](~/add/codesnippet/visualbasic/93078b65-3e17-4ead-9f09-_1.vb)]"
   syntax:
@@ -290,39 +290,39 @@ items:
     parameters:
     - id: parameterName
       type: System.String
-      description: "The name of the parameter."
+      description: "De naam van de parameter."
     - id: dbType
       type: System.Data.OleDb.OleDbType
-      description: "One of the <xref href=&quot;System.Data.OleDb.OleDbType&quot;></xref> values."
+      description: "Een van de <xref href=&quot;System.Data.OleDb.OleDbType&quot;> </xref> waarden."
     - id: size
       type: System.Int32
-      description: "The length of the parameter."
+      description: "De lengte van de parameter."
     - id: direction
       type: System.Data.ParameterDirection
-      description: "One of the <xref href=&quot;System.Data.ParameterDirection&quot;></xref> values."
+      description: "Een van de <xref href=&quot;System.Data.ParameterDirection&quot;> </xref> waarden."
     - id: precision
       type: System.Byte
-      description: "The total number of digits to the left and right of the decimal point to which <xref:System.Data.OleDb.OleDbParameter.Value*> is resolved."
+      description: "Het totaal aantal cijfers links en rechts van het decimaalteken waarnaar <xref:System.Data.OleDb.OleDbParameter.Value*>is opgelost.</xref:System.Data.OleDb.OleDbParameter.Value*>"
     - id: scale
       type: System.Byte
-      description: "The total number of decimal places to which <xref:System.Data.OleDb.OleDbParameter.Value*> is resolved."
+      description: "Het totale aantal decimalen waarop <xref:System.Data.OleDb.OleDbParameter.Value*>is opgelost.</xref:System.Data.OleDb.OleDbParameter.Value*>"
     - id: sourceColumn
       type: System.String
-      description: "The name of the source column."
+      description: "De naam van de bronkolom."
     - id: sourceVersion
       type: System.Data.DataRowVersion
-      description: "One of the <xref href=&quot;System.Data.DataRowVersion&quot;></xref> values."
+      description: "Een van de <xref href=&quot;System.Data.DataRowVersion&quot;> </xref> waarden."
     - id: sourceColumnNullMapping
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the source column is nullable; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if it is not."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de bronkolom null is; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> als dit niet."
     - id: value
       type: System.Object
-      description: "An <xref:System.Object> that is the value of the <xref href=&quot;System.Data.OleDb.OleDbParameter&quot;></xref>."
+      description: "Een <xref:System.Object>die de waarde van de <xref href=&quot;System.Data.OleDb.OleDbParameter&quot;> </xref>.</xref:System.Object>"
   overload: System.Data.OleDb.OleDbParameter.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value supplied in the <code>dataType</code> parameter is an invalid back-end data type."
+    description: "De waarde die is opgegeven de <code> dataType </code> parameter is een ongeldige back-end-gegevenstype."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbParameter.DbType
@@ -337,20 +337,20 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets or sets the <xref href=&quot;System.Data.DbType&quot;></xref> of the parameter."
-  remarks: "The <xref:System.Data.OleDb.OleDbParameter.OleDbType%2A> and DbType are linked. Therefore, setting the DbType changes the <xref:System.Data.OleDb.OleDbParameter.OleDbType%2A> to a supporting <xref:System.Data.OleDb.OleDbParameter.OleDbType%2A>.       For a list of the supported data types, see the appropriate <xref:System.Data.OleDb.OleDbParameter.OleDbType%2A> member. For more information, see [DataAdapter Parameters](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Opgehaald of ingesteld de <xref href=&quot;System.Data.DbType&quot;> </xref> van de parameter."
+  remarks: "De <xref:System.Data.OleDb.OleDbParameter.OleDbType%2A>en DbType zijn gekoppeld.</xref:System.Data.OleDb.OleDbParameter.OleDbType%2A> Daarom verandert het DbType instellen <xref:System.Data.OleDb.OleDbParameter.OleDbType%2A>in een ondersteunende <xref:System.Data.OleDb.OleDbParameter.OleDbType%2A>.</xref:System.Data.OleDb.OleDbParameter.OleDbType%2A> </xref:System.Data.OleDb.OleDbParameter.OleDbType%2A>       Zie voor een lijst van de ondersteunde gegevenstypen, de juiste <xref:System.Data.OleDb.OleDbParameter.OleDbType%2A>lid.</xref:System.Data.OleDb.OleDbParameter.OleDbType%2A> Zie voor meer informatie [DataAdapter Parameters](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following example creates an <xref:System.Data.OleDb.OleDbParameter> and sets some of its properties.  \n  \n [!code-cs[Classic WebData OleDbParameter.DbType Example#1](~/add/codesnippet/csharp/p-system.data.oledb.oled_22_1.cs)]\n [!code-vb[Classic WebData OleDbParameter.DbType Example#1](~/add/codesnippet/visualbasic/p-system.data.oledb.oled_22_1.vb)]"
   syntax:
     content: public override System.Data.DbType DbType { get; set; }
     return:
       type: System.Data.DbType
-      description: "One of the <xref href=&quot;System.Data.DbType&quot;></xref> values. The default is <xref href=&quot;System.Data.DbType&quot;></xref>."
+      description: "Een van de <xref href=&quot;System.Data.DbType&quot;> </xref> waarden. De standaardwaarde is <xref href=&quot;System.Data.DbType&quot;> </xref>."
   overload: System.Data.OleDb.OleDbParameter.DbType*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The property was not set to a valid <xref href=&quot;System.Data.DbType&quot;></xref>."
+    description: "De eigenschap is niet ingesteld op een geldige <xref href=&quot;System.Data.DbType&quot;> </xref>."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbParameter.Direction
@@ -365,20 +365,20 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets or sets a value that indicates whether the parameter is input-only, output-only, bidirectional, or a stored procedure return-value parameter."
-  remarks: "If the <xref:System.Data.ParameterDirection> is output, and execution of the associated <xref:System.Data.OleDb.OleDbCommand> does not return a value, the <xref:System.Data.OleDb.OleDbParameter> contains a null value.       `Output`, `InputOut`, and `ReturnValue` parameters returned by calling <xref:System.Data.OleDb.OleDbCommand.ExecuteReader%2A> cannot be accessed until you call <xref:System.Data.OleDb.OleDbDataReader.Close%2A> or **Dispose** on the <xref:System.Data.OleDb.OleDbDataReader>."
+  summary: "Opgehaald of ingesteld van een waarde die aangeeft of de parameter is alleen, alleen uitvoer, bidirectionele of een opgeslagen procedure resultaatwaarden parameter."
+  remarks: "Als de <xref:System.Data.ParameterDirection>is uitvoer en de uitvoering van de bijbehorende <xref:System.Data.OleDb.OleDbCommand>retourneert geen waarde, de <xref:System.Data.OleDb.OleDbParameter>bevat een null-waarde.</xref:System.Data.OleDb.OleDbParameter> </xref:System.Data.OleDb.OleDbCommand> </xref:System.Data.ParameterDirection>       `Output`, `InputOut`, en `ReturnValue` parameters die zijn geretourneerd door het aanroepen van <xref:System.Data.OleDb.OleDbCommand.ExecuteReader%2A>niet toegankelijk totdat u aanroepen <xref:System.Data.OleDb.OleDbDataReader.Close%2A>of **buitengebruikstelling** op de <xref:System.Data.OleDb.OleDbDataReader>.</xref:System.Data.OleDb.OleDbDataReader> </xref:System.Data.OleDb.OleDbDataReader.Close%2A> </xref:System.Data.OleDb.OleDbCommand.ExecuteReader%2A>"
   example:
   - "The following example creates an <xref:System.Data.OleDb.OleDbParameter> and sets some of its properties.  \n  \n```vb#  \nPublic Sub CreateOleDbParameter()  \n    Dim parameter As New OleDbParameter(\"Description\", OleDbType.VarChar, 88)  \n    parameter.Direction = ParameterDirection.Output  \nEnd Sub 'CreateOleDbParameter  \n```  \n  \n```c#  \npublic void CreateOleDbParameter()   \n {  \n    OleDbParameter parameter = new OleDbParameter(\"Description\", OleDbType.VarChar, 88);  \n    parameter.Direction = ParameterDirection.Output;  \n }  \n```"
   syntax:
     content: public override System.Data.ParameterDirection Direction { get; set; }
     return:
       type: System.Data.ParameterDirection
-      description: "One of the <xref href=&quot;System.Data.ParameterDirection&quot;></xref> values. The default is <xref uid=&quot;langword_csharp_Input&quot; name=&quot;Input&quot; href=&quot;&quot;></xref>."
+      description: "Een van de <xref href=&quot;System.Data.ParameterDirection&quot;> </xref> waarden. De standaardwaarde is <xref uid=&quot;langword_csharp_Input&quot; name=&quot;Input&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.OleDb.OleDbParameter.Direction*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The property was not set to one of the valid <xref href=&quot;System.Data.ParameterDirection&quot;></xref> values."
+    description: "De eigenschap is niet ingesteld op een van de geldige <xref href=&quot;System.Data.ParameterDirection&quot;> </xref> waarden."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbParameter.IsNullable
@@ -393,15 +393,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets or sets a value that indicates whether the parameter accepts null values."
-  remarks: "Null values are handled using the <xref:System.DBNull> class."
+  summary: "Opgehaald of ingesteld van een waarde die aangeeft of de parameter null-waarden accepteert."
+  remarks: "Null-waarden worden verwerkt met behulp van de <xref:System.DBNull>klasse.</xref:System.DBNull>"
   example:
   - "The following example creates an <xref:System.Data.OleDb.OleDbParameter> and sets some of its properties.  \n  \n```vb#  \nPublic Sub CreateOleDbParameter()  \n    Dim parameter As New OleDbParameter(\"Description\", OleDbType.VarChar, 88)  \n    parameter.IsNullable = True  \n    parameter.Direction = ParameterDirection.Output  \nEnd Sub 'CreateOleDbParameter  \n```  \n  \n```c#  \npublic void CreateOleDbParameter()   \n {  \n    OleDbParameter parameter = new OleDbParameter(\"Description\", OleDbType.VarChar, 88);  \n    parameter.IsNullable = true;  \n    parameter.Direction = ParameterDirection.Output;  \n }  \n```"
   syntax:
     content: public override bool IsNullable { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if null values are accepted; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als null-waarden worden geaccepteerd; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. De standaardwaarde is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.OleDb.OleDbParameter.IsNullable*
   exceptions: []
   platform:
@@ -418,13 +418,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets or sets the <xref href=&quot;System.Data.OleDb.OleDbType&quot;></xref> of the parameter."
-  remarks: "The OleDbType and <xref:System.Data.OleDb.OleDbParameter.DbType%2A> are linked. Therefore, setting the <xref:System.Data.OleDb.OleDbParameter.DbType%2A> changes the OleDbType to a supporting <xref:System.Data.OleDb.OleDbType>.       For a list of the supported data types, see the appropriate <xref:System.Data.OleDb.OleDbType> member. For more information, see [DataAdapter Parameters](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Opgehaald of ingesteld de <xref href=&quot;System.Data.OleDb.OleDbType&quot;> </xref> van de parameter."
+  remarks: "De OleDbType en <xref:System.Data.OleDb.OleDbParameter.DbType%2A>zijn gekoppeld.</xref:System.Data.OleDb.OleDbParameter.DbType%2A> De <xref:System.Data.OleDb.OleDbParameter.DbType%2A>wijzigingen de OleDbType op een ondersteunende <xref:System.Data.OleDb.OleDbType>.</xref:System.Data.OleDb.OleDbType> </xref:System.Data.OleDb.OleDbParameter.DbType%2A> daarom instellen       Zie voor een lijst van de ondersteunde gegevenstypen, de juiste <xref:System.Data.OleDb.OleDbType>lid.</xref:System.Data.OleDb.OleDbType> Zie voor meer informatie [DataAdapter Parameters](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public System.Data.OleDb.OleDbType OleDbType { get; set; }
     return:
       type: System.Data.OleDb.OleDbType
-      description: "The <xref href=&quot;System.Data.OleDb.OleDbType&quot;></xref> of the parameter. The default is <xref href=&quot;System.Data.OleDb.OleDbType&quot;></xref>."
+      description: "De <xref href=&quot;System.Data.OleDb.OleDbType&quot;> </xref> van de parameter. De standaardwaarde is <xref href=&quot;System.Data.OleDb.OleDbType&quot;> </xref>."
   overload: System.Data.OleDb.OleDbParameter.OleDbType*
   exceptions: []
   platform:
@@ -441,15 +441,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets or sets the name of the <xref href=&quot;System.Data.OleDb.OleDbParameter&quot;></xref>."
-  remarks: "The OLE DB .NET Provider uses positional parameters that are marked with a question mark (?) instead of named parameters."
+  summary: "Opgehaald of ingesteld van de naam van de <xref href=&quot;System.Data.OleDb.OleDbParameter&quot;> </xref>."
+  remarks: "De OLE DB .NET-Provider gebruikt positionele parameters die zijn gemarkeerd met een vraagteken (?) in plaats van benoemde parameters."
   example:
   - "The following example creates an <xref:System.Data.OleDb.OleDbParameter> and sets some of its properties.  \n  \n [Visual Basic]  \n  \n```  \nPublic Sub CreateOleDbParameter()  \n    Dim parameter As New OleDbParameter(\"Description\", OleDbType.VarChar, 88)  \n    parameter.Direction = ParameterDirection.Output  \nEnd Sub 'CreateOleDbParameter  \n```  \n  \n [C#]  \n  \n```  \npublic void CreateOleDbParameter()   \n {  \n    OleDbParameter parameter = new OleDbParameter(\"Description\", OleDbType.VarChar, 88);  \n    parameter.Direction = ParameterDirection.Output;  \n }  \n```"
   syntax:
     content: public override string ParameterName { get; set; }
     return:
       type: System.String
-      description: "The name of the <xref href=&quot;System.Data.OleDb.OleDbParameter&quot;></xref>. The default is an empty string (&quot;&quot;)."
+      description: "De naam van de <xref href=&quot;System.Data.OleDb.OleDbParameter&quot;> </xref>. De standaardwaarde is een lege tekenreeks (&quot;&quot;)."
   overload: System.Data.OleDb.OleDbParameter.ParameterName*
   exceptions: []
   platform:
@@ -466,15 +466,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets or sets the maximum number of digits used to represent the <xref:System.Data.OleDb.OleDbParameter.Value*> property."
-  remarks: "The Precision property is only used for decimal and numeric input parameters.       The Precision property should be set only for `Decimal` and `Numeric` parameters prior to calling the <xref:System.Data.OleDb.OleDbCommand.Prepare%2A> method of the <xref:System.Data.OleDb.OleDbCommand>.       Setting this property to a value other than the value in the database depends on the implementation of the data provider and may return an error code, truncate, or round data.       The `Precision` property only affects parameters whose <xref:System.Data.OleDb.OleDbType> is `Decimal`, `Numeric`, or `VarNumeric`. For other data types, `Precision` is ignored.      > [!NOTE] >  Use of this property to coerce data passed to the database is not supported. To round, truncate, or otherwise coerce data before passing it to the database, use the <xref:System.Math> class that is part of the `System` namespace prior to assigning a value to the parameter&quot;s `Value` property.      > [!NOTE] >  .NET Framework data providers that are included with the .NET Framework version 1.0 do not verify the Precision or <xref:System.Data.OleDb.OleDbParameter.Scale%2A> of <xref:System.Decimal> parameter values. This can cause truncated data to be inserted at the data source. If you are using .NET Framework version 1.0, validate the Precision and <xref:System.Data.OleDb.OleDbParameter.Scale%2A> of <xref:System.Decimal> values before setting the parameter value. <xref:System.Data.OleDb.OleDbParameter.Scale%2A> values that exceed the <xref:System.Decimal> parameter scale are still truncated."
+  summary: "Opgehaald of ingesteld van het maximum aantal cijfers waarmee de <xref:System.Data.OleDb.OleDbParameter.Value*>eigenschap.</xref:System.Data.OleDb.OleDbParameter.Value*>"
+  remarks: "De eigenschap Precision wordt alleen gebruikt voor decimale en numerieke invoerparameters.       De eigenschap Precision moet alleen worden ingesteld voor `Decimal` en `Numeric` parameters vóór het aanroepen van de <xref:System.Data.OleDb.OleDbCommand.Prepare%2A>methode van de <xref:System.Data.OleDb.OleDbCommand>.</xref:System.Data.OleDb.OleDbCommand> </xref:System.Data.OleDb.OleDbCommand.Prepare%2A>       Deze eigenschap instelt op een andere waarde dan de waarde in de database is afhankelijk van de implementatie van de gegevensprovider en een fout code, truncate of rond de gegevens kan worden geretourneerd.       De `Precision` eigenschap geldt alleen voor parameters waarvan <xref:System.Data.OleDb.OleDbType>is `Decimal`, `Numeric`, of `VarNumeric`.</xref:System.Data.OleDb.OleDbType> Voor andere gegevenstypen `Precision` wordt genegeerd.      > [!NOTE] > Gebruik van deze eigenschap gedwongen gegevens doorgegeven aan de database wordt niet ondersteund. Als u wilt afronden, truncate, of anders forceren gegevens voordat deze wordt doorgegeven aan de database, gebruikt u de <xref:System.Math>klasse die deel uitmaakt van de `System` naamruimte voorafgaand aan een waarde toewijst aan de parameter `Value` eigenschap.</xref:System.Math>      > [!NOTE] >.NET DataFramework dataproviders die deel van de .NET Framework versie 1.0 uitmaken niet controleren of de precisie of <xref:System.Data.OleDb.OleDbParameter.Scale%2A>van <xref:System.Decimal>parameterwaarden.</xref:System.Decimal> </xref:System.Data.OleDb.OleDbParameter.Scale%2A> Hierdoor kan de afgekapte gegevens moet worden ingevoegd in de gegevensbron. Als u .NET Framework versie 1.0 gebruikt, controleert u de precisie en <xref:System.Data.OleDb.OleDbParameter.Scale%2A>van <xref:System.Decimal>waarden voordat u de waarde van parameter instelt.</xref:System.Decimal> </xref:System.Data.OleDb.OleDbParameter.Scale%2A> <xref:System.Data.OleDb.OleDbParameter.Scale%2A>waarden die groter is dan de <xref:System.Decimal>parameter scale nog steeds worden afgekapt.</xref:System.Decimal></xref:System.Data.OleDb.OleDbParameter.Scale%2A>"
   example:
   - "The following example creates an <xref:System.Data.OleDb.OleDbParameter> and sets some of its properties.  \n  \n [Visual Basic]  \n  \n```  \nPublic Sub CreateOleDbParameter()  \n    Dim parameter As New OleDbParameter(\"Price\", OleDbType.Decimal)  \n    parameter.Value = 3.1416  \n    parameter.Precision = 8  \n    parameter.Scale = 4  \nEnd Sub 'CreateOleDbParameter  \n```  \n  \n [C#]  \n  \n```  \npublic void CreateOleDbParameter()   \n {  \n    OleDbParameter parameter = new OleDbParameter(\"Price\", OleDbType.Decimal);  \n    parameter.Value = 3.1416;  \n    parameter.Precision = 8;  \n    parameter.Scale = 4;  \n }  \n```"
   syntax:
     content: public byte Precision { get; set; }
     return:
       type: System.Byte
-      description: "The maximum number of digits used to represent the <xref:System.Data.OleDb.OleDbParameter.Value*> property. The default value is 0, which indicates that the data provider sets the precision for <xref:System.Data.OleDb.OleDbParameter.Value*>."
+      description: "Het maximum aantal cijfers waarmee de <> </> *> eigenschap. De standaardwaarde is 0, waarmee wordt aangegeven dat de gegevensprovider wordt ingesteld voor de precisie voor <> </> *>."
   overload: System.Data.OleDb.OleDbParameter.Precision*
   exceptions: []
   platform:
@@ -491,8 +491,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Resets the type associated with this <xref href=&quot;System.Data.OleDb.OleDbParameter&quot;></xref>."
-  remarks: "When executing a command that includes parameter values, code can either set the type of a parameter explicitly, or the parameter can infer its type from its value. Calling this method resets the parameter so that it can again infer its type from the value passed in the parameter. Calling this method affects both the <xref:System.Data.OleDb.OleDbParameter.DbType%2A> and <xref:System.Data.OleDb.OleDbParameter.OleDbType%2A> properties of the <xref:System.Data.OleDb.OleDbParameter>."
+  summary: "Hiermee stelt u het type dat is gekoppeld aan dit <xref href=&quot;System.Data.OleDb.OleDbParameter&quot;> </xref>."
+  remarks: "Bij het uitvoeren van een opdracht die parameterwaarden omvat, code kan het type van een parameter ofwel expliciet ingesteld of de parameter het type van de waarde kunt afleiden. De parameter aanroepen van deze methode worden opnieuw zodat deze het type van de waarde die is doorgegeven in de parameter opnieuw kunt afleiden. Deze methode aanroept, is van invloed op zowel de <xref:System.Data.OleDb.OleDbParameter.DbType%2A>en <xref:System.Data.OleDb.OleDbParameter.OleDbType%2A>Eigenschappen van de <xref:System.Data.OleDb.OleDbParameter>.</xref:System.Data.OleDb.OleDbParameter> </xref:System.Data.OleDb.OleDbParameter.OleDbType%2A> </xref:System.Data.OleDb.OleDbParameter.DbType%2A>"
   syntax:
     content: public override void ResetDbType ();
     parameters: []
@@ -512,8 +512,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Resets the type associated with this <xref href=&quot;System.Data.OleDb.OleDbParameter&quot;></xref>."
-  remarks: "When executing a command that includes parameter values, code can either set the type of a parameter explicitly, or the parameter can infer its type from its value. Calling this method resets the parameter so that it can again infer its type from the value passed in the parameter. Calling this method affects both the <xref:System.Data.OleDb.OleDbParameter.DbType%2A> and <xref:System.Data.OleDb.OleDbParameter.OleDbType%2A> properties of the <xref:System.Data.OleDb.OleDbParameter>."
+  summary: "Hiermee stelt u het type dat is gekoppeld aan dit <xref href=&quot;System.Data.OleDb.OleDbParameter&quot;> </xref>."
+  remarks: "Bij het uitvoeren van een opdracht die parameterwaarden omvat, code kan het type van een parameter ofwel expliciet ingesteld of de parameter het type van de waarde kunt afleiden. De parameter aanroepen van deze methode worden opnieuw zodat deze het type van de waarde die is doorgegeven in de parameter opnieuw kunt afleiden. Deze methode aanroept, is van invloed op zowel de <xref:System.Data.OleDb.OleDbParameter.DbType%2A>en <xref:System.Data.OleDb.OleDbParameter.OleDbType%2A>Eigenschappen van de <xref:System.Data.OleDb.OleDbParameter>.</xref:System.Data.OleDb.OleDbParameter> </xref:System.Data.OleDb.OleDbParameter.OleDbType%2A> </xref:System.Data.OleDb.OleDbParameter.DbType%2A>"
   syntax:
     content: public void ResetOleDbType ();
     parameters: []
@@ -533,15 +533,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets or sets the number of decimal places to which <xref:System.Data.OleDb.OleDbParameter.Value*> is resolved."
-  remarks: "The Scale property is only used for decimal and numeric input parameters before calling the <xref:System.Data.OleDb.OleDbCommand.Prepare%2A> method of the <xref:System.Data.OleDb.OleDbCommand> and to specify numeric output parameters.       Setting this property to a value other than the value in the database depends on the implementation of the data provider and may return an error code, truncate, or round data.       When using SQL Server Native Client 10 (or later), to bind a parameter whose type is `Decimal`, `Numeric,``VarNumeric, DBDate`, or `DBTimeStamp`, you must manually specify an appropriate scale value.      > [!NOTE] >  Use of this property to coerce data passed to the database is not supported. To round, truncate, or otherwise coerce data before passing it to the database, use the <xref:System.Math> class that is part of the `System` namespace prior to assigning a value to the parameter&quot;s `Value` property.      > [!NOTE] >  .NET Framework data providers that are included with the .NET Framework version 1.0 do not verify the <xref:System.Data.OleDb.OleDbParameter.Precision%2A> or Scale of <xref:System.Decimal> parameter values. This can cause truncated data to be inserted at the data source. If you are using .NET Framework version 1.0, validate the <xref:System.Data.OleDb.OleDbParameter.Precision%2A> and <xref:System.Data.OleDb.OleDbParameter> of <xref:System.Decimal> values before setting the parameter value. Scale values that exceed the <xref:System.Decimal> parameter scale are still truncated."
+  summary: "Opgehaald of ingesteld van het aantal decimalen waarop <xref:System.Data.OleDb.OleDbParameter.Value*>is opgelost.</xref:System.Data.OleDb.OleDbParameter.Value*>"
+  remarks: "De eigenschap schaal wordt alleen gebruikt voor decimale en numerieke invoerparameters voordat u de <xref:System.Data.OleDb.OleDbCommand.Prepare%2A>methode van de <xref:System.Data.OleDb.OleDbCommand>en op te geven numerieke output-parameters.</xref:System.Data.OleDb.OleDbCommand> </xref:System.Data.OleDb.OleDbCommand.Prepare%2A>       Deze eigenschap instelt op een andere waarde dan de waarde in de database is afhankelijk van de implementatie van de gegevensprovider en een fout code, truncate of rond de gegevens kan worden geretourneerd.       Wanneer u SQL Server Native Client 10 (of hoger), verbinding maken met het type parameter `Decimal`, `Numeric,``VarNumeric, DBDate`, of `DBTimeStamp`, moet u een waarde van de juiste schaal handmatig opgeven.      > [!NOTE] > Gebruik van deze eigenschap gedwongen gegevens doorgegeven aan de database wordt niet ondersteund. Als u wilt afronden, truncate, of anders forceren gegevens voordat deze wordt doorgegeven aan de database, gebruikt u de <xref:System.Math>klasse die deel uitmaakt van de `System` naamruimte voorafgaand aan een waarde toewijst aan de parameter `Value` eigenschap.</xref:System.Math>      > [!NOTE] >.NET DataFramework dataproviders die deel van de .NET Framework versie 1.0 uitmaken niet controleren of de <xref:System.Data.OleDb.OleDbParameter.Precision%2A>of omvang van <xref:System.Decimal>parameterwaarden.</xref:System.Decimal> </xref:System.Data.OleDb.OleDbParameter.Precision%2A> Hierdoor kan de afgekapte gegevens moet worden ingevoegd in de gegevensbron. Als u .NET Framework versie 1.0 gebruikt, controleert u de <xref:System.Data.OleDb.OleDbParameter.Precision%2A>en <xref:System.Data.OleDb.OleDbParameter>van <xref:System.Decimal>waarden voordat u de waarde van parameter instelt.</xref:System.Decimal> </xref:System.Data.OleDb.OleDbParameter> </xref:System.Data.OleDb.OleDbParameter.Precision%2A> Schalen van waarden die groter is dan de <xref:System.Decimal>parameter scale nog steeds worden afgekapt.</xref:System.Decimal>"
   example:
   - "The following example creates an <xref:System.Data.OleDb.OleDbParameter> and sets some of its properties.  \n  \n [Visual Basic]  \n  \n```  \nPublic Sub CreateOleDbParameter()  \n    Dim parameter As New OleDbParameter(\"Price\", OleDbType.Decimal)  \n    parameter.Value = 3.1416  \n    parameter.Precision = 8  \n    parameter.Scale = 4  \nEnd Sub 'CreateOleDbParameter  \n```  \n  \n [C#]  \n  \n```  \npublic void CreateOleDbParameter()   \n {  \n    OleDbParameter parameter = new OleDbParameter(\"Price\", OleDbType.Decimal);  \n    parameter.Value = 3.1416;  \n    parameter.Precision = 8;  \n    parameter.Scale = 4;  \n }  \n```"
   syntax:
     content: public byte Scale { get; set; }
     return:
       type: System.Byte
-      description: "The number of decimal places to which <xref:System.Data.OleDb.OleDbParameter.Value*> is resolved. The default is 0."
+      description: "Het aantal decimalen waarop <xref:System.Data.OleDb.OleDbParameter.Value*>is opgelost.</xref:System.Data.OleDb.OleDbParameter.Value*> De standaardwaarde is 0."
   overload: System.Data.OleDb.OleDbParameter.Scale*
   exceptions: []
   platform:
@@ -558,15 +558,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets or sets the maximum size, in bytes, of the data within the column."
-  remarks: "The Size property is used for binary and string types.       For nonstring data types and ANSI string data, the Size property refers to the number of bytes. For Unicode string data, Size refers to the number of characters. The count for strings does not include the terminating character.       For variable-length data types, Size describes the maximum amount of data to transmit to the server. For example, for a Unicode string value, Size could be used to limit the amount of data sent to the server to the first 100 characters.       For bidirectional and output parameters, and return values, you must set the value of Size. This is not required for input parameters, and if not explicitly set, the value of is inferred from the actual size of the specified parameter when a parameterized statement is executed.       The <xref:System.Data.OleDb.OleDbParameter.DbType%2A>, <xref:System.Data.OleDb.OleDbParameter.OleDbType%2A>, and Size properties of a parameter can be inferred by setting <xref:System.Data.OleDb.OleDbParameter.Value%2A>. Therefore, you are not required to specify them. However, they are not exposed in <xref:System.Data.OleDb.OleDbParameter> property settings. For example, if the size of the parameter has been inferred, Size does not contain the inferred value after statement execution.       For fixed-length data types, the value of Size is ignored. It can be retrieved for informational purposes, and returns the maximum amount of bytes the provider uses when transmitting the value of the parameter to the server.       If the size of the value supplied for an <xref:System.Data.OleDb.OleDbParameter> exceeds the specified Size, the <xref:System.Data.OleDb.OleDbParameter.Value%2A> of the <xref:System.Data.OleDb.OleDbParameter> contains the specified value, truncated to the size of the <xref:System.Data.OleDb.OleDbParameter>."
+  summary: "Opgehaald of ingesteld van de maximale grootte in bytes van de gegevens in de kolom."
+  remarks: "De eigenschap Size wordt voor typen binaire bestanden en de tekenreeks gebruikt.       Voor de gegevenstypen nonstring en gegevens van ANSI-tekenreeks, wordt de eigenschap Size verwijst naar het aantal bytes. Unicode-tekenreeks gegevens verwijst grootte naar het aantal tekens. Het aantal voor tekenreeksen bevat geen afsluitende teken.       Voor gegevenstypen met variabele lengte beschrijft grootte de maximale hoeveelheid gegevens die worden verzonden naar de server. Voor een tekenreekswaarde Unicode kan bijvoorbeeld grootte worden gebruikt om de hoeveelheid gegevens die worden verzonden met de server voor de eerste 100 tekens te beperken.       Voor bidirectionele en output-parameters en retourwaarden, moet u de waarde van grootte instellen. Dit is niet vereist voor de invoerparameters en als niet expliciet is ingesteld, de waarde van is afgeleid van de werkelijke grootte van de opgegeven parameter wanneer een instructie met parameters wordt uitgevoerd.       De <xref:System.Data.OleDb.OleDbParameter.DbType%2A>, <xref:System.Data.OleDb.OleDbParameter.OleDbType%2A>, en eigenschappen van de grootte van een parameter kunnen worden afgeleid door in te stellen <xref:System.Data.OleDb.OleDbParameter.Value%2A>.</xref:System.Data.OleDb.OleDbParameter.Value%2A> </xref:System.Data.OleDb.OleDbParameter.OleDbType%2A> </xref:System.Data.OleDb.OleDbParameter.DbType%2A> U wordt daarom niet verplicht te geven. Ze worden echter niet blootgesteld <xref:System.Data.OleDb.OleDbParameter>eigenschapsinstellingen.</xref:System.Data.OleDb.OleDbParameter> Bijvoorbeeld, als de grootte van de parameter is afgeleid, bevat grootte geen de afgeleide waarde na het uitvoeren van de instructie.       Voor gegevens met vaste lengte van het type wordt de waarde van de grootte genegeerd. Deze kan worden opgehaald om informatief en retourneert de maximale hoeveelheid bytes, die de provider gebruikt bij het verzenden van de waarde van de parameter met de server.       Als de grootte van de waarde die is opgegeven voor een <xref:System.Data.OleDb.OleDbParameter>groter is dan de opgegeven grootte, het <xref:System.Data.OleDb.OleDbParameter.Value%2A>van de <xref:System.Data.OleDb.OleDbParameter>bevat van de opgegeven waarde, afgekapt tot de grootte van de <xref:System.Data.OleDb.OleDbParameter>.</xref:System.Data.OleDb.OleDbParameter> </xref:System.Data.OleDb.OleDbParameter> </xref:System.Data.OleDb.OleDbParameter.Value%2A> </xref:System.Data.OleDb.OleDbParameter>"
   example:
   - "The following example creates an <xref:System.Data.OleDb.OleDbParameter> and sets some of its properties.  \n  \n [Visual Basic]  \n  \n```  \nPublic Sub CreateOleDbParameter()  \n    Dim myValue As String = \"12 foot scarf - multiple colors, one previous owner\"  \n    Dim parameter As New OleDbParameter(\"Description\", OleDbType.VarChar)  \n    parameter.Direction = ParameterDirection.Output  \n    parameter.Size = myValue.Length  \n    parameter.Value = myValue  \nEnd Sub 'CreateOleDbParameter  \n```  \n  \n [C#]  \n  \n```  \npublic void CreateOleDbParameter()   \n {  \n    string myValue = \"12 foot scarf - multiple colors, one previous owner\";  \n    OleDbParameter parameter = new OleDbParameter(\"Description\", OleDbType.VarChar);  \n    parameter.Direction = ParameterDirection.Output;  \n    parameter.Size = myValue.Length;  \n    parameter.Value = myValue;  \n }  \n```"
   syntax:
     content: public override int Size { get; set; }
     return:
       type: System.Int32
-      description: "The maximum size, in bytes, of the data within the column. The default value is inferred from the parameter value."
+      description: "De maximale grootte in bytes van de gegevens in de kolom. De standaardwaarde is afgeleid van de waarde van parameter."
   overload: System.Data.OleDb.OleDbParameter.Size*
   exceptions: []
   platform:
@@ -583,15 +583,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets or sets the name of the source column mapped to the <xref href=&quot;System.Data.DataSet&quot;></xref> and used for loading or returning the <xref:System.Data.OleDb.OleDbParameter.Value*>."
-  remarks: "When SourceColumn is set to anything other than an empty string, the value of the parameter is retrieved from the column with the SourceColumn name. If <xref:System.Data.OleDb.OleDbParameter.Direction%2A> is set to `Input`, the value is taken from the <xref:System.Data.DataSet>. If <xref:System.Data.OleDb.OleDbParameter.Direction%2A> is set to `Output`, the value is taken from the data source. A <xref:System.Data.OleDb.OleDbParameter.Direction%2A> of `InputOutput` is a combination of both.       For more information about how to use the SourceColumn property, see [DataAdapter Parameters](~/add/includes/ajax-current-ext-md.md) and [Updating Data Sources with DataAdapters](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Opgehaald of ingesteld van de naam van de bronkolom die wordt toegewezen aan de <xref href=&quot;System.Data.DataSet&quot;> </xref> en gebruikt voor het laden of de <xref:System.Data.OleDb.OleDbParameter.Value*>.</xref:System.Data.OleDb.OleDbParameter.Value*> retourneren"
+  remarks: "Wanneer SourceColumn is ingesteld op iets anders dan een lege tekenreeks, wordt de waarde van de parameter opgehaald uit de kolom met de naam van de SourceColumn. Als <xref:System.Data.OleDb.OleDbParameter.Direction%2A>is ingesteld op `Input`, de waarde wordt opgehaald uit de <xref:System.Data.DataSet>.</xref:System.Data.DataSet> </xref:System.Data.OleDb.OleDbParameter.Direction%2A> Als <xref:System.Data.OleDb.OleDbParameter.Direction%2A>is ingesteld op `Output`, de waarde wordt opgehaald uit de gegevensbron.</xref:System.Data.OleDb.OleDbParameter.Direction%2A> Een <xref:System.Data.OleDb.OleDbParameter.Direction%2A>van `InputOutput` is een combinatie van beide.</xref:System.Data.OleDb.OleDbParameter.Direction%2A>       Zie voor meer informatie over het gebruik van de eigenschap SourceColumn [DataAdapter Parameters](~/add/includes/ajax-current-ext-md.md) en [gegevensbronnen bijwerken met DataAdapters](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following example creates an <xref:System.Data.OleDb.OleDbParameter> and sets some of its properties.  \n  \n [Visual Basic]  \n  \n```  \nPublic Sub CreateOleDbParameter()  \n    Dim parameter As New OleDbParameter(\"Description\", OleDbType.VarChar, 88)  \n    parameter.SourceColumn = \"Description\"  \nEnd Sub 'CreateOleDbParameter  \n```  \n  \n [C#]  \n  \n```  \npublic void CreateOleDbParameter()   \n {  \n    OleDbParameter parameter = new OleDbParameter(\"Description\", OleDbType.VarChar, 88);  \n    parameter.SourceColumn = \"Description\";  \n }  \n```"
   syntax:
     content: public override string SourceColumn { get; set; }
     return:
       type: System.String
-      description: "The name of the source column mapped to the <xref href=&quot;System.Data.DataSet&quot;></xref>. The default is an empty string."
+      description: "De naam van de bronkolom die wordt toegewezen aan de <xref href=&quot;System.Data.DataSet&quot;> </xref>. De standaardwaarde is een lege tekenreeks."
   overload: System.Data.OleDb.OleDbParameter.SourceColumn*
   exceptions: []
   platform:
@@ -608,13 +608,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Sets or gets a value which indicates whether the source column is nullable. This allows <xref href=&quot;System.Data.Common.DbCommandBuilder&quot;></xref> to correctly generate Update statements for nullable columns."
-  remarks: "SourceColumnNullMapping is used by the <xref:System.Data.Common.DbCommandBuilder> to correctly generate update commands when dealing with nullable columns. Generally, use of SourceColumnNullMapping is limited to developers inheriting from <xref:System.Data.Common.DbCommandBuilder>.       <xref:System.Data.Common.DbCommandBuilder> uses this property to determine whether the source column is nullable, and sets this property to `true` if it is nullable, and `false` if it is not. When <xref:System.Data.Common.DbCommandBuilder> is generating its Update statement, it examines the SourceColumnNullMapping for each parameter. If the property is `true`, <xref:System.Data.Common.DbCommandBuilder> generates a WHERE clauses like the following (in this query expression, &quot;FieldName&quot; represents the name of the field):      ```   ((@IsNull_FieldName = 1 AND FieldName IS NULL) OR      (FieldName = @Original_FieldName))   ```       If SourceColumnNullMapping for the field is false, <xref:System.Data.Common.DbCommandBuilder> generates the following WHERE clause:      ```   FieldName = @OriginalFieldName   ```       In addition, @IsNull_FieldName contains 1 if the source field contains null, and 0 if it does not. This mechanism allows for a performance optimization in SQL Server, and provides for common code that works across multiple providers."
+  summary: "Hiermee wordt opgehaald of een waarde waarmee wordt aangegeven of de bronkolom waarvoor null is toegestaan is. Hierdoor kunnen <xref href=&quot;System.Data.Common.DbCommandBuilder&quot;> </xref> Update-instructies voor kolommen die nulwaarden correct te genereren."
+  remarks: "SourceColumnNullMapping wordt gebruikt door de <xref:System.Data.Common.DbCommandBuilder>juist genereren bijwerkopdrachten betreft de kolommen die nulwaarden.</xref:System.Data.Common.DbCommandBuilder> In het algemeen is gebruik van SourceColumnNullMapping beperkt tot ontwikkelaars die zijn overgenomen van <xref:System.Data.Common.DbCommandBuilder>.</xref:System.Data.Common.DbCommandBuilder>       <xref:System.Data.Common.DbCommandBuilder>Deze eigenschap wordt gebruikt om te bepalen of de bronkolom is waarvoor null is toegestaan, wordt deze eigenschap ingesteld op `true` als deze waarde toegestaan is, en `false` als dit niet.</xref:System.Data.Common.DbCommandBuilder> Wanneer <xref:System.Data.Common.DbCommandBuilder>is voor het genereren van de instructie Update onderzoekt de SourceColumnNullMapping voor elke parameter.</xref:System.Data.Common.DbCommandBuilder> Als de eigenschap `true`, <xref:System.Data.Common.DbCommandBuilder>genereert een component WHERE als volgt (in deze query-expressie &quot;FieldName&quot; geeft de naam van het veld): ```   ((@IsNull_FieldName = 1 AND FieldName IS NULL) OR      (FieldName = @Original_FieldName))   ``` als SourceColumnNullMapping voor het veld is ingesteld op false, <xref:System.Data.Common.DbCommandBuilder>genereert de volgende WHERE-component: ```   FieldName = @OriginalFieldName   ``` bovendien @IsNull_FieldName bevat 1 als het bronveld bevat null en 0 als dit niet.</xref:System.Data.Common.DbCommandBuilder> </xref:System.Data.Common.DbCommandBuilder> Dit mechanisme kunt u een optimalisatie van de prestaties in SQL Server en biedt voor algemene code die op meerdere providers werkt."
   syntax:
     content: public override bool SourceColumnNullMapping { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the source column is nullable; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if it is not."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de bronkolom null is; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> als dit niet."
   overload: System.Data.OleDb.OleDbParameter.SourceColumnNullMapping*
   exceptions: []
   platform:
@@ -631,20 +631,20 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets or sets the <xref href=&quot;System.Data.DataRowVersion&quot;></xref> to use when you load <xref:System.Data.OleDb.OleDbParameter.Value*>."
-  remarks: "Used by <xref:System.Data.OleDb.OleDbDataAdapter.UpdateCommand%2A> during an update operation to determine whether the parameter value is set to `Current` or `Original`. This lets primary keys be updated. This property is set to the version of the <xref:System.Data.DataRow> used by the <xref:System.Data.DataRow.Item%2A> property, or the <xref:System.Data.DataRow.GetChildRows%2A> method of the <xref:System.Data.DataRow> object."
+  summary: "Opgehaald of ingesteld de <xref href=&quot;System.Data.DataRowVersion&quot;> </xref> moet worden gebruikt bij het laden van <xref:System.Data.OleDb.OleDbParameter.Value*>.</xref:System.Data.OleDb.OleDbParameter.Value*>"
+  remarks: "Gebruikt door <xref:System.Data.OleDb.OleDbDataAdapter.UpdateCommand%2A>tijdens een updatebewerking om te bepalen of de waarde van parameter is ingesteld op `Current` of `Original`.</xref:System.Data.OleDb.OleDbDataAdapter.UpdateCommand%2A> Hiermee kunt primaire sleutels worden bijgewerkt. Deze eigenschap is ingesteld op de versie van de <xref:System.Data.DataRow>die wordt gebruikt door de <xref:System.Data.DataRow.Item%2A>eigenschap, of de <xref:System.Data.DataRow.GetChildRows%2A>methode van de <xref:System.Data.DataRow>object.</xref:System.Data.DataRow> </xref:System.Data.DataRow.GetChildRows%2A> </xref:System.Data.DataRow.Item%2A> </xref:System.Data.DataRow>"
   example:
   - "The following example creates an <xref:System.Data.OleDb.OleDbParameter> and sets some of its properties.  \n  \n [Visual Basic]  \n  \n```  \nPublic Sub CreateOleDbParameter()  \n    Dim parameter As New OleDbParameter(\"Description\", OleDbType.VarChar, 88)  \n    parameter.SourceColumn = \"Description\"  \n    parameter.SourceVersion = DataRowVersion.Current  \nEnd Sub  \n```  \n  \n [C#]  \n  \n```  \npublic void CreateOleDbParameter()   \n {  \n    OleDbParameter parameter = new OleDbParameter(\"Description\", OleDbType.VarChar, 88);  \n    parameter.SourceColumn = \"Description\";  \n    parameter.SourceVersion = DataRowVersion.Current;  \n }  \n```"
   syntax:
     content: public override System.Data.DataRowVersion SourceVersion { get; set; }
     return:
       type: System.Data.DataRowVersion
-      description: "One of the <xref href=&quot;System.Data.DataRowVersion&quot;></xref> values. The default is <xref uid=&quot;langword_csharp_Current&quot; name=&quot;Current&quot; href=&quot;&quot;></xref>."
+      description: "Een van de <xref href=&quot;System.Data.DataRowVersion&quot;> </xref> waarden. De standaardwaarde is <xref uid=&quot;langword_csharp_Current&quot; name=&quot;Current&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.OleDb.OleDbParameter.SourceVersion*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The property was not set to one of the <xref href=&quot;System.Data.DataRowVersion&quot;></xref> values."
+    description: "De eigenschap is niet ingesteld op een van de <xref href=&quot;System.Data.DataRowVersion&quot;> </xref> waarden."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbParameter.System#ICloneable#Clone
@@ -660,14 +660,14 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "For a description of this member, see &lt;xref:System.ICloneable.Clone%2A?displayProperty=fullName&gt;."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.OleDb.OleDbParameter> instance is cast to an <xref:System.ICloneable> interface."
+  summary: "Zie voor een beschrijving van dit lid &lt;xref:System.ICloneable.Clone%2A?displayProperty=fullName&gt;."
+  remarks: "Dit lid is een expliciete interface lid-implementatie. Het kan worden gebruikt alleen wanneer de <xref:System.Data.OleDb.OleDbParameter>exemplaar is geconverteerd naar een <xref:System.ICloneable>interface.</xref:System.ICloneable> </xref:System.Data.OleDb.OleDbParameter>"
   syntax:
     content: object ICloneable.Clone ();
     parameters: []
     return:
       type: System.Object
-      description: "A new <xref:System.Object> that is a copy of this instance."
+      description: "Een nieuwe <xref:System.Object>die een kopie van dit exemplaar.</xref:System.Object>"
   overload: System.Data.OleDb.OleDbParameter.System#ICloneable#Clone*
   exceptions: []
   platform:
@@ -684,13 +684,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets a string that contains the <xref:System.Data.OleDb.OleDbParameter.ParameterName*>."
+  summary: "Een tekenreeks waarin de <xref:System.Data.OleDb.OleDbParameter.ParameterName*>.</xref:System.Data.OleDb.OleDbParameter.ParameterName*> opgehaald"
   syntax:
     content: public override string ToString ();
     parameters: []
     return:
       type: System.String
-      description: "A string that contains the <xref:System.Data.OleDb.OleDbParameter.ParameterName*>."
+      description: "Een tekenreeks waarin de <xref:System.Data.OleDb.OleDbParameter.ParameterName*>.</xref:System.Data.OleDb.OleDbParameter.ParameterName*>"
   overload: System.Data.OleDb.OleDbParameter.ToString*
   exceptions: []
   platform:
@@ -707,15 +707,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets or sets the value of the parameter."
-  remarks: "For input parameters, the value is bound to the <xref:System.Data.OleDb.OleDbCommand> that is sent to the server. For output and return value parameters, the value is set on completion of the <xref:System.Data.OleDb.OleDbCommand> and after the <xref:System.Data.OleDb.OleDbDataReader> is closed.       When you send a null parameter value to the server, you must specify <xref:System.DBNull>, not null. The null value in the system is an empty object that has no value. <xref:System.DBNull> is used to represent null values.       If the application specifies the database type, the bound value is converted to that type when the provider sends the data to the server. The provider tries to convert any type of value if it supports the <xref:System.IConvertible> interface. Conversion errors may result if the specified type is not compatible with the value.       Both the <xref:System.Data.OleDb.OleDbParameter.DbType%2A> and <xref:System.Data.OleDb.OleDbParameter.OleDbType%2A> properties can be inferred by setting the Value.       The Value property is overwritten by the Update method of <xref:System.Data.IDbDataAdapter>."
+  summary: "Opgehaald of ingesteld van de waarde van de parameter."
+  remarks: "De waarde is voor de invoerparameters gebonden aan de <xref:System.Data.OleDb.OleDbCommand>die wordt verzonden naar de server.</xref:System.Data.OleDb.OleDbCommand> Voor uitvoer en parameters voor retourwaarden, de waarde is ingesteld op voltooiing van de <xref:System.Data.OleDb.OleDbCommand>en na de <xref:System.Data.OleDb.OleDbDataReader>is gesloten.</xref:System.Data.OleDb.OleDbDataReader> </xref:System.Data.OleDb.OleDbCommand>       Wanneer u een parameterwaarde null naar de server verzendt, moet u opgeven <xref:System.DBNull>, niet-null.</xref:System.DBNull> De waarde null in het systeem is een leeg object dat geen waarde heeft. <xref:System.DBNull>wordt gebruikt om aan te duiden null-waarden.</xref:System.DBNull>       Als de toepassing is opgegeven voor het databasetype, wordt de afhankelijke waarde wordt geconverteerd naar dat type wanneer de provider de gegevens naar de server verzendt. De provider probeert te converteren van elk type waarde als het ondersteunt de <xref:System.IConvertible>interface.</xref:System.IConvertible> Er kunnen conversiefouten optreden als het opgegeven type niet compatibel met de waarde is.       Zowel de <xref:System.Data.OleDb.OleDbParameter.DbType%2A>en <xref:System.Data.OleDb.OleDbParameter.OleDbType%2A>Eigenschappen door de waarde kunnen worden afgeleid.</xref:System.Data.OleDb.OleDbParameter.OleDbType%2A> </xref:System.Data.OleDb.OleDbParameter.DbType%2A>       De eigenschap Value is overschreven door de methode Update van <xref:System.Data.IDbDataAdapter>.</xref:System.Data.IDbDataAdapter>"
   example:
   - "The following example creates an <xref:System.Data.OleDb.OleDbParameter> and sets some of its properties.  \n  \n [Visual Basic]  \n  \n```  \nPublic Sub CreateOleDbParameter()  \n    Dim parameter As New OleDbParameter(\"Description\", OleDbType.VarChar, 88)  \n    parameter.Value = \"garden hose\"  \nEnd Sub 'CreateOleDbParameter  \n```  \n  \n [C#]  \n  \n```  \npublic void CreateOleDbParameter()   \n {  \n    OleDbParameter parameter = new OleDbParameter(\"Description\", OleDbType.VarChar, 88);  \n    parameter.Value = \"garden hose\";  \n }  \n```"
   syntax:
     content: public override object Value { get; set; }
     return:
       type: System.Object
-      description: "An <xref:System.Object> that is the value of the parameter. The default value is null."
+      description: "Een <xref:System.Object>die de waarde van de parameter.</xref:System.Object> De standaardwaarde is null."
   overload: System.Data.OleDb.OleDbParameter.Value*
   exceptions: []
   platform:

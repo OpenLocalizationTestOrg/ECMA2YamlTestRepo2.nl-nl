@@ -15,8 +15,8 @@ items:
   nameWithType: Validator
   fullName: System.Workflow.ComponentModel.Compiler.Validator
   type: Class
-  summary: "Base class for all validator components."
-  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]       The Validator class is used to ensure that activities are configured properly at design time. Validators are instantiated during design time when the designer validates the properties assigned to activities; if an activity&quot;s parameters are not configured properly, the designer will show smart tag errors for the incorrect values. Validators also run during compile time, and will return validation errors if constraints such as object parent or child type, minimum number of children, etc. are not correct.  Validators will also run at runtime when a markup-based workflow is instantiated using the <xref:System.Workflow.Runtime.WorkflowRuntime.CreateWorkflow%2A> method.       The main purpose of a Validator is to ensure that errors are known during design time, and are not exposed as exceptions during runtime.       Validators are associated with the activities that they validate using the <xref:System.Workflow.ComponentModel.Compiler.ActivityValidatorAttribute.ValidatorTypeName%2A> attribute; all activity validators must inherit from the <xref:System.Workflow.ComponentModel.Compiler.ActivityValidator> class.       By default, validators will validate meta properties; they do not validate instance properties which are settable at runtime."
+  summary: "Basisklasse voor alle onderdelen van de validatiefunctie."
+  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]De klasse Validator wordt gebruikt om ervoor te zorgen dat activiteiten juist zijn geconfigureerd in de ontwerpfase. Validatiefuncties worden geconcretiseerd tijdens ontwerptijd, wanneer de ontwerpfunctie de eigenschappen die zijn toegewezen aan activiteiten valideert; Als een activiteit parameters niet juist zijn geconfigureerd, wordt de ontwerpfunctie voor infolabel fouten voor de onjuiste waarden weergegeven. Validatiefuncties ook uitvoeren tijdens het moment van compileren en validatiefouten wordt geretourneerd als beperkingen zoals bovenliggende of onderliggende objecttype, minimum aantal onderliggende items, etc. niet juist.  Validatiefuncties tijdens runtime wordt ook uitgevoerd wanneer een werkstroom op basis van een markup wordt gestart met behulp van de <xref:System.Workflow.Runtime.WorkflowRuntime.CreateWorkflow%2A>methode.</xref:System.Workflow.Runtime.WorkflowRuntime.CreateWorkflow%2A>       Het belangrijkste doel van een validatiefunctie is om ervoor te zorgen dat fouten tijdens de ontwerpfase worden aangeduid, en niet worden weergegeven als uitzonderingen tijdens runtime.       Validatiefuncties zijn gekoppeld aan de activiteiten die ze controleren met behulp van het <xref:System.Workflow.ComponentModel.Compiler.ActivityValidatorAttribute.ValidatorTypeName%2A>kenmerk; alle activiteit voor validatiefuncties moeten worden overgenomen van de <xref:System.Workflow.ComponentModel.Compiler.ActivityValidator>klasse.</xref:System.Workflow.ComponentModel.Compiler.ActivityValidator> </xref:System.Workflow.ComponentModel.Compiler.ActivityValidatorAttribute.ValidatorTypeName%2A>       Standaard valideert validatiefuncties meta-eigenschappen; Deze instantie-eigenschappen die kunnen worden ingesteld tijdens runtime wordt niet gevalideerd."
   syntax:
     content: >-
       [System.Obsolete("The System.Workflow.* types are deprecated.  Instead, please use the new types from System.Activities.*")]
@@ -40,7 +40,7 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel.Compiler
-  summary: "Initializes a new instance of the <xref href=&quot;System.Workflow.ComponentModel.Compiler.Validator&quot;></xref> class."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Workflow.ComponentModel.Compiler.Validator&quot;> </xref> klasse."
   syntax:
     content: public Validator ();
     parameters: []
@@ -60,22 +60,22 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel.Compiler
-  summary: "Helper method to extract the full property name."
-  remarks: "Useful when the validated property is nested.  The method traverses the <xref:System.Workflow.ComponentModel.Compiler.PropertyValidationContext> in the stack to build the full name of the property.       For example: the name My.Actor.Bas is built using three <xref:System.Workflow.ComponentModel.Compiler.PropertyValidationContext> items.       If the validated property belongs to an object that is an item in a collection, the method will produce the name of the collection."
+  summary: "Help-methode voor het uitpakken van de volledige eigenschapsnaam."
+  remarks: "Dit is nuttig wanneer de eigenschap gevalideerde is genest.  De methode passeert de <xref:System.Workflow.ComponentModel.Compiler.PropertyValidationContext>in de stack voor het bouwen van de volledige naam van de eigenschap.</xref:System.Workflow.ComponentModel.Compiler.PropertyValidationContext>       Bijvoorbeeld: de naam van de My.Actor.Bas wordt gebouwd met drie <xref:System.Workflow.ComponentModel.Compiler.PropertyValidationContext>items.</xref:System.Workflow.ComponentModel.Compiler.PropertyValidationContext>       Als de eigenschap gevalideerde bij een object dat een item in een verzameling hoort, levert de methode op de naam van de verzameling."
   syntax:
     content: protected string GetFullPropertyName (System.Workflow.ComponentModel.Compiler.ValidationManager manager);
     parameters:
     - id: manager
       type: System.Workflow.ComponentModel.Compiler.ValidationManager
-      description: "The <xref href=&quot;System.Workflow.ComponentModel.Compiler.ValidationManager&quot;></xref> linked to the validation."
+      description: "De <xref href=&quot;System.Workflow.ComponentModel.Compiler.ValidationManager&quot;> </xref> gekoppeld aan de validatie."
     return:
       type: System.String
-      description: "The full property name."
+      description: "De naam van de volledige-eigenschap."
   overload: System.Workflow.ComponentModel.Compiler.Validator.GetFullPropertyName*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>manager</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>manager</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Workflow.ComponentModel.Compiler.Validator.Validate(System.Workflow.ComponentModel.Compiler.ValidationManager,System.Object)
@@ -90,24 +90,24 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel.Compiler
-  summary: "Validates the specified object and returns a collection of validation errors."
+  summary: "Het opgegeven object valideert en retourneert een verzameling met validatiefouten."
   syntax:
     content: public virtual System.Workflow.ComponentModel.Compiler.ValidationErrorCollection Validate (System.Workflow.ComponentModel.Compiler.ValidationManager manager, object obj);
     parameters:
     - id: manager
       type: System.Workflow.ComponentModel.Compiler.ValidationManager
-      description: "The validation manager linked to the validation."
+      description: "De validatie manager gekoppeld aan de validatie."
     - id: obj
       type: System.Object
-      description: "The <xref:System.Object> to be validated."
+      description: "De <xref:System.Object>moet worden gevalideerd.</xref:System.Object>"
     return:
       type: System.Workflow.ComponentModel.Compiler.ValidationErrorCollection
-      description: "A <xref href=&quot;System.Workflow.ComponentModel.Compiler.ValidationErrorCollection&quot;></xref> that contains the validation errors resulting from this operation."
+      description: "Een <xref href=&quot;System.Workflow.ComponentModel.Compiler.ValidationErrorCollection&quot;> </xref> die het resultaat zijn van deze bewerking validatiefouten bevat."
   overload: System.Workflow.ComponentModel.Compiler.Validator.Validate*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>obj</code> is a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref>)."
+    description: "<code>obj</code>is een null-verwijzing (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref>)."
   platform:
   - net462
 - uid: System.Workflow.ComponentModel.Compiler.Validator.ValidateActivityChange(System.Workflow.ComponentModel.Activity,System.Workflow.ComponentModel.ActivityChangeAction)
@@ -122,25 +122,25 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel.Compiler
-  summary: "When overridden in a derived class, validates a change based on a specified <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> being added or removed. This function is called during the application of changes that are made to the workflow during dynamic updates."
-  remarks: "In the base implementation, a null reference (Visual Basic `Nothing`) is returned."
+  summary: "Wanneer in een afgeleide klasse genegeerd, valideert een wijziging op basis van een opgegeven <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref> wordt toegevoegd of verwijderd. Deze functie wordt aangeroepen tijdens de toepassing van de wijzigingen die zijn aangebracht aan de werkstroom tijdens dynamische updates."
+  remarks: "In de basisimplementatie een null-verwijzing (Visual Basic `Nothing`) wordt geretourneerd."
   syntax:
     content: public virtual System.Workflow.ComponentModel.Compiler.ValidationError ValidateActivityChange (System.Workflow.ComponentModel.Activity activity, System.Workflow.ComponentModel.ActivityChangeAction action);
     parameters:
     - id: activity
       type: System.Workflow.ComponentModel.Activity
-      description: "The specified <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>."
+      description: "De opgegeven <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref>."
     - id: action
       type: System.Workflow.ComponentModel.ActivityChangeAction
-      description: "The specified <xref href=&quot;System.Workflow.ComponentModel.ActivityChangeAction&quot;></xref>."
+      description: "De opgegeven <xref href=&quot;System.Workflow.ComponentModel.ActivityChangeAction&quot;> </xref>."
     return:
       type: System.Workflow.ComponentModel.Compiler.ValidationError
-      description: "The <xref href=&quot;System.Workflow.ComponentModel.Compiler.ValidationError&quot;></xref> generated by the operation."
+      description: "De <xref href=&quot;System.Workflow.ComponentModel.Compiler.ValidationError&quot;> </xref> die worden gegenereerd door de bewerking."
   overload: System.Workflow.ComponentModel.Compiler.Validator.ValidateActivityChange*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>action</code> is a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref>)."
+    description: "<code>action</code>is een null-verwijzing (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref>)."
   platform:
   - net462
 - uid: System.Workflow.ComponentModel.Compiler.Validator.ValidateProperties(System.Workflow.ComponentModel.Compiler.ValidationManager,System.Object)
@@ -155,24 +155,24 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel.Compiler
-  summary: "Helper method to automatically validate the specific objects properties."
+  summary: "Help-methode om te valideren automatisch de eigenschappen van de specifieke objecten."
   syntax:
     content: public virtual System.Workflow.ComponentModel.Compiler.ValidationErrorCollection ValidateProperties (System.Workflow.ComponentModel.Compiler.ValidationManager manager, object obj);
     parameters:
     - id: manager
       type: System.Workflow.ComponentModel.Compiler.ValidationManager
-      description: "The validation manager linked to the validation."
+      description: "De validatie manager gekoppeld aan de validatie."
     - id: obj
       type: System.Object
-      description: "The <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> to be validated."
+      description: "De <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref> moet worden gevalideerd."
     return:
       type: System.Workflow.ComponentModel.Compiler.ValidationErrorCollection
-      description: "A <xref href=&quot;System.Workflow.ComponentModel.Compiler.ValidationErrorCollection&quot;></xref> that contains the validation errors resulting from this operation."
+      description: "Een <xref href=&quot;System.Workflow.ComponentModel.Compiler.ValidationErrorCollection&quot;> </xref> die het resultaat zijn van deze bewerking validatiefouten bevat."
   overload: System.Workflow.ComponentModel.Compiler.Validator.ValidateProperties*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>obj</code> is a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref>)."
+    description: "<code>obj</code>is een null-verwijzing (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref>)."
   platform:
   - net462
 - uid: System.Workflow.ComponentModel.Compiler.Validator.ValidateProperty(System.Reflection.PropertyInfo,System.Object,System.Object,System.Workflow.ComponentModel.Compiler.ValidationManager)
@@ -187,26 +187,26 @@ items:
   assemblies:
   - System.Workflow.ComponentModel
   namespace: System.Workflow.ComponentModel.Compiler
-  summary: "Performs validation on a property and returns a <xref href=&quot;System.Workflow.ComponentModel.Compiler.ValidationErrorCollection&quot;></xref> that contains the results of that validation."
-  remarks: "If no errors result from the validation, an empty <xref:System.Workflow.ComponentModel.Compiler.ValidationErrorCollection> is returned."
+  summary: "Een eigenschap worden gevalideerd en retourneert een <xref href=&quot;System.Workflow.ComponentModel.Compiler.ValidationErrorCollection&quot;> </xref> die de resultaten van deze validatie bevat."
+  remarks: "Als er geen fouten het gevolg zijn van de validatie, een lege <xref:System.Workflow.ComponentModel.Compiler.ValidationErrorCollection>wordt geretourneerd.</xref:System.Workflow.ComponentModel.Compiler.ValidationErrorCollection>"
   syntax:
     content: protected System.Workflow.ComponentModel.Compiler.ValidationErrorCollection ValidateProperty (System.Reflection.PropertyInfo propertyInfo, object propertyOwner, object propertyValue, System.Workflow.ComponentModel.Compiler.ValidationManager manager);
     parameters:
     - id: propertyInfo
       type: System.Reflection.PropertyInfo
-      description: "The <xref:System.Reflection.PropertyInfo> on the subject property."
+      description: "De <xref:System.Reflection.PropertyInfo>op de eigenschap subject.</xref:System.Reflection.PropertyInfo>"
     - id: propertyOwner
       type: System.Object
-      description: "The owner of the property."
+      description: "De eigenaar van de eigenschap."
     - id: propertyValue
       type: System.Object
-      description: "The value of the property."
+      description: "De waarde van de eigenschap."
     - id: manager
       type: System.Workflow.ComponentModel.Compiler.ValidationManager
-      description: "A <xref href=&quot;System.Workflow.ComponentModel.Compiler.ValidationManager&quot;></xref> for this operation."
+      description: "Een <xref href=&quot;System.Workflow.ComponentModel.Compiler.ValidationManager&quot;> </xref> voor deze bewerking."
     return:
       type: System.Workflow.ComponentModel.Compiler.ValidationErrorCollection
-      description: "A <xref href=&quot;System.Workflow.ComponentModel.Compiler.ValidationErrorCollection&quot;></xref> that contains the results of that validation."
+      description: "Een <xref href=&quot;System.Workflow.ComponentModel.Compiler.ValidationErrorCollection&quot;> </xref> die de resultaten van deze validatie bevat."
   overload: System.Workflow.ComponentModel.Compiler.Validator.ValidateProperty*
   exceptions: []
   platform:
