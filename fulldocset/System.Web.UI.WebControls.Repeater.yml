@@ -55,8 +55,8 @@ items:
   nameWithType: Repeater
   fullName: System.Web.UI.WebControls.Repeater
   type: Class
-  summary: "A data-bound list control that allows custom layout by repeating a specified template for each item displayed in the list."
-  remarks: "In this topic:      -   [Introduction](#introduction)      -   [Data Binding](#data_binding)      -   [Templates](#templates)      -   [Declarative Syntax](#declarative_syntax)      <a name=&quot;introduction&quot;></a>    ## Introduction    The Repeater control is a basic templated data-bound list. It has no built-in layout or styles, so you must explicitly declare all layout, formatting, and style tags within the control&quot;s templates.       The Repeater control allows you to split markup tags across the templates.  To create a table using templates, include the begin table tag (`<table>`) in the <xref:System.Web.UI.WebControls.Repeater.HeaderTemplate%2A>, a single table row tag (`<tr>`) in the <xref:System.Web.UI.WebControls.Repeater.ItemTemplate%2A>, and the end table tag (`</table>`) in the <xref:System.Web.UI.WebControls.Repeater.FooterTemplate%2A>.       The Repeater control has no built-in selection capabilities or editing support. You can use the <xref:System.Web.UI.WebControls.Repeater.ItemCommand> event to process control events that are raised from the templates to the control.      > [!CAUTION] >  This control can be used to display user input, which might include malicious client script. Check any information that is sent from a client for executable script, SQL statements, or other code before displaying it in your application. ASP.NET provides an input request validation feature to block script and HTML in user input. Validation server controls are also provided to assess user input. For more information, see [Validation Server Control Syntax](http://msdn.microsoft.com/en-us/96d2c59e-693c-4079-9b53-b3ff0d9e9133).      <a name=&quot;data_binding&quot;></a>    ## Data Binding    The Repeater control provides two properties to support data binding. To bind data to any collection that implements the <xref:System.Collections.IEnumerable?displayProperty=fullName> interface (such as a <xref:System.Data.DataView?displayProperty=fullName>, a <xref:System.Collections.ArrayList?displayProperty=fullName>, or an array), or the <xref:System.ComponentModel.IListSource> interface, use the <xref:System.Web.UI.WebControls.Repeater.DataSource%2A> property to specify the data source. When you set the <xref:System.Web.UI.WebControls.Repeater.DataSource%2A> property, you must manually write the code to perform data binding. To automatically bind the Repeater control to a data source represented by a data source control, set the <xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A> property to the <xref:System.Web.UI.Control.ID%2A> of the data source control to use. When you set the <xref:System.Web.UI.WebControls.BaseDataList.DataSourceID%2A> property, the Repeater control automatically binds to the specified data source control on the first request. Therefore, you do not need to explicitly call the <xref:System.Web.UI.WebControls.BaseDataList.DataBind%2A> method unless you have changed data-related properties of the Repeater control.       A Repeater control binds its <xref:System.Web.UI.WebControls.Repeater.ItemTemplate%2A> and <xref:System.Web.UI.WebControls.Repeater.AlternatingItemTemplate%2A> to either the data model declared and referenced by its <xref:System.Web.UI.WebControls.Repeater.DataSource%2A> property or the data source control specified by its <xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A> property. The <xref:System.Web.UI.WebControls.Repeater.HeaderTemplate%2A>, <xref:System.Web.UI.WebControls.Repeater.FooterTemplate%2A>, and <xref:System.Web.UI.WebControls.Repeater.SeparatorTemplate%2A> are not data-bound.       If the Repeater control&quot;s data source is set but no data is returned, the control renders the <xref:System.Web.UI.WebControls.Repeater.HeaderTemplate%2A> and <xref:System.Web.UI.WebControls.Repeater.FooterTemplate%2A> with no items. If the data source is `null`, the Repeater is not rendered.      <a name=&quot;templates&quot;></a>    ## Templates    At a minimum, every Repeater control must define an <xref:System.Web.UI.WebControls.Repeater.ItemTemplate%2A>. However, other optional templates described in the following table can be used to customize the appearance of the list.      |Template name|Description|   |-------------------|-----------------|   |<xref:System.Web.UI.WebControls.Repeater.ItemTemplate%2A>|Defines the content and layout of items within the list. This template is required.|   |<xref:System.Web.UI.WebControls.Repeater.AlternatingItemTemplate%2A>|If defined, determines the content and layout of alternating (zero-based odd-indexed) items. If not defined, <xref:System.Web.UI.WebControls.Repeater.ItemTemplate%2A> is used.|   |<xref:System.Web.UI.WebControls.Repeater.SeparatorTemplate%2A>|If defined, is rendered between items (and alternating items). If not defined, a separator is not rendered.|   |<xref:System.Web.UI.WebControls.Repeater.HeaderTemplate%2A>|If defined, determines the content and layout of the list header. If not defined, a header is not rendered.|   |<xref:System.Web.UI.WebControls.Repeater.FooterTemplate%2A>|If defined, determines the content and layout of the list footer. If not defined, a footer is not rendered.|      <a name=&quot;declarative_syntax&quot;></a>    ## Declarative Syntax      ```   <asp:Repeater       DataMember=&quot;string&quot;       DataSource=&quot;string&quot;       DataSourceID=&quot;string&quot;       EnableTheming=&quot;True|False&quot;       EnableViewState=&quot;True|False&quot;       ID=&quot;string&quot;       OnDataBinding=&quot;DataBinding event handler&quot;       OnDisposed=&quot;Disposed event handler&quot;       OnInit=&quot;Init event handler&quot;       OnItemCommand=&quot;ItemCommand event handler&quot;       OnItemCreated=&quot;ItemCreated event handler&quot;       OnItemDataBound=&quot;ItemDataBound event handler&quot;       OnLoad=&quot;Load event handler&quot;       OnPreRender=&quot;PreRender event handler&quot;       OnUnload=&quot;Unload event handler&quot;       runat=&quot;server&quot;       Visible=&quot;True|False&quot;   >           <AlternatingItemTemplate>               <!-- child controls -->           </AlternatingItemTemplate>           <FooterTemplate>               <!-- child controls -->           </FooterTemplate>           <HeaderTemplate>               <!-- child controls -->           </HeaderTemplate>           <ItemTemplate>               <!-- child controls -->           </ItemTemplate>           <SeparatorTemplate>               <!-- child controls -->           </SeparatorTemplate>   </asp:Repeater>   ```"
+  summary: "Een gegevensgebonden lijstbesturingselement waarmee aangepaste indeling door een opgegeven sjabloon herhalen voor elk item in de lijst weergegeven."
+  remarks: "In dit onderwerp:- [inleiding](#introduction)      -   [gegevensbinding](#data_binding)      -   [sjablonen](#templates)      -   [declaratieve syntaxis](#declarative_syntax) <a name=&quot;introduction&quot;> </a> ## inleiding de Repeater-besturingselement is een eenvoudige lijst met sjablonen voor gegevens is gebonden.       Dit heeft geen ingebouwde indeling of stijlen, dus u expliciet declareren moet alle indeling en opmaak tags style binnen sjablonen van het besturingselement.       Het besturingselement Repeater kunt u codes verdelen over de sjablonen.  Een tabel te maken met behulp van sjablonen, omvatten de begin-tabelcode (`<table>`) in de <xref:System.Web.UI.WebControls.Repeater.HeaderTemplate%2A>, een enkele rij tabelcode (`<tr>`) in de <xref:System.Web.UI.WebControls.Repeater.ItemTemplate%2A>, en de tag eindtabel (`</table>`) in de <xref:System.Web.UI.WebControls.Repeater.FooterTemplate%2A>.</xref:System.Web.UI.WebControls.Repeater.FooterTemplate%2A> </xref:System.Web.UI.WebControls.Repeater.ItemTemplate%2A> </xref:System.Web.UI.WebControls.Repeater.HeaderTemplate%2A>       Het besturingselement Repeater heeft geen ingebouwde selectie mogelijkheden of bewerken van ondersteuning. U kunt de <xref:System.Web.UI.WebControls.Repeater.ItemCommand>gebeurtenis besturingselement om gebeurtenissen te verwerken die worden gegenereerd door de sjablonen voor het besturingselement.</xref:System.Web.UI.WebControls.Repeater.ItemCommand>      > [!CAUTION] > Dit besturingselement kan worden gebruikt voor het weergeven van gebruikersinvoer die mogelijk schadelijke clientscript bevatten. Controleer de gegevens van een client is verzonden voor uitvoerbaar script, SQL-instructies of andere code voordat deze wordt weergegeven in uw toepassing. ASP.NET biedt een functie van de invoeraanvraag-validatie blok scripts en HTML in invoer van gebruiker. Validatie-serverbesturingselementen worden ook gegeven om gebruikersinvoer vast te stellen. Zie voor meer informatie [validatie Server besturingselement syntaxis](http://msdn.microsoft.com/en-us/96d2c59e-693c-4079-9b53-b3ff0d9e9133).      <a name=&quot;data_binding&quot;></a>## Gegevensbinding Repeater-besturingselement bevat twee eigenschappen ter ondersteuning van gegevensbinding. Gegevens binden aan een verzameling die u implementeert de <xref:System.Collections.IEnumerable?displayProperty=fullName>interface (zoals een <xref:System.Data.DataView?displayProperty=fullName>, een <xref:System.Collections.ArrayList?displayProperty=fullName>, of een matrix), of de <xref:System.ComponentModel.IListSource>interface, gebruikt u de <xref:System.Web.UI.WebControls.Repeater.DataSource%2A>eigenschap om op te geven van de gegevensbron.</xref:System.Web.UI.WebControls.Repeater.DataSource%2A> </xref:System.ComponentModel.IListSource> </xref:System.Collections.ArrayList?displayProperty=fullName> </xref:System.Data.DataView?displayProperty=fullName> </xref:System.Collections.IEnumerable?displayProperty=fullName> Tijdens het instellen van de <xref:System.Web.UI.WebControls.Repeater.DataSource%2A>eigenschap, moet u handmatig de code voor het uitvoeren van gegevensbinding schrijven.</xref:System.Web.UI.WebControls.Repeater.DataSource%2A> Ingesteld om automatisch de Repeater-besturingselement binden aan een gegevensbron die wordt weergegeven door het besturingselement van een gegevensbron, de <xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A>eigenschap in op de <xref:System.Web.UI.Control.ID%2A>van besturingselement voor de gegevensbron te gebruiken.</xref:System.Web.UI.Control.ID%2A> </xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A> Tijdens het instellen van de <xref:System.Web.UI.WebControls.BaseDataList.DataSourceID%2A>eigenschap, het Repeater besturingselement automatisch is gekoppeld aan de opgegeven gegevensbronbesturingselement op de eerste aanvraag.</xref:System.Web.UI.WebControls.BaseDataList.DataSourceID%2A> Daarom hoeft niet expliciet aan te roepen de <xref:System.Web.UI.WebControls.BaseDataList.DataBind%2A>methode tenzij u de eigenschappen van het besturingselement Repeater voor gegevens hebt gewijzigd.</xref:System.Web.UI.WebControls.BaseDataList.DataBind%2A>       Een Repeater-besturingselement wordt gebonden de <xref:System.Web.UI.WebControls.Repeater.ItemTemplate%2A>en <xref:System.Web.UI.WebControls.Repeater.AlternatingItemTemplate%2A>in ofwel de gegevens model gedeclareerd en waarnaar wordt verwezen door de <xref:System.Web.UI.WebControls.Repeater.DataSource%2A>eigenschap of de gegevens van bronbeheer opgegeven door de <xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A>eigenschap.</xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A> </xref:System.Web.UI.WebControls.Repeater.DataSource%2A> </xref:System.Web.UI.WebControls.Repeater.AlternatingItemTemplate%2A> </xref:System.Web.UI.WebControls.Repeater.ItemTemplate%2A> De <xref:System.Web.UI.WebControls.Repeater.HeaderTemplate%2A>, <xref:System.Web.UI.WebControls.Repeater.FooterTemplate%2A>, en <xref:System.Web.UI.WebControls.Repeater.SeparatorTemplate%2A>zijn geen gegevens is gebonden.</xref:System.Web.UI.WebControls.Repeater.SeparatorTemplate%2A> </xref:System.Web.UI.WebControls.Repeater.FooterTemplate%2A> </xref:System.Web.UI.WebControls.Repeater.HeaderTemplate%2A>       Als de gegevensbron van het besturingselement Repeater is ingesteld, maar geen gegevens worden geretourneerd, door het besturingselement weergegeven de <xref:System.Web.UI.WebControls.Repeater.HeaderTemplate%2A>en <xref:System.Web.UI.WebControls.Repeater.FooterTemplate%2A>geen objecten.</xref:System.Web.UI.WebControls.Repeater.FooterTemplate%2A> </xref:System.Web.UI.WebControls.Repeater.HeaderTemplate%2A> Als de gegevensbron is `null`, Repeater wordt niet weergegeven.      <a name=&quot;templates&quot;></a>## Sjablonen ten minste elk besturingselement Repeater een <xref:System.Web.UI.WebControls.Repeater.ItemTemplate%2A>.</xref:System.Web.UI.WebControls.Repeater.ItemTemplate%2A> moet definiëren Andere optionele sjablonen in de volgende tabel beschreven kunnen echter worden gebruikt voor het aanpassen van het uiterlijk van de lijst.      | Sjabloonnaam | Beschrijving |   |-------------------|-----------------|   | <xref:System.Web.UI.WebControls.Repeater.ItemTemplate%2A>| Definieert de inhoud en indeling van items in de lijst.</xref:System.Web.UI.WebControls.Repeater.ItemTemplate%2A> Deze sjabloon is vereist. |   | <xref:System.Web.UI.WebControls.Repeater.AlternatingItemTemplate%2A>| Als gedefinieerd, bepaalt de inhoud en indeling van afwisselende (op nul gebaseerde oneven-geïndexeerd) items.</xref:System.Web.UI.WebControls.Repeater.AlternatingItemTemplate%2A> Als geen gedefinieerd, <xref:System.Web.UI.WebControls.Repeater.ItemTemplate%2A>wordt gebruikt. |   | <xref:System.Web.UI.WebControls.Repeater.SeparatorTemplate%2A>| Als gedefinieerd, wordt weergegeven tussen items (en afwisselende items).</xref:System.Web.UI.WebControls.Repeater.SeparatorTemplate%2A> </xref:System.Web.UI.WebControls.Repeater.ItemTemplate%2A> Als geen gedefinieerd, een scheidingsteken niet wordt weergegeven. |   | <xref:System.Web.UI.WebControls.Repeater.HeaderTemplate%2A>| Als gedefinieerd, bepaalt de inhoud en indeling van de header van de lijst.</xref:System.Web.UI.WebControls.Repeater.HeaderTemplate%2A> Als geen gedefinieerd, wordt een koptekst niet weergegeven. |   | <xref:System.Web.UI.WebControls.Repeater.FooterTemplate%2A>| Als gedefinieerd, bepaalt de inhoud en indeling van de voettekst van de lijst.</xref:System.Web.UI.WebControls.Repeater.FooterTemplate%2A> Als geen gedefinieerd, een voettekst niet wordt weergegeven. |      <a name=&quot;declarative_syntax&quot;> </a> ## Declaratieve syntaxis```   <asp:Repeater       DataMember=&quot;string&quot;       DataSource=&quot;string&quot;       DataSourceID=&quot;string&quot;       EnableTheming=&quot;True|False&quot;       EnableViewState=&quot;True|False&quot;       ID=&quot;string&quot;       OnDataBinding=&quot;DataBinding event handler&quot;       OnDisposed=&quot;Disposed event handler&quot;       OnInit=&quot;Init event handler&quot;       OnItemCommand=&quot;ItemCommand event handler&quot;       OnItemCreated=&quot;ItemCreated event handler&quot;       OnItemDataBound=&quot;ItemDataBound event handler&quot;       OnLoad=&quot;Load event handler&quot;       OnPreRender=&quot;PreRender event handler&quot;       OnUnload=&quot;Unload event handler&quot;       runat=&quot;server&quot;       Visible=&quot;True|False&quot;   >           <AlternatingItemTemplate>               <!-- child controls -->           </AlternatingItemTemplate>           <FooterTemplate>               <!-- child controls -->           </FooterTemplate>           <HeaderTemplate>               <!-- child controls -->           </HeaderTemplate>           <ItemTemplate>               <!-- child controls -->           </ItemTemplate>           <SeparatorTemplate>               <!-- child controls -->           </SeparatorTemplate>   </asp:Repeater>   ```"
   example:
   - "A Visual Studio Web site project with source code is available to accompany this topic: [Download](http://go.microsoft.com/fwlink/?LinkId=192873).  \n  \n The following code example demonstrates how to use two simple Repeater controls on a page. The <xref:System.Web.UI.WebControls.Repeater.DataSource%2A> property is used to specify the data source for the Repeater control. The first Repeater displays its items in a table; the second Repeater displays its items in a comma-separated list.  \n  \n [!code-cs[Classic Repeater Example#1](~/add/codesnippet/csharp/t-system.web.ui.webcontr_281_1.aspx)]\n [!code-vb[Classic Repeater Example#1](~/add/codesnippet/visualbasic/t-system.web.ui.webcontr_281_1.aspx)]  \n  \n The following code example demonstrates how to use the <xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A> property to specify the data source for a Repeater control. The <xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A> property is set to the <xref:System.Web.UI.Control.ID%2A> property of the <xref:System.Web.UI.WebControls.SqlDataSource> control used to retrieve the data. When the page is loaded, the Repeater control automatically binds to the data source specified by the <xref:System.Web.UI.WebControls.SqlDataSource> control and the data is displayed to the user.  \n  \n [!code-cs[Repeater.DataSourceID#1](~/add/codesnippet/csharp/t-system.web.ui.webcontr_281_2.aspx)]\n [!code-vb[Repeater.DataSourceID#1](~/add/codesnippet/visualbasic/t-system.web.ui.webcontr_281_2.aspx)]"
   syntax:
@@ -189,7 +189,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;></xref> class."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;> </xref> klasse."
   syntax:
     content: public Repeater ();
     parameters: []
@@ -209,15 +209,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets or sets the object implementing <xref href=&quot;System.Web.UI.ITemplate&quot;></xref> that defines how alternating items in the control are displayed."
-  remarks: "Use this property to provide a different appearance for alternating items in the <xref:System.Web.UI.WebControls.Repeater> control from what is specified in the <xref:System.Web.UI.WebControls.Repeater.ItemTemplate%2A>.      > [!CAUTION] >  This control can be used to display user input, which might include malicious client script. Check any information that is sent from a client for executable script, SQL statements, or other code before displaying it in your application. ASP.NET provides an input request validation feature to block script and HTML in user input. Validation server controls are also provided to assess user input. For more information, see [Validation Server Control Syntax](http://msdn.microsoft.com/en-us/96d2c59e-693c-4079-9b53-b3ff0d9e9133)."
+  summary: "Opgehaald of ingesteld van de implementatie van het object <xref href=&quot;System.Web.UI.ITemplate&quot;> </xref> die definieert hoe afwisselende items in het besturingselement worden weergegeven."
+  remarks: "Deze eigenschap gebruiken voor een andere weergave van afwisselende items in het <xref:System.Web.UI.WebControls.Repeater>besturingselement van wat is opgegeven in de <xref:System.Web.UI.WebControls.Repeater.ItemTemplate%2A>.</xref:System.Web.UI.WebControls.Repeater.ItemTemplate%2A> </xref:System.Web.UI.WebControls.Repeater>      > [!CAUTION] > Dit besturingselement kan worden gebruikt voor het weergeven van gebruikersinvoer die mogelijk schadelijke clientscript bevatten. Controleer de gegevens van een client is verzonden voor uitvoerbaar script, SQL-instructies of andere code voordat deze wordt weergegeven in uw toepassing. ASP.NET biedt een functie van de invoeraanvraag-validatie blok scripts en HTML in invoer van gebruiker. Validatie-serverbesturingselementen worden ook gegeven om gebruikersinvoer vast te stellen. Zie voor meer informatie [validatie Server besturingselement syntaxis](http://msdn.microsoft.com/en-us/96d2c59e-693c-4079-9b53-b3ff0d9e9133)."
   example:
   - "The following example demonstrates how to use the AlternatingItemTemplate to display alternating items of the <xref:System.Web.UI.WebControls.Repeater> control in a light blue cell with bold font.  \n  \n [!code-vb[Classic Repeater.AlternatingItemTemplate Example#1](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_1014_1.aspx)]\n [!code-cs[Classic Repeater.AlternatingItemTemplate Example#1](~/add/codesnippet/csharp/p-system.web.ui.webcontr_1014_1.aspx)]"
   syntax:
     content: public virtual System.Web.UI.ITemplate AlternatingItemTemplate { get; set; }
     return:
       type: System.Web.UI.ITemplate
-      description: "A <xref href=&quot;System.Web.UI.ITemplate&quot;></xref> that defines how alternating items are displayed. The default value is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Een <xref href=&quot;System.Web.UI.ITemplate&quot;> </xref> die definieert hoe afwisselende items worden weergegeven. De standaardwaarde is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.Repeater.AlternatingItemTemplate*
   exceptions: []
   platform:
@@ -234,13 +234,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Occurs when data methods are being called."
-  remarks: "The purpose of this event is to give you an opportunity to specify that the data methods to be called are on a different object than the <xref:System.Web.UI.Page> object."
+  summary: "Treedt op wanneer Gegevensmethoden worden wordt aangeroepen."
+  remarks: "Het doel van deze gebeurtenis geeft u de gelegenheid om op te geven dat de Gegevensmethoden moet worden aangeroepen op een ander object dan is de <xref:System.Web.UI.Page>object.</xref:System.Web.UI.Page>"
   syntax:
     content: public event System.Web.UI.WebControls.CallingDataMethodsEventHandler CallingDataMethods;
     return:
       type: System.Web.UI.WebControls.CallingDataMethodsEventHandler
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -256,13 +256,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets a <xref href=&quot;System.Web.UI.ControlCollection&quot;></xref> that contains the child controls of the <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;></xref> control."
-  remarks: "Use the Controls collection to manage the child controls of the <xref:System.Web.UI.WebControls.Repeater> control. It is commonly used to retrieve a child control from the collection. You can also add and remove child controls from the collection.      > [!NOTE] >  To access a child control within a <xref:System.Web.UI.WebControls.Repeater> control, iterate through the <xref:System.Web.UI.WebControls.Repeater> control&quot;s <xref:System.Web.UI.WebControls.Repeater.Items%2A> collection to retrieve the <xref:System.Web.UI.WebControls.RepeaterItem> for a given index. Then call the **Repeater** item&quot;s inherited <xref:System.Web.UI.Control.FindControl%2A> method to retrieve a control with a particular ID."
+  summary: "Haalt een <xref href=&quot;System.Web.UI.ControlCollection&quot;> </xref> die de onderliggende besturingselementen van bevat de <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;> </xref> besturingselement."
+  remarks: "De verzameling besturingselementen gebruiken voor het beheren van de onderliggende besturingselementen van de <xref:System.Web.UI.WebControls.Repeater>besturingselement.</xref:System.Web.UI.WebControls.Repeater> Dit wordt meestal gebruikt voor het ophalen van een onderliggend besturingselement uit de verzameling. U kunt ook toevoegen en verwijderen van onderliggende besturingselementen uit de verzameling.      > [!NOTE] > Voor toegang tot een onderliggend besturingselement binnen een <xref:System.Web.UI.WebControls.Repeater>bepalen, doorloopt de <xref:System.Web.UI.WebControls.Repeater>van het besturingselement <xref:System.Web.UI.WebControls.Repeater.Items%2A>verzameling voor het ophalen van de <xref:System.Web.UI.WebControls.RepeaterItem>voor een opgegeven index.</xref:System.Web.UI.WebControls.RepeaterItem> </xref:System.Web.UI.WebControls.Repeater.Items%2A> </xref:System.Web.UI.WebControls.Repeater> </xref:System.Web.UI.WebControls.Repeater> Roep vervolgens de **Repeater** item de overgenomen <xref:System.Web.UI.Control.FindControl%2A>methode voor het ophalen van een besturingselement met een bepaalde-ID.</xref:System.Web.UI.Control.FindControl%2A>"
   syntax:
     content: public override System.Web.UI.ControlCollection Controls { get; }
     return:
       type: System.Web.UI.ControlCollection
-      description: "A <xref href=&quot;System.Web.UI.ControlCollection&quot;></xref> that contains the child controls of the <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;></xref> control."
+      description: "Een <xref href=&quot;System.Web.UI.ControlCollection&quot;> </xref> die de onderliggende besturingselementen van bevat de <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;> </xref> besturingselement."
   overload: System.Web.UI.WebControls.Repeater.Controls*
   exceptions: []
   platform:
@@ -279,7 +279,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Called by the ASP.NET page framework to notify server controls that use composition-based implementation to create any child controls they contain in preparation for posting back or rendering."
+  summary: "Aangeroepen door de ASP.NET-pagina-framework melden serverbesturingselementen waarmee implementatie op basis van een samenstelling van eventuele onderliggende besturingselementen die ze bevatten maken ter voorbereiding op terug te posten of rendering."
   syntax:
     content: protected override void CreateChildControls ();
     parameters: []
@@ -299,13 +299,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Creates a control hierarchy, with or without the specified data source."
+  summary: "Maakt een besturingselementhiërarchie met of zonder de opgegeven gegevensbron."
   syntax:
     content: protected virtual void CreateControlHierarchy (bool useDataSource);
     parameters:
     - id: useDataSource
       type: System.Boolean
-      description: "Indicates whether to use the specified data source."
+      description: "Geeft aan of de opgegeven gegevensbron."
   overload: System.Web.UI.WebControls.Repeater.CreateControlHierarchy*
   exceptions: []
   platform:
@@ -322,14 +322,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Returns the <xref:System.Web.UI.DataSourceSelectArguments.Empty*> value."
-  remarks: "The first call to the <xref:System.Web.UI.WebControls.Repeater.SelectArguments%2A> property calls the CreateDataSourceSelectArguments method to return the <xref:System.Web.UI.DataSourceSelectArguments.Empty%2A> value."
+  summary: "Retourneert de <xref:System.Web.UI.DataSourceSelectArguments.Empty*>waarde.</xref:System.Web.UI.DataSourceSelectArguments.Empty*>"
+  remarks: "De eerste aanroep van de <xref:System.Web.UI.WebControls.Repeater.SelectArguments%2A>eigenschap roept de methode CreateDataSourceSelectArguments om terug te keren de <xref:System.Web.UI.DataSourceSelectArguments.Empty%2A>waarde.</xref:System.Web.UI.DataSourceSelectArguments.Empty%2A> </xref:System.Web.UI.WebControls.Repeater.SelectArguments%2A>"
   syntax:
     content: protected virtual System.Web.UI.DataSourceSelectArguments CreateDataSourceSelectArguments ();
     parameters: []
     return:
       type: System.Web.UI.DataSourceSelectArguments
-      description: "The <xref:System.Web.UI.DataSourceSelectArguments.Empty*> value."
+      description: "De <xref:System.Web.UI.DataSourceSelectArguments.Empty*>waarde.</xref:System.Web.UI.DataSourceSelectArguments.Empty*>"
   overload: System.Web.UI.WebControls.Repeater.CreateDataSourceSelectArguments*
   exceptions: []
   platform:
@@ -346,7 +346,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Creates a <xref href=&quot;System.Web.UI.WebControls.RepeaterItem&quot;></xref> object with the specified item type and location within the <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;></xref> control."
+  summary: "Maakt een <xref href=&quot;System.Web.UI.WebControls.RepeaterItem&quot;> </xref> object met het opgegeven itemtype en de locatie binnen de <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;> </xref> besturingselement."
   remarks: ''
   example:
   - "The following code example demonstrates how to override the CreateItem method in a custom server control so that it always returns a new <xref:System.Web.UI.WebControls.RepeaterItem> and corresponding index and type in a custom <xref:System.Web.UI.WebControls.Repeater> server control.  \n  \n [!code-cs[CustomRepeaterCreateItem#1](~/add/codesnippet/csharp/49819b5e-aad5-458d-95c1-_1.aspx)]\n [!code-vb[CustomRepeaterCreateItem#1](~/add/codesnippet/visualbasic/49819b5e-aad5-458d-95c1-_1.aspx)]  \n  \n [!code-cs[CustomRepeaterCreateItem#2](~/add/codesnippet/csharp/49819b5e-aad5-458d-95c1-_2.cs)]\n [!code-vb[CustomRepeaterCreateItem#2](~/add/codesnippet/visualbasic/49819b5e-aad5-458d-95c1-_2.vb)]"
@@ -355,13 +355,13 @@ items:
     parameters:
     - id: itemIndex
       type: System.Int32
-      description: "The specified location within the <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;></xref> control to place the created item."
+      description: "De opgegeven locatie binnen de <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;> </xref> besturingselementen voor het plaatsen van het item."
     - id: itemType
       type: System.Web.UI.WebControls.ListItemType
-      description: "A <xref href=&quot;System.Web.UI.WebControls.ListItemType&quot;></xref> that represents the specified type of the <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;></xref> item to create."
+      description: "Een <xref href=&quot;System.Web.UI.WebControls.ListItemType&quot;> </xref> die staat voor het opgegeven type van de <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;> </xref> item te maken."
     return:
       type: System.Web.UI.WebControls.RepeaterItem
-      description: "The new <xref href=&quot;System.Web.UI.WebControls.RepeaterItem&quot;></xref> object."
+      description: "De nieuwe <xref href=&quot;System.Web.UI.WebControls.RepeaterItem&quot;> </xref> object."
   overload: System.Web.UI.WebControls.Repeater.CreateItem*
   exceptions: []
   platform:
@@ -378,13 +378,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Occurs when the <xref href=&quot;System.Web.UI.WebControls.ModelDataSource&quot;></xref> object is being created."
-  remarks: "The purpose of this event is to give you an opportunity to change the <xref:System.Web.UI.WebControls.ModelDataSourceView> instance in scenarios where you want to use a custom class that derives from the <xref:System.Web.UI.WebControls.ModelDataSourceView> class."
+  summary: "Deze gebeurtenis treedt op wanneer de <xref href=&quot;System.Web.UI.WebControls.ModelDataSource&quot;> </xref> object wordt gemaakt."
+  remarks: "Het doel van deze gebeurtenis is geeft u de gelegenheid om te wijzigen van het <xref:System.Web.UI.WebControls.ModelDataSourceView>exemplaar in scenario&quot;s waarin u wilt gebruiken van een aangepaste klasse die is afgeleid van de <xref:System.Web.UI.WebControls.ModelDataSourceView>klasse.</xref:System.Web.UI.WebControls.ModelDataSourceView> </xref:System.Web.UI.WebControls.ModelDataSourceView>"
   syntax:
     content: public event System.Web.UI.WebControls.CreatingModelDataSourceEventHandler CreatingModelDataSource;
     return:
       type: System.Web.UI.WebControls.CreatingModelDataSourceEventHandler
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -400,8 +400,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Binds the <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;></xref> control and all its child controls to the specified data source."
-  remarks: "Use the DataBind method to bind the data source specified by the <xref:System.Web.UI.WebControls.Repeater.DataSource%2A> property to the <xref:System.Web.UI.WebControls.Repeater> control. When you bind a data source to the <xref:System.Web.UI.WebControls.Repeater> control, the information in the data source is displayed in the control.       The <xref:System.Web.UI.WebControls.BaseDataList.DataBind%2A> method is also commonly used to synchronize the data source and a data listing control after information in the data source is updated. This allows any changes in the data source to also be updated in a data listing control.       If the data source for the <xref:System.Web.UI.WebControls.Repeater> control is specified by the <xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A> property, you do not need to explicitly call the DataBind method. ASP.NET calls this method automatically to bind the specified data source control to the <xref:System.Web.UI.WebControls.Repeater> control."
+  summary: "Koppelt de <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;> </xref> besturingselement en de onderliggende besturingselementen met de opgegeven gegevensbron."
+  remarks: "Gebruik de methode DataBind binden van de gegevensbron die is opgegeven door de <xref:System.Web.UI.WebControls.Repeater.DataSource%2A>eigenschap in op de <xref:System.Web.UI.WebControls.Repeater>besturingselement.</xref:System.Web.UI.WebControls.Repeater> </xref:System.Web.UI.WebControls.Repeater.DataSource%2A> Wanneer u een gegevensbron binden de <xref:System.Web.UI.WebControls.Repeater>beheer, de informatie in de gegevensbron wordt weergegeven in het besturingselement.</xref:System.Web.UI.WebControls.Repeater>       De <xref:System.Web.UI.WebControls.BaseDataList.DataBind%2A>methode wordt ook gebruikt bij het synchroniseren van de gegevensbron en een gegevens-besturingselement weergeven nadat de informatie in de gegevensbron is bijgewerkt.</xref:System.Web.UI.WebControls.BaseDataList.DataBind%2A> Hiermee worden eventuele wijzigingen in de gegevensbron moet ook worden bijgewerkt in een besturingselement met gegevens.       Als de gegevensbron voor de <xref:System.Web.UI.WebControls.Repeater>besturingselement is opgegeven door de <xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A>eigenschap, hoeft u niet expliciet aan te roepen de methode DataBind.</xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A> </xref:System.Web.UI.WebControls.Repeater> ASP.NET deze methode aanroept, automatisch te verbinden besturingselement van de opgegeven gegevensbron naar de <xref:System.Web.UI.WebControls.Repeater>besturingselement.</xref:System.Web.UI.WebControls.Repeater>"
   example:
   - "The following code example demonstrates how to override the DataBind method in a custom server control so that it always raises a data binding event in a custom <xref:System.Web.UI.WebControls.Repeater> server control.  \n  \n [!code-cs[CustomRepeaterDataBind#1](~/add/codesnippet/csharp/m-system.web.ui.webcontr_11_1.aspx)]\n [!code-vb[CustomRepeaterDataBind#1](~/add/codesnippet/visualbasic/m-system.web.ui.webcontr_11_1.aspx)]  \n  \n [!code-cs[CustomRepeaterDataBind#2](~/add/codesnippet/csharp/m-system.web.ui.webcontr_11_2.cs)]\n [!code-vb[CustomRepeaterDataBind#2](~/add/codesnippet/visualbasic/m-system.web.ui.webcontr_11_2.vb)]"
   syntax:
@@ -423,15 +423,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets or sets the specific table in the <xref:System.Web.UI.WebControls.Repeater.DataSource*> to bind to the control."
-  remarks: "If the data source specified by the <xref:System.Web.UI.WebControls.Repeater.DataSource%2A> property contains multiple sources of data, use the DataMember property to specify the specific source to bind to the control. For example, if you have a <xref:System.Data.DataSet?displayProperty=fullName> with multiple tables, you must specify which table to bind to the control. After you have specified the data source, use the <xref:System.Web.UI.WebControls.Repeater.DataBind%2A> method to bind the data source to the control.       The value of this property is stored in view state."
+  summary: "Opgehaald of ingesteld van de specifieke tabel de <xref:System.Web.UI.WebControls.Repeater.DataSource*>aan het besturingselement binden.</xref:System.Web.UI.WebControls.Repeater.DataSource*>"
+  remarks: "Als de gegevensbron die is opgegeven door de <xref:System.Web.UI.WebControls.Repeater.DataSource%2A>eigenschap bevat meerdere gegevensbronnen, gebruikt u de eigenschap DataMember om op te geven van de specifieke bron aan het besturingselement binden.</xref:System.Web.UI.WebControls.Repeater.DataSource%2A> Als u hebt bijvoorbeeld een <xref:System.Data.DataSet?displayProperty=fullName>met meerdere tabellen, moet u opgeven welke tabel binden aan het besturingselement.</xref:System.Data.DataSet?displayProperty=fullName> Nadat u de gegevensbron hebt opgegeven, gebruikt u de <xref:System.Web.UI.WebControls.Repeater.DataBind%2A>methode de gegevensbron aan het besturingselement binden.</xref:System.Web.UI.WebControls.Repeater.DataBind%2A>       De waarde van deze eigenschap wordt opgeslagen in de weergavestatus."
   example:
   - "The following example demonstrates how to use the DataMember property to specify a table in the <xref:System.Web.UI.WebControls.Repeater.DataSource%2A> to bind to the <xref:System.Web.UI.WebControls.Repeater> control.  \n  \n [!code-cs[Classic Repeater.DataMember Example#1](~/add/codesnippet/csharp/p-system.web.ui.webcontr_717_1.aspx)]\n [!code-vb[Classic Repeater.DataMember Example#1](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_717_1.aspx)]"
   syntax:
     content: public virtual string DataMember { get; set; }
     return:
       type: System.String
-      description: "A string that specifies a table in the <xref:System.Web.UI.WebControls.Repeater.DataSource*>."
+      description: "Een tekenreeks waarmee een tabel in de <xref:System.Web.UI.WebControls.Repeater.DataSource*>.</xref:System.Web.UI.WebControls.Repeater.DataSource*>"
   overload: System.Web.UI.WebControls.Repeater.DataMember*
   exceptions: []
   platform:
@@ -448,23 +448,23 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets or sets the data source that provides data for populating the list."
-  remarks: "Use this property to specify the source of data to populate the <xref:System.Web.UI.WebControls.Repeater> control. The DataSource can be any <xref:System.Collections.IEnumerable?displayProperty=fullName> collection such as a <xref:System.Data.DataView?displayProperty=fullName> for accessing databases, a <xref:System.Collections.ArrayList?displayProperty=fullName>, or an array, or an <xref:System.ComponentModel.IListSource> object. When you set the DataSource property you must manually write the code to bind to the data source.       If the data source specified by the DataSource property contains multiple sources of data, use the <xref:System.Web.UI.WebControls.Repeater.DataMember%2A> property to specify the specific source to bind to the control. For example, if you have a <xref:System.Data.DataSet?displayProperty=fullName> with multiple tables, you must specify which table to bind to the control. After you have specified the data source, use the <xref:System.Web.UI.WebControls.Repeater.DataBind%2A> method to bind the data source to the control.       Alternately, you can use the <xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A> property to automatically bind to a data source represented by a data source control. When you set the <xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A> property, the <xref:System.Web.UI.WebControls.Repeater> control automatically binds to the specified data source control. You do not need to write code that explicitly calls the <xref:System.Web.UI.WebControls.Repeater.DataBind%2A> method unless you dynamically change properties of the <xref:System.Web.UI.WebControls.Repeater> control.       If values are specified for both the DataSource property and the <xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A> property, ASP.NET is not able to resolve the data source and a <xref:System.Web.HttpException?displayProperty=fullName> is thrown."
+  summary: "Opgehaald of ingesteld van de gegevensbron waaruit de gegevens voor het invullen van de lijst."
+  remarks: "Gebruik deze eigenschap om op te geven van de bron van gegevens voor het vullen van de <xref:System.Web.UI.WebControls.Repeater>besturingselement.</xref:System.Web.UI.WebControls.Repeater> De gegevensbron kan bestaan uit een <xref:System.Collections.IEnumerable?displayProperty=fullName>verzameling zoals een <xref:System.Data.DataView?displayProperty=fullName>voor databases, toegang tot een <xref:System.Collections.ArrayList?displayProperty=fullName>, of een matrix of een <xref:System.ComponentModel.IListSource>object.</xref:System.ComponentModel.IListSource> </xref:System.Collections.ArrayList?displayProperty=fullName> </xref:System.Data.DataView?displayProperty=fullName> </xref:System.Collections.IEnumerable?displayProperty=fullName> Wanneer u de eigenschap DataSource ingesteld, moet u handmatig de code om een verbinding met de gegevensbron te schrijven.       Als de gegevensbron die is opgegeven door de eigenschap DataSource meerdere gegevensbronnen bevat, gebruikt de <xref:System.Web.UI.WebControls.Repeater.DataMember%2A>eigenschap om de specifieke bron aan het besturingselement binden.</xref:System.Web.UI.WebControls.Repeater.DataMember%2A> Als u hebt bijvoorbeeld een <xref:System.Data.DataSet?displayProperty=fullName>met meerdere tabellen, moet u opgeven welke tabel binden aan het besturingselement.</xref:System.Data.DataSet?displayProperty=fullName> Nadat u de gegevensbron hebt opgegeven, gebruikt u de <xref:System.Web.UI.WebControls.Repeater.DataBind%2A>methode de gegevensbron aan het besturingselement binden.</xref:System.Web.UI.WebControls.Repeater.DataBind%2A>       U kunt ook de <xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A>eigenschap automatisch verbinding maken met een gegevensbron die wordt vertegenwoordigd door een gegevensbronbesturingselement.</xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A> Tijdens het instellen van de <xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A>eigenschap, de <xref:System.Web.UI.WebControls.Repeater>besturingselement is automatisch gekoppeld aan de opgegeven gegevensbronbesturingselement.</xref:System.Web.UI.WebControls.Repeater> </xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A> U hoeft niet om code te schrijven die expliciet aanroepen de <xref:System.Web.UI.WebControls.Repeater.DataBind%2A>methode tenzij u dynamisch wijzigen en eigenschappen van de <xref:System.Web.UI.WebControls.Repeater>besturingselement.</xref:System.Web.UI.WebControls.Repeater> </xref:System.Web.UI.WebControls.Repeater.DataBind%2A>       Als er waarden zijn opgegeven voor de eigenschap DataSource en de <xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A>eigenschap ASP.NET is niet kunnen omzetten van de gegevensbron en een <xref:System.Web.HttpException?displayProperty=fullName>gegenereerd.</xref:System.Web.HttpException?displayProperty=fullName> </xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A>"
   example:
   - "The following example demonstrates how to specify the DataSource of the <xref:System.Web.UI.WebControls.Repeater> control when the page is loaded.  \n  \n [!code-cs[Classic Repeater.DataSource Example#1](~/add/codesnippet/csharp/p-system.web.ui.webcontr_137_1.aspx)]\n [!code-vb[Classic Repeater.DataSource Example#1](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_137_1.aspx)]"
   syntax:
     content: public virtual object DataSource { get; set; }
     return:
       type: System.Object
-      description: "An <xref:System.Collections.IEnumerable> or <xref href=&quot;System.ComponentModel.IListSource&quot;></xref> object that contains a collection of values used to supply data to this control. The default value is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Een <xref:System.Collections.IEnumerable>of <xref href=&quot;System.ComponentModel.IListSource&quot;> </xref> -object dat een verzameling waarden die worden gebruikt voor het opgeven van gegevens naar dit besturingselement bevat.</xref:System.Collections.IEnumerable> De standaardwaarde is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.Repeater.DataSource*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The DataSource object specified is not a supported source of data for the <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;></xref> control."
+    description: "De opgegeven DataSource-object is geen ondersteunde gegevensbron voor de <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;> </xref> besturingselement."
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "The data source cannot be resolved because a value is specified for both the DataSource property and the <xref:System.Web.UI.WebControls.Repeater.DataSourceID*> property."
+    description: "De gegevensbron kan niet worden omgezet omdat een waarde voor de eigenschap DataSource is opgegeven en de <xref:System.Web.UI.WebControls.Repeater.DataSourceID*>eigenschap.</xref:System.Web.UI.WebControls.Repeater.DataSourceID*>"
   platform:
   - net462
 - uid: System.Web.UI.WebControls.Repeater.DataSourceID
@@ -479,20 +479,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets or sets the <xref:System.Web.UI.Control.ID*> property of the data source control that the <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;></xref> control should use to retrieve its data source."
-  remarks: "Use the DataSourceID property to access the <xref:System.Web.UI.Control.ID%2A> property of the data source control that the <xref:System.Web.UI.WebControls.Repeater> control should use to retrieve its data source. The data source control that is referenced by the DataSourceID property can be any control that implements the <xref:System.Web.UI.IDataSource> interface. The data source control must exist either in the same naming container as the <xref:System.Web.UI.WebControls.Repeater> control that references it or in a parent control of the <xref:System.Web.UI.WebControls.Repeater> control. When you specify a value for the DataSourceID property, the <xref:System.Web.UI.WebControls.Repeater> control binds to the specified data source control. You do not need to write code that explicitly calls the <xref:System.Web.UI.WebControls.Repeater.DataBind%2A> method.       Alternatively, you can use the <xref:System.Web.UI.WebControls.Repeater.DataSource%2A> property to specify the source of values to bind to the <xref:System.Web.UI.WebControls.Repeater> control. The data source must be a collection that implements the <xref:System.Collections.IEnumerable?displayProperty=fullName> interface (such as the <xref:System.Data.DataView?displayProperty=fullName> or <xref:System.Collections.ArrayList?displayProperty=fullName> object) or the <xref:System.ComponentModel.IListSource> interface. When you set the <xref:System.Web.UI.WebControls.Repeater.DataSource%2A> property, you must write the code to perform the data binding.       If values are specified for both the <xref:System.Web.UI.WebControls.Repeater.DataSource%2A> and DataSourceID properties, ASP.NET is not able to resolve the data source and an <xref:System.Web.HttpException?displayProperty=fullName> exception is thrown.       The value of this property is stored in view state."
+  summary: "Opgehaald of ingesteld de <xref:System.Web.UI.Control.ID*>eigenschap van de gegevensbron bepalen dat de <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;> </xref> besturingselement moet gebruiken voor het ophalen van de gegevensbron.</xref:System.Web.UI.Control.ID*>"
+  remarks: "De eigenschap DataSourceID gebruiken voor toegang tot de <xref:System.Web.UI.Control.ID%2A>eigenschap van de gegevensbron bepalen dat de <xref:System.Web.UI.WebControls.Repeater>besturingselement moet gebruiken voor het ophalen van de gegevensbron.</xref:System.Web.UI.WebControls.Repeater> </xref:System.Web.UI.Control.ID%2A> Besturingselement voor de gegevensbron waarnaar wordt verwezen door de eigenschap DataSourceID mag elk besturingselement dat implementeert de <xref:System.Web.UI.IDataSource>interface.</xref:System.Web.UI.IDataSource> Besturingselement voor de gegevensbron moet bestaan in de dezelfde naamgevingscontainer als de <xref:System.Web.UI.WebControls.Repeater>besturingselement dat verwijst naar deze of in een bovenliggendbesturingselement van de <xref:System.Web.UI.WebControls.Repeater>besturingselement.</xref:System.Web.UI.WebControls.Repeater> </xref:System.Web.UI.WebControls.Repeater> Wanneer u een waarde voor de eigenschap DataSourceID opgeven de <xref:System.Web.UI.WebControls.Repeater>besturingselement is gekoppeld aan de opgegeven gegevensbronbesturingselement.</xref:System.Web.UI.WebControls.Repeater> U hoeft niet om code te schrijven die expliciet aanroepen de <xref:System.Web.UI.WebControls.Repeater.DataBind%2A>methode.</xref:System.Web.UI.WebControls.Repeater.DataBind%2A>       U kunt ook de <xref:System.Web.UI.WebControls.Repeater.DataSource%2A>eigenschap om op te geven van de bron van de waarden voor de binding de <xref:System.Web.UI.WebControls.Repeater>besturingselement.</xref:System.Web.UI.WebControls.Repeater> </xref:System.Web.UI.WebControls.Repeater.DataSource%2A> De gegevensbron moet een verzameling die u implementeert de <xref:System.Collections.IEnumerable?displayProperty=fullName>interface (zoals de <xref:System.Data.DataView?displayProperty=fullName>of <xref:System.Collections.ArrayList?displayProperty=fullName>object) of de <xref:System.ComponentModel.IListSource>interface.</xref:System.ComponentModel.IListSource> </xref:System.Collections.ArrayList?displayProperty=fullName> </xref:System.Data.DataView?displayProperty=fullName> </xref:System.Collections.IEnumerable?displayProperty=fullName> Tijdens het instellen van de <xref:System.Web.UI.WebControls.Repeater.DataSource%2A>eigenschap, moet u de code voor het uitvoeren van de gegevensbinding.</xref:System.Web.UI.WebControls.Repeater.DataSource%2A>       Als waarden zijn opgegeven voor zowel de <xref:System.Web.UI.WebControls.Repeater.DataSource%2A>en eigenschappen van DataSourceID ASP.NET is niet kunnen omzetten van de gegevensbron en een <xref:System.Web.HttpException?displayProperty=fullName>uitzondering.</xref:System.Web.HttpException?displayProperty=fullName> </xref:System.Web.UI.WebControls.Repeater.DataSource%2A>       De waarde van deze eigenschap wordt opgeslagen in de weergavestatus."
   example:
   - "The following code example demonstrates how to set the DataSourceID property to the <xref:System.Web.UI.Control.ID%2A> property of a <xref:System.Web.UI.WebControls.SqlDataSource> control. When the page is loaded, the <xref:System.Web.UI.WebControls.Repeater> control binds to the data source that is specified by the <xref:System.Web.UI.WebControls.SqlDataSource> control and the data is displayed to the user.  \n  \n [!code-cs[Repeater.DataSourceID#1](~/add/codesnippet/csharp/p-system.web.ui.webcontr_241_1.aspx)]\n [!code-vb[Repeater.DataSourceID#1](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_241_1.aspx)]"
   syntax:
     content: public virtual string DataSourceID { get; set; }
     return:
       type: System.String
-      description: "The <xref uid=&quot;langword_csharp_ID&quot; name=&quot;ID&quot; href=&quot;&quot;></xref> property of the data source control."
+      description: "De <xref uid=&quot;langword_csharp_ID&quot; name=&quot;ID&quot; href=&quot;&quot;> </xref> eigenschap van besturingselement voor de gegevensbron."
   overload: System.Web.UI.WebControls.Repeater.DataSourceID*
   exceptions:
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "The data source cannot be resolved for one of the following reasons:      -   A value is specified for both the <xref:System.Web.UI.WebControls.Repeater.DataSource*> and DataSourceID properties.      -   The data source specified by the DataSourceID property cannot be found on the page.      -   The data source specified by the DataSourceID property does not implement <xref href=&quot;System.Web.UI.IDataSource&quot;></xref>."
+    description: "De gegevensbron kan niet worden omgezet voor een van de volgende oorzaken hebben:-een waarde is opgegeven voor zowel de <xref:System.Web.UI.WebControls.Repeater.DataSource*>en DataSourceID eigenschappen.</xref:System.Web.UI.WebControls.Repeater.DataSource*>      -De gegevensbron die is opgegeven door de eigenschap DataSourceID kan niet worden gevonden op de pagina.      -De gegevensbron die is opgegeven door de eigenschap DataSourceID wordt niet geïmplementeerd <xref href=&quot;System.Web.UI.IDataSource&quot;> </xref>."
   platform:
   - net462
 - uid: System.Web.UI.WebControls.Repeater.EnableTheming
@@ -507,13 +507,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets or sets a value indicating whether themes are applied to this control."
-  remarks: "The EnableTheming property indicates whether themes are enabled. When the EnableTheming property is `true`, the theme directory for the application is searched for control skins to apply. If no skin for the particular control exists in the theme directory, skins are not applied."
+  summary: "Opgehaald of ingesteld van een waarde die aangeeft of thema&quot;s worden toegepast op dit besturingselement."
+  remarks: "De eigenschap EnableTheming geeft aan of thema&quot;s zijn ingeschakeld. Als de eigenschap EnableTheming is `true`, de directory thema voor de toepassing wordt gezocht naar Besturingselementweergaven om toe te passen. Als er geen weergave voor het besturingselement bepaald in de themamap bestaat, worden de weergaven niet toegepast."
   syntax:
     content: public override bool EnableTheming { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to use themes; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>gebruik van thema; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. De standaardwaarde is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.Repeater.EnableTheming*
   exceptions: []
   platform:
@@ -530,8 +530,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Verifies that the <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;></xref> control requires data binding and that a valid data source control is specified before calling the <xref:System.Web.UI.WebControls.Repeater.DataBind*> method."
-  remarks: "When you specify a value for the <xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A> property, ASP.NET automatically binds the <xref:System.Web.UI.WebControls.Repeater> control to the specified data source control. When ASP.NET performs data binding for the <xref:System.Web.UI.WebControls.Repeater> control, it first calls the EnsureDataBound method to verify that the control has not already been data bound and that a valid data source control that implements the <xref:System.Web.UI.IDataSource> interface is specified for its <xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A> property. The EnsureDataBound method then calls the <xref:System.Web.UI.WebControls.Repeater.DataBind%2A> method."
+  summary: "Hiermee wordt gecontroleerd of de <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;> </xref> besturingselement gegevensbinding vereist en die een geldige gegevensbronbesturingselement is opgegeven voordat de <xref:System.Web.UI.WebControls.Repeater.DataBind*>methode.</xref:System.Web.UI.WebControls.Repeater.DataBind*>"
+  remarks: "Wanneer u een waarde opgeven voor de <xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A>eigenschap ASP.NET automatisch bindt de <xref:System.Web.UI.WebControls.Repeater>besturingselementen voor het besturingselement voor de opgegeven gegevensbron.</xref:System.Web.UI.WebControls.Repeater> </xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A> Wanneer ASP.NET voert de gegevensbinding voor de <xref:System.Web.UI.WebControls.Repeater>besturingselement eerst roept deze de EnsureDataBound methode om te controleren of het besturingselement niet al gebonden is en geen geldige gegevensbron bepalen dat implementeert de <xref:System.Web.UI.IDataSource>interface is opgegeven voor de <xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A>eigenschap.</xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A> </xref:System.Web.UI.IDataSource> </xref:System.Web.UI.WebControls.Repeater> De methode EnsureDataBound roept vervolgens de <xref:System.Web.UI.WebControls.Repeater.DataBind%2A>methode.</xref:System.Web.UI.WebControls.Repeater.DataBind%2A>"
   syntax:
     content: protected void EnsureDataBound ();
     parameters: []
@@ -551,15 +551,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets or sets the <xref href=&quot;System.Web.UI.ITemplate&quot;></xref> that defines how the footer section of the <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;></xref> control is displayed."
-  remarks: "Use this property to create a template that controls how the footer section of a <xref:System.Web.UI.WebControls.Repeater> control is displayed.      > [!CAUTION] >  This control can be used to display user input, which might include malicious client script. Check any information that is sent from a client for executable script, SQL statements, or other code before displaying it in your application. ASP.NET provides an input request validation feature to block script and HTML in user input. Validation server controls are also provided to assess user input. For more information, see [Validation Server Control Syntax](http://msdn.microsoft.com/en-us/96d2c59e-693c-4079-9b53-b3ff0d9e9133)."
+  summary: "Opgehaald of ingesteld de <xref href=&quot;System.Web.UI.ITemplate&quot;> </xref> die definieert hoe de voettekstsectie van de <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;> </xref> besturingselement wordt weergegeven."
+  remarks: "Gebruik deze eigenschap voor het maken van een sjabloon die bepaalt hoe de voettekstsectie van een <xref:System.Web.UI.WebControls.Repeater>besturingselement wordt weergegeven.</xref:System.Web.UI.WebControls.Repeater>      > [!CAUTION] > Dit besturingselement kan worden gebruikt voor het weergeven van gebruikersinvoer die mogelijk schadelijke clientscript bevatten. Controleer de gegevens van een client is verzonden voor uitvoerbaar script, SQL-instructies of andere code voordat deze wordt weergegeven in uw toepassing. ASP.NET biedt een functie van de invoeraanvraag-validatie blok scripts en HTML in invoer van gebruiker. Validatie-serverbesturingselementen worden ook gegeven om gebruikersinvoer vast te stellen. Zie voor meer informatie [validatie Server besturingselement syntaxis](http://msdn.microsoft.com/en-us/96d2c59e-693c-4079-9b53-b3ff0d9e9133)."
   example:
   - "The following example demonstrates how to use the FooterTemplate to control the appearance of the footer for the <xref:System.Web.UI.WebControls.Repeater> control. Notice that the FooterTemplate contains the table's end tag (`</table>`).  \n  \n [!code-vb[Classic Repeater.FooterTemplate Example#1](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_391_1.aspx)]\n [!code-cs[Classic Repeater.FooterTemplate Example#1](~/add/codesnippet/csharp/p-system.web.ui.webcontr_391_1.aspx)]"
   syntax:
     content: public virtual System.Web.UI.ITemplate FooterTemplate { get; set; }
     return:
       type: System.Web.UI.ITemplate
-      description: "A <xref href=&quot;System.Web.UI.ITemplate&quot;></xref> that defines how the footer section of the <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;></xref> control is displayed. The default value is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Een <xref href=&quot;System.Web.UI.ITemplate&quot;> </xref> die definieert hoe de voettekstsectie van de <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;> </xref> besturingselement wordt weergegeven. De standaardwaarde is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.Repeater.FooterTemplate*
   exceptions: []
   platform:
@@ -576,14 +576,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Returns an <xref:System.Collections.IEnumerable> interface from the data source."
-  remarks: "The data source is specified either by the <xref:System.Web.UI.WebControls.Repeater.DataSource%2A> property or by the <xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A> and <xref:System.Web.UI.WebControls.Repeater.SelectArguments%2A> properties."
+  summary: "Retourneert een <xref:System.Collections.IEnumerable>interface uit de gegevensbron.</xref:System.Collections.IEnumerable>"
+  remarks: "De gegevensbron is opgegeven door de <xref:System.Web.UI.WebControls.Repeater.DataSource%2A>eigenschap of door de <xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A>en <xref:System.Web.UI.WebControls.Repeater.SelectArguments%2A>Eigenschappen.</xref:System.Web.UI.WebControls.Repeater.SelectArguments%2A> </xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A> </xref:System.Web.UI.WebControls.Repeater.DataSource%2A>"
   syntax:
     content: protected virtual System.Collections.IEnumerable GetData ();
     parameters: []
     return:
       type: System.Collections.IEnumerable
-      description: "An object implementing <xref:System.Collections.IEnumerable> that represents the data from the data source."
+      description: "De implementatie van een object <xref:System.Collections.IEnumerable>die staat voor de gegevens uit de gegevensbron.</xref:System.Collections.IEnumerable>"
   overload: System.Web.UI.WebControls.Repeater.GetData*
   exceptions: []
   platform:
@@ -600,15 +600,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets or sets the <xref href=&quot;System.Web.UI.ITemplate&quot;></xref> that defines how the header section of the <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;></xref> control is displayed."
-  remarks: "Use this property to create a template that controls how the header section of a <xref:System.Web.UI.WebControls.Repeater> control is displayed.      > [!CAUTION] >  This control can be used to display user input, which might include malicious client script. Check any information that is sent from a client for executable script, SQL statements, or other code before displaying it in your application. ASP.NET provides an input request validation feature to block script and HTML in user input. Validation server controls are also provided to assess user input. For more information, see [Validation Server Control Syntax](http://msdn.microsoft.com/en-us/96d2c59e-693c-4079-9b53-b3ff0d9e9133)."
+  summary: "Opgehaald of ingesteld de <xref href=&quot;System.Web.UI.ITemplate&quot;> </xref> die definieert hoe de header-sectie van de <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;> </xref> besturingselement wordt weergegeven."
+  remarks: "Gebruik deze eigenschap voor het maken van een sjabloon die bepaalt hoe de header-sectie van een <xref:System.Web.UI.WebControls.Repeater>besturingselement wordt weergegeven.</xref:System.Web.UI.WebControls.Repeater>      > [!CAUTION] > Dit besturingselement kan worden gebruikt voor het weergeven van gebruikersinvoer die mogelijk schadelijke clientscript bevatten. Controleer de gegevens van een client is verzonden voor uitvoerbaar script, SQL-instructies of andere code voordat deze wordt weergegeven in uw toepassing. ASP.NET biedt een functie van de invoeraanvraag-validatie blok scripts en HTML in invoer van gebruiker. Validatie-serverbesturingselementen worden ook gegeven om gebruikersinvoer vast te stellen. Zie voor meer informatie [validatie Server besturingselement syntaxis](http://msdn.microsoft.com/en-us/96d2c59e-693c-4079-9b53-b3ff0d9e9133)."
   example:
   - "The following example demonstrates how to use the HeaderTemplate to control the appearance of the header for the <xref:System.Web.UI.WebControls.Repeater> control. Notice that the HeaderTemplate contains the table's start tag (`<table>`).  \n  \n [!code-vb[Classic Repeater.FooterTemplate Example#1](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_1170_1.aspx)]\n [!code-cs[Classic Repeater.FooterTemplate Example#1](~/add/codesnippet/csharp/p-system.web.ui.webcontr_1170_1.aspx)]"
   syntax:
     content: public virtual System.Web.UI.ITemplate HeaderTemplate { get; set; }
     return:
       type: System.Web.UI.ITemplate
-      description: "A <xref href=&quot;System.Web.UI.ITemplate&quot;></xref> that defines how the header section of the <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;></xref> control is displayed. The default value is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Een <xref href=&quot;System.Web.UI.ITemplate&quot;> </xref> die definieert hoe de header-sectie van de <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;> </xref> besturingselement wordt weergegeven. De standaardwaarde is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.Repeater.HeaderTemplate*
   exceptions: []
   platform:
@@ -625,13 +625,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Returns a value indicating whether the control has been initialized."
-  remarks: "The Initialized property is a helper property that is used to determine whether data binding is required when the <xref:System.Web.UI.WebControls.Repeater.DataMember%2A>, <xref:System.Web.UI.WebControls.Repeater.DataSource%2A>, or <xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A> property is changed."
+  summary: "Retourneert een waarde die aangeeft of het besturingselement is geïnitialiseerd."
+  remarks: "De eigenschap Initialized is een helper-eigenschap die wordt gebruikt om te bepalen of gegevensbinding vereist wanneer is de <xref:System.Web.UI.WebControls.Repeater.DataMember%2A>, <xref:System.Web.UI.WebControls.Repeater.DataSource%2A>, of <xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A>eigenschap wordt gewijzigd.</xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A> </xref:System.Web.UI.WebControls.Repeater.DataSource%2A> </xref:System.Web.UI.WebControls.Repeater.DataMember%2A>"
   syntax:
     content: protected bool Initialized { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, if the control has been initialized, otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, als het besturingselement is geïnitialiseerd, anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.Repeater.Initialized*
   exceptions: []
   platform:
@@ -648,13 +648,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Populates iteratively the specified <xref href=&quot;System.Web.UI.WebControls.RepeaterItem&quot;></xref> with a sub-hierarchy of child controls."
+  summary: "Vult iteratief de opgegeven <xref href=&quot;System.Web.UI.WebControls.RepeaterItem&quot;> </xref> met een onderliggende hiërarchie van onderliggende besturingselementen."
   syntax:
     content: protected virtual void InitializeItem (System.Web.UI.WebControls.RepeaterItem item);
     parameters:
     - id: item
       type: System.Web.UI.WebControls.RepeaterItem
-      description: "The control to be initialized from an inline template."
+      description: "Het besturingselement te initialiseren van een inline-sjabloon."
   overload: System.Web.UI.WebControls.Repeater.InitializeItem*
   exceptions: []
   platform:
@@ -671,13 +671,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets a value indicating whether the <xref:System.Web.UI.WebControls.Repeater.DataSourceID*> property is set."
-  remarks: "The IsBoundUsingDataSourceID property is a helper property that determines whether the control is bound to an ASP.NET 2.0 data source control, such as an <xref:System.Web.UI.WebControls.ObjectDataSource> or a <xref:System.Web.UI.WebControls.SqlDataSource> control."
+  summary: "Haalt een waarde die aangeeft of de <xref:System.Web.UI.WebControls.Repeater.DataSourceID*>eigenschap is ingesteld.</xref:System.Web.UI.WebControls.Repeater.DataSourceID*>"
+  remarks: "De eigenschap IsBoundUsingDataSourceID is een helper-eigenschap die bepaalt of het besturingselement is gebonden aan een gegevensbronbesturingselement ASP.NET 2.0, zoals een <xref:System.Web.UI.WebControls.ObjectDataSource>of een <xref:System.Web.UI.WebControls.SqlDataSource>besturingselement.</xref:System.Web.UI.WebControls.SqlDataSource> </xref:System.Web.UI.WebControls.ObjectDataSource>"
   syntax:
     content: protected bool IsBoundUsingDataSourceID { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <xref:System.Web.UI.WebControls.Repeater.DataSourceID*> property is set to a value other than an empty string (&quot;&quot;); otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de eigenschap <xref:System.Web.UI.WebControls.Repeater.DataSourceID*>is ingesteld op een andere waarde dan een lege tekenreeks (&quot;&quot;); otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>.</xref:System.Web.UI.WebControls.Repeater.DataSourceID*>"
   overload: System.Web.UI.WebControls.Repeater.IsBoundUsingDataSourceID*
   exceptions: []
   platform:
@@ -694,13 +694,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets a value that indicates whether data binding is automatic."
-  remarks: "Data binding is automatic if the <xref:System.Web.UI.WebControls.Repeater> control is bound to a data source control or if model binders are in use."
+  summary: "Hiermee wordt een waarde die aangeeft of gegevensbinding automatisch is opgehaald."
+  remarks: "Gegevensbinding wordt automatisch als de <xref:System.Web.UI.WebControls.Repeater>besturingselement is gebonden aan een gegevensbronbesturingselement of als model modellen in gebruik zijn.</xref:System.Web.UI.WebControls.Repeater>"
   syntax:
     content: protected bool IsDataBindingAutomatic { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if data binding is automatic; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als u gegevensbinding wordt automatische; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.Repeater.IsDataBindingAutomatic*
   exceptions: []
   platform:
@@ -717,15 +717,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Occurs when a button is clicked in the <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;></xref> control."
-  remarks: "This event is raised when a button in the <xref:System.Web.UI.WebControls.Repeater> control is clicked.       This event causes a round-trip from the client to occur.       For more information about handling events, see [NIB: Consuming Events](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67)."
+  summary: "Deze gebeurtenis treedt op wanneer een knop wordt geklikt de <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;> </xref> besturingselement."
+  remarks: "Deze gebeurtenis treedt op wanneer een knop in de <xref:System.Web.UI.WebControls.Repeater>besturingselement wordt geklikt.</xref:System.Web.UI.WebControls.Repeater>       Deze gebeurtenis wordt interactie van de client om te worden uitgevoerd.       Zie voor meer informatie over het verwerken van gebeurtenissen [KROONTJESPEN: gebeurtenissen verbruikt](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67)."
   example:
   - "The following example demonstrates how to specify and code a handler for the ItemCommand event of the <xref:System.Web.UI.WebControls.Repeater> control. Information about the button is displayed when a <xref:System.Web.UI.WebControls.Button> control within the <xref:System.Web.UI.WebControls.Repeater> control is clicked.  \n  \n [!code-vb[Classic Repeater.ItemCommand Example#1](~/add/codesnippet/visualbasic/e-system.web.ui.webcontr_136_1.aspx)]\n [!code-cs[Classic Repeater.ItemCommand Example#1](~/add/codesnippet/csharp/e-system.web.ui.webcontr_136_1.aspx)]"
   syntax:
     content: public event System.Web.UI.WebControls.RepeaterCommandEventHandler ItemCommand;
     return:
       type: System.Web.UI.WebControls.RepeaterCommandEventHandler
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -741,15 +741,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Occurs when an item is created in the <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;></xref> control."
-  remarks: "This event is raised when an item is created in the <xref:System.Web.UI.WebControls.Repeater> control.       For more information about handling events, see [NIB: Consuming Events](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67)."
+  summary: "Deze gebeurtenis treedt op wanneer een item wordt gemaakt in de <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;> </xref> besturingselement."
+  remarks: "Deze gebeurtenis treedt op wanneer een item wordt gemaakt in de <xref:System.Web.UI.WebControls.Repeater>besturingselement.</xref:System.Web.UI.WebControls.Repeater>       Zie voor meer informatie over het verwerken van gebeurtenissen [KROONTJESPEN: gebeurtenissen verbruikt](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67)."
   example:
   - "The following example demonstrates how to specify and code a handler for the ItemCreated event of the <xref:System.Web.UI.WebControls.Repeater> control. A new line of text indicating the item type is displayed whenever a <xref:System.Web.UI.WebControls.Repeater> item is created.  \n  \n [!code-cs[Classic Repeater.ItemCreated Example#1](~/add/codesnippet/csharp/e-system.web.ui.webcontr_107_1.aspx)]\n [!code-vb[Classic Repeater.ItemCreated Example#1](~/add/codesnippet/visualbasic/e-system.web.ui.webcontr_107_1.aspx)]"
   syntax:
     content: public event System.Web.UI.WebControls.RepeaterItemEventHandler ItemCreated;
     return:
       type: System.Web.UI.WebControls.RepeaterItemEventHandler
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -765,15 +765,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Occurs after an item in the <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;></xref> control is data-bound but before it is rendered on the page."
-  remarks: "This event is raised when an item in the <xref:System.Web.UI.WebControls.Repeater> control is data-bound.       For more information about handling events, see [NIB: Consuming Events](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67)."
+  summary: "Deze gebeurtenis treedt op nadat een item in de <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;> </xref> besturingselement gegevensgebonden is, maar voordat deze wordt weergegeven op de pagina."
+  remarks: "Deze gebeurtenis treedt op wanneer een item in de <xref:System.Web.UI.WebControls.Repeater>besturingselement gegevensgebonden is.</xref:System.Web.UI.WebControls.Repeater>       Zie voor meer informatie over het verwerken van gebeurtenissen [KROONTJESPEN: gebeurtenissen verbruikt](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67)."
   example:
   - "The following example demonstrates how to specify and code a handler for the ItemDataBound event of the <xref:System.Web.UI.WebControls.Repeater> control. The data is modified after it is bound to an item in the <xref:System.Web.UI.WebControls.Repeater> control but before it is rendered on the page.  \n  \n [!code-cs[Classic Repeater.ItemDataBound Example#1](~/add/codesnippet/csharp/e-system.web.ui.webcontr_87_1.aspx)]\n [!code-vb[Classic Repeater.ItemDataBound Example#1](~/add/codesnippet/visualbasic/e-system.web.ui.webcontr_87_1.aspx)]"
   syntax:
     content: public event System.Web.UI.WebControls.RepeaterItemEventHandler ItemDataBound;
     return:
       type: System.Web.UI.WebControls.RepeaterItemEventHandler
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -789,15 +789,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets a collection of <xref href=&quot;System.Web.UI.WebControls.RepeaterItem&quot;></xref> objects in the <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;></xref> control."
-  remarks: "The <xref:System.Web.UI.WebControls.Repeater> control populates the Items collection by enumerating every object in its <xref:System.Web.UI.WebControls.Repeater.DataSource%2A>. The Items collection is then used by the <xref:System.Web.UI.WebControls.Repeater> control to render each item in the control."
+  summary: "Hiermee wordt een verzameling <xref href=&quot;System.Web.UI.WebControls.RepeaterItem&quot;> </xref> objecten in de <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;> </xref> besturingselement."
+  remarks: "Het <xref:System.Web.UI.WebControls.Repeater>besturingselement wordt gevuld voor de verzameling Items met het inventariseren van elk object in de <xref:System.Web.UI.WebControls.Repeater.DataSource%2A>.</xref:System.Web.UI.WebControls.Repeater.DataSource%2A> </xref:System.Web.UI.WebControls.Repeater> De verzameling Items wordt vervolgens gebruikt door de <xref:System.Web.UI.WebControls.Repeater>besturingselement om elk item in het besturingselement weer te geven.</xref:System.Web.UI.WebControls.Repeater>"
   example:
   - "The following example demonstrates how to use the Items property to determine the index of the item selected from the <xref:System.Web.UI.WebControls.Repeater> control.  \n  \n [!code-cs[Classic Repeater.Items Example#1](~/add/codesnippet/csharp/p-system.web.ui.webcontr_498_1.aspx)]\n [!code-vb[Classic Repeater.Items Example#1](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_498_1.aspx)]"
   syntax:
     content: public virtual System.Web.UI.WebControls.RepeaterItemCollection Items { get; }
     return:
       type: System.Web.UI.WebControls.RepeaterItemCollection
-      description: "A collection of <xref href=&quot;System.Web.UI.WebControls.RepeaterItem&quot;></xref> objects. The default is an empty <xref href=&quot;System.Web.UI.WebControls.RepeaterItemCollection&quot;></xref>."
+      description: "Een verzameling van <xref href=&quot;System.Web.UI.WebControls.RepeaterItem&quot;> </xref> objecten. De standaardwaarde is een lege <xref href=&quot;System.Web.UI.WebControls.RepeaterItemCollection&quot;> </xref>."
   overload: System.Web.UI.WebControls.Repeater.Items*
   exceptions: []
   platform:
@@ -814,15 +814,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets or sets the <xref href=&quot;System.Web.UI.ITemplate&quot;></xref> that defines how items in the <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;></xref> control are displayed."
-  remarks: "Use this property to create a template that controls how items in the <xref:System.Web.UI.WebControls.Repeater> control are displayed.      > [!CAUTION] >  This control can be used to display user input, which might include malicious client script. Check any information that is sent from a client for executable script, SQL statements, or other code before displaying it in your application. ASP.NET provides an input request validation feature to block script and HTML in user input. Validation server controls are also provided to assess user input. For more information, see [Validation Server Control Syntax](http://msdn.microsoft.com/en-us/96d2c59e-693c-4079-9b53-b3ff0d9e9133)."
+  summary: "Opgehaald of ingesteld de <xref href=&quot;System.Web.UI.ITemplate&quot;> </xref> die definieert hoe items in de <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;> </xref> besturingselement worden weergegeven."
+  remarks: "Gebruik deze eigenschap voor het maken van een sjabloon die bepaalt hoe items in de <xref:System.Web.UI.WebControls.Repeater>besturingselement worden weergegeven.</xref:System.Web.UI.WebControls.Repeater>      > [!CAUTION] > Dit besturingselement kan worden gebruikt voor het weergeven van gebruikersinvoer die mogelijk schadelijke clientscript bevatten. Controleer de gegevens van een client is verzonden voor uitvoerbaar script, SQL-instructies of andere code voordat deze wordt weergegeven in uw toepassing. ASP.NET biedt een functie van de invoeraanvraag-validatie blok scripts en HTML in invoer van gebruiker. Validatie-serverbesturingselementen worden ook gegeven om gebruikersinvoer vast te stellen. Zie voor meer informatie [validatie Server besturingselement syntaxis](http://msdn.microsoft.com/en-us/96d2c59e-693c-4079-9b53-b3ff0d9e9133)."
   example:
   - "The following example illustrates how to use a simple <xref:System.Web.UI.WebControls.Repeater> control to display a table of items. Notice the use of the ItemTemplate to display each item in the data source.  \n  \n [!code-cs[Classic Repeater.ItemTemplate Example#1](~/add/codesnippet/csharp/p-system.web.ui.webcontr_494_1.aspx)]\n [!code-vb[Classic Repeater.ItemTemplate Example#1](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_494_1.aspx)]"
   syntax:
     content: public virtual System.Web.UI.ITemplate ItemTemplate { get; set; }
     return:
       type: System.Web.UI.ITemplate
-      description: "A <xref href=&quot;System.Web.UI.ITemplate&quot;></xref> that defines how items in the <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;></xref> control are displayed. The default value is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Een <xref href=&quot;System.Web.UI.ITemplate&quot;> </xref> die definieert hoe items in de <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;> </xref> besturingselement worden weergegeven. De standaardwaarde is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.Repeater.ItemTemplate*
   exceptions: []
   platform:
@@ -839,13 +839,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "The name of the model type for strongly typed data binding."
-  remarks: "If you set this property and use the <xref:System.Web.UI.WebControls.Repeater.SelectMethod%2A> property, the type that is returned by the Select method must be of the type specified by this property or must be capable of being cast to the type specified by this property.       Setting this property automatically enables Dynamic Data functionality."
+  summary: "De naam van het modeltype voor sterk getypeerd gegevensbinding."
+  remarks: "Als u deze eigenschap instellen en gebruiken de <xref:System.Web.UI.WebControls.Repeater.SelectMethod%2A>eigenschap, het type dat wordt geretourneerd door de methode Select moet van het type dat is opgegeven door deze eigenschap of kunnen worden geconverteerd naar het type dat is opgegeven door deze eigenschap moet worden.</xref:System.Web.UI.WebControls.Repeater.SelectMethod%2A>       Deze eigenschap instelt automatisch kan dynamische gegevens-functionaliteit."
   syntax:
     content: public virtual string ItemType { get; set; }
     return:
       type: System.String
-      description: "The name of the model type."
+      description: "De naam van het modeltype."
   overload: System.Web.UI.WebControls.Repeater.ItemType*
   exceptions: []
   platform:
@@ -862,13 +862,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Restores view-state information from a previous page request that was saved using the <xref:System.Web.UI.WebControls.Repeater.SaveViewState*> method."
+  summary: "Weergave-statusinformatie wordt hersteld van een vorige pagina-aanvraag die is opgeslagen met de <xref:System.Web.UI.WebControls.Repeater.SaveViewState*>methode.</xref:System.Web.UI.WebControls.Repeater.SaveViewState*>"
   syntax:
     content: protected override void LoadViewState (object savedState);
     parameters:
     - id: savedState
       type: System.Object
-      description: "An object that represents the control state to restore."
+      description: "Een object met de status te herstellen."
   overload: System.Web.UI.WebControls.Repeater.LoadViewState*
   exceptions: []
   platform:
@@ -885,7 +885,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Raises the <xref href=&quot;System.Web.UI.WebControls.Repeater.ItemCommand&quot;></xref> event if the <code>EventArgs</code> parameter is an instance of <xref href=&quot;System.Web.UI.WebControls.RepeaterCommandEventArgs&quot;></xref>."
+  summary: "Geeft de <xref href=&quot;System.Web.UI.WebControls.Repeater.ItemCommand&quot;> </xref> gebeurtenis als de <code> EventArgs </code> parameter is een exemplaar van <xref href=&quot;System.Web.UI.WebControls.RepeaterCommandEventArgs&quot;> </xref>."
   remarks: ''
   example:
   - "The following code example demonstrates how to override the <xref:System.Web.UI.WebControls.Repeater.OnDataBinding%2A> method in a custom server control so that if the event argument is a command type, the <xref:System.Web.UI.WebControls.Repeater> control always calls the <xref:System.Web.UI.WebControls.Repeater.OnItemCommand%2A> and bubbles up the event, or returns `false` and cancels the event.  \n  \n [!code-cs[CustomRepeaterOnBubbleEvent#1](~/add/codesnippet/csharp/6df7e339-83dd-4d48-94f3-_1.aspx)]\n [!code-vb[CustomRepeaterOnBubbleEvent#1](~/add/codesnippet/visualbasic/6df7e339-83dd-4d48-94f3-_1.aspx)]  \n  \n [!code-cs[CustomRepeaterOnBubbleEvent#2](~/add/codesnippet/csharp/6df7e339-83dd-4d48-94f3-_2.cs)]\n [!code-vb[CustomRepeaterOnBubbleEvent#2](~/add/codesnippet/visualbasic/6df7e339-83dd-4d48-94f3-_2.vb)]"
@@ -894,13 +894,13 @@ items:
     parameters:
     - id: sender
       type: System.Object
-      description: "The source of the event."
+      description: "De bron van de gebeurtenis."
     - id: e
       type: System.EventArgs
-      description: "An <xref:System.EventArgs> object that contains the event data."
+      description: "Een <xref:System.EventArgs>object waarin de gebeurtenisgegevens.</xref:System.EventArgs>"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <xref href=&quot;System.Web.UI.WebControls.Repeater.ItemCommand&quot;></xref> was raised, otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de <xref href=&quot;System.Web.UI.WebControls.Repeater.ItemCommand&quot;> </xref> is gegenereerd, anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.Repeater.OnBubbleEvent*
   exceptions: []
   platform:
@@ -917,13 +917,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Raises the <xref href=&quot;System.Web.UI.WebControls.Repeater.CreatingModelDataSource&quot;></xref> event."
+  summary: "Geeft de <xref href=&quot;System.Web.UI.WebControls.Repeater.CreatingModelDataSource&quot;> </xref> gebeurtenis."
   syntax:
     content: protected virtual void OnCreatingModelDataSource (System.Web.UI.WebControls.CreatingModelDataSourceEventArgs e);
     parameters:
     - id: e
       type: System.Web.UI.WebControls.CreatingModelDataSourceEventArgs
-      description: "An object that provides access to the <xref href=&quot;System.Web.UI.WebControls.ModelDataSource&quot;></xref> object that is being created."
+      description: "Een object dat toegang tot biedt de <xref href=&quot;System.Web.UI.WebControls.ModelDataSource&quot;> </xref> -object dat wordt gemaakt."
   overload: System.Web.UI.WebControls.Repeater.OnCreatingModelDataSource*
   exceptions: []
   platform:
@@ -940,7 +940,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Raises the <xref uid=&quot;langword_csharp_DataBinding&quot; name=&quot;DataBinding&quot; href=&quot;&quot;></xref> event."
+  summary: "Geeft de <xref uid=&quot;langword_csharp_DataBinding&quot; name=&quot;DataBinding&quot; href=&quot;&quot;> </xref> gebeurtenis."
   remarks: ''
   example:
   - "The following code examples demonstrate how to override the OnDataBinding method in a custom server control so that if the event argument is a command type, the <xref:System.Web.UI.WebControls.Repeater> control always calls the <xref:System.Web.UI.WebControls.Repeater.OnItemCommand%2A> and bubbles up the event, or returns `false` and cancels the event.  \n  \n [!code-cs[CustomRepeaterOnDataBinding#1](~/add/codesnippet/csharp/m-system.web.ui.webcontr_68_1.aspx)]\n [!code-vb[CustomRepeaterOnDataBinding#1](~/add/codesnippet/visualbasic/m-system.web.ui.webcontr_68_1.aspx)]  \n  \n [!code-vb[CustomRepeaterOnDataBinding#2](~/add/codesnippet/visualbasic/m-system.web.ui.webcontr_68_2.vb)]\n [!code-cs[CustomRepeaterOnDataBinding#2](~/add/codesnippet/csharp/m-system.web.ui.webcontr_68_2.cs)]"
@@ -949,7 +949,7 @@ items:
     parameters:
     - id: e
       type: System.EventArgs
-      description: "An <xref:System.EventArgs> object that contains the event data."
+      description: "Een <xref:System.EventArgs>object waarin de gebeurtenisgegevens.</xref:System.EventArgs>"
   overload: System.Web.UI.WebControls.Repeater.OnDataBinding*
   exceptions: []
   platform:
@@ -966,8 +966,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Determines whether data binding is required."
-  remarks: "The OnDataPropertyChanged method is a helper method that is called when the <xref:System.Web.UI.WebControls.Repeater.DataMember%2A>, <xref:System.Web.UI.WebControls.Repeater.DataSource%2A>, or <xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A> property is changed."
+  summary: "Hiermee wordt bepaald of gegevensbinding vereist is."
+  remarks: "De methode OnDataPropertyChanged is een Help-methode wordt aangeroepen wanneer de <xref:System.Web.UI.WebControls.Repeater.DataMember%2A>, <xref:System.Web.UI.WebControls.Repeater.DataSource%2A>, of <xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A>eigenschap wordt gewijzigd.</xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A> </xref:System.Web.UI.WebControls.Repeater.DataSource%2A> </xref:System.Web.UI.WebControls.Repeater.DataMember%2A>"
   syntax:
     content: protected virtual void OnDataPropertyChanged ();
     parameters: []
@@ -975,7 +975,7 @@ items:
   exceptions:
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "OnDataPropertyChanged is called during the data-binding phase of the control."
+    description: "OnDataPropertyChanged is aangeroepen tijdens de fase gegevensbinding van het besturingselement."
   platform:
   - net462
 - uid: System.Web.UI.WebControls.Repeater.OnDataSourceViewChanged(System.Object,System.EventArgs)
@@ -990,17 +990,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Sets the <xref:System.Web.UI.WebControls.Repeater.RequiresDataBinding*> property to <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
-  remarks: "The OnDataSourceViewChanged method is a helper method that participates in the data binding process. This method is called when the <xref:System.Web.UI.DataSourceView> object that is associated data source control raises its <xref:System.Web.UI.DataSourceView.DataSourceViewChanged> event. The event causes the <xref:System.Web.UI.WebControls.Repeater> control to bind data to the updated data."
+  summary: "Stelt de <xref:System.Web.UI.WebControls.Repeater.RequiresDataBinding*>eigenschap <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>.</xref:System.Web.UI.WebControls.Repeater.RequiresDataBinding*>"
+  remarks: "De methode OnDataSourceViewChanged is een Help-methode die deel uitmaakt van de procedure voor het binden van gegevens. Deze methode wordt aangeroepen wanneer de <xref:System.Web.UI.DataSourceView>-object dat is gekoppeld gegevensbron besturingselement verhoogt de <xref:System.Web.UI.DataSourceView.DataSourceViewChanged>gebeurtenis.</xref:System.Web.UI.DataSourceView.DataSourceViewChanged> </xref:System.Web.UI.DataSourceView> De gebeurtenis zorgt ervoor dat de <xref:System.Web.UI.WebControls.Repeater>besturingselement gegevens aan de bijgewerkte gegevens binden.</xref:System.Web.UI.WebControls.Repeater>"
   syntax:
     content: protected virtual void OnDataSourceViewChanged (object sender, EventArgs e);
     parameters:
     - id: sender
       type: System.Object
-      description: "The source of the event."
+      description: "De bron van de gebeurtenis."
     - id: e
       type: System.EventArgs
-      description: "An <xref:System.EventArgs> object that contains the event data."
+      description: "Een <xref:System.EventArgs>object waarin de gebeurtenisgegevens.</xref:System.EventArgs>"
   overload: System.Web.UI.WebControls.Repeater.OnDataSourceViewChanged*
   exceptions: []
   platform:
@@ -1017,13 +1017,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Raises the <xref href=&quot;System.Web.UI.Control.Init&quot;></xref> event."
+  summary: "Geeft de <xref href=&quot;System.Web.UI.Control.Init&quot;> </xref> gebeurtenis."
   syntax:
     content: protected override void OnInit (EventArgs e);
     parameters:
     - id: e
       type: System.EventArgs
-      description: "An <xref:System.EventArgs> object that contains the event data."
+      description: "Een <xref:System.EventArgs>object waarin de gebeurtenisgegevens.</xref:System.EventArgs>"
   overload: System.Web.UI.WebControls.Repeater.OnInit*
   exceptions: []
   platform:
@@ -1040,8 +1040,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Raises the <xref href=&quot;System.Web.UI.WebControls.Repeater.ItemCommand&quot;></xref> event."
-  remarks: 'Raising an event invokes the event handler through a delegate. For more information, see [NIB: Consuming Events](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67).'
+  summary: "Geeft de <xref href=&quot;System.Web.UI.WebControls.Repeater.ItemCommand&quot;> </xref> gebeurtenis."
+  remarks: 'Een gebeurtenis te verhogen, roept de gebeurtenis-handler via een gemachtigde. Zie voor meer informatie [KROONTJESPEN: gebeurtenissen verbruikt](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67).'
   example:
   - "The following example illustrates a way to handle an <xref:System.Web.UI.WebControls.Repeater.ItemCommand> event of the <xref:System.Web.UI.WebControls.Repeater> control. Information about the button is displayed whenever a <xref:System.Web.UI.WebControls.Button> control within the <xref:System.Web.UI.WebControls.Repeater> control is clicked.  \n  \n [!code-vb[Classic Repeater.ItemCommand Example#1](~/add/codesnippet/visualbasic/93bd0b8d-a7d9-4ef4-bd8c-_1.aspx)]\n [!code-cs[Classic Repeater.ItemCommand Example#1](~/add/codesnippet/csharp/93bd0b8d-a7d9-4ef4-bd8c-_1.aspx)]"
   syntax:
@@ -1049,7 +1049,7 @@ items:
     parameters:
     - id: e
       type: System.Web.UI.WebControls.RepeaterCommandEventArgs
-      description: "The <xref href=&quot;System.Web.UI.WebControls.RepeaterCommandEventArgs&quot;></xref> object that contains the event data."
+      description: "De <xref href=&quot;System.Web.UI.WebControls.RepeaterCommandEventArgs&quot;> </xref> object waarin de gebeurtenisgegevens worden opgeslagen."
   overload: System.Web.UI.WebControls.Repeater.OnItemCommand*
   exceptions: []
   platform:
@@ -1066,8 +1066,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Raises the <xref href=&quot;System.Web.UI.WebControls.Repeater.ItemCreated&quot;></xref> event."
-  remarks: 'Raising an event invokes the event handler through a delegate. For more information, see [NIB: Consuming Events](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67).'
+  summary: "Geeft de <xref href=&quot;System.Web.UI.WebControls.Repeater.ItemCreated&quot;> </xref> gebeurtenis."
+  remarks: 'Een gebeurtenis te verhogen, roept de gebeurtenis-handler via een gemachtigde. Zie voor meer informatie [KROONTJESPEN: gebeurtenissen verbruikt](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67).'
   example:
   - "The following example illustrates a way to handle the <xref:System.Web.UI.WebControls.Repeater.ItemCreated> event of the <xref:System.Web.UI.WebControls.Repeater> control. A new line of text indicating the item type is displayed whenever a <xref:System.Web.UI.WebControls.Repeater> item is created.  \n  \n [!code-cs[Classic Repeater.ItemCreated Example#1](~/add/codesnippet/csharp/19977690-309e-438c-83a8-_1.aspx)]\n [!code-vb[Classic Repeater.ItemCreated Example#1](~/add/codesnippet/visualbasic/19977690-309e-438c-83a8-_1.aspx)]"
   syntax:
@@ -1075,7 +1075,7 @@ items:
     parameters:
     - id: e
       type: System.Web.UI.WebControls.RepeaterItemEventArgs
-      description: "The <xref href=&quot;System.Web.UI.WebControls.RepeaterItemEventArgs&quot;></xref> object that contains the event data."
+      description: "De <xref href=&quot;System.Web.UI.WebControls.RepeaterItemEventArgs&quot;> </xref> object waarin de gebeurtenisgegevens worden opgeslagen."
   overload: System.Web.UI.WebControls.Repeater.OnItemCreated*
   exceptions: []
   platform:
@@ -1092,8 +1092,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Raises the <xref href=&quot;System.Web.UI.WebControls.Repeater.ItemDataBound&quot;></xref> event."
-  remarks: 'Raising an event invokes the event handler through a delegate. For more information, see [NIB: Consuming Events](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67).'
+  summary: "Geeft de <xref href=&quot;System.Web.UI.WebControls.Repeater.ItemDataBound&quot;> </xref> gebeurtenis."
+  remarks: 'Een gebeurtenis te verhogen, roept de gebeurtenis-handler via een gemachtigde. Zie voor meer informatie [KROONTJESPEN: gebeurtenissen verbruikt](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67).'
   example:
   - "The following example illustrates a way to handle the <xref:System.Web.UI.WebControls.Repeater.ItemDataBound> event of the <xref:System.Web.UI.WebControls.Repeater> control. The data is modified after it is bound to an item in the <xref:System.Web.UI.WebControls.Repeater> control but before it is rendered on the page.  \n  \n [!code-cs[Classic Repeater.ItemDataBound Example#1](~/add/codesnippet/csharp/6d97d258-9f8b-4c1a-a23b-_1.aspx)]\n [!code-vb[Classic Repeater.ItemDataBound Example#1](~/add/codesnippet/visualbasic/6d97d258-9f8b-4c1a-a23b-_1.aspx)]"
   syntax:
@@ -1101,7 +1101,7 @@ items:
     parameters:
     - id: e
       type: System.Web.UI.WebControls.RepeaterItemEventArgs
-      description: "The <xref href=&quot;System.Web.UI.WebControls.RepeaterItemEventArgs&quot;></xref> object that contains the event data."
+      description: "De <xref href=&quot;System.Web.UI.WebControls.RepeaterItemEventArgs&quot;> </xref> object waarin de gebeurtenisgegevens worden opgeslagen."
   overload: System.Web.UI.WebControls.Repeater.OnItemDataBound*
   exceptions: []
   platform:
@@ -1118,14 +1118,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Raises the <xref href=&quot;System.Web.UI.Control.Load&quot;></xref> event and performs other initialization."
-  remarks: "The OnLoad method notifies the <xref:System.Web.UI.WebControls.Repeater> control that it should perform actions that are common to each HTTP request for the page that it is associated with, such as setting up a database query. At this stage in the page life cycle, server controls in the hierarchy are created and initialized, view state is restored, and form controls reflect client-side data."
+  summary: "Geeft de <xref href=&quot;System.Web.UI.Control.Load&quot;> </xref> gebeurtenis en andere initialisatie uitvoert."
+  remarks: "De methode OnLoad waarschuwt de <xref:System.Web.UI.WebControls.Repeater>bepalen dat de acties die gemeenschappelijk voor elke HTTP-aanvraag voor de pagina waarop deze gekoppeld zijn is, zoals het instellen van een databasequery moet worden uitgevoerd.</xref:System.Web.UI.WebControls.Repeater> In deze fase in de levenscyclus van de pagina serverbesturingselementen in de hiërarchie worden gemaakt en geïnitialiseerd, weergavestatus is hersteld en besturingselementen bevatten gegevens van clientzijde."
   syntax:
     content: protected override void OnLoad (EventArgs e);
     parameters:
     - id: e
       type: System.EventArgs
-      description: "The <xref href=&quot;System.Web.UI.WebControls.RepeaterItemEventArgs&quot;></xref> object that contains the event data."
+      description: "De <xref href=&quot;System.Web.UI.WebControls.RepeaterItemEventArgs&quot;> </xref> object waarin de gebeurtenisgegevens worden opgeslagen."
   overload: System.Web.UI.WebControls.Repeater.OnLoad*
   exceptions: []
   platform:
@@ -1142,14 +1142,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Raises the <xref href=&quot;System.Web.UI.Control.PreRender&quot;></xref> event."
-  remarks: "The <xref:System.Web.UI.Control.PreRender> event is used to perform any updates before the output for the server control is rendered to the page. Any changes in the view state of the server control can be saved during this event. Such changes made in the rendering phase are not saved."
+  summary: "Geeft de <xref href=&quot;System.Web.UI.Control.PreRender&quot;> </xref> gebeurtenis."
+  remarks: "De <xref:System.Web.UI.Control.PreRender>gebeurtenis wordt gebruikt om alle updates voordat u de uitvoer voor de het serverbesturingselement wordt weergegeven op de pagina.</xref:System.Web.UI.Control.PreRender> Eventuele wijzigingen in de weergavestatus van het serverbesturingselement kunnen worden opgeslagen tijdens deze gebeurtenis. Dergelijke wijzigingen in de fase rendering zijn niet opgeslagen."
   syntax:
     content: protected override void OnPreRender (EventArgs e);
     parameters:
     - id: e
       type: System.EventArgs
-      description: "The <xref href=&quot;System.Web.UI.WebControls.RepeaterItemEventArgs&quot;></xref> object contains the event data."
+      description: "De <xref href=&quot;System.Web.UI.WebControls.RepeaterItemEventArgs&quot;> </xref> object bevat de gebeurtenisgegevens worden opgeslagen."
   overload: System.Web.UI.WebControls.Repeater.OnPreRender*
   exceptions: []
   platform:
@@ -1166,13 +1166,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets or sets a value indicating whether the <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;></xref> control needs to bind to its specified data source."
-  remarks: "The <xref:System.Web.UI.WebControls.Repeater> control uses the RequiresDataBinding property to determine whether the control needs to call the <xref:System.Web.UI.WebControls.Repeater.DataBind%2A> method to bind to its specified data source.       Each time the set accessor is called on either the <xref:System.Web.UI.WebControls.Repeater.DataSource%2A>, <xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A>, or <xref:System.Web.UI.WebControls.Repeater.DataMember%2A> property to change the data source after the <xref:System.Web.UI.WebControls.Repeater.OnInit%2A> method has already been called, ASP.NET sets the value of the RequiresDataBinding property to `true`. The value of the RequiresDataBinding property is also set to `true` when the <xref:System.Web.UI.WebControls.Repeater.OnDataSourceViewChanged%2A> method is called.       ASP.NET sets the value of the RequiresDataBinding property to `false` immediately after the <xref:System.Web.UI.WebControls.Repeater.DataBind%2A> method is called."
+  summary: "Opgehaald of ingesteld met een waarde die aangeeft of de <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;> </xref> besturingselement moet aan de opgegeven gegevensbron binden."
+  remarks: "De <xref:System.Web.UI.WebControls.Repeater>besturingselement gebruikt de eigenschap RequiresDataBinding om te bepalen of het besturingselement moet aan te roepen de <xref:System.Web.UI.WebControls.Repeater.DataBind%2A>methode binden aan de opgegeven gegevensbron.</xref:System.Web.UI.WebControls.Repeater.DataBind%2A> </xref:System.Web.UI.WebControls.Repeater>       Telkens als de set-accessor wordt aangeroepen op een de <xref:System.Web.UI.WebControls.Repeater.DataSource%2A>, <xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A>, of <xref:System.Web.UI.WebControls.Repeater.DataMember%2A>eigenschap te wijzigen van de gegevensbron na de <xref:System.Web.UI.WebControls.Repeater.OnInit%2A>methode is al aangeroepen, ASP.NET stelt u de waarde van de eigenschap RequiresDataBinding `true`.</xref:System.Web.UI.WebControls.Repeater.OnInit%2A> </xref:System.Web.UI.WebControls.Repeater.DataMember%2A> </xref:System.Web.UI.WebControls.Repeater.DataSourceID%2A> </xref:System.Web.UI.WebControls.Repeater.DataSource%2A> De waarde van de eigenschap RequiresDataBinding ook is ingesteld op `true` wanneer de <xref:System.Web.UI.WebControls.Repeater.OnDataSourceViewChanged%2A>methode wordt aangeroepen.</xref:System.Web.UI.WebControls.Repeater.OnDataSourceViewChanged%2A>       ASP.NET stelt u de waarde van de eigenschap RequiresDataBinding `false` onmiddellijk na de <xref:System.Web.UI.WebControls.Repeater.DataBind%2A>methode wordt aangeroepen.</xref:System.Web.UI.WebControls.Repeater.DataBind%2A>"
   syntax:
     content: protected bool RequiresDataBinding { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;></xref> control needs to bind to a data source; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;> </xref> besturingselement binden aan een gegevensbron; moet anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.Repeater.RequiresDataBinding*
   exceptions: []
   platform:
@@ -1189,13 +1189,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Saves any view-state changes that have occurred since the time the page was posted back to the server."
+  summary: "Slaat de weergavestatus wijzigingen hebben plaatsgevonden sinds het moment dat de pagina naar de server is geplaatst."
   syntax:
     content: protected override object SaveViewState ();
     parameters: []
     return:
       type: System.Object
-      description: "The control&quot;s current view state. If there is no view state associated with the control, this method returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Huidige weergavestatus van het besturingselement. Als er geen status weergeven die zijn gekoppeld aan het besturingselement is, wordt deze methode retourneert <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.Repeater.SaveViewState*
   exceptions: []
   platform:
@@ -1212,13 +1212,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets a <xref href=&quot;System.Web.UI.DataSourceSelectArguments&quot;></xref> object that the <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;></xref> control uses when retrieving data from a data source control."
-  remarks: "The first call to the <xref:System.Web.UI.DataSourceSelectArguments> object calls the <xref:System.Web.UI.WebControls.Repeater.CreateDataSourceSelectArguments%2A> method to create the <xref:System.Web.UI.DataSourceSelectArguments.Empty%2A> object."
+  summary: "Haalt een <xref href=&quot;System.Web.UI.DataSourceSelectArguments&quot;> </xref> object dat de <xref href=&quot;System.Web.UI.WebControls.Repeater&quot;> </xref> besturingselement wordt gebruikt bij het ophalen van gegevens uit een gegevensbronbesturingselement."
+  remarks: "De eerste aanroep van de <xref:System.Web.UI.DataSourceSelectArguments>object aanroepen de <xref:System.Web.UI.WebControls.Repeater.CreateDataSourceSelectArguments%2A>methode voor het maken van de <xref:System.Web.UI.DataSourceSelectArguments.Empty%2A>object.</xref:System.Web.UI.DataSourceSelectArguments.Empty%2A> </xref:System.Web.UI.WebControls.Repeater.CreateDataSourceSelectArguments%2A> </xref:System.Web.UI.DataSourceSelectArguments>"
   syntax:
     content: protected System.Web.UI.DataSourceSelectArguments SelectArguments { get; }
     return:
       type: System.Web.UI.DataSourceSelectArguments
-      description: "A <xref href=&quot;System.Web.UI.DataSourceSelectArguments&quot;></xref> object used to retrieve data. The default is the <xref:System.Web.UI.DataSourceSelectArguments.Empty*> value."
+      description: "Een <xref href=&quot;System.Web.UI.DataSourceSelectArguments&quot;> </xref> object dat wordt gebruikt om gegevens te halen. De standaardwaarde is de <xref:System.Web.UI.DataSourceSelectArguments.Empty*>waarde.</xref:System.Web.UI.DataSourceSelectArguments.Empty*>"
   overload: System.Web.UI.WebControls.Repeater.SelectArguments*
   exceptions: []
   platform:
@@ -1235,13 +1235,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "The name of the method to call in order to read data."
-  remarks: "Setting this property causes model binding to be used as the data binding method."
+  summary: "De naam van de methode aan te roepen om te lezen van gegevens."
+  remarks: "Deze instelling zorgt ervoor dat de modelbinding moet worden gebruikt als de methode voor binding."
   syntax:
     content: public virtual string SelectMethod { get; set; }
     return:
       type: System.String
-      description: "The name of the method."
+      description: "De naam van de methode."
   overload: System.Web.UI.WebControls.Repeater.SelectMethod*
   exceptions: []
   platform:
@@ -1258,15 +1258,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets or sets the <xref href=&quot;System.Web.UI.ITemplate&quot;></xref> interface that defines how the separator between items is displayed."
-  remarks: "Use the SeparatorTemplate property to create a template that controls how the separator between items is displayed.      > [!CAUTION] >  You can use the SeparatorTemplate property to display user input, which might include malicious client script. Check any information that is sent from a client for executable script, SQL statements, or other code before displaying it in your application. ASP.NET provides an input request validation feature to block script and HTML in user input. Validation server controls are also provided to assess user input. For more information, see [Validation Server Control Syntax](http://msdn.microsoft.com/en-us/96d2c59e-693c-4079-9b53-b3ff0d9e9133)."
+  summary: "Opgehaald of ingesteld de <xref href=&quot;System.Web.UI.ITemplate&quot;> </xref> interface waarmee wordt gedefinieerd hoe de scheiding tussen items worden weergegeven."
+  remarks: "Gebruik de eigenschap SeparatorTemplate voor het maken van een sjabloon die bepaalt hoe het scheidingsteken tussen items worden weergegeven.      > [!CAUTION] > Kunt u de eigenschap SeparatorTemplate om gebruikersinvoer die mogelijk schadelijke clientscript bevatten weer te geven. Controleer de gegevens van een client is verzonden voor uitvoerbaar script, SQL-instructies of andere code voordat deze wordt weergegeven in uw toepassing. ASP.NET biedt een functie van de invoeraanvraag-validatie blok scripts en HTML in invoer van gebruiker. Validatie-serverbesturingselementen worden ook gegeven om gebruikersinvoer vast te stellen. Zie voor meer informatie [validatie Server besturingselement syntaxis](http://msdn.microsoft.com/en-us/96d2c59e-693c-4079-9b53-b3ff0d9e9133)."
   example:
   - "The following code example demonstrates how to create a template to control how separators between items are displayed.  \n  \n [!code-cs[Classic Repeater.SeparatorTemplate Example#1](~/add/codesnippet/csharp/p-system.web.ui.webcontr_929_1.aspx)]\n [!code-vb[Classic Repeater.SeparatorTemplate Example#1](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_929_1.aspx)]"
   syntax:
     content: public virtual System.Web.UI.ITemplate SeparatorTemplate { get; set; }
     return:
       type: System.Web.UI.ITemplate
-      description: "An <xref href=&quot;System.Web.UI.ITemplate&quot;></xref> that defines how the separator between items is displayed. The default is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Een <xref href=&quot;System.Web.UI.ITemplate&quot;> </xref> die definieert hoe de scheiding tussen items worden weergegeven. De standaardwaarde is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.Repeater.SeparatorTemplate*
   exceptions: []
   platform:
@@ -1283,7 +1283,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Causes tracking of view-state changes to the control so they can be stored in the control&quot;s <xref href=&quot;System.Web.UI.StateBag&quot;></xref> object."
+  summary: "Bijhouden van wijzigingen van de status van weergeven aan het besturingselement veroorzaakt, zodat ze kunnen worden opgeslagen in het besturingselement <xref href=&quot;System.Web.UI.StateBag&quot;> </xref> object."
   syntax:
     content: protected override void TrackViewState ();
     parameters: []

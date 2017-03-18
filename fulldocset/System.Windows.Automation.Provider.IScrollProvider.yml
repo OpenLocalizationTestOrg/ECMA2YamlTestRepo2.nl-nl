@@ -17,8 +17,8 @@ items:
   nameWithType: IScrollProvider
   fullName: System.Windows.Automation.Provider.IScrollProvider
   type: Interface
-  summary: "Exposes methods and properties to support UI Automation client access to a control that acts as a scrollable container for a collection of child objects. The children of this control must implement <xref href=&quot;System.Windows.Automation.Provider.IScrollItemProvider&quot;></xref>."
-  remarks: "Implemented on a UI Automation provider that must support the <xref:System.Windows.Automation.ScrollPattern> control pattern."
+  summary: "Beschrijft de methoden en eigenschappen voor de ondersteuning van UI Automation clienttoegang tot een besturingselement dat als een schuifbare container voor een verzameling van de onderliggende objecten fungeert. De onderliggende elementen van dit besturingselement moeten worden geïmplementeerd <xref href=&quot;System.Windows.Automation.Provider.IScrollItemProvider&quot;> </xref>."
+  remarks: "Geïmplementeerd op een UI Automation-provider die moet ondersteuning bieden voor de <xref:System.Windows.Automation.ScrollPattern>besturingselement patroon.</xref:System.Windows.Automation.ScrollPattern>"
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -43,13 +43,13 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Gets a value that indicates whether the control can scroll horizontally."
-  remarks: "This property can be dynamic. For example, the content area of the control might not be larger than the current viewable area, meaning HorizontallyScrollable is `false`. However, either resizing the control or adding child items can increase the bounds of the content area beyond the viewable area, meaning that HorizontallyScrollable is `true`."
+  summary: "Haalt een waarde die aangeeft of het besturingselement horizontaal kunt bladeren."
+  remarks: "Deze eigenschap kan niet dynamisch zijn. Bijvoorbeeld, het gedeelte van de inhoud van het besturingselement kan niet groter zijn dan het huidige zichtbare gebied, wat betekent dat HorizontallyScrollable `false`. Grootte wijzigen van het besturingselement of onderliggende items toe te voegen kunt echter verhogen de grenzen van het gedeelte inhoud buiten het zichtbare gebied, wat betekent dat HorizontallyScrollable `true`."
   syntax:
     content: public bool HorizontallyScrollable { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the control can scroll horizontally; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als het besturingselement kunt verticaal worden verschoven. anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Automation.Provider.IScrollProvider.HorizontallyScrollable*
   exceptions: []
   platform:
@@ -66,12 +66,12 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Gets the current horizontal scroll position."
+  summary: "Hiermee haalt u de huidige positie van de horizontale schuifbalk."
   syntax:
     content: public double HorizontalScrollPercent { get; }
     return:
       type: System.Double
-      description: "The horizontal scroll position as a percentage of the total content area within the control."
+      description: "De horizontale schuifbalk positie als een percentage van de totale inhoud binnen het besturingselement."
   overload: System.Windows.Automation.Provider.IScrollProvider.HorizontalScrollPercent*
   exceptions: []
   platform:
@@ -88,12 +88,12 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Gets the current horizontal view size."
+  summary: "Hiermee haalt u de huidige grootte van horizontale weergave."
   syntax:
     content: public double HorizontalViewSize { get; }
     return:
       type: System.Double
-      description: "The horizontal size of the viewable region as a percentage of the total content area within the control."
+      description: "De horizontale grootte van de regio die kunnen worden weergegeven als een percentage van de totale inhoud binnen het besturingselement."
   overload: System.Windows.Automation.Provider.IScrollProvider.HorizontalViewSize*
   exceptions: []
   platform:
@@ -110,24 +110,24 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Scrolls the visible region of the content area horizontally and vertically."
+  summary: "Het zichtbare gebied van het gedeelte inhoud schuiven horizontaal en verticaal"
   syntax:
     content: public void Scroll (System.Windows.Automation.ScrollAmount horizontalAmount, System.Windows.Automation.ScrollAmount verticalAmount);
     parameters:
     - id: horizontalAmount
       type: System.Windows.Automation.ScrollAmount
-      description: "The horizontal increment specific to the control. <xref href=&quot;System.Windows.Automation.ScrollPatternIdentifiers.NoScroll&quot;></xref> should be passed in if the control cannot be scrolled in this direction."
+      description: "De horizontale verhoging die specifiek zijn voor het besturingselement. <xref href=&quot;System.Windows.Automation.ScrollPatternIdentifiers.NoScroll&quot;></xref>moet worden doorgegeven als het besturingselement kan niet worden geschoven in deze richting."
     - id: verticalAmount
       type: System.Windows.Automation.ScrollAmount
-      description: "The vertical increment specific to the control. <xref href=&quot;System.Windows.Automation.ScrollPatternIdentifiers.NoScroll&quot;></xref> should be passed in if the control cannot be scrolled in this direction."
+      description: "De verticale verhoging die specifiek zijn voor het besturingselement. <xref href=&quot;System.Windows.Automation.ScrollPatternIdentifiers.NoScroll&quot;></xref>moet worden doorgegeven als het besturingselement kan niet worden geschoven in deze richting."
   overload: System.Windows.Automation.Provider.IScrollProvider.Scroll*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "If a control supports <xref href=&quot;System.Windows.Automation.ScrollAmount&quot;></xref> values exclusively for horizontal or vertical scrolling but a <xref href=&quot;System.Windows.Automation.ScrollAmount&quot;></xref> value is passed in."
+    description: "Als een besturingselement ondersteunt <xref href=&quot;System.Windows.Automation.ScrollAmount&quot;> </xref> waarden uitsluitend voor de horizontale of verticale schuiven maar er is een <xref href=&quot;System.Windows.Automation.ScrollAmount&quot;> </xref> -waarde is doorgegeven."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "An attempt is made to scroll in an unsupported direction."
+    description: "Een poging is gedaan te schuiven in een niet-ondersteunde richting."
   platform:
   - net462
 - uid: System.Windows.Automation.Provider.IScrollProvider.SetScrollPercent(System.Double,System.Double)
@@ -142,28 +142,28 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Sets the horizontal and vertical scroll position as a percentage of the total content area within the control."
-  remarks: "This method is only useful when the content area of the control is larger than the visible region.       Passing in the value <xref:System.Windows.Automation.ScrollPatternIdentifiers.NoScroll> indicates that there is no scrolling in the specified direction."
+  summary: "Hiermee stelt u de horizontale en verticale schuifbalk positie als een percentage van de totale inhoud binnen het besturingselement."
+  remarks: "Deze methode is alleen nuttig als het gedeelte van de inhoud van het besturingselement groter dan het zichtbare gebied is.       In de waarde wordt doorgegeven <xref:System.Windows.Automation.ScrollPatternIdentifiers.NoScroll>geeft aan dat er geen schuiven in de opgegeven richting.</xref:System.Windows.Automation.ScrollPatternIdentifiers.NoScroll>"
   syntax:
     content: public void SetScrollPercent (double horizontalPercent, double verticalPercent);
     parameters:
     - id: horizontalPercent
       type: System.Double
-      description: "The horizontal position as a percentage of the content area&quot;s total range. <xref href=&quot;System.Windows.Automation.ScrollPatternIdentifiers.NoScroll&quot;></xref> should be passed in if the control cannot be scrolled in this direction."
+      description: "De horizontale positie als een percentage van totale bereik van het gedeelte inhoud. <xref href=&quot;System.Windows.Automation.ScrollPatternIdentifiers.NoScroll&quot;></xref>moet worden doorgegeven als het besturingselement kan niet worden geschoven in deze richting."
     - id: verticalPercent
       type: System.Double
-      description: "The vertical position as a percentage of the content area&quot;s total range. <xref href=&quot;System.Windows.Automation.ScrollPatternIdentifiers.NoScroll&quot;></xref> should be passed in if the control cannot be scrolled in this direction."
+      description: "De verticale positie als een percentage van totale bereik van het gedeelte inhoud. <xref href=&quot;System.Windows.Automation.ScrollPatternIdentifiers.NoScroll&quot;></xref>moet worden doorgegeven als het besturingselement kan niet worden geschoven in deze richting."
   overload: System.Windows.Automation.Provider.IScrollProvider.SetScrollPercent*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "A value that cannot be converted to a double is passed in."
+    description: "Een waarde die kan niet worden geconverteerd naar een Double-waarde is doorgegeven."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "A value greater than 100 or less than 0 is passed in (except -1, which is equivalent to <xref href=&quot;System.Windows.Automation.ScrollPatternIdentifiers.NoScroll&quot;></xref>). The <xref:System.Windows.Automation.Provider.IScrollProvider.HorizontalScrollPercent*> and <xref:System.Windows.Automation.Provider.IScrollProvider.VerticalScrollPercent*> values are normalized to either 100 percent or 0 percent."
+    description: "Een waarde groter dan 100 of minder dan 0 is doorgegeven (behalve -1, die gelijk is aan <xref href=&quot;System.Windows.Automation.ScrollPatternIdentifiers.NoScroll&quot;> </xref>). De <> </> *> en <> </> *> waarden zijn genormaliseerd tot 100% liggen of 0 procent."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "An attempt is made to scroll in an unsupported direction."
+    description: "Een poging is gedaan te schuiven in een niet-ondersteunde richting."
   platform:
   - net462
 - uid: System.Windows.Automation.Provider.IScrollProvider.VerticallyScrollable
@@ -178,13 +178,13 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Gets a value that indicates whether the control can scroll vertically."
-  remarks: "This property can be dynamic. For example, the content area of the control might not be larger than the viewable area meaning VerticallyScrollable is `false`. However, resizing the control or adding child items can increase the bounds of the content area beyond the viewable area, indicating that VerticallyScrollable is `true`."
+  summary: "Haalt een waarde die aangeeft of het besturingselement verticaal kunt bladeren."
+  remarks: "Deze eigenschap kan niet dynamisch zijn. Bijvoorbeeld, het gedeelte van de inhoud van het besturingselement kan niet groter zijn dan het zichtbare gebied betekenis VerticallyScrollable is `false`. Het formaat van het besturingselement of de onderliggende items toe te voegen kunt echter verhogen de grenzen van het gedeelte inhoud buiten het zichtbare gebied waarmee wordt aangegeven dat VerticallyScrollable `true`."
   syntax:
     content: public bool VerticallyScrollable { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the control can scroll vertically; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als het besturingselement om verticaal bladeren kunt; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Automation.Provider.IScrollProvider.VerticallyScrollable*
   exceptions: []
   platform:
@@ -201,12 +201,12 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Gets the current vertical scroll position."
+  summary: "Hiermee haalt u de huidige positie in de verticale schuifbalk."
   syntax:
     content: public double VerticalScrollPercent { get; }
     return:
       type: System.Double
-      description: "The vertical scroll position as a percentage of the total content area within the control."
+      description: "De verticale schuifbalk positie als een percentage van de totale inhoud binnen het besturingselement."
   overload: System.Windows.Automation.Provider.IScrollProvider.VerticalScrollPercent*
   exceptions: []
   platform:
@@ -223,12 +223,12 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Gets the vertical view size."
+  summary: "Hiermee haalt u de weergavegrootte van de verticale."
   syntax:
     content: public double VerticalViewSize { get; }
     return:
       type: System.Double
-      description: "The vertical size of the viewable region as a percentage of the total content area within the control."
+      description: "De verticale grootte van de regio die kunnen worden weergegeven als een percentage van de totale inhoud binnen het besturingselement."
   overload: System.Windows.Automation.Provider.IScrollProvider.VerticalViewSize*
   exceptions: []
   platform:

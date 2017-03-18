@@ -14,8 +14,8 @@ items:
   nameWithType: CipherMode
   fullName: System.Security.Cryptography.CipherMode
   type: Enum
-  summary: "Specifies the block cipher mode to use for encryption."
-  remarks: "Block cipher algorithms encrypt data in block units, rather than a single byte at a time. The most common block size is 8 bytes. Because each block is heavily processed, block ciphers provide a higher level of security than stream ciphers. However, block cipher algorithms tend to execute more slowly than stream ciphers.       Block ciphers use the same encryption algorithm for each block. Because of this, a block of plain text will always return the same cipher text when encrypted with the same key and algorithm. Because this behavior can be used to crack a cipher, cipher modes are introduced that modify the encryption process based on feedback from earlier block encryptions. The resulting encryption provides a higher level of security than a simple block encryption."
+  summary: "Hiermee geeft u de modus van de cipher block moet worden gebruikt voor versleuteling."
+  remarks: "Blok cipher algoritmen voor bulkversleuteling gegevens in eenheden blok-blobs in plaats van één byte tegelijk. De meest voorkomende blokgrootte is 8 bytes. Omdat elk blok sterk wordt verwerkt, bieden blokcodering een hoger niveau van beveiliging dan stroom coderingen. Blok cipher algoritmen vaak echter langzamer dan stroom coderingen uitvoeren.       Het versleutelingsalgoritme dezelfde blokcodering gebruiken voor elk blok. Hierdoor wordt een blok met tekst zonder opmaak altijd dezelfde cipher tekst als gecodeerd met dezelfde sleutel en algoritme geretourneerd. Omdat dit gedrag kan worden gebruikt om te kraken een codering, geïntroduceerd cipher modi die het versleutelingsproces op basis van feedback van eerdere blok versleutelingen wijzigen. De resulterende versleuteling biedt een hogere mate van beveiliging dan een eenvoudige block-codering."
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -37,12 +37,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "The Cipher Block Chaining (<xref uid=&quot;langword_csharp_CBC&quot; name=&quot;CBC&quot; href=&quot;&quot;></xref>) mode introduces feedback. Before each plain text block is encrypted, it is combined with the cipher text of the previous block by a bitwise exclusive OR operation. This ensures that even if the plain text contains many identical blocks, they will each encrypt to a different cipher text block. The initialization vector is combined with the first plain text block by a bitwise exclusive OR operation before the block is encrypted. If a single bit of the cipher text block is mangled, the corresponding plain text block will also be mangled. In addition, a bit in the subsequent block, in the same position as the original mangled bit, will be mangled."
+  summary: "Cipher Block Chaining (<xref uid=&quot;langword_csharp_CBC&quot; name=&quot;CBC&quot; href=&quot;&quot;></xref>) modus introduceert feedback. Voordat u elk blok tekst zonder opmaak is versleuteld, wordt het gecombineerd met de gecodeerde tekst van het vorige blok door een bitsgewijze exclusieve OR-bewerking. Dit zorgt ervoor dat zelfs als de tekst zonder opmaak veel identieke blokken bevat, ze elk naar een andere cipher tekstblok versleutelen wordt. De initialisatievector wordt gecombineerd met de eerste tekst zonder opmaak blok door een bitsgewijze exclusieve OR-bewerking voordat u het blok is versleuteld. Als één bit van het tekstblok cipher is vervormd, wordt het overeenkomstige tekst zonder opmaak blok ook vervormd. Bovendien wordt iets in het volgende blok in dezelfde positie als de oorspronkelijke vervormde bit worden vervormd."
   syntax:
     content: CBC
     return:
       type: System.Security.Cryptography.CipherMode
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -58,12 +58,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "The Cipher Feedback (<xref uid=&quot;langword_csharp_CFB&quot; name=&quot;CFB&quot; href=&quot;&quot;></xref>) mode processes small increments of plain text into cipher text, instead of processing an entire block at a time. This mode uses a shift register that is one block in length and is divided into sections. For example, if the block size is 8 bytes, with one byte processed at a time, the shift register is divided into eight sections. If a bit in the cipher text is mangled, one plain text bit is mangled and the shift register is corrupted. This results in the next several plain text increments being mangled until the bad bit is shifted out of the shift register. The default feedback size can vary by algorithm, but is typically either 8 bits or the number of bits of the block size. You can alter the number of feedback bits by using the <xref:System.Security.Cryptography.SymmetricAlgorithm.FeedbackSize*> property. Algorithms that support CFB use this property to set the feedback."
+  summary: "De Cipher Feedback (<xref uid=&quot;langword_csharp_CFB&quot; name=&quot;CFB&quot; href=&quot;&quot;></xref>) modus verwerkt kleine toenamen van tekst zonder opmaak in gecodeerde tekst, in plaats van een volledige blok tegelijk verwerken. Deze modus wordt een shift-register is een blok lang en is onderverdeeld in secties. Bijvoorbeeld, als de blokgrootte 8 bytes, met één byte per keer verwerkt is is de shift-register onderverdeeld in acht secties. Als iets in de codering moet tekst is vervormd, één tekst zonder opmaak-bit is vervormd en de shift-register is beschadigd. Dit resulteert in de volgende verschillende tekst zonder opmaak stapsgewijs verhoogd wordt vervormd totdat de onjuiste bit wordt verplaatst buiten de shift-register. De standaardgrootte voor feedback is afhankelijk van de algoritme, maar is meestal 8 bits of het aantal bits van de grootte van het blok. U kunt het aantal bits feedback wijzigen met behulp van de <xref:System.Security.Cryptography.SymmetricAlgorithm.FeedbackSize*>eigenschap.</xref:System.Security.Cryptography.SymmetricAlgorithm.FeedbackSize*> Deze eigenschap algoritmen die ondersteuning bieden voor CFB gebruiken om in te stellen de feedback."
   syntax:
     content: CFB
     return:
       type: System.Security.Cryptography.CipherMode
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -79,12 +79,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "The Cipher Text Stealing (<xref uid=&quot;langword_csharp_CTS&quot; name=&quot;CTS&quot; href=&quot;&quot;></xref>) mode handles any length of plain text and produces cipher text whose length matches the plain text length. This mode behaves like the <xref uid=&quot;langword_csharp_CBC&quot; name=&quot;CBC&quot; href=&quot;&quot;></xref> mode for all but the last two blocks of the plain text."
+  summary: "De gecodeerde tekst stelen (<xref uid=&quot;langword_csharp_CTS&quot; name=&quot;CTS&quot; href=&quot;&quot;></xref>) modus werkt met een lengte van tekst zonder opmaak en produceert cipher tekst waarvan u de lengte overeenkomt met de lengte van de tekst zonder opmaak. Deze modus gedraagt zich als de <xref uid=&quot;langword_csharp_CBC&quot; name=&quot;CBC&quot; href=&quot;&quot;> </xref> modus voor alle maar de laatste twee blokken van de tekst zonder opmaak."
   syntax:
     content: CTS
     return:
       type: System.Security.Cryptography.CipherMode
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -100,12 +100,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: 'The Electronic Codebook (<xref uid=&quot;langword_csharp_ECB&quot; name=&quot;ECB&quot; href=&quot;&quot;></xref>) mode encrypts each block individually. Any blocks of plain text that are identical and in the same message, or that are in a different message encrypted with the same key, will be transformed into identical cipher text blocks. **Important**:  This mode is not recommended because it opens the door for multiple security exploits. If the plain text to be encrypted contains substantial repetition, it is feasible for the cipher text to be broken one block at a time. It is also possible to use block analysis to determine the encryption key. Also, an active adversary can substitute and exchange individual blocks without detection, which allows blocks to be saved and inserted into the stream at other points without detection.'
+  summary: 'De elektronische Codebook (<xref uid=&quot;langword_csharp_ECB&quot; name=&quot;ECB&quot; href=&quot;&quot;></xref>) modus versleutelt elk blok afzonderlijk. Alle blokken met tekst zonder opmaak die identiek zijn en in hetzelfde bericht of met een ander bericht versleuteld met dezelfde sleutel, kunnen worden omgezet in identieke cipher tekstblokken. **Belangrijke**: in deze modus wordt niet aanbevolen omdat deze de deur van meerdere misbruik wordt geopend. Als de tekst zonder opmaak worden versleuteld aanzienlijke herhaling bevat, is het mogelijk voor de gecodeerde tekst moet één blok tegelijk worden verdeeld. Het is ook mogelijk om te blokkeren analyse gebruiken om te bepalen van de versleutelingssleutel. Ook een actieve adversary vervangen en afzonderlijke blokken zonder detectie, waardoor blokken worden opgeslagen en worden ingevoegd in de stroom op andere momenten zonder detectie exchange.'
   syntax:
     content: ECB
     return:
       type: System.Security.Cryptography.CipherMode
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -121,12 +121,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "The Output Feedback (<xref uid=&quot;langword_csharp_OFB&quot; name=&quot;OFB&quot; href=&quot;&quot;></xref>) mode processes small increments of plain text into cipher text instead of processing an entire block at a time. This mode is similar to <xref uid=&quot;langword_csharp_CFB&quot; name=&quot;CFB&quot; href=&quot;&quot;></xref>; the only difference between the two modes is the way that the shift register is filled. If a bit in the cipher text is mangled, the corresponding bit of plain text will be mangled. However, if there are extra or missing bits from the cipher text, the plain text will be mangled from that point on."
+  summary: "De uitvoer Feedback (<xref uid=&quot;langword_csharp_OFB&quot; name=&quot;OFB&quot; href=&quot;&quot;></xref>) modus verwerkt kleine toenamen van tekst zonder opmaak in gecodeerde tekst in plaats van een volledige blok tegelijk verwerken. Deze modus is vergelijkbaar met <xref uid=&quot;langword_csharp_CFB&quot; name=&quot;CFB&quot; href=&quot;&quot;> </xref>; het enige verschil tussen de twee modi is de manier waarop de shift registreren is gevuld. Als iets in de codering moet tekst is vervormd, wordt de overeenkomende bit van tekst zonder opmaak worden vervormd. Echter, als er extra of ontbrekende bits uit de gecodeerde tekst, wordt de tekst zonder opmaak worden vervormd vanaf dat moment op."
   syntax:
     content: OFB
     return:
       type: System.Security.Cryptography.CipherMode
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462

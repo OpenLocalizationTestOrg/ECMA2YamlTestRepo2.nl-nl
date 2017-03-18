@@ -15,8 +15,8 @@ items:
   nameWithType: AttachablePropertyServices
   fullName: System.Xaml.AttachablePropertyServices
   type: Class
-  summary: "Provides static helper methods that obtain values and accessor method information from an attachable property and that work with an attached property store."
-  remarks: "Most functionality in this class relies on an attached property store, which generally implements the <xref:System.Xaml.IAttachedPropertyStore> interface. However, parameters for passing the store into AttachablePropertyServices are not typed as the interface and are instead typed as `object`. This is because you can pass an arbitrary object, and in this case, an internal default attachable property store is used.       Best practice for the arbitrary object is to pass the object that would otherwise be associated with the store. Do not pass `null` to indicate that you do not have an <xref:System.Xaml.IAttachedPropertyStore> to use. Passing `null` enters code paths that do nothing. Passing an object that is non-null, but evaluates as `null` on an attempted <xref:System.Xaml.IAttachedPropertyStore> cast, uses the default attachable property store."
+  summary: "Statische methoden die waarden en accessor-methode-informatie van een toevoegbare eigenschap ophalen en die werken met een gekoppelde eigenschap store biedt."
+  remarks: "De meeste functionaliteit in deze klasse is afhankelijk van een gekoppelde eigenschappenarchief, in het algemeen implementeert de <xref:System.Xaml.IAttachedPropertyStore>interface.</xref:System.Xaml.IAttachedPropertyStore> Echter, parameters voor het doorgeven van het archief in AttachablePropertyServices niet worden ingevoerd als de interface en in plaats daarvan worden getypeerd als `object`. Dit is omdat u een willekeurig object doorgeven kunt en in dit geval een interne standaardarchief toevoegbare eigenschap wordt gebruikt.       Aanbevolen procedure voor het object willekeurige is om door te geven van het object dat anders gekoppeld aan het archief zijn zouden. Niet doorgegeven `null` om aan te geven dat u geen hebt een <xref:System.Xaml.IAttachedPropertyStore>te gebruiken.</xref:System.Xaml.IAttachedPropertyStore> Doorgegeven `null` codepaden zijn die niets doen invoert. Een object wordt doorgegeven die niet null, maar evalueert als `null` op een poging tot <xref:System.Xaml.IAttachedPropertyStore>cast-conversie uitvoeren, gebruikt het standaardarchief van toevoegbare eigenschap.</xref:System.Xaml.IAttachedPropertyStore>"
   syntax:
     content: public static class AttachablePropertyServices
   inheritance:
@@ -37,20 +37,20 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Copies all attachable property/value pairs from a specified attachable property store and into a destination array."
-  remarks: "Calling this method invokes an underlying <xref:System.Collections.Generic.ICollection%601.CopyTo%2A> implementation that is constrained with a key/value pair, which might be the source of exceptions that are not listed in this topic."
+  summary: "Alle toevoegbare eigenschap/waarde-paren opgehaald uit een opgegeven toevoegbare eigenschap store en in een doelmatrix."
+  remarks: "Deze methode aanroept, roept een bijbehorend <xref:System.Collections.Generic.ICollection%601.CopyTo%2A>implementatie die is beperkt met een sleutel/waarde-paar, dit kan de bron van uitzonderingen die niet worden weergegeven in dit onderwerp.</xref:System.Collections.Generic.ICollection%601.CopyTo%2A>"
   syntax:
     content: public static void CopyPropertiesTo (object instance, System.Collections.Generic.KeyValuePair<System.Xaml.AttachableMemberIdentifier,object>[] array, int index);
     parameters:
     - id: instance
       type: System.Object
-      description: "A specific attachable property store that implements <xref href=&quot;System.Xaml.IAttachedPropertyStore&quot;></xref>; or any non-null object to access a static default attachable property store."
+      description: "Een specifieke toevoegbare eigenschap store, die wordt geïmplementeerd <xref href=&quot;System.Xaml.IAttachedPropertyStore&quot;> </xref>; of een niet-null-object voor toegang tot een statische standaardarchief toevoegbare eigenschap."
     - id: array
       type: System.Collections.Generic.KeyValuePair{System.Xaml.AttachableMemberIdentifier,System.Object}[]
-      description: "The destination array. The array is a generic array, should be passed undimensioned, and should have components of <xref href=&quot;System.Xaml.AttachableMemberIdentifier&quot;></xref> and <xref uid=&quot;langword_csharp_object&quot; name=&quot;object&quot; href=&quot;&quot;></xref>."
+      description: "De doelmatrix. De matrix is een algemene matrix undimensioned moet worden doorgegeven en moet de onderdelen van <xref href=&quot;System.Xaml.AttachableMemberIdentifier&quot;> </xref> en <xref uid=&quot;langword_csharp_object&quot; name=&quot;object&quot; href=&quot;&quot;> </xref>."
     - id: index
       type: System.Int32
-      description: "The source index into which to copy."
+      description: "De bronindex waarnaar u wilt kopiëren."
   overload: System.Xaml.AttachablePropertyServices.CopyPropertiesTo*
   exceptions: []
   platform:
@@ -67,16 +67,16 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Returns the count of the attachable property entries that are in the specified store."
+  summary: "Retourneert de telling van de toevoegbare eigenschap vermeldingen die zich in de opgegeven store."
   syntax:
     content: public static int GetAttachedPropertyCount (object instance);
     parameters:
     - id: instance
       type: System.Object
-      description: "A specific attachable property store that implements <xref href=&quot;System.Xaml.IAttachedPropertyStore&quot;></xref>; or any non-null object to access a static default attachable property store."
+      description: "Een specifieke toevoegbare eigenschap store, die wordt geïmplementeerd <xref href=&quot;System.Xaml.IAttachedPropertyStore&quot;> </xref>; of een niet-null-object voor toegang tot een statische standaardarchief toevoegbare eigenschap."
     return:
       type: System.Int32
-      description: "The integer count of entries in the store."
+      description: "Het geheel aantal vermeldingen in het archief."
   overload: System.Xaml.AttachablePropertyServices.GetAttachedPropertyCount*
   exceptions: []
   platform:
@@ -93,20 +93,20 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Removes the entry for the specified attachable property from the specified store."
-  remarks: "Stores are per instance; therefore, in a store, the `name` value should be unambiguous."
+  summary: "Hiermee verwijdert u de vermelding voor de opgegeven toevoegbare eigenschap uit de opgegeven store."
+  remarks: "Winkels zijn per exemplaar; daarom in een winkel, de `name` waarde moet niet-ambigue."
   syntax:
     content: public static bool RemoveProperty (object instance, System.Xaml.AttachableMemberIdentifier name);
     parameters:
     - id: instance
       type: System.Object
-      description: "A specific attachable property store that implements <xref href=&quot;System.Xaml.IAttachedPropertyStore&quot;></xref>; or any non-null object to access a static default attachable property store."
+      description: "Een specifieke toevoegbare eigenschap store, die wordt geïmplementeerd <xref href=&quot;System.Xaml.IAttachedPropertyStore&quot;> </xref>; of een niet-null-object voor toegang tot een statische standaardarchief toevoegbare eigenschap."
     - id: name
       type: System.Xaml.AttachableMemberIdentifier
-      description: "The identifier for the attachable property entry to remove from the store."
+      description: "De id voor de vermelding toevoegbare eigenschap te verwijderen uit de store."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if an attachable property entry for <code>name</code> was found in the store and removed from it; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als u een vermelding toevoegbare eigenschap voor <code> name </code> is gevonden in de store en verwijderd uit het, anders wordt <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Xaml.AttachablePropertyServices.RemoveProperty*
   exceptions: []
   platform:
@@ -123,27 +123,27 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Sets a value for the specified attachable property in the specified store."
+  summary: "Hiermee stelt een waarde voor de opgegeven toevoegbare eigenschap in het archief opgegeven."
   syntax:
     content: public static void SetProperty (object instance, System.Xaml.AttachableMemberIdentifier name, object value);
     parameters:
     - id: instance
       type: System.Object
-      description: "A specific attachable property store that implements <xref href=&quot;System.Xaml.IAttachedPropertyStore&quot;></xref>; or any non-null object to use a static default attachable property store."
+      description: "Een specifieke toevoegbare eigenschap store, die wordt geïmplementeerd <xref href=&quot;System.Xaml.IAttachedPropertyStore&quot;> </xref>; of een niet-null-object een standaard statische toevoegbare eigenschap store te gebruiken."
     - id: name
       type: System.Xaml.AttachableMemberIdentifier
-      description: "The identifier of the attachable property entry for which to set a value."
+      description: "De id van de vermelding toevoegbare eigenschap waarvoor een waarde instellen."
     - id: value
       type: System.Object
-      description: "The value to set."
+      description: "De waarde in te stellen."
   overload: System.Xaml.AttachablePropertyServices.SetProperty*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "A value could not be set in the store."
+    description: "Een waarde kan niet worden ingesteld in het archief."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>name</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>name</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Xaml.AttachablePropertyServices.TryGetProperty(System.Object,System.Xaml.AttachableMemberIdentifier,System.Object@)
@@ -158,22 +158,22 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Attempts to get a value for the specified attachable property in the specified store. Does not throw an exception if the specific attachable property does not exist in the store."
+  summary: "Probeert op te halen van een waarde voor de opgegeven toevoegbare eigenschap in het archief opgegeven. Biedt geen Veroorzaak een uitzondering als de specifieke toevoegbare eigenschap niet in de store bestaat."
   syntax:
     content: public static bool TryGetProperty (object instance, System.Xaml.AttachableMemberIdentifier name, out object value);
     parameters:
     - id: instance
       type: System.Object
-      description: "A specific attachable property store that implements <xref href=&quot;System.Xaml.IAttachedPropertyStore&quot;></xref>; or any non-null object to use a static default attachable property store."
+      description: "Een specifieke toevoegbare eigenschap store, die wordt geïmplementeerd <xref href=&quot;System.Xaml.IAttachedPropertyStore&quot;> </xref>; of een niet-null-object een standaard statische toevoegbare eigenschap store te gebruiken."
     - id: name
       type: System.Xaml.AttachableMemberIdentifier
-      description: "The identifier of the attachable property entry for which to get a value."
+      description: "De id van de vermelding toevoegbare eigenschap waarvoor een waarde op te halen."
     - id: value
       type: System.Object
-      description: "Out parameter. When this method returns, contains the destination object for the value if `name` exists in the store and has a value."
+      description: "Out-parameter. Wanneer deze methode retourneert, bevat het doelobject voor de waarde als `name` bestaat in het archief en een waarde heeft."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if an attachable property entry for <code>name</code> was found in the store and a value was posted to <code>value</code>; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als u een vermelding toevoegbare eigenschap voor <code> name </code> is gevonden in het archief en een waarde is geboekt naar <code> value </code>; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Xaml.AttachablePropertyServices.TryGetProperty*
   exceptions: []
   platform:
@@ -195,16 +195,16 @@ items:
     parameters:
     - id: instance
       type: System.Object
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     - id: name
       type: System.Xaml.AttachableMemberIdentifier
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     - id: value
       type: T
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     return:
       type: System.Boolean
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   overload: System.Xaml.AttachablePropertyServices.TryGetProperty<T>*
   exceptions: []
   platform:
