@@ -39,8 +39,8 @@ items:
   nameWithType: InstancePersistenceContext
   fullName: System.Runtime.DurableInstancing.InstancePersistenceContext
   type: Class
-  summary: "Represents execution state information while a persistence command is being executed."
-  remarks: "An instance of this class is passed to the TryCommand method of persistence provider implementations. Persistence providers use this class to inspect the in-memory view of the instance as well as indicate the results of operations on the external store which may affect the view or other in-memory context."
+  summary: "Geeft informatie over de status van de uitvoering terwijl een persistentie-opdracht wordt uitgevoerd."
+  remarks: "Een exemplaar van deze klasse is doorgegeven aan de methode TryCommand van persistentie provider-implementaties. Deze klasse persistentie providers gebruiken om te controleren van de weergave in het geheugen van het exemplaar, evenals de resultaten van bewerkingen op de externe winkel die mogelijk gevolgen hebben voor de weergave of een andere context in het geheugen."
   syntax:
     content: public sealed class InstancePersistenceContext
   inheritance:
@@ -61,14 +61,14 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Indicates that the persistence provider has successfully associated a key to the current instance in the instance store. The identifier of the key is specified as a parameter."
-  remarks: "The instance key must be unassociated. The current instance handle must be bound to an instance as well as a lock on that instance."
+  summary: "Hiermee wordt aangegeven dat de persistentieprovider een sleutel in de huidige instantie in de exemplaaropslag is gekoppeld. De id van de sleutel die is opgegeven als parameter."
+  remarks: "Sleutel van het exemplaar moet niet-gekoppelde. De huidige sessie-ingang moet worden gebonden aan een exemplaar, evenals een vergrendeling op dat exemplaar."
   syntax:
     content: public void AssociatedInstanceKey (Guid key);
     parameters:
     - id: key
       type: System.Guid
-      description: "The instance key identifier  for the key that has been associated. Must not be Guid.Empty."
+      description: "De instantie sleutel-id voor de sleutel die gekoppeld is. Mag geen Guid.Empty."
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.AssociatedInstanceKey*
   exceptions: []
   platform:
@@ -85,26 +85,26 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Begin an asynchronous operation to bind an existing lock on an instance to the current instance handle. The version of the existing lock is passed as a parameter."
-  remarks: "When attempting to acquire a lock, the persistence provider may decide that the current instance is already locked in the current store. If the lock token matches the current handle’s lock token, then the persistence provider can attempt to reclaim the lock by inspecting its version and passing it to BeginBindReclaimedLock. The persistence provider must not make changes to the instance until the lock is successfully reclaimed. If no other handle is bound to the lock, then the BeginBindReclaimedLock operation succeeds and the current handle becomes bound to the lock. Otherwise, BeginBindReclaimedLock or EndBindReclaimedLock throws InstanceHandleConflictException. If commands are in progress on other handles, the operation may not complete while waiting for the outcome of those commands to decide whether the lock can be reclaimed.       The current instance handle must be bound to an instance and a lock owner. The instance must not be completed. The lock token associated with the lock owner is used to identify the owner of the lock.       Once a lock is bound to a handle, it remains bound for the lifetime of the handle. Neither the lock token nor the instance version can be changed."
+  summary: "Beginnen met een asynchrone bewerking voor het binden van een bestaande vergrendeling op een exemplaar met de huidige instantie greep. De versie van de bestaande vergrendeling wordt doorgegeven als parameter."
+  remarks: "Wanneer u probeert een vergrendeling te verkrijgen, kan de persistentieprovider besluiten het huidige exemplaar is al vergrendeld in het huidige archief. Als het Vergrendelingstoken overeenkomt met de huidige ingang Vergrendelingstoken, kunt de persistentieprovider proberen om de vergrendeling door de versie ervan te bekijken en doorgegeven aan BeginBindReclaimedLock vrij te maken. De persistentieprovider moet geen wijzigingen aanbrengen in het exemplaar totdat de vergrendeling is is vrijgemaakt. Als geen andere ingang is gebonden aan de vergrendeling, klikt u vervolgens de bewerking is geslaagd BeginBindReclaimedLock en de huidige ingang wordt gebonden aan de vergrendeling. Anders, BeginBindReclaimedLock of EndBindReclaimedLock InstanceHandleConflictException genereert. Als de opdrachten worden uitgevoerd op andere ingangen, kan de bewerking niet voltooid tijdens het wachten op het resultaat van deze opdrachten om te bepalen of de vergrendeling kan worden vrijgemaakt.       De huidige sessie-ingang moet worden gebonden aan een exemplaar en de vergrendelingseigenaar van een. Het exemplaar moet niet worden voltooid. De Vergrendelingstoken die is gekoppeld aan de eigenaar van de vergrendeling wordt gebruikt voor het identificeren van de eigenaar van de vergrendeling.       Nadat een vergrendeling is gebonden aan een ingang, blijft deze gebonden gedurende de levensduur van de greep. Het Vergrendelingstoken noch de versie van het exemplaar kan worden gewijzigd."
   syntax:
     content: public IAsyncResult BeginBindReclaimedLock (long instanceVersion, TimeSpan timeout, AsyncCallback callback, object state);
     parameters:
     - id: instanceVersion
       type: System.Int64
-      description: "The version of the lock held on the instance, or zero if the persistence provider does not implement lock versions."
+      description: "De versie van de vergrendeling op het exemplaar, of nul bewaard als de persistentieprovider vergrendeling versies niet implementeert."
     - id: timeout
       type: System.TimeSpan
-      description: "The timeout period for the asynchronous operation."
+      description: "De time-outperiode voor de asynchrone bewerking."
     - id: callback
       type: System.AsyncCallback
-      description: "The method to be called when the operation is completed."
+      description: "De methode die moet worden aangeroepen wanneer de bewerking is voltooid."
     - id: state
       type: System.Object
-      description: "The state information associated with the asynchronous operation."
+      description: "De statusinformatie is gekoppeld aan de asynchrone bewerking."
     return:
       type: System.IAsyncResult
-      description: "The status of an asynchronous operation."
+      description: "De status van een asynchrone bewerking."
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.BeginBindReclaimedLock*
   exceptions: []
   platform:
@@ -121,26 +121,26 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Begins executing a persistence command asynchronously."
-  remarks: "A persistence provider can use this method to execute sub-commands as part of a command. The sub-command will be executed using BeginTryCommand, similar to commands passed to InstanceStore.BeginExecute. Commands can be nested, but a command must not execute more than one sub-command at a time."
+  summary: "Begint met een opdracht persistentie asynchroon wordt uitgevoerd."
+  remarks: "Een persistentieprovider kunt u deze methode gebruiken voor het onderliggende opdrachten worden uitgevoerd als onderdeel van een opdracht. De onderliggende opdracht wordt uitgevoerd met behulp van BeginTryCommand, vergelijkbaar met opdrachten doorgegeven aan InstanceStore.BeginExecute. Opdrachten kunnen worden genest, maar een opdracht moet niet meer dan één onderliggende opdracht tegelijk worden uitgevoerd."
   syntax:
     content: public IAsyncResult BeginExecute (System.Runtime.DurableInstancing.InstancePersistenceCommand command, TimeSpan timeout, AsyncCallback callback, object state);
     parameters:
     - id: command
       type: System.Runtime.DurableInstancing.InstancePersistenceCommand
-      description: "The persistence command to be executed."
+      description: "De opdracht persistentie moet worden uitgevoerd."
     - id: timeout
       type: System.TimeSpan
-      description: "The time-out value for the operation."
+      description: "De time-outwaarde voor de bewerking."
     - id: callback
       type: System.AsyncCallback
-      description: "The delegate that receives the notification of the asynchronous receive that a request operation completes."
+      description: "De gemachtigde die de melding van de asynchrone ontvangt ontvangen dat een aanvraag is voltooid."
     - id: state
       type: System.Object
-      description: "The state information."
+      description: "De statusinformatie."
     return:
       type: System.IAsyncResult
-      description: "The status of an asynchronous operation."
+      description: "De status van een asynchrone bewerking."
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.BeginExecute*
   exceptions: []
   platform:
@@ -157,14 +157,14 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Binds a newly acquired lock on an instance to the current instance handle. The version of the acquired lock is passed as a parameter."
-  remarks: "If a persistence provider implements lock versioning, then each time a lock is acquired on the instance, the version must be incremented by one in the external store. The first time the instance is locked, the version should be 1. Each lock acquisition invalidates the previous lock. The current instance handle must be bound to an instance and a lock owner. The instance must not be completed. The lock token associated with the lock owner is used to identify the owner of the lock       Once a lock is bound to a handle, it remains bound for the lifetime of the handle. Neither the lock token nor the instance version can be changed."
+  summary: "Een nieuw verkregen vergrendeling koppelt op een exemplaar met de huidige instantie greep. De versie van de verworven vergrendeling wordt doorgegeven als parameter."
+  remarks: "Als een persistentieprovider versienummering implementeert, moet vervolgens elke keer dat een vergrendeling wordt verkregen van het exemplaar, de versie worden met één verhoogd in de externe winkel. De eerste keer dat het exemplaar is vergrendeld, moet de versie 1 zijn. Elke aanschaf vergrendelen op ongeldig de vorige vergrendeling. De huidige sessie-ingang moet worden gebonden aan een exemplaar en de vergrendelingseigenaar van een. Het exemplaar moet niet worden voltooid. De Vergrendelingstoken die is gekoppeld aan de eigenaar van de vergrendeling wordt gebruikt voor het identificeren van de eigenaar van de vergrendeling zodra een vergrendeling is gebonden aan een ingang, blijft deze gebonden gedurende de levensduur van de greep. Het Vergrendelingstoken noch de versie van het exemplaar kan worden gewijzigd."
   syntax:
     content: public void BindAcquiredLock (long instanceVersion);
     parameters:
     - id: instanceVersion
       type: System.Int64
-      description: "Version of the lock acquired on the instance, or zero if the persistence provider does not implement lock versions."
+      description: "Versie van de vergrendeling op het exemplaar, of nul als de persistentieprovider vergrendeling versies niet implementeert."
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.BindAcquiredLock*
   exceptions: []
   platform:
@@ -181,13 +181,13 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Binds an <xref href=&quot;System.Runtime.DurableInstancing.InstancePersistenceEvent&quot;></xref> to an instance handle."
+  summary: "Koppelt een <xref href=&quot;System.Runtime.DurableInstancing.InstancePersistenceEvent&quot;> </xref> naar een exemplaar-ingang."
   syntax:
     content: public void BindEvent (System.Runtime.DurableInstancing.InstancePersistenceEvent persistenceEvent);
     parameters:
     - id: persistenceEvent
       type: System.Runtime.DurableInstancing.InstancePersistenceEvent
-      description: "An <xref href=&quot;System.Runtime.DurableInstancing.InstancePersistenceEvent&quot;></xref> object containing information about the event."
+      description: "Een <xref href=&quot;System.Runtime.DurableInstancing.InstancePersistenceEvent&quot;> </xref> object met informatie over de gebeurtenis."
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.BindEvent*
   exceptions: []
   platform:
@@ -204,14 +204,14 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Binds an instance whose identifier is specified as a parameter to the current instance handle."
-  remarks: "Once an instance is bound to a handle, it remains bound for the lifetime of the handle. No other instance can ever be bound to the handle."
+  summary: "Een exemplaar waarvan id als een parameter voor de huidige sessie-ingang is opgegeven, wordt gebonden."
+  remarks: "Nadat een exemplaar is gekoppeld aan een ingang, blijft deze gebonden gedurende de levensduur van de greep. Geen enkel ander exemplaar kan nooit worden gebonden aan de ingang."
   syntax:
     content: public void BindInstance (Guid instanceId);
     parameters:
     - id: instanceId
       type: System.Guid
-      description: "An instance identifier. Must not be Guid.Empty."
+      description: "Een exemplaar-id. Mag geen Guid.Empty."
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.BindInstance*
   exceptions: []
   platform:
@@ -228,17 +228,17 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Binds an instance owner to the current instance handle."
-  remarks: "Once an instance owner is bound to a handle, it remains bound for the lifetime of the handle. No other instance owner can ever be bound to the handle."
+  summary: "Een exemplaareigenaar koppelt aan de huidige sessie-ingang."
+  remarks: "Nadat een exemplaareigenaar is gebonden aan een ingang, blijft deze gebonden gedurende de levensduur van de greep. Er zijn geen andere exemplaareigenaar kan ooit worden gebonden aan de ingang."
   syntax:
     content: public void BindInstanceOwner (Guid instanceOwnerId, Guid lockToken);
     parameters:
     - id: instanceOwnerId
       type: System.Guid
-      description: "The identifier for the instance owner."
+      description: "De id voor de exemplaareigenaar van het."
     - id: lockToken
       type: System.Guid
-      description: "The lock token of the instance owner. A persistence provider may choose to use the same value for the instance owner identifier and the owner’s lock token."
+      description: "De Vergrendelingstoken van de exemplaareigenaar van het. Een persistentieprovider kiezen voor een gebruik van dezelfde waarde voor de instantie eigenaar-id en eigenaar van de Vergrendelingstoken."
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.BindInstanceOwner*
   exceptions: []
   platform:
@@ -255,17 +255,17 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Binds an existing lock on an instance to the current instance handle. The version of the existing lock is passed as a parameter."
-  remarks: "When attempting to acquire a lock, the persistence provider may decide that the current instance is already locked in the current store. If the lock token matches the current handle’s lock token, then the persistence provider can attempt to reclaim the lock by inspecting its version and passing it to BindReclaimedLock. The persistence provider must not make changes to the instance until the lock is successfully reclaimed. If no other handle is bound to the lock, then BindReclaimedLock succeeds and the current handle becomes bound to the lock. Otherwise, BindReclaimedLock throws InstanceHandleConflictException. If commands are in progress on other handles, BindReclaimedLock may block waiting for the outcome of those commands before deciding whether the lock can be reclaimed.       The current instance handle must be bound to an instance and a lock owner. The instance must not be completed. The lock token associated with the lock owner is used to identify the owner of the lock.       Once a lock is bound to a handle, it remains bound for the lifetime of the handle. Neither the lock token nor the instance version can be changed."
+  summary: "Een bestaande vergrendeling koppelt op een exemplaar met de huidige instantie greep. De versie van de bestaande vergrendeling wordt doorgegeven als parameter."
+  remarks: "Wanneer u probeert een vergrendeling te verkrijgen, kan de persistentieprovider besluiten het huidige exemplaar is al vergrendeld in het huidige archief. Als het Vergrendelingstoken overeenkomt met de huidige ingang Vergrendelingstoken, kunt de persistentieprovider proberen om de vergrendeling door de versie ervan te bekijken en doorgegeven aan BindReclaimedLock vrij te maken. De persistentieprovider moet geen wijzigingen aanbrengen in het exemplaar totdat de vergrendeling is is vrijgemaakt. Als geen andere ingang is gebonden aan de vergrendeling, BindReclaimedLock lukt en de huidige ingang wordt gebonden aan de vergrendeling. Anders genereert BindReclaimedLock InstanceHandleConflictException. Als de opdrachten worden uitgevoerd op andere ingangen, blokkeren BindReclaimedLock wachten op het resultaat van deze opdrachten voordat u besluit of de vergrendeling kan worden vrijgemaakt.       De huidige sessie-ingang moet worden gebonden aan een exemplaar en de vergrendelingseigenaar van een. Het exemplaar moet niet worden voltooid. De Vergrendelingstoken die is gekoppeld aan de eigenaar van de vergrendeling wordt gebruikt voor het identificeren van de eigenaar van de vergrendeling.       Nadat een vergrendeling is gebonden aan een ingang, blijft deze gebonden gedurende de levensduur van de greep. Het Vergrendelingstoken noch de versie van het exemplaar kan worden gewijzigd."
   syntax:
     content: public void BindReclaimedLock (long instanceVersion, TimeSpan timeout);
     parameters:
     - id: instanceVersion
       type: System.Int64
-      description: "Version of the lock held on the instance, or zero if the persistence provider does not implement lock versions."
+      description: "Versie van de vergrendeling op het exemplaar, of nul bewaard als de persistentieprovider vergrendeling versies niet implementeert."
     - id: timeout
       type: System.TimeSpan
-      description: "The time-out value for the operation."
+      description: "De time-outwaarde voor de bewerking."
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.BindReclaimedLock*
   exceptions: []
   platform:
@@ -282,8 +282,8 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Indicates that the persistence provider has successfully marked the current instance as complete in the instance store."
-  remarks: "The current instance handle must be bound to an instance as well as a lock on that instance. The instance must be initialized and not be already completed. (An instance is initialized if a set of instance data has ever been persisted to it.) All of the keys associated to the instance must be completed."
+  summary: "Hiermee wordt aangegeven dat de persistentieprovider het huidige exemplaar als voltooid in de exemplaaropslag is gemarkeerd."
+  remarks: "De huidige sessie-ingang moet worden gebonden aan een exemplaar, evenals een vergrendeling op dat exemplaar. De instantie moet worden geïnitialiseerd en niet worden voltooid. (Een exemplaar is geïnitialiseerd als een reeks exemplaargegevens is ooit persistent is gemaakt voor het.) Alle sleutels die zijn gekoppeld aan het exemplaar moeten worden uitgevoerd."
   syntax:
     content: public void CompletedInstance ();
     parameters: []
@@ -303,14 +303,14 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Indicates that the persistence provider has successfully marked a key as complete in the external store. The identifier of the key is specified as a parameter."
-  remarks: "The current instance handle must be bound to an instance as well as a lock on that instance. The instance key must be associated to the current instance and not be already completed."
+  summary: "Hiermee wordt aangegeven dat de persistentieprovider een sleutel als voltooid in de externe opslag is gemarkeerd. De id van de sleutel die is opgegeven als parameter."
+  remarks: "De huidige sessie-ingang moet worden gebonden aan een exemplaar, evenals een vergrendeling op dat exemplaar. Sleutel van het exemplaar moet zijn gekoppeld aan het huidige exemplaar en niet worden voltooid."
   syntax:
     content: public void CompletedInstanceKey (Guid key);
     parameters:
     - id: key
       type: System.Guid
-      description: "The instance key identifier for the key that has been completed. Must not be Guid.Empty."
+      description: "De instantie sleutel-id voor de sleutel die is voltooid. Mag geen Guid.Empty."
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.CompletedInstanceKey*
   exceptions: []
   platform:
@@ -327,17 +327,17 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Creates an instance of an exception which can be thrown from TryCommand to trigger BindReclaimedLock behavior."
-  remarks: "Sample code:      ```      protected override bool TryCommand(InstancePersistenceContext context, InstancePersistenceCommand command, TimeSpan timeout)   {       throw context.CreateBindReclaimedLockException(5);   }   is equivalent to   protected override bool TryCommand(InstancePersistenceContext context, InstancePersistenceCommand command, TimeSpan timeout)   {       context.BindReclaimedLock(5, timeout);       throw new OperationCanceledException();   }      ```"
+  summary: "Maakt een exemplaar van een uitzondering die kan worden gegenereerd met TryCommand om BindReclaimedLock gedrag te activeren."
+  remarks: "Voorbeeld van code:```      protected override bool TryCommand(InstancePersistenceContext context, InstancePersistenceCommand command, TimeSpan timeout)   {       throw context.CreateBindReclaimedLockException(5);   }   is equivalent to   protected override bool TryCommand(InstancePersistenceContext context, InstancePersistenceCommand command, TimeSpan timeout)   {       context.BindReclaimedLock(5, timeout);       throw new OperationCanceledException();   }      ```"
   syntax:
     content: public Exception CreateBindReclaimedLockException (long instanceVersion);
     parameters:
     - id: instanceVersion
       type: System.Int64
-      description: "The version of the lock held on the instance, or zero if the persistence provider does not implement lock versions."
+      description: "De versie van de vergrendeling op het exemplaar, of nul bewaard als de persistentieprovider vergrendeling versies niet implementeert."
     return:
       type: System.Exception
-      description: "An exception."
+      description: "Een uitzondering."
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.CreateBindReclaimedLockException*
   exceptions: []
   platform:
@@ -354,13 +354,13 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Ends the asynchronous operation started by the <xref:System.Runtime.DurableInstancing.InstancePersistenceContext.BeginBindReclaimedLock*> method."
+  summary: "Eindigt de asynchrone bewerking gestart door de <xref:System.Runtime.DurableInstancing.InstancePersistenceContext.BeginBindReclaimedLock*>methode.</xref:System.Runtime.DurableInstancing.InstancePersistenceContext.BeginBindReclaimedLock*>"
   syntax:
     content: public void EndBindReclaimedLock (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The result of the asynchronous operation."
+      description: "Het resultaat van de asynchrone bewerking."
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.EndBindReclaimedLock*
   exceptions: []
   platform:
@@ -377,13 +377,13 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Ends the asynchronous operation."
+  summary: "De asynchrone bewerking wordt beëindigd."
   syntax:
     content: public void EndExecute (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The status of an asynchronous operation."
+      description: "De status van een asynchrone bewerking."
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.EndExecute*
   exceptions: []
   platform:
@@ -400,17 +400,17 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Executes a persistence command."
-  remarks: "A persistence provider can use this method to execute sub-commands as part of a command. The sub-command will be executed using TryCommand, similar to commands passed to InstanceStore.Execute. Commands can be nested, but a command must not execute more than one sub-command at a time."
+  summary: "Een opdracht persistentie uitvoert."
+  remarks: "Een persistentieprovider kunt u deze methode gebruiken voor het onderliggende opdrachten worden uitgevoerd als onderdeel van een opdracht. De onderliggende opdracht wordt uitgevoerd met TryCommand, vergelijkbaar met opdrachten doorgegeven aan InstanceStore.Execute. Opdrachten kunnen worden genest, maar een opdracht moet niet meer dan één onderliggende opdracht tegelijk worden uitgevoerd."
   syntax:
     content: public void Execute (System.Runtime.DurableInstancing.InstancePersistenceCommand command, TimeSpan timeout);
     parameters:
     - id: command
       type: System.Runtime.DurableInstancing.InstancePersistenceCommand
-      description: "The persistence command to be executed."
+      description: "De opdracht persistentie moet worden uitgevoerd."
     - id: timeout
       type: System.TimeSpan
-      description: "The time-out value for the operation."
+      description: "De time-outwaarde voor de bewerking."
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.Execute*
   exceptions: []
   platform:
@@ -427,12 +427,12 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Gets the current instance handle."
+  summary: "Hiermee haalt u de huidige sessie-ingang."
   syntax:
     content: public System.Runtime.DurableInstancing.InstanceHandle InstanceHandle { get; }
     return:
       type: System.Runtime.DurableInstancing.InstanceHandle
-      description: "The current instance handle."
+      description: "De ingang van het huidige exemplaar."
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.InstanceHandle*
   exceptions: []
   platform:
@@ -449,13 +449,13 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Gets the version of the lock held on the current instance by the current instance handle."
-  remarks: "The persistence provider should check this value against the lock version of the lock held on an instance in the instance store when performing an operation that requires a lock (such as persisting instance data) using a handle bound to the lock. If the lock version doesn’t match, the command should fail with InstanceLockLostException."
+  summary: "Hiermee haalt u de versie van de vergrendeling op het huidige exemplaar van de door de huidige sessie-ingang bewaard."
+  remarks: "De persistentieprovider moet deze waarde ten opzichte van de vergrendeling-versie van de vergrendeling op een exemplaar in de exemplaaropslag bewaard wanneer er een bewerking waarvoor een vergrendeling (zoals persistent maken exemplaargegevens) met behulp van een greep aan de vergrendeling gebonden te controleren. Als de versie van de vergrendeling niet overeenkomen, wordt de opdracht zou moeten mislukken met InstanceLockLostException."
   syntax:
     content: public long InstanceVersion { get; }
     return:
       type: System.Int64
-      description: "The version of the instance lock bound to the current instance handle, or -1 if the handle isn’t bound to a lock."
+      description: "De versie van de vergrendeling voor exemplaar gebonden aan de huidige sessie-ingang is of -1 als de ingang is niet aan een vergrendeling gebonden."
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.InstanceVersion*
   exceptions: []
   platform:
@@ -472,12 +472,12 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Gets the instance view object that represents the in-memory state of the current instance. This view reflects updates as they are made by the command in progress."
+  summary: "Hiermee haalt u het exemplaar weergave-object waarmee de status in het geheugen van het huidige exemplaar. Deze weergave weerspiegelt updates zoals ze zijn gemaakt door de opdracht wordt uitgevoerd."
   syntax:
     content: public System.Runtime.DurableInstancing.InstanceView InstanceView { get; }
     return:
       type: System.Runtime.DurableInstancing.InstanceView
-      description: "The instance view object."
+      description: "Het exemplaar view-object."
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.InstanceView*
   exceptions: []
   platform:
@@ -494,26 +494,26 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Indicates that the persistence provider has successfully retrieved the current instance from the instance store."
-  remarks: "The current instance handle must be bound to an instance. If the instance handle is bound to a lock or the loaded instance is marked as complete, the loaded data is considered to be consistent; otherwise, it is considered to be in doubt."
+  summary: "Hiermee wordt aangegeven dat de persistentieprovider heeft de huidige instantie is opgehaald uit de exemplaaropslag."
+  remarks: "De huidige sessie-ingang moet worden gebonden aan een exemplaar. Als de sessie-ingang is gebonden aan een vergrendeling of het geladen exemplaar is gemarkeerd als voltooid, de geladen gegevens wordt beschouwd als consistent; anders wordt deze beschouwd als twijfelachtig gedeclareerd."
   syntax:
     content: public void LoadedInstance (System.Runtime.DurableInstancing.InstanceState state, System.Collections.Generic.IDictionary<System.Xml.Linq.XName,System.Runtime.DurableInstancing.InstanceValue> instanceData, System.Collections.Generic.IDictionary<System.Xml.Linq.XName,System.Runtime.DurableInstancing.InstanceValue> instanceMetadata, System.Collections.Generic.IDictionary<Guid,System.Collections.Generic.IDictionary<System.Xml.Linq.XName,System.Runtime.DurableInstancing.InstanceValue>> associatedInstanceKeyMetadata, System.Collections.Generic.IDictionary<Guid,System.Collections.Generic.IDictionary<System.Xml.Linq.XName,System.Runtime.DurableInstancing.InstanceValue>> completedInstanceKeyMetadata);
     parameters:
     - id: state
       type: System.Runtime.DurableInstancing.InstanceState
-      description: "The instance state information."
+      description: "De exemplaar-statusinformatie."
     - id: instanceData
       type: System.Collections.Generic.IDictionary{System.Xml.Linq.XName,System.Runtime.DurableInstancing.InstanceValue}
-      description: "The instance data as a dictionary of <xref:System.Xml.Linq.XName> and <xref href=&quot;System.Runtime.DurableInstancing.InstanceValue&quot;></xref> objects."
+      description: "De instantiegegevens als een dictionary van <xref:System.Xml.Linq.XName>en <xref href=&quot;System.Runtime.DurableInstancing.InstanceValue&quot;> </xref> objecten.</xref:System.Xml.Linq.XName>"
     - id: instanceMetadata
       type: System.Collections.Generic.IDictionary{System.Xml.Linq.XName,System.Runtime.DurableInstancing.InstanceValue}
-      description: "Instance metadata as a collection of <xref:System.Xml.Linq.XName> and <xref href=&quot;System.Runtime.DurableInstancing.InstanceValue&quot;></xref> objects."
+      description: "Metagegevens van het exemplaar als een verzameling <xref:System.Xml.Linq.XName>en <xref href=&quot;System.Runtime.DurableInstancing.InstanceValue&quot;> </xref> objecten.</xref:System.Xml.Linq.XName>"
     - id: associatedInstanceKeyMetadata
       type: System.Collections.Generic.IDictionary{System.Guid,System.Collections.Generic.IDictionary{System.Xml.Linq.XName,System.Runtime.DurableInstancing.InstanceValue}}
-      description: "Associated instance key metadata as a dictionary of instance identifier and instance key metadata, which is a dictionary of <xref:System.Xml.Linq.XName> and <xref href=&quot;System.Runtime.DurableInstancing.InstanceValue&quot;></xref> objects."
+      description: "Belangrijke metagegevens van het exemplaar dat is gekoppeld als een woordenlijst van het exemplaar-id en sleutel metagegevens van het exemplaar, dit is een dictionary van <xref:System.Xml.Linq.XName>en <xref href=&quot;System.Runtime.DurableInstancing.InstanceValue&quot;> </xref> objecten.</xref:System.Xml.Linq.XName>"
     - id: completedInstanceKeyMetadata
       type: System.Collections.Generic.IDictionary{System.Guid,System.Collections.Generic.IDictionary{System.Xml.Linq.XName,System.Runtime.DurableInstancing.InstanceValue}}
-      description: "Completed instance metadata as a dictionary of instance identifier and instance key metadata, which is a dictionary of <xref:System.Xml.Linq.XName> and <xref href=&quot;System.Runtime.DurableInstancing.InstanceValue&quot;></xref> objects."
+      description: "Metagegevens van het exemplaar voltooid als een woordenlijst van het exemplaar-id en sleutel metagegevens van het exemplaar, dit is een dictionary van <xref:System.Xml.Linq.XName>en <xref href=&quot;System.Runtime.DurableInstancing.InstanceValue&quot;> </xref> objecten.</xref:System.Xml.Linq.XName>"
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.LoadedInstance*
   exceptions: []
   platform:
@@ -530,13 +530,13 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Gets the lock token of the instance owner bound to the current instance handle."
-  remarks: "The persistence provider should check this value against the lock token of the lock held on an instance in the instance store when performing an operation that requires a lock (such as persisting instance data) using a handle bound to the lock. If the lock token doesn’t match, the command should fail with InstanceLockLostException.       The persistence provider should use this value as the lock token when acquiring a new lock on an instance (such as persisting instance data using a handle not already bound to a lock). If the instance is already locked in the instance store and the lock token matches this lock token, the persistence provider can attempt to reclaim the instance using BindReclaimedLock."
+  summary: "Hiermee haalt de vergrendeling token van de exemplaareigenaar van het gebonden aan de huidige sessie-ingang."
+  remarks: "De persistentieprovider moet deze waarde ten opzichte van het Vergrendelingstoken van de vergrendeling op een exemplaar in de exemplaaropslag bewaard wanneer er een bewerking waarvoor een vergrendeling (zoals persistent maken exemplaargegevens) met behulp van een greep aan de vergrendeling gebonden te controleren. Als het Vergrendelingstoken niet overeenkomen, wordt de opdracht zou moeten mislukken met InstanceLockLostException.       De persistentieprovider moet deze waarde als het Vergrendelingstoken van de gebruiken bij het ophalen van een nieuwe vergrendeling op een exemplaar (zoals vastleggen van exemplaargegevens met behulp van een greep niet al is gebonden aan een vergrendeling). Als het exemplaar is al vergrendeld in de exemplaaropslag en het Vergrendelingstoken overeenkomt met dit Vergrendelingstoken, worden de persistentieprovider kunt proberen om het exemplaar met behulp van BindReclaimedLock vrij te maken."
   syntax:
     content: public Guid LockToken { get; }
     return:
       type: System.Guid
-      description: "The lock token bound to the current instance handle, or Guid.Empty if the handle isn’t bound to an instance owner."
+      description: "Het Vergrendelingstoken gebonden aan de huidige sessie-ingang of Guid.Empty als de ingang is niet aan een exemplaareigenaar gebonden."
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.LockToken*
   exceptions: []
   platform:
@@ -553,14 +553,14 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Indicates that the persistence provider has successfully persisted a set of instance data to the instance store. This has the effect of initializing the instance if it wasn’t already."
-  remarks: "The current instance handle must be bound to an instance as well as a lock on that instance. Each set of instance data completely replaces the previous set. The set of instance data may be null – this is the same as empty. Persisting a null set of instance data deletes the existing set of instance data. (Persisting a set of instance data has no effect on instance metadata.)"
+  summary: "Hiermee wordt aangegeven dat de persistentieprovider is een reeks exemplaargegevens voor de exemplaaropslag heeft gehandhaafd. Dit heeft het effect van het initialiseren van het exemplaar als deze niet al is."
+  remarks: "De huidige sessie-ingang moet worden gebonden aan een exemplaar, evenals een vergrendeling op dat exemplaar. Elke reeks exemplaargegevens Hiermee vervangt u de voorgaande set. De gegevensset van exemplaar mag null zijn: dit is hetzelfde als leeg. De bestaande set exemplaargegevens persistent maken van een set null exemplaargegevens worden verwijderd. (Het persistent maken van een reeks exemplaargegevens heeft geen effect op de metagegevens van het exemplaar.)"
   syntax:
     content: public void PersistedInstance (System.Collections.Generic.IDictionary<System.Xml.Linq.XName,System.Runtime.DurableInstancing.InstanceValue> data);
     parameters:
     - id: data
       type: System.Collections.Generic.IDictionary{System.Xml.Linq.XName,System.Runtime.DurableInstancing.InstanceValue}
-      description: "Instance data as a dictionary of <xref:System.Xml.Linq.XName> and <xref href=&quot;System.Runtime.DurableInstancing.InstanceValue&quot;></xref> objects."
+      description: "Exemplaar van de gegevens als een dictionary van <xref:System.Xml.Linq.XName>en <xref href=&quot;System.Runtime.DurableInstancing.InstanceValue&quot;> </xref> objecten.</xref:System.Xml.Linq.XName>"
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.PersistedInstance*
   exceptions: []
   platform:
@@ -577,13 +577,13 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Adds the <xref href=&quot;System.Runtime.DurableInstancing.InstanceStoreQueryResult&quot;></xref> passed as a parameter to a list of <xref href=&quot;System.Runtime.DurableInstancing.InstanceStoreQueryResult&quot;></xref> objects in an <xref href=&quot;System.Runtime.DurableInstancing.InstanceView&quot;></xref>."
+  summary: "Voegt de <xref href=&quot;System.Runtime.DurableInstancing.InstanceStoreQueryResult&quot;> </xref> doorgegeven als parameter aan een lijst met <xref href=&quot;System.Runtime.DurableInstancing.InstanceStoreQueryResult&quot;> </xref> objecten in een <xref href=&quot;System.Runtime.DurableInstancing.InstanceView&quot;> </xref>."
   syntax:
     content: public void QueriedInstanceStore (System.Runtime.DurableInstancing.InstanceStoreQueryResult queryResult);
     parameters:
     - id: queryResult
       type: System.Runtime.DurableInstancing.InstanceStoreQueryResult
-      description: "The results of a query against an instance store."
+      description: "De resultaten van een query op een exemplaar-store."
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.QueriedInstanceStore*
   exceptions: []
   platform:
@@ -600,20 +600,20 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Indicates that the persistence provider has successfully read some instance key metadata for a key associated to the current instance from the instance store."
-  remarks: "The current instance handle must be bound to an instance. If the instance handle is bound to a lock or the current instance is marked as complete, the metadata is considered to be consistent; otherwise, it is considered to be in doubt."
+  summary: "Hiermee wordt aangegeven dat de persistentieprovider een aantal belangrijke metagegevens van het exemplaar voor een sleutel die is gekoppeld aan het huidige exemplaar van de exemplaaropslag is gelezen."
+  remarks: "De huidige sessie-ingang moet worden gebonden aan een exemplaar. Als de sessie-ingang is gebonden aan een vergrendeling of het huidige exemplaar is gemarkeerd als voltooid, de metagegevens wordt beschouwd als consistent; anders wordt deze beschouwd als twijfelachtig gedeclareerd."
   syntax:
     content: public void ReadInstanceKeyMetadata (Guid key, System.Collections.Generic.IDictionary<System.Xml.Linq.XName,System.Runtime.DurableInstancing.InstanceValue> metadata, bool complete);
     parameters:
     - id: key
       type: System.Guid
-      description: "The instance key identifier for the key whose metadata was read. Must not be Guid.Empty."
+      description: "De instantie sleutel-id voor de sleutel met metagegevens is gelezen. Mag geen Guid.Empty."
     - id: metadata
       type: System.Collections.Generic.IDictionary{System.Xml.Linq.XName,System.Runtime.DurableInstancing.InstanceValue}
-      description: "The metadata as a dictionary of <xref:System.Xml.Linq.XName> and <xref href=&quot;System.Runtime.DurableInstancing.InstanceValue&quot;></xref> objects."
+      description: "De metagegevens als een dictionary van <xref:System.Xml.Linq.XName>en <xref href=&quot;System.Runtime.DurableInstancing.InstanceValue&quot;> </xref> objecten.</xref:System.Xml.Linq.XName>"
     - id: complete
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_True&quot; name=&quot;True&quot; href=&quot;&quot;></xref> if the metadata represents all of the metadata associated to the instance key, otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_True&quot; name=&quot;True&quot; href=&quot;&quot;></xref>Als de metagegevens alle metagegevens die anders is gekoppeld aan de sleutel van het exemplaar van vertegenwoordigt <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.ReadInstanceKeyMetadata*
   exceptions: []
   platform:
@@ -630,16 +630,16 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Indicates that the persistence provider has successfully read some instance metadata for the current instance from the instance store."
+  summary: "Hiermee wordt aangegeven dat de persistentieprovider heeft enkele metagegevens voor het huidige exemplaar van het exemplaar is gelezen uit de exemplaaropslag."
   syntax:
     content: public void ReadInstanceMetadata (System.Collections.Generic.IDictionary<System.Xml.Linq.XName,System.Runtime.DurableInstancing.InstanceValue> metadata, bool complete);
     parameters:
     - id: metadata
       type: System.Collections.Generic.IDictionary{System.Xml.Linq.XName,System.Runtime.DurableInstancing.InstanceValue}
-      description: "The metadata as a dictionary of <xref:System.Xml.Linq.XName> and <xref href=&quot;System.Runtime.DurableInstancing.InstanceValue&quot;></xref> objects."
+      description: "De metagegevens als een dictionary van <xref:System.Xml.Linq.XName>en <xref href=&quot;System.Runtime.DurableInstancing.InstanceValue&quot;> </xref> objecten.</xref:System.Xml.Linq.XName>"
     - id: complete
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_True&quot; name=&quot;True&quot; href=&quot;&quot;></xref> if the metadata represents all of the metadata associated to the instance, otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_True&quot; name=&quot;True&quot; href=&quot;&quot;></xref>Als de metagegevens alle metagegevens die anders zijn gekoppeld aan het exemplaar van vertegenwoordigt <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.ReadInstanceMetadata*
   exceptions: []
   platform:
@@ -656,17 +656,17 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Sets the instance owner metadata using the data passed in the parameter."
-  remarks: "The current instance handle must be bound to an instance. If the instance handle is bound to a lock or the current instance is marked as complete, the metadata is considered to be consistent; otherwise, it is considered to be in doubt."
+  summary: "Hiermee stelt u de gegevens in de parameter worden doorgegeven met metagegevens voor de eigenaar van het exemplaar."
+  remarks: "De huidige sessie-ingang moet worden gebonden aan een exemplaar. Als de sessie-ingang is gebonden aan een vergrendeling of het huidige exemplaar is gemarkeerd als voltooid, de metagegevens wordt beschouwd als consistent; anders wordt deze beschouwd als twijfelachtig gedeclareerd."
   syntax:
     content: public void ReadInstanceOwnerMetadata (System.Collections.Generic.IDictionary<System.Xml.Linq.XName,System.Runtime.DurableInstancing.InstanceValue> metadata, bool complete);
     parameters:
     - id: metadata
       type: System.Collections.Generic.IDictionary{System.Xml.Linq.XName,System.Runtime.DurableInstancing.InstanceValue}
-      description: "The dictionary of <xref:System.Xml.Linq.XName> and <xref href=&quot;System.Runtime.DurableInstancing.InstanceValue&quot;></xref> objects."
+      description: "De woordenlijst van <xref:System.Xml.Linq.XName>en <xref href=&quot;System.Runtime.DurableInstancing.InstanceValue&quot;> </xref> objecten.</xref:System.Xml.Linq.XName>"
     - id: complete
       type: System.Boolean
-      description: "The value to specify whether the consistency to be set to <xref href=&quot;System.Runtime.DurableInstancing.InstanceValueConsistency&quot;></xref> or <xref href=&quot;System.Runtime.DurableInstancing.InstanceValueConsistency&quot;></xref>."
+      description: "De waarde op te geven of de consistentiecontrole moet worden ingesteld op <xref href=&quot;System.Runtime.DurableInstancing.InstanceValueConsistency&quot;> </xref> of <xref href=&quot;System.Runtime.DurableInstancing.InstanceValueConsistency&quot;> </xref>."
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.ReadInstanceOwnerMetadata*
   exceptions: []
   platform:
@@ -683,14 +683,14 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Sets the cancellation handler to be called when the cancel of an operation is requested."
-  remarks: "If the cancellation handler is called, the persistence provider should cancel all pending operations and throw OperationCanceledException from TryCommand to indicate that the persistence command was interrupted before it could be completed."
+  summary: "Hiermee stelt u de annulerings-handler moet worden aangeroepen wanneer het annuleren van een bewerking wordt aangevraagd."
+  remarks: "Als de annulerings-handler wordt aangeroepen, wordt dit door de persistentieprovider Annuleer alle bewerkingen in behandeling en OperationCanceledException genereert met TryCommand om aan te geven dat de opdracht persistentie werd onderbroken voordat deze kon worden voltooid."
   syntax:
     content: public void SetCancellationHandler (Action<System.Runtime.DurableInstancing.InstancePersistenceContext> cancellationHandler);
     parameters:
     - id: cancellationHandler
       type: System.Action{System.Runtime.DurableInstancing.InstancePersistenceContext}
-      description: "The reference to a function to be called."
+      description: "De verwijzing naar een functie moet worden aangeroepen."
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.SetCancellationHandler*
   exceptions: []
   platform:
@@ -707,14 +707,14 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Indicates that the persistence provider has successfully disassociated a key from the current instance in the instance store. The identifier of the key is specified as a parameter."
-  remarks: "The current instance handle must be bound to an instance as well as a lock on that instance. The instance key must be associated to the current instance and must be marked complete. The current instance must not be marked complete."
+  summary: "Hiermee wordt aangegeven dat de persistentieprovider is een sleutel van het huidige exemplaar in de exemplaaropslag is ontkoppeld. De id van de sleutel die is opgegeven als parameter."
+  remarks: "De huidige sessie-ingang moet worden gebonden aan een exemplaar, evenals een vergrendeling op dat exemplaar. Sleutel van het exemplaar moet zijn gekoppeld aan het huidige exemplaar en moet worden als voltooid gemarkeerd. Het huidige exemplaar moet niet voltooid worden gemarkeerd."
   syntax:
     content: public void UnassociatedInstanceKey (Guid key);
     parameters:
     - id: key
       type: System.Guid
-      description: "The instance key identifier for the key that has been unassociated. Must not be Guid.Empty."
+      description: "De instantie sleutel-id voor de sleutel die niet-gekoppelde is. Mag geen Guid.Empty."
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.UnassociatedInstanceKey*
   exceptions: []
   platform:
@@ -731,13 +731,13 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Gets the user context information attached to the current instance handle."
-  remarks: "The object is the one that is returned from InstanceStore.OnNewInstanceHandle for the current instance handle."
+  summary: "Hiermee haalt u de gebruikersinformatie context gekoppeld aan de huidige sessie-ingang."
+  remarks: "Het object is die is geretourneerd door de InstanceStore.OnNewInstanceHandle voor de huidige sessie-ingang."
   syntax:
     content: public object UserContext { get; }
     return:
       type: System.Object
-      description: "The user context information."
+      description: "De gebruikersinformatie context."
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.UserContext*
   exceptions: []
   platform:
@@ -754,20 +754,20 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Indicates that the persistence provider has successfully written a metadata value for an instance key that is associated with the current instance to the instance store"
-  remarks: "The current instance handle must be bound to an instance as well as a lock on that instance. The instance key must be associated with the current instance and must not be completed."
+  summary: "Hiermee wordt aangegeven dat de persistentieprovider heeft een metagegevenswaarde voor een sleutel die is gekoppeld aan het huidige exemplaar voor de exemplaaropslag geschreven"
+  remarks: "De huidige sessie-ingang moet worden gebonden aan een exemplaar, evenals een vergrendeling op dat exemplaar. Sleutel van het exemplaar moet worden gekoppeld aan het huidige exemplaar en moet niet worden voltooid."
   syntax:
     content: public void WroteInstanceKeyMetadataValue (Guid key, System.Xml.Linq.XName name, System.Runtime.DurableInstancing.InstanceValue value);
     parameters:
     - id: key
       type: System.Guid
-      description: "The instance key identifier for the key. Must not be Guid.Empty."
+      description: "De instantie sleutel-id voor de sleutel. Mag geen Guid.Empty."
     - id: name
       type: System.Xml.Linq.XName
-      description: "The name of the metadata property."
+      description: "De naam van de metagegevenseigenschap."
     - id: value
       type: System.Runtime.DurableInstancing.InstanceValue
-      description: "The value of the metadata property."
+      description: "De waarde van de metagegevenseigenschap."
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.WroteInstanceKeyMetadataValue*
   exceptions: []
   platform:
@@ -784,17 +784,17 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Indicates that the persistence provider has successfully written a metadata value for the current instance to the external instance store."
-  remarks: "The current instance handle must be bound to an instance as well as has a lock on that instance. The instance must not be completed."
+  summary: "Geeft aan dat de persistentieprovider is een metagegevenswaarde voor het huidige exemplaar is geschreven naar de externe instance store."
+  remarks: "De huidige sessie-ingang moet zijn gebonden aan een exemplaar evenals dat exemplaar heeft vergrendeld. Het exemplaar moet niet worden voltooid."
   syntax:
     content: public void WroteInstanceMetadataValue (System.Xml.Linq.XName name, System.Runtime.DurableInstancing.InstanceValue value);
     parameters:
     - id: name
       type: System.Xml.Linq.XName
-      description: "The name of the metadata property."
+      description: "De naam van de metagegevenseigenschap."
     - id: value
       type: System.Runtime.DurableInstancing.InstanceValue
-      description: "The value of the metadata property."
+      description: "De waarde van de metagegevenseigenschap."
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.WroteInstanceMetadataValue*
   exceptions: []
   platform:
@@ -811,17 +811,17 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Indicates that the persistence provider has successfully written a metadata value for the current instance owner to the instance store."
-  remarks: "The current instance handle must be bound to an instance owner."
+  summary: "Hiermee wordt aangegeven dat de persistentieprovider is geschreven een metagegevenswaarde voor de exemplaareigenaar van het huidige voor de exemplaaropslag."
+  remarks: "De huidige sessie-ingang moet worden gebonden aan een exemplaareigenaar."
   syntax:
     content: public void WroteInstanceOwnerMetadataValue (System.Xml.Linq.XName name, System.Runtime.DurableInstancing.InstanceValue value);
     parameters:
     - id: name
       type: System.Xml.Linq.XName
-      description: "The name of the metadata property."
+      description: "De naam van de metagegevenseigenschap."
     - id: value
       type: System.Runtime.DurableInstancing.InstanceValue
-      description: "The value of the metadata property."
+      description: "De waarde van de metagegevenseigenschap."
   overload: System.Runtime.DurableInstancing.InstancePersistenceContext.WroteInstanceOwnerMetadataValue*
   exceptions: []
   platform:

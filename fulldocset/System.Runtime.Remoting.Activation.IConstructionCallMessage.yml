@@ -14,8 +14,8 @@ items:
   nameWithType: IConstructionCallMessage
   fullName: System.Runtime.Remoting.Activation.IConstructionCallMessage
   type: Interface
-  summary: "Represents the construction call request of an object."
-  remarks: "When the user creates an instance of a new client-activated object by calling `new` or <xref:System.Activator.CreateInstance%2A?displayProperty=fullName> and before the thread returns to the user code, a IConstructionCallMessage is sent to the remote application. When the construction message arrives at the remote application, it is processed by a remoting activator (either the default one, or one that is specified in the <xref:System.Runtime.Remoting.Activation.IConstructionCallMessage.Activator%2A> property) and a new object is created. The remoting application then returns a <xref:System.Runtime.Remoting.Activation.IConstructionReturnMessage> to the local application. The <xref:System.Runtime.Remoting.Activation.IConstructionReturnMessage> contains an instance of <xref:System.Runtime.Remoting.ObjRef>, which packages information about the remote object. The remoting infrastructure converts the <xref:System.Runtime.Remoting.ObjRef> instance into a proxy to the remote object, which is returned to the user code."
+  summary: "Hiermee geeft u de aanvraag constructie van een object."
+  remarks: "Wanneer de gebruiker maakt het een exemplaar van een nieuwe client geactiveerd object door aan te roepen `new` of <xref:System.Activator.CreateInstance%2A?displayProperty=fullName>en voordat de thread wordt geretourneerd naar de gebruikerscode, een IConstructionCallMessage wordt verzonden naar de externe toepassing.</xref:System.Activator.CreateInstance%2A?displayProperty=fullName> Wanneer de constructie-bericht op de externe toepassing binnenkomt, wordt verwerkt door een externe activator (de standaard één of een die is opgegeven in de <xref:System.Runtime.Remoting.Activation.IConstructionCallMessage.Activator%2A>eigenschap) en een nieuw object is gemaakt.</xref:System.Runtime.Remoting.Activation.IConstructionCallMessage.Activator%2A> Retourneert de externe toepassing wordt vervolgens een <xref:System.Runtime.Remoting.Activation.IConstructionReturnMessage>naar de lokale toepassing.</xref:System.Runtime.Remoting.Activation.IConstructionReturnMessage> De <xref:System.Runtime.Remoting.Activation.IConstructionReturnMessage>bevat een exemplaar van <xref:System.Runtime.Remoting.ObjRef>, die informatie over het externe object pakketten.</xref:System.Runtime.Remoting.ObjRef> </xref:System.Runtime.Remoting.Activation.IConstructionReturnMessage> De externe infrastructuur converteert de <xref:System.Runtime.Remoting.ObjRef>exemplaar naar een proxy voor het externe object, dat wordt geretourneerd naar de gebruikerscode.</xref:System.Runtime.Remoting.ObjRef>"
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -37,17 +37,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Activation
-  summary: "Gets the type of the remote object to activate."
+  summary: "Hiermee wordt het type van het externe object om te activeren."
   syntax:
     content: public Type ActivationType { get; }
     return:
       type: System.Type
-      description: "The type of the remote object to activate."
+      description: "Het type van het externe object om te activeren."
   overload: System.Runtime.Remoting.Activation.IConstructionCallMessage.ActivationType*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "De onmiddellijke aanroeper is niet gemachtigd voor infrastructuur."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Activation.IConstructionCallMessage.ActivationTypeName
@@ -62,17 +62,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Activation
-  summary: "Gets the full type name of the remote type to activate."
+  summary: "Hiermee haalt u de volledige typenaam van het type extern activeren."
   syntax:
     content: public string ActivationTypeName { get; }
     return:
       type: System.String
-      description: "The full type name of the remote type to activate."
+      description: "De volledige typenaam van het type extern activeren."
   overload: System.Runtime.Remoting.Activation.IConstructionCallMessage.ActivationTypeName*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "De onmiddellijke aanroeper is niet gemachtigd voor infrastructuur."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Activation.IConstructionCallMessage.Activator
@@ -87,18 +87,18 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Activation
-  summary: "Gets or sets the activator that activates the remote object."
-  remarks: "A chain of activators that are arranged in a hierarchy typically completes the various tasks that are involved in the activation process. If you intend to plug in a custom activator, then you should traverse the activator hierarchy and plug in your activator at the appropriate location. Use the <xref:System.Runtime.Remoting.Activation.IActivator.NextActivator%2A?displayProperty=fullName> property on the activator that is returned by the current property to traverse the chain of activators.       If you add your own activator into the message&quot;s activator chain on the client side, the activator may be serialized and transported to the server side, if deemed necessary. For this reason, custom activators should be fairly lightweight in terms of serialization requirements."
+  summary: "Opgehaald of ingesteld van de activator waarmee het externe object wordt geactiveerd."
+  remarks: "Een keten van activators die doorgaans in een hiërarchie zijn gerangschikt is voltooid voor de verschillende taken die bij het activeringsproces betrokken zijn. Als u van plan bent om een aangepaste activator, moet u bladeren door de hiërarchie activator en sluit in uw activator op de juiste locatie. Gebruik de <xref:System.Runtime.Remoting.Activation.IActivator.NextActivator%2A?displayProperty=fullName>eigenschap voor de activator die wordt geretourneerd door de huidige eigenschap bladeren door de keten van activators.</xref:System.Runtime.Remoting.Activation.IActivator.NextActivator%2A?displayProperty=fullName>       Als u uw eigen activator in het bericht activator keten aan de clientzijde toevoegt, kan de activator worden geserialiseerd en aan de serverzijde getransporteerd zo nodig. Om deze reden moet aangepaste activators redelijk lightweight in termen van de vereisten voor serialisatie."
   syntax:
     content: public System.Runtime.Remoting.Activation.IActivator Activator { get; set; }
     return:
       type: System.Runtime.Remoting.Activation.IActivator
-      description: "The activator that activates the remote object."
+      description: "De activator waarmee het externe object wordt geactiveerd."
   overload: System.Runtime.Remoting.Activation.IConstructionCallMessage.Activator*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "De onmiddellijke aanroeper is niet gemachtigd voor infrastructuur."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Activation.IConstructionCallMessage.CallSiteActivationAttributes
@@ -113,18 +113,18 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Activation
-  summary: "Gets the call site activation attributes."
-  remarks: "The CallSiteActivationAttributes indexer allows you to specify additional attributes to use during object activation. The user specifies the CallSiteActivationAttributes in the `activationAttributes` parameter to <xref:System.Activator.CreateInstance%2A?displayProperty=fullName>."
+  summary: "Hiermee haalt u de aanroep activatiekenmerken site."
+  remarks: "De indexeerfunctie CallSiteActivationAttributes kunt u extra kenmerken opgeven voor gebruik tijdens de activering van het object. Geeft de gebruiker de CallSiteActivationAttributes in de `activationAttributes` -parameter voor <xref:System.Activator.CreateInstance%2A?displayProperty=fullName>.</xref:System.Activator.CreateInstance%2A?displayProperty=fullName>"
   syntax:
     content: public object[] CallSiteActivationAttributes { get; }
     return:
       type: System.Object[]
-      description: "The call site activation attributes."
+      description: "De kenmerken van de activering in de aanroep van site."
   overload: System.Runtime.Remoting.Activation.IConstructionCallMessage.CallSiteActivationAttributes*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "De onmiddellijke aanroeper is niet gemachtigd voor infrastructuur."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Activation.IConstructionCallMessage.ContextProperties
@@ -139,18 +139,18 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Activation
-  summary: "Gets a list of context properties that define the context in which the object is to be created."
-  remarks: "A new object&quot;s context is generally chosen based on metadata attributes of the class. The context selection mechanism is extensible through custom attributes, also known as static context properties, which are compiled into the class metadata. When activating an object remotely, the ContextProperties contains the list of properties that were contributed by various attributes in the construction call message. These properties are used to create the context in which the server object is activated."
+  summary: "Haalt een lijst met contexteigenschappen die bepalen van de context waarin het object wordt gemaakt."
+  remarks: "Een nieuwe ObjectContext is in het algemeen gekozen op basis van metagegevenskenmerken van de klasse. Het mechanisme voor selectie van context kan worden uitgebreid via aangepaste kenmerken, ook wel bekend als statische contexteigenschappen die in de metagegevens van de klasse worden gecompileerd. Bij het activeren van een object op afstand, bevat de ContextProperties in de lijst met eigenschappen die zijn die is bijgedragen door verschillende kenmerken in het bericht constructie-aanroep. Deze eigenschappen worden gebruikt voor het maken van de context waarin het serverobject wordt geactiveerd."
   syntax:
     content: public System.Collections.IList ContextProperties { get; }
     return:
       type: System.Collections.IList
-      description: "A list of properties of the context in which to construct the object."
+      description: "Een lijst met eigenschappen van de context waarin om het object te maken."
   overload: System.Runtime.Remoting.Activation.IConstructionCallMessage.ContextProperties*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "De onmiddellijke aanroeper is niet gemachtigd voor infrastructuur."
   platform:
   - net462
 references:

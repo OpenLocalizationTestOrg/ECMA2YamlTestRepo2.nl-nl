@@ -14,8 +14,8 @@ items:
   nameWithType: StronglyTypedResourceBuilder
   fullName: System.Resources.Tools.StronglyTypedResourceBuilder
   type: Class
-  summary: "Provides support for strongly typed resources. This class cannot be inherited."
-  remarks: "Typically, resources separate code from content within an application. Creating and consuming these resources makes it easier to develop localizable applications. In the .NET Framework, resources are usually consumed by using the <xref:System.Resources.ResourceManager> class, which contains methods that provide access to culture-specific resources at run time. For more information about creating and consuming resources, see [Resources in Desktop Apps](~/add/includes/ajax-current-ext-md.md).       Strongly typed resource support is a compile-time feature that encapsulates access to resources by creating classes that contain a set of static, read-only (`get`) properties. This provides an alternative way to consume resources instead of calling the <xref:System.Resources.ResourceManager.GetString%2A?displayProperty=fullName> and <xref:System.Resources.ResourceManager.GetObject%2A?displayProperty=fullName> methods.       The basic functionality for strongly typed resource support is provided by the StronglyTypedResourceBuilder class (as well as the `/str` command-line option in the [Resgen.exe (Resource File Generator)](~/add/includes/ajax-current-ext-md.md)). The output of the <xref:System.Resources.Tools.StronglyTypedResourceBuilder.Create%2A> method is a class that contains strongly typed properties that match the resources that are referenced in the input parameter. This class provides read-only access to the resources that are available in the file processed."
+  summary: "Biedt ondersteuning voor sterk getypeerde bronnen. Deze klasse kan niet worden overgenomen."
+  remarks: "Normaal gesproken scheiden resources code van de inhoud van een toepassing. Maken en gebruiken van deze resources gemakkelijker om lokaliseerbare toepassingen te ontwikkelen. In het .NET Framework, meestal bronnen worden verbruikt met behulp van de <xref:System.Resources.ResourceManager>klasse bevat de methoden die toegang tot cultuur-specifieke bronnen tijdens runtime bieden.</xref:System.Resources.ResourceManager> Zie voor meer informatie over het maken en gebruiken van resources [bronnen in Desktop-Apps](~/add/includes/ajax-current-ext-md.md).       Ondersteuning voor sterk getypeerde resource is een compilatie-functie die toegang tot bronnen ingekapseld door klassen te maken met een reeks statisch, alleen-lezen (`get`) eigenschappen. Dit biedt een alternatieve manier zijn om het gebruik van bronnen in plaats van het aanroepen van de <xref:System.Resources.ResourceManager.GetString%2A?displayProperty=fullName>en <xref:System.Resources.ResourceManager.GetObject%2A?displayProperty=fullName>methoden.</xref:System.Resources.ResourceManager.GetObject%2A?displayProperty=fullName> </xref:System.Resources.ResourceManager.GetString%2A?displayProperty=fullName>       De basisfunctionaliteit voor sterk getypeerde resource ondersteuning wordt geleverd door de klasse StronglyTypedResourceBuilder (evenals de `/str` opdrachtregeloptie te gebruiken in de [Resgen.exe (Resource bestand Generator)](~/add/includes/ajax-current-ext-md.md)). De uitvoer van de <xref:System.Resources.Tools.StronglyTypedResourceBuilder.Create%2A>methode is een klasse met sterk getypeerde eigenschappen die overeenkomen met de resources waarnaar wordt verwezen in de invoerparameter.</xref:System.Resources.Tools.StronglyTypedResourceBuilder.Create%2A> Deze klasse biedt alleen-lezen toegang tot de resources die beschikbaar in het bestand dat is verwerkt zijn."
   example:
   - "The following example generates a class named `DemoResources` that is written in C# or Visual Basic (depending on the example's source code). This class is in the `DemoApp` namespace and has properties that return the bitmap of a logo and the name of an application. The example calls a `CreateResourceFile` method to create the necessary .resw file and requires that a bitmap file named Logo.bmp be found in the example's current directory. The code example uses the following resource file, named demo.resx:  \n  \n [!code-vb[System.Resources.Tools.StronglyTypedResourceBuilder.Class#1](~/add/codesnippet/visualbasic/t-system.resources.tools_1.vb)]\n [!code-cs[System.Resources.Tools.StronglyTypedResourceBuilder.Class#1](~/add/codesnippet/csharp/t-system.resources.tools_1.cs)]  \n  \n Your application code can then use the class as follows:  \n  \n [!code-cs[System.Resources.Tools.StronglyTypedResourceBuilder.Class#2](~/add/codesnippet/csharp/t-system.resources.tools_2.cs)]\n [!code-vb[System.Resources.Tools.StronglyTypedResourceBuilder.Class#2](~/add/codesnippet/visualbasic/t-system.resources.tools_2.vb)]"
   syntax:
@@ -38,32 +38,32 @@ items:
   assemblies:
   - System.Design
   namespace: System.Resources.Tools
-  summary: "Generates a class file that contains strongly typed properties that match the resources referenced in the specified collection."
-  remarks: "Use the Create method to generate a class that provides a strongly typed, read-only wrapper to access the resources that are contained in the `resourceList` parameter.       The <xref:System.Resources.Tools.StronglyTypedResourceBuilder> class ignores any resource name that begins with the characters &quot;$&quot; or &quot;>>&quot;. The resource names &quot;Culture&quot; and &quot;ResourceManager&quot; are invalid identifiers."
+  summary: "Genereert een klassebestand met sterk getypeerde eigenschappen die overeenkomen met de resources waarnaar wordt verwezen in de opgegeven verzameling."
+  remarks: "De methode Create gebruiken voor het genereren van een klasse die voorziet in een sterk getypeerde, alleen-lezen-wrapper voor toegang tot de resources die zijn opgenomen in de `resourceList` parameter.       De <xref:System.Resources.Tools.StronglyTypedResourceBuilder>klasse negeert elke resourcenaam die begint met de tekens &quot;$&quot; of &quot; >> &quot;.</xref:System.Resources.Tools.StronglyTypedResourceBuilder> De resourcenamen &quot;Cultuur&quot; en &quot;ResourceManager&quot; zijn ongeldige id&quot;s."
   syntax:
     content: public static System.CodeDom.CodeCompileUnit Create (System.Collections.IDictionary resourceList, string baseName, string generatedCodeNamespace, System.CodeDom.Compiler.CodeDomProvider codeProvider, bool internalClass, out string[] unmatchable);
     parameters:
     - id: resourceList
       type: System.Collections.IDictionary
-      description: "An <xref:System.Collections.IDictionary> collection where each dictionary entry key/value pair is the name of a resource and the value of the resource."
+      description: "Een <xref:System.Collections.IDictionary>verzameling waar elke dictionary-vermelding sleutel-waardepaar de naam van een resource en de waarde van de resource is.</xref:System.Collections.IDictionary>"
     - id: baseName
       type: System.String
-      description: "The name of the class to be generated."
+      description: "De naam van de klasse moet worden gegenereerd."
     - id: generatedCodeNamespace
       type: System.String
-      description: "The namespace of the class to be generated."
+      description: "De naamruimte van de klasse moet worden gegenereerd."
     - id: codeProvider
       type: System.CodeDom.Compiler.CodeDomProvider
-      description: "A <xref href=&quot;System.CodeDom.Compiler.CodeDomProvider&quot;></xref> class that provides the language in which the class will be generated."
+      description: "Een <xref href=&quot;System.CodeDom.Compiler.CodeDomProvider&quot;> </xref> klasse waarmee de taal waarin de klasse wordt gegenereerd."
     - id: internalClass
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to generate an internal class; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to generate a public class."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>voor het genereren van een interne klasse; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> voor het genereren van een openbare klasse zijn."
     - id: unmatchable
       type: System.String[]
-      description: "An array that contains each resource name for which a property cannot be generated. Typically, a property cannot be generated because the resource name is not a valid identifier."
+      description: "Een matrix met de resourcenaam van elke waarvoor een eigenschap kan niet worden gegenereerd. Normaal gesproken kan niet een eigenschap worden gegenereerd omdat de resourcenaam geen geldige id is."
     return:
       type: System.CodeDom.CodeCompileUnit
-      description: "A <xref href=&quot;System.CodeDom.CodeCompileUnit&quot;></xref> container."
+      description: "Een <xref href=&quot;System.CodeDom.CodeCompileUnit&quot;> </xref> container."
   overload: System.Resources.Tools.StronglyTypedResourceBuilder.Create*
   exceptions:
   - type: System.ArgumentNullException
@@ -71,7 +71,7 @@ items:
     description: "<code>resourceList</code>, <code>basename</code>, or <code>codeProvider</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "A resource node name does not match its key in <code>resourceList</code>."
+    description: "De naam van een resource-knooppunt komt niet overeen met de sleutel in <code> resourceList </code>."
   platform:
   - net462
 - uid: System.Resources.Tools.StronglyTypedResourceBuilder.Create(System.String,System.String,System.String,System.CodeDom.Compiler.CodeDomProvider,System.Boolean,System.String[]@)
@@ -86,37 +86,37 @@ items:
   assemblies:
   - System.Design
   namespace: System.Resources.Tools
-  summary: "Generates a class file that contains strongly typed properties that match the resources in the specified .resx file."
-  remarks: "Use the Create method to generate a class that provides strongly typed, read-only access to the resources that are contained in the `resxFile` parameter.       The <xref:System.Resources.Tools.StronglyTypedResourceBuilder> class ignores any resource name that begins with the characters &quot;$&quot; or &quot;>>&quot;. The resource names &quot;Culture&quot; and &quot;ResourceManager&quot; are invalid identifiers."
+  summary: "Genereert een klassebestand met sterk getypeerde eigenschappen die overeenkomen met de resources in de opgegeven .resx-bestand."
+  remarks: "De methode Create gebruiken voor het genereren van een klasse die sterk getypeerde, alleen-lezen toegang tot de resources die zijn opgenomen biedt in de `resxFile` parameter.       De <xref:System.Resources.Tools.StronglyTypedResourceBuilder>klasse negeert elke resourcenaam die begint met de tekens &quot;$&quot; of &quot; >> &quot;.</xref:System.Resources.Tools.StronglyTypedResourceBuilder> De resourcenamen &quot;Cultuur&quot; en &quot;ResourceManager&quot; zijn ongeldige id&quot;s."
   syntax:
     content: public static System.CodeDom.CodeCompileUnit Create (string resxFile, string baseName, string generatedCodeNamespace, System.CodeDom.Compiler.CodeDomProvider codeProvider, bool internalClass, out string[] unmatchable);
     parameters:
     - id: resxFile
       type: System.String
-      description: "The name of a .resx file used as input."
+      description: "De naam van een .resx-bestand gebruikt als invoer."
     - id: baseName
       type: System.String
-      description: "The name of the class to be generated."
+      description: "De naam van de klasse moet worden gegenereerd."
     - id: generatedCodeNamespace
       type: System.String
-      description: "The namespace of the class to be generated."
+      description: "De naamruimte van de klasse moet worden gegenereerd."
     - id: codeProvider
       type: System.CodeDom.Compiler.CodeDomProvider
-      description: "A <xref href=&quot;System.CodeDom.Compiler.CodeDomProvider&quot;></xref> class that provides the language in which the class will be generated."
+      description: "Een <xref href=&quot;System.CodeDom.Compiler.CodeDomProvider&quot;> </xref> klasse waarmee de taal waarin de klasse wordt gegenereerd."
     - id: internalClass
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to generate an internal class; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to generate a public class."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>voor het genereren van een interne klasse; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> voor het genereren van een openbare klasse zijn."
     - id: unmatchable
       type: System.String[]
-      description: "A <xref:System.String> array that contains each resource name for which a property cannot be generated. Typically, a property cannot be generated because the resource name is not a valid identifier."
+      description: "Een <xref:System.String>matrix met de resourcenaam van elke waarvoor een eigenschap kan niet worden gegenereerd.</xref:System.String> Normaal gesproken kan niet een eigenschap worden gegenereerd omdat de resourcenaam geen geldige id is."
     return:
       type: System.CodeDom.CodeCompileUnit
-      description: "A <xref href=&quot;System.CodeDom.CodeCompileUnit&quot;></xref> container."
+      description: "Een <xref href=&quot;System.CodeDom.CodeCompileUnit&quot;> </xref> container."
   overload: System.Resources.Tools.StronglyTypedResourceBuilder.Create*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>basename</code> or <code>codeProvider</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>basename</code>or <code>codeProvider</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Resources.Tools.StronglyTypedResourceBuilder.Create(System.Collections.IDictionary,System.String,System.String,System.String,System.CodeDom.Compiler.CodeDomProvider,System.Boolean,System.String[]@)
@@ -131,35 +131,35 @@ items:
   assemblies:
   - System.Design
   namespace: System.Resources.Tools
-  summary: "Generates a class file that contains strongly typed properties that match the resources referenced in the specified collection."
-  remarks: "This overload enables you to use the `resourcesNamespace` parameter to specify the namespace for the generated resources. In this case, the generated code appears as follows:      ```   System.Resources.ResourceManager rm = new System.Resources.ResourceManager(&quot;<resourceNamespace>.<baseName>&quot;,typeof(baseName).Assembly);   ```       In most cases, you do not need to call this method from your application code.       The <xref:System.Resources.Tools.StronglyTypedResourceBuilder> class ignores any resource name that begins with the characters &quot;$&quot; or &quot;>>&quot;. The resource names &quot;Culture&quot; and &quot;ResourceManager&quot; are invalid identifiers."
+  summary: "Genereert een klassebestand met sterk getypeerde eigenschappen die overeenkomen met de resources waarnaar wordt verwezen in de opgegeven verzameling."
+  remarks: "Deze overbelasting kunt u met de `resourcesNamespace` parameter om op te geven van de naamruimte voor de gegenereerde resources. In dit geval de gegenereerde code wordt weergegeven als volgt: ```   System.Resources.ResourceManager rm = new System.Resources.ResourceManager(&quot;<resourceNamespace>.<baseName>&quot;,typeof(baseName).Assembly);   ``` In de meeste gevallen hoeft niet aan deze methode niet aanroepen vanuit uw toepassingscode.       De <xref:System.Resources.Tools.StronglyTypedResourceBuilder>klasse negeert elke resourcenaam die begint met de tekens &quot;$&quot; of &quot; >> &quot;.</xref:System.Resources.Tools.StronglyTypedResourceBuilder> De resourcenamen &quot;Cultuur&quot; en &quot;ResourceManager&quot; zijn ongeldige id&quot;s."
   syntax:
     content: public static System.CodeDom.CodeCompileUnit Create (System.Collections.IDictionary resourceList, string baseName, string generatedCodeNamespace, string resourcesNamespace, System.CodeDom.Compiler.CodeDomProvider codeProvider, bool internalClass, out string[] unmatchable);
     parameters:
     - id: resourceList
       type: System.Collections.IDictionary
-      description: "An <xref:System.Collections.IDictionary> collection where each dictionary entry key/value pair is the name of a resource and the value of the resource."
+      description: "Een <xref:System.Collections.IDictionary>verzameling waar elke dictionary-vermelding sleutel-waardepaar de naam van een resource en de waarde van de resource is.</xref:System.Collections.IDictionary>"
     - id: baseName
       type: System.String
-      description: "The name of the class to be generated."
+      description: "De naam van de klasse moet worden gegenereerd."
     - id: generatedCodeNamespace
       type: System.String
-      description: "The namespace of the class to be generated."
+      description: "De naamruimte van de klasse moet worden gegenereerd."
     - id: resourcesNamespace
       type: System.String
-      description: "The namespace of the resource to be generated."
+      description: "De naamruimte van de resource moet worden gegenereerd."
     - id: codeProvider
       type: System.CodeDom.Compiler.CodeDomProvider
-      description: "A <xref href=&quot;System.CodeDom.Compiler.CodeDomProvider&quot;></xref> object that provides the language in which the class will be generated."
+      description: "Een <xref href=&quot;System.CodeDom.Compiler.CodeDomProvider&quot;> </xref> object waarmee de taal waarin de klasse wordt gegenereerd."
     - id: internalClass
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to generate an internal class; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to generate a public class."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>voor het genereren van een interne klasse; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> voor het genereren van een openbare klasse zijn."
     - id: unmatchable
       type: System.String[]
-      description: "A <xref:System.String> array that contains each resource name for which a property cannot be generated. Typically, a property cannot be generated because the resource name is not a valid identifier."
+      description: "Een <xref:System.String>matrix met de resourcenaam van elke waarvoor een eigenschap kan niet worden gegenereerd.</xref:System.String> Normaal gesproken kan niet een eigenschap worden gegenereerd omdat de resourcenaam geen geldige id is."
     return:
       type: System.CodeDom.CodeCompileUnit
-      description: "A <xref href=&quot;System.CodeDom.CodeCompileUnit&quot;></xref> container."
+      description: "Een <xref href=&quot;System.CodeDom.CodeCompileUnit&quot;> </xref> container."
   overload: System.Resources.Tools.StronglyTypedResourceBuilder.Create*
   exceptions:
   - type: System.ArgumentNullException
@@ -167,7 +167,7 @@ items:
     description: "<code>resourceList</code>, <code>basename</code>, or <code>codeProvider</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "A resource node name does not match its key in <code>resourceList</code>."
+    description: "De naam van een resource-knooppunt komt niet overeen met de sleutel in <code> resourceList </code>."
   platform:
   - net462
 - uid: System.Resources.Tools.StronglyTypedResourceBuilder.Create(System.String,System.String,System.String,System.String,System.CodeDom.Compiler.CodeDomProvider,System.Boolean,System.String[]@)
@@ -182,35 +182,35 @@ items:
   assemblies:
   - System.Design
   namespace: System.Resources.Tools
-  summary: "Generates a class file that contains strongly typed properties that match the resources in the specified .resx file."
-  remarks: "Use the Create method to generate a class that provides strongly typed, read-only access to the resources that are contained in the `resxFile` parameter.       The <xref:System.Resources.Tools.StronglyTypedResourceBuilder> class ignores any resource name that begins with the characters &quot;$&quot; or &quot;>>&quot;. The resource names &quot;Culture&quot; and &quot;ResourceManager&quot; are invalid identifiers."
+  summary: "Genereert een klassebestand met sterk getypeerde eigenschappen die overeenkomen met de resources in de opgegeven .resx-bestand."
+  remarks: "De methode Create gebruiken voor het genereren van een klasse die sterk getypeerde, alleen-lezen toegang tot de resources die zijn opgenomen biedt in de `resxFile` parameter.       De <xref:System.Resources.Tools.StronglyTypedResourceBuilder>klasse negeert elke resourcenaam die begint met de tekens &quot;$&quot; of &quot; >> &quot;.</xref:System.Resources.Tools.StronglyTypedResourceBuilder> De resourcenamen &quot;Cultuur&quot; en &quot;ResourceManager&quot; zijn ongeldige id&quot;s."
   syntax:
     content: public static System.CodeDom.CodeCompileUnit Create (string resxFile, string baseName, string generatedCodeNamespace, string resourcesNamespace, System.CodeDom.Compiler.CodeDomProvider codeProvider, bool internalClass, out string[] unmatchable);
     parameters:
     - id: resxFile
       type: System.String
-      description: "The name of a .resx file used as input."
+      description: "De naam van een .resx-bestand gebruikt als invoer."
     - id: baseName
       type: System.String
-      description: "The name of the class to be generated."
+      description: "De naam van de klasse moet worden gegenereerd."
     - id: generatedCodeNamespace
       type: System.String
-      description: "The namespace of the class to be generated."
+      description: "De naamruimte van de klasse moet worden gegenereerd."
     - id: resourcesNamespace
       type: System.String
-      description: "The namespace of the resource to be generated."
+      description: "De naamruimte van de resource moet worden gegenereerd."
     - id: codeProvider
       type: System.CodeDom.Compiler.CodeDomProvider
-      description: "A <xref href=&quot;System.CodeDom.Compiler.CodeDomProvider&quot;></xref> class that provides the language in which the class will be generated."
+      description: "Een <xref href=&quot;System.CodeDom.Compiler.CodeDomProvider&quot;> </xref> klasse waarmee de taal waarin de klasse wordt gegenereerd."
     - id: internalClass
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to generate an internal class; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to generate a public class."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>voor het genereren van een interne klasse; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> voor het genereren van een openbare klasse zijn."
     - id: unmatchable
       type: System.String[]
-      description: "A <xref:System.String> array that contains each resource name for which a property cannot be generated. Typically, a property cannot be generated because the resource name is not a valid identifier."
+      description: "Een <xref:System.String>matrix met de resourcenaam van elke waarvoor een eigenschap kan niet worden gegenereerd.</xref:System.String> Normaal gesproken kan niet een eigenschap worden gegenereerd omdat de resourcenaam geen geldige id is."
     return:
       type: System.CodeDom.CodeCompileUnit
-      description: "A <xref href=&quot;System.CodeDom.CodeCompileUnit&quot;></xref> container."
+      description: "Een <xref href=&quot;System.CodeDom.CodeCompileUnit&quot;> </xref> container."
   overload: System.Resources.Tools.StronglyTypedResourceBuilder.Create*
   exceptions:
   - type: System.ArgumentNullException
@@ -230,25 +230,25 @@ items:
   assemblies:
   - System.Design
   namespace: System.Resources.Tools
-  summary: "Generates a valid resource string based on the specified input string and code provider."
+  summary: "Genereert een geldige resource-tekenreeks op basis van de opgegeven invoerreeks en codeprovider."
   remarks: "If the `key` parameter is a valid string of characters, that string is returned. If the `key` parameter is an invalid string or a string that contains invalid characters, the VerifyResourceName method attempts to generate a valid string based on the `key` and `provider` parameters. If a valid string can be generated, that string is returned; otherwise, `null` is returned.  \n  \n If the `key` parameter is an empty string (\"\"), a string that consists of a single underscore character (_) is returned. If the `key` parameter is not an empty string, the VerifyResourceName method compares each character in the string to a set of invalid tokens based on the language specified by the `provider` parameter. Any invalid character in the string is replaced with an underscore character. The characters that will be replaced with an underscore are as follows:  \n  \n ' ' (space), U+00A0 (non-breaking space), '.' (period), ',' (comma), ';' (semicolon), '&#124;', '~', '@', '#', '%', '^', '&', '*', '+', '-', '/', '\\\\', '\\<', '>', '?', '[', ']', '(', ')', '{', '}', '\"' (quote), ''' (apostrophe), ':', and '!'.  \n  \n> [!NOTE]\n>  Strongly typed resources do not allow the use of language keywords (such as `if`, `for`, and so on) as resource key names. However, the <xref:System.CodeDom> design pattern allows the use of language keywords by prefixing the keyword with the underscore character. The VerifyResourceName method calls the <xref:System.CodeDom.Compiler.ICodeGenerator.CreateValidIdentifier%2A> method to enforce this design. For example, if you use a resource name that is the same as a language keyword, such as `for`, the name appears as `_for` in the generated strongly typed resource class."
   syntax:
     content: public static string VerifyResourceName (string key, System.CodeDom.Compiler.CodeDomProvider provider);
     parameters:
     - id: key
       type: System.String
-      description: "The string to verify and, if necessary, convert to a valid resource name."
+      description: "De tekenreeks om te controleren en, indien nodig, niet converteren naar een geldige resource-naam."
     - id: provider
       type: System.CodeDom.Compiler.CodeDomProvider
-      description: "A <xref href=&quot;System.CodeDom.Compiler.CodeDomProvider&quot;></xref> object that specifies the target language to use."
+      description: "Een <xref href=&quot;System.CodeDom.Compiler.CodeDomProvider&quot;> </xref> object waarmee de taal van het doel moet worden gebruikt."
     return:
       type: System.String
-      description: "A valid resource name derived from the <code>key</code> parameter. Any invalid tokens are replaced with the underscore (_) character, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the derived string still contains invalid characters according to the language specified by the <code>provider</code> parameter."
+      description: "Een geldige resourcenaam is afgeleid van de <code> key </code> parameter. Een ongeldige tokens worden vervangen door het onderstrepingsteken (_), of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> als de afgeleide tekenreeks nog steeds ongeldige tekens conform de taal die is opgegeven bevat door de <code> provider </code> parameter."
   overload: System.Resources.Tools.StronglyTypedResourceBuilder.VerifyResourceName*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>key</code> or <code>provider</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>key</code>or <code>provider</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 references:

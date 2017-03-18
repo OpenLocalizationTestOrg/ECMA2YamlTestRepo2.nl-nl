@@ -16,7 +16,7 @@ items:
   nameWithType: BinaryServerFormatterSink
   fullName: System.Runtime.Remoting.Channels.BinaryServerFormatterSink
   type: Class
-  summary: "Provides the implementation for a server formatter sink that uses the <xref href=&quot;System.Runtime.Serialization.Formatters.Binary.BinaryFormatter&quot;></xref>."
+  summary: "Biedt de implementatie voor een serverindelingssink die gebruikmaakt van de <xref href=&quot;System.Runtime.Serialization.Formatters.Binary.BinaryFormatter&quot;> </xref>."
   remarks: "The request stream propagates from the server transport sink through the server channel sinks until it reaches the appropriate formatter sink. The formatter sink deserializes the message and passes it through the pipeline. A special dispatch sink is inserted at the end of the channel sink chain by the <xref:System.Runtime.Remoting.Channels.ChannelServices.CreateServerChannelSinkChain%2A?displayProperty=fullName> method, which is called by server channels to create the server channel sink chains. When the message reaches the dispatch sink, the dispatch sink passes the message to the remoting infrastructure.  \n  \n The following table shows the sink configuration properties that can be specified for the current sink provider.  \n  \n|Property|Description|  \n|--------------|-----------------|  \n|`includeVersions`|Specifies whether the formatter will include versioning information. Values `true` or `false`.|  \n|`strictBinding`|Indicates that a receiving formatter will first try to identify the type using complete version information if it exists before using only the type name and assembly name without version information. Values `true` or `false`. The default for both system-provided formatters is `false`.|  \n|`typeFilterLevel`|A string value that specifies the level of automatic deserialization that a server channel attempts. Supported values are `Low` (the default) and `Full`. For details about deserialization levels, see [&#91;\\<topic://cpconAutomaticDeserializationInNETRemoting>&#93;](http://msdn.microsoft.com/en-us/313a0e88-5b2b-4a17-8391-0ddf9f7a787b).<br /><br /> This property is supported only by the .NET Framework version 1.1 on the following platforms: Windows 98, Windows NT 4.0, Windows Millennium Edition, Windows 2000, Windows XP Home Edition, Windows XP Professional, and Windows Server 2003 family.|  \n  \n> [!IMPORTANT]\n>  Using an instance of this object with untrusted data or across an unsecure channel is a security risk. Use this object only with trusted data and across a secure channel. For more information, see [Untrusted Data Security Risks](http://go.microsoft.com/fwlink/?LinkId=330378)."
   syntax:
     content: 'public class BinaryServerFormatterSink : System.Runtime.Remoting.Channels.IServerChannelSink'
@@ -44,13 +44,13 @@ items:
     parameters:
     - id: protocol
       type: System.Runtime.Remoting.Channels.BinaryServerFormatterSink.Protocol
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     - id: nextSink
       type: System.Runtime.Remoting.Channels.IServerChannelSink
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     - id: receiver
       type: System.Runtime.Remoting.Channels.IChannelReceiver
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   overload: System.Runtime.Remoting.Channels.BinaryServerFormatterSink.#ctor*
   exceptions: []
   platform:
@@ -67,25 +67,25 @@ items:
   assemblies:
   - System.Runtime.Remoting
   namespace: System.Runtime.Remoting.Channels
-  summary: "Requests processing of the response from a method call that is sent asynchronously."
+  summary: "Verwerking van aanvragen van het antwoord van een methodeaanroep die asynchroon wordt verzonden."
   syntax:
     content: public void AsyncProcessResponse (System.Runtime.Remoting.Channels.IServerResponseChannelSinkStack sinkStack, object state, System.Runtime.Remoting.Messaging.IMessage msg, System.Runtime.Remoting.Channels.ITransportHeaders headers, System.IO.Stream stream);
     parameters:
     - id: sinkStack
       type: System.Runtime.Remoting.Channels.IServerResponseChannelSinkStack
-      description: "A stack of sinks that is leading back to the server transport sink."
+      description: "Een stack Put, terug naar de server-transportsink leidt."
     - id: state
       type: System.Object
-      description: "Information that is associated with the current sink, generated on the request side, and needed on the response side."
+      description: "Informatie die is gekoppeld aan de huidige sink gegenereerd aan de kant van de aanvraag en de antwoord-zijde nodig."
     - id: msg
       type: System.Runtime.Remoting.Messaging.IMessage
-      description: "The response message."
+      description: "Het antwoordbericht."
     - id: headers
       type: System.Runtime.Remoting.Channels.ITransportHeaders
-      description: "The headers to add to the return message that is heading to the client."
+      description: "De headers toevoegen aan het retourbericht die naar de client is kop."
     - id: stream
       type: System.IO.Stream
-      description: "The stream that is heading back to the transport sink."
+      description: "De stroom die is kop terug naar de transportsink."
   overload: System.Runtime.Remoting.Channels.BinaryServerFormatterSink.AsyncProcessResponse*
   exceptions: []
   platform:
@@ -102,26 +102,26 @@ items:
   assemblies:
   - System.Runtime.Remoting
   namespace: System.Runtime.Remoting.Channels
-  summary: "Returns the <xref:System.IO.Stream> onto which the provided response message is to be serialized."
-  remarks: "This method is called when a response stream needs to be created."
+  summary: "Retourneert de <xref:System.IO.Stream>naar het opgegeven antwoordbericht namelijk worden geserialiseerd.</xref:System.IO.Stream>"
+  remarks: "Deze methode wordt aangeroepen wanneer een antwoordstroom moet worden gemaakt."
   syntax:
     content: public System.IO.Stream GetResponseStream (System.Runtime.Remoting.Channels.IServerResponseChannelSinkStack sinkStack, object state, System.Runtime.Remoting.Messaging.IMessage msg, System.Runtime.Remoting.Channels.ITransportHeaders headers);
     parameters:
     - id: sinkStack
       type: System.Runtime.Remoting.Channels.IServerResponseChannelSinkStack
-      description: "A stack of sinks that is leading back to the server transport sink."
+      description: "Een stack Put, terug naar de server-transportsink leidt."
     - id: state
       type: System.Object
-      description: "Information that is associated with the current sink, generated on the request side, and needed on the response side."
+      description: "Informatie die is gekoppeld aan de huidige sink gegenereerd aan de kant van de aanvraag en de antwoord-zijde nodig."
     - id: msg
       type: System.Runtime.Remoting.Messaging.IMessage
-      description: "The response message to serialize."
+      description: "Het antwoordbericht te serialiseren."
     - id: headers
       type: System.Runtime.Remoting.Channels.ITransportHeaders
-      description: "The headers to put in the response stream to the client."
+      description: "De kopteksten in de antwoordstroom naar de client te plaatsen."
     return:
       type: System.IO.Stream
-      description: "The <xref:System.IO.Stream> onto which the provided response message is to be serialized."
+      description: "De <xref:System.IO.Stream>naar het opgegeven antwoordbericht namelijk worden geserialiseerd.</xref:System.IO.Stream>"
   overload: System.Runtime.Remoting.Channels.BinaryServerFormatterSink.GetResponseStream*
   exceptions: []
   platform:
@@ -138,12 +138,12 @@ items:
   assemblies:
   - System.Runtime.Remoting
   namespace: System.Runtime.Remoting.Channels
-  summary: "Gets the next <xref href=&quot;System.Runtime.Remoting.Channels.IServerChannelSink&quot;></xref> in the sink chain."
+  summary: "De volgende opgehaald <xref href=&quot;System.Runtime.Remoting.Channels.IServerChannelSink&quot;> </xref> in de keten sink."
   syntax:
     content: public System.Runtime.Remoting.Channels.IServerChannelSink NextChannelSink { get; }
     return:
       type: System.Runtime.Remoting.Channels.IServerChannelSink
-      description: "The next <xref href=&quot;System.Runtime.Remoting.Channels.IServerChannelSink&quot;></xref> in the sink chain."
+      description: "De volgende <xref href=&quot;System.Runtime.Remoting.Channels.IServerChannelSink&quot;> </xref> in de keten sink."
   overload: System.Runtime.Remoting.Channels.BinaryServerFormatterSink.NextChannelSink*
   exceptions: []
   platform:
@@ -160,35 +160,35 @@ items:
   assemblies:
   - System.Runtime.Remoting
   namespace: System.Runtime.Remoting.Channels
-  summary: "Requests message processing from the current sink."
-  remarks: "The proxy&quot;s job is to convert a method call that is invoked on it into a message. The message, which implements the <xref:System.Runtime.Remoting.Messaging.IMessage> interface, is passed from the client end to the server end by invoking <xref:System.Runtime.Remoting.Channels.IServerChannelSink.ProcessMessage%2A> on message sink objects. Message sinks are chained together, which means that every message sink is responsible for calling <xref:System.Runtime.Remoting.Channels.IServerChannelSink.ProcessMessage%2A> on the next message sink after the current message sink has finished its work. For instance, a synchronization-related message sink might cause a lock to be acquired or released and delegated to the downstream message sink.       When the formatter channel sink gets a message that needs to be sent over the channel, it calls <xref:System.Runtime.Remoting.Messaging.IMessageSink.SyncProcessMessage%2A>, passing the message as a parameter. The formatter sink then creates the transport header array and calls <xref:System.Runtime.Remoting.Channels.IClientChannelSink.GetRequestStream%2A> on the formatter sink. This call is forwarded down the sink chain, and any sink can create a request stream that will be passed back to the formatter sink. After this call returns, the message is serialized, <xref:System.Runtime.Remoting.Channels.IClientChannelSink.ProcessMessage%2A> is called on the first chain in the sink chain, and the message is passed to the channel sinks.       After the channel sinks get the message, they can write data to the stream, add headers to the header array, and add themselves to the sink stack before forwarding the call to the next sink. When the call reaches the transport sink at the end of the chain, the transport sink sends the headers and serialized message over the channel to the server, where the process is reversed.       When the message gets to the server side, the transport sink retrieves the headers and serialized message from the stream and forwards these through the sink chain until the formatter sink is reached. The formatter sink then deserializes the message and forwards it to the remoting infrastructure. Then, the remoting infrastructure turns the message into a method call, and calls the server object."
+  summary: "Aanvragen berichtverwerking van de huidige sink."
+  remarks: "De proxy-taak is het converteren van een methodeaanroep van die wordt aangeroepen op het in een bericht. Het bericht dat implementeert de <xref:System.Runtime.Remoting.Messaging.IMessage>interface, vanaf het clienteinde wordt doorgegeven aan het servereinde door aan te roepen <xref:System.Runtime.Remoting.Channels.IServerChannelSink.ProcessMessage%2A>op berichtobjecten sink.</xref:System.Runtime.Remoting.Channels.IServerChannelSink.ProcessMessage%2A> </xref:System.Runtime.Remoting.Messaging.IMessage> Bericht put worden samengevoegd, wat betekent dat elk bericht sink verantwoordelijk voor het aanroepen van is <xref:System.Runtime.Remoting.Channels.IServerChannelSink.ProcessMessage%2A>op het volgende bericht sink nadat het huidige bericht sink zijn werk is voltooid.</xref:System.Runtime.Remoting.Channels.IServerChannelSink.ProcessMessage%2A> Een synchronisatie-gerelateerde bericht sink kan bijvoorbeeld een vergrendeling worden verkregen of vrijgegeven en gedelegeerd naar de sink downstream bericht veroorzaken.       Wanneer de formatter kanaalfilter haalt een bericht dat moet worden verzonden via het kanaal wordt aangeroepen <xref:System.Runtime.Remoting.Messaging.IMessageSink.SyncProcessMessage%2A>, het bericht wordt doorgegeven als parameter.</xref:System.Runtime.Remoting.Messaging.IMessageSink.SyncProcessMessage%2A> De formatter sink maakt vervolgens het transport header matrix en aanroepen <xref:System.Runtime.Remoting.Channels.IClientChannelSink.GetRequestStream%2A>op de formatter sink.</xref:System.Runtime.Remoting.Channels.IClientChannelSink.GetRequestStream%2A> Deze aanroep wordt doorgestuurd verder in de keten sink en eventuele sink een aanvraag-stream die worden doorgegeven terug naar de formatter sink kunt maken. Na deze aanroepen retourneert, het bericht is geserialiseerd, <xref:System.Runtime.Remoting.Channels.IClientChannelSink.ProcessMessage%2A>is aangeroepen voor de eerste keten in de keten sink en het bericht wordt doorgegeven aan de kanaal-Put.</xref:System.Runtime.Remoting.Channels.IClientChannelSink.ProcessMessage%2A>       Nadat het kanaal sinks ophalen van het bericht, ze kunnen gegevens schrijven naar de stroom, kopteksten toevoegen aan de matrix header en zichzelf toevoegen aan de filterstack voordat de aanroep van de volgende sink worden doorgestuurd. Als de aanroep van de transportsink aan het einde van de keten is bereikt, wordt de transportsink verzendt de kopteksten en geserialiseerde bericht via het kanaal naar de server, waarbij het proces is omgekeerd.       Wanneer het bericht aan de serverzijde wordt, de transportsink haalt de kopteksten en geserialiseerde bericht van de stroom en stuurt deze door de sink-keten tot de formatter-sink is bereikt. De formatter sink vervolgens deserializes van het bericht en stuurt deze door naar de externe infrastructuur. Vervolgens de externe infrastructuur verandert van het bericht in een methodeaanroep van en roept het serverobject."
   syntax:
     content: public System.Runtime.Remoting.Channels.ServerProcessing ProcessMessage (System.Runtime.Remoting.Channels.IServerChannelSinkStack sinkStack, System.Runtime.Remoting.Messaging.IMessage requestMsg, System.Runtime.Remoting.Channels.ITransportHeaders requestHeaders, System.IO.Stream requestStream, out System.Runtime.Remoting.Messaging.IMessage responseMsg, out System.Runtime.Remoting.Channels.ITransportHeaders responseHeaders, out System.IO.Stream responseStream);
     parameters:
     - id: sinkStack
       type: System.Runtime.Remoting.Channels.IServerChannelSinkStack
-      description: "A stack of channel sinks that called the current sink."
+      description: "Een kanaal-stack sinks die de naam van de huidige sink."
     - id: requestMsg
       type: System.Runtime.Remoting.Messaging.IMessage
-      description: "The message that contains the request."
+      description: "Het bericht dat de aanvraag bevat."
     - id: requestHeaders
       type: System.Runtime.Remoting.Channels.ITransportHeaders
-      description: "Headers that are retrieved from the incoming message from the client."
+      description: "Headers die worden opgehaald uit het inkomende bericht van de client."
     - id: requestStream
       type: System.IO.Stream
-      description: "The stream that needs to be processed and passed on to the deserialization sink."
+      description: "De stroom die moet worden verwerkt en doorgegeven aan de sink deserialisatie."
     - id: responseMsg
       type: System.Runtime.Remoting.Messaging.IMessage
-      description: "When this method returns, contains a <xref href=&quot;System.Runtime.Remoting.Messaging.IMessage&quot;></xref> that holds the response message. This parameter is passed uninitialized."
+      description: "Wanneer deze methode retourneert, bevat een <xref href=&quot;System.Runtime.Remoting.Messaging.IMessage&quot;> </xref> die het antwoordbericht bevat. Deze parameter wordt doorgegeven niet geïnitialiseerd."
     - id: responseHeaders
       type: System.Runtime.Remoting.Channels.ITransportHeaders
-      description: "When this method returns, contains a <xref href=&quot;System.Runtime.Remoting.Channels.ITransportHeaders&quot;></xref> that holds the headers to add to the return message that is heading to the client. This parameter is passed uninitialized."
+      description: "Wanneer deze methode retourneert, bevat een <xref href=&quot;System.Runtime.Remoting.Channels.ITransportHeaders&quot;> </xref> die de headers toevoegen aan het retourbericht die naar de client is koptekst bevat. Deze parameter wordt doorgegeven niet geïnitialiseerd."
     - id: responseStream
       type: System.IO.Stream
-      description: "When this method returns, contains a <xref:System.IO.Stream> that is heading to the transport sink. This parameter is passed uninitialized."
+      description: "Wanneer deze methode retourneert, bevat een <xref:System.IO.Stream>die kop voor de transportsink.</xref:System.IO.Stream> Deze parameter wordt doorgegeven niet geïnitialiseerd."
     return:
       type: System.Runtime.Remoting.Channels.ServerProcessing
-      description: "A <xref href=&quot;System.Runtime.Remoting.Channels.ServerProcessing&quot;></xref> status value that provides information about how the message was processed."
+      description: "Een <xref href=&quot;System.Runtime.Remoting.Channels.ServerProcessing&quot;> </xref> statuswaarde die informatie biedt over hoe het bericht is verwerkt."
   overload: System.Runtime.Remoting.Channels.BinaryServerFormatterSink.ProcessMessage*
   exceptions: []
   platform:
@@ -205,13 +205,13 @@ items:
   assemblies:
   - System.Runtime.Remoting
   namespace: System.Runtime.Remoting.Channels
-  summary: "Gets a <xref:System.Collections.IDictionary> of properties for the current channel sink."
-  remarks: "For more information, see [&#91;\\<topic://cpconchannelformatterconfigurationproperties>&#93;](http://msdn.microsoft.com/en-us/226ecf74-ebbd-4ea0-a701-dcf4441deefe)."
+  summary: "Haalt een <xref:System.Collections.IDictionary>met eigenschappen voor het huidige kanaalfilter.</xref:System.Collections.IDictionary>"
+  remarks: "Zie voor meer informatie [[\\<topic://cpconchannelformatterconfigurationproperties >]](http://msdn.microsoft.com/en-us/226ecf74-ebbd-4ea0-a701-dcf4441deefe)."
   syntax:
     content: public System.Collections.IDictionary Properties { get; }
     return:
       type: System.Collections.IDictionary
-      description: "A <xref:System.Collections.IDictionary> of properties for the current channel sink."
+      description: "Een <xref:System.Collections.IDictionary>met eigenschappen voor het huidige kanaalfilter.</xref:System.Collections.IDictionary>"
   overload: System.Runtime.Remoting.Channels.BinaryServerFormatterSink.Properties*
   exceptions: []
   platform:
@@ -228,13 +228,13 @@ items:
   assemblies:
   - System.Runtime.Remoting
   namespace: System.Runtime.Remoting.Channels
-  summary: "Gets or sets the <xref uid=&quot;langword_csharp_TypeFilterLevel&quot; name=&quot;TypeFilterLevel&quot; href=&quot;&quot;></xref> value of automatic deserialization that the <xref uid=&quot;langword_csharp_BinaryServerFormatterSink&quot; name=&quot;BinaryServerFormatterSink&quot; href=&quot;&quot;></xref> performs."
-  remarks: "Supported values are `Low` (the default) and `Full`. For details about deserialization levels, see [Automatic Deserialization in .NET Remoting](http://msdn.microsoft.com/en-us/313a0e88-5b2b-4a17-8391-0ddf9f7a787b)."
+  summary: "Opgehaald of ingesteld de <xref uid=&quot;langword_csharp_TypeFilterLevel&quot; name=&quot;TypeFilterLevel&quot; href=&quot;&quot;> </xref> deserialiseren van een waarde van automatisch de <xref uid=&quot;langword_csharp_BinaryServerFormatterSink&quot; name=&quot;BinaryServerFormatterSink&quot; href=&quot;&quot;> </xref> uitvoert."
+  remarks: "Ondersteunde waarden zijn `Low` (de standaardinstelling) en `Full`. Zie voor meer informatie over niveaus deserialisatie [automatische deserialisatie in .NET Remoting](http://msdn.microsoft.com/en-us/313a0e88-5b2b-4a17-8391-0ddf9f7a787b)."
   syntax:
     content: public System.Runtime.Serialization.Formatters.TypeFilterLevel TypeFilterLevel { get; set; }
     return:
       type: System.Runtime.Serialization.Formatters.TypeFilterLevel
-      description: "The <xref uid=&quot;langword_csharp_TypeFilterLevel&quot; name=&quot;TypeFilterLevel&quot; href=&quot;&quot;></xref> that represents the current automatic deserialization level."
+      description: "De <xref uid=&quot;langword_csharp_TypeFilterLevel&quot; name=&quot;TypeFilterLevel&quot; href=&quot;&quot;> </xref> die staat voor het huidige niveau van de automatische deserialisatie."
   overload: System.Runtime.Remoting.Channels.BinaryServerFormatterSink.TypeFilterLevel*
   exceptions: []
   platform:
