@@ -12,8 +12,8 @@ items:
   nameWithType: IServerChannelSinkProvider
   fullName: System.Runtime.Remoting.Channels.IServerChannelSinkProvider
   type: Interface
-  summary: "Creates server channel sinks for the server channel through which remoting messages flow."
-  remarks: "Channel sinks are connected to a server channel through implementations of the IServerChannelSinkProvider interface. All the remoting server channels provide constructors that take a IServerChannelSinkProvider as a parameter.       Channel sink providers are stored in a chain, and the user is responsible for chaining all channel sink providers together before passing the outer one to the channel constructor. IServerChannelSinkProvider provides a property called <xref:System.Runtime.Remoting.Channels.IServerChannelSinkProvider.Next%2A> for this purpose.       When multiple channel sink providers are specified in a configuration file, the remoting infrastructure will chain them together in the order they are found in the configuration file. The channel sink providers are created at the same time as the channel, during a <xref:System.Runtime.Remoting.RemotingConfiguration.Configure%2A?displayProperty=fullName> call.       After the <xref:System.Runtime.Remoting.Messaging.IMethodCallMessage> is generated, .NET Framework searches through the list of registered channels to find one that can process the call. Once an appropriate channel has been found, the channel sink is retrieved from the channel, and the <xref:System.Runtime.Remoting.Messaging.IMethodCallMessage> is forwarded to the sink for processing."
+  summary: "Server maakt put kanaal voor de serverkanaal via welke remoting berichten stromen."
+  remarks: "Kanaal put zijn verbonden met een serverkanaal via implementaties van de interface IServerChannelSinkProvider. De kanalen voor de server voor externe toegang bieden een constructors die een IServerChannelSinkProvider als parameter.       Kanaal aanbieders van filters worden opgeslagen in een keten en de gebruiker is verantwoordelijk voor alle kanaal aanbieders van filters samen chaining voordat de buitenste één voor de kanaalconstructor worden doorgegeven. IServerChannelSinkProvider biedt een eigenschap genaamd <xref:System.Runtime.Remoting.Channels.IServerChannelSinkProvider.Next%2A>voor dit doel.</xref:System.Runtime.Remoting.Channels.IServerChannelSinkProvider.Next%2A>       Wanneer meerdere kanaal aanbieders van filters zijn opgegeven in een configuratiebestand, wordt de externe infrastructuur keten van deze in de volgorde waarin die ze zijn gevonden in het configuratiebestand. Het kanaal aanbieders van filters op hetzelfde moment als het kanaal zijn gemaakt tijdens een <xref:System.Runtime.Remoting.RemotingConfiguration.Configure%2A?displayProperty=fullName>aanroepen.</xref:System.Runtime.Remoting.RemotingConfiguration.Configure%2A?displayProperty=fullName>       Na de <xref:System.Runtime.Remoting.Messaging.IMethodCallMessage>wordt gegenereerd, .NET Framework wordt gezocht in de lijst met geregistreerde kanalen vinden die de oproep kan verwerken.</xref:System.Runtime.Remoting.Messaging.IMethodCallMessage> Als geen geschikt kanaal is gevonden, het kanaalfilter wordt opgehaald uit het kanaal en de <xref:System.Runtime.Remoting.Messaging.IMethodCallMessage>wordt doorgestuurd naar de sink voor verwerking.</xref:System.Runtime.Remoting.Messaging.IMethodCallMessage>"
   example:
   - "The following code example illustrates an implementation of this interface.  \n  \n [!code-cs[Remoting_Sinks#70](~/add/codesnippet/csharp/t-system.runtime.remotin_59_1.cs)]\n [!code-cpp[Remoting_Sinks#70](~/add/codesnippet/cpp/t-system.runtime.remotin_59_1.cpp)]  \n  \n See the <xref:System.Runtime.Remoting.Channels.IServerChannelSink> interface documentation for an example of the corresponding server sink implementation."
   syntax:
@@ -36,7 +36,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Creates a sink chain."
+  summary: "Maakt een keten sink."
   remarks: ''
   example:
   - >-
@@ -48,15 +48,15 @@ items:
     parameters:
     - id: channel
       type: System.Runtime.Remoting.Channels.IChannelReceiver
-      description: "The channel for which to create the channel sink chain."
+      description: "Het kanaal waarvoor om het kanaal sink-keten te maken."
     return:
       type: System.Runtime.Remoting.Channels.IServerChannelSink
-      description: "The first sink of the newly formed channel sink chain, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, which indicates that this provider will not or cannot provide a connection for this endpoint."
+      description: "De eerste sink van de keten van de sink nieuw gemaakte kanaal of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, wat aangeeft dat deze provider is niet of een verbinding voor dit eindpunt niet opgeven."
   overload: System.Runtime.Remoting.Channels.IServerChannelSinkProvider.CreateSink*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "De onmiddellijke aanroeper is niet gemachtigd voor infrastructuur."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Channels.IServerChannelSinkProvider.GetChannelData(System.Runtime.Remoting.Channels.IChannelDataStore)
@@ -71,7 +71,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Returns the channel data for the channel that the current sink is associated with."
+  summary: "Retourneert de kanaalgegevens voor het kanaal waaraan het huidige sink is gekoppeld."
   remarks: ''
   example:
   - >-
@@ -83,12 +83,12 @@ items:
     parameters:
     - id: channelData
       type: System.Runtime.Remoting.Channels.IChannelDataStore
-      description: "A <xref href=&quot;System.Runtime.Remoting.Channels.IChannelDataStore&quot;></xref> object in which the channel data is to be returned."
+      description: "Een <xref href=&quot;System.Runtime.Remoting.Channels.IChannelDataStore&quot;> </xref> object waarin de gegevens van het kanaal moet worden geretourneerd."
   overload: System.Runtime.Remoting.Channels.IServerChannelSinkProvider.GetChannelData*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "De onmiddellijke aanroeper is niet gemachtigd voor infrastructuur."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Channels.IServerChannelSinkProvider.Next
@@ -103,7 +103,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Gets or sets the next sink provider in the channel sink provider chain."
+  summary: "Opgehaald of ingesteld van de volgende sink-provider in de keten kanaal sink-provider."
   remarks: ''
   example:
   - >-
@@ -114,12 +114,12 @@ items:
     content: public System.Runtime.Remoting.Channels.IServerChannelSinkProvider Next { get; set; }
     return:
       type: System.Runtime.Remoting.Channels.IServerChannelSinkProvider
-      description: "The next sink provider in the channel sink provider chain."
+      description: "De volgende sink-provider in de keten kanaal sink-provider."
   overload: System.Runtime.Remoting.Channels.IServerChannelSinkProvider.Next*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "De onmiddellijke aanroeper is niet gemachtigd voor infrastructuur."
   platform:
   - net462
 references:

@@ -28,8 +28,8 @@ items:
   nameWithType: OdbcDataAdapter
   fullName: System.Data.Odbc.OdbcDataAdapter
   type: Class
-  summary: "Represents a set of data commands and a connection to a data source that are used to fill the <xref href=&quot;System.Data.DataSet&quot;></xref> and update the data source. This class cannot be inherited."
-  remarks: "The OdbcDataAdapter serves as a bridge between a `DataSet` and data source for retrieving and saving data. The OdbcDataAdapter provides this bridge by using <xref:System.Data.Common.DbDataAdapter.Fill%2A> to load data from the data source into the <xref:System.Data.DataSet>, and using <xref:System.Data.Common.DbDataAdapter.Update%2A> to send changes made in the <xref:System.Data.DataSet> back to the data source.       When the OdbcDataAdapter fills a <xref:System.Data.DataSet>, it creates the required tables and columns for the returned data if they do not already exist. However, primary key information is not included in the implicitly created schema unless the <xref:System.Data.Common.DataAdapter.MissingSchemaAction%2A> property is set to <xref:System.Data.MissingSchemaAction>. You may also have the OdbcDataAdapter create the schema of the <xref:System.Data.DataSet>, including primary key information, before filling it with data using <xref:System.Data.Common.DbDataAdapter.FillSchema%2A>. For more information, see [Adding Existing Constraints to a DataSet](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] >  When you call the `Fill` method on a data source that does not have a primary key column, the OdbcDataAdapter tries to promote the unique constraint column to the primary key. In the process, the OdbcDataAdapter marks the unique constraint as not nullable. This behavior works unless there is a null value in the unique constraint column. If there is a null value, the `Fill` method fails with a constraint violation. To avoid this situation, do not allow null values in the unique constraint column.      > [!NOTE] >  Due to the limitations of native ODBC drivers, only one <xref:System.Data.DataTable> is ever returned when you call <xref:System.Data.Common.DbDataAdapter.FillSchema%2A>. This is true even when executing SQL batch statements from which multiple <xref:System.Data.DataTable> objects would be expected.       The OdbcDataAdapter also includes the <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A>, <xref:System.Data.Odbc.OdbcDataAdapter.InsertCommand%2A>, <xref:System.Data.Odbc.OdbcDataAdapter.DeleteCommand%2A>, <xref:System.Data.Odbc.OdbcDataAdapter.UpdateCommand%2A>, and `TableMappings` properties to facilitate loading and updating of data."
+  summary: "Vertegenwoordigt een reeks opdrachten voor gegevens en een verbinding met een gegevensbron die worden gebruikt voor het vervullen van de <xref href=&quot;System.Data.DataSet&quot;> </xref> en de gegevensbron bijwerken. Deze klasse kan niet worden overgenomen."
+  remarks: "De OdbcDataAdapter fungeert als een brug tussen een `DataSet` en de gegevensbron voor het ophalen en opslaan van gegevens. De OdbcDataAdapter biedt deze brug door middel van <xref:System.Data.Common.DbDataAdapter.Fill%2A>om gegevens te laden uit de gegevensbron in de <xref:System.Data.DataSet>, en het gebruik van <xref:System.Data.Common.DbDataAdapter.Update%2A>voor het verzenden van wijzigingen in de <xref:System.Data.DataSet>terug naar de gegevensbron.</xref:System.Data.DataSet> </xref:System.Data.Common.DbDataAdapter.Update%2A> </xref:System.Data.DataSet> </xref:System.Data.Common.DbDataAdapter.Fill%2A>       Wanneer de OdbcDataAdapter vult een <xref:System.Data.DataSet>, het maakt de vereiste tabellen en kolommen voor de geretourneerde gegevens als deze niet al bestaan.</xref:System.Data.DataSet> Primaire-sleutelgegevens is echter niet opgenomen in het schema impliciet gemaakt tenzij de <xref:System.Data.Common.DataAdapter.MissingSchemaAction%2A>eigenschap is ingesteld op <xref:System.Data.MissingSchemaAction>.</xref:System.Data.MissingSchemaAction> </xref:System.Data.Common.DataAdapter.MissingSchemaAction%2A> Misschien hebt u ook het maken van het schema van het <xref:System.Data.DataSet>inclusief informatie over primaire sleutels, voordat het vullen met gegevens met behulp van <xref:System.Data.Common.DbDataAdapter.FillSchema%2A>.</xref:System.Data.Common.DbDataAdapter.FillSchema%2A> </xref:System.Data.DataSet> OdbcDataAdapter Zie voor meer informatie [bestaande beperkingen toe te voegen aan een gegevensset](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] > Wanneer u aanroepen de `Fill` methode op een gegevensbron die geen primaire-sleutelkolom de OdbcDataAdapter probeert te promoveren van de kolom die unieke beperking moet de primaire sleutel. In het proces markeert de OdbcDataAdapter de unique-beperking als niet null-waarden bevatten. Dit gedrag werkt tenzij er een null-waarde in de kolom unique-beperking. Als er een null-waarde de `Fill` mislukt methode met een schending van beperking. Om te voorkomen dat deze situatie, staan geen null-waarden in de kolom unique-beperking.      > [!NOTE] > Vanwege de beperkingen van systeemeigen ODBC-stuurprogramma&quot;s, slechts één <xref:System.Data.DataTable>ooit wordt geretourneerd bij het aanroepen van <xref:System.Data.Common.DbDataAdapter.FillSchema%2A>.</xref:System.Data.Common.DbDataAdapter.FillSchema%2A> </xref:System.Data.DataTable> Dit geldt zelfs wanneer het uitvoeren van batch-SQL-instructies vanaf welke meerdere <xref:System.Data.DataTable>objecten zou worden verwacht.</xref:System.Data.DataTable>       De OdbcDataAdapter bevat ook de <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A>, <xref:System.Data.Odbc.OdbcDataAdapter.InsertCommand%2A>, <xref:System.Data.Odbc.OdbcDataAdapter.DeleteCommand%2A>, <xref:System.Data.Odbc.OdbcDataAdapter.UpdateCommand%2A>, en `TableMappings` eigenschappen laden en het bijwerken van gegevens mogelijk te maken.</xref:System.Data.Odbc.OdbcDataAdapter.UpdateCommand%2A> </xref:System.Data.Odbc.OdbcDataAdapter.DeleteCommand%2A> </xref:System.Data.Odbc.OdbcDataAdapter.InsertCommand%2A> </xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A>"
   example:
   - "The following example uses <xref:System.Data.Odbc.OdbcCommand>, OdbcDataAdapter, and <xref:System.Data.Odbc.OdbcConnection> to select records and populate a `DataSet` with the selected rows.  \n  \n [!code-cs[Classic WebData OdbcDataAdapter#1](~/add/codesnippet/csharp/t-system.data.odbc.odbcd_1_1.cs)]\n [!code-vb[Classic WebData OdbcDataAdapter#1](~/add/codesnippet/visualbasic/t-system.data.odbc.odbcd_1_1.vb)]"
   syntax:
@@ -130,8 +130,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.Odbc.OdbcDataAdapter&quot;></xref> class."
-  remarks: "When you create an instance of <xref:System.Data.Odbc.OdbcDataAdapter>, the following write-only and read-only properties are set to their default values, as shown in the table.      |Properties|Default value|   |----------------|-------------------|   |<xref:System.Data.Common.DataAdapter.MissingMappingAction%2A>|`MissingMappingAction.Passthrough`|   |<xref:System.Data.Common.DataAdapter.MissingSchemaAction%2A>|`MissingSchemaAction.Add`|       You can change the value of any of these properties through a separate call to the property."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Data.Odbc.OdbcDataAdapter&quot;> </xref> klasse."
+  remarks: "Wanneer u een exemplaar van maakt <xref:System.Data.Odbc.OdbcDataAdapter>, de volgende eigenschappen voor alleen-schrijven en alleen-lezen zijn ingesteld op hun standaardwaarden, zoals weergegeven in de tabel.</xref:System.Data.Odbc.OdbcDataAdapter>      | Eigenschappen | Standaardwaarde |   |----------------|-------------------|   | <xref:System.Data.Common.DataAdapter.MissingMappingAction%2A>| `MissingMappingAction.Passthrough`|   | <xref:System.Data.Common.DataAdapter.MissingSchemaAction%2A>| `MissingSchemaAction.Add`|       U kunt de waarde van een van deze eigenschappen via een afzonderlijke aanroep van de eigenschap wijzigen.</xref:System.Data.Common.DataAdapter.MissingSchemaAction%2A> </xref:System.Data.Common.DataAdapter.MissingMappingAction%2A>"
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcDataAdapter> and sets some of its properties.  \n  \n [!code-cs[Classic WebData OdbcDataAdapter.OdbcDataAdapter#1](~/add/codesnippet/csharp/m-system.data.odbc.odbcd_2_1.cs)]\n [!code-vb[Classic WebData OdbcDataAdapter.OdbcDataAdapter#1](~/add/codesnippet/visualbasic/m-system.data.odbc.odbcd_2_1.vb)]"
   syntax:
@@ -153,8 +153,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.Odbc.OdbcDataAdapter&quot;></xref> class with the specified SQL SELECT statement."
-  remarks: "This implementation of the <xref:System.Data.Odbc.OdbcDataAdapter> constructor sets the <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A> property to the value specified in the `selectCommand` parameter.       When you create an instance of <xref:System.Data.Odbc.OdbcDataAdapter>, the following write-only and read-only properties are set to their default values, as shown in the table.      |Properties|Initial value|   |----------------|-------------------|   |<xref:System.Data.Common.DataAdapter.MissingMappingAction%2A>|`MissingMappingAction.Passthrough`|   |<xref:System.Data.Common.DataAdapter.MissingSchemaAction%2A>|`MissingSchemaAction.Add`|       You can change the value of any of these properties through a separate call to the property."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Data.Odbc.OdbcDataAdapter&quot;> </xref> klasse met de opgegeven SQL SELECT-instructie."
+  remarks: "Deze implementatie van de <xref:System.Data.Odbc.OdbcDataAdapter>constructor stelt de <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A>eigenschap in op de opgegeven waarde in de `selectCommand` parameter.</xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A> </xref:System.Data.Odbc.OdbcDataAdapter>       Wanneer u een exemplaar van maakt <xref:System.Data.Odbc.OdbcDataAdapter>, de volgende eigenschappen voor alleen-schrijven en alleen-lezen zijn ingesteld op hun standaardwaarden, zoals weergegeven in de tabel.</xref:System.Data.Odbc.OdbcDataAdapter>      | Eigenschappen | Initiële waarde |   |----------------|-------------------|   | <xref:System.Data.Common.DataAdapter.MissingMappingAction%2A>| `MissingMappingAction.Passthrough`|   | <xref:System.Data.Common.DataAdapter.MissingSchemaAction%2A>| `MissingSchemaAction.Add`|       U kunt de waarde van een van deze eigenschappen via een afzonderlijke aanroep van de eigenschap wijzigen.</xref:System.Data.Common.DataAdapter.MissingSchemaAction%2A> </xref:System.Data.Common.DataAdapter.MissingMappingAction%2A>"
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcDataAdapter> and sets some of its properties.  \n  \n [!code-vb[Classic WebData OdbcDataAdapter.OdbcDataAdapter1#1](~/add/codesnippet/visualbasic/m-system.data.odbc.odbcd_6_1.vb)]\n [!code-cs[Classic WebData OdbcDataAdapter.OdbcDataAdapter1#1](~/add/codesnippet/csharp/m-system.data.odbc.odbcd_6_1.cs)]"
   syntax:
@@ -162,7 +162,7 @@ items:
     parameters:
     - id: selectCommand
       type: System.Data.Odbc.OdbcCommand
-      description: "An <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;></xref> that is an SQL SELECT statement or stored procedure, and is set as the <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand*> property of the <xref href=&quot;System.Data.Odbc.OdbcDataAdapter&quot;></xref>."
+      description: "Een <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;> </xref> die is een SQL SELECT-instructie of opgeslagen procedure en is ingesteld als de <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand*>eigenschap van de <xref href=&quot;System.Data.Odbc.OdbcDataAdapter&quot;> </xref>.</xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand*>"
   overload: System.Data.Odbc.OdbcDataAdapter.#ctor*
   exceptions: []
   platform:
@@ -179,8 +179,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.Odbc.OdbcDataAdapter&quot;></xref> class with an SQL SELECT statement and an <xref href=&quot;System.Data.Odbc.OdbcConnection&quot;></xref>."
-  remarks: "This implementation of the <xref:System.Data.Odbc.OdbcDataAdapter> can be useful in an application that must call the `Fill` method for two or more <xref:System.Data.Odbc.OdbcDataAdapter> objects."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Data.Odbc.OdbcDataAdapter&quot;> </xref> klasse met een SQL SELECT-instructie en een <xref href=&quot;System.Data.Odbc.OdbcConnection&quot;> </xref>."
+  remarks: "Deze implementatie van de <xref:System.Data.Odbc.OdbcDataAdapter>kan nuttig zijn in een toepassing die moet worden aangeroepen zijn de `Fill` methode voor twee of meer <xref:System.Data.Odbc.OdbcDataAdapter>objecten.</xref:System.Data.Odbc.OdbcDataAdapter> </xref:System.Data.Odbc.OdbcDataAdapter>"
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcDataAdapter> and sets some of its properties.  \n  \n [!code-vb[Classic WebData OdbcDataAdapter.OdbcDataAdapter3#1](~/add/codesnippet/visualbasic/d0ba4f92-5ec4-4c3a-b38b-_1.vb)]\n [!code-cs[Classic WebData OdbcDataAdapter.OdbcDataAdapter3#1](~/add/codesnippet/csharp/d0ba4f92-5ec4-4c3a-b38b-_1.cs)]"
   syntax:
@@ -188,10 +188,10 @@ items:
     parameters:
     - id: selectCommandText
       type: System.String
-      description: "A string that is a SQL SELECT statement or stored procedure to be used by the <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand*> property of the <xref href=&quot;System.Data.Odbc.OdbcDataAdapter&quot;></xref>."
+      description: "Een tekenreeks die een SQL SELECT-instructie of opgeslagen procedure moet worden gebruikt door de <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand*>eigenschap van de <xref href=&quot;System.Data.Odbc.OdbcDataAdapter&quot;> </xref>.</xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand*>"
     - id: selectConnection
       type: System.Data.Odbc.OdbcConnection
-      description: "An <xref href=&quot;System.Data.Odbc.OdbcConnection&quot;></xref> that represents the connection."
+      description: "Een <xref href=&quot;System.Data.Odbc.OdbcConnection&quot;> </xref> die staat voor de verbinding."
   overload: System.Data.Odbc.OdbcDataAdapter.#ctor*
   exceptions: []
   platform:
@@ -208,8 +208,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.Odbc.OdbcDataAdapter&quot;></xref> class with an SQL SELECT statement and a connection string."
-  remarks: "This overload of the <xref:System.Data.Odbc.OdbcDataAdapter> constructor uses the `selectConnectionString` parameter to set the <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A> property. However, it does not open the connection. You still must explicitly open the connection."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Data.Odbc.OdbcDataAdapter&quot;> </xref> klasse met een SQL SELECT-instructie en een verbindingsreeks."
+  remarks: "Deze overbelasting van de <xref:System.Data.Odbc.OdbcDataAdapter>constructor gebruikt de `selectConnectionString` parameter in te stellen de <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A>eigenschap.</xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A> </xref:System.Data.Odbc.OdbcDataAdapter> De verbinding worden echter niet geopend. U moet nog steeds expliciet de verbinding openen."
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcDataAdapter> and sets some of its properties.  \n  \n [!code-vb[Classic WebData OdbcDataAdapter.OdbcDataAdapter2#1](~/add/codesnippet/visualbasic/m-system.data.odbc.odbcd_1_1.vb)]\n [!code-cs[Classic WebData OdbcDataAdapter.OdbcDataAdapter2#1](~/add/codesnippet/csharp/m-system.data.odbc.odbcd_1_1.cs)]"
   syntax:
@@ -217,10 +217,10 @@ items:
     parameters:
     - id: selectCommandText
       type: System.String
-      description: "A string that is a SQL SELECT statement or stored procedure to be used by the <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand*> property of the <xref href=&quot;System.Data.Odbc.OdbcDataAdapter&quot;></xref>."
+      description: "Een tekenreeks die een SQL SELECT-instructie of opgeslagen procedure moet worden gebruikt door de <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand*>eigenschap van de <xref href=&quot;System.Data.Odbc.OdbcDataAdapter&quot;> </xref>.</xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand*>"
     - id: selectConnectionString
       type: System.String
-      description: "The connection string."
+      description: "De verbindingstekenreeks."
   overload: System.Data.Odbc.OdbcDataAdapter.#ctor*
   exceptions: []
   platform:
@@ -242,19 +242,19 @@ items:
     parameters:
     - id: dataRow
       type: System.Data.DataRow
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     - id: command
       type: System.Data.IDbCommand
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     - id: statementType
       type: System.Data.StatementType
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     - id: tableMapping
       type: System.Data.Common.DataTableMapping
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     return:
       type: System.Data.Common.RowUpdatedEventArgs
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   overload: System.Data.Odbc.OdbcDataAdapter.CreateRowUpdatedEvent*
   exceptions: []
   platform:
@@ -276,19 +276,19 @@ items:
     parameters:
     - id: dataRow
       type: System.Data.DataRow
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     - id: command
       type: System.Data.IDbCommand
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     - id: statementType
       type: System.Data.StatementType
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     - id: tableMapping
       type: System.Data.Common.DataTableMapping
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     return:
       type: System.Data.Common.RowUpdatingEventArgs
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   overload: System.Data.Odbc.OdbcDataAdapter.CreateRowUpdatingEvent*
   exceptions: []
   platform:
@@ -305,15 +305,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets or sets an SQL statement or stored procedure used to delete records in the data source."
-  remarks: "When the DeleteCommand property is assigned to a previously created <xref:System.Data.Odbc.OdbcCommand>, the <xref:System.Data.Odbc.OdbcCommand> is not cloned. Instead, the DeleteCommand maintains a reference to the previously created <xref:System.Data.Odbc.OdbcCommand>.       During an update operation, if DeleteCommand is not set and primary key information is present in the <xref:System.Data.DataSet>, you can use the <xref:System.Data.Odbc.OdbcCommandBuilder> class to automatically generate the DeleteCommand, and additional commands needed to reconcile the <xref:System.Data.DataSet> to the data source. To do this, set the <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A> property of the <xref:System.Data.Odbc.OdbcDataAdapter>. The generation logic also requires key column information to be present in the <xref:System.Data.DataSet>. For more information, see [Generating Commands with CommandBuilders](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Opgehaald of ingesteld van een SQL-instructie of opgeslagen procedure gebruikt om te verwijderen van records in de gegevensbron."
+  remarks: "Wanneer de eigenschap DeleteCommand is toegewezen aan een eerder gemaakte <xref:System.Data.Odbc.OdbcCommand>, wordt de <xref:System.Data.Odbc.OdbcCommand>niet is gekloond.</xref:System.Data.Odbc.OdbcCommand> </xref:System.Data.Odbc.OdbcCommand> In plaats daarvan onderhoudt de DeleteCommand een verwijzing naar de eerder gemaakte <xref:System.Data.Odbc.OdbcCommand>.</xref:System.Data.Odbc.OdbcCommand>       Tijdens een updatebewerking DeleteCommand is niet ingesteld als primaire-sleutelgegevens is aanwezig in de <xref:System.Data.DataSet>, kunt u de <xref:System.Data.Odbc.OdbcCommandBuilder>klasse voor het automatisch genereren van de DeleteCommand en aanvullende opdrachten die nodig zijn om af te stemmen de <xref:System.Data.DataSet>met de gegevensbron.</xref:System.Data.DataSet> </xref:System.Data.Odbc.OdbcCommandBuilder> </xref:System.Data.DataSet> U doet dit door de <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A>eigenschap van het <xref:System.Data.Odbc.OdbcDataAdapter>.</xref:System.Data.Odbc.OdbcDataAdapter> </xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A> instellen De generatie logica is ook vereist sleutelkolomgegevens moeten zich in de <xref:System.Data.DataSet>.</xref:System.Data.DataSet> Zie voor meer informatie [opdrachten genereren met CommandBuilders](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcDataAdapter> and sets the <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A> and DeleteCommand properties. It assumes that you have already created an <xref:System.Data.Odbc.OdbcConnection> object.  \n  \n [!code-vb[Classic WebData OdbcDataAdapter.DeleteCommand#1](~/add/codesnippet/visualbasic/p-system.data.odbc.odbcd_2_1.vb)]\n [!code-cs[Classic WebData OdbcDataAdapter.DeleteCommand#1](~/add/codesnippet/csharp/p-system.data.odbc.odbcd_2_1.cs)]"
   syntax:
     content: public System.Data.Odbc.OdbcCommand DeleteCommand { get; set; }
     return:
       type: System.Data.Odbc.OdbcCommand
-      description: "An <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;></xref> used during an update operation to delete records in the data source that correspond to deleted rows in the <xref href=&quot;System.Data.DataSet&quot;></xref>."
+      description: "Een <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;> </xref> gebruikt tijdens update-bewerking om te verwijderen van records in de gegevensbron die overeenkomen met verwijderde rijen in de <xref href=&quot;System.Data.DataSet&quot;> </xref>."
   overload: System.Data.Odbc.OdbcDataAdapter.DeleteCommand*
   exceptions: []
   platform:
@@ -330,15 +330,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets or sets an SQL statement or stored procedure used to insert new records into the data source."
-  remarks: "When the InsertCommand property is assigned to a previously created <xref:System.Data.Odbc.OdbcCommand> object, the <xref:System.Data.Odbc.OdbcCommand> is not cloned. Instead, InsertCommand maintains a reference to the previously created <xref:System.Data.Odbc.OdbcCommand>.       During an update operation, if InsertCommand is not set and primary key information is present in the <xref:System.Data.DataSet>, you can use the <xref:System.Data.Odbc.OdbcCommandBuilder> class to automatically generate InsertCommand, and additional commands needed to reconcile the <xref:System.Data.DataSet> to the data source. To do this, set the <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A> property of the <xref:System.Data.Odbc.OdbcDataAdapter>. The generation logic also requires key column information to be present in the <xref:System.Data.DataSet>. For more information, see [Generating Commands with CommandBuilders](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] >  If execution of this command returns rows, these rows may be added to the <xref:System.Data.DataSet> depending upon how you set the <xref:System.Data.Odbc.OdbcCommand.UpdatedRowSource%2A> property of the <xref:System.Data.Odbc.OdbcCommand> object."
+  summary: "Opgehaald of ingesteld van een SQL-instructie of opgeslagen procedure gebruikt voor het invoegen van nieuwe records in de gegevensbron."
+  remarks: "Wanneer de eigenschap InsertCommand is toegewezen aan een eerder gemaakte <xref:System.Data.Odbc.OdbcCommand>object, de <xref:System.Data.Odbc.OdbcCommand>niet is gekloond.</xref:System.Data.Odbc.OdbcCommand> </xref:System.Data.Odbc.OdbcCommand> In plaats daarvan onderhoudt InsertCommand een verwijzing naar de eerder gemaakte <xref:System.Data.Odbc.OdbcCommand>.</xref:System.Data.Odbc.OdbcCommand>       Tijdens een updatebewerking InsertCommand is niet ingesteld als primaire-sleutelgegevens is aanwezig in de <xref:System.Data.DataSet>, kunt u de <xref:System.Data.Odbc.OdbcCommandBuilder>klasse voor het automatisch genereren InsertCommand en aanvullende opdrachten die nodig zijn om af te stemmen de <xref:System.Data.DataSet>met de gegevensbron.</xref:System.Data.DataSet> </xref:System.Data.Odbc.OdbcCommandBuilder> </xref:System.Data.DataSet> U doet dit door de <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A>eigenschap van het <xref:System.Data.Odbc.OdbcDataAdapter>.</xref:System.Data.Odbc.OdbcDataAdapter> </xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A> instellen De generatie logica is ook vereist sleutelkolomgegevens moeten zich in de <xref:System.Data.DataSet>.</xref:System.Data.DataSet> Zie voor meer informatie [opdrachten genereren met CommandBuilders](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] > Als de uitvoering van deze opdracht rijen retourneert, deze rijen kunnen worden toegevoegd aan de <xref:System.Data.DataSet>afhankelijk van hoe u stelt de <xref:System.Data.Odbc.OdbcCommand.UpdatedRowSource%2A>eigenschap van de <xref:System.Data.Odbc.OdbcCommand>object.</xref:System.Data.Odbc.OdbcCommand> </xref:System.Data.Odbc.OdbcCommand.UpdatedRowSource%2A> </xref:System.Data.DataSet>"
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcDataAdapter> and sets the <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A> and InsertCommand properties. It assumes that you have already created an <xref:System.Data.Odbc.OdbcConnection> object.  \n  \n [!code-cs[Classic WebData OdbcDataAdapter.InsertCommand#1](~/add/codesnippet/csharp/p-system.data.odbc.odbcd_0_1.cs)]\n [!code-vb[Classic WebData OdbcDataAdapter.InsertCommand#1](~/add/codesnippet/visualbasic/p-system.data.odbc.odbcd_0_1.vb)]"
   syntax:
     content: public System.Data.Odbc.OdbcCommand InsertCommand { get; set; }
     return:
       type: System.Data.Odbc.OdbcCommand
-      description: "An <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;></xref> used during an update operation to insert records in the data source that correspond to new rows in the <xref href=&quot;System.Data.DataSet&quot;></xref>."
+      description: "Een <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;> </xref> gebruikt tijdens update-bewerking voor het invoegen van records in de gegevensbron die overeenkomen met de nieuwe rijen in de <xref href=&quot;System.Data.DataSet&quot;> </xref>."
   overload: System.Data.Odbc.OdbcDataAdapter.InsertCommand*
   exceptions: []
   platform:
@@ -360,7 +360,7 @@ items:
     parameters:
     - id: value
       type: System.Data.Common.RowUpdatedEventArgs
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   overload: System.Data.Odbc.OdbcDataAdapter.OnRowUpdated*
   exceptions: []
   platform:
@@ -382,7 +382,7 @@ items:
     parameters:
     - id: value
       type: System.Data.Common.RowUpdatingEventArgs
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   overload: System.Data.Odbc.OdbcDataAdapter.OnRowUpdating*
   exceptions: []
   platform:
@@ -399,13 +399,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Occurs during an update operation after a command is executed against the data source."
-  remarks: "When you use <xref:System.Data.Common.DbDataAdapter.Update%2A>, there are two events that occur per data row updated. The order of execution is as follows:      1.  The values in the <xref:System.Data.DataRow> are moved to the parameter values.      2.  The <xref:System.Data.Common.DbDataAdapter.OnRowUpdating%2A> event is raised.      3.  The command executes.      4.  If the command is set to `FirstReturnedRecord`, the first returned result is placed in the <xref:System.Data.DataRow>.      5.  If there are output parameters, they are placed in the <xref:System.Data.DataRow>.      6.  The <xref:System.Data.Common.DbDataAdapter.OnRowUpdated%2A> event is raised.      7.  <xref:System.Data.DataRow.AcceptChanges%2A> is called."
+  summary: "Deze gebeurtenis treedt op tijdens een updatebewerking nadat een opdracht is uitgevoerd voor de gegevensbron."
+  remarks: "Als u werkt met <xref:System.Data.Common.DbDataAdapter.Update%2A>, er zijn twee gebeurtenissen die per gegevensrij bijgewerkt plaatsvinden.</xref:System.Data.Common.DbDataAdapter.Update%2A> De volgorde van de uitvoering is als volgt: 1.  De waarden in de <xref:System.Data.DataRow>worden verplaatst naar de parameterwaarden.</xref:System.Data.DataRow>      2.  De <xref:System.Data.Common.DbDataAdapter.OnRowUpdating%2A>gebeurtenis is opgetreden.</xref:System.Data.Common.DbDataAdapter.OnRowUpdating%2A>      3.  De opdracht wordt uitgevoerd.      4.  Als de opdracht is ingesteld op `FirstReturnedRecord`, de eerste geretourneerd resultaat wordt geplaatst in de <xref:System.Data.DataRow>.</xref:System.Data.DataRow>      5.  Als er output-parameters, zijn ze in de <xref:System.Data.DataRow>.</xref:System.Data.DataRow> geplaatst      6.  De <xref:System.Data.Common.DbDataAdapter.OnRowUpdated%2A>gebeurtenis is opgetreden.</xref:System.Data.Common.DbDataAdapter.OnRowUpdated%2A>      7.  <xref:System.Data.DataRow.AcceptChanges%2A>wordt aangeroepen.</xref:System.Data.DataRow.AcceptChanges%2A>"
   syntax:
     content: public event System.Data.Odbc.OdbcRowUpdatedEventHandler RowUpdated;
     return:
       type: System.Data.Odbc.OdbcRowUpdatedEventHandler
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -421,13 +421,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Occurs during <xref:System.Data.Common.DbDataAdapter.Update*> before a command is executed against the data source."
-  remarks: "When you use <xref:System.Data.Common.DbDataAdapter.Update%2A>, there are two events that occur per data row updated. The order of execution is as follows:      1.  The values in the <xref:System.Data.DataRow> are moved to the parameter values.      2.  The <xref:System.Data.Common.DbDataAdapter.OnRowUpdating%2A> event is raised.      3.  The command executes.      4.  If the command is set to `FirstReturnedRecord`, the first returned result is placed in the <xref:System.Data.DataRow>.      5.  If there are output parameters, they are placed in the <xref:System.Data.DataRow>.      6.  The <xref:System.Data.Common.DbDataAdapter.OnRowUpdated%2A> event is raised.      7.  <xref:System.Data.DataRow.AcceptChanges%2A> is called."
+  summary: "Deze gebeurtenis treedt op tijdens <xref:System.Data.Common.DbDataAdapter.Update*>voordat een opdracht is uitgevoerd voor de gegevensbron.</xref:System.Data.Common.DbDataAdapter.Update*>"
+  remarks: "Als u werkt met <xref:System.Data.Common.DbDataAdapter.Update%2A>, er zijn twee gebeurtenissen die per gegevensrij bijgewerkt plaatsvinden.</xref:System.Data.Common.DbDataAdapter.Update%2A> De volgorde van de uitvoering is als volgt: 1.  De waarden in de <xref:System.Data.DataRow>worden verplaatst naar de parameterwaarden.</xref:System.Data.DataRow>      2.  De <xref:System.Data.Common.DbDataAdapter.OnRowUpdating%2A>gebeurtenis is opgetreden.</xref:System.Data.Common.DbDataAdapter.OnRowUpdating%2A>      3.  De opdracht wordt uitgevoerd.      4.  Als de opdracht is ingesteld op `FirstReturnedRecord`, de eerste geretourneerd resultaat wordt geplaatst in de <xref:System.Data.DataRow>.</xref:System.Data.DataRow>      5.  Als er output-parameters, zijn ze in de <xref:System.Data.DataRow>.</xref:System.Data.DataRow> geplaatst      6.  De <xref:System.Data.Common.DbDataAdapter.OnRowUpdated%2A>gebeurtenis is opgetreden.</xref:System.Data.Common.DbDataAdapter.OnRowUpdated%2A>      7.  <xref:System.Data.DataRow.AcceptChanges%2A>wordt aangeroepen.</xref:System.Data.DataRow.AcceptChanges%2A>"
   syntax:
     content: public event System.Data.Odbc.OdbcRowUpdatingEventHandler RowUpdating;
     return:
       type: System.Data.Odbc.OdbcRowUpdatingEventHandler
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -443,15 +443,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets or sets an SQL statement or stored procedure used to select records in the data source."
-  remarks: "When SelectCommand is assigned to a previously created <xref:System.Data.Odbc.OdbcCommand>, the <xref:System.Data.Odbc.OdbcCommand> is not cloned. Instead, the SelectCommand maintains a reference to the previously created <xref:System.Data.Odbc.OdbcCommand> object.       If SelectCommand returns no rows, no tables are added to the <xref:System.Data.DataSet>, and no exception is raised."
+  summary: "Opgehaald of ingesteld van een SQL-instructie of opgeslagen procedure gebruikt om records te selecteren in de gegevensbron."
+  remarks: "Wanneer de SelectCommand is toegewezen aan een eerder gemaakte <xref:System.Data.Odbc.OdbcCommand>, wordt de <xref:System.Data.Odbc.OdbcCommand>niet is gekloond.</xref:System.Data.Odbc.OdbcCommand> </xref:System.Data.Odbc.OdbcCommand> In plaats daarvan de SelectCommand onderhoudt een verwijzing naar het eerder gemaakte <xref:System.Data.Odbc.OdbcCommand>object.</xref:System.Data.Odbc.OdbcCommand>       Als SelectCommand geen rijen retourneert, er zijn geen tabellen worden toegevoegd aan de <xref:System.Data.DataSet>, en geen uitzondering gegenereerd.</xref:System.Data.DataSet>"
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcDataAdapter> and sets the SelectCommand and <xref:System.Data.Odbc.OdbcDataAdapter.InsertCommand%2A> properties. It assumes that you have already created an <xref:System.Data.Odbc.OdbcConnection> object.  \n  \n [!code-cs[Classic WebData OdbcDataAdapter.SelectCommand#1](~/add/codesnippet/csharp/p-system.data.odbc.odbcd_3_1.cs)]\n [!code-vb[Classic WebData OdbcDataAdapter.SelectCommand#1](~/add/codesnippet/visualbasic/p-system.data.odbc.odbcd_3_1.vb)]"
   syntax:
     content: public System.Data.Odbc.OdbcCommand SelectCommand { get; set; }
     return:
       type: System.Data.Odbc.OdbcCommand
-      description: "An <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;></xref> that is used during a fill operation to select records from data source for placement in the <xref href=&quot;System.Data.DataSet&quot;></xref>."
+      description: "Een <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;> </xref> die wordt gebruikt tijdens een bewerking voor de opvulling voor het selecteren van records uit de gegevensbron voor de plaatsing in de <xref href=&quot;System.Data.DataSet&quot;> </xref>."
   overload: System.Data.Odbc.OdbcDataAdapter.SelectCommand*
   exceptions: []
   platform:
@@ -469,13 +469,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "For a description of this member, see <xref:System.Data.IDbDataAdapter.DeleteCommand*>."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.Odbc.OdbcDataAdapter> instance is cast to an <xref:System.Data.IDbDataAdapter> interface."
+  summary: "Zie voor een beschrijving van dit lid, <xref:System.Data.IDbDataAdapter.DeleteCommand*>.</xref:System.Data.IDbDataAdapter.DeleteCommand*>"
+  remarks: "Dit lid is een expliciete interface lid-implementatie. Het kan worden gebruikt alleen wanneer de <xref:System.Data.Odbc.OdbcDataAdapter>exemplaar is geconverteerd naar een <xref:System.Data.IDbDataAdapter>interface.</xref:System.Data.IDbDataAdapter> </xref:System.Data.Odbc.OdbcDataAdapter>"
   syntax:
     content: System.Data.IDbCommand System.Data.IDbDataAdapter.DeleteCommand { get; set; }
     return:
       type: System.Data.IDbCommand
-      description: "An <xref href=&quot;System.Data.IDbCommand&quot;></xref> used during an update to delete records in the data source for deleted rows in the data set."
+      description: "Een <xref href=&quot;System.Data.IDbCommand&quot;> </xref> wordt gebruikt tijdens een update om records in de gegevensbron voor verwijderde rijen in de gegevensset te verwijderen."
   overload: System.Data.Odbc.OdbcDataAdapter.System#Data#IDbDataAdapter#DeleteCommand*
   exceptions: []
   platform:
@@ -493,13 +493,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "For a description of this member, see <xref:System.Data.IDbDataAdapter.InsertCommand*>."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.Odbc.OdbcDataAdapter> instance is cast to an <xref:System.Data.IDbDataAdapter> interface."
+  summary: "Zie voor een beschrijving van dit lid, <xref:System.Data.IDbDataAdapter.InsertCommand*>.</xref:System.Data.IDbDataAdapter.InsertCommand*>"
+  remarks: "Dit lid is een expliciete interface lid-implementatie. Het kan worden gebruikt alleen wanneer de <xref:System.Data.Odbc.OdbcDataAdapter>exemplaar is geconverteerd naar een <xref:System.Data.IDbDataAdapter>interface.</xref:System.Data.IDbDataAdapter> </xref:System.Data.Odbc.OdbcDataAdapter>"
   syntax:
     content: System.Data.IDbCommand System.Data.IDbDataAdapter.InsertCommand { get; set; }
     return:
       type: System.Data.IDbCommand
-      description: "An <xref href=&quot;System.Data.IDbCommand&quot;></xref> that is used during an update to insert records from a data source for placement in the data set."
+      description: "Een <xref href=&quot;System.Data.IDbCommand&quot;> </xref> die tijdens het bijwerken wordt gebruikt voor het invoegen van records uit een gegevensbron voor de plaatsing in de gegevensset."
   overload: System.Data.Odbc.OdbcDataAdapter.System#Data#IDbDataAdapter#InsertCommand*
   exceptions: []
   platform:
@@ -517,13 +517,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "For a description of this member, see <xref:System.Data.IDbDataAdapter.SelectCommand*>."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.Odbc.OdbcDataAdapter> instance is cast to an <xref:System.Data.IDbDataAdapter> interface."
+  summary: "Zie voor een beschrijving van dit lid, <xref:System.Data.IDbDataAdapter.SelectCommand*>.</xref:System.Data.IDbDataAdapter.SelectCommand*>"
+  remarks: "Dit lid is een expliciete interface lid-implementatie. Het kan worden gebruikt alleen wanneer de <xref:System.Data.Odbc.OdbcDataAdapter>exemplaar is geconverteerd naar een <xref:System.Data.IDbDataAdapter>interface.</xref:System.Data.IDbDataAdapter> </xref:System.Data.Odbc.OdbcDataAdapter>"
   syntax:
     content: System.Data.IDbCommand System.Data.IDbDataAdapter.SelectCommand { get; set; }
     return:
       type: System.Data.IDbCommand
-      description: "An <xref href=&quot;System.Data.IDbCommand&quot;></xref> that is used during an update to select records from a data source for placement in the data set."
+      description: "Een <xref href=&quot;System.Data.IDbCommand&quot;> </xref> die tijdens het bijwerken wordt gebruikt om records te selecteren van een gegevensbron voor de plaatsing in de gegevensset."
   overload: System.Data.Odbc.OdbcDataAdapter.System#Data#IDbDataAdapter#SelectCommand*
   exceptions: []
   platform:
@@ -541,13 +541,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "For a description of this member, see <xref:System.Data.IDbDataAdapter.UpdateCommand*>."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.Odbc.OdbcDataAdapter> instance is cast to an <xref:System.Data.IDbDataAdapter> interface."
+  summary: "Zie voor een beschrijving van dit lid, <xref:System.Data.IDbDataAdapter.UpdateCommand*>.</xref:System.Data.IDbDataAdapter.UpdateCommand*>"
+  remarks: "Dit lid is een expliciete interface lid-implementatie. Het kan worden gebruikt alleen wanneer de <xref:System.Data.Odbc.OdbcDataAdapter>exemplaar is geconverteerd naar een <xref:System.Data.IDbDataAdapter>interface.</xref:System.Data.IDbDataAdapter> </xref:System.Data.Odbc.OdbcDataAdapter>"
   syntax:
     content: System.Data.IDbCommand System.Data.IDbDataAdapter.UpdateCommand { get; set; }
     return:
       type: System.Data.IDbCommand
-      description: "An <xref href=&quot;System.Data.IDbCommand&quot;></xref> used during an update to update records in the data source for modified rows in the data set."
+      description: "Een <xref href=&quot;System.Data.IDbCommand&quot;> </xref> wordt gebruikt tijdens een update-update-records in de gegevensbron voor gewijzigde rijen in de gegevensset."
   overload: System.Data.Odbc.OdbcDataAdapter.System#Data#IDbDataAdapter#UpdateCommand*
   exceptions: []
   platform:
@@ -565,14 +565,14 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "For a description of this member, see &lt;xref:System.ICloneable.Clone%2A?displayProperty=fullName&gt;."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.Odbc.OdbcDataAdapter> instance is cast to an <xref:System.ICloneable> interface."
+  summary: "Zie voor een beschrijving van dit lid &lt;xref:System.ICloneable.Clone%2A?displayProperty=fullName&gt;."
+  remarks: "Dit lid is een expliciete interface lid-implementatie. Het kan worden gebruikt alleen wanneer de <xref:System.Data.Odbc.OdbcDataAdapter>exemplaar is geconverteerd naar een <xref:System.ICloneable>interface.</xref:System.ICloneable> </xref:System.Data.Odbc.OdbcDataAdapter>"
   syntax:
     content: object ICloneable.Clone ();
     parameters: []
     return:
       type: System.Object
-      description: "A new <xref:System.Object> that is a copy of this instance."
+      description: "Een nieuwe <xref:System.Object>die een kopie van dit exemplaar.</xref:System.Object>"
   overload: System.Data.Odbc.OdbcDataAdapter.System#ICloneable#Clone*
   exceptions: []
   platform:
@@ -589,15 +589,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets or sets an SQL statement or stored procedure used to update records in the data source."
-  remarks: "When UpdateCommand is assigned to a previously created <xref:System.Data.Odbc.OdbcCommand>, the <xref:System.Data.Odbc.OdbcCommand> is not cloned. Instead, the UpdateCommand maintains a reference to the previously created <xref:System.Data.Odbc.OdbcCommand> object.       During an update operation, if UpdateCommand is not set and primary key information is present in the <xref:System.Data.DataSet>, you can use the <xref:System.Data.Odbc.OdbcCommandBuilder> class to automatically generate UpdateCommand, and additional commands needed to reconcile the <xref:System.Data.DataSet> to the data source. To do this, set the <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A> property of the <xref:System.Data.Odbc.OdbcDataAdapter>. The generation logic also requires key column information to be present in the <xref:System.Data.DataSet>. For more information, see [Generating Commands with CommandBuilders](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] >  If execution of this command returns rows, these rows may be merged with the <xref:System.Data.DataSet> depending upon how you set the <xref:System.Data.Odbc.OdbcCommand.UpdatedRowSource%2A> property of the <xref:System.Data.Odbc.OdbcCommand> object."
+  summary: "Opgehaald of ingesteld van een SQL-instructie of opgeslagen procedure gebruikt voor het bijwerken van de records in de gegevensbron."
+  remarks: "Wanneer de UpdateCommand wordt toegewezen aan een eerder gemaakte <xref:System.Data.Odbc.OdbcCommand>, wordt de <xref:System.Data.Odbc.OdbcCommand>niet is gekloond.</xref:System.Data.Odbc.OdbcCommand> </xref:System.Data.Odbc.OdbcCommand> In plaats daarvan de UpdateCommand onderhoudt een verwijzing naar het eerder gemaakte <xref:System.Data.Odbc.OdbcCommand>object.</xref:System.Data.Odbc.OdbcCommand>       Tijdens een updatebewerking UpdateCommand is niet ingesteld als primaire-sleutelgegevens is aanwezig in de <xref:System.Data.DataSet>, kunt u de <xref:System.Data.Odbc.OdbcCommandBuilder>klasse voor het automatisch genereren UpdateCommand en aanvullende opdrachten die nodig zijn om af te stemmen de <xref:System.Data.DataSet>met de gegevensbron.</xref:System.Data.DataSet> </xref:System.Data.Odbc.OdbcCommandBuilder> </xref:System.Data.DataSet> U doet dit door de <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A>eigenschap van het <xref:System.Data.Odbc.OdbcDataAdapter>.</xref:System.Data.Odbc.OdbcDataAdapter> </xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A> instellen De generatie logica is ook vereist sleutelkolomgegevens moeten zich in de <xref:System.Data.DataSet>.</xref:System.Data.DataSet> Zie voor meer informatie [opdrachten genereren met CommandBuilders](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] > Als de uitvoering van deze opdracht rijen retourneert, deze rijen kunnen worden samengevoegd met de <xref:System.Data.DataSet>afhankelijk van hoe u stelt de <xref:System.Data.Odbc.OdbcCommand.UpdatedRowSource%2A>eigenschap van de <xref:System.Data.Odbc.OdbcCommand>object.</xref:System.Data.Odbc.OdbcCommand> </xref:System.Data.Odbc.OdbcCommand.UpdatedRowSource%2A> </xref:System.Data.DataSet>"
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcDataAdapter> and sets the <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A> and UpdateCommand properties. It assumes that you have already created an <xref:System.Data.Odbc.OdbcConnection> object.  \n  \n [!code-cs[Classic WebData OdbcDataAdapter.UpdateCommand#1](~/add/codesnippet/csharp/p-system.data.odbc.odbcd_1_1.cs)]\n [!code-vb[Classic WebData OdbcDataAdapter.UpdateCommand#1](~/add/codesnippet/visualbasic/p-system.data.odbc.odbcd_1_1.vb)]"
   syntax:
     content: public System.Data.Odbc.OdbcCommand UpdateCommand { get; set; }
     return:
       type: System.Data.Odbc.OdbcCommand
-      description: "An <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;></xref> used during an update operation to update records in the data source that correspond to modified rows in the <xref href=&quot;System.Data.DataSet&quot;></xref>."
+      description: "Een <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;> </xref> gebruikt tijdens update-bewerking voor het bijwerken van records in de gegevensbron die overeenkomen met gewijzigde rijen in de <xref href=&quot;System.Data.DataSet&quot;> </xref>."
   overload: System.Data.Odbc.OdbcDataAdapter.UpdateCommand*
   exceptions: []
   platform:
