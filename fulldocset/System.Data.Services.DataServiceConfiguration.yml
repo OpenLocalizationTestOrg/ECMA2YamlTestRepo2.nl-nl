@@ -23,7 +23,7 @@ items:
   nameWithType: DataServiceConfiguration
   fullName: System.Data.Services.DataServiceConfiguration
   type: Class
-  summary: "Manages the configuration of [!INCLUDE[ssAstoria](~/add/includes/ssastoria-md.md)]."
+  summary: "Beheert de configuratie van [!INCLUDE[ssAstoria](~/add/includes/ssastoria-md.md)]."
   remarks: ''
   example:
   - "This example shows the code-behind page for a Northwind-based data service, with access granted to selected entity sets.  \n  \n [!code-vb[Astoria Quickstart Service#NorthwindServiceFull](~/add/codesnippet/visualbasic/northwindservicevb/northwind.svc.vb#northwindservicefull)]\n [!code-cs[Astoria Quickstart Service#NorthwindServiceFull](~/add/codesnippet/csharp/northwindservice/northwind.svc.cs#northwindservicefull)]"
@@ -48,7 +48,7 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Gets a <xref href=&quot;System.Data.Services.DataServiceBehavior&quot;></xref> object that defines additional behaviors of the data service."
+  summary: "Haalt een <xref href=&quot;System.Data.Services.DataServiceBehavior&quot;> </xref> -object dat aanvullende gedrag van de gegevensservice bepaalt."
   syntax:
     content: public System.Data.Services.DataServiceBehavior DataServiceBehavior { get; }
     return:
@@ -70,14 +70,14 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Registers a data type with the data service runtime so that it can be used by a custom data service provider."
-  remarks: "The EnableTypeAccess method is used to register a type with the data service runtime. After registration, a type can be returned in the properties of an open type. This makes the type visible in `$metadata` output and usable by the data service.       The supplied `typeName` must be defined in the same format as a type in the data model and not as a CLR type. The registered types are added to those types already made available by calling the <xref:System.Data.Services.DataServiceConfiguration.SetEntitySetAccessRule%2A> method.       The data service runtime cannot determine what kind of data type the `typeName` maps to until information about the type can be obtained from the underlying provider.       A value of &quot;*&quot; can be supplied for `typeName`, which matches all types.       When the data service runtime enumerates types or must obtain a type from the underlying data provider, it must first determine whether the type must be visible when the <xref:System.Data.Services.DataServiceConfiguration.SetEntitySetAccessRule%2A> method is called. When the type is not available in this manner, then types registered by using the EnableTypeAccess method are checked. When a type is not made visible by using either of these mechanisms, that type is not included in the response to a `$metadata` request, and instances of that type are not returned to the client as the response of a request to the data service.       The EnableTypeAccess method can be called many times with the same type name."
+  summary: "Registreert een gegevenstype met de service gegevens runtime zodat deze kan worden gebruikt door een serviceprovider aangepaste gegevens."
+  remarks: "De methode EnableTypeAccess wordt gebruikt voor het registreren van een type met de runtime van de service gegevens. Na de registratie, kan een type in de eigenschappen van een open type worden geretourneerd. Hierdoor kan het type zichtbaar in `$metadata` uitvoer en gebruikt door de data-service.       De opgegeven `typeName` moet worden gedefinieerd in dezelfde indeling als een type in het gegevensmodel en niet als een CLR-type. De geregistreerde typen worden toegevoegd aan deze bestandstypen al beschikbaar gesteld door het aanroepen van de <xref:System.Data.Services.DataServiceConfiguration.SetEntitySetAccessRule%2A>methode.</xref:System.Data.Services.DataServiceConfiguration.SetEntitySetAccessRule%2A>       De gegevens service runtime kan niet vaststellen wat voor soort gegevenstype de `typeName` tot informatie over het type kan worden verkregen van de onderliggende provider wordt toegewezen aan.       De waarde &quot; *&quot; kan worden opgegeven voor `typeName`, wat overeenkomt met alle typen.       Wanneer de runtime van de service gegevens typen inventariseren of een type van de onderliggende gegevensprovider verkrijgen moet, moet deze eerst bepalen of het type zichtbaar wanneer zijn moet de <xref:System.Data.Services.DataServiceConfiguration.SetEntitySetAccessRule%2A>methode wordt aangeroepen.</xref:System.Data.Services.DataServiceConfiguration.SetEntitySetAccessRule%2A> Wanneer het type niet beschikbaar op deze manier is, worden geregistreerd met behulp van de methode EnableTypeAccess typen gecontroleerd. Wanneer een type niet zichtbaar gemaakt is met een van deze mechanismen, dat type is niet opgenomen in het antwoord op een `$metadata` aanvraag en exemplaren van dat type worden niet geretourneerd naar de client als het antwoord van een aanvraag met de data service.       De methode EnableTypeAccess kan vaak worden aangeroepen met dezelfde typenaam."
   syntax:
     content: public void EnableTypeAccess (string typeName);
     parameters:
     - id: typeName
       type: System.String
-      description: "The namespace-qualified name of the type that is enabled for use with the custom data service provider."
+      description: "De naamruimte gekwalificeerde naam van het type dat is ingeschakeld voor gebruik met de aangepaste gegevensserviceprovider."
   overload: System.Data.Services.DataServiceConfiguration.EnableTypeAccess*
   exceptions: []
   platform:
@@ -94,12 +94,12 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Gets or sets whether the data service runtime should convert the type that is contained in the payload to the actual property type that is specified in the request."
+  summary: "Opgehaald of ingesteld of de service gegevens runtime moet het type dat is opgenomen in de nettolading met het werkelijke type dat is opgegeven in de aanvraag converteren."
   syntax:
     content: public bool EnableTypeConversion { get; set; }
     return:
       type: System.Boolean
-      description: "A Boolean value that indicates whether to perform the conversion."
+      description: "Een Boolean die aangeeft of de conversie uitvoeren."
   overload: System.Data.Services.DataServiceConfiguration.EnableTypeConversion*
   exceptions: []
   platform:
@@ -116,12 +116,12 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Gets or sets the maximum number of change sets and query operations that are allowed in a single batch."
+  summary: "Opgehaald of ingesteld van het maximum aantal wijzigingssets en querybewerkingen die zijn toegestaan in één batch."
   syntax:
     content: public int MaxBatchCount { get; set; }
     return:
       type: System.Int32
-      description: "A value that is the maximum number of change sets."
+      description: "Hiermee stelt u een waarde die het maximum aantal wijzigen."
   overload: System.Data.Services.DataServiceConfiguration.MaxBatchCount*
   exceptions: []
   platform:
@@ -138,12 +138,12 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Gets or set the maximum number of changes that can be included in a single change set."
+  summary: "Opgehaald of ingesteld wordt het maximum aantal wijzigingen dat kan worden opgenomen in één wijziging ingesteld."
   syntax:
     content: public int MaxChangesetCount { get; set; }
     return:
       type: System.Int32
-      description: "The maximum number of changes allowed."
+      description: "Het maximale aantal wijzigingen dat is toegestaan."
   overload: System.Data.Services.DataServiceConfiguration.MaxChangesetCount*
   exceptions: []
   platform:
@@ -160,12 +160,12 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Gets or sets the maximum number of related entities that can be included in a single request by using the <xref uid=&quot;langword_csharp_$expand&quot; name=&quot;$expand&quot; href=&quot;&quot;></xref> operator."
+  summary: "Opgehaald of ingesteld van het maximum aantal gerelateerde entiteiten die kan worden opgenomen in één aanvraag met behulp van de <xref uid=&quot;langword_csharp_$expand&quot; name=&quot;$expand&quot; href=&quot;&quot;> </xref> operator."
   syntax:
     content: public int MaxExpandCount { get; set; }
     return:
       type: System.Int32
-      description: "The maximum number of related entities."
+      description: "Het maximum aantal gerelateerde entiteiten."
   overload: System.Data.Services.DataServiceConfiguration.MaxExpandCount*
   exceptions: []
   platform:
@@ -182,12 +182,12 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Get or sets the maximum number of related entities that can be included in an <xref uid=&quot;langword_csharp_$expand&quot; name=&quot;$expand&quot; href=&quot;&quot;></xref> path in a single request."
+  summary: "Ophalen of stelt het maximum aantal gerelateerde entiteiten die kan worden opgenomen in een <xref uid=&quot;langword_csharp_$expand&quot; name=&quot;$expand&quot; href=&quot;&quot;> </xref> pad in één aanvraag."
   syntax:
     content: public int MaxExpandDepth { get; set; }
     return:
       type: System.Int32
-      description: "The maximum depth of an <xref uid=&quot;langword_csharp_$expand&quot; name=&quot;$expand&quot; href=&quot;&quot;></xref> path."
+      description: "De maximale diepte van een <xref uid=&quot;langword_csharp_$expand&quot; name=&quot;$expand&quot; href=&quot;&quot;> </xref> pad."
   overload: System.Data.Services.DataServiceConfiguration.MaxExpandDepth*
   exceptions: []
   platform:
@@ -204,12 +204,12 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Get or sets the maximum number of objects to insert that can be contained in a single POST request."
+  summary: "Get of stelt het maximum aantal objecten om in te voegen die kan worden opgenomen in een enkele POST-aanvraag."
   syntax:
     content: public int MaxObjectCountOnInsert { get; set; }
     return:
       type: System.Int32
-      description: "The maximum number of objects."
+      description: "Het maximum aantal objecten."
   overload: System.Data.Services.DataServiceConfiguration.MaxObjectCountOnInsert*
   exceptions: []
   platform:
@@ -226,13 +226,13 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Get or sets the maximum number of items in each returned collection."
-  remarks: "This maximum value also applies to nested collections."
+  summary: "Get of sets geretourneerd het maximum aantal items in elke verzameling."
+  remarks: "Deze maximale waarde is ook van toepassing op geneste verzamelingen."
   syntax:
     content: public int MaxResultsPerCollection { get; set; }
     return:
       type: System.Int32
-      description: "The maximum number of items."
+      description: "Het maximum aantal items."
   overload: System.Data.Services.DataServiceConfiguration.MaxResultsPerCollection*
   exceptions: []
   platform:
@@ -249,14 +249,14 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Adds a type to the list of types that are recognized by the data service."
-  remarks: "A provider can use the RegisterKnownType method to register a type when it cannot be detected by the runtime by using the default set of rules."
+  summary: "Een type toegevoegd aan de lijst van typen die door de gegevensservice worden herkend."
+  remarks: "Een provider kunt de methode RegisterKnownType gebruiken voor het registreren van een type wanneer deze met behulp van de reeks regels kan niet worden gedetecteerd door de runtime."
   syntax:
     content: public void RegisterKnownType (Type type);
     parameters:
     - id: type
       type: System.Type
-      description: "Type to add to the collection of known types."
+      description: "Type om toe te voegen aan de verzameling van bekende typen."
   overload: System.Data.Services.DataServiceConfiguration.RegisterKnownType*
   exceptions: []
   platform:
@@ -273,8 +273,8 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Sets the permissions for the specified entity set resource."
-  remarks: "When you specify a value of an asterisk (`*`) for the `name` parameter, permissions are set for all entity sets that do not have the permissions explicitly set."
+  summary: "Stelt de machtigingen voor de opgegeven entiteit ingesteld resource."
+  remarks: "Wanneer u een waarde opgeven van een sterretje (`*`) voor de `name` parameter machtigingen zijn ingesteld voor alle entiteitsets die u hebt niet de machtigingen die expliciet zijn ingesteld."
   example:
   - "This example shows the code-behind page for a Northwind-based data service, with access granted to selected entity sets.  \n  \n [!code-vb[Astoria Quickstart Service#NorthwindServiceFull](~/add/codesnippet/visualbasic/northwindservicevb/northwind.svc.vb#northwindservicefull)]\n [!code-cs[Astoria Quickstart Service#NorthwindServiceFull](~/add/codesnippet/csharp/northwindservice/northwind.svc.cs#northwindservicefull)]"
   syntax:
@@ -282,10 +282,10 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "Name of the entity set for which to set permissions."
+      description: "Naam van de entiteit ingesteld waarvoor machtigingen worden ingesteld."
     - id: rights
       type: System.Data.Services.EntitySetRights
-      description: "Access rights to be granted to this resource, passed as an <xref href=&quot;System.Data.Services.EntitySetRights&quot;></xref> value."
+      description: "Toegangsrechten te verlenen aan deze resource doorgegeven als een <xref href=&quot;System.Data.Services.EntitySetRights&quot;> </xref> waarde."
   overload: System.Data.Services.DataServiceConfiguration.SetEntitySetAccessRule*
   exceptions: []
   platform:
@@ -302,17 +302,17 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Sets the maximum page size for an entity set resource."
-  remarks: "When you specify a value of &quot;*&quot; for the `name` parameter, the page size value is set for all entity sets that do not have the page size explicitly set."
+  summary: "Stelt de maximale grootte voor een entiteit ingesteld resource."
+  remarks: "Wanneer u een waarde opgeven van &quot; *&quot; voor de `name` parameter, de waarde van de grootte is ingesteld voor alle entiteitsets waarvoor geen de paginagrootte die expliciet zijn ingesteld."
   syntax:
     content: public void SetEntitySetPageSize (string name, int size);
     parameters:
     - id: name
       type: System.String
-      description: "Name of entity set resource for which to set the page size."
+      description: "Naam van de entiteit ingesteld resource waarvoor het paginaformaat ingesteld."
     - id: size
       type: System.Int32
-      description: "Page size for the entity set resource that is specified in `name`."
+      description: "De grootte van de pagina voor de entiteit ingesteld resource die is opgegeven in `name`."
   overload: System.Data.Services.DataServiceConfiguration.SetEntitySetPageSize*
   exceptions: []
   platform:
@@ -329,17 +329,17 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Sets the permissions for the specified service operation."
-  remarks: "When you specify a value of &quot;*&quot; for the `name` parameter, permissions are set for all service operations that do not have the permissions explicitly set."
+  summary: "Hiermee stelt u de machtigingen voor de opgegeven service-bewerking."
+  remarks: "Wanneer u een waarde opgeven van &quot; *&quot; voor de `name` parameter machtigingen zijn ingesteld voor alle servicebewerkingen van de die u hebt niet de machtigingen die expliciet zijn ingesteld."
   syntax:
     content: public void SetServiceOperationAccessRule (string name, System.Data.Services.ServiceOperationRights rights);
     parameters:
     - id: name
       type: System.String
-      description: "Name of the service operation for which to set permissions."
+      description: "Naam van de bewerking van de service waarvoor u machtigingen worden ingesteld."
     - id: rights
       type: System.Data.Services.ServiceOperationRights
-      description: "Access rights to be granted to this resource, passed as a <xref href=&quot;System.Data.Services.ServiceOperationRights&quot;></xref> value."
+      description: "Toegangsrechten te verlenen aan deze resource doorgegeven als een <xref href=&quot;System.Data.Services.ServiceOperationRights&quot;> </xref> waarde."
   overload: System.Data.Services.DataServiceConfiguration.SetServiceOperationAccessRule*
   exceptions: []
   platform:
@@ -356,13 +356,13 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services
-  summary: "Gets or sets whether verbose errors should be returned by the data service."
-  remarks: "The UseVerboseErrors property sets the default verbose error behavior for the whole service. Individual responses can behave differently depending on the value of the <xref:System.Data.Services.HandleExceptionArgs.UseVerboseErrors%2A> property of the arguments to the <xref:System.Data.Services.DataService%601.HandleException%2A> method on the <xref:System.Data.Services.DataService%601> class.       For security reasons, verbose errors should only be enabled during development, not in production environments,"
+  summary: "Opgehaald of ingesteld of uitgebreide fouten moeten worden geretourneerd door de data service."
+  remarks: "De eigenschap UseVerboseErrors stelt het standaardgedrag van de uitgebreide foutbericht voor de hele service. Afzonderlijke antwoorden kunnen zich anders gedragen, afhankelijk van de waarde van de <xref:System.Data.Services.HandleExceptionArgs.UseVerboseErrors%2A>eigenschap van de argumenten voor de <xref:System.Data.Services.DataService%601.HandleException%2A>methode op de <xref:System.Data.Services.DataService%601>klasse.</xref:System.Data.Services.DataService%601> </xref:System.Data.Services.DataService%601.HandleException%2A> </xref:System.Data.Services.HandleExceptionArgs.UseVerboseErrors%2A>       Uit veiligheidsoverwegingen moeten uitgebreide fouten alleen worden ingeschakeld tijdens de ontwikkeling, niet in een productieomgeving"
   syntax:
     content: public bool UseVerboseErrors { get; set; }
     return:
       type: System.Boolean
-      description: "Whether verbose errors are returned."
+      description: "Hiermee wordt aangegeven of de uitgebreide fouten worden geretourneerd."
   overload: System.Data.Services.DataServiceConfiguration.UseVerboseErrors*
   exceptions: []
   platform:

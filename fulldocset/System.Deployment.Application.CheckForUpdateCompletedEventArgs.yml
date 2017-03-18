@@ -14,8 +14,8 @@ items:
   nameWithType: CheckForUpdateCompletedEventArgs
   fullName: System.Deployment.Application.CheckForUpdateCompletedEventArgs
   type: Class
-  summary: "Represents detailed update information obtained through a call to <xref:System.Deployment.Application.ApplicationDeployment.CheckForUpdateAsync*>."
-  remarks: "With CheckForUpdateCompletedEventArgs, you can decide whether to upgrade your ClickOnce application based on information about the newest version. <xref:System.Deployment.Application.CheckForUpdateCompletedEventArgs.UpdateAvailable%2A> will return a Boolean value indicating whether there is a new update at all. The <xref:System.Deployment.Application.CheckForUpdateCompletedEventArgs.AvailableVersion%2A> property provides the version number of the new version, while <xref:System.Deployment.Application.CheckForUpdateCompletedEventArgs.MinimumRequiredVersion%2A> provides the earliest version that the user should have installed on the computer. <xref:System.Deployment.Application.CheckForUpdateCompletedEventArgs.IsUpdateRequired%2A> expresses whether the latest available update is required of the user. Finally, <xref:System.Deployment.Application.CheckForUpdateCompletedEventArgs.UpdateSizeBytes%2A> expresses the total size of the update."
+  summary: "Geeft gedetailleerde informatie over via een aanroep van <xref:System.Deployment.Application.ApplicationDeployment.CheckForUpdateAsync*>.</xref:System.Deployment.Application.ApplicationDeployment.CheckForUpdateAsync*> verkregen"
+  remarks: "Met CheckForUpdateCompletedEventArgs, kunt u beslissen of uw ClickOnce-toepassing op basis van informatie over de nieuwste versie te upgraden. <xref:System.Deployment.Application.CheckForUpdateCompletedEventArgs.UpdateAvailable%2A>retourneert een Booleaanse waarde die aangeeft of er een nieuwe update helemaal.</xref:System.Deployment.Application.CheckForUpdateCompletedEventArgs.UpdateAvailable%2A> De <xref:System.Deployment.Application.CheckForUpdateCompletedEventArgs.AvailableVersion%2A>eigenschap bevat het versienummer van de nieuwe versie, terwijl <xref:System.Deployment.Application.CheckForUpdateCompletedEventArgs.MinimumRequiredVersion%2A>biedt de oudste versie die de gebruiker moet op de computer geïnstalleerd.</xref:System.Deployment.Application.CheckForUpdateCompletedEventArgs.MinimumRequiredVersion%2A> </xref:System.Deployment.Application.CheckForUpdateCompletedEventArgs.AvailableVersion%2A> <xref:System.Deployment.Application.CheckForUpdateCompletedEventArgs.IsUpdateRequired%2A>Geeft aan of de nieuwste update van de gebruiker vereist is.</xref:System.Deployment.Application.CheckForUpdateCompletedEventArgs.IsUpdateRequired%2A> Ten slotte <xref:System.Deployment.Application.CheckForUpdateCompletedEventArgs.UpdateSizeBytes%2A>de totale grootte van de update wordt uitgedrukt.</xref:System.Deployment.Application.CheckForUpdateCompletedEventArgs.UpdateSizeBytes%2A>"
   example:
   - "The following code example uses <xref:System.Deployment.Application.CheckForUpdateCompletedEventArgs.UpdateAvailable%2A> to determine if there is a new application update, and <xref:System.Deployment.Application.CheckForUpdateCompletedEventArgs.IsUpdateRequired%2A> to determine whether to ask the user to install the update.  \n  \n [!code-cs[ClickOnceAPI#1](~/add/codesnippet/csharp/ClickOnceAPI/Form1.cs#1)]\n [!code-cpp[ClickOnceAPI#1](~/add/codesnippet/cpp/t-system.deployment.appl_1_1.cpp)]\n [!code-vb[ClickOnceAPI#1](~/add/codesnippet/visualbasic/ClickOnceAPIVB/Form1.vb#1)]"
   syntax:
@@ -38,13 +38,13 @@ items:
   assemblies:
   - System.Deployment
   namespace: System.Deployment.Application
-  summary: "Gets the version number of the latest uninstalled version."
-  remarks: "You can use AvailableVersion to decide whether to install the update based on the severity of the update. For example, if only the <xref:System.Version.Build%2A> or <xref:System.Version.Revision%2A> version properties have changed, your application may not need to update until either the <xref:System.Version.Minor%2A> or <xref:System.Version.Major%2A> properties change."
+  summary: "Hiermee haalt u het versienummer van de laatste niet-geïnstalleerde versie."
+  remarks: "U kunt AvailableVersion gebruiken om te bepalen of de update op basis van de ernst van de update te installeren. Bijvoorbeeld, als alleen de <xref:System.Version.Build%2A>of <xref:System.Version.Revision%2A>versie-eigenschappen zijn gewijzigd, uw toepassing mogelijk niet nodig om bij te werken totdat de <xref:System.Version.Minor%2A>of <xref:System.Version.Major%2A>Eigenschappen wijzigen.</xref:System.Version.Major%2A> </xref:System.Version.Minor%2A> </xref:System.Version.Revision%2A> </xref:System.Version.Build%2A>"
   syntax:
     content: public Version AvailableVersion { get; }
     return:
       type: System.Version
-      description: "The <xref:System.Version> expressing the major, minor, build and revision numbers of the latest version."
+      description: "De <xref:System.Version>uitdrukken van de primaire, secundaire, build en revisie cijfers van de meest recente versie.</xref:System.Version>"
   overload: System.Deployment.Application.CheckForUpdateCompletedEventArgs.AvailableVersion*
   exceptions: []
   platform:
@@ -61,15 +61,15 @@ items:
   assemblies:
   - System.Deployment
   namespace: System.Deployment.Application
-  summary: "Gets a value indicating whether the update must be installed."
-  remarks: "When you deploy an update to your ClickOnce application, you can mark it as a required update, signaling to your application that it should upgrade immediately. You want mark the update if the latest version contains a critical update, or if it is incompatible with file formats or back-end data sources used by the former version."
+  summary: "Haalt een waarde die aangeeft of de update moet worden geïnstalleerd."
+  remarks: "Als u een update op de ClickOnce-toepassing implementeert, kunt u markeren als de vereiste update-signalering voor uw toepassing onmiddellijk moet bijwerken. Wilt u de update te markeren als de meest recente versie bevat een essentiële update, of als het is niet compatibel met bestandsindelingen of back-end-gegevensbronnen die worden gebruikt door de vorige versie."
   example:
   - "The following code example uses IsUpdateRequired to determine whether to ask the user to install the update, or to install it without prompting.  \n  \n [!code-cs[ClickOnceAPI#1](~/add/codesnippet/csharp/ClickOnceAPI/Form1.cs#1)]\n [!code-cpp[ClickOnceAPI#1](~/add/codesnippet/cpp/2aa4f4df-e487-4c83-87b0-_1.cpp)]\n [!code-vb[ClickOnceAPI#1](~/add/codesnippet/visualbasic/ClickOnceAPIVB/Form1.vb#1)]"
   syntax:
     content: public bool IsUpdateRequired { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the update is required; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de update vereist is. anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Deployment.Application.CheckForUpdateCompletedEventArgs.IsUpdateRequired*
   exceptions: []
   platform:
@@ -86,15 +86,15 @@ items:
   assemblies:
   - System.Deployment
   namespace: System.Deployment.Application
-  summary: "Gets the minimum version that the user must have installed on the computer."
-  remarks: "Applications can miss required updates when a user takes on a special assignment or is away from the computer for weeks or months. Use       MinimumRequiredVersion to determine if the user has not upgraded the application in a while, and has missed one or more required updates."
+  summary: "Hiermee haalt u de minimumversie die de gebruiker moet op de computer geïnstalleerd."
+  remarks: "Toepassingen kunnen vereiste updates gemist, wanneer een gebruiker de toewijzing van een speciale krijgt of niet op de computer voor weken of maanden is. Gebruik MinimumRequiredVersion om te bepalen als de gebruiker de toepassing een tijdje niet bijgewerkt en een of meer vereiste updates ontbreekt."
   example:
   - "The following code example calls <xref:System.Deployment.Application.ApplicationDeployment.CheckForUpdateAsync%2A>, and forces an application update if MinimumRequiredVersion is greater than <xref:System.Deployment.Application.ApplicationDeployment.CurrentVersion%2A>.  \n  \n [!code-cs[ClickOnceAPI#10](~/add/codesnippet/csharp/ClickOnceAPI/Form1.cs#10)]\n [!code-vb[ClickOnceAPI#10](~/add/codesnippet/visualbasic/ClickOnceAPIVB/Form1.vb#10)]"
   syntax:
     content: public Version MinimumRequiredVersion { get; }
     return:
       type: System.Version
-      description: "A <xref:System.Version> object expressing the earliest version that all users must install."
+      description: "Een <xref:System.Version>object uitdrukken van de oudste versie die alle gebruikers moeten installeren.</xref:System.Version>"
   overload: System.Deployment.Application.CheckForUpdateCompletedEventArgs.MinimumRequiredVersion*
   exceptions: []
   platform:
@@ -111,7 +111,7 @@ items:
   assemblies:
   - System.Deployment
   namespace: System.Deployment.Application
-  summary: "Gets whether an uninstalled update is available."
+  summary: "Hiermee wordt opgehaald of een niet-geïnstalleerde update beschikbaar is."
   remarks: ''
   example:
   - "The following code example inspects UpdateAvailable to determine whether or not there is an update to install.  \n  \n [!code-cs[ClickOnceAPI#1](~/add/codesnippet/csharp/ClickOnceAPI/Form1.cs#1)]\n [!code-cpp[ClickOnceAPI#1](~/add/codesnippet/cpp/847038a4-fd95-4e16-a133-_1.cpp)]\n [!code-vb[ClickOnceAPI#1](~/add/codesnippet/visualbasic/ClickOnceAPIVB/Form1.vb#1)]"
@@ -119,7 +119,7 @@ items:
     content: public bool UpdateAvailable { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if new version of the application is available; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>indien nieuwe versie van de toepassing beschikbaar is. anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Deployment.Application.CheckForUpdateCompletedEventArgs.UpdateAvailable*
   exceptions: []
   platform:
@@ -136,12 +136,12 @@ items:
   assemblies:
   - System.Deployment
   namespace: System.Deployment.Application
-  summary: "Gets the size of the available update."
+  summary: "Hiermee haalt u de grootte van de update beschikbaar."
   syntax:
     content: public long UpdateSizeBytes { get; }
     return:
       type: System.Int64
-      description: "An <xref:System.Int64> describing the size, in bytes, of the available update. If no update is available, returns 0."
+      description: "Een <xref:System.Int64>met een beschrijving van de grootte, in bytes van de update beschikbaar.</xref:System.Int64> Als er geen update beschikbaar is, 0 geretourneerd."
   overload: System.Deployment.Application.CheckForUpdateCompletedEventArgs.UpdateSizeBytes*
   exceptions: []
   platform:
