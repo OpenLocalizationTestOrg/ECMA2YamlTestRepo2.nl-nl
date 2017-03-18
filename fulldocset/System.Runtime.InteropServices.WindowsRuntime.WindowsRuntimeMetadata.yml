@@ -13,8 +13,8 @@ items:
   nameWithType: WindowsRuntimeMetadata
   fullName: System.Runtime.InteropServices.WindowsRuntime.WindowsRuntimeMetadata
   type: Class
-  summary: "Provides an event for resolving reflection-only type requests for types that are provided by Windows Metadata files, and methods for performing the resolution."
-  remarks: "Unlike the .NET Framework, assembly identity isn’t important for [!INCLUDE[wrt](~/add/includes/wrt-md.md)] types. In the [!INCLUDE[wrt](~/add/includes/wrt-md.md)], Windows Metadata files (.WinMD files) contain only metadata, not code. Types can move from one Windows Metadata file to another in a service pack release, so it’s important to be able to locate the Windows Metadata files that are associated with a namespace.      > [!NOTE] >  Sub-namespaces don’t imply containment. That is, namespace A.B isn&quot;t contained in namespace A."
+  summary: "Een gebeurtenis biedt voor het omzetten van aanvragen van het kenmerk alleen-reflectie type voor typen die worden geleverd door Windows metagegevensbestanden en methoden voor het uitvoeren van de oplossing."
+  remarks: "In tegenstelling tot de .NET Framework assembly-identiteit is niet belangrijk voor [!INCLUDE[wrt](~/add/includes/wrt-md.md)] typen. In de [!INCLUDE[wrt](~/add/includes/wrt-md.md)], metagegevens van de Windows-bestanden (. WinMD-bestanden) bevatten alleen metagegevens, niet-code. Typen kunnen verplaatsen van een metagegevensbestand van Windows naar de andere in een service pack release, dus is het belangrijk dat u de metagegevens van de Windows-bestanden die gekoppeld aan een naamruimte zijn te vinden.      > [!NOTE] > Containment niet dat een sub-naamruimten. Dat wil zeggen, de naamruimte A.B geen deel uitmaakt van de naamruimte A."
   syntax:
     content: public static class WindowsRuntimeMetadata
   inheritance:
@@ -35,12 +35,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.InteropServices.WindowsRuntime
-  summary: "Occurs when the resolution of a Windows Metadata file fails in the design environment."
+  summary: "Deze gebeurtenis treedt op wanneer de resolutie van een Windows-metagegevensbestand in de ontwerpomgeving mislukt."
   syntax:
     content: public static event EventHandler<System.Runtime.InteropServices.WindowsRuntime.DesignerNamespaceResolveEventArgs> DesignerNamespaceResolve;
     return:
       type: System.EventHandler{System.Runtime.InteropServices.WindowsRuntime.DesignerNamespaceResolveEventArgs}
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -56,13 +56,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.InteropServices.WindowsRuntime
-  summary: "Occurs when the resolution of a Windows Metadata file fails in the reflection-only context."
-  remarks: "After this event is raised and handled, it is not raised again for the lifetime of the application domain. The list of files that defines the namespace cannot be changed. This event is analogous to the <xref:System.AppDomain.ReflectionOnlyAssemblyResolve> event for managed assemblies.       See the <xref:System.Runtime.InteropServices.WindowsRuntime.NamespaceResolveEventArgs> class.      > [!IMPORTANT] >  The event handler for this event should not throw exceptions."
+  summary: "Deze gebeurtenis treedt op wanneer de resolutie van een Windows-metagegevensbestand in de context van de alleen-reflectie mislukt."
+  remarks: "Nadat deze gebeurtenis wordt gegenereerd en verwerkt, wordt deze niet afgerond opnieuw voor de levensduur van het toepassingsdomein. De lijst met bestanden die de naamruimte definieert, kan niet worden gewijzigd. Deze gebeurtenis is vergelijkbaar met de <xref:System.AppDomain.ReflectionOnlyAssemblyResolve>gebeurtenis voor beheerde assembly&quot;s.</xref:System.AppDomain.ReflectionOnlyAssemblyResolve>       Zie de <xref:System.Runtime.InteropServices.WindowsRuntime.NamespaceResolveEventArgs>klasse.</xref:System.Runtime.InteropServices.WindowsRuntime.NamespaceResolveEventArgs>      > [!IMPORTANT] > De gebeurtenis-handler voor deze gebeurtenis mag geen uitzonderingen genereert."
   syntax:
     content: public static event EventHandler<System.Runtime.InteropServices.WindowsRuntime.NamespaceResolveEventArgs> ReflectionOnlyNamespaceResolve;
     return:
       type: System.EventHandler{System.Runtime.InteropServices.WindowsRuntime.NamespaceResolveEventArgs}
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -78,28 +78,28 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.InteropServices.WindowsRuntime
-  summary: "Locates the Windows Metadata files for the specified namespace, given the specified locations to search."
-  remarks: "Calling this method overload is equivalent to calling the <xref:System.Runtime.InteropServices.WindowsRuntime.WindowsRuntimeMetadata.ResolveNamespace%28System.String%2CSystem.String%2CSystem.Collections.Generic.IEnumerable%7BSystem.String%7D%29> method overload and specifying `null` for the `windowsSdkFilePath` parameter."
+  summary: "De metagegevens van de Windows-bestanden voor de opgegeven naamruimte zoekt gegeven van de opgegeven locaties om te zoeken."
+  remarks: "Het aanroepen van deze methode-overload is gelijk aan het aanroepen van de <xref:System.Runtime.InteropServices.WindowsRuntime.WindowsRuntimeMetadata.ResolveNamespace%28System.String%2CSystem.String%2CSystem.Collections.Generic.IEnumerable%7BSystem.String%7D%29>methode-overload en geven `null` voor de `windowsSdkFilePath` parameter.</xref:System.Runtime.InteropServices.WindowsRuntime.WindowsRuntimeMetadata.ResolveNamespace%28System.String%2CSystem.String%2CSystem.Collections.Generic.IEnumerable%7BSystem.String%7D%29>"
   syntax:
     content: public static System.Collections.Generic.IEnumerable<string> ResolveNamespace (string namespaceName, System.Collections.Generic.IEnumerable<string> packageGraphFilePaths);
     parameters:
     - id: namespaceName
       type: System.String
-      description: "The namespace to resolve."
+      description: "De naamruimte om op te lossen."
     - id: packageGraphFilePaths
       type: System.Collections.Generic.IEnumerable{System.String}
-      description: "The application paths to search for Windows Metadata files, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> to search only for Windows Metadata files from the operating system installation."
+      description: "Paden voor de toepassing om metagegevens van de Windows-bestanden te zoeken of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> alleen om metagegevens van de Windows-bestanden van de installatie van het besturingssysteem te zoeken."
     return:
       type: System.Collections.Generic.IEnumerable{System.String}
-      description: "An enumerable list of strings that represent the Windows Metadata files that define <code>namespaceName</code>."
+      description: "Een inventariseerbare lijst met tekenreeksen die staan voor de metagegevens van de Windows-bestanden die definiëren <code> namespaceName </code>."
   overload: System.Runtime.InteropServices.WindowsRuntime.WindowsRuntimeMetadata.ResolveNamespace*
   exceptions:
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The operating system version does not support the [!INCLUDE[wrt](~/add/includes/wrt-md.md)]."
+    description: "De versie van het besturingssysteem biedt geen ondersteuning voor de [!INCLUDE[wrt](~/add/includes/wrt-md.md)]."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>namespaceName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>namespaceName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Runtime.InteropServices.WindowsRuntime.WindowsRuntimeMetadata.ResolveNamespace(System.String,System.String,System.Collections.Generic.IEnumerable{System.String})
@@ -114,31 +114,31 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.InteropServices.WindowsRuntime
-  summary: "Locates the Windows Metadata files for the specified namespace, given the specified locations to search."
-  remarks: "The path you specify for `windowsSdkFilePath` is searched only for namespaces that begin with Windows."
+  summary: "De metagegevens van de Windows-bestanden voor de opgegeven naamruimte zoekt gegeven van de opgegeven locaties om te zoeken."
+  remarks: "Het opgegeven pad voor `windowsSdkFilePath` alleen voor naamruimten die met Windows beginnen wordt gezocht."
   syntax:
     content: public static System.Collections.Generic.IEnumerable<string> ResolveNamespace (string namespaceName, string windowsSdkFilePath, System.Collections.Generic.IEnumerable<string> packageGraphFilePaths);
     parameters:
     - id: namespaceName
       type: System.String
-      description: "The namespace to resolve."
+      description: "De naamruimte om op te lossen."
     - id: windowsSdkFilePath
       type: System.String
-      description: "The path to search for Windows Metadata files provided by the SDK, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> to search for Windows Metadata files from the operating system installation."
+      description: "Het pad om te zoeken naar metagegevens van de Windows-bestanden die worden geleverd door de SDK of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om te zoeken naar metagegevens van de Windows-bestanden van de installatie van het besturingssysteem."
     - id: packageGraphFilePaths
       type: System.Collections.Generic.IEnumerable{System.String}
-      description: "The application paths to search for Windows Metadata files."
+      description: "Paden voor de toepassing om te zoeken naar bestanden met metagegevens van Windows."
     return:
       type: System.Collections.Generic.IEnumerable{System.String}
-      description: "An enumerable list of strings that represent the Windows Metadata files that define <code>namespaceName</code>."
+      description: "Een inventariseerbare lijst met tekenreeksen die staan voor de metagegevens van de Windows-bestanden die definiëren <code> namespaceName </code>."
   overload: System.Runtime.InteropServices.WindowsRuntime.WindowsRuntimeMetadata.ResolveNamespace*
   exceptions:
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The operating system version does not support the [!INCLUDE[wrt](~/add/includes/wrt-md.md)]."
+    description: "De versie van het besturingssysteem biedt geen ondersteuning voor de [!INCLUDE[wrt](~/add/includes/wrt-md.md)]."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>namespaceName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>namespaceName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 references:

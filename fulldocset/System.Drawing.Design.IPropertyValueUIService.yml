@@ -14,8 +14,8 @@ items:
   nameWithType: IPropertyValueUIService
   fullName: System.Drawing.Design.IPropertyValueUIService
   type: Interface
-  summary: "Provides an interface to manage the images, ToolTips, and event handlers for the properties of a component displayed in a property browser."
-  remarks: "A component can use the IPropertyValueUIService interface to provide <xref:System.Drawing.Design.PropertyValueUIItem> objects for any properties of the component. A <xref:System.Drawing.Design.PropertyValueUIItem> associated with a property can provide an image, a ToolTip and an event handler for the event that is raised when the image associated with the property is clicked.       The IPropertyValueUIService interface provides methods to add, remove, and retrieve <xref:System.Drawing.Design.PropertyValueUIHandler> delegates to or from an internal list. When the properties of a component are displayed in a property browser, each <xref:System.Drawing.Design.PropertyValueUIHandler> in the list is given an opportunity to provide a <xref:System.Drawing.Design.PropertyValueUIItem> for each property of the component.       When a property browser is set to display the properties of an object, it calls the <xref:System.Drawing.Design.IPropertyValueUIService.GetPropertyUIValueItems%2A> method of this interface for each property of the component, passing a <xref:System.ComponentModel.PropertyDescriptor> that represents the property. The <xref:System.Drawing.Design.IPropertyValueUIService.GetPropertyUIValueItems%2A> method calls each <xref:System.Drawing.Design.PropertyValueUIHandler> that has been added to the service. Each <xref:System.Drawing.Design.PropertyValueUIHandler> can add a <xref:System.Drawing.Design.PropertyValueUIItem> to the <xref:System.Collections.ArrayList> parameter passed in the `valueUIItemList` parameter to supply UI items for the property represented by the <xref:System.ComponentModel.PropertyDescriptor> passed in the `propDesc` parameter.       A <xref:System.Drawing.Design.PropertyValueUIItem> can contain an image to display next to the property name, a ToolTip string, and an event handler to invoke when an image associated with the property is double-clicked."
+  summary: "Biedt een interface voor het beheren van de installatiekopieën, knopinfo en gebeurtenis-handlers voor de eigenschappen van een onderdeel in een eigenschapsbrowser weergegeven."
+  remarks: "Een onderdeel kan de IPropertyValueUIService-interface gebruiken voor <xref:System.Drawing.Design.PropertyValueUIItem>objecten voor alle eigenschappen van het onderdeel.</xref:System.Drawing.Design.PropertyValueUIItem> Een <xref:System.Drawing.Design.PropertyValueUIItem>die zijn gekoppeld aan een eigenschap krijgt u een installatiekopie, knopinfo en een gebeurtenis-handler voor de gebeurtenis die wordt geactiveerd wanneer de afbeelding die is gekoppeld aan de eigenschap wordt geklikt.</xref:System.Drawing.Design.PropertyValueUIItem>       De interface IPropertyValueUIService biedt methoden voor het toevoegen, verwijderen en ophalen <xref:System.Drawing.Design.PropertyValueUIHandler>Gemachtigden naar of van een interne lijst.</xref:System.Drawing.Design.PropertyValueUIHandler> Wanneer de eigenschappen van een onderdeel worden weergegeven in een eigenschapsbrowser elke <xref:System.Drawing.Design.PropertyValueUIHandler>in de lijst wordt toegekend aan een mogelijkheid bieden een <xref:System.Drawing.Design.PropertyValueUIItem>voor elke eigenschap van het onderdeel.</xref:System.Drawing.Design.PropertyValueUIItem> </xref:System.Drawing.Design.PropertyValueUIHandler>       Wanneer een eigenschapsbrowser is ingesteld om de eigenschappen van een object weer te geven, roept de <xref:System.Drawing.Design.IPropertyValueUIService.GetPropertyUIValueItems%2A>-methode van deze interface voor elke eigenschap van het onderdeel doorgeven van een <xref:System.ComponentModel.PropertyDescriptor>die staat voor de eigenschap.</xref:System.ComponentModel.PropertyDescriptor> </xref:System.Drawing.Design.IPropertyValueUIService.GetPropertyUIValueItems%2A> De <xref:System.Drawing.Design.IPropertyValueUIService.GetPropertyUIValueItems%2A>methodeaanroepen elk <xref:System.Drawing.Design.PropertyValueUIHandler>die is toegevoegd aan de service.</xref:System.Drawing.Design.PropertyValueUIHandler> </xref:System.Drawing.Design.IPropertyValueUIService.GetPropertyUIValueItems%2A> Elke <xref:System.Drawing.Design.PropertyValueUIHandler>kunt toevoegen een <xref:System.Drawing.Design.PropertyValueUIItem>naar de <xref:System.Collections.ArrayList>parameter doorgegeven de `valueUIItemList` parameter op te geven van de UI-items voor de eigenschap die wordt vertegenwoordigd door de <xref:System.ComponentModel.PropertyDescriptor>doorgegeven de `propDesc` parameter.</xref:System.ComponentModel.PropertyDescriptor> </xref:System.Collections.ArrayList> </xref:System.Drawing.Design.PropertyValueUIItem> </xref:System.Drawing.Design.PropertyValueUIHandler>       Een <xref:System.Drawing.Design.PropertyValueUIItem>kan een afbeelding weergegeven naast de naam van de eigenschap ToolTip string en een gebeurtenis-handler aan te roepen wanneer u dubbelklikt op een afbeelding die hoort bij de eigenschap bevatten.</xref:System.Drawing.Design.PropertyValueUIItem>"
   example:
   - "The following code example creates a component that obtains an instance of the IPropertyValueUIService interface and adds a <xref:System.Drawing.Design.PropertyValueUIHandler> to the service. The handler provides a <xref:System.Drawing.Design.PropertyValueUIItem> object for any properties of the component named `HorizontalMargin` or `VerticalMargin`. The <xref:System.Drawing.Design.PropertyValueUIItem> for these properties provides an image, a ToolTip, and an event handler that displays a message box when the image for the property is clicked. The image and the ToolTip are displayed in a <xref:System.Windows.Forms.PropertyGrid> when the grid is showing these properties of the component.  \n  \n [!code-cpp[IPropertyValueUIServiceExample#1](~/add/codesnippet/cpp/t-system.drawing.design._3_1.cpp)]\n [!code-cs[IPropertyValueUIServiceExample#1](~/add/codesnippet/csharp/t-system.drawing.design._3_1.cs)]\n [!code-vb[IPropertyValueUIServiceExample#1](~/add/codesnippet/visualbasic/t-system.drawing.design._3_1.vb)]"
   syntax:
@@ -35,14 +35,14 @@ items:
   assemblies:
   - System.Drawing
   namespace: System.Drawing.Design
-  summary: "Adds the specified <xref href=&quot;System.Drawing.Design.PropertyValueUIHandler&quot;></xref> to this service."
-  remarks: "When <xref:System.Drawing.Design.IPropertyValueUIService.GetPropertyUIValueItems%2A> is called, each handler added to this service is called and given the opportunity to add an icon for the property."
+  summary: "Voegt de opgegeven <xref href=&quot;System.Drawing.Design.PropertyValueUIHandler&quot;> </xref> naar deze service."
+  remarks: "Wanneer <xref:System.Drawing.Design.IPropertyValueUIService.GetPropertyUIValueItems%2A>is aangeroepen, elke handler toegevoegd aan deze service is aangeroepen en de gelegenheid om toe te voegen een pictogram voor de eigenschap.</xref:System.Drawing.Design.IPropertyValueUIService.GetPropertyUIValueItems%2A>"
   syntax:
     content: public void AddPropertyValueUIHandler (System.Drawing.Design.PropertyValueUIHandler newHandler);
     parameters:
     - id: newHandler
       type: System.Drawing.Design.PropertyValueUIHandler
-      description: "The property value UI handler to add."
+      description: "De eigenschap waarde UI-handler toevoegen."
   overload: System.Drawing.Design.IPropertyValueUIService.AddPropertyValueUIHandler*
   exceptions: []
   platform:
@@ -59,19 +59,19 @@ items:
   assemblies:
   - System.Drawing
   namespace: System.Drawing.Design
-  summary: "Gets the <xref href=&quot;System.Drawing.Design.PropertyValueUIItem&quot;></xref> objects that match the specified context and property descriptor characteristics."
+  summary: "Haalt de <xref href=&quot;System.Drawing.Design.PropertyValueUIItem&quot;> </xref> objecten die voldoen aan de opgegeven context en de eigenschap descriptor kenmerken."
   syntax:
     content: public System.Drawing.Design.PropertyValueUIItem[] GetPropertyUIValueItems (System.ComponentModel.ITypeDescriptorContext context, System.ComponentModel.PropertyDescriptor propDesc);
     parameters:
     - id: context
       type: System.ComponentModel.ITypeDescriptorContext
-      description: "An <xref href=&quot;System.ComponentModel.ITypeDescriptorContext&quot;></xref> that can be used to gain additional context information."
+      description: "Een <xref href=&quot;System.ComponentModel.ITypeDescriptorContext&quot;> </xref> die kunnen worden gebruikt om aanvullende contextinformatie te verkrijgen."
     - id: propDesc
       type: System.ComponentModel.PropertyDescriptor
-      description: "A <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;></xref> that indicates the property to match with the properties to return."
+      description: "Een <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;> </xref> die aangeeft dat de eigenschap overeen met de eigenschappen te retourneren."
     return:
       type: System.Drawing.Design.PropertyValueUIItem[]
-      description: "An array of <xref href=&quot;System.Drawing.Design.PropertyValueUIItem&quot;></xref> objects that match the specified parameters."
+      description: "Een matrix van <xref href=&quot;System.Drawing.Design.PropertyValueUIItem&quot;> </xref> objecten die voldoen aan de opgegeven parameters."
   overload: System.Drawing.Design.IPropertyValueUIService.GetPropertyUIValueItems*
   exceptions: []
   platform:
@@ -88,7 +88,7 @@ items:
   assemblies:
   - System.Drawing
   namespace: System.Drawing.Design
-  summary: "Notifies the <xref href=&quot;System.Drawing.Design.IPropertyValueUIService&quot;></xref> implementation that the global list of <xref href=&quot;System.Drawing.Design.PropertyValueUIItem&quot;></xref> objects has been modified."
+  summary: "Waarschuwt de <xref href=&quot;System.Drawing.Design.IPropertyValueUIService&quot;> </xref> implementatie die de globale lijst met <xref href=&quot;System.Drawing.Design.PropertyValueUIItem&quot;> </xref> objecten is gewijzigd."
   syntax:
     content: public void NotifyPropertyValueUIItemsChanged ();
     parameters: []
@@ -108,13 +108,13 @@ items:
   assemblies:
   - System.Drawing
   namespace: System.Drawing.Design
-  summary: "Occurs when the list of <xref href=&quot;System.Drawing.Design.PropertyValueUIItem&quot;></xref> objects is modified."
-  remarks: "Components that serve <xref:System.Drawing.Design.PropertyValueUIItem> objects can call <xref:System.Drawing.Design.IPropertyValueUIService.NotifyPropertyValueUIItemsChanged%2A> when they change their list of items."
+  summary: "Deze gebeurtenis treedt op wanneer de lijst met <xref href=&quot;System.Drawing.Design.PropertyValueUIItem&quot;> </xref> objecten is gewijzigd."
+  remarks: "Onderdelen die dienen <xref:System.Drawing.Design.PropertyValueUIItem>objecten kunnen aanroepen <xref:System.Drawing.Design.IPropertyValueUIService.NotifyPropertyValueUIItemsChanged%2A>wanneer ze hun lijst met items wijzigen.</xref:System.Drawing.Design.IPropertyValueUIService.NotifyPropertyValueUIItemsChanged%2A> </xref:System.Drawing.Design.PropertyValueUIItem>"
   syntax:
     content: public event EventHandler PropertyUIValueItemsChanged;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -130,13 +130,13 @@ items:
   assemblies:
   - System.Drawing
   namespace: System.Drawing.Design
-  summary: "Removes the specified <xref href=&quot;System.Drawing.Design.PropertyValueUIHandler&quot;></xref> from the property value UI service."
+  summary: "Verwijdert de opgegeven <xref href=&quot;System.Drawing.Design.PropertyValueUIHandler&quot;> </xref> van de waarde van de eigenschap UI-service."
   syntax:
     content: public void RemovePropertyValueUIHandler (System.Drawing.Design.PropertyValueUIHandler newHandler);
     parameters:
     - id: newHandler
       type: System.Drawing.Design.PropertyValueUIHandler
-      description: "The handler to remove."
+      description: "De handler om te verwijderen."
   overload: System.Drawing.Design.IPropertyValueUIService.RemovePropertyValueUIHandler*
   exceptions: []
   platform:

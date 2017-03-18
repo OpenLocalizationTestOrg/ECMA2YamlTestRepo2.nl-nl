@@ -10,8 +10,8 @@ items:
   nameWithType: IAsyncErrorNotify
   fullName: System.EnterpriseServices.IAsyncErrorNotify
   type: Interface
-  summary: "Implements error trapping on the asynchronous batch work that is submitted by the <xref href=&quot;System.EnterpriseServices.Activity&quot;></xref> object."
-  remarks: "IAsyncErrorNotify is used to implement error trapping on the asynchronous batch work that is submitted by the <xref:System.EnterpriseServices.Activity> object. Implement this interface on the object that is passed in the call to <xref:System.EnterpriseServices.Activity.AsynchronousCall%2A> on the <xref:System.EnterpriseServices.Activity> object. <xref:System.EnterpriseServices.Activity.AsynchronousCall%2A> determines if an error occurred in batch work that is running asynchronously. This interface enables you to be informed of errors that occur in asynchronous batch work, and the process will terminate (failfast) on any unrecoverable error.       For information about failfast, see the &quot;Fault Isolation and Failfast Policy&quot; topic in the Platform SDK in MSDN."
+  summary: "Implements onderscheppen op het werk asynchrone batch die wordt verzonden door de <xref href=&quot;System.EnterpriseServices.Activity&quot;> </xref> object."
+  remarks: "IAsyncErrorNotify wordt gebruikt voor fouten onderscheppen implementeren op het werk asynchrone batch die wordt verzonden door de <xref:System.EnterpriseServices.Activity>object.</xref:System.EnterpriseServices.Activity> Deze interface geïmplementeerd op het object dat wordt doorgegeven in de aanroep naar <xref:System.EnterpriseServices.Activity.AsynchronousCall%2A>op de <xref:System.EnterpriseServices.Activity>object.</xref:System.EnterpriseServices.Activity> </xref:System.EnterpriseServices.Activity.AsynchronousCall%2A> <xref:System.EnterpriseServices.Activity.AsynchronousCall%2A>bepaalt of er een fout opgetreden in batch werk dat asynchroon wordt uitgevoerd.</xref:System.EnterpriseServices.Activity.AsynchronousCall%2A> Deze interface kunt u in kennis gesteld van fouten die in asynchrone batch werk optreden en het proces (failfast) eindigen op een onherstelbare fout.       Zie het onderwerp &quot;Fout isolatie en Failfast beleid&quot; in de SDK-Platform in MSDN voor informatie over failfast."
   syntax:
     content: >-
       [System.Runtime.InteropServices.Guid("FE6777FB-A674-4177-8F32-6D707E113484")]
@@ -34,14 +34,14 @@ items:
   assemblies:
   - System.EnterpriseServices
   namespace: System.EnterpriseServices
-  summary: "Handles errors for asynchronous batch work."
-  remarks: "This method should be implemented to gracefully handle errors that occur when batch work is running asynchronously. Because the process terminates (failfast) on any unrecoverable error, without this method there is no way of knowing when errors occur in asynchronous batch work. The process also terminates when this method returns an error as its return value. The batch work itself is implemented in <xref:System.EnterpriseServices.IServiceCall.OnCall%2A>, and it is run asynchronously by calling <xref:System.EnterpriseServices.Activity.AsynchronousCall%2A>.       This method supports the standard return values `E_FAIL`, `E_INVALIDARG`, and `E_OUTOFMEMORY`, as well as `S_OK`, which indicates the method call returned successfully."
+  summary: "Fouten voor werk asynchrone batch worden verwerkt."
+  remarks: "Deze methode moet worden geïmplementeerd om te verwerken fouten die optreden bij het werk batch wordt asynchroon uitgevoerd. Omdat het proces wordt beëindigd (failfast) op een onherstelbare fout, zonder dat deze methode is geen enkele manier van weten wanneer er fouten optreden in asynchrone batch voor werk. Het proces beëindigt ook wanneer deze methode een fout als de retourwaarde retourneert. Het werk batch zelf is geïmplementeerd in <xref:System.EnterpriseServices.IServiceCall.OnCall%2A>, en deze wordt asynchroon uitgevoerd door het aanroepen van <xref:System.EnterpriseServices.Activity.AsynchronousCall%2A>.</xref:System.EnterpriseServices.Activity.AsynchronousCall%2A> </xref:System.EnterpriseServices.IServiceCall.OnCall%2A>       Deze methode ondersteunt de standaard retourwaarden `E_FAIL`, `E_INVALIDARG`, en `E_OUTOFMEMORY`, evenals `S_OK`, wat aangeeft dat de methodeaanroep is geretourneerd."
   syntax:
     content: public void OnError (int hresult);
     parameters:
     - id: hresult
       type: System.Int32
-      description: "The HRESULT of the error that occurred while the batch work was running asynchronously."
+      description: "De HRESULT van de volgende fout is opgetreden bij het werk batch is asynchroon uitgevoerd."
   overload: System.EnterpriseServices.IAsyncErrorNotify.OnError*
   exceptions: []
   platform:

@@ -18,8 +18,8 @@ items:
   nameWithType: ExternalDataEventArgs
   fullName: System.Workflow.Activities.ExternalDataEventArgs
   type: Class
-  summary: "Represents the data sent when an event is raised using the <xref href=&quot;System.Workflow.Activities.HandleExternalEventActivity&quot;></xref> activity."
-  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]       A local communication interface marked with <xref:System.Workflow.Activities.ExternalDataExchangeAttribute> must declare a type that derives from ExternalDataEventArgs in the interface definition for the corresponding event to be handled in a workflow with a <xref:System.Workflow.Activities.HandleExternalEventActivity> activity."
+  summary: "Hiermee geeft u de gegevens die worden verzonden wanneer een gebeurtenis optreedt met behulp van de <xref href=&quot;System.Workflow.Activities.HandleExternalEventActivity&quot;> </xref> activiteit."
+  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]Een lokale communicatie-interface is gemarkeerd met <xref:System.Workflow.Activities.ExternalDataExchangeAttribute>moeten een type dat wordt afgeleid van ExternalDataEventArgs in de interfacedefinitie van de voor de bijbehorende gebeurtenis moet worden verwerkt in een werkstroom met een <xref:System.Workflow.Activities.HandleExternalEventActivity>activiteit.</xref:System.Workflow.Activities.HandleExternalEventActivity> </xref:System.Workflow.Activities.ExternalDataExchangeAttribute>"
   example:
   - "An event class that inherits from ExternalDataEventArgs must implement a constructor that uses the `:base(instanceId)` constructor. In addition, the new event class must be marked as `Serializable` as shown in the following code.  \n  \n```c#  \n[Serializable]  \npublic class TaskEventArgs : ExternalDataEventArgs  \n{  \n    private string orderName;  \n  \n    public TaskEventArgs(Guid instanceId, string id)  \n        :base(instanceId)  \n    {  \n        orderName = id;  \n    }  \n  \n    public string Id  \n    {  \n        get { return orderName; }  \n        set { orderName = value; }  \n    }  \n}  \n```"
   syntax:
@@ -45,7 +45,7 @@ items:
   assemblies:
   - System.Workflow.Activities
   namespace: System.Workflow.Activities
-  summary: "Initializes a new instance of the <xref href=&quot;System.Workflow.Activities.ExternalDataEventArgs&quot;></xref> class."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Workflow.Activities.ExternalDataEventArgs&quot;> </xref> klasse."
   syntax:
     content: public ExternalDataEventArgs ();
     parameters: []
@@ -65,13 +65,13 @@ items:
   assemblies:
   - System.Workflow.Activities
   namespace: System.Workflow.Activities
-  summary: "Initializes a new instance of the <xref href=&quot;System.Workflow.Activities.ExternalDataEventArgs&quot;></xref> class using the instance identifier of the workflow."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Workflow.Activities.ExternalDataEventArgs&quot;> </xref> klasse met behulp van de exemplaar-id van de werkstroom."
   syntax:
     content: public ExternalDataEventArgs (Guid instanceId);
     parameters:
     - id: instanceId
       type: System.Guid
-      description: "The workflow instance identifier for the workflow instance that contains the <xref href=&quot;System.Workflow.Activities.HandleExternalEventActivity&quot;></xref> that is expected to handle the event."
+      description: "De unieke werkstroominstantie-id voor het werkstroomexemplaar dat bevat de <xref href=&quot;System.Workflow.Activities.HandleExternalEventActivity&quot;> </xref> waarvan wordt verwacht dat de gebeurtenis verwerken."
   overload: System.Workflow.Activities.ExternalDataEventArgs.#ctor*
   exceptions: []
   platform:
@@ -88,19 +88,19 @@ items:
   assemblies:
   - System.Workflow.Activities
   namespace: System.Workflow.Activities
-  summary: "Initializes a new instance of the <xref href=&quot;System.Workflow.Activities.ExternalDataEventArgs&quot;></xref> class."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Workflow.Activities.ExternalDataEventArgs&quot;> </xref> klasse."
   syntax:
     content: public ExternalDataEventArgs (Guid instanceId, System.Workflow.Runtime.IPendingWork workHandler, object workItem);
     parameters:
     - id: instanceId
       type: System.Guid
-      description: "The workflow instance identifier for the workflow instance that contains the <xref href=&quot;System.Workflow.Activities.HandleExternalEventActivity&quot;></xref> that is expected to handle the event."
+      description: "De unieke werkstroominstantie-id voor het werkstroomexemplaar dat bevat de <xref href=&quot;System.Workflow.Activities.HandleExternalEventActivity&quot;> </xref> waarvan wordt verwacht dat de gebeurtenis verwerken."
     - id: workHandler
       type: System.Workflow.Runtime.IPendingWork
-      description: "The <xref href=&quot;System.Workflow.Runtime.IPendingWork&quot;></xref> to allow the external code, raising the event, to participate in the batch."
+      description: "De <xref href=&quot;System.Workflow.Runtime.IPendingWork&quot;> </xref> om toe te staan van de externe code, verhogen van de gebeurtenis, om deel te nemen in de batch."
     - id: workItem
       type: System.Object
-      description: "The object that contains the external code that raises the event."
+      description: "Het object met de externe code die de gebeurtenis zich voordoet."
   overload: System.Workflow.Activities.ExternalDataEventArgs.#ctor*
   exceptions: []
   platform:
@@ -117,22 +117,22 @@ items:
   assemblies:
   - System.Workflow.Activities
   namespace: System.Workflow.Activities
-  summary: "Initializes a new instance of the <xref href=&quot;System.Workflow.Activities.ExternalDataEventArgs&quot;></xref> class."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Workflow.Activities.ExternalDataEventArgs&quot;> </xref> klasse."
   syntax:
     content: public ExternalDataEventArgs (Guid instanceId, System.Workflow.Runtime.IPendingWork workHandler, object workItem, bool waitForIdle);
     parameters:
     - id: instanceId
       type: System.Guid
-      description: "The workflow instance identifier for the workflow instance that contains the <xref href=&quot;System.Workflow.Activities.HandleExternalEventActivity&quot;></xref> that is expected to handle the event."
+      description: "De unieke werkstroominstantie-id voor het werkstroomexemplaar dat bevat de <xref href=&quot;System.Workflow.Activities.HandleExternalEventActivity&quot;> </xref> waarvan wordt verwacht dat de gebeurtenis verwerken."
     - id: workHandler
       type: System.Workflow.Runtime.IPendingWork
-      description: "The <xref href=&quot;System.Workflow.Runtime.IPendingWork&quot;></xref> to allow the external code that raises the event to participate in the batch."
+      description: "De <xref href=&quot;System.Workflow.Runtime.IPendingWork&quot;> </xref> om toe te staan van de externe code die wordt gegeven van de gebeurtenis om deel te nemen in de batch."
     - id: workItem
       type: System.Object
-      description: "The object that contains the external code that raises the event."
+      description: "Het object met de externe code die de gebeurtenis zich voordoet."
     - id: waitForIdle
       type: System.Boolean
-      description: "A value that indicates whether the workflow should go idle before raising the event; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "Een waarde die aangeeft of de werkstroom moet gaan niet-actieve voordat u de gebeurtenis plaatsvindt. anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Workflow.Activities.ExternalDataEventArgs.#ctor*
   exceptions: []
   platform:
@@ -149,13 +149,13 @@ items:
   assemblies:
   - System.Workflow.Activities
   namespace: System.Workflow.Activities
-  summary: "Gets or sets the identity of the user that raised the event."
-  remarks: "This property is evaluated by the <xref:System.Workflow.Activities.HandleExternalEventActivity> activity. If the value that is set in the <xref:System.Workflow.Activities.HandleExternalEventActivity.Roles%2A> property of this activity does not match any of the roles associated with the user identity, the activity is not allowed to execute.       The entity that raises the event can be a person or a computer.       Identity is used by the Roles functionality to ensure that this identity is allowed to submit data to this workflow."
+  summary: "Opgehaald of ingesteld van de identiteit van de gebruiker die de gebeurtenis die optreedt."
+  remarks: "Deze eigenschap wordt geëvalueerd door de <xref:System.Workflow.Activities.HandleExternalEventActivity>activiteit.</xref:System.Workflow.Activities.HandleExternalEventActivity> Als de waarde die is ingesteld in de <xref:System.Workflow.Activities.HandleExternalEventActivity.Roles%2A>eigenschap van deze activiteit komt niet overeen met een van de rollen gekoppeld aan de gebruikers-id, de activiteit is niet toegestaan om uit te voeren.</xref:System.Workflow.Activities.HandleExternalEventActivity.Roles%2A>       De entiteit die wordt gegeven van de gebeurtenis kan zijn van een persoon of computer.       Identiteit is gebruikt door de functionaliteit van rollen om ervoor te zorgen dat deze identiteit voor het verzenden van gegevens naar deze werkstroom is toegestaan."
   syntax:
     content: public string Identity { get; set; }
     return:
       type: System.String
-      description: "The identity of the user that is raising the event."
+      description: "De identiteit van de gebruiker die de gebeurtenis."
   overload: System.Workflow.Activities.ExternalDataEventArgs.Identity*
   exceptions: []
   platform:
@@ -172,13 +172,13 @@ items:
   assemblies:
   - System.Workflow.Activities
   namespace: System.Workflow.Activities
-  summary: "Gets or sets the workflow instance identifier for the workflow instance that contains the <xref href=&quot;System.Workflow.Activities.HandleExternalEventActivity&quot;></xref> that is expected to handle the event."
-  remarks: "This is a required property."
+  summary: "Opgehaald of ingesteld van de unieke werkstroominstantie-id voor het werkstroomexemplaar dat bevat de <xref href=&quot;System.Workflow.Activities.HandleExternalEventActivity&quot;> </xref> waarvan wordt verwacht dat de gebeurtenis verwerken."
+  remarks: "Dit is een vereiste eigenschap."
   syntax:
     content: public Guid InstanceId { get; set; }
     return:
       type: System.Guid
-      description: "The workflow instance identifier for the workflow instance that contains the <xref href=&quot;System.Workflow.Activities.HandleExternalEventActivity&quot;></xref> that is expected to handle the event."
+      description: "De unieke werkstroominstantie-id voor het werkstroomexemplaar dat bevat de <xref href=&quot;System.Workflow.Activities.HandleExternalEventActivity&quot;> </xref> waarvan wordt verwacht dat de gebeurtenis verwerken."
   overload: System.Workflow.Activities.ExternalDataEventArgs.InstanceId*
   exceptions: []
   platform:
@@ -195,13 +195,13 @@ items:
   assemblies:
   - System.Workflow.Activities
   namespace: System.Workflow.Activities
-  summary: "Gets or sets a value that indicates whether the event should be raised immediately, or if the workflow should go idle before raising the event."
-  remarks: "The default value is `false`.       A value of `true` indicates that data was submitted to the workflow using <xref:System.Workflow.Runtime.WorkflowInstance.EnqueueItemOnIdle%2A>. A value of `false` indicates that data was submitted to the workflow using <xref:System.Workflow.Runtime.WorkflowInstance.EnqueueItem%2A>."
+  summary: "Opgehaald of ingesteld van een waarde die aangeeft of de gebeurtenis onmiddellijk moet worden afgegeven of als de werkstroom moet gaat u niet-actieve voordat u de gebeurtenis."
+  remarks: "De standaardwaarde is `false`.       Een waarde van `true` geeft aan dat de gegevens is ingediend bij de werkstroom zijn gebruikt <xref:System.Workflow.Runtime.WorkflowInstance.EnqueueItemOnIdle%2A>.</xref:System.Workflow.Runtime.WorkflowInstance.EnqueueItemOnIdle%2A> Een waarde van `false` geeft aan dat de gegevens is ingediend bij de werkstroom zijn gebruikt <xref:System.Workflow.Runtime.WorkflowInstance.EnqueueItem%2A>.</xref:System.Workflow.Runtime.WorkflowInstance.EnqueueItem%2A>"
   syntax:
     content: public bool WaitForIdle { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the workflow should go idle before raising the event; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de werkstroom moet niet-actieve gaan voordat u de gebeurtenis plaatsvindt. anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Workflow.Activities.ExternalDataEventArgs.WaitForIdle*
   exceptions: []
   platform:
@@ -218,12 +218,12 @@ items:
   assemblies:
   - System.Workflow.Activities
   namespace: System.Workflow.Activities
-  summary: "Gets or sets the <xref href=&quot;System.Workflow.Runtime.IPendingWork&quot;></xref> to allow the external code, raising the event, to participate in the batch."
+  summary: "Opgehaald of ingesteld de <xref href=&quot;System.Workflow.Runtime.IPendingWork&quot;> </xref> om toe te staan van de externe code, verhogen van de gebeurtenis, om deel te nemen in de batch."
   syntax:
     content: public System.Workflow.Runtime.IPendingWork WorkHandler { get; set; }
     return:
       type: System.Workflow.Runtime.IPendingWork
-      description: "The <xref href=&quot;System.Workflow.Runtime.IPendingWork&quot;></xref> to allow the external code, raising the event, to participate in the batch."
+      description: "De <xref href=&quot;System.Workflow.Runtime.IPendingWork&quot;> </xref> om toe te staan van de externe code, verhogen van de gebeurtenis, om deel te nemen in de batch."
   overload: System.Workflow.Activities.ExternalDataEventArgs.WorkHandler*
   exceptions: []
   platform:
@@ -240,12 +240,12 @@ items:
   assemblies:
   - System.Workflow.Activities
   namespace: System.Workflow.Activities
-  summary: "Gets or sets the object that contains the external code that raises the event."
+  summary: "Opgehaald of ingesteld van het object met de externe code die de gebeurtenis zich voordoet."
   syntax:
     content: public object WorkItem { get; set; }
     return:
       type: System.Object
-      description: "The object that contains the external code that raises the event."
+      description: "Het object met de externe code die de gebeurtenis zich voordoet."
   overload: System.Workflow.Activities.ExternalDataEventArgs.WorkItem*
   exceptions: []
   platform:

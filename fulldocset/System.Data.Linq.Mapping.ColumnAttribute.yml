@@ -19,8 +19,8 @@ items:
   nameWithType: ColumnAttribute
   fullName: System.Data.Linq.Mapping.ColumnAttribute
   type: Class
-  summary: "Associates a class with a column in a database table."
-  remarks: "Use this attribute to designate a member of an entity class to represent a column in a database table. You can apply this attribute to any field or property that is `public`, `private`, or `internal`.       Only those entity class members identified as columns are persisted when [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] saves changes to the database.       Use commas to separate multiple properties on the attribute."
+  summary: "Een klasse koppelt aan een kolom in een databasetabel."
+  remarks: "Dit kenmerk gebruiken om aan te geven van een lid van de entiteitsklasse van een vertegenwoordigt een kolom in een databasetabel. U kunt dit kenmerk toepassen op een veld of eigenschap die is `public`, `private`, of `internal`.       Alleen entiteit klassenleden geïdentificeerd als kolommen persistent worden gemaakt wanneer [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] worden wijzigingen in de database opgeslagen.       Eigenschappen van het kenmerk scheiden met een komma."
   example:
   - "```vb#  \n<Table(Name:=\"Employees\")>  _  \nPublic Class Employees  \n    Private _LastName As String  \n    ' …  \n    <Column(Storage:=\"_LastName\", DbType:=\"NVarChar(20) NOT NULL\", _  \n        CanBeNull:=false)> _  \n    Public Property LastName() As String  \n        Get  \n            Return Me._LastName  \n        End Get  \n        Set  \n            If ((Me._LastName = value) _  \n                = false) Then  \n                Me.OnPropertyChanging(\"LastName\")  \n                Me._LastName = value  \n                Me.OnPropertyChanged(\"LastName\")  \n            End If  \n        End Set  \n    End Property  \nEnd Class  \n```  \n  \n```c#  \n[Table(Name=\"Employees\")]  \npublic class Employees  \n{  \n    private string _LastName;      \n    // …  \n    [Column(Storage=\"_LastName\", DbType=\"NVarChar(20) NOT NULL\",   \n        CanBeNull=false)]  \n    public string LastName  \n    {  \n        get  \n        {  \n            return this._LastName;  \n        }  \n        set  \n        {  \n            if ((this._LastName != value))  \n            {  \n                this.OnPropertyChanging(\"LastName\");  \n                this._LastName = value;  \n                this.OnPropertyChanged(\"LastName\");  \n            }  \n        }  \n    }  \n}  \n```"
   syntax:
@@ -49,7 +49,7 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq.Mapping
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.Linq.Mapping.ColumnAttribute&quot;></xref> class."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Data.Linq.Mapping.ColumnAttribute&quot;> </xref> klasse."
   syntax:
     content: public ColumnAttribute ();
     parameters: []
@@ -69,7 +69,7 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq.Mapping
-  summary: "Gets or sets the <xref href=&quot;System.Data.Linq.Mapping.AutoSync&quot;></xref> enumeration."
+  summary: "Opgehaald of ingesteld de <xref href=&quot;System.Data.Linq.Mapping.AutoSync&quot;> </xref> opsomming."
   remarks: ''
   example:
   - >-
@@ -79,7 +79,7 @@ items:
     content: public System.Data.Linq.Mapping.AutoSync AutoSync { get; set; }
     return:
       type: System.Data.Linq.Mapping.AutoSync
-      description: "The <xref href=&quot;System.Data.Linq.Mapping.AutoSync&quot;></xref> value."
+      description: "De <xref href=&quot;System.Data.Linq.Mapping.AutoSync&quot;> </xref> waarde."
   overload: System.Data.Linq.Mapping.ColumnAttribute.AutoSync*
   exceptions: []
   platform:
@@ -96,8 +96,8 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq.Mapping
-  summary: "Gets or sets whether a column can contain null values."
-  remarks: "If you set this value to `false`, the data in the corresponding column is assumed to be non-null.      > [!NOTE] >  This property is duplicated from the <xref:System.Data.Linq.Mapping.ColumnAttribute.DbType%2A> property for convenience. The <xref:System.Data.Linq.DataContext.CreateDatabase%2A> method uses only the <xref:System.Data.Linq.Mapping.ColumnAttribute.DbType%2A> property. For this reason, you must specify whether a column can contain null values in the <xref:System.Data.Linq.Mapping.ColumnAttribute.DbType%2A> property also."
+  summary: "Opgehaald of ingesteld of een kolom kan null-waarden bevatten."
+  remarks: "Als u deze waarde instelt op `false`, wordt uitgegaan van de gegevens in de bijbehorende kolom niet null zijn.      > [!NOTE] > Deze eigenschap is gedupliceerd in de <xref:System.Data.Linq.Mapping.ColumnAttribute.DbType%2A>eigenschap voor het gemak.</xref:System.Data.Linq.Mapping.ColumnAttribute.DbType%2A> De <xref:System.Data.Linq.DataContext.CreateDatabase%2A>methode maakt gebruik van alleen de <xref:System.Data.Linq.Mapping.ColumnAttribute.DbType%2A>eigenschap.</xref:System.Data.Linq.Mapping.ColumnAttribute.DbType%2A> </xref:System.Data.Linq.DataContext.CreateDatabase%2A> Daarom moet u opgeven of een kolom mag null-waarden in de <xref:System.Data.Linq.Mapping.ColumnAttribute.DbType%2A>eigenschap ook.</xref:System.Data.Linq.Mapping.ColumnAttribute.DbType%2A>"
   example:
   - >-
     [!code-vb[System.Data.Linq.Mapping.ColumnAttribute#2](~/add/codesnippet/visualbasic/vb-ColumnAttributes/northwind.vb#2)]
@@ -123,8 +123,8 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq.Mapping
-  summary: "Gets or sets the type of the database column."
-  remarks: "Use this property to specify the exact text that defines the column in a Transact-SQL table declaration. Specify the DbType property only if you plan to use <xref:System.Data.Linq.DataContext.CreateDatabase%2A> to create an instance of the database.       The default value of DbType is inferred from the member type. For more information, see [SQL-CLR Type Mapping](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Opgehaald of ingesteld van het type van de databasekolom."
+  remarks: "Gebruik deze eigenschap de exacte tekst opgeven die de kolom in de declaratie van een Transact-SQL-tabel gedefinieerd. De eigenschap DbType alleen opgeven als u van plan bent te gebruiken <xref:System.Data.Linq.DataContext.CreateDatabase%2A>een exemplaar van de database te maken.</xref:System.Data.Linq.DataContext.CreateDatabase%2A>       De standaardwaarde van DbType is afgeleid van het lidtype. Zie voor meer informatie [SQL CLR-Type toewijzing](~/add/includes/ajax-current-ext-md.md)."
   example:
   - >-
     [!code-vb[System.Data.Linq.Mapping.ColumnAttribute#4](~/add/codesnippet/visualbasic/vb-ColumnAttributes/northwind.vb#4)]
@@ -133,7 +133,7 @@ items:
     content: public string DbType { get; set; }
     return:
       type: System.String
-      description: "See Remarks."
+      description: "Zie de opmerkingen."
   overload: System.Data.Linq.Mapping.ColumnAttribute.DbType*
   exceptions: []
   platform:
@@ -150,8 +150,8 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq.Mapping
-  summary: "Gets or sets whether a column is a computed column in a database."
-  remarks: "Use this property when you use <xref:System.Data.Linq.DataContext.CreateDatabase%2A> to define a column as containing computed values.       For example, if you want to create a column defined in SQL as `InventoryVal AS UnitPrice * UnitsInStock`, use the following *expression* string: `&quot;UnitPrice * UnitsInStock&quot;`.      > [!NOTE] >  [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] does not support computed columns as primary keys."
+  summary: "Opgehaald of ingesteld of een kolom een berekende kolom in een database is."
+  remarks: "Deze eigenschap gebruiken wanneer u <xref:System.Data.Linq.DataContext.CreateDatabase%2A>voor het definiëren van een kolom bevat berekende waarden.</xref:System.Data.Linq.DataContext.CreateDatabase%2A>       Bijvoorbeeld, als u wilt maken van een kolom die is gedefinieerd in SQL als `InventoryVal AS UnitPrice * UnitsInStock`, gebruikt u de volgende *expressie* tekenreeks: `&quot;UnitPrice * UnitsInStock&quot;`.      > [!NOTE]  >   [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] ondersteunt geen berekende kolommen als primaire sleutels."
   example:
   - >-
     [!code-vb[System.Data.Linq.Mapping.ColumnAttribute#5](~/add/codesnippet/visualbasic/vb-ColumnAttributes/northwind.vb#5)]
@@ -160,7 +160,7 @@ items:
     content: public string Expression { get; set; }
     return:
       type: System.String
-      description: "Default = empty."
+      description: "Standaardinstelling = leeg."
   overload: System.Data.Linq.Mapping.ColumnAttribute.Expression*
   exceptions: []
   platform:
@@ -177,8 +177,8 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq.Mapping
-  summary: "Gets or sets whether a column contains values that the database auto-generates."
-  remarks: "IsDbGenerated members are synchronized immediately after the row of data is inserted, and the members are available after <xref:System.Data.Linq.DataContext.SubmitChanges%2A> is completed.      > [!NOTE] >  If the column holds primary key values and you designate IsDbGenerated as `true`, you should also add the <xref:System.Data.Linq.Mapping.ColumnAttribute.DbType%2A> property by using the `IDENTITY` modifier."
+  summary: "Opgehaald of ingesteld of een kolom bevat waarden die de database automatisch gegenereerd."
+  remarks: "IsDbGenerated leden zijn gesynchroniseerd, onmiddellijk nadat de rij van gegevens wordt ingevoegd en de leden beschikbaar zijn na <xref:System.Data.Linq.DataContext.SubmitChanges%2A>is voltooid.</xref:System.Data.Linq.DataContext.SubmitChanges%2A>      > [!NOTE] > Als de kolom waarden van primaire sleutels bevat en toewijzen van IsDbGenerated als `true`, moet u ook toevoegen de <xref:System.Data.Linq.Mapping.ColumnAttribute.DbType%2A>eigenschap met behulp van de `IDENTITY` aanpassingsfunctie.</xref:System.Data.Linq.Mapping.ColumnAttribute.DbType%2A>"
   example:
   - >-
     [!code-vb[System.Data.Linq.Mapping.ColumnAttribute#6](~/add/codesnippet/visualbasic/vb-ColumnAttributes/northwind.vb#6)]
@@ -204,8 +204,8 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq.Mapping
-  summary: "Gets or sets whether a column contains a discriminator value for a [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] inheritance hierarchy."
-  remarks: "When `true`, this property identifies the class member as holding the discriminator value for an inheritance hierarchy.       You can set this property to `true` for no more than one member, which must belong to the topmost mapped class in the hierarchy."
+  summary: "Opgehaald of ingesteld of een kolom bevat een discriminatorwaarde voor een [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] overnamehiërarchie."
+  remarks: "Wanneer `true`, deze eigenschap geeft het klasselid als de discriminatorwaarde die voor een overnamehiërarchie.       U kunt deze eigenschap instellen op `true` voor geen toegewezen lid tot de bovenste behoren moet meer dan één klasse in de hiërarchie."
   example:
   - >-
     [!code-vb[System.Data.Linq.Mapping.ColumnAttribute#7](~/add/codesnippet/visualbasic/vb-ColumnAttributes/northwind.vb#7)]
@@ -231,8 +231,8 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq.Mapping
-  summary: "Gets or sets whether this class member represents a column that is part or all of the primary key of the table."
-  remarks: "Assuming an entity class, you must provide at least one member with this attribute, and it must be mapped to the primary key or a unique key in the corresponding table or view. Failure to do this prompts [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] to consider instances of the class as read-only for submitting changes to the database.       If you designate more than one member of the class by using this property, the key is said to be a composite of the associated columns.      > [!NOTE] >  [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] does not support computed columns as primary keys."
+  summary: "Opgehaald of ingesteld of het klasselid van deze vertegenwoordigt een kolom die deel van de primaire sleutel van de tabel of alle."
+  remarks: "Ervan uitgaande dat een entiteitsklasse, moet u ten minste één lid met dit kenmerk opgeven en deze moet worden toegewezen aan de primaire sleutel of een unieke sleutel in de bijbehorende tabel of weergave. Dit wordt u gevraagd dit [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] rekening houden met exemplaren van de klasse als alleen-lezen voor het indienen van wijzigingen in de database.       Als u meer dan één lid van de klasse met behulp van deze eigenschap opgeeft, wordt de sleutel moet een samenstelling van de bijbehorende kolommen gezegd.      > [!NOTE]  >   [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] ondersteunt geen berekende kolommen als primaire sleutels."
   example:
   - >-
     [!code-vb[System.Data.Linq.Mapping.ColumnAttribute#8](~/add/codesnippet/visualbasic/vb-ColumnAttributes/northwind.vb#8)]
@@ -258,8 +258,8 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq.Mapping
-  summary: "Gets or sets whether the column type of the member is a database timestamp or version number."
-  remarks: "Version numbers are incremented and timestamp columns are updated every time that the associated row is updated. (This property tells [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] that a column should be updated to show that it is a new version; it is not meant to record information such as who made the update.)       Note the following when `IsVersion` is true:      -   Use <xref:System.Data.Linq.Mapping.ColumnAttribute.DbType%2A> to specify the correct modifiers to designate a version number or timestamp column. If you do not specify <xref:System.Data.Linq.Mapping.ColumnAttribute.DbType%2A>, [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] infers the correct modifiers.       Version numbers are incremented and timestamp columns are updated every time that the associated row is updated. Members with `IsVersion=true` are synchronized immediately after the data row is updated. The new values are visible after <xref:System.Data.Linq.DataContext.SubmitChanges%2A> finishes."
+  summary: "Opgehaald of ingesteld of het kolomtype van het lid een database tijdstempel of versie nummer is."
+  remarks: "Versienummers worden verhoogd en timestamp-kolommen worden bijgewerkt elke keer dat de bijbehorende rij is bijgewerkt. (Deze eigenschap zien [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] dat een kolom moet worden bijgewerkt om aan te tonen dat deze een nieuwe versie; dit is niet bedoeld om gegevens in de record zoals wie de update hebt aangebracht.)       Let op het volgende wanneer `IsVersion` is ingesteld op true:-Gebruik <xref:System.Data.Linq.Mapping.ColumnAttribute.DbType%2A>om op te geven van de juiste parameters om een versie nummer of timestamp-kolom.</xref:System.Data.Linq.Mapping.ColumnAttribute.DbType%2A> Als u geen opgeeft <xref:System.Data.Linq.Mapping.ColumnAttribute.DbType%2A>, [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] infereert de juiste parameters.</xref:System.Data.Linq.Mapping.ColumnAttribute.DbType%2A>       Versienummers worden verhoogd en timestamp-kolommen worden bijgewerkt elke keer dat de bijbehorende rij is bijgewerkt. Leden met `IsVersion=true` zijn gesynchroniseerd onmiddellijk nadat de rij is bijgewerkt. De nieuwe waarden worden weergegeven na <xref:System.Data.Linq.DataContext.SubmitChanges%2A>is voltooid.</xref:System.Data.Linq.DataContext.SubmitChanges%2A>"
   example:
   - >-
     [!code-vb[System.Data.Linq.Mapping.ColumnAttribute#9](~/add/codesnippet/visualbasic/vb-ColumnAttributes/northwind.vb#9)]
@@ -268,7 +268,7 @@ items:
     content: public bool IsVersion { get; set; }
     return:
       type: System.Boolean
-      description: "Default value = <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "Standaardwaarde = <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.Linq.Mapping.ColumnAttribute.IsVersion*
   exceptions: []
   platform:
@@ -285,8 +285,8 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq.Mapping
-  summary: "Gets or sets how [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] approaches the detection of optimistic concurrency conflicts."
-  remarks: "When this property is used with one of three enums, it determines how [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] detects concurrency conflicts.       If no member is designed as `IsVersion=true`, original member values are compared with the current database state.       The following enums are available:      -   `Always` Always use this column for conflict detection.      -   `Never` Never use this column for conflict detection.      -   `WhenChanged` Use this column only when the member has been changed by the application."
+  summary: "Opgehaald of ingesteld hoe [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] nadert optimistische gelijktijdigheid conflicten te detecteren."
+  remarks: "Als deze eigenschap wordt gebruikt met een van drie enums, bepaalt hoe [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] detecteert gelijktijdigheid van conflicten.       Als u geen lid is ontworpen als `IsVersion=true`, oorspronkelijke waarden worden vergeleken met de status van de huidige database.       De volgende enums zijn beschikbaar:- `Always` altijd deze kolom wordt gebruikt voor conflictdetectie.      - `Never` Nooit deze kolom wordt gebruikt voor conflictdetectie.      - `WhenChanged` Gebruik van deze kolom alleen wanneer het lid is gewijzigd door de toepassing."
   example:
   - >-
     [!code-vb[System.Data.Linq.Mapping.ColumnAttribute#10](~/add/codesnippet/visualbasic/vb-ColumnAttributes/northwind.vb#10)]
@@ -295,7 +295,7 @@ items:
     content: public System.Data.Linq.Mapping.UpdateCheck UpdateCheck { get; set; }
     return:
       type: System.Data.Linq.Mapping.UpdateCheck
-      description: "Default = <xref href=&quot;System.Data.Linq.Mapping.UpdateCheck&quot;></xref>, unless <xref:System.Data.Linq.Mapping.ColumnAttribute.IsVersion*> is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> for a member.       Other values are <xref href=&quot;System.Data.Linq.Mapping.UpdateCheck&quot;></xref> and <xref href=&quot;System.Data.Linq.Mapping.UpdateCheck&quot;></xref>."
+      description: "Standaardinstelling = <xref href=&quot;System.Data.Linq.Mapping.UpdateCheck&quot;> </xref>, tenzij <xref:System.Data.Linq.Mapping.ColumnAttribute.IsVersion*>is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> voor een lid.</xref:System.Data.Linq.Mapping.ColumnAttribute.IsVersion*>       Andere waarden zijn <xref href=&quot;System.Data.Linq.Mapping.UpdateCheck&quot;> </xref> en <xref href=&quot;System.Data.Linq.Mapping.UpdateCheck&quot;> </xref>."
   overload: System.Data.Linq.Mapping.ColumnAttribute.UpdateCheck*
   exceptions: []
   platform:
