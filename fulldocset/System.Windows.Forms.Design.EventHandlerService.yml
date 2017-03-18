@@ -15,8 +15,8 @@ items:
   nameWithType: EventHandlerService
   fullName: System.Windows.Forms.Design.EventHandlerService
   type: Class
-  summary: "Provides a systematic way to manage event handlers for the current document."
-  remarks: "Developers may want to be able to write code in one place that handles events of a certain type.       Also, developers may need to globally change the behavior of the handlers for specific events or types of events, which may be distributed among designer components.       The designers for a typical project are many different objects so it can be useful to list and store reference to these events from a common place.       This service implements an &quot;event stack&quot; that contains the current set of event handlers. The stack may have a variety of different types of handlers on the stack.       For example, a designer might push, or add, a keyboard handler and a mouse handler onto the stack. When a designer requests an event handler, the service will find the topmost handler on the stack that matches the class you requested.       This way the service can be extended to any eventing scheme, and it also allows specific types of event handlers to be replaced. For example, you can replace mouse event handlers without affecting menu event handlers or keyboard event handlers."
+  summary: "Biedt een systematische manier voor het beheren van gebeurtenis-handlers voor het huidige document."
+  remarks: "Ontwikkelaars willen kunnen schrijven van code op één plek die verantwoordelijk is voor gebeurtenissen van een bepaald type.       Ontwikkelaars wilt ook het gedrag van de handlers voor specifieke gebeurtenissen of typen gebeurtenissen die kunnen worden verdeeld over designer onderdelen globaal wijzigen.       De designers voor een typische project zijn veel andere objecten, zodat dit kan nuttig zijn voor het weergeven en opslaan van de verwijzing naar deze gebeurtenissen van een algemene plaats zijn.       Deze service wordt geïmplementeerd voor een &quot;gebeurtenis stack&quot; met de huidige set van gebeurtenis-handlers. De stack misschien tal van verschillende soorten handlers op de stack.       Een ontwerpfunctie kan bijvoorbeeld push of een toetsenbordhandler en muis handler op de stack toevoegen. Wanneer een ontwerper van een gebeurtenis-handler aanvraagt, wordt de service de bovenste handler vinden op de stack die overeenkomt met de klasse die u hebt aangevraagd.       Op deze manier de service kan worden uitgebreid naar een schema eventing en kunt u ook specifieke typen van gebeurtenis-handlers worden vervangen. U kunt bijvoorbeeld muis gebeurtenis-handlers vervangen zonder menu gebeurtenis-handlers of gebeurtenis-toetsenbordhandlers te beïnvloeden."
   syntax:
     content: public sealed class EventHandlerService
   inheritance:
@@ -37,13 +37,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.Windows.Forms.Design
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Forms.Design.EventHandlerService&quot;></xref> class."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Windows.Forms.Design.EventHandlerService&quot;> </xref> klasse."
   syntax:
     content: public EventHandlerService (System.Windows.Forms.Control focusWnd);
     parameters:
     - id: focusWnd
       type: System.Windows.Forms.Control
-      description: "The <xref href=&quot;System.Windows.Forms.Control&quot;></xref> which is being designed."
+      description: "De <xref href=&quot;System.Windows.Forms.Control&quot;> </xref> worden ontworpen."
   overload: System.Windows.Forms.Design.EventHandlerService.#ctor*
   exceptions: []
   platform:
@@ -60,12 +60,12 @@ items:
   assemblies:
   - System.Design
   namespace: System.Windows.Forms.Design
-  summary: "Fires an OnEventHandlerChanged event."
+  summary: "Een OnEventHandlerChanged-gebeurtenis wordt gestart."
   syntax:
     content: public event EventHandler EventHandlerChanged;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -81,12 +81,12 @@ items:
   assemblies:
   - System.Design
   namespace: System.Windows.Forms.Design
-  summary: "Gets the control to which event handlers are attached."
+  summary: "Hiermee haalt u het besturingselement aan welke gebeurtenis handlers zijn gekoppeld."
   syntax:
     content: public System.Windows.Forms.Control FocusWindow { get; }
     return:
       type: System.Windows.Forms.Control
-      description: "The <xref href=&quot;System.Windows.Forms.Control&quot;></xref> which was attached through the constructor."
+      description: "De <xref href=&quot;System.Windows.Forms.Control&quot;> </xref> die is gekoppeld via de constructor."
   overload: System.Windows.Forms.Design.EventHandlerService.FocusWindow*
   exceptions: []
   platform:
@@ -103,17 +103,17 @@ items:
   assemblies:
   - System.Design
   namespace: System.Windows.Forms.Design
-  summary: "Gets the currently active event handler of the specified type."
-  remarks: "You should never cache this value because other components are free to change it. This call is fairly quick, however, especially for cases when you are always asking for the same type of handler."
+  summary: "Hiermee haalt u de momenteel actieve gebeurtenis-handler van het opgegeven type."
+  remarks: "U moet deze waarde nooit cache omdat andere onderdelen zijn beschikbaar om deze te wijzigen. Deze aanroep is echter vrij snel met name voor gevallen wanneer u altijd voor de handler van hetzelfde type vragen."
   syntax:
     content: public object GetHandler (Type handlerType);
     parameters:
     - id: handlerType
       type: System.Type
-      description: "The type of the handler to get."
+      description: "Het type van de handler om op te halen."
     return:
       type: System.Object
-      description: "An instance of the handler, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if there is no handler of the requested type."
+      description: "Een exemplaar van de handler of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> als er geen handler van het aangevraagde type is."
   overload: System.Windows.Forms.Design.EventHandlerService.GetHandler*
   exceptions: []
   platform:
@@ -130,14 +130,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.Windows.Forms.Design
-  summary: "Pops the given handler off of the stack."
-  remarks: "If the handler is not the topmost component on the stack, this will pop all handlers up to and including handler."
+  summary: "De opgegeven handler op de stack verschijnt."
+  remarks: "Als de handler niet het bovenste onderdeel op de stack is, wordt dit alle handlers tot aan en inclusief handler uitklappictogram."
   syntax:
     content: public void PopHandler (object handler);
     parameters:
     - id: handler
       type: System.Object
-      description: "The handler to remove from the stack."
+      description: "De handler om te verwijderen uit de stack."
   overload: System.Windows.Forms.Design.EventHandlerService.PopHandler*
   exceptions: []
   platform:
@@ -154,14 +154,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.Windows.Forms.Design
-  summary: "Pushes a new event handler on the stack."
-  remarks: "This handler will be used by all components that request a compatible handler type. If this handler does not support the requested type, the next handler on the stack will be used."
+  summary: "Een nieuwe gebeurtenis-handler duwt op de stack."
+  remarks: "Deze handler wordt gebruikt door alle onderdelen die aanvragen van een compatibel handler-type. Als het aangevraagde type wordt niet ondersteund door deze handler, kunt u de volgende handler op de stack wordt gebruikt."
   syntax:
     content: public void PushHandler (object handler);
     parameters:
     - id: handler
       type: System.Object
-      description: "The handler to add to the stack."
+      description: "De handler toevoegen aan de stack."
   overload: System.Windows.Forms.Design.EventHandlerService.PushHandler*
   exceptions: []
   platform:

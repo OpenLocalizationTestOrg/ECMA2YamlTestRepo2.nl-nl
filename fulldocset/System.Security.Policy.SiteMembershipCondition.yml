@@ -20,7 +20,7 @@ items:
   nameWithType: SiteMembershipCondition
   fullName: System.Security.Policy.SiteMembershipCondition
   type: Class
-  summary: "Determines whether an assembly belongs to a code group by testing the site from which it originated. This class cannot be inherited."
+  summary: "Hiermee wordt bepaald of een assembly tot een codegroep behoort door het testen van de site van waaruit deze afkomstig is. Deze klasse kan niet worden overgenomen."
   remarks: "A code assembly satisfies a site membership condition if that code originates from the Web site specified by <xref:System.Security.Policy.SiteMembershipCondition.Site%2A>. Site identity is defined for code from URLs with any protocol except FILE. A site is the string between the \"//\" after the protocol of a URL and the following \"/\", if present. For example, www.fourthcoffee.com is the site identity in the URL http://www.fourthcoffee.com/process/grind.htm. This excludes port numbers. If a given URL is http://www.fourthcoffee.com:8000/, the site is www.fourthcoffee.com, not www.fourthcoffee.com:8000.  \n  \n Sites can be matched exactly, or by a wildcard (\"*\") prefix at the dot delimiter. For example, the site name \\*.fourthcoffee.com matches fourthcoffee.com as well as www.fourthcoffee.com. Without a wildcard, the site name must be a precise match. The site name \\* will match any site, but will not match code that has no site evidence."
   syntax:
     content: >-
@@ -45,14 +45,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Policy.SiteMembershipCondition&quot;></xref> class with name of the site that determines membership."
-  remarks: "Code satisfies this membership condition if it is downloaded from a site whose DNS name matches the site specified by <xref:System.Security.Policy.SiteMembershipCondition.Site%2A>."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Security.Policy.SiteMembershipCondition&quot;> </xref> klasse met de naam van de site die lidmaatschap bepaalt."
+  remarks: "Code voldoet aan deze lidmaatschapsvoorwaarde als deze is gedownload van een site waarvan u de DNS-naam overeenkomt met de site die is opgegeven door <xref:System.Security.Policy.SiteMembershipCondition.Site%2A>.</xref:System.Security.Policy.SiteMembershipCondition.Site%2A>"
   syntax:
     content: public SiteMembershipCondition (string site);
     parameters:
     - id: site
       type: System.String
-      description: "The site name or wildcard expression."
+      description: "De expressie van de naam of het jokerteken voor site."
   overload: System.Security.Policy.SiteMembershipCondition.#ctor*
   exceptions:
   - type: System.ArgumentNullException
@@ -60,7 +60,7 @@ items:
     description: "The <code>site</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>site</code> parameter is not a valid <xref href=&quot;System.Security.Policy.Site&quot;></xref>."
+    description: "De <code> site </code> parameter is geen geldige <xref href=&quot;System.Security.Policy.Site&quot;> </xref>."
   platform:
   - net462
 - uid: System.Security.Policy.SiteMembershipCondition.Check(System.Security.Policy.Evidence)
@@ -75,22 +75,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Determines whether the specified evidence satisfies the membership condition."
-  remarks: "This membership condition tests only <xref:System.Security.Policy.Site> evidence."
+  summary: "Hiermee wordt bepaald of de opgegeven bewijs voldoet aan de voorwaarde voor lidmaatschap."
+  remarks: "Deze lidmaatschapsvoorwaarde test alleen <xref:System.Security.Policy.Site>bewijs.</xref:System.Security.Policy.Site>"
   syntax:
     content: public bool Check (System.Security.Policy.Evidence evidence);
     parameters:
     - id: evidence
       type: System.Security.Policy.Evidence
-      description: "The <xref href=&quot;System.Security.Policy.Evidence&quot;></xref> against which to make the test."
+      description: "De <xref href=&quot;System.Security.Policy.Evidence&quot;> </xref> op basis waarvan de test te maken."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the specified evidence satisfies the membership condition; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de opgegeven bewijs voldoet aan de lidmaatschapsvoorwaarde; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Policy.SiteMembershipCondition.Check*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <xref:System.Security.Policy.SiteMembershipCondition.Site*> property is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "De <xref:System.Security.Policy.SiteMembershipCondition.Site*>eigenschap is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>.</xref:System.Security.Policy.SiteMembershipCondition.Site*>"
   platform:
   - net462
 - uid: System.Security.Policy.SiteMembershipCondition.Copy
@@ -105,18 +105,18 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Creates an equivalent copy of the membership condition."
+  summary: "Maakt een equivalent kopie van de voorwaarde voor lidmaatschap."
   syntax:
     content: public System.Security.Policy.IMembershipCondition Copy ();
     parameters: []
     return:
       type: System.Security.Policy.IMembershipCondition
-      description: "A new, identical copy of the current membership condition."
+      description: "Een nieuw, identiek kopie van de huidige lidmaatschapsvoorwaarde."
   overload: System.Security.Policy.SiteMembershipCondition.Copy*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <xref:System.Security.Policy.SiteMembershipCondition.Site*> property is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "De <xref:System.Security.Policy.SiteMembershipCondition.Site*>eigenschap is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>.</xref:System.Security.Policy.SiteMembershipCondition.Site*>"
   platform:
   - net462
 - uid: System.Security.Policy.SiteMembershipCondition.Equals(System.Object)
@@ -131,21 +131,21 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Determines whether the site from the specified <xref href=&quot;System.Security.Policy.SiteMembershipCondition&quot;></xref> object is equivalent to the site contained in the current <xref href=&quot;System.Security.Policy.SiteMembershipCondition&quot;></xref>."
+  summary: "Hiermee wordt bepaald of de site van het opgegeven <xref href=&quot;System.Security.Policy.SiteMembershipCondition&quot;> </xref> object is gelijk aan de site die is opgenomen in de huidige <xref href=&quot;System.Security.Policy.SiteMembershipCondition&quot;> </xref>."
   syntax:
     content: public override bool Equals (object o);
     parameters:
     - id: o
       type: System.Object
-      description: "The <xref href=&quot;System.Security.Policy.SiteMembershipCondition&quot;></xref> object to compare to the current <xref href=&quot;System.Security.Policy.SiteMembershipCondition&quot;></xref>."
+      description: "De <xref href=&quot;System.Security.Policy.SiteMembershipCondition&quot;> </xref> -object om te vergelijken met de huidige <xref href=&quot;System.Security.Policy.SiteMembershipCondition&quot;> </xref>."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the site from the specified <xref href=&quot;System.Security.Policy.SiteMembershipCondition&quot;></xref> object is equivalent to the site contained in the current <xref href=&quot;System.Security.Policy.SiteMembershipCondition&quot;></xref>; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de site van het opgegeven <xref href=&quot;System.Security.Policy.SiteMembershipCondition&quot;> </xref> object is gelijk aan de site die is opgenomen in de huidige <xref href=&quot;System.Security.Policy.SiteMembershipCondition&quot;> </xref>; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Policy.SiteMembershipCondition.Equals*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <xref:System.Security.Policy.SiteMembershipCondition.Site*> property for the current object or the specified object is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "De <xref:System.Security.Policy.SiteMembershipCondition.Site*>eigenschap voor het huidige object of het opgegeven object is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>.</xref:System.Security.Policy.SiteMembershipCondition.Site*>"
   platform:
   - net462
 - uid: System.Security.Policy.SiteMembershipCondition.FromXml(System.Security.SecurityElement)
@@ -160,13 +160,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Reconstructs a security object with a specified state from an XML encoding."
+  summary: "Hiermee reconstrueert een beveiligingsobject met een opgegeven status van een XML-codering."
   syntax:
     content: public void FromXml (System.Security.SecurityElement e);
     parameters:
     - id: e
       type: System.Security.SecurityElement
-      description: "The XML encoding to use to reconstruct the security object."
+      description: "De XML-codering voor het gebruik van het object opnieuw."
   overload: System.Security.Policy.SiteMembershipCondition.FromXml*
   exceptions:
   - type: System.ArgumentNullException
@@ -174,7 +174,7 @@ items:
     description: "The <code>e</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>e</code> parameter is not a valid membership condition element."
+    description: "De <code> e </code> parameter is geen geldige lidmaatschap voorwaarde element."
   platform:
   - net462
 - uid: System.Security.Policy.SiteMembershipCondition.FromXml(System.Security.SecurityElement,System.Security.Policy.PolicyLevel)
@@ -189,16 +189,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Reconstructs a security object with a specified state from an XML encoding."
+  summary: "Hiermee reconstrueert een beveiligingsobject met een opgegeven status van een XML-codering."
   syntax:
     content: public void FromXml (System.Security.SecurityElement e, System.Security.Policy.PolicyLevel level);
     parameters:
     - id: e
       type: System.Security.SecurityElement
-      description: "The XML encoding to use to reconstruct the security object."
+      description: "De XML-codering voor het gebruik van het object opnieuw."
     - id: level
       type: System.Security.Policy.PolicyLevel
-      description: "The <xref href=&quot;System.Security.Policy.PolicyLevel&quot;></xref> context, used to resolve <xref href=&quot;System.Security.NamedPermissionSet&quot;></xref> references."
+      description: "De <xref href=&quot;System.Security.Policy.PolicyLevel&quot;> </xref> context wordt gebruikt voor het omzetten <xref href=&quot;System.Security.NamedPermissionSet&quot;> </xref> verwijzingen."
   overload: System.Security.Policy.SiteMembershipCondition.FromXml*
   exceptions:
   - type: System.ArgumentNullException
@@ -206,7 +206,7 @@ items:
     description: "The <code>e</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>e</code> parameter is not a valid membership condition element."
+    description: "De <code> e </code> parameter is geen geldige lidmaatschap voorwaarde element."
   platform:
   - net462
 - uid: System.Security.Policy.SiteMembershipCondition.GetHashCode
@@ -221,18 +221,18 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Gets the hash code for the current membership condition."
+  summary: "Hiermee wordt de hash-code voor de huidige lidmaatschapsvoorwaarde."
   syntax:
     content: public override int GetHashCode ();
     parameters: []
     return:
       type: System.Int32
-      description: "The hash code for the current membership condition."
+      description: "De hashcode voor de huidige lidmaatschapsvoorwaarde."
   overload: System.Security.Policy.SiteMembershipCondition.GetHashCode*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <xref:System.Security.Policy.SiteMembershipCondition.Site*> property is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "De <xref:System.Security.Policy.SiteMembershipCondition.Site*>eigenschap is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>.</xref:System.Security.Policy.SiteMembershipCondition.Site*>"
   platform:
   - net462
 - uid: System.Security.Policy.SiteMembershipCondition.Site
@@ -247,21 +247,21 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Gets or sets the site for which the membership condition tests."
-  remarks: "This property is matched against the site from which a code assembly originates to test the membership condition."
+  summary: "Opgehaald of ingesteld van de site waarvoor de lidmaatschapsvoorwaarde test."
+  remarks: "Deze eigenschap wordt vergeleken met de site waarin een code-assembly voor het testen van de lidmaatschapsvoorwaarde afkomstig is."
   syntax:
     content: public string Site { get; set; }
     return:
       type: System.String
-      description: "The site for which the membership condition tests."
+      description: "De site waarvoor de lidmaatschapsvoorwaarde test."
   overload: System.Security.Policy.SiteMembershipCondition.Site*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "An attempt is made to set Site to <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Een poging gedaan om te Site ingesteld op <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "An attempt is made to set Site to an invalid <xref href=&quot;System.Security.Policy.Site&quot;></xref>."
+    description: "Een poging gedaan om in te stellen van Site naar een ongeldige <xref href=&quot;System.Security.Policy.Site&quot;> </xref>."
   platform:
   - net462
 - uid: System.Security.Policy.SiteMembershipCondition.ToString
@@ -276,18 +276,18 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Creates and returns a string representation of the membership condition."
+  summary: "Maakt en retourneert een tekenreeksrepresentatie van de voorwaarde voor lidmaatschap."
   syntax:
     content: public override string ToString ();
     parameters: []
     return:
       type: System.String
-      description: "A string representation of the membership condition."
+      description: "Een tekenreeksrepresentatie van de voorwaarde voor lidmaatschap."
   overload: System.Security.Policy.SiteMembershipCondition.ToString*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <xref:System.Security.Policy.SiteMembershipCondition.Site*> property is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "De <xref:System.Security.Policy.SiteMembershipCondition.Site*>eigenschap is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>.</xref:System.Security.Policy.SiteMembershipCondition.Site*>"
   platform:
   - net462
 - uid: System.Security.Policy.SiteMembershipCondition.ToXml
@@ -302,18 +302,18 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Creates an XML encoding of the security object and its current state."
+  summary: "Hiermee maakt u een XML-codering van het object en de huidige status."
   syntax:
     content: public System.Security.SecurityElement ToXml ();
     parameters: []
     return:
       type: System.Security.SecurityElement
-      description: "An XML encoding of the security object, including any state information."
+      description: "Een XML-codering van het object, met inbegrip van eventuele statusgegevens."
   overload: System.Security.Policy.SiteMembershipCondition.ToXml*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <xref:System.Security.Policy.SiteMembershipCondition.Site*> property is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "De <xref:System.Security.Policy.SiteMembershipCondition.Site*>eigenschap is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>.</xref:System.Security.Policy.SiteMembershipCondition.Site*>"
   platform:
   - net462
 - uid: System.Security.Policy.SiteMembershipCondition.ToXml(System.Security.Policy.PolicyLevel)
@@ -328,21 +328,21 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Creates an XML encoding of the security object and its current state with the specified <xref href=&quot;System.Security.Policy.PolicyLevel&quot;></xref>."
+  summary: "Hiermee maakt u een XML-codering van het object en de huidige status met de opgegeven <xref href=&quot;System.Security.Policy.PolicyLevel&quot;> </xref>."
   syntax:
     content: public System.Security.SecurityElement ToXml (System.Security.Policy.PolicyLevel level);
     parameters:
     - id: level
       type: System.Security.Policy.PolicyLevel
-      description: "The <xref href=&quot;System.Security.Policy.PolicyLevel&quot;></xref> context, used to resolve <xref href=&quot;System.Security.NamedPermissionSet&quot;></xref> references."
+      description: "De <xref href=&quot;System.Security.Policy.PolicyLevel&quot;> </xref> context wordt gebruikt voor het omzetten <xref href=&quot;System.Security.NamedPermissionSet&quot;> </xref> verwijzingen."
     return:
       type: System.Security.SecurityElement
-      description: "An XML encoding of the security object, including any state information."
+      description: "Een XML-codering van het object, met inbegrip van eventuele statusgegevens."
   overload: System.Security.Policy.SiteMembershipCondition.ToXml*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <xref:System.Security.Policy.SiteMembershipCondition.Site*> property is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "De <xref:System.Security.Policy.SiteMembershipCondition.Site*>eigenschap is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>.</xref:System.Security.Policy.SiteMembershipCondition.Site*>"
   platform:
   - net462
 references:

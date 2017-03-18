@@ -17,7 +17,7 @@ items:
   nameWithType: SqlTransaction
   fullName: System.Data.SqlClient.SqlTransaction
   type: Class
-  summary: "Represents a [!INCLUDE[tsql](~/add/includes/tsql-md.md)] transaction to be made in a [!INCLUDE[ssNoVersion](~/add/includes/ssnoversion-md.md)] database. This class cannot be inherited."
+  summary: "Hiermee geeft u een [!INCLUDE[tsql](~/add/includes/tsql-md.md)] transactie te worden gemaakt in een [!INCLUDE[ssNoVersion](~/add/includes/ssnoversion-md.md)] database. Deze klasse kan niet worden overgenomen."
   remarks: "The application creates a SqlTransaction object by calling <xref:System.Data.SqlClient.SqlConnection.BeginTransaction%2A> on the <xref:System.Data.SqlClient.SqlConnection> object. All subsequent operations associated with the transaction (for example, committing or aborting the transaction), are performed on the SqlTransaction object.  \n  \n> [!NOTE]\n>  `Try`/`Catch` exception handling should always be used when committing or rolling back a SqlTransaction. Both <xref:System.Data.SqlClient.SqlTransaction.Commit%2A> and <xref:System.Data.SqlClient.SqlTransaction.Rollback%2A> generate an <xref:System.InvalidOperationException> if the connection is terminated or if the transaction has already been rolled back on the server.  \n  \n For more information on [!INCLUDE[ssNoVersion](~/add/includes/ssnoversion-md.md)] transactions, see [Explicit Transactions](http://msdn.microsoft.com/library/ms175127\\(SQL.105\\).aspx) and [Coding Efficient Transactions](http://msdn.microsoft.com/library/ms187484\\(SQL.105\\).aspx)."
   example:
   - "The following example creates a <xref:System.Data.SqlClient.SqlConnection> and a SqlTransaction. It also demonstrates how to use the <xref:System.Data.SqlClient.SqlConnection.BeginTransaction%2A>, <xref:System.Data.SqlClient.SqlTransaction.Commit%2A>, and <xref:System.Data.SqlClient.SqlTransaction.Rollback%2A> methods. The transaction is rolled back on any error, or if it is disposed without first being committed. `Try`/`Catch` error handling is used to handle any errors when attempting to commit or roll back the transaction.  \n  \n [!code-cs[Classic WebData SqlConnection.BeginTransaction Example#1](~/add/codesnippet/csharp/t-system.data.sqlclient._10_1.cs)]\n [!code-vb[Classic WebData SqlConnection.BeginTransaction Example#1](~/add/codesnippet/visualbasic/t-system.data.sqlclient._10_1.vb)]"
@@ -49,8 +49,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Commits the database transaction."
-  remarks: "The Commit method is equivalent to the Transact-SQL COMMIT TRANSACTION statement. You cannot roll back a transaction once it has been committed, because all modifications have become a permanent part of the database. For more information, see SQL Server Books Online.      > [!NOTE] >  `Try`/`Catch` exception handling should always be used when committing or rolling back a <xref:System.Data.SqlClient.SqlTransaction>. Both `Commit` and <xref:System.Data.SqlClient.SqlTransaction.Rollback%2A> generates an <xref:System.InvalidOperationException> if the connection is terminated or if the transaction has already been rolled back on the server.       For more information on SQL Server transactions, see &quot;Explicit Transactions&quot; and &quot;Coding Efficient Transactions&quot; in SQL Server Books Online."
+  summary: "De database-transactie worden doorgevoerd."
+  remarks: "De methode Commit is gelijk aan de COMMIT TRANSACTION van Transact-SQL-instructie. U kan niet worden teruggedraaid een transactie nadat deze toegewezen is, omdat alle wijzigingen hebben een permanente deel van de database uitmaken. Zie SQL Server Books Online voor meer informatie.      > [!NOTE]  >   `Try` / `Catch` uitzonderingsverwerking moet altijd worden gebruikt bij het doorvoeren of terugdraaien van een <xref:System.Data.SqlClient.SqlTransaction>.</xref:System.Data.SqlClient.SqlTransaction> Beide `Commit` en <xref:System.Data.SqlClient.SqlTransaction.Rollback%2A>genereert een <xref:System.InvalidOperationException>Als de verbinding is verbroken of als de transactie is al teruggedraaid op de server.</xref:System.InvalidOperationException> </xref:System.Data.SqlClient.SqlTransaction.Rollback%2A>       Zie &quot;Expliciete transacties&quot; en &quot;Coderen efficiënte transacties&quot; in SQL Server Books Online voor meer informatie over SQL Server-transacties."
   example:
   - "The following example creates a <xref:System.Data.SqlClient.SqlConnection> and a <xref:System.Data.SqlClient.SqlTransaction>. It also demonstrates how to use the Commit, <xref:System.Data.SqlClient.SqlConnection.BeginTransaction%2A>, and <xref:System.Data.SqlClient.SqlTransaction.Rollback%2A> methods. The transaction is rolled back on any error. `Try`/`Catch` error handling is used to handle any errors when attempting to commit or roll back the transaction.  \n  \n [!code-cs[Classic WebData SqlConnection.BeginTransaction Example#1](~/add/codesnippet/csharp/m-system.data.sqlclient._25_1.cs)]\n [!code-vb[Classic WebData SqlConnection.BeginTransaction Example#1](~/add/codesnippet/visualbasic/m-system.data.sqlclient._25_1.vb)]"
   syntax:
@@ -60,10 +60,10 @@ items:
   exceptions:
   - type: System.Exception
     commentId: T:System.Exception
-    description: "An error occurred while trying to commit the transaction."
+    description: "Er is een fout opgetreden tijdens het doorvoeren van de transactie."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The transaction has already been committed or rolled back.       -or-       The connection is broken."
+    description: "De transactie is al doorgevoerd of teruggedraaid.       - of - de verbinding is verbroken."
   platform:
   - net462
 - uid: System.Data.SqlClient.SqlTransaction.Connection
@@ -78,13 +78,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets the <xref href=&quot;System.Data.SqlClient.SqlConnection&quot;></xref> object associated with the transaction, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the transaction is no longer valid."
-  remarks: "A single application may have multiple database connections, each with zero or more transactions. This property lets you determine the connection object associated with a particular transaction created by <xref:System.Data.SqlClient.SqlConnection.BeginTransaction%2A>."
+  summary: "Haalt de <xref href=&quot;System.Data.SqlClient.SqlConnection&quot;> </xref> object dat is gekoppeld aan de transactie of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> als de transactie niet meer geldig is."
+  remarks: "Één toepassing mogelijk meerdere databaseverbindingen, elk met nul of meer transacties. Deze eigenschap kunt u het verbindingsobject dat is gekoppeld aan een bepaalde transactie gemaakt door <xref:System.Data.SqlClient.SqlConnection.BeginTransaction%2A>.</xref:System.Data.SqlClient.SqlConnection.BeginTransaction%2A> bepalen"
   syntax:
     content: public System.Data.SqlClient.SqlConnection Connection { get; }
     return:
       type: System.Data.SqlClient.SqlConnection
-      description: "The <xref href=&quot;System.Data.SqlClient.SqlConnection&quot;></xref> object associated with the transaction."
+      description: "De <xref href=&quot;System.Data.SqlClient.SqlConnection&quot;> </xref> object dat is gekoppeld aan de transactie."
   overload: System.Data.SqlClient.SqlTransaction.Connection*
   exceptions: []
   platform:
@@ -105,7 +105,7 @@ items:
     content: protected override System.Data.Common.DbConnection DbConnection { get; }
     return:
       type: System.Data.Common.DbConnection
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   overload: System.Data.SqlClient.SqlTransaction.DbConnection*
   exceptions: []
   platform:
@@ -127,7 +127,7 @@ items:
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   overload: System.Data.SqlClient.SqlTransaction.Dispose*
   exceptions: []
   platform:
@@ -144,13 +144,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Specifies the <xref href=&quot;System.Data.IsolationLevel&quot;></xref> for this transaction."
-  remarks: "Parallel transactions are not supported. Therefore, the <xref:System.Data.IsolationLevel> applies to the whole transaction.       For more information on SQL Server isolation levels, see &quot;Isolation Levels in the Database Engine&quot; in SQL Server Books Online."
+  summary: "Hiermee geeft u de <xref href=&quot;System.Data.IsolationLevel&quot;> </xref> voor deze transactie."
+  remarks: "Parallelle transacties worden niet ondersteund. Daarom de <xref:System.Data.IsolationLevel>geldt voor de hele transactie.</xref:System.Data.IsolationLevel>       Zie &quot;Isolatie niveaus in de Database-Engine&quot; in SQL Server Books Online voor meer informatie over de isolatieniveaus SQL Server."
   syntax:
     content: public override System.Data.IsolationLevel IsolationLevel { get; }
     return:
       type: System.Data.IsolationLevel
-      description: "The <xref href=&quot;System.Data.IsolationLevel&quot;></xref> for this transaction. The default is <xref uid=&quot;langword_csharp_ReadCommitted&quot; name=&quot;ReadCommitted&quot; href=&quot;&quot;></xref>."
+      description: "De <xref href=&quot;System.Data.IsolationLevel&quot;> </xref> voor deze transactie. De standaardwaarde is <xref uid=&quot;langword_csharp_ReadCommitted&quot; name=&quot;ReadCommitted&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.SqlClient.SqlTransaction.IsolationLevel*
   exceptions: []
   platform:
@@ -167,8 +167,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Rolls back a transaction from a pending state."
-  remarks: "The Rollback method is equivalent to the Transact-SQL ROLLBACK TRANSACTION statement. For more information, see SQL Server Books Online.       The transaction can only be rolled back from a pending state (after <xref:System.Data.SqlClient.SqlConnection.BeginTransaction%2A> has been called, but before <xref:System.Data.SqlClient.SqlTransaction.Commit%2A> is called). The transaction is rolled back in the event it is disposed before `Commit` or `Rollback` is called.      > [!NOTE] >  `Try`/`Catch` exception handling should always be used when rolling back a transaction. A `Rollback` generates an <xref:System.InvalidOperationException> if the connection is terminated or if the transaction has already been rolled back on the server.       For more information on SQL Server transactions, see &quot;Explicit Transactions&quot; and &quot;Coding Efficient Transactions&quot; in SQL Server Books Online."
+  summary: "Een transactie teruggedraaid in behandeling."
+  remarks: "De Rollback-methode is gelijk aan de ROLLBACK TRANSACTION van Transact-SQL-instructie. Zie SQL Server Books Online voor meer informatie.       De transactie kan alleen worden teruggezet vanuit een status in behandeling (nadat <xref:System.Data.SqlClient.SqlConnection.BeginTransaction%2A>is aangeroepen, maar voordat <xref:System.Data.SqlClient.SqlTransaction.Commit%2A>wordt genoemd).</xref:System.Data.SqlClient.SqlTransaction.Commit%2A> </xref:System.Data.SqlClient.SqlConnection.BeginTransaction%2A> De transactie is teruggedraaid terug in de gebeurtenis is buiten gebruik gesteld voordat `Commit` of `Rollback` wordt aangeroepen.      > [!NOTE]  >   `Try` / `Catch` uitzonderingsverwerking moet altijd worden gebruikt wanneer een transactie wordt teruggedraaid. Een `Rollback` genereert een <xref:System.InvalidOperationException>Als de verbinding is verbroken of als de transactie is al teruggedraaid op de server.</xref:System.InvalidOperationException>       Zie &quot;Expliciete transacties&quot; en &quot;Coderen efficiënte transacties&quot; in SQL Server Books Online voor meer informatie over SQL Server-transacties."
   example:
   - "The following example creates a <xref:System.Data.SqlClient.SqlConnection> and a <xref:System.Data.SqlClient.SqlTransaction>. It also demonstrates how to use the <xref:System.Data.SqlClient.SqlConnection.BeginTransaction%2A>, <xref:System.Data.SqlClient.SqlTransaction.Commit%2A>, and Rollback methods. The transaction is rolled back on any error. `Try`/`Catch` error handling is used to handle any errors when attempting to commit or roll back the transaction.  \n  \n [!code-cs[Classic WebData SqlConnection.BeginTransaction Example#1](~/add/codesnippet/csharp/m-system.data.sqlclient._8_1.cs)]\n [!code-vb[Classic WebData SqlConnection.BeginTransaction Example#1](~/add/codesnippet/visualbasic/m-system.data.sqlclient._8_1.vb)]"
   syntax:
@@ -178,10 +178,10 @@ items:
   exceptions:
   - type: System.Exception
     commentId: T:System.Exception
-    description: "An error occurred while trying to commit the transaction."
+    description: "Er is een fout opgetreden tijdens het doorvoeren van de transactie."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The transaction has already been committed or rolled back.       -or-       The connection is broken."
+    description: "De transactie is al doorgevoerd of teruggedraaid.       - of - de verbinding is verbroken."
   platform:
   - net462
 - uid: System.Data.SqlClient.SqlTransaction.Rollback(System.String)
@@ -196,8 +196,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Rolls back a transaction from a pending state, and specifies the transaction or savepoint name."
-  remarks: "The <xref:System.Data.SqlClient.SqlTransaction.Rollback%2A> method is equivalent to the Transact-SQL ROLLBACK TRANSACTION statement. For more information, see &quot;Explicit Transactions&quot; and &quot;Transaction Savepoints&quot; in SQL Server Books Online.       The transaction can only be rolled back from a pending state (after <xref:System.Data.SqlClient.SqlConnection.BeginTransaction%2A> has been called, but before <xref:System.Data.SqlClient.SqlTransaction.Commit%2A> is called). The transaction is rolled back if it is disposed before `Commit` or `Rollback` is called.      > [!NOTE] >  `Try`/`Catch` exception handling should always be used when rolling back a transaction. A `Rollback` generates an <xref:System.InvalidOperationException> if the connection is terminated or if the transaction has already been rolled back on the server.       For more information on SQL Server transactions, see &quot;Explicit Transactions&quot; and &quot;Coding Efficient Transactions&quot; in SQL Server Books Online."
+  summary: "Een transactie teruggedraaid van de status in behandeling en geeft de transactie of opslagpunt naam."
+  remarks: "De <xref:System.Data.SqlClient.SqlTransaction.Rollback%2A>methode is gelijk aan de ROLLBACK TRANSACTION van Transact-SQL-instructie.</xref:System.Data.SqlClient.SqlTransaction.Rollback%2A> Zie &quot;Expliciete transacties&quot; en &quot;Transactie Savepoints&quot; in SQL Server Books Online voor meer informatie.       De transactie kan alleen worden teruggezet vanuit een status in behandeling (nadat <xref:System.Data.SqlClient.SqlConnection.BeginTransaction%2A>is aangeroepen, maar voordat <xref:System.Data.SqlClient.SqlTransaction.Commit%2A>wordt genoemd).</xref:System.Data.SqlClient.SqlTransaction.Commit%2A> </xref:System.Data.SqlClient.SqlConnection.BeginTransaction%2A> De transactie wordt teruggedraaid als deze is verwijderd voordat `Commit` of `Rollback` wordt aangeroepen.      > [!NOTE]  >   `Try` / `Catch` uitzonderingsverwerking moet altijd worden gebruikt wanneer een transactie wordt teruggedraaid. Een `Rollback` genereert een <xref:System.InvalidOperationException>Als de verbinding is verbroken of als de transactie is al teruggedraaid op de server.</xref:System.InvalidOperationException>       Zie &quot;Expliciete transacties&quot; en &quot;Coderen efficiënte transacties&quot; in SQL Server Books Online voor meer informatie over SQL Server-transacties."
   example:
   - "The following example creates a <xref:System.Data.SqlClient.SqlConnection> and a <xref:System.Data.SqlClient.SqlTransaction>. It also demonstrates how to use the <xref:System.Data.SqlClient.SqlConnection.BeginTransaction%2A>, <xref:System.Data.SqlClient.SqlTransaction.Commit%2A>, and <xref:System.Data.SqlClient.SqlTransaction.Rollback%2A> methods. The transaction is rolled back on any error. `Try`/`Catch` error handling is used to handle any errors when attempting to commit or roll back the transaction.  \n  \n [!code-cs[Classic WebData SqlConnection.BeginTransaction2 Example#1](~/add/codesnippet/csharp/m-system.data.sqlclient._40_1.cs)]\n [!code-vb[Classic WebData SqlConnection.BeginTransaction2 Example#1](~/add/codesnippet/visualbasic/m-system.data.sqlclient._40_1.vb)]"
   syntax:
@@ -205,15 +205,15 @@ items:
     parameters:
     - id: transactionName
       type: System.String
-      description: "The name of the transaction to roll back, or the savepoint to which to roll back."
+      description: "De naam van de transactie ongedaan te maken of de opslagpunt waarop terugdraaien."
   overload: System.Data.SqlClient.SqlTransaction.Rollback*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "No transaction name was specified."
+    description: "Geen transactienaam is opgegeven."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The transaction has already been committed or rolled back.       -or-       The connection is broken."
+    description: "De transactie is al doorgevoerd of teruggedraaid.       - of - de verbinding is verbroken."
   platform:
   - net462
 - uid: System.Data.SqlClient.SqlTransaction.Save(System.String)
@@ -228,22 +228,22 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Creates a savepoint in the transaction that can be used to roll back a part of the transaction, and specifies the savepoint name."
-  remarks: "Save method is equivalent to the Transact-SQL SAVE TRANSACTION statement.       The value used in the `savePoint` parameter can be the same value used in the `transactionName` parameter of some implementations of the <xref:System.Data.SqlClient.SqlConnection.BeginTransaction%2A> method.       Savepoints offer a mechanism to roll back parts of transactions. You create a savepoint using the Save method, and then later call the <xref:System.Data.SqlClient.SqlTransaction.Rollback%2A> method to roll back to the savepoint instead of rolling back to the start of the transaction."
+  summary: "Een opslagpunt gemaakt in de transactie die kan worden gebruikt om een deel van de transactie wordt teruggedraaid en geeft de naam van het opslagpunt."
+  remarks: "Methode Save is gelijk aan de SAVE TRANSACTION van Transact-SQL-instructie.       De waarde die wordt gebruikt in de `savePoint` parameter kan worden gebruikt in dezelfde waarde de `transactionName` parameter van sommige implementaties van de <xref:System.Data.SqlClient.SqlConnection.BeginTransaction%2A>methode.</xref:System.Data.SqlClient.SqlConnection.BeginTransaction%2A>       Savepoints bieden een mechanisme om terug te draaien delen van transacties. Maken van een opslagpunt via de methode opslaan en later aanroep de <xref:System.Data.SqlClient.SqlTransaction.Rollback%2A>methode terug te draaien naar de opslagpunt in plaats van naar het begin van de transactie wordt ongedaan gemaakt.</xref:System.Data.SqlClient.SqlTransaction.Rollback%2A>"
   syntax:
     content: public void Save (string savePointName);
     parameters:
     - id: savePointName
       type: System.String
-      description: "The name of the savepoint."
+      description: "De naam van het opslagpunt."
   overload: System.Data.SqlClient.SqlTransaction.Save*
   exceptions:
   - type: System.Exception
     commentId: T:System.Exception
-    description: "An error occurred while trying to commit the transaction."
+    description: "Er is een fout opgetreden tijdens het doorvoeren van de transactie."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The transaction has already been committed or rolled back.       -or-       The connection is broken."
+    description: "De transactie is al doorgevoerd of teruggedraaid.       - of - de verbinding is verbroken."
   platform:
   - net462
 references:

@@ -49,8 +49,8 @@ items:
   nameWithType: DataObject
   fullName: System.Windows.Forms.DataObject
   type: Class
-  summary: "Implements a basic data transfer mechanism."
-  remarks: "DataObject implements the <xref:System.Windows.Forms.IDataObject> interface, whose methods provide a format-independent mechanism for data transfer.       A DataObject is typically used with the <xref:System.Windows.Forms.Clipboard> and in drag-and-drop operations. The DataObject class provides the recommended implementation of the <xref:System.Windows.Forms.IDataObject> interface. It is suggested that you use the DataObject class rather than implementing <xref:System.Windows.Forms.IDataObject> yourself.       Multiple pieces of data in different formats can be stored in a DataObject. Data is retrieved from a DataObject by its associated format. Because the target application might not be known, you can increase the likelihood that the data will be in the appropriate format for an application by placing the data in a DataObject in multiple formats. See <xref:System.Windows.Forms.DataFormats> for the predefined formats. You can implement your own format by creating an instance of the <xref:System.Windows.Forms.DataFormats.Format> class.       To store data in a DataObject, pass the data to the constructor or call <xref:System.Windows.Forms.DataObject.SetData%2A>. You can add data in multiple formats to the same DataObject. If you want the data you add to be retrieved in its native format only, call <xref:System.Windows.Forms.DataObject.SetData%28System.String%2CSystem.Boolean%2CSystem.Object%29> with the `autoConvert` parameter set to `false`.       Data can be retrieved from a DataObject in any format which is compatible with <xref:System.Windows.Forms.DataObject.GetData%2A>. For example, text can be converted to Unicode. To retrieve data in the format in which it was stored, call <xref:System.Windows.Forms.DataObject.GetData%2A> with the `autoConvert` parameter set to `false`.       To determine what formats the data is stored in, call <xref:System.Windows.Forms.DataObject.GetFormats%2A>. To determine if a format is available, call <xref:System.Windows.Forms.DataObject.GetDataPresent%2A> with the desired format.       In [!INCLUDE[dnprdnext](~/add/includes/dnprdnext-md.md)], the DataObject class provides additional methods that make it easier to work with data in common formats. To add data of a particular format to the DataObject, use the appropriate `Set`*Format* method, such as <xref:System.Windows.Forms.DataObject.SetText%2A>. To retrieve data of a particular format from the DataObject, first call the appropriate `Contains`*Format* method (such as <xref:System.Windows.Forms.DataObject.ContainsText%2A>) to determine whether the DataObject contains data in that format, then call the appropriate `Get`*Format* method (such as <xref:System.Windows.Forms.DataObject.GetText%2A>) to retrieve the data if the DataObject contains it.      > [!NOTE] >  Special considerations may be necessary when using the metafile format with the Clipboard. Due to a limitation in the current implementation of the DataObject class, the metafile format used by the .NET Framework may not be recognized by applications that use an older metafile format. In this case, you must interoperate with the Win32 Clipboard application programming interfaces (APIs). For more information, see article 323530, &quot;Metafiles on Clipboard Are Not Visible to All Applications,&quot; in the Microsoft Knowledge Base at http://support.microsoft.com.   >    >  An object must be serializable for it to be put on the Clipboard. See <xref:System.Runtime.Serialization> for more information on serialization. If your target application requires a very specific data format, the headers added to the data in the serialization process may prevent the application from recognizing your data. To preserve your data format, add your data as a <xref:System.Byte> array to a <xref:System.IO.MemoryStream> and pass the <xref:System.IO.MemoryStream> to the <xref:System.Windows.Forms.DataObject.SetData%2A> method."
+  summary: "Een mechanisme voor basisgegevens bestandsoverdracht implementeert."
+  remarks: "DataObject implementeert de <xref:System.Windows.Forms.IDataObject>interface, waarvan de methoden een mechanisme onafhankelijk van de indeling voor gegevensoverdracht bieden.</xref:System.Windows.Forms.IDataObject>       DataObject wordt doorgaans gebruikt met de <xref:System.Windows.Forms.Clipboard>en in slepen en neerzetten.</xref:System.Windows.Forms.Clipboard> De klasse DataObject biedt de aanbevolen implementatie van de <xref:System.Windows.Forms.IDataObject>interface.</xref:System.Windows.Forms.IDataObject> Het wordt aangeraden dat u de klasse DataObject gebruiken in plaats van de implementatie van <xref:System.Windows.Forms.IDataObject>zelf.</xref:System.Windows.Forms.IDataObject>       Meerdere delen van gegevens in verschillende indelingen kunnen worden opgeslagen in DataObject. Gegevens worden opgehaald van een DataObject door de bijbehorende indeling. Omdat de doeltoepassing mogelijk niet bekend te zijn, kunt u de kans dat de gegevens in de juiste notatie voor een toepassing worden door het plaatsen van de gegevens in DataObject in verschillende indelingen verhogen. Zie <xref:System.Windows.Forms.DataFormats>voor de vooraf gedefinieerde indelingen.</xref:System.Windows.Forms.DataFormats> U kunt uw eigen indeling kunt implementeren met het maken van een exemplaar van de <xref:System.Windows.Forms.DataFormats.Format>klasse.</xref:System.Windows.Forms.DataFormats.Format>       Voor het opslaan van gegevens in DataObject, de gegevens doorgeven aan de constructor of bel <xref:System.Windows.Forms.DataObject.SetData%2A>.</xref:System.Windows.Forms.DataObject.SetData%2A> U kunt gegevens in verschillende indelingen toevoegen aan dezelfde DataObject. Als u de gegevens wilt u toevoegen om te worden opgehaald in de oorspronkelijke indeling alleen aanroep <xref:System.Windows.Forms.DataObject.SetData%28System.String%2CSystem.Boolean%2CSystem.Object%29>met de `autoConvert` parameter ingesteld op `false`.</xref:System.Windows.Forms.DataObject.SetData%28System.String%2CSystem.Boolean%2CSystem.Object%29>       Gegevens kunnen worden opgehaald uit een DataObject in elke indeling die compatibel met <xref:System.Windows.Forms.DataObject.GetData%2A>.</xref:System.Windows.Forms.DataObject.GetData%2A> is Tekst kan bijvoorbeeld worden geconverteerd naar Unicode. Aanroepen voor het ophalen van gegevens in de indeling waarin deze is opgeslagen, <xref:System.Windows.Forms.DataObject.GetData%2A>met de `autoConvert` parameter ingesteld op `false`.</xref:System.Windows.Forms.DataObject.GetData%2A>       Om te bepalen welke de gegevens worden opgeslagen in indelingen, roepen <xref:System.Windows.Forms.DataObject.GetFormats%2A>.</xref:System.Windows.Forms.DataObject.GetFormats%2A> Om te bepalen of een indeling die beschikbaar is, roepen <xref:System.Windows.Forms.DataObject.GetDataPresent%2A>met de gewenste indeling.</xref:System.Windows.Forms.DataObject.GetDataPresent%2A>       In [!INCLUDE[dnprdnext](~/add/includes/dnprdnext-md.md)], de klasse DataObject biedt extra methoden waarmee het eenvoudiger is om te werken met gegevens in algemene indelingen. U kunt gegevens van een bepaalde opmaak naar het DataObject toevoegen met de juiste `Set` *indeling* methode, zoals <xref:System.Windows.Forms.DataObject.SetText%2A>.</xref:System.Windows.Forms.DataObject.SetText%2A> Voor het ophalen van gegevens van een bepaalde opmaak van het DataObject, roept u eerst de juiste `Contains` *indeling* methode (zoals <xref:System.Windows.Forms.DataObject.ContainsText%2A>) om te bepalen of de DataObject gegevens in deze indeling bevat, roept u vervolgens de juiste `Get` *indeling* methode (zoals <xref:System.Windows.Forms.DataObject.GetText%2A>) voor het ophalen van de gegevens als DataObject deze bevat</xref:System.Windows.Forms.DataObject.GetText%2A> </xref:System.Windows.Forms.DataObject.ContainsText%2A>      > [!NOTE] > Mogelijk speciale overwegingen bij het gebruik van de Metafile-indeling met het Klembord. Vanwege een beperking in de huidige implementatie van de klasse DataObject worden de Metafile-indeling gebruikt door het .NET Framework niet herkend door toepassingen die gebruikmaken van een oudere metafile-indeling. In dit geval moet samenwerken met de Win32-Klembord application programming interfaces (API&quot;s). Zie artikel 323530, &quot;Metabestanden op Klembord zijn niet zichtbaar voor alle toepassingen,&quot; in de Microsoft Knowledge Base op http://support.microsoft.com voor meer informatie.   >> Een object moet serializable om te worden geplaatst op het Klembord. Zie <xref:System.Runtime.Serialization>voor meer informatie over de serialisatie.</xref:System.Runtime.Serialization> Als uw doeltoepassing een zeer specifieke gegevensindeling vereist, kan de headers die zijn toegevoegd aan de gegevens in het proces serialisatie kunnen verhinderen dat de toepassing herkennen van uw gegevens. Toevoegen als u wilt de indeling van uw gegevens behouden, uw gegevens als een <xref:System.Byte>matrix aan een <xref:System.IO.MemoryStream>en geef de <xref:System.IO.MemoryStream>naar de <xref:System.Windows.Forms.DataObject.SetData%2A>methode.</xref:System.Windows.Forms.DataObject.SetData%2A> </xref:System.IO.MemoryStream> </xref:System.IO.MemoryStream> </xref:System.Byte>"
   example:
   - "The following code example adds data in a DataObject. First, a new DataObject is created and a component is stored in it. Then, it checks to see if data in the appropriate type exists in the DataObject. The result is displayed in a text box. This code requires that `textBox1` has been created.  \n  \n [!code-cpp[Classic DataObject Example#1](~/add/codesnippet/cpp/t-system.windows.forms.d_14_1.cpp)]\n [!code-vb[Classic DataObject Example#1](~/add/codesnippet/visualbasic/t-system.windows.forms.d_14_1.vb)]\n [!code-cs[Classic DataObject Example#1](~/add/codesnippet/csharp/t-system.windows.forms.d_14_1.cs)]  \n  \n The next example retrieves the data stored in a DataObject. First, a new DataObject is created with text data. Then, the data is retrieved, specifying its format as a string, and displayed in a text box. The data format is automatically converted from text to string. This code requires that `textBox1` has been created.  \n  \n [!code-cpp[Classic DataObject Example#2](~/add/codesnippet/cpp/t-system.windows.forms.d_14_2.cpp)]\n [!code-vb[Classic DataObject Example#2](~/add/codesnippet/visualbasic/t-system.windows.forms.d_14_2.vb)]\n [!code-cs[Classic DataObject Example#2](~/add/codesnippet/csharp/t-system.windows.forms.d_14_2.cs)]"
   syntax:
@@ -78,7 +78,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Forms.DataObject&quot;></xref> class."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Windows.Forms.DataObject&quot;> </xref> klasse."
   remarks: ''
   example:
   - "The following code example creates a <xref:System.Windows.Forms.DataObject> and adds data to it. The example then retrieves and displays the data. This code requires that `textBox1` has been created.  \n  \n [!code-cpp[Classic DataObject.DataObject2 Example#1](~/add/codesnippet/cpp/m-system.windows.forms.d_81_1.cpp)]\n [!code-vb[Classic DataObject.DataObject2 Example#1](~/add/codesnippet/visualbasic/m-system.windows.forms.d_81_1.vb)]\n [!code-cs[Classic DataObject.DataObject2 Example#1](~/add/codesnippet/csharp/m-system.windows.forms.d_81_1.cs)]"
@@ -101,8 +101,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Forms.DataObject&quot;></xref> class and adds the specified object to it."
-  remarks: "You can add data in any format to the <xref:System.Windows.Forms.DataObject> when you use this constructor, or you can add data as an <xref:System.Windows.Forms.IDataObject> to provide multiple formats at once. If you are familiar with COM programming, you can also add a data object that implements the COM `IDataObject` interface. For more information, see `IDataObject` in the MSDN library at http://msdn.microsoft.com/library."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Windows.Forms.DataObject&quot;> </xref> klasse en voegt u het opgegeven object aan."
+  remarks: "U kunt gegevens in een willekeurige indeling toevoegen de <xref:System.Windows.Forms.DataObject>Wanneer u deze constructor, of u kunt gegevens als toevoegen een <xref:System.Windows.Forms.IDataObject>om meerdere indelingen in één keer.</xref:System.Windows.Forms.IDataObject> </xref:System.Windows.Forms.DataObject> Als u bekend met COM programmeren bent, kunt u ook een gegevensobject waarmee het COM-onderdeel toevoegen `IDataObject` interface. Zie voor meer informatie `IDataObject` in de MSDN-bibliotheek op http://msdn.microsoft.com/library."
   example:
   - "The following code example creates a <xref:System.Windows.Forms.DataObject> that contains a string. The data is retrieved using its data format. The results are displayed in a text box. This code requires that `textBox1` has been created.  \n  \n [!code-cpp[Classic DataObject.DataObject3 Example#1](~/add/codesnippet/cpp/m-system.windows.forms.d_89_1.cpp)]\n [!code-cs[Classic DataObject.DataObject3 Example#1](~/add/codesnippet/csharp/m-system.windows.forms.d_89_1.cs)]\n [!code-vb[Classic DataObject.DataObject3 Example#1](~/add/codesnippet/visualbasic/m-system.windows.forms.d_89_1.vb)]"
   syntax:
@@ -110,7 +110,7 @@ items:
     parameters:
     - id: data
       type: System.Object
-      description: "The data to store."
+      description: "De gegevens worden opgeslagen."
   overload: System.Windows.Forms.DataObject.#ctor*
   exceptions: []
   platform:
@@ -127,7 +127,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Forms.DataObject&quot;></xref> class and adds the specified object in the specified format."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Windows.Forms.DataObject&quot;> </xref> klasse en voegt u het opgegeven object in de opgegeven indeling."
   remarks: ''
   example:
   - "The following code example creates a <xref:System.Windows.Forms.DataObject> class using a string that is specified as the string type. The data is retrieved from the <xref:System.Windows.Forms.DataObject> by specifying its format as text. The results are displayed in a text box. This code requires that `textBox1` has been created.  \n  \n [!code-cpp[Classic DataObject.DataObject4 Example#1](~/add/codesnippet/cpp/m-system.windows.forms.d_96_1.cpp)]\n [!code-vb[Classic DataObject.DataObject4 Example#1](~/add/codesnippet/visualbasic/m-system.windows.forms.d_96_1.vb)]\n [!code-cs[Classic DataObject.DataObject4 Example#1](~/add/codesnippet/csharp/m-system.windows.forms.d_96_1.cs)]"
@@ -136,10 +136,10 @@ items:
     parameters:
     - id: format
       type: System.String
-      description: "The format of the specified data. See <xref href=&quot;System.Windows.Forms.DataFormats&quot;></xref> for predefined formats."
+      description: "De indeling van de opgegeven gegevens. Zie <xref href=&quot;System.Windows.Forms.DataFormats&quot;> </xref> voor vooraf gedefinieerde indelingen."
     - id: data
       type: System.Object
-      description: "The data to store."
+      description: "De gegevens worden opgeslagen."
   overload: System.Windows.Forms.DataObject.#ctor*
   exceptions: []
   platform:
@@ -156,14 +156,14 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Indicates whether the data object contains data in the <xref href=&quot;System.Windows.Forms.DataFormats.WaveAudio&quot;></xref> format."
-  remarks: "Use this method to determine whether the data object contains audio data before retrieving it with the <xref:System.Windows.Forms.DataObject.GetAudioStream%2A> method."
+  summary: "Geeft aan of het object bevat gegevens in de <xref href=&quot;System.Windows.Forms.DataFormats.WaveAudio&quot;> </xref> indeling."
+  remarks: "Gebruik deze methode om te bepalen of het gegevensobject audiogegevens voordat u ze met ophaalt bevat de <xref:System.Windows.Forms.DataObject.GetAudioStream%2A>methode.</xref:System.Windows.Forms.DataObject.GetAudioStream%2A>"
   syntax:
     content: public virtual bool ContainsAudio ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the data object contains audio data; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als het gegevensobject audiogegevens bevat; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Forms.DataObject.ContainsAudio*
   exceptions: []
   platform:
@@ -180,14 +180,14 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Indicates whether the data object contains data that is in the <xref href=&quot;System.Windows.Forms.DataFormats.FileDrop&quot;></xref> format or can be converted to that format."
-  remarks: "A file drop list is a collection of strings containing path information for files.       Use this method to determine whether the data object contains a file drop list before retrieving it with the <xref:System.Windows.Forms.DataObject.GetFileDropList%2A> method."
+  summary: "Geeft aan of het object gegevens die bevat in de <xref href=&quot;System.Windows.Forms.DataFormats.FileDrop&quot;> </xref> opmaken of kunnen worden geconverteerd naar deze indeling."
+  remarks: "Een lijst met bestanden neerzetten is een verzameling van tekenreeksen met informatie over het pad voor bestanden.       Gebruik deze methode om te bepalen of het gegevensobject een lijst met bestanden verwijderen voordat u ze met ophaalt bevat de <xref:System.Windows.Forms.DataObject.GetFileDropList%2A>methode.</xref:System.Windows.Forms.DataObject.GetFileDropList%2A>"
   syntax:
     content: public virtual bool ContainsFileDropList ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the data object contains a file drop list; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als het gegevensobject een lijst met bestanden neerzetten bevat; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Forms.DataObject.ContainsFileDropList*
   exceptions: []
   platform:
@@ -204,14 +204,14 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Indicates whether the data object contains data that is in the <xref href=&quot;System.Windows.Forms.DataFormats.Bitmap&quot;></xref> format or can be converted to that format."
-  remarks: "Use this method to determine whether the data object contains image data before retrieving it with the <xref:System.Windows.Forms.DataObject.GetImage%2A> method."
+  summary: "Geeft aan of het object gegevens die bevat in de <xref href=&quot;System.Windows.Forms.DataFormats.Bitmap&quot;> </xref> opmaken of kunnen worden geconverteerd naar deze indeling."
+  remarks: "Gebruik deze methode om te bepalen of het gegevensobject image-gegevens voordat u ze met ophaalt bevat de <xref:System.Windows.Forms.DataObject.GetImage%2A>methode.</xref:System.Windows.Forms.DataObject.GetImage%2A>"
   syntax:
     content: public virtual bool ContainsImage ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the data object contains image data; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als het object voor de installatiekopie gegevens bevat. anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Forms.DataObject.ContainsImage*
   exceptions: []
   platform:
@@ -228,14 +228,14 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Indicates whether the data object contains data in the <xref href=&quot;System.Windows.Forms.TextDataFormat&quot;></xref> format."
-  remarks: "Use this method to determine whether the data object contains text data before retrieving it with the <xref:System.Windows.Forms.DataObject.GetText%2A> method."
+  summary: "Geeft aan of het object bevat gegevens in de <xref href=&quot;System.Windows.Forms.TextDataFormat&quot;> </xref> indeling."
+  remarks: "Gebruik deze methode om te bepalen of het object voor de tekstgegevens bevat voordat u ze met ophaalt de <xref:System.Windows.Forms.DataObject.GetText%2A>methode.</xref:System.Windows.Forms.DataObject.GetText%2A>"
   syntax:
     content: public virtual bool ContainsText ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the data object contains text data; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als het object voor de die tekstgegevens bevat. anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Forms.DataObject.ContainsText*
   exceptions: []
   platform:
@@ -252,22 +252,22 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Indicates whether the data object contains text data in the format indicated by the specified <xref href=&quot;System.Windows.Forms.TextDataFormat&quot;></xref> value."
-  remarks: "Use this method to determine whether the data object contains text data before retrieving it with the <xref:System.Windows.Forms.DataObject.GetText%2A> method."
+  summary: "Geeft aan of het object voor de tekstgegevens in de indeling aangegeven door de opgegeven bevat <xref href=&quot;System.Windows.Forms.TextDataFormat&quot;> </xref> waarde."
+  remarks: "Gebruik deze methode om te bepalen of het object voor de tekstgegevens bevat voordat u ze met ophaalt de <xref:System.Windows.Forms.DataObject.GetText%2A>methode.</xref:System.Windows.Forms.DataObject.GetText%2A>"
   syntax:
     content: public virtual bool ContainsText (System.Windows.Forms.TextDataFormat format);
     parameters:
     - id: format
       type: System.Windows.Forms.TextDataFormat
-      description: "One of the <xref href=&quot;System.Windows.Forms.TextDataFormat&quot;></xref> values."
+      description: "Een van de <xref href=&quot;System.Windows.Forms.TextDataFormat&quot;> </xref> waarden."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the data object contains text data in the specified format; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als het object tekstgegevens in de opgegeven indeling bevat; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Forms.DataObject.ContainsText*
   exceptions:
   - type: System.ComponentModel.InvalidEnumArgumentException
     commentId: T:System.ComponentModel.InvalidEnumArgumentException
-    description: "<code>format</code> is not a valid <xref href=&quot;System.Windows.Forms.TextDataFormat&quot;></xref> value."
+    description: "<code>format</code>is geen geldige <xref href=&quot;System.Windows.Forms.TextDataFormat&quot;> </xref> waarde."
   platform:
   - net462
 - uid: System.Windows.Forms.DataObject.GetAudioStream
@@ -282,14 +282,14 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Retrieves an audio stream from the data object."
-  remarks: "Use the <xref:System.Windows.Forms.DataObject.ContainsAudio%2A> method to determine whether the data object contains audio data before retrieving it with this method.       Use the <xref:System.Windows.Forms.DataObject.SetAudio%2A> method to add audio data to the data object."
+  summary: "Haalt een audiostroom van het gegevensobject."
+  remarks: "Gebruik de <xref:System.Windows.Forms.DataObject.ContainsAudio%2A>methode om te bepalen of het gegevensobject audiogegevens bevat voordat u ze met deze methode ophaalt.</xref:System.Windows.Forms.DataObject.ContainsAudio%2A>       Gebruik de <xref:System.Windows.Forms.DataObject.SetAudio%2A>methode audiogegevens toevoegen aan het gegevensobject.</xref:System.Windows.Forms.DataObject.SetAudio%2A>"
   syntax:
     content: public virtual System.IO.Stream GetAudioStream ();
     parameters: []
     return:
       type: System.IO.Stream
-      description: "A <xref:System.IO.Stream> containing audio data or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the data object does not contain any data in the <xref href=&quot;System.Windows.Forms.DataFormats.WaveAudio&quot;></xref> format."
+      description: "Een <xref:System.IO.Stream>met audiogegevens of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> als het object bevat geen gegevens in de <xref href=&quot;System.Windows.Forms.DataFormats.WaveAudio&quot;> </xref> indeling.</xref:System.IO.Stream>"
   overload: System.Windows.Forms.DataObject.GetAudioStream*
   exceptions: []
   platform:
@@ -306,8 +306,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Returns the data associated with the specified data format."
-  remarks: "If this method cannot find data in the specified format, it attempts to convert the data to the format. If the data cannot be converted to the specified format, or if the data was stored with automatic conversion set to `false`, this method returns `null`.       To determine whether data is associated with, or can be converted to, a format, call <xref:System.Windows.Forms.DataObject.GetDataPresent%2A> before calling <xref:System.Windows.Forms.DataObject.GetData%2A>. Call <xref:System.Windows.Forms.DataObject.GetFormats%2A> for a list of valid formats for the data stored in this <xref:System.Windows.Forms.DataObject>.      > [!NOTE] >  Data can be converted to another format if it was stored specifying that conversion is allowed, and if the requested format is compatible with the stored format. For example, data stored as Unicode can be converted to text.   >    >  When `format` is <xref:System.Windows.Forms.DataFormats.Html>, this method returns a UTF-8 encoded string in applications that target .NET 4.5 or higher, and an ANSI encoded string in applications that target .NET 4.0 or lower."
+  summary: "Retourneert de gegevens die zijn gekoppeld aan de opgegeven gegevensindeling."
+  remarks: "Als deze methode gegevens niet in de opgegeven indeling vinden kan, probeert de gegevens converteren naar de indeling. Als de gegevens kan niet worden geconverteerd naar de opgegeven indeling, of als de gegevens is opgeslagen met automatische conversie ingesteld op `false`, deze methode retourneert `null`.       Om te bepalen of gegevens die zijn gekoppeld aan of kan worden geconverteerd naar een indeling, aanroepen <xref:System.Windows.Forms.DataObject.GetDataPresent%2A>voordat het aanroepen van <xref:System.Windows.Forms.DataObject.GetData%2A>.</xref:System.Windows.Forms.DataObject.GetData%2A> </xref:System.Windows.Forms.DataObject.GetDataPresent%2A> Aanroepen <xref:System.Windows.Forms.DataObject.GetFormats%2A>voor een lijst met geldige notaties voor de gegevens opgeslagen in deze <xref:System.Windows.Forms.DataObject>.</xref:System.Windows.Forms.DataObject> </xref:System.Windows.Forms.DataObject.GetFormats%2A>      > [!NOTE] > Gegevens kunnen worden geconverteerd naar een andere indeling als deze is opgeslagen die aangeeft dat de conversie is toegestaan, en als de aangevraagde indeling is compatibel met de indeling opgeslagen. Bijvoorbeeld: gegevens die zijn opgeslagen als Unicode kan worden geconverteerd naar tekst.   >> Wanneer `format` is <xref:System.Windows.Forms.DataFormats.Html>deze methode retourneert een tekenreeks UTF-8-codering in toepassingen die zijn gericht op .NET 4.5 of hoger en een ANSI-gecodeerde tekenreeks in toepassingen die zijn gericht .NET 4.0 of lager.</xref:System.Windows.Forms.DataFormats.Html>"
   example:
   - "The following code example retrieves the data stored in a <xref:System.Windows.Forms.DataObject>. First, a new <xref:System.Windows.Forms.DataObject> is created with text data. Then, the data is retrieved, specifying its format as a string, and displayed in a text box.  \n  \n This code requires that `textBox1` has been created.  \n  \n [!code-cpp[classic dataobject example#1](~/add/codesnippet/cpp/m-system.windows.forms.d_15_1.cpp)]\n [!code-vb[classic dataobject example#1](~/add/codesnippet/visualbasic/m-system.windows.forms.d_15_1.vb)]\n [!code-cs[classic dataobject example#1](~/add/codesnippet/csharp/m-system.windows.forms.d_15_1.cs)]"
   syntax:
@@ -315,10 +315,10 @@ items:
     parameters:
     - id: format
       type: System.String
-      description: "The format of the data to retrieve. See <xref href=&quot;System.Windows.Forms.DataFormats&quot;></xref> for predefined formats."
+      description: "De indeling van de gegevens moeten worden opgehaald. Zie <xref href=&quot;System.Windows.Forms.DataFormats&quot;> </xref> voor vooraf gedefinieerde indelingen."
     return:
       type: System.Object
-      description: "The data associated with the specified format, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "De gegevens die zijn gekoppeld aan de opgegeven indeling of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Forms.DataObject.GetData*
   exceptions: []
   platform:
@@ -335,8 +335,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Returns the data associated with the specified class type format."
-  remarks: "If this method cannot find data in the specified format, it attempts to convert the data to the format. If the data cannot be converted to the specified format, or if the data was stored with automatic conversion set to `false`, this method returns `null`.       To determine whether data is associated with, or can be converted to, a format, call <xref:System.Windows.Forms.DataObject.GetDataPresent%2A> before calling <xref:System.Windows.Forms.DataObject.GetData%2A>. Call <xref:System.Windows.Forms.DataObject.GetFormats%2A> for a list of valid formats for the data stored in this <xref:System.Windows.Forms.DataObject>.      > [!NOTE] >  Data can be converted to another format if it was stored specifying that conversion is allowed, and if the requested format is compatible with the stored format. For example, data stored as Unicode can be converted to text."
+  summary: "Retourneert de gegevens die zijn gekoppeld aan de opgegeven klasse type-indeling."
+  remarks: "Als deze methode gegevens niet in de opgegeven indeling vinden kan, probeert de gegevens converteren naar de indeling. Als de gegevens kan niet worden geconverteerd naar de opgegeven indeling, of als de gegevens is opgeslagen met automatische conversie ingesteld op `false`, deze methode retourneert `null`.       Om te bepalen of gegevens die zijn gekoppeld aan of kan worden geconverteerd naar een indeling, aanroepen <xref:System.Windows.Forms.DataObject.GetDataPresent%2A>voordat het aanroepen van <xref:System.Windows.Forms.DataObject.GetData%2A>.</xref:System.Windows.Forms.DataObject.GetData%2A> </xref:System.Windows.Forms.DataObject.GetDataPresent%2A> Aanroepen <xref:System.Windows.Forms.DataObject.GetFormats%2A>voor een lijst met geldige notaties voor de gegevens opgeslagen in deze <xref:System.Windows.Forms.DataObject>.</xref:System.Windows.Forms.DataObject> </xref:System.Windows.Forms.DataObject.GetFormats%2A>      > [!NOTE] > Gegevens kunnen worden geconverteerd naar een andere indeling als deze is opgeslagen die aangeeft dat de conversie is toegestaan, en als de aangevraagde indeling is compatibel met de indeling opgeslagen. Bijvoorbeeld: gegevens die zijn opgeslagen als Unicode kan worden geconverteerd naar tekst."
   example:
   - "The following code example retrieves the data stored in a <xref:System.Windows.Forms.DataObject>. First, a new <xref:System.Windows.Forms.DataObject> is created with a component. Then, the data is retrieved, specifying its type. The type of the retrieved data is displayed in a text box.  \n  \n This code requires that `textBox1` has been created.  \n  \n [!code-cs[Classic DataObject.GetData2 Example#1](~/add/codesnippet/csharp/m-system.windows.forms.d_50_1.cs)]\n [!code-cpp[Classic DataObject.GetData2 Example#1](~/add/codesnippet/cpp/m-system.windows.forms.d_50_1.cpp)]\n [!code-vb[Classic DataObject.GetData2 Example#1](~/add/codesnippet/visualbasic/m-system.windows.forms.d_50_1.vb)]"
   syntax:
@@ -344,10 +344,10 @@ items:
     parameters:
     - id: format
       type: System.Type
-      description: "A <xref:System.Type> representing the format of the data to retrieve."
+      description: "Een <xref:System.Type>die de indeling van de gegevens moeten worden opgehaald.</xref:System.Type>"
     return:
       type: System.Object
-      description: "The data associated with the specified format, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "De gegevens die zijn gekoppeld aan de opgegeven indeling of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Forms.DataObject.GetData*
   exceptions: []
   platform:
@@ -364,8 +364,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Returns the data associated with the specified data format, using an automated conversion parameter to determine whether to convert the data to the format."
-  remarks: "If the `autoConvert` parameter is `true` and this method cannot find data in the specified format, it attempts to convert the data to the format. If the data cannot be converted to the specified format, or if the data was stored with the automatic conversion set to `false`, this method returns `null`.       If the `autoConvert` parameter is `false`, this method returns data in the specified format, or `null` if no data in this format can be found.       To determine whether data is associated with, or can be converted to, a format, call <xref:System.Windows.Forms.DataObject.GetDataPresent%2A> before calling GetData. Call <xref:System.Windows.Forms.DataObject.GetFormats%2A> for a list of valid formats for the data stored in this <xref:System.Windows.Forms.DataObject>.      > [!NOTE] >  Data can be converted to another format if it was stored specifying that conversion is allowed, and if the requested format is compatible with the stored format. For example, data stored as Unicode can be converted to text.   >    >  When `format` is <xref:System.Windows.Forms.DataFormats.Html>, this method returns a UTF-8 encoded string in applications that target .NET 4.5 or higher, and an ANSI encoded string in applications that target .NET 4.0 or lower."
+  summary: "Retourneert de gegevens die zijn gekoppeld aan de opgegeven gegevensindeling met behulp van een automatische conversie-parameter om te bepalen of de gegevens converteren naar de indeling."
+  remarks: "Als de `autoConvert` parameter `true` en deze methode kan gegevens niet vinden in de opgegeven indeling, probeert de gegevens converteren naar de indeling. Als de gegevens kan niet worden geconverteerd naar de opgegeven indeling, of als de gegevens is opgeslagen met de automatische conversie ingesteld op `false`, deze methode retourneert `null`.       Als de `autoConvert` parameter `false`, deze methode retourneert gegevens in de opgegeven indeling of `null` als er geen gegevens in deze indeling kan worden gevonden.       Om te bepalen of gegevens die zijn gekoppeld aan of kan worden geconverteerd naar een indeling, roepen <xref:System.Windows.Forms.DataObject.GetDataPresent%2A>aanroepen voordat GetData.</xref:System.Windows.Forms.DataObject.GetDataPresent%2A> Aanroepen <xref:System.Windows.Forms.DataObject.GetFormats%2A>voor een lijst met geldige notaties voor de gegevens opgeslagen in deze <xref:System.Windows.Forms.DataObject>.</xref:System.Windows.Forms.DataObject> </xref:System.Windows.Forms.DataObject.GetFormats%2A>      > [!NOTE] > Gegevens kunnen worden geconverteerd naar een andere indeling als deze is opgeslagen die aangeeft dat de conversie is toegestaan, en als de aangevraagde indeling is compatibel met de indeling opgeslagen. Bijvoorbeeld: gegevens die zijn opgeslagen als Unicode kan worden geconverteerd naar tekst.   >> Wanneer `format` is <xref:System.Windows.Forms.DataFormats.Html>deze methode retourneert een tekenreeks UTF-8-codering in toepassingen die zijn gericht op .NET 4.5 of hoger en een ANSI-gecodeerde tekenreeks in toepassingen die zijn gericht .NET 4.0 of lager.</xref:System.Windows.Forms.DataFormats.Html>"
   example:
   - "The following code example retrieves the data stored in a <xref:System.Windows.Forms.DataObject>, using the `autoConvert` parameter to specify whether to convert the data format.  \n  \n First, a new <xref:System.Windows.Forms.DataObject> is created with text data. Then the example tries to retrieve the data, specifying its format as a string and no format conversion, that is, the `autoConvert` parameter is `false`. This operation fails because there is no string data in the <xref:System.Windows.Forms.DataObject>.  \n  \n Next, the example tries to retrieve the data again, with the `autoConvert` parameter set to `true`. This operation succeeds and the results are displayed in a <xref:System.Windows.Forms.MessageBox>.  \n  \n This code requires that `textBox1` has been created.  \n  \n [!code-cpp[Classic DataObject.GetData Example#1](~/add/codesnippet/cpp/m-system.windows.forms.d_62_1.cpp)]\n [!code-vb[Classic DataObject.GetData Example#1](~/add/codesnippet/visualbasic/m-system.windows.forms.d_62_1.vb)]\n [!code-cs[Classic DataObject.GetData Example#1](~/add/codesnippet/csharp/m-system.windows.forms.d_62_1.cs)]"
   syntax:
@@ -373,13 +373,13 @@ items:
     parameters:
     - id: format
       type: System.String
-      description: "The format of the data to retrieve. See <xref href=&quot;System.Windows.Forms.DataFormats&quot;></xref> for predefined formats."
+      description: "De indeling van de gegevens moeten worden opgehaald. Zie <xref href=&quot;System.Windows.Forms.DataFormats&quot;> </xref> voor vooraf gedefinieerde indelingen."
     - id: autoConvert
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to the convert data to the specified format; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>de gegevens converteren naar de opgegeven indeling; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Object
-      description: "The data associated with the specified format, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "De gegevens die zijn gekoppeld aan de opgegeven indeling of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Forms.DataObject.GetData*
   exceptions: []
   platform:
@@ -396,8 +396,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Determines whether data stored in this <xref href=&quot;System.Windows.Forms.DataObject&quot;></xref> is associated with, or can be converted to, the specified format."
-  remarks: "Call this method to determine whether a format exists before calling <xref:System.Windows.Forms.DataObject.GetData%2A>. Call <xref:System.Windows.Forms.DataObject.GetFormats%2A> for the formats that are available in this <xref:System.Windows.Forms.DataObject>.      > [!NOTE] >  Data can be converted to another format if it was stored specifying that conversion is allowed, and if the requested format is compatible with the stored format. For example, data stored as Unicode can be converted to text.      > [!NOTE] >  If no data can be retrieved, no exception will be thrown. Instead, `false` will be returned."
+  summary: "Hiermee wordt bepaald of de gegevens in deze opgeslagen <xref href=&quot;System.Windows.Forms.DataObject&quot;> </xref> is gekoppeld of kunnen worden geconverteerd naar de opgegeven indeling."
+  remarks: "Deze methode om te bepalen of een indeling bestaat voordat u <xref:System.Windows.Forms.DataObject.GetData%2A>.</xref:System.Windows.Forms.DataObject.GetData%2A> niet aanroepen <xref:System.Windows.Forms.DataObject.GetFormats%2A>De indelingen die beschikbaar zijn in deze <xref:System.Windows.Forms.DataObject>.</xref:System.Windows.Forms.DataObject> </xref:System.Windows.Forms.DataObject.GetFormats%2A> aanroepen      > [!NOTE] > Gegevens kunnen worden geconverteerd naar een andere indeling als deze is opgeslagen die aangeeft dat de conversie is toegestaan, en als de aangevraagde indeling is compatibel met de indeling opgeslagen. Bijvoorbeeld: gegevens die zijn opgeslagen als Unicode kan worden geconverteerd naar tekst.      > [!NOTE] > Als er geen gegevens kunnen worden opgehaald, er is geen uitzondering gegenereerd. In plaats daarvan `false` wordt geretourneerd."
   example:
   - "The following code example determines whether data currently stored in this <xref:System.Windows.Forms.DataObject> is associated with, or can be converted to, a specified format. A new <xref:System.Windows.Forms.DataObject> is initialized with a string and its associated format specified as text.  \n  \n Then the examples prints whether text data exists in the <xref:System.Windows.Forms.DataObject>. This code requires that `textBox1` has been created.  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]"
   syntax:
@@ -405,10 +405,10 @@ items:
     parameters:
     - id: format
       type: System.String
-      description: "The format to check for. See <xref href=&quot;System.Windows.Forms.DataFormats&quot;></xref> for predefined formats."
+      description: "De indeling om te controleren. Zie <xref href=&quot;System.Windows.Forms.DataFormats&quot;> </xref> voor vooraf gedefinieerde indelingen."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if data stored in this <xref href=&quot;System.Windows.Forms.DataObject&quot;></xref> is associated with, or can be converted to, the specified format; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als gegevens worden opgeslagen in deze <xref href=&quot;System.Windows.Forms.DataObject&quot;> </xref> is gekoppeld of kunnen worden geconverteerd naar de opgegeven indeling; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Forms.DataObject.GetDataPresent*
   exceptions: []
   platform:
@@ -425,8 +425,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Determines whether data stored in this <xref href=&quot;System.Windows.Forms.DataObject&quot;></xref> is associated with, or can be converted to, the specified format."
-  remarks: "Call this method to determine whether a format exists before calling <xref:System.Windows.Forms.DataObject.GetData%2A>. Call <xref:System.Windows.Forms.DataObject.GetFormats%2A> for the formats that are available in this <xref:System.Windows.Forms.DataObject>.      > [!NOTE] >  Data can be converted to another format if it was stored specifying that conversion is allowed, and if the requested format is compatible with the stored format. For example, data stored as Unicode can be converted to text.      > [!NOTE] >  If no data can be retrieved, no exception will be thrown. Instead, `false` will be returned."
+  summary: "Hiermee wordt bepaald of de gegevens in deze opgeslagen <xref href=&quot;System.Windows.Forms.DataObject&quot;> </xref> is gekoppeld of kunnen worden geconverteerd naar de opgegeven indeling."
+  remarks: "Deze methode om te bepalen of een indeling bestaat voordat u <xref:System.Windows.Forms.DataObject.GetData%2A>.</xref:System.Windows.Forms.DataObject.GetData%2A> niet aanroepen <xref:System.Windows.Forms.DataObject.GetFormats%2A>De indelingen die beschikbaar zijn in deze <xref:System.Windows.Forms.DataObject>.</xref:System.Windows.Forms.DataObject> </xref:System.Windows.Forms.DataObject.GetFormats%2A> aanroepen      > [!NOTE] > Gegevens kunnen worden geconverteerd naar een andere indeling als deze is opgeslagen die aangeeft dat de conversie is toegestaan, en als de aangevraagde indeling is compatibel met de indeling opgeslagen. Bijvoorbeeld: gegevens die zijn opgeslagen als Unicode kan worden geconverteerd naar tekst.      > [!NOTE] > Als er geen gegevens kunnen worden opgehaald, er is geen uitzondering gegenereerd. In plaats daarvan `false` wordt geretourneerd."
   example:
   - "The following code example determines whether data of the specified type exists in a <xref:System.Windows.Forms.DataObject>, or whether the data can be converted to the specified type. The result is displayed in a text box. The code requires that `textBox1` has been created.  \n  \n [!code-cs[Classic DataObject.GetDataPresent Example#1](~/add/codesnippet/csharp/m-system.windows.forms.d_90_1.cs)]\n [!code-vb[Classic DataObject.GetDataPresent Example#1](~/add/codesnippet/visualbasic/m-system.windows.forms.d_90_1.vb)]\n [!code-cpp[Classic DataObject.GetDataPresent Example#1](~/add/codesnippet/cpp/m-system.windows.forms.d_90_1.cpp)]"
   syntax:
@@ -434,10 +434,10 @@ items:
     parameters:
     - id: format
       type: System.Type
-      description: "A <xref:System.Type> representing the format to check for."
+      description: "Een <xref:System.Type>die de indeling moet controleren</xref:System.Type>"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if data stored in this <xref href=&quot;System.Windows.Forms.DataObject&quot;></xref> is associated with, or can be converted to, the specified format; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als gegevens worden opgeslagen in deze <xref href=&quot;System.Windows.Forms.DataObject&quot;> </xref> is gekoppeld of kunnen worden geconverteerd naar de opgegeven indeling; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Forms.DataObject.GetDataPresent*
   exceptions: []
   platform:
@@ -454,8 +454,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Determines whether this <xref href=&quot;System.Windows.Forms.DataObject&quot;></xref> contains data in the specified format or, optionally, contains data that can be converted to the specified format."
-  remarks: "Call this method to determine whether a format exists before calling <xref:System.Windows.Forms.DataObject.GetData%2A>. Call <xref:System.Windows.Forms.DataObject.GetFormats%2A> for the formats that are available in this <xref:System.Windows.Forms.DataObject>.       This method returns `true` when:      -   The `autoConvert` parameter is `true` and the data is in a format that can be converted to the appropriate format.      -   The `autoConvert` parameter is `false` and the data is in the appropriate format.       This method returns `false` when:      -   The `autoConvert` parameter is `true` and this method cannot find data in the specified format, and it cannot convert data to the specified format, or the data was stored with automatic conversion set to `false`.      -   The `autoConvert` parameter is `false` and data does not exist in this <xref:System.Windows.Forms.DataObject> in the specified format.      > [!NOTE] >  Data can be converted to another format if it was stored specifying that conversion is allowed and if the requested format is compatible with the stored format. For example, data stored as Unicode can be converted to text.      > [!NOTE] >  If no data can be retrieved, no exception will be thrown. Instead, `false` will be returned."
+  summary: "Hiermee wordt bepaald of dit <xref href=&quot;System.Windows.Forms.DataObject&quot;> </xref> bevat gegevens in de opgegeven indeling of desgewenst gegevens bevat die kunnen worden geconverteerd naar de opgegeven indeling."
+  remarks: "Deze methode om te bepalen of een indeling bestaat voordat u <xref:System.Windows.Forms.DataObject.GetData%2A>.</xref:System.Windows.Forms.DataObject.GetData%2A> niet aanroepen <xref:System.Windows.Forms.DataObject.GetFormats%2A>De indelingen die beschikbaar zijn in deze <xref:System.Windows.Forms.DataObject>.</xref:System.Windows.Forms.DataObject> </xref:System.Windows.Forms.DataObject.GetFormats%2A> aanroepen       Deze methode retourneert `true` wanneer: - de `autoConvert` parameter `true` en de gegevens zich in een indeling die kan worden geconverteerd naar de juiste indeling.      -De `autoConvert` parameter `false` en de gegevens in de juiste indeling.       Deze methode retourneert `false` wanneer: - de `autoConvert` parameter `true` en deze methode kan gegevens niet vinden in de opgegeven indeling en deze gegevens kan niet converteren naar de opgegeven indeling of de gegevens is opgeslagen met automatische conversie ingesteld op `false`.      -De `autoConvert` parameter `false` en gegevens, bestaat niet in deze <xref:System.Windows.Forms.DataObject>in de opgegeven indeling.</xref:System.Windows.Forms.DataObject>      > [!NOTE] > Gegevens kunnen worden geconverteerd naar een andere indeling als deze is opgeslagen opgeven dat de conversie is toegestaan en of de aangevraagde indeling compatibel met de indeling opgeslagen is. Bijvoorbeeld: gegevens die zijn opgeslagen als Unicode kan worden geconverteerd naar tekst.      > [!NOTE] > Als er geen gegevens kunnen worden opgehaald, er is geen uitzondering gegenereerd. In plaats daarvan `false` wordt geretourneerd."
   example:
   - "The following code example determines whether data currently stored in the <xref:System.Windows.Forms.DataObject> is associated with a specified format. First, a new <xref:System.Windows.Forms.DataObject> is initialized with a string, specifying its format as text.  \n  \n Then the <xref:System.Windows.Forms.DataObject> is queried for data associated with the text format, specifying the `autoConvert` parameter as `false`. The result of this query is printed in a text box.  \n  \n Then the <xref:System.Windows.Forms.DataObject> is queried for data associated with string format, specifying the `autoConvert` parameter as `true`. The results are printed in the text box. This code requires that `textBox1` has been created.  \n  \n [!code-vb[Classic DataObject.GetDataPresent1 Example#1](~/add/codesnippet/visualbasic/m-system.windows.forms.d_111_1.vb)]\n [!code-cpp[Classic DataObject.GetDataPresent1 Example#1](~/add/codesnippet/cpp/m-system.windows.forms.d_111_1.cpp)]\n [!code-cs[Classic DataObject.GetDataPresent1 Example#1](~/add/codesnippet/csharp/m-system.windows.forms.d_111_1.cs)]"
   syntax:
@@ -463,13 +463,13 @@ items:
     parameters:
     - id: format
       type: System.String
-      description: "The format to check for. See <xref href=&quot;System.Windows.Forms.DataFormats&quot;></xref> for predefined formats."
+      description: "De indeling om te controleren. Zie <xref href=&quot;System.Windows.Forms.DataFormats&quot;> </xref> voor vooraf gedefinieerde indelingen."
     - id: autoConvert
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to determine whether data stored in this <xref href=&quot;System.Windows.Forms.DataObject&quot;></xref> can be converted to the specified format; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to check whether the data is in the specified format."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>om te bepalen of gegevens in deze opgeslagen <xref href=&quot;System.Windows.Forms.DataObject&quot;> </xref> kunnen worden geconverteerd naar de opgegeven indeling; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> om te controleren of de gegevens in de opgegeven indeling."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the data is in, or can be converted to, the specified format; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de gegevens, of kan worden geconverteerd naar de opgegeven indeling; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Forms.DataObject.GetDataPresent*
   exceptions: []
   platform:
@@ -486,14 +486,14 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Retrieves a collection of file names from the data object."
-  remarks: "A file drop list is a collection of strings containing path information for files.       A file drop list is stored in a data object as a <xref:System.String> array. This method converts this array to a <xref:System.Collections.Specialized.StringCollection> and returns the collection.       Use the <xref:System.Windows.Forms.DataObject.ContainsFileDropList%2A> method to determine whether the data object contains a file drop list before retrieving it with this method.       Use the <xref:System.Windows.Forms.DataObject.SetFileDropList%2A> method to add a file drop list to the data object."
+  summary: "Een verzameling van bestandsnamen opgehaald uit het gegevensobject."
+  remarks: "Een lijst met bestanden neerzetten is een verzameling van tekenreeksen met informatie over het pad voor bestanden.       Een lijst met bestanden neerzetten is opgeslagen in een gegevensobject als een <xref:System.String>matrix.</xref:System.String> Deze methode zet deze matrix aan een <xref:System.Collections.Specialized.StringCollection>en retourneert de collectie.</xref:System.Collections.Specialized.StringCollection>       Gebruik de <xref:System.Windows.Forms.DataObject.ContainsFileDropList%2A>methode om te bepalen of het gegevensobject een lijst met bestanden neerzetten bevat voordat u ze met deze methode ophaalt.</xref:System.Windows.Forms.DataObject.ContainsFileDropList%2A>       Gebruik de <xref:System.Windows.Forms.DataObject.SetFileDropList%2A>methode een lijst met bestanden neerzetten toevoegen aan het gegevensobject.</xref:System.Windows.Forms.DataObject.SetFileDropList%2A>"
   syntax:
     content: public virtual System.Collections.Specialized.StringCollection GetFileDropList ();
     parameters: []
     return:
       type: System.Collections.Specialized.StringCollection
-      description: "A <xref href=&quot;System.Collections.Specialized.StringCollection&quot;></xref> containing file names or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the data object does not contain any data that is in the <xref href=&quot;System.Windows.Forms.DataFormats.FileDrop&quot;></xref> format or can be converted to that format."
+      description: "Een <xref href=&quot;System.Collections.Specialized.StringCollection&quot;> </xref> met bestandsnamen of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> als het object geen gegevens die zich bevat in de <xref href=&quot;System.Windows.Forms.DataFormats.FileDrop&quot;> </xref> opmaken of kunnen worden geconverteerd naar deze indeling."
   overload: System.Windows.Forms.DataObject.GetFileDropList*
   exceptions: []
   platform:
@@ -510,8 +510,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Returns a list of all formats that data stored in this <xref href=&quot;System.Windows.Forms.DataObject&quot;></xref> is associated with or can be converted to."
-  remarks: "Call this method to get the supported data formats before calling <xref:System.Windows.Forms.DataObject.GetData%2A>. See <xref:System.Windows.Forms.DataFormats> for the predefined formats.      > [!NOTE] >  Data can be converted to another format if it was stored specifying that conversion is allowed and if the requested format is compatible with the stored format. For example, data stored as Unicode can be converted to text."
+  summary: "Retourneert een lijst met alle indelingen die gegevens die zijn opgeslagen in deze <xref href=&quot;System.Windows.Forms.DataObject&quot;> </xref> is gekoppeld of kunnen worden omgezet in."
+  remarks: "Deze methode als u de van ondersteunde gegevensindelingen voor het aanroepen van <xref:System.Windows.Forms.DataObject.GetData%2A>.</xref:System.Windows.Forms.DataObject.GetData%2A> niet aanroepen Zie <xref:System.Windows.Forms.DataFormats>voor de vooraf gedefinieerde indelingen.</xref:System.Windows.Forms.DataFormats>      > [!NOTE] > Gegevens kunnen worden geconverteerd naar een andere indeling als deze is opgeslagen opgeven dat de conversie is toegestaan en of de aangevraagde indeling compatibel met de indeling opgeslagen is. Bijvoorbeeld: gegevens die zijn opgeslagen als Unicode kan worden geconverteerd naar tekst."
   example:
   - "The following code example queries a <xref:System.Windows.Forms.DataObject> for the formats associated with its data, and the formats that the data can be converted to. The resulting list is displayed in a text box. This code requires that `textBox1` has been created.  \n  \n [!code-cs[Classic DataObject.GetFormats1 Example#1](~/add/codesnippet/csharp/m-system.windows.forms.d_103_1.cs)]\n [!code-cpp[Classic DataObject.GetFormats1 Example#1](~/add/codesnippet/cpp/m-system.windows.forms.d_103_1.cpp)]\n [!code-vb[Classic DataObject.GetFormats1 Example#1](~/add/codesnippet/visualbasic/m-system.windows.forms.d_103_1.vb)]"
   syntax:
@@ -519,7 +519,7 @@ items:
     parameters: []
     return:
       type: System.String[]
-      description: "An array of type <xref:System.String>, containing a list of all formats that are supported by the data stored in this object."
+      description: "Een matrix van het type <xref:System.String>, met een lijst van alle indelingen die worden ondersteund door de gegevens die in dit object is opgeslagen.</xref:System.String>"
   overload: System.Windows.Forms.DataObject.GetFormats*
   exceptions: []
   platform:
@@ -536,8 +536,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Returns a list of all formats that data stored in this <xref href=&quot;System.Windows.Forms.DataObject&quot;></xref> is associated with or can be converted to, using an automatic conversion parameter to determine whether to retrieve only native data formats or all formats that the data can be converted to."
-  remarks: "Call this method to get the supported data formats before calling <xref:System.Windows.Forms.DataObject.GetData%2A>. See <xref:System.Windows.Forms.DataFormats> for the predefined formats.      > [!NOTE] >  Data can be converted to another format if it was stored specifying that conversion is allowed and if the requested format is compatible with the stored format. For example, data stored as Unicode can be converted to text."
+  summary: "Retourneert een lijst met alle indelingen die gegevens die zijn opgeslagen in deze <xref href=&quot;System.Windows.Forms.DataObject&quot;> </xref> is gekoppeld of kunnen worden geconverteerd, met behulp van een automatische conversie-parameter om te bepalen of alleen systeemeigen gegevensopmaak of alle indelingen die de gegevens kunnen worden geconverteerd naar ophalen."
+  remarks: "Deze methode als u de van ondersteunde gegevensindelingen voor het aanroepen van <xref:System.Windows.Forms.DataObject.GetData%2A>.</xref:System.Windows.Forms.DataObject.GetData%2A> niet aanroepen Zie <xref:System.Windows.Forms.DataFormats>voor de vooraf gedefinieerde indelingen.</xref:System.Windows.Forms.DataFormats>      > [!NOTE] > Gegevens kunnen worden geconverteerd naar een andere indeling als deze is opgeslagen opgeven dat de conversie is toegestaan en of de aangevraagde indeling compatibel met de indeling opgeslagen is. Bijvoorbeeld: gegevens die zijn opgeslagen als Unicode kan worden geconverteerd naar tekst."
   example:
   - "The following code example queries a <xref:System.Windows.Forms.DataObject> for the formats associated with its data. The first query specifies the `autoConvert` parameter as `false`, so only the native format of the data is returned. The second query specifies the `autoConvert` parameter as `true`, so the list of formats includes the formats that the data can be converted to.  \n  \n This code requires that `textBox1` has been created.  \n  \n [!code-cpp[Classic DataObject.GetFormats Example#1](~/add/codesnippet/cpp/m-system.windows.forms.d_31_1.cpp)]\n [!code-cs[Classic DataObject.GetFormats Example#1](~/add/codesnippet/csharp/m-system.windows.forms.d_31_1.cs)]\n [!code-vb[Classic DataObject.GetFormats Example#1](~/add/codesnippet/visualbasic/m-system.windows.forms.d_31_1.vb)]"
   syntax:
@@ -545,10 +545,10 @@ items:
     parameters:
     - id: autoConvert
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to retrieve all formats that data stored in this <xref href=&quot;System.Windows.Forms.DataObject&quot;></xref> is associated with, or can be converted to; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to retrieve only native data formats."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>om het ophalen van alle bestandsindelingen die gegevens die zijn opgeslagen in deze <xref href=&quot;System.Windows.Forms.DataObject&quot;> </xref> is gekoppeld of kunnen worden geconverteerd naar; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> alleen systeemeigen gegevensopmaak ophalen."
     return:
       type: System.String[]
-      description: "An array of type <xref:System.String>, containing a list of all formats that are supported by the data stored in this object."
+      description: "Een matrix van het type <xref:System.String>, met een lijst van alle indelingen die worden ondersteund door de gegevens die in dit object is opgeslagen.</xref:System.String>"
   overload: System.Windows.Forms.DataObject.GetFormats*
   exceptions: []
   platform:
@@ -565,14 +565,14 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Retrieves an image from the data object."
-  remarks: "Use the <xref:System.Windows.Forms.DataObject.ContainsImage%2A> method to determine whether the data object contains image data before retrieving it with this method.       Use the <xref:System.Windows.Forms.DataObject.SetImage%2A> method to add image data to the data object."
+  summary: "Haalt een installatiekopie van het gegevensobject."
+  remarks: "Gebruik de <xref:System.Windows.Forms.DataObject.ContainsImage%2A>methode om te bepalen of het gegevensobject afbeeldingsgegevens bevat voordat u ze met deze methode ophaalt.</xref:System.Windows.Forms.DataObject.ContainsImage%2A>       Gebruik de <xref:System.Windows.Forms.DataObject.SetImage%2A>methode image-gegevens toevoegen aan het gegevensobject.</xref:System.Windows.Forms.DataObject.SetImage%2A>"
   syntax:
     content: public virtual System.Drawing.Image GetImage ();
     parameters: []
     return:
       type: System.Drawing.Image
-      description: "An <xref href=&quot;System.Drawing.Image&quot;></xref> representing the image data in the data object or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the data object does not contain any data that is in the <xref href=&quot;System.Windows.Forms.DataFormats.Bitmap&quot;></xref> format or can be converted to that format."
+      description: "Een <xref href=&quot;System.Drawing.Image&quot;> </xref> representatie van afbeeldingsgegevens in het gegevensobject of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> als het object geen gegevens die zich bevat in de <xref href=&quot;System.Windows.Forms.DataFormats.Bitmap&quot;> </xref> opmaken of kunnen worden geconverteerd naar deze indeling."
   overload: System.Windows.Forms.DataObject.GetImage*
   exceptions: []
   platform:
@@ -589,14 +589,14 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Retrieves text data from the data object in the <xref href=&quot;System.Windows.Forms.TextDataFormat&quot;></xref> format."
-  remarks: "Use the <xref:System.Windows.Forms.DataObject.ContainsText%2A> method to determine whether the data object contains text data before retrieving it with this method.       Use the <xref:System.Windows.Forms.DataObject.SetText%2A> method to add text data to the data object."
+  summary: "Tekstgegevens worden opgehaald uit het gegevensobject in de <xref href=&quot;System.Windows.Forms.TextDataFormat&quot;> </xref> indeling."
+  remarks: "Gebruik de <xref:System.Windows.Forms.DataObject.ContainsText%2A>methode om te bepalen of het gegevensobject tekstgegevens bevat voordat u ze met deze methode ophaalt.</xref:System.Windows.Forms.DataObject.ContainsText%2A>       Gebruik de <xref:System.Windows.Forms.DataObject.SetText%2A>methode tekstgegevens toevoegen aan het gegevensobject.</xref:System.Windows.Forms.DataObject.SetText%2A>"
   syntax:
     content: public virtual string GetText ();
     parameters: []
     return:
       type: System.String
-      description: "The text data in the data object or &lt;xref:System.String?displayProperty=fullName&gt; if the data object does not contain data in the <xref href=&quot;System.Windows.Forms.TextDataFormat&quot;></xref> format."
+      description: "De gegevens in het gegevensobject of &lt;xref:System.String?displayProperty=fullName&gt; als het object bevat geen gegevens in de <xref href=&quot;System.Windows.Forms.TextDataFormat&quot;> </xref> indeling."
   overload: System.Windows.Forms.DataObject.GetText*
   exceptions: []
   platform:
@@ -613,22 +613,22 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Retrieves text data from the data object in the format indicated by the specified <xref href=&quot;System.Windows.Forms.TextDataFormat&quot;></xref> value."
-  remarks: "Use the <xref:System.Windows.Forms.DataObject.ContainsText%2A> method to determine whether the data object contains text data before retrieving it with this method.       Use the <xref:System.Windows.Forms.DataObject.SetText%2A> method to add text data to the data object."
+  summary: "Tekstgegevens worden opgehaald uit het object in de indeling aangegeven door de opgegeven <xref href=&quot;System.Windows.Forms.TextDataFormat&quot;> </xref> waarde."
+  remarks: "Gebruik de <xref:System.Windows.Forms.DataObject.ContainsText%2A>methode om te bepalen of het gegevensobject tekstgegevens bevat voordat u ze met deze methode ophaalt.</xref:System.Windows.Forms.DataObject.ContainsText%2A>       Gebruik de <xref:System.Windows.Forms.DataObject.SetText%2A>methode tekstgegevens toevoegen aan het gegevensobject.</xref:System.Windows.Forms.DataObject.SetText%2A>"
   syntax:
     content: public virtual string GetText (System.Windows.Forms.TextDataFormat format);
     parameters:
     - id: format
       type: System.Windows.Forms.TextDataFormat
-      description: "One of the <xref href=&quot;System.Windows.Forms.TextDataFormat&quot;></xref> values."
+      description: "Een van de <xref href=&quot;System.Windows.Forms.TextDataFormat&quot;> </xref> waarden."
     return:
       type: System.String
-      description: "The text data in the data object or &lt;xref:System.String?displayProperty=fullName&gt; if the data object does not contain data in the specified format."
+      description: "De gegevens in het gegevensobject of &lt;xref:System.String?displayProperty=fullName&gt; als het object bevat geen gegevens in de opgegeven indeling."
   overload: System.Windows.Forms.DataObject.GetText*
   exceptions:
   - type: System.ComponentModel.InvalidEnumArgumentException
     commentId: T:System.ComponentModel.InvalidEnumArgumentException
-    description: "<code>format</code> is not a valid <xref href=&quot;System.Windows.Forms.TextDataFormat&quot;></xref> value."
+    description: "<code>format</code>is geen geldige <xref href=&quot;System.Windows.Forms.TextDataFormat&quot;> </xref> waarde."
   platform:
   - net462
 - uid: System.Windows.Forms.DataObject.SetAudio(System.Byte[])
@@ -643,19 +643,19 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Adds a <xref:System.Byte> array to the data object in the <xref href=&quot;System.Windows.Forms.DataFormats.WaveAudio&quot;></xref> format after converting it to a <xref:System.IO.Stream>."
-  remarks: "To retrieve audio data from the data object, first use the <xref:System.Windows.Forms.DataObject.ContainsAudio%2A> method to determine whether the data object contains audio data before retrieving it with the <xref:System.Windows.Forms.DataObject.GetAudioStream%2A> method."
+  summary: "Voegt een <xref:System.Byte>matrix naar het object in de <xref href=&quot;System.Windows.Forms.DataFormats.WaveAudio&quot;> </xref> indeling na te converteren naar een <xref:System.IO.Stream>.</xref:System.IO.Stream> </xref:System.Byte>"
+  remarks: "Audio om gegevens te halen uit het gegevensobject, gebruikt u eerst de <xref:System.Windows.Forms.DataObject.ContainsAudio%2A>methode om te bepalen of het gegevensobject audiogegevens voordat u ze met ophaalt bevat de <xref:System.Windows.Forms.DataObject.GetAudioStream%2A>methode.</xref:System.Windows.Forms.DataObject.GetAudioStream%2A> </xref:System.Windows.Forms.DataObject.ContainsAudio%2A>"
   syntax:
     content: public virtual void SetAudio (byte[] audioBytes);
     parameters:
     - id: audioBytes
       type: System.Byte[]
-      description: "A <xref:System.Byte> array containing the audio data."
+      description: "Een <xref:System.Byte>matrix met de audiogegevens.</xref:System.Byte>"
   overload: System.Windows.Forms.DataObject.SetAudio*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>audioBytes</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>audioBytes</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Windows.Forms.DataObject.SetAudio(System.IO.Stream)
@@ -670,19 +670,19 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Adds a <xref:System.IO.Stream> to the data object in the <xref href=&quot;System.Windows.Forms.DataFormats.WaveAudio&quot;></xref> format."
-  remarks: "To retrieve audio data from the data object, first use the <xref:System.Windows.Forms.DataObject.ContainsAudio%2A> method to determine whether the data object contains audio data before retrieving it with the <xref:System.Windows.Forms.DataObject.GetAudioStream%2A> method."
+  summary: "Voegt een <xref:System.IO.Stream>naar het object in de <xref href=&quot;System.Windows.Forms.DataFormats.WaveAudio&quot;> </xref> indeling.</xref:System.IO.Stream>"
+  remarks: "Audio om gegevens te halen uit het gegevensobject, gebruikt u eerst de <xref:System.Windows.Forms.DataObject.ContainsAudio%2A>methode om te bepalen of het gegevensobject audiogegevens voordat u ze met ophaalt bevat de <xref:System.Windows.Forms.DataObject.GetAudioStream%2A>methode.</xref:System.Windows.Forms.DataObject.GetAudioStream%2A> </xref:System.Windows.Forms.DataObject.ContainsAudio%2A>"
   syntax:
     content: public virtual void SetAudio (System.IO.Stream audioStream);
     parameters:
     - id: audioStream
       type: System.IO.Stream
-      description: "A <xref:System.IO.Stream> containing the audio data."
+      description: "Een <xref:System.IO.Stream>met de audiogegevens.</xref:System.IO.Stream>"
   overload: System.Windows.Forms.DataObject.SetAudio*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>audioStream</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>audioStream</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Windows.Forms.DataObject.SetData(System.Object)
@@ -697,8 +697,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Adds the specified object to the <xref href=&quot;System.Windows.Forms.DataObject&quot;></xref> using the object type as the data format."
-  remarks: "If you do not know the format of the target application, you can store data in multiple formats using this method. Data stored using this method can be converted to a compatible format when it is retrieved.       The SetData overload stores the `data` value in a format that it determines by calling the <xref:System.Object.GetType%2A?displayProperty=fullName> method. If `data` implements the <xref:System.Runtime.Serialization.ISerializable> interface, this overload also stores the value in the <xref:System.Windows.DataFormats.Serializable> format."
+  summary: "Het opgegeven object voegt de <xref href=&quot;System.Windows.Forms.DataObject&quot;> </xref> met behulp van het objecttype als de gegevensindeling."
+  remarks: "Als u de indeling van de doeltoepassing niet weet, kunt u gegevens opslaan in verschillende indelingen met deze methode. Gegevens die zijn opgeslagen met deze methode kan worden geconverteerd naar een indeling die compatibel is wanneer deze wordt opgehaald.       De SetData overbelasting slaat de `data` waarde in een indeling die met het aanroepen van wordt de <xref:System.Object.GetType%2A?displayProperty=fullName>methode.</xref:System.Object.GetType%2A?displayProperty=fullName> Als `data` implementeert de <xref:System.Runtime.Serialization.ISerializable>interface, deze overbelasting ook de waarde wordt opgeslagen in de <xref:System.Windows.DataFormats.Serializable>indeling.</xref:System.Windows.DataFormats.Serializable> </xref:System.Runtime.Serialization.ISerializable>"
   example:
   - "The following code example stores data in a <xref:System.Windows.Forms.DataObject>. First, a new <xref:System.Windows.Forms.DataObject> is created and a component is stored in it. Then, the data is retrieved by specifying the class. The result is displayed in a text box.  \n  \n This code requires that `textBox1` has been created.  \n  \n [!code-cs[Classic DataObject.SetData3 Example#1](~/add/codesnippet/csharp/m-system.windows.forms.d_94_1.cs)]\n [!code-cpp[Classic DataObject.SetData3 Example#1](~/add/codesnippet/cpp/m-system.windows.forms.d_94_1.cpp)]\n [!code-vb[Classic DataObject.SetData3 Example#1](~/add/codesnippet/visualbasic/m-system.windows.forms.d_94_1.vb)]"
   syntax:
@@ -706,7 +706,7 @@ items:
     parameters:
     - id: data
       type: System.Object
-      description: "The data to store."
+      description: "De gegevens worden opgeslagen."
   overload: System.Windows.Forms.DataObject.SetData*
   exceptions: []
   platform:
@@ -723,8 +723,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Adds the specified object to the <xref href=&quot;System.Windows.Forms.DataObject&quot;></xref> using the specified format."
-  remarks: "If you do not know the format of the target application, you can store data in multiple formats using this method.       Data stored using this method can be converted to a compatible format when it is retrieved."
+  summary: "Het opgegeven object voegt de <xref href=&quot;System.Windows.Forms.DataObject&quot;> </xref> met de opgegeven indeling."
+  remarks: "Als u de indeling van de doeltoepassing niet weet, kunt u gegevens opslaan in verschillende indelingen met deze methode.       Gegevens die zijn opgeslagen met deze methode kan worden geconverteerd naar een indeling die compatibel is wanneer deze wordt opgehaald."
   example:
   - "The following code example stores data in a <xref:System.Windows.Forms.DataObject>, specifying its format as Unicode.  \n  \n Then the data is retrieved by specifying the text format, since the default is to convert the data when the final format is compatible. The result is displayed in a text box.  \n  \n This code requires that `textBox1` has been created.  \n  \n [!code-cpp[Classic DataObject.SetData1 Example#1](~/add/codesnippet/cpp/m-system.windows.forms.d_97_1.cpp)]\n [!code-cs[Classic DataObject.SetData1 Example#1](~/add/codesnippet/csharp/m-system.windows.forms.d_97_1.cs)]\n [!code-vb[Classic DataObject.SetData1 Example#1](~/add/codesnippet/visualbasic/m-system.windows.forms.d_97_1.vb)]"
   syntax:
@@ -732,10 +732,10 @@ items:
     parameters:
     - id: format
       type: System.String
-      description: "The format associated with the data. See <xref href=&quot;System.Windows.Forms.DataFormats&quot;></xref> for predefined formats."
+      description: "De indeling die is gekoppeld aan de gegevens. Zie <xref href=&quot;System.Windows.Forms.DataFormats&quot;> </xref> voor vooraf gedefinieerde indelingen."
     - id: data
       type: System.Object
-      description: "The data to store."
+      description: "De gegevens worden opgeslagen."
   overload: System.Windows.Forms.DataObject.SetData*
   exceptions: []
   platform:
@@ -752,8 +752,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Adds the specified object to the <xref href=&quot;System.Windows.Forms.DataObject&quot;></xref> using the specified type as the format."
-  remarks: "If you do not know the format of the target application, you can store data in multiple formats using this method.       Data stored using this method can be converted to a compatible format when it is retrieved."
+  summary: "Het opgegeven object voegt de <xref href=&quot;System.Windows.Forms.DataObject&quot;> </xref> met behulp van het opgegeven type als de notatie."
+  remarks: "Als u de indeling van de doeltoepassing niet weet, kunt u gegevens opslaan in verschillende indelingen met deze methode.       Gegevens die zijn opgeslagen met deze methode kan worden geconverteerd naar een indeling die compatibel is wanneer deze wordt opgehaald."
   example:
   - "The following code example stores data in a <xref:System.Windows.Forms.DataObject> using a <xref:System.Type> as the data format. The data is then retrieved by calling <xref:System.Windows.Forms.DataObject.GetData%2A> using the <xref:System.Type> to specify the data format. The result is displayed in a text box.  \n  \n This code requires that `textBox1` has been created.  \n  \n [!code-vb[Classic DataObject.SetData2 Example#1](~/add/codesnippet/visualbasic/m-system.windows.forms.d_0_1.vb)]\n [!code-cs[Classic DataObject.SetData2 Example#1](~/add/codesnippet/csharp/m-system.windows.forms.d_0_1.cs)]\n [!code-cpp[Classic DataObject.SetData2 Example#1](~/add/codesnippet/cpp/m-system.windows.forms.d_0_1.cpp)]"
   syntax:
@@ -761,10 +761,10 @@ items:
     parameters:
     - id: format
       type: System.Type
-      description: "A <xref:System.Type> representing the format associated with the data."
+      description: "Een <xref:System.Type>die de indeling die is gekoppeld aan de gegevens vertegenwoordigt.</xref:System.Type>"
     - id: data
       type: System.Object
-      description: "The data to store."
+      description: "De gegevens worden opgeslagen."
   overload: System.Windows.Forms.DataObject.SetData*
   exceptions: []
   platform:
@@ -781,8 +781,8 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Adds the specified object to the <xref href=&quot;System.Windows.Forms.DataObject&quot;></xref> using the specified format and indicating whether the data can be converted to another format."
-  remarks: "If you do not know the format of the target application, you can store data in multiple formats using this method."
+  summary: "Het opgegeven object voegt de <xref href=&quot;System.Windows.Forms.DataObject&quot;> </xref> met behulp van de opgegeven indeling en die aangeeft of de gegevens kunnen worden geconverteerd naar een andere indeling."
+  remarks: "Als u de indeling van de doeltoepassing niet weet, kunt u gegevens opslaan in verschillende indelingen met deze methode."
   example:
   - "The following code example stores data in a <xref:System.Windows.Forms.DataObject> and specifies that the data can only be retrieved in its native format.  \n  \n First, a new <xref:System.Windows.Forms.DataObject> is created. Data in the Unicode format is stored in the <xref:System.Windows.Forms.DataObject>, with `autoConvert` set to `false`.  \n  \n Then, the <xref:System.Windows.Forms.DataObject> is queried for the list of available data formats. Only the Unicode format is returned, although Unicode data can be converted to text and other formats.  \n  \n This code requires that `textBox1` has been created.  \n  \n [!code-cs[Classic DataObject.SetData Example#1](~/add/codesnippet/csharp/35d23f60-f448-4594-8862-_1.cs)]\n [!code-cpp[Classic DataObject.SetData Example#1](~/add/codesnippet/cpp/35d23f60-f448-4594-8862-_1.cpp)]\n [!code-vb[Classic DataObject.SetData Example#1](~/add/codesnippet/visualbasic/35d23f60-f448-4594-8862-_1.vb)]"
   syntax:
@@ -790,13 +790,13 @@ items:
     parameters:
     - id: format
       type: System.String
-      description: "The format associated with the data. See <xref href=&quot;System.Windows.Forms.DataFormats&quot;></xref> for predefined formats."
+      description: "De indeling die is gekoppeld aan de gegevens. Zie <xref href=&quot;System.Windows.Forms.DataFormats&quot;> </xref> voor vooraf gedefinieerde indelingen."
     - id: autoConvert
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to allow the data to be converted to another format; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>zodat de gegevens kunnen worden geconverteerd naar een andere indeling; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     - id: data
       type: System.Object
-      description: "The data to store."
+      description: "De gegevens worden opgeslagen."
   overload: System.Windows.Forms.DataObject.SetData*
   exceptions: []
   platform:
@@ -813,19 +813,19 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Adds a collection of file names to the data object in the <xref href=&quot;System.Windows.Forms.DataFormats.FileDrop&quot;></xref> format."
-  remarks: "A file drop list is a collection of strings containing path information for files.       A file drop list is stored in a data object as a <xref:System.String> array. This method converts `filePaths` to a <xref:System.String> array before adding it to the data object.       To retrieve a file drop list from the data object, first use the <xref:System.Windows.Forms.DataObject.ContainsFileDropList%2A> method to determine whether the data object contains data in that format before retrieving it with the <xref:System.Windows.Forms.DataObject.GetFileDropList%2A> method."
+  summary: "Een verzameling van bestandsnamen toegevoegd aan het gegevensobject in de <xref href=&quot;System.Windows.Forms.DataFormats.FileDrop&quot;> </xref> indeling."
+  remarks: "Een lijst met bestanden neerzetten is een verzameling van tekenreeksen met informatie over het pad voor bestanden.       Een lijst met bestanden neerzetten is opgeslagen in een gegevensobject als een <xref:System.String>matrix.</xref:System.String> Deze methode zet `filePaths` naar een <xref:System.String>matrix voordat u deze toevoegt aan het gegevensobject.</xref:System.String>       Voor het ophalen van een lijst met bestanden verwijderen van het gegevensobject, gebruikt u eerst de <xref:System.Windows.Forms.DataObject.ContainsFileDropList%2A>methode om te bepalen of het object voor de gegevens in deze indeling voordat u ze met ophaalt bevat de <xref:System.Windows.Forms.DataObject.GetFileDropList%2A>methode.</xref:System.Windows.Forms.DataObject.GetFileDropList%2A> </xref:System.Windows.Forms.DataObject.ContainsFileDropList%2A>"
   syntax:
     content: public virtual void SetFileDropList (System.Collections.Specialized.StringCollection filePaths);
     parameters:
     - id: filePaths
       type: System.Collections.Specialized.StringCollection
-      description: "A <xref href=&quot;System.Collections.Specialized.StringCollection&quot;></xref> containing the file names."
+      description: "Een <xref href=&quot;System.Collections.Specialized.StringCollection&quot;> </xref> met de bestandsnamen."
   overload: System.Windows.Forms.DataObject.SetFileDropList*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>filePaths</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>filePaths</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Windows.Forms.DataObject.SetImage(System.Drawing.Image)
@@ -840,19 +840,19 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Adds an <xref href=&quot;System.Drawing.Image&quot;></xref> to the data object in the <xref href=&quot;System.Windows.Forms.DataFormats.Bitmap&quot;></xref> format."
-  remarks: "To retrieve image data from the data object, first use the <xref:System.Windows.Forms.DataObject.ContainsImage%2A> method to determine whether the data object contains image data before retrieving it with the <xref:System.Windows.Forms.DataObject.GetImage%2A> method."
+  summary: "Voegt een <xref href=&quot;System.Drawing.Image&quot;> </xref> naar het object in de <xref href=&quot;System.Windows.Forms.DataFormats.Bitmap&quot;> </xref> indeling."
+  remarks: "Voor het image-gegevens ophalen van het gegevensobject, gebruikt u eerst de <xref:System.Windows.Forms.DataObject.ContainsImage%2A>methode om te bepalen of het gegevensobject image-gegevens voordat u ze met ophaalt bevat de <xref:System.Windows.Forms.DataObject.GetImage%2A>methode.</xref:System.Windows.Forms.DataObject.GetImage%2A> </xref:System.Windows.Forms.DataObject.ContainsImage%2A>"
   syntax:
     content: public virtual void SetImage (System.Drawing.Image image);
     parameters:
     - id: image
       type: System.Drawing.Image
-      description: "The <xref href=&quot;System.Drawing.Image&quot;></xref> to add to the data object."
+      description: "De <xref href=&quot;System.Drawing.Image&quot;> </xref> toevoegen aan het gegevensobject."
   overload: System.Windows.Forms.DataObject.SetImage*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>image</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>image</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Windows.Forms.DataObject.SetText(System.String)
@@ -867,19 +867,19 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Adds text data to the data object in the <xref href=&quot;System.Windows.Forms.TextDataFormat&quot;></xref> format."
-  remarks: "To retrieve text data from the data object, first use the <xref:System.Windows.Forms.DataObject.ContainsText%2A> method to determine whether the data object contains image data before retrieving it with the <xref:System.Windows.Forms.DataObject.GetText%2A> method."
+  summary: "Tekstgegevens toegevoegd aan het gegevensobject in de <xref href=&quot;System.Windows.Forms.TextDataFormat&quot;> </xref> indeling."
+  remarks: "Om tekstgegevens te halen uit het gegevensobject, gebruikt u eerst de <xref:System.Windows.Forms.DataObject.ContainsText%2A>methode om te bepalen of het gegevensobject image-gegevens voordat u ze met ophaalt bevat de <xref:System.Windows.Forms.DataObject.GetText%2A>methode.</xref:System.Windows.Forms.DataObject.GetText%2A> </xref:System.Windows.Forms.DataObject.ContainsText%2A>"
   syntax:
     content: public virtual void SetText (string textData);
     parameters:
     - id: textData
       type: System.String
-      description: "The text to add to the data object."
+      description: "De tekst toevoegen aan het gegevensobject."
   overload: System.Windows.Forms.DataObject.SetText*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>textData</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or <xref:System.String>."
+    description: "<code>textData</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or <xref:System.String>."
   platform:
   - net462
 - uid: System.Windows.Forms.DataObject.SetText(System.String,System.Windows.Forms.TextDataFormat)
@@ -894,25 +894,25 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Adds text data to the data object in the format indicated by the specified <xref href=&quot;System.Windows.Forms.TextDataFormat&quot;></xref> value."
-  remarks: "To retrieve text data from the data object, first use the <xref:System.Windows.Forms.DataObject.ContainsText%2A> method to determine whether the data object contains image data before retrieving it with the <xref:System.Windows.Forms.DataObject.GetText%2A> method."
+  summary: "Tekstgegevens toegevoegd aan het object in de indeling aangegeven door de opgegeven <xref href=&quot;System.Windows.Forms.TextDataFormat&quot;> </xref> waarde."
+  remarks: "Om tekstgegevens te halen uit het gegevensobject, gebruikt u eerst de <xref:System.Windows.Forms.DataObject.ContainsText%2A>methode om te bepalen of het gegevensobject image-gegevens voordat u ze met ophaalt bevat de <xref:System.Windows.Forms.DataObject.GetText%2A>methode.</xref:System.Windows.Forms.DataObject.GetText%2A> </xref:System.Windows.Forms.DataObject.ContainsText%2A>"
   syntax:
     content: public virtual void SetText (string textData, System.Windows.Forms.TextDataFormat format);
     parameters:
     - id: textData
       type: System.String
-      description: "The text to add to the data object."
+      description: "De tekst toevoegen aan het gegevensobject."
     - id: format
       type: System.Windows.Forms.TextDataFormat
-      description: "One of the <xref href=&quot;System.Windows.Forms.TextDataFormat&quot;></xref> values."
+      description: "Een van de <xref href=&quot;System.Windows.Forms.TextDataFormat&quot;> </xref> waarden."
   overload: System.Windows.Forms.DataObject.SetText*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>textData</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or <xref:System.String.Empty>."
+    description: "<code>textData</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or <xref:System.String.Empty>."
   - type: System.ComponentModel.InvalidEnumArgumentException
     commentId: T:System.ComponentModel.InvalidEnumArgumentException
-    description: "<code>format</code> is not a valid <xref href=&quot;System.Windows.Forms.TextDataFormat&quot;></xref> value."
+    description: "<code>format</code>is geen geldige <xref href=&quot;System.Windows.Forms.TextDataFormat&quot;> </xref> waarde."
   platform:
   - net462
 - uid: System.Windows.Forms.DataObject.System#Runtime#InteropServices#ComTypes#IDataObject#DAdvise(System.Runtime.InteropServices.ComTypes.FORMATETC@,System.Runtime.InteropServices.ComTypes.ADVF,System.Runtime.InteropServices.ComTypes.IAdviseSink,System.Int32@)
@@ -928,26 +928,26 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Creates a connection between a data object and an advisory sink. This method is called by an object that supports an advisory sink and enables the advisory sink to be notified of changes in the object&quot;s data."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Windows.Forms.DataObject> is cast to an <xref:System.Runtime.InteropServices.ComTypes.IDataObject> interface."
+  summary: "Maakt een verbinding tussen een gegevensobject en een advisory sink. Deze methode wordt aangeroepen door een object dat een advisory sink ondersteunt en maakt de advisory sink wilt worden gewaarschuwd voor wijzigingen in gegevens van het object."
+  remarks: "Dit lid is een expliciete interface lid-implementatie. Het kan worden gebruikt alleen wanneer de <xref:System.Windows.Forms.DataObject>is geconverteerd naar een <xref:System.Runtime.InteropServices.ComTypes.IDataObject>interface.</xref:System.Runtime.InteropServices.ComTypes.IDataObject> </xref:System.Windows.Forms.DataObject>"
   syntax:
     content: int IDataObject.DAdvise (ref System.Runtime.InteropServices.ComTypes.FORMATETC pFormatetc, System.Runtime.InteropServices.ComTypes.ADVF advf, System.Runtime.InteropServices.ComTypes.IAdviseSink pAdvSink, out int pdwConnection);
     parameters:
     - id: pFormatetc
       type: System.Runtime.InteropServices.ComTypes.FORMATETC
-      description: "A <xref:System.Runtime.InteropServices.ComTypes.FORMATETC> structure, passed by reference, that defines the format, target device, aspect, and medium that will be used for future notifications."
+      description: "Een <xref:System.Runtime.InteropServices.ComTypes.FORMATETC>structuur, doorgegeven door de referentie die de indeling, doelapparaat, aspect en medium dat wordt gebruikt voor toekomstige meldingen definieert.</xref:System.Runtime.InteropServices.ComTypes.FORMATETC>"
     - id: advf
       type: System.Runtime.InteropServices.ComTypes.ADVF
-      description: "One of the <xref:System.Runtime.InteropServices.ComTypes.ADVF> values that specifies a group of flags for controlling the advisory connection."
+      description: "Een van de <xref:System.Runtime.InteropServices.ComTypes.ADVF>waarden die Hiermee geeft u een groep van vlaggen voor het beheren van de verbinding advisory.</xref:System.Runtime.InteropServices.ComTypes.ADVF>"
     - id: pAdvSink
       type: System.Runtime.InteropServices.ComTypes.IAdviseSink
-      description: "A pointer to the <xref:System.Runtime.InteropServices.ComTypes.IAdviseSink> interface on the advisory sink that will receive the change notification."
+      description: "Een verwijzing naar de <xref:System.Runtime.InteropServices.ComTypes.IAdviseSink>-interface op de advisory sink die wijzigingsmelding ontvangen.</xref:System.Runtime.InteropServices.ComTypes.IAdviseSink>"
     - id: pdwConnection
       type: System.Int32
-      description: "When this method returns, contains a pointer to a DWORD token that identifies this connection. You can use this token later to delete the advisory connection by passing it to <xref:System.Runtime.InteropServices.ComTypes.IDataObject.DUnadvise*>. If this value is zero, the connection was not established. This parameter is passed uninitialized."
+      description: "Wanneer deze methode retourneert, bevat een verwijzing naar een DWORD-token waarmee deze verbinding. U kunt dit token later moet worden verwijderd van de advisory verbinding met de doorgegeven aan <xref:System.Runtime.InteropServices.ComTypes.IDataObject.DUnadvise*>.</xref:System.Runtime.InteropServices.ComTypes.IDataObject.DUnadvise*> Als deze waarde nul is, wordt de verbinding is niet gemaakt. Deze parameter wordt doorgegeven niet geïnitialiseerd."
     return:
       type: System.Int32
-      description: "This method supports the standard return values E_INVALIDARG, E_UNEXPECTED, and E_OUTOFMEMORY, as well as the following:       <table><thead><tr><th> Value       </th><th> Description       </th></tr></thead><tbody><tr><td> S_OK       </td><td> The advisory connection was created.       </td></tr><tr><td> E_NOTIMPL       </td><td> This method is not implemented on the data object.       </td></tr><tr><td> DV_E_LINDEX       </td><td> There is an invalid value for <xref:System.Runtime.InteropServices.ComTypes.FORMATETC.lindex>; currently, only -1 is supported.       </td></tr><tr><td> DV_E_FORMATETC       </td><td> There is an invalid value for the <code>pFormatetc</code> parameter.       </td></tr><tr><td> OLE_E_ADVISENOTSUPPORTED       </td><td> The data object does not support change notification.       </td></tr></tbody></table>"
+      description: "Deze methode ondersteunt de standaard retourwaarden E_INVALIDARG E_UNEXPECTED en E_OUTOFMEMORY, evenals het volgende:       <table><thead><tr><th> Waarde       </th><th> Beschrijving       </th></tr></thead><tbody><tr><td> S_OK       </td><td> De advisory verbinding is gemaakt.       </td></tr><tr><td> E_NOTIMPL       </td><td> Deze methode is niet geïmplementeerd op het gegevensobject.       </td></tr><tr><td> DV_E_LINDEX       </td><td> Er is een ongeldige waarde voor <xref:System.Runtime.InteropServices.ComTypes.FORMATETC.lindex>; op dit moment alleen -1 wordt ondersteund.</xref:System.Runtime.InteropServices.ComTypes.FORMATETC.lindex>       </td></tr><tr><td> DV_E_FORMATETC       </td><td> Er is een ongeldige waarde voor de <code> pFormatetc </code> parameter.       </td></tr><tr><td> OLE_E_ADVISENOTSUPPORTED       </td><td> Het gegevensobject biedt geen ondersteuning voor wijzigingsmelding.       </td></tr></tbody></table>"
   overload: System.Windows.Forms.DataObject.System#Runtime#InteropServices#ComTypes#IDataObject#DAdvise*
   exceptions: []
   platform:
@@ -965,14 +965,14 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Destroys a notification connection that had been previously established."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Windows.Forms.DataObject> is cast to an <xref:System.Runtime.InteropServices.ComTypes.IDataObject> interface."
+  summary: "Vernietigt een melding verbinding die eerder is gemaakt."
+  remarks: "Dit lid is een expliciete interface lid-implementatie. Het kan worden gebruikt alleen wanneer de <xref:System.Windows.Forms.DataObject>is geconverteerd naar een <xref:System.Runtime.InteropServices.ComTypes.IDataObject>interface.</xref:System.Runtime.InteropServices.ComTypes.IDataObject> </xref:System.Windows.Forms.DataObject>"
   syntax:
     content: void IDataObject.DUnadvise (int dwConnection);
     parameters:
     - id: dwConnection
       type: System.Int32
-      description: "A DWORD token that specifies the connection to remove. Use the value returned by <xref:System.Runtime.InteropServices.ComTypes.IDataObject.DAdvise*> when the connection was originally established."
+      description: "Een DWORD-token dat Hiermee geeft u de verbinding met het verwijderen. Gebruik de waarde die is geretourneerd door <xref:System.Runtime.InteropServices.ComTypes.IDataObject.DAdvise*>wanneer de verbinding voor het oorspronkelijk is gemaakt.</xref:System.Runtime.InteropServices.ComTypes.IDataObject.DAdvise*>"
   overload: System.Windows.Forms.DataObject.System#Runtime#InteropServices#ComTypes#IDataObject#DUnadvise*
   exceptions: []
   platform:
@@ -990,17 +990,17 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Creates an object that can be used to enumerate the current advisory connections."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Windows.Forms.DataObject> is cast to an <xref:System.Runtime.InteropServices.ComTypes.IDataObject> interface."
+  summary: "Maakt een object dat kan worden gebruikt voor het inventariseren van de huidige advisory verbindingen."
+  remarks: "Dit lid is een expliciete interface lid-implementatie. Het kan worden gebruikt alleen wanneer de <xref:System.Windows.Forms.DataObject>is geconverteerd naar een <xref:System.Runtime.InteropServices.ComTypes.IDataObject>interface.</xref:System.Runtime.InteropServices.ComTypes.IDataObject> </xref:System.Windows.Forms.DataObject>"
   syntax:
     content: int IDataObject.EnumDAdvise (out System.Runtime.InteropServices.ComTypes.IEnumSTATDATA enumAdvise);
     parameters:
     - id: enumAdvise
       type: System.Runtime.InteropServices.ComTypes.IEnumSTATDATA
-      description: "When this method returns, contains an <xref href=&quot;System.Runtime.InteropServices.ComTypes.IEnumSTATDATA&quot;></xref> that receives the interface pointer to the new enumerator object. If the implementation sets `enumAdvise` to <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, there are no connections to advisory sinks at this time. This parameter is passed uninitialized."
+      description: "Wanneer deze methode retourneert, bevat een <xref href=&quot;System.Runtime.InteropServices.ComTypes.IEnumSTATDATA&quot;> </xref> ontvangt dat de interface-pointer naar de nieuwe enumerator-object. Als de implementatie wordt ingesteld `enumAdvise` naar <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, er zijn geen verbindingen naar advisory put op dit moment. Deze parameter wordt doorgegeven niet geïnitialiseerd."
     return:
       type: System.Int32
-      description: "This method supports the standard return value E_OUTOFMEMORY, as well as the following:       <table><thead><tr><th> Value       </th><th> Description       </th></tr></thead><tbody><tr><td> S_OK       </td><td> The enumerator object is successfully instantiated or there are no connections.       </td></tr><tr><td> OLE_E_ADVISENOTSUPPORTED       </td><td> This object does not support advisory notifications.       </td></tr></tbody></table>"
+      description: "Deze methode ondersteunt de standard retourwaarde E_OUTOFMEMORY, evenals het volgende:       <table><thead><tr><th> Waarde       </th><th> Beschrijving       </th></tr></thead><tbody><tr><td> S_OK       </td><td> De enumerator-object is gemaakt of er zijn geen verbindingen.       </td></tr><tr><td> OLE_E_ADVISENOTSUPPORTED       </td><td> Dit object biedt geen ondersteuning voor advisory meldingen.       </td></tr></tbody></table>"
   overload: System.Windows.Forms.DataObject.System#Runtime#InteropServices#ComTypes#IDataObject#EnumDAdvise*
   exceptions: []
   platform:
@@ -1018,17 +1018,17 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Creates an object for enumerating the <xref:System.Runtime.InteropServices.ComTypes.FORMATETC> structures for a data object. These structures are used in calls to <xref:System.Runtime.InteropServices.ComTypes.IDataObject.GetData*> or <xref:System.Runtime.InteropServices.ComTypes.IDataObject.SetData*>."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Windows.Forms.DataObject> is cast to an <xref:System.Runtime.InteropServices.ComTypes.IDataObject> interface."
+  summary: "Hiermee maakt u een object voor het inventariseren van de <xref:System.Runtime.InteropServices.ComTypes.FORMATETC>structuren voor een gegevensobject.</xref:System.Runtime.InteropServices.ComTypes.FORMATETC> Deze structuren worden gebruikt in aanroepen naar <> </> *> of <> </> *>."
+  remarks: "Dit lid is een expliciete interface lid-implementatie. Het kan worden gebruikt alleen wanneer de <xref:System.Windows.Forms.DataObject>is geconverteerd naar een <xref:System.Runtime.InteropServices.ComTypes.IDataObject>interface.</xref:System.Runtime.InteropServices.ComTypes.IDataObject> </xref:System.Windows.Forms.DataObject>"
   syntax:
     content: System.Runtime.InteropServices.ComTypes.IEnumFORMATETC IDataObject.EnumFormatEtc (System.Runtime.InteropServices.ComTypes.DATADIR dwDirection);
     parameters:
     - id: dwDirection
       type: System.Runtime.InteropServices.ComTypes.DATADIR
-      description: "One of the <xref:System.Runtime.InteropServices.ComTypes.DATADIR> values that specifies the direction of the data."
+      description: "Een van de <xref:System.Runtime.InteropServices.ComTypes.DATADIR>waarden die de richting van de gegevens.</xref:System.Runtime.InteropServices.ComTypes.DATADIR>"
     return:
       type: System.Runtime.InteropServices.ComTypes.IEnumFORMATETC
-      description: "This method supports the standard return values E_INVALIDARG and E_OUTOFMEMORY, as well as the following:       <table><thead><tr><th> Value       </th><th> Description       </th></tr></thead><tbody><tr><td> S_OK       </td><td> The enumerator object was successfully created.       </td></tr><tr><td> E_NOTIMPL       </td><td> The direction specified by the <code>direction</code> parameter is not supported.       </td></tr><tr><td> OLE_S_USEREG       </td><td> Requests that OLE enumerate the formats from the registry.       </td></tr></tbody></table>"
+      description: "Deze methode ondersteunt de standaard return E_INVALIDARG en E_OUTOFMEMORY, evenals de volgende waarden:       <table><thead><tr><th> Waarde       </th><th> Beschrijving       </th></tr></thead><tbody><tr><td> S_OK       </td><td> De enumerator-object is gemaakt.       </td></tr><tr><td> E_NOTIMPL       </td><td> De richting opgegeven door de <code> direction </code> parameter wordt niet ondersteund.       </td></tr><tr><td> OLE_S_USEREG       </td><td> Aanvragen OLE opsommen van de indelingen van het register.       </td></tr></tbody></table>"
   overload: System.Windows.Forms.DataObject.System#Runtime#InteropServices#ComTypes#IDataObject#EnumFormatEtc*
   exceptions: []
   platform:
@@ -1046,20 +1046,20 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Provides a standard <xref:System.Runtime.InteropServices.ComTypes.FORMATETC> structure that is logically equivalent to a more complex structure. Use this method to determine whether two different <xref:System.Runtime.InteropServices.ComTypes.FORMATETC> structures would return the same data, removing the need for duplicate rendering."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Windows.Forms.DataObject> is cast to an <xref:System.Runtime.InteropServices.ComTypes.IDataObject> interface."
+  summary: "Biedt een standaard <xref:System.Runtime.InteropServices.ComTypes.FORMATETC>structuur die logisch gelijk is aan een complexere structuur.</xref:System.Runtime.InteropServices.ComTypes.FORMATETC> Gebruik deze methode om te bepalen of twee verschillende <xref:System.Runtime.InteropServices.ComTypes.FORMATETC>structuren dezelfde gegevens, het verwijderen van de noodzaak van dubbele rendering zou retourneren.</xref:System.Runtime.InteropServices.ComTypes.FORMATETC>"
+  remarks: "Dit lid is een expliciete interface lid-implementatie. Het kan worden gebruikt alleen wanneer de <xref:System.Windows.Forms.DataObject>is geconverteerd naar een <xref:System.Runtime.InteropServices.ComTypes.IDataObject>interface.</xref:System.Runtime.InteropServices.ComTypes.IDataObject> </xref:System.Windows.Forms.DataObject>"
   syntax:
     content: int IDataObject.GetCanonicalFormatEtc (ref System.Runtime.InteropServices.ComTypes.FORMATETC pformatetcIn, out System.Runtime.InteropServices.ComTypes.FORMATETC pformatetcOut);
     parameters:
     - id: pformatetcIn
       type: System.Runtime.InteropServices.ComTypes.FORMATETC
-      description: "A pointer to a <xref:System.Runtime.InteropServices.ComTypes.FORMATETC> structure, passed by reference, that defines the format, medium, and target device that the caller would like to use to retrieve data in a subsequent call such as <xref:System.Runtime.InteropServices.ComTypes.IDataObject.GetData*>. The <xref:System.Runtime.InteropServices.ComTypes.TYMED> member is not significant in this case and should be ignored."
+      description: "Een verwijzing naar een <xref:System.Runtime.InteropServices.ComTypes.FORMATETC>structuur, die is doorgegeven door middel van verwijzing, die de indeling, Gemiddeld, en het doelapparaat dat de oproepende functie gebruiken wilt voor het ophalen van gegevens in een volgende aanroep zoals <xref:System.Runtime.InteropServices.ComTypes.IDataObject.GetData*>.</xref:System.Runtime.InteropServices.ComTypes.IDataObject.GetData*> definieert</xref:System.Runtime.InteropServices.ComTypes.FORMATETC> De <xref:System.Runtime.InteropServices.ComTypes.TYMED>lid is niet in dit geval worden significant en dient te worden genegeerd.</xref:System.Runtime.InteropServices.ComTypes.TYMED>"
     - id: pformatetcOut
       type: System.Runtime.InteropServices.ComTypes.FORMATETC
-      description: "When this method returns, contains a pointer to a <xref:System.Runtime.InteropServices.ComTypes.FORMATETC> structure that contains the most general information possible for a specific rendering, making it canonically equivalent to `formatetIn`. The caller must allocate this structure and the <xref:System.Runtime.InteropServices.ComTypes.IDataObject.GetCanonicalFormatEtc*> method must fill in the data. To retrieve data in a subsequent call such as <xref:System.Runtime.InteropServices.ComTypes.IDataObject.GetData*>, the caller uses the supplied value of `formatOut`, unless the value supplied is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>. This value is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the method returns <xref uid=&quot;langword_csharp_DATA_S_SAMEFORMATETC&quot; name=&quot;DATA_S_SAMEFORMATETC&quot; href=&quot;&quot;></xref>. The <xref:System.Runtime.InteropServices.ComTypes.TYMED> member is not significant in this case and should be ignored. This parameter is passed uninitialized."
+      description: "Wanneer deze methode retourneert, bevat een verwijzing naar een <xref:System.Runtime.InteropServices.ComTypes.FORMATETC>-structuur die het mogelijk dat een specifieke rendering, waardoor het canoniek gelijk is aan het meest algemene informatie bevat `formatetIn`.</xref:System.Runtime.InteropServices.ComTypes.FORMATETC> De aanroeper moet deze structuur toewijzen en de <> </> *> methode moet de gegevens invullen. Gegevens op te halen in een aanroep van de volgende zoals <> </> *>, gebruikt de opgegeven waarde van de aanroeper `formatOut`, tenzij de opgegeven waarde is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>. Deze waarde is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> als de methode retourneert <xref uid=&quot;langword_csharp_DATA_S_SAMEFORMATETC&quot; name=&quot;DATA_S_SAMEFORMATETC&quot; href=&quot;&quot;> </xref>. De <xref:System.Runtime.InteropServices.ComTypes.TYMED>lid is niet in dit geval worden significant en dient te worden genegeerd.</xref:System.Runtime.InteropServices.ComTypes.TYMED> Deze parameter wordt doorgegeven niet geïnitialiseerd."
     return:
       type: System.Int32
-      description: "This method supports the standard return values E_INVALIDARG, E_UNEXPECTED, and E_OUTOFMEMORY, as well as the following:       <table><thead><tr><th> Value       </th><th> Description       </th></tr></thead><tbody><tr><td> S_OK       </td><td> The returned <xref:System.Runtime.InteropServices.ComTypes.FORMATETC> structure is different from the one that was passed.       </td></tr><tr><td> DATA_S_SAMEFORMATETC       </td><td> The <xref:System.Runtime.InteropServices.ComTypes.FORMATETC> structures are the same and <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> is returned in the <code>formatOut</code> parameter.       </td></tr><tr><td> DV_E_LINDEX       </td><td> There is an invalid value for <xref:System.Runtime.InteropServices.ComTypes.FORMATETC.lindex>; currently, only -1 is supported.       </td></tr><tr><td> DV_E_FORMATETC       </td><td> There is an invalid value for the <code>pFormatetc</code> parameter.       </td></tr><tr><td> OLE_E_NOTRUNNING       </td><td> The application is not running.       </td></tr></tbody></table>"
+      description: "Deze methode ondersteunt de standaard retourwaarden E_INVALIDARG E_UNEXPECTED en E_OUTOFMEMORY, evenals het volgende:       <table><thead><tr><th> Waarde       </th><th> Beschrijving       </th></tr></thead><tbody><tr><td> S_OK       </td><td> De geretourneerde <xref:System.Runtime.InteropServices.ComTypes.FORMATETC>structuur wijkt af van de versie die is doorgegeven.</xref:System.Runtime.InteropServices.ComTypes.FORMATETC>       </td></tr><tr><td> DATA_S_SAMEFORMATETC       </td><td> De <xref:System.Runtime.InteropServices.ComTypes.FORMATETC>structuren zijn hetzelfde en <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> wordt geretourneerd als de <code> formatOut </code> parameter.</xref:System.Runtime.InteropServices.ComTypes.FORMATETC>       </td></tr><tr><td> DV_E_LINDEX       </td><td> Er is een ongeldige waarde voor <xref:System.Runtime.InteropServices.ComTypes.FORMATETC.lindex>; op dit moment alleen -1 wordt ondersteund.</xref:System.Runtime.InteropServices.ComTypes.FORMATETC.lindex>       </td></tr><tr><td> DV_E_FORMATETC       </td><td> Er is een ongeldige waarde voor de <code> pFormatetc </code> parameter.       </td></tr><tr><td> OLE_E_NOTRUNNING       </td><td> De toepassing wordt niet uitgevoerd.       </td></tr></tbody></table>"
   overload: System.Windows.Forms.DataObject.System#Runtime#InteropServices#ComTypes#IDataObject#GetCanonicalFormatEtc*
   exceptions: []
   platform:
@@ -1077,22 +1077,22 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Obtains data from a source data object. The <xref:System.Runtime.InteropServices.ComTypes.IDataObject.GetData*> method, which is called by a data consumer, renders the data described in the specified <xref:System.Runtime.InteropServices.ComTypes.FORMATETC> structure and transfers it through the specified <xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM> structure. The caller then assumes responsibility for releasing the <xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM> structure."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Windows.Forms.DataObject> is cast to an <xref:System.Runtime.InteropServices.ComTypes.IDataObject> interface."
+  summary: "Haalt gegevens uit een bron-gegevensobject. De <xref:System.Runtime.InteropServices.ComTypes.IDataObject.GetData*>methode, die wordt aangeroepen door een gebruiker gegevens, worden de gegevens die worden beschreven in de opgegeven <xref:System.Runtime.InteropServices.ComTypes.FORMATETC>structuur, en brengt u deze via het opgegeven <xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM>structuur.</xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM> </xref:System.Runtime.InteropServices.ComTypes.FORMATETC> </xref:System.Runtime.InteropServices.ComTypes.IDataObject.GetData*> De aanroeper vervolgens verantwoordelijkheid voor het vrijgeven van de <xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM>structuur.</xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM>"
+  remarks: "Dit lid is een expliciete interface lid-implementatie. Het kan worden gebruikt alleen wanneer de <xref:System.Windows.Forms.DataObject>is geconverteerd naar een <xref:System.Runtime.InteropServices.ComTypes.IDataObject>interface.</xref:System.Runtime.InteropServices.ComTypes.IDataObject> </xref:System.Windows.Forms.DataObject>"
   syntax:
     content: void IDataObject.GetData (ref System.Runtime.InteropServices.ComTypes.FORMATETC formatetc, out System.Runtime.InteropServices.ComTypes.STGMEDIUM medium);
     parameters:
     - id: formatetc
       type: System.Runtime.InteropServices.ComTypes.FORMATETC
-      description: "A pointer to a <xref:System.Runtime.InteropServices.ComTypes.FORMATETC> structure, passed by reference, that defines the format, medium, and target device to use when passing the data. It is possible to specify more than one medium by using the Boolean OR operator, allowing the method to choose the best medium among those specified."
+      description: "Een verwijzing naar een <xref:System.Runtime.InteropServices.ComTypes.FORMATETC>structuur, doorgegeven door de referentie die bepaalt de indeling, gemiddeld en doelapparaat moet worden gebruikt wanneer de gegevens worden doorgegeven.</xref:System.Runtime.InteropServices.ComTypes.FORMATETC> Het is mogelijk meer dan één medium opgeven met de operator Boolean-waarde of de methode het beste medium uit de opgegeven kiezen is toegestaan."
     - id: medium
       type: System.Runtime.InteropServices.ComTypes.STGMEDIUM
-      description: "When this method returns, contains a pointer to the <xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM> structure that indicates the storage medium containing the returned data through its <xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM> member, and the responsibility for releasing the medium through the value of its <xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM> member. If <xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, the receiver of the medium is responsible for releasing it; otherwise, <xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM> points to the <xref uid=&quot;langword_csharp_IUnknown&quot; name=&quot;IUnknown&quot; href=&quot;&quot;></xref> interface on the appropriate object so its <xref uid=&quot;langword_csharp_Release&quot; name=&quot;Release&quot; href=&quot;&quot;></xref> method can be called. The medium must be allocated and filled in by <xref:System.Runtime.InteropServices.ComTypes.IDataObject.GetData*>. This parameter is passed uninitialized."
+      description: "Wanneer deze methode retourneert, bevat een verwijzing naar de <xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM>structuur waarmee het opslagmedium met de geretourneerde gegevens via de <xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM>lid en de verantwoordelijkheid voor het vrijgeven van het medium via de waarde van de <xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM>lid.</xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM> </xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM> </xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM> Als <xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, de ontvanger van het medium is verantwoordelijk voor deze vrijgeeft, anders wordt <xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM>verwijst naar de <xref uid=&quot;langword_csharp_IUnknown&quot; name=&quot;IUnknown&quot; href=&quot;&quot;> </xref> interface op het juiste object zodat de <xref uid=&quot;langword_csharp_Release&quot; name=&quot;Release&quot; href=&quot;&quot;> </xref> methode kan worden aangeroepen.</xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM> </xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM> Het medium moet worden toegewezen en door <xref:System.Runtime.InteropServices.ComTypes.IDataObject.GetData*>.</xref:System.Runtime.InteropServices.ComTypes.IDataObject.GetData*> ingevuld Deze parameter wordt doorgegeven niet geïnitialiseerd."
   overload: System.Windows.Forms.DataObject.System#Runtime#InteropServices#ComTypes#IDataObject#GetData*
   exceptions:
   - type: System.OutOfMemoryException
     commentId: T:System.OutOfMemoryException
-    description: "There is not enough memory to perform this operation."
+    description: "Er is onvoldoende geheugen beschikbaar voor deze bewerking."
   platform:
   - net462
 - uid: System.Windows.Forms.DataObject.System#Runtime#InteropServices#ComTypes#IDataObject#GetDataHere(System.Runtime.InteropServices.ComTypes.FORMATETC@,System.Runtime.InteropServices.ComTypes.STGMEDIUM@)
@@ -1108,17 +1108,17 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Obtains data from a source data object. This method, which is called by a data consumer, differs from the <xref:System.Runtime.InteropServices.ComTypes.IDataObject.GetData*> method in that the caller must allocate and free the specified storage medium."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Windows.Forms.DataObject> is cast to an <xref:System.Runtime.InteropServices.ComTypes.IDataObject> interface."
+  summary: "Haalt gegevens uit een bron-gegevensobject. Deze methode wordt aangeroepen door een gegevensverbruiker, verschilt van de <xref:System.Runtime.InteropServices.ComTypes.IDataObject.GetData*>methode in dat de aanroeper moet toewijzen en het opgegeven opslagmedium vrije.</xref:System.Runtime.InteropServices.ComTypes.IDataObject.GetData*>"
+  remarks: "Dit lid is een expliciete interface lid-implementatie. Het kan worden gebruikt alleen wanneer de <xref:System.Windows.Forms.DataObject>is geconverteerd naar een <xref:System.Runtime.InteropServices.ComTypes.IDataObject>interface.</xref:System.Runtime.InteropServices.ComTypes.IDataObject> </xref:System.Windows.Forms.DataObject>"
   syntax:
     content: void IDataObject.GetDataHere (ref System.Runtime.InteropServices.ComTypes.FORMATETC formatetc, ref System.Runtime.InteropServices.ComTypes.STGMEDIUM medium);
     parameters:
     - id: formatetc
       type: System.Runtime.InteropServices.ComTypes.FORMATETC
-      description: 'A pointer to a <xref:System.Runtime.InteropServices.ComTypes.FORMATETC> structure, passed by reference, that defines the format, medium, and target device to use when passing the data. Only one medium can be specified in <xref:System.Runtime.InteropServices.ComTypes.TYMED>, and only the following <xref:System.Runtime.InteropServices.ComTypes.TYMED> values are valid: <xref:System.Runtime.InteropServices.ComTypes.TYMED>, <xref:System.Runtime.InteropServices.ComTypes.TYMED>, <xref:System.Runtime.InteropServices.ComTypes.TYMED>, or <xref:System.Runtime.InteropServices.ComTypes.TYMED>.'
+      description: 'Een verwijzing naar een <xref:System.Runtime.InteropServices.ComTypes.FORMATETC>structuur, doorgegeven door de referentie die bepaalt de indeling, gemiddeld en doelapparaat moet worden gebruikt wanneer de gegevens worden doorgegeven.</xref:System.Runtime.InteropServices.ComTypes.FORMATETC> Slechts één normaal kan worden opgegeven in <xref:System.Runtime.InteropServices.ComTypes.TYMED>, en alleen de volgende <xref:System.Runtime.InteropServices.ComTypes.TYMED>waarden zijn geldig: <xref:System.Runtime.InteropServices.ComTypes.TYMED>, <xref:System.Runtime.InteropServices.ComTypes.TYMED>, <xref:System.Runtime.InteropServices.ComTypes.TYMED>, of <xref:System.Runtime.InteropServices.ComTypes.TYMED>.</xref:System.Runtime.InteropServices.ComTypes.TYMED> </xref:System.Runtime.InteropServices.ComTypes.TYMED> </xref:System.Runtime.InteropServices.ComTypes.TYMED> </xref:System.Runtime.InteropServices.ComTypes.TYMED> </xref:System.Runtime.InteropServices.ComTypes.TYMED> </xref:System.Runtime.InteropServices.ComTypes.TYMED>'
     - id: medium
       type: System.Runtime.InteropServices.ComTypes.STGMEDIUM
-      description: "A <xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM>, passed by reference, that defines the storage medium containing the data being transferred. The medium must be allocated by the caller and filled in by <xref:System.Runtime.InteropServices.ComTypes.IDataObject.GetDataHere*>. The caller must also free the medium. The implementation of this method must always supply a value of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> for the <xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM.pUnkForRelease> member of the <xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM> structure that this parameter points to."
+      description: "Een <xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM>, doorgegeven door de referentie die definieert het opslagmedium met de gegevens worden overgebracht.</xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM> Het medium moet worden toegewezen door de aanroeper en door <xref:System.Runtime.InteropServices.ComTypes.IDataObject.GetDataHere*>.</xref:System.Runtime.InteropServices.ComTypes.IDataObject.GetDataHere*> ingevuld De aanroeper moet het medium ook gratis. De implementatie van deze methode moet altijd een waarde van opgeven <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> voor de <xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM.pUnkForRelease>lid is van de <xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM>structuur die deze parameter naar verwijst.</xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM> </xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM.pUnkForRelease>"
   overload: System.Windows.Forms.DataObject.System#Runtime#InteropServices#ComTypes#IDataObject#GetDataHere*
   exceptions: []
   platform:
@@ -1136,17 +1136,17 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Determines whether the data object is capable of rendering the data described in the <xref:System.Runtime.InteropServices.ComTypes.FORMATETC> structure. Objects attempting a paste or drop operation can call this method before calling <xref:System.Runtime.InteropServices.ComTypes.IDataObject.GetData*> to get an indication of whether the operation may be successful."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Windows.Forms.DataObject> is cast to an <xref:System.Runtime.InteropServices.ComTypes.IDataObject> interface."
+  summary: "Hiermee wordt bepaald of het gegevensobject geschikt is voor het opbouwen van de gegevens die zijn beschreven in de <xref:System.Runtime.InteropServices.ComTypes.FORMATETC>structuur.</xref:System.Runtime.InteropServices.ComTypes.FORMATETC> Deze methode voordat u probeert een bewerking plakken of drop kunt aanroepen objecten <xref:System.Runtime.InteropServices.ComTypes.IDataObject.GetData*>ophalen van een indicatie van of de bewerking voltooid worden kan.</xref:System.Runtime.InteropServices.ComTypes.IDataObject.GetData*>"
+  remarks: "Dit lid is een expliciete interface lid-implementatie. Het kan worden gebruikt alleen wanneer de <xref:System.Windows.Forms.DataObject>is geconverteerd naar een <xref:System.Runtime.InteropServices.ComTypes.IDataObject>interface.</xref:System.Runtime.InteropServices.ComTypes.IDataObject> </xref:System.Windows.Forms.DataObject>"
   syntax:
     content: int IDataObject.QueryGetData (ref System.Runtime.InteropServices.ComTypes.FORMATETC formatetc);
     parameters:
     - id: formatetc
       type: System.Runtime.InteropServices.ComTypes.FORMATETC
-      description: "A pointer to a <xref:System.Runtime.InteropServices.ComTypes.FORMATETC> structure, passed by reference, that defines the format, medium, and target device to use for the query."
+      description: "Een verwijzing naar een <xref:System.Runtime.InteropServices.ComTypes.FORMATETC>doorgegeven als verwijzing die bepaalt de indeling, gemiddeld en doelapparaat moet worden gebruikt voor de query-structuur.</xref:System.Runtime.InteropServices.ComTypes.FORMATETC>"
     return:
       type: System.Int32
-      description: "This method supports the standard return values E_INVALIDARG, E_UNEXPECTED, and E_OUTOFMEMORY, as well as the following:       <table><thead><tr><th> Value       </th><th> Description       </th></tr></thead><tbody><tr><td> S_OK       </td><td> A subsequent call to <xref:System.Runtime.InteropServices.ComTypes.IDataObject.GetData*> would probably be successful.       </td></tr><tr><td> DV_E_LINDEX       </td><td> An invalid value for <xref:System.Runtime.InteropServices.ComTypes.FORMATETC.lindex>; currently, only -1 is supported.       </td></tr><tr><td> DV_E_FORMATETC       </td><td> An invalid value for the <code>pFormatetc</code> parameter.       </td></tr><tr><td> DV_E_TYMED       </td><td> An invalid <xref:System.Runtime.InteropServices.ComTypes.FORMATETC.tymed> value.       </td></tr><tr><td> DV_E_DVASPECT       </td><td> An invalid <xref:System.Runtime.InteropServices.ComTypes.FORMATETC.dwAspect> value.       </td></tr><tr><td> OLE_E_NOTRUNNING       </td><td> The application is not running.       </td></tr></tbody></table>"
+      description: "Deze methode ondersteunt de standaard retourwaarden E_INVALIDARG E_UNEXPECTED en E_OUTOFMEMORY, evenals het volgende:       <table><thead><tr><th> Waarde       </th><th> Beschrijving       </th></tr></thead><tbody><tr><td> S_OK       </td><td> Een volgende aanroep <xref:System.Runtime.InteropServices.ComTypes.IDataObject.GetData*>is waarschijnlijk geslaagde.</xref:System.Runtime.InteropServices.ComTypes.IDataObject.GetData*>       </td></tr><tr><td> DV_E_LINDEX       </td><td> Een ongeldige waarde voor <xref:System.Runtime.InteropServices.ComTypes.FORMATETC.lindex>; op dit moment alleen -1 wordt ondersteund.</xref:System.Runtime.InteropServices.ComTypes.FORMATETC.lindex>       </td></tr><tr><td> DV_E_FORMATETC       </td><td> Een ongeldige waarde voor de <code> pFormatetc </code> parameter.       </td></tr><tr><td> DV_E_TYMED       </td><td> Een ongeldige <xref:System.Runtime.InteropServices.ComTypes.FORMATETC.tymed>waarde.</xref:System.Runtime.InteropServices.ComTypes.FORMATETC.tymed>       </td></tr><tr><td> DV_E_DVASPECT       </td><td> Een ongeldige <xref:System.Runtime.InteropServices.ComTypes.FORMATETC.dwAspect>waarde.</xref:System.Runtime.InteropServices.ComTypes.FORMATETC.dwAspect>       </td></tr><tr><td> OLE_E_NOTRUNNING       </td><td> De toepassing wordt niet uitgevoerd.       </td></tr></tbody></table>"
   overload: System.Windows.Forms.DataObject.System#Runtime#InteropServices#ComTypes#IDataObject#QueryGetData*
   exceptions: []
   platform:
@@ -1164,25 +1164,25 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Transfers data to the object that implements this method. This method is called by an object that contains a data source."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Windows.Forms.DataObject> is cast to an <xref:System.Runtime.InteropServices.ComTypes.IDataObject> interface."
+  summary: "Draagt gegevens over naar het object dat deze methode wordt geïmplementeerd. Deze methode wordt aangeroepen door een object dat een gegevensbron bevat."
+  remarks: "Dit lid is een expliciete interface lid-implementatie. Het kan worden gebruikt alleen wanneer de <xref:System.Windows.Forms.DataObject>is geconverteerd naar een <xref:System.Runtime.InteropServices.ComTypes.IDataObject>interface.</xref:System.Runtime.InteropServices.ComTypes.IDataObject> </xref:System.Windows.Forms.DataObject>"
   syntax:
     content: void IDataObject.SetData (ref System.Runtime.InteropServices.ComTypes.FORMATETC pFormatetcIn, ref System.Runtime.InteropServices.ComTypes.STGMEDIUM pmedium, bool fRelease);
     parameters:
     - id: pFormatetcIn
       type: System.Runtime.InteropServices.ComTypes.FORMATETC
-      description: "A <xref:System.Runtime.InteropServices.ComTypes.FORMATETC> structure, passed by reference, that defines the format used by the data object when interpreting the data contained in the storage medium."
+      description: "Een <xref:System.Runtime.InteropServices.ComTypes.FORMATETC>structuur, doorgegeven door de referentie die de indeling van het gegevensobject definieert bij het interpreteren van de gegevens in het opslagmedium.</xref:System.Runtime.InteropServices.ComTypes.FORMATETC>"
     - id: pmedium
       type: System.Runtime.InteropServices.ComTypes.STGMEDIUM
-      description: "A <xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM> structure, passed by reference, that defines the storage medium in which the data is being passed."
+      description: "Een <xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM>structuur, doorgegeven door de referentie die definieert het opslagmedium waarin de gegevens wordt doorgegeven.</xref:System.Runtime.InteropServices.ComTypes.STGMEDIUM>"
     - id: fRelease
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to specify that the data object called, which implements <xref:System.Runtime.InteropServices.ComTypes.IDataObject.SetData*>, owns the storage medium after the call returns. This means that the data object must free the medium after it has been used by calling the <xref uid=&quot;langword_csharp_ReleaseStgMedium&quot; name=&quot;ReleaseStgMedium&quot; href=&quot;&quot;></xref> function. <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to specify that the caller retains ownership of the storage medium, and the data object called uses the storage medium for the duration of the call only."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>om op te geven dat het gegevensobject genoemd, welke implements <xref:System.Runtime.InteropServices.ComTypes.IDataObject.SetData*>, eigenaar is van het opslagmedium nadat de oproep retourneert.</xref:System.Runtime.InteropServices.ComTypes.IDataObject.SetData*> Dit betekent dat het gegevensobject het medium vrijmaken moet nadat deze is gebruikt door het aanroepen van de <xref uid=&quot;langword_csharp_ReleaseStgMedium&quot; name=&quot;ReleaseStgMedium&quot; href=&quot;&quot;> </xref> functie. <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>Als u wilt opgeven dat de aanroeper eigendom van het opslagmedium behoudt, en het gegevensobject, gebruikt het opslagmedium voor de duur van de aanroep alleen."
   overload: System.Windows.Forms.DataObject.System#Runtime#InteropServices#ComTypes#IDataObject#SetData*
   exceptions:
   - type: System.NotImplementedException
     commentId: T:System.NotImplementedException
-    description: "This method does not support the type of the underlying data object."
+    description: "Deze methode biedt geen ondersteuning voor het type van het onderliggende gegevensobject."
   platform:
   - net462
 references:
