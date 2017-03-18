@@ -19,8 +19,8 @@ items:
   nameWithType: IDbConnection
   fullName: System.Data.IDbConnection
   type: Interface
-  summary: "Represents an open connection to a data source, and is implemented by .NET Framework data providers that access relational databases."
-  remarks: "The IDbConnection interface enables an inheriting class to implement a Connection class, which represents a unique session with a data source (for example, a network connection to a server). For more information about Connection classes, see [Connecting to a Data Source](~/add/includes/ajax-current-ext-md.md).       An application does not create an instance of the IDbConnection interface directly, but creates an instance of a class that inherits IDbConnection.       Classes that inherit IDbConnection must implement all inherited members, and typically define additional members to add provider-specific functionality. For example, the IDbConnection interface defines the <xref:System.Data.IDbConnection.ConnectionTimeout%2A> property. In turn, the <xref:System.Data.SqlClient.SqlConnection> class inherits this property, and also defines the <xref:System.Data.SqlClient.SqlConnection.PacketSize%2A> property."
+  summary: "Vertegenwoordigt een open verbinding met een gegevensbron, en wordt geïmplementeerd door de .NET DataFramework dataproviders die toegang hebben tot relationele databases."
+  remarks: "De IDbConnection-interface kunt een Traceringstabellen klasse voor het implementeren van een verbinding klasse een unieke sessie met een gegevensbron (bijvoorbeeld een netwerkverbinding met een server vertegenwoordigt). Zie voor meer informatie over verbinding klassen [verbinden met een gegevensbron](~/add/includes/ajax-current-ext-md.md).       Een toepassing, maak een instantie van de IDbConnection-interface niet rechtstreeks, maar maakt een exemplaar van een klasse die IDbConnection overneemt.       Klassen die IDbConnection overnemen moeten alle overgenomen leden te implementeren en doorgaans extra leden om toe te voegen providerspecifieke definiëren. Bijvoorbeeld, de IDbConnection-interface definieert de <xref:System.Data.IDbConnection.ConnectionTimeout%2A>eigenschap.</xref:System.Data.IDbConnection.ConnectionTimeout%2A> Op zijn beurt de <xref:System.Data.SqlClient.SqlConnection>klasse neemt over van deze eigenschap en definieert ook de <xref:System.Data.SqlClient.SqlConnection.PacketSize%2A>eigenschap.</xref:System.Data.SqlClient.SqlConnection.PacketSize%2A> </xref:System.Data.SqlClient.SqlConnection>"
   example:
   - "The following example creates instances of the derived classes, <xref:System.Data.SqlClient.SqlCommand> and <xref:System.Data.SqlClient.SqlConnection>. The <xref:System.Data.SqlClient.SqlConnection> is opened and set as the <xref:System.Data.SqlClient.SqlCommand.Connection%2A> for the <xref:System.Data.SqlClient.SqlCommand>. The example then calls <xref:System.Data.SqlClient.SqlCommand.ExecuteNonQuery%2A>, and closes the connection. To accomplish this, the <xref:System.Data.SqlClient.SqlCommand.ExecuteNonQuery%2A> is passed a connection string and a query string that is a Transact-SQL INSERT statement.  \n  \n [!code-cs[Classic WebData SqlConnection Example#1](~/add/codesnippet/csharp/t-system.data.idbconnect_1.cs)]\n [!code-vb[Classic WebData SqlConnection Example#1](~/add/codesnippet/visualbasic/t-system.data.idbconnect_1.vb)]"
   syntax:
@@ -41,14 +41,14 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data
-  summary: "Begins a database transaction."
-  remarks: "Once the transaction has completed, you must explicitly commit or roll back the transaction by using the <xref:System.Data.IDbTransaction.Commit%2A> or <xref:System.Data.IDbTransaction.Rollback%2A> methods."
+  summary: "Een databasetransactie start."
+  remarks: "Zodra de transactie is voltooid, moet u expliciet doorgevoerd of draai de transactie terug met behulp van de <xref:System.Data.IDbTransaction.Commit%2A>of <xref:System.Data.IDbTransaction.Rollback%2A>methoden.</xref:System.Data.IDbTransaction.Rollback%2A> </xref:System.Data.IDbTransaction.Commit%2A>"
   syntax:
     content: public System.Data.IDbTransaction BeginTransaction ();
     parameters: []
     return:
       type: System.Data.IDbTransaction
-      description: "An object representing the new transaction."
+      description: "Een object dat de nieuwe transactie vertegenwoordigt."
   overload: System.Data.IDbConnection.BeginTransaction*
   exceptions: []
   platform:
@@ -65,17 +65,17 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data
-  summary: "Begins a database transaction with the specified <xref href=&quot;System.Data.IsolationLevel&quot;></xref> value."
-  remarks: "Once the transaction has completed, you must explicitly commit or roll back the transaction using the <xref:System.Data.IDbTransaction.Commit%2A> or <xref:System.Data.IDbTransaction.Rollback%2A> methods."
+  summary: "Een databasetransactie met de opgegeven Start <xref href=&quot;System.Data.IsolationLevel&quot;> </xref> waarde."
+  remarks: "Zodra de transactie is voltooid, moet u expliciet doorvoeren of terugdraaien van de transactie met behulp van de <xref:System.Data.IDbTransaction.Commit%2A>of <xref:System.Data.IDbTransaction.Rollback%2A>methoden.</xref:System.Data.IDbTransaction.Rollback%2A> </xref:System.Data.IDbTransaction.Commit%2A>"
   syntax:
     content: public System.Data.IDbTransaction BeginTransaction (System.Data.IsolationLevel il);
     parameters:
     - id: il
       type: System.Data.IsolationLevel
-      description: "One of the <xref href=&quot;System.Data.IsolationLevel&quot;></xref> values."
+      description: "Een van de <xref href=&quot;System.Data.IsolationLevel&quot;> </xref> waarden."
     return:
       type: System.Data.IDbTransaction
-      description: "An object representing the new transaction."
+      description: "Een object dat de nieuwe transactie vertegenwoordigt."
   overload: System.Data.IDbConnection.BeginTransaction*
   exceptions: []
   platform:
@@ -92,13 +92,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data
-  summary: "Changes the current database for an open <xref uid=&quot;langword_csharp_Connection&quot; name=&quot;Connection&quot; href=&quot;&quot;></xref> object."
+  summary: "Wijzigingen van de huidige database voor een open <xref uid=&quot;langword_csharp_Connection&quot; name=&quot;Connection&quot; href=&quot;&quot;> </xref> object."
   syntax:
     content: public void ChangeDatabase (string databaseName);
     parameters:
     - id: databaseName
       type: System.String
-      description: "The name of the database to use in place of the current database."
+      description: "De naam van de database in plaats van de huidige database."
   overload: System.Data.IDbConnection.ChangeDatabase*
   exceptions: []
   platform:
@@ -115,8 +115,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data
-  summary: "Closes the connection to the database."
-  remarks: "The Close method rolls back any pending transactions. It then releases the connection to the connection pool, or closes the connection if connection pooling is disabled.       An application can call `Close` more than one time without generating an exception."
+  summary: "Hiermee sluit u de verbinding met de database."
+  remarks: "De methode Close teruggedraaid in de transacties die in behandeling. Vervolgens de verbinding met de verbindingsgroep releases of de verbinding wordt gesloten als Groepsgewijze verbinding nodig is uitgeschakeld.       Een toepassing kunt aanroepen `Close` meer dan één keer zonder dat er een uitzondering gegenereerd."
   syntax:
     content: public void Close ();
     parameters: []
@@ -136,15 +136,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data
-  summary: "Gets or sets the string used to open a database."
-  remarks: "The `ConnectionString` property can be set only while the connection is closed."
+  summary: "Opgehaald of ingesteld van de tekenreeks die wordt gebruikt voor het openen van een database."
+  remarks: "De `ConnectionString` eigenschap kan alleen tijdens de verbinding is gesloten worden ingesteld."
   example:
   - "The following example creates an instance of a derived class, <xref:System.Data.OleDb.OleDbConnection>, sets its <xref:System.Data.OleDb.OleDbConnection.ConnectionString%2A>, and displays its <xref:System.Data.OleDb.OleDbConnection.State%2A>.  \n  \n [!code-cs[Classic WebData IDbConnection.ConnectionString Example#1](~/add/codesnippet/csharp/p-system.data.idbconnect_0_1.cs)]\n [!code-vb[Classic WebData IDbConnection.ConnectionString Example#1](~/add/codesnippet/visualbasic/p-system.data.idbconnect_0_1.vb)]"
   syntax:
     content: public string ConnectionString { get; set; }
     return:
       type: System.String
-      description: "A string containing connection settings."
+      description: "Een tekenreeks met verbindingsinstellingen."
   overload: System.Data.IDbConnection.ConnectionString*
   exceptions: []
   platform:
@@ -161,13 +161,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data
-  summary: "Gets the time to wait while trying to establish a connection before terminating the attempt and generating an error."
-  remarks: "A value of 0 indicates no limit to the wait time, rather than no wait time, and should be avoided in a <xref:System.Data.IDbConnection.ConnectionString%2A> because it would cause the connection attempt to wait indefinitely."
+  summary: "Met deze eigenschap moet worden gewacht tijdens een poging tot stand brengen van een verbinding tot stand voordat de poging wordt afgebroken en een fout optreedt."
+  remarks: "Een waarde van 0 geeft geen limiet voor de wachttijd, in plaats van geen wachttijd en moet worden voorkomen een <xref:System.Data.IDbConnection.ConnectionString%2A>omdat hierdoor de verbindingspoging moet worden gewacht voor onbepaalde tijd.</xref:System.Data.IDbConnection.ConnectionString%2A>"
   syntax:
     content: public int ConnectionTimeout { get; }
     return:
       type: System.Int32
-      description: "The time (in seconds) to wait for a connection to open. The default value is 15 seconds."
+      description: "De tijd (in seconden) moet worden gewacht voor een verbinding te openen. De standaardwaarde is 15 seconden."
   overload: System.Data.IDbConnection.ConnectionTimeout*
   exceptions: []
   platform:
@@ -184,13 +184,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data
-  summary: "Creates and returns a Command object associated with the connection."
+  summary: "Maakt en retourneert een Command-object dat is gekoppeld aan de verbinding."
   syntax:
     content: public System.Data.IDbCommand CreateCommand ();
     parameters: []
     return:
       type: System.Data.IDbCommand
-      description: "A Command object associated with the connection."
+      description: "Een Command-object dat is gekoppeld aan de verbinding."
   overload: System.Data.IDbConnection.CreateCommand*
   exceptions: []
   platform:
@@ -207,13 +207,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data
-  summary: "Gets the name of the current database or the database to be used after a connection is opened."
-  remarks: "The `Database` property can be dynamically updated by using the <xref:System.Data.IDbConnection.ChangeDatabase%2A> method or by passing an SQL statement using one of the Execute methods. (Initially the database is set by means of the connection string.) If you change the current database using an SQL statement or the `ChangeDatabase` method, an informational message is sent and then the property is updated."
+  summary: "Hiermee haalt u de naam van de huidige database of de database moet worden gebruikt wanneer een verbinding is geopend."
+  remarks: "De `Database` eigenschap kan dynamisch worden bijgewerkt met behulp van de <xref:System.Data.IDbConnection.ChangeDatabase%2A>methode of door het doorgeven van een SQL-instructie met een van de methoden Execute.</xref:System.Data.IDbConnection.ChangeDatabase%2A> (In eerste instantie de database is ingesteld met behulp van de verbindingsreeks.) Als u de huidige database met behulp van een SQL-instructie of de `ChangeDatabase` methode een informatief bericht wordt verzonden en vervolgens de eigenschap wordt bijgewerkt."
   syntax:
     content: public string Database { get; }
     return:
       type: System.String
-      description: "The name of the current database or the name of the database to be used once a connection is open. The default value is an empty string."
+      description: "De naam van de huidige database of de naam van de database moet eenmaal worden gebruikt, is een verbinding geopend. De standaardwaarde is een lege tekenreeks."
   overload: System.Data.IDbConnection.Database*
   exceptions: []
   platform:
@@ -230,7 +230,7 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data
-  summary: "Opens a database connection with the settings specified by the <xref uid=&quot;langword_csharp_ConnectionString&quot; name=&quot;ConnectionString&quot; href=&quot;&quot;></xref> property of the provider-specific Connection object."
+  summary: "Hiermee opent u de verbinding met een database met de instellingen die zijn opgegeven door de <xref uid=&quot;langword_csharp_ConnectionString&quot; name=&quot;ConnectionString&quot; href=&quot;&quot;> </xref> eigenschap van het verbindingsobject providerspecifieke."
   syntax:
     content: public void Open ();
     parameters: []
@@ -250,15 +250,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data
-  summary: "Gets the current state of the connection."
-  remarks: "The allowed state changes are:      -   From `Closed` to `Open`, using the `Open` method of the Connection object.      -   From `Open` to `Closed`, using either the `Close` method or the `Dispose` method of the Connection object."
+  summary: "Hiermee haalt u de huidige status van de verbinding."
+  remarks: "De toegestane statuswijzigingen zijn: - van `Closed` naar `Open`, waarbij de `Open` methode van het object Connection.      -Van `Open` naar `Closed`, met behulp van de `Close` methode of de `Dispose` methode van het object Connection."
   example:
   - "The following example creates an instance of a derived class, <xref:System.Data.OleDb.OleDbConnection>, sets its <xref:System.Data.IDbConnection.ConnectionString%2A>, and displays its State.  \n  \n [!code-cs[Classic WebData IDbConnection.ConnectionString Example#1](~/add/codesnippet/csharp/p-system.data.idbconnect_1_1.cs)]\n [!code-vb[Classic WebData IDbConnection.ConnectionString Example#1](~/add/codesnippet/visualbasic/p-system.data.idbconnect_1_1.vb)]"
   syntax:
     content: public System.Data.ConnectionState State { get; }
     return:
       type: System.Data.ConnectionState
-      description: "One of the <xref href=&quot;System.Data.ConnectionState&quot;></xref> values."
+      description: "Een van de <xref href=&quot;System.Data.ConnectionState&quot;> </xref> waarden."
   overload: System.Data.IDbConnection.State*
   exceptions: []
   platform:

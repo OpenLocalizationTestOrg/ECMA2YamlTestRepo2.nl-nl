@@ -11,8 +11,8 @@ items:
   nameWithType: TableAttribute
   fullName: System.Data.Linq.Mapping.TableAttribute
   type: Class
-  summary: "Designates a class as an entity class that is associated with a database table."
-  remarks: "Use this attribute to designate a class as an entity class that is associated with a database table or view. [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] treats classes that have the TableAttribute attribute as persistent classes.       [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] supports only single-table mapping. That is, an entity class must be mapped to exactly one database table, and you cannot map a database table to multiple classes at the same time.       You can use the <xref:System.Data.Linq.Mapping.TableAttribute.Name%2A> property of the TableAttribute attribute to specify a name for the table, and you can optionally use the schema name to qualify a table name. If you do not specify a name by using the <xref:System.Data.Linq.Mapping.TableAttribute.Name%2A> property, the table name is assumed to be the same as the class name.      ## Schema-qualified Names    You can optionally use the schema name to qualify a table name. By default, the token to the left of the first period in the <xref:System.Data.Linq.Mapping.TableAttribute.Name%2A> string is considered to be the schema name. The remainder of the name is considered to be the table name. The provider quotes the table name as appropriate. For example, the [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] provider for SQL Server makes sure that brackets are used at least where they are needed.      > [!NOTE] >  In some cases, you must explicitly quote attributes because the SQL Server provider cannot auto-quote. The following table shows some examples.      |Case|Example: Identifier Name|Example: Expected String in Attributes|Otherwise…|   |----------|------------------------------|--------------------------------------------|----------------|   |Schema name contains a period|Schema: &quot;A.B&quot;<br /><br /> Table: &quot;C&quot;|&quot;[A.B].C&quot;|The first period is assumed to separate the schema name from the table name.|   |Schema/Table name starts with `@`|&quot;@SomeName&quot;|&quot;[@SomeName]&quot;|Assumed to be a parameter name.|   |Schema starts with `[` and ends with `]`|&quot;[Schema.Table]&quot;|&quot;[[Schema].[Table]]]&quot;|The unquoted identifier resembles a quoted identifier.|   |Table starts with `[` and ends with `]`|&quot;[Table]&quot;|&quot;[[Table]]]&quot;|The unquoted identifier resembles a quoted identifier.|"
+  summary: "Hiermee geeft u een klasse als een entiteitsklasse die is gekoppeld aan een databasetabel."
+  remarks: "Met dit kenmerk een klasse aanwijzen als een entiteitsklasse die is gekoppeld aan een databasetabel of weergave. [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)]beschouwt klassen waarvoor het kenmerk TableAttribute als permanente klassen.       [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)]ondersteunt slechts één tabel toewijzing. Dat wil zeggen, een entiteitsklasse moet worden toegewezen aan één databasetabel en u kunt een databasetabel niet toewijzen aan meerdere klassen op hetzelfde moment.       U kunt de <xref:System.Data.Linq.Mapping.TableAttribute.Name%2A>eigenschap van het kenmerk TableAttribute om op te geven van een naam voor de tabel en u kunt desgewenst de schemanaam gebruiken om de tabelnaam van een te kwalificeren.</xref:System.Data.Linq.Mapping.TableAttribute.Name%2A> Als u een naam niet via opgeeft de <xref:System.Data.Linq.Mapping.TableAttribute.Name%2A>eigenschap, de tabelnaam wordt ervan uitgegaan dat hetzelfde zijn als de naam van de klasse.</xref:System.Data.Linq.Mapping.TableAttribute.Name%2A>      ## Schema gekwalificeerde namen u kunt desgewenst de schemanaam gebruiken om de tabelnaam van een te kwalificeren. Standaard wordt het token aan de linkerkant van de eerste periode in de <xref:System.Data.Linq.Mapping.TableAttribute.Name%2A>tekenreeks wordt beschouwd als naam van het schema.</xref:System.Data.Linq.Mapping.TableAttribute.Name%2A> De rest van de naam wordt beschouwd als naam van de tabel. De provider aanhalingstekens desgewenst de naam van de tabel. Bijvoorbeeld, de [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] provider voor SQL Server zorgt ervoor dat haken ten minste worden gebruikt wanneer deze nodig zijn.      > [!NOTE] > In sommige gevallen te expliciet vermelden kenmerken omdat de provider voor SQL Server kan niet automatisch aanhalingstekens. De volgende tabel ziet u enkele voorbeelden.      | Case | Voorbeeld: Id-naam | Voorbeeld: Tekenreeks verwacht in kenmerken | Anders... |   |----------|------------------------------|--------------------------------------------|----------------|   | De schemanaam van het bevat een periode | Schema: &quot;A.B&quot;<br /><br /> Tabel: &quot;C&quot; | &quot; [A.B]. C &quot; | De eerste periode wordt ervan uitgegaan dat de schemanaam scheiden van de tabelnaam. |   | Schema-/ tabelnaam begint met `@`| &quot; @SomeName&quot;|&quot; [@SomeName]&quot;| Uitgegaan van een parameternaam. |   | Schema begint met `[` en eindigt op `]`| &quot; [Schema.Table]&quot;|&quot; [[Schema]. [Tabel]]] &quot;| De zonder aanhalingstekens id komt overeen met een id met aanhalingstekens. |   | Tabel begint met `[` en eindigt op `]`| &quot; [Tabel] &quot;|&quot; [[Tabel]]] &quot;| De zonder aanhalingstekens id komt overeen met een id met aanhalingstekens. |"
   example:
   - >-
     [!code-vb[DLinqCustomize#1](~/add/codesnippet/visualbasic/customize/Module1.vb#1)]
@@ -40,7 +40,7 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq.Mapping
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.Linq.Mapping.TableAttribute&quot;></xref> class."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Data.Linq.Mapping.TableAttribute&quot;> </xref> klasse."
   syntax:
     content: public TableAttribute ();
     parameters: []
@@ -60,8 +60,8 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq.Mapping
-  summary: "Gets or sets the name of the table or view."
-  remarks: "If you do not specify a name by using Name, the table name is assumed to be the same as the class name.      > [!NOTE] >  You can optionally use a schema name to qualify the table name (for example, Schema3.Table5). By default, the token to the left of the first period in the Name string is considered to be the schema name, and the rest to be the table name.       In the following example, the default table name, `Customer`, is changed to `Customers`."
+  summary: "Opgehaald of ingesteld van de naam van de tabel of weergave."
+  remarks: "Als u een naam met behulp van de naam niet opgeeft, wordt aangenomen dat de tabelnaam hetzelfde zijn als de naam van de klasse.      > [!NOTE] > U kunt desgewenst de naam van een schema gebruiken om de naam van de tabel (bijvoorbeeld Schema3.Table5) te kwalificeren. Standaard wordt beschouwd als het token aan de linkerkant van de eerste periode in de tekenreeks voor de naam van het schema en de rest aan de naam van de tabel.       In het volgende voorbeeld wordt de naam van de tabel standaard `Customer`, is gewijzigd in `Customers`."
   example:
   - >-
     [!code-vb[DLinqCustomize#1](~/add/codesnippet/visualbasic/customize/Module1.vb#1)]
@@ -70,7 +70,7 @@ items:
     content: public string Name { get; set; }
     return:
       type: System.String
-      description: "By default, the value is the same as the name of the class."
+      description: "De waarde is standaard hetzelfde zijn als de naam van de klasse."
   overload: System.Data.Linq.Mapping.TableAttribute.Name*
   exceptions: []
   platform:
