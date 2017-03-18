@@ -11,8 +11,8 @@ items:
   nameWithType: IClientChannelSinkStack
   fullName: System.Runtime.Remoting.Channels.IClientChannelSinkStack
   type: Interface
-  summary: "Provides functionality for a stack of client channel sinks that must be invoked during an asynchronous message response decoding."
-  remarks: "The IClientChannelSinkStack is used during processing of responses to asynchronous calls.       During a synchronous call, the <xref:System.Runtime.Remoting.Channels.IClientChannelSink.ProcessMessage%2A?displayProperty=fullName> method is called when a message is outbound to the server. Each sink in the sink chain calls the <xref:System.Runtime.Remoting.Channels.IClientChannelSink.ProcessMessage%2A> method on the next sink until the call reaches the transport sink at the end of the chain. From there the message is transported to the server.       When the formatter sink is called through the <xref:System.Runtime.Remoting.Messaging.IMessageSink.AsyncProcessMessage%2A> method, it dispatches the call asynchronously by calling <xref:System.Runtime.Remoting.Channels.IClientChannelSink.AsyncProcessRequest%2A> on the next channel sink. A stack of reply sinks is needed to process the response. Any sink that wants to process the response needs to push itself to the client channel sink stack inside of <xref:System.Runtime.Remoting.Channels.IClientChannelSink.AsyncProcessRequest%2A>."
+  summary: "Biedt functionaliteit voor een client-stack kanaal put die moeten worden aangeroepen tijdens een asynchrone bericht antwoord decoderen."
+  remarks: "De IClientChannelSinkStack wordt gebruikt tijdens het verwerken van netwerkaanvragen asynchrone aanroepen.       Tijdens een aanroep van synchrone de <xref:System.Runtime.Remoting.Channels.IClientChannelSink.ProcessMessage%2A?displayProperty=fullName>methode wordt aangeroepen wanneer een bericht uitgaand naar de server.</xref:System.Runtime.Remoting.Channels.IClientChannelSink.ProcessMessage%2A?displayProperty=fullName> Elke sink bij het aanroepen van de keten sink de <xref:System.Runtime.Remoting.Channels.IClientChannelSink.ProcessMessage%2A>methode op de volgende sink totdat de aanroep van de transportsink aan het einde van de keten is bereikt.</xref:System.Runtime.Remoting.Channels.IClientChannelSink.ProcessMessage%2A> Het bericht wordt getransporteerd van daaruit naar de server.       Wanneer de formatter-sink is aangeroepen via de <xref:System.Runtime.Remoting.Messaging.IMessageSink.AsyncProcessMessage%2A>methode, verzendt de aanroep van asynchroon door aan te roepen <xref:System.Runtime.Remoting.Channels.IClientChannelSink.AsyncProcessRequest%2A>voor het volgende kanaalfilter.</xref:System.Runtime.Remoting.Channels.IClientChannelSink.AsyncProcessRequest%2A> </xref:System.Runtime.Remoting.Messaging.IMessageSink.AsyncProcessMessage%2A> Een antwoord put-stack is nodig voor het verwerken van het antwoord. Alle sink die wil verwerken van het antwoord moet zichzelf push naar de client kanaalfilterstack binnen <xref:System.Runtime.Remoting.Channels.IClientChannelSink.AsyncProcessRequest%2A>.</xref:System.Runtime.Remoting.Channels.IClientChannelSink.AsyncProcessRequest%2A>"
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -34,21 +34,21 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Pops the information associated with all the sinks from the sink stack up to and including the specified sink."
+  summary: "De informatie die is gekoppeld aan alle sinks uit de filterstack tot en met de opgegeven sink verschijnt."
   syntax:
     content: public object Pop (System.Runtime.Remoting.Channels.IClientChannelSink sink);
     parameters:
     - id: sink
       type: System.Runtime.Remoting.Channels.IClientChannelSink
-      description: "The sink to remove and return from the sink stack."
+      description: "De sink te verwijderen en het retourneren van de filterstack."
     return:
       type: System.Object
-      description: "Information generated on the request side and associated with the specified sink."
+      description: "Gegevens die aan de kant van de aanvraag wordt gegenereerd en die zijn gekoppeld aan de opgegeven sink."
   overload: System.Runtime.Remoting.Channels.IClientChannelSinkStack.Pop*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "De onmiddellijke aanroeper is niet gemachtigd voor infrastructuur."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Channels.IClientChannelSinkStack.Push(System.Runtime.Remoting.Channels.IClientChannelSink,System.Object)
@@ -63,22 +63,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Pushes the specified sink and information associated with it onto the sink stack."
-  remarks: "The information generated on the request side and specified in the `state` parameter is returned in the `state` parameter of the <xref:System.Runtime.Remoting.Channels.IClientChannelSink.AsyncProcessResponse%2A> method on the corresponding sink."
+  summary: "De opgegeven sink en gegevens die zijn gekoppeld naar de filterstack duwt."
+  remarks: "De informatie aan de kant van de aanvraag gegenereerd en is opgegeven in de `state` parameter wordt geretourneerd als de `state` parameter van de <xref:System.Runtime.Remoting.Channels.IClientChannelSink.AsyncProcessResponse%2A>methode op de bijbehorende sink.</xref:System.Runtime.Remoting.Channels.IClientChannelSink.AsyncProcessResponse%2A>"
   syntax:
     content: public void Push (System.Runtime.Remoting.Channels.IClientChannelSink sink, object state);
     parameters:
     - id: sink
       type: System.Runtime.Remoting.Channels.IClientChannelSink
-      description: "The sink to push onto the sink stack."
+      description: "De sink voor de push naar de filterstack."
     - id: state
       type: System.Object
-      description: "Information generated on the request side that is needed on the response side."
+      description: "Gegevens die aan de aanvraag dat nodig is op de reactie aan clientzijde worden gegenereerd."
   overload: System.Runtime.Remoting.Channels.IClientChannelSinkStack.Push*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "De onmiddellijke aanroeper is niet gemachtigd voor infrastructuur."
   platform:
   - net462
 references:

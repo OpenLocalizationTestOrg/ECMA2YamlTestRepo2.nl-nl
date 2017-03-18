@@ -28,8 +28,8 @@ items:
   nameWithType: OdbcCommandBuilder
   fullName: System.Data.Odbc.OdbcCommandBuilder
   type: Class
-  summary: "Automatically generates single-table commands that are used to reconcile changes made to a <xref href=&quot;System.Data.DataSet&quot;></xref> with the associated data source. This class cannot be inherited."
-  remarks: "The <xref:System.Data.Odbc.OdbcDataAdapter> does not automatically generate the SQL statements required to reconcile changes made to a <xref:System.Data.DataSet> associated with the data source. However, you can create an OdbcCommandBuilder object that generates SQL statements for single-table updates by setting the <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A> property of the <xref:System.Data.Odbc.OdbcDataAdapter>. The OdbcCommandBuilder then generates any additional SQL statements that you do not set.       The relationship between an <xref:System.Data.Odbc.OdbcDataAdapter> and its corresponding OdbcCommandBuilder is always one-to-one. To create this correspondence, you set the <xref:System.Data.Odbc.OdbcDataAdapter> property of the OdbcCommandBuilder object. This causes the OdbcCommandBuilder to register itself as a listener, which produces the output of <xref:System.Data.Odbc.OdbcDataAdapter.RowUpdating> events that affect the <xref:System.Data.DataSet>.       To generate INSERT, UPDATE, or DELETE statements, the OdbcCommandBuilder uses the <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A> property to retrieve a required set of metadata. If you change the value of <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A> after the metadata has been retrieved, such as after the first update, you should then call the <xref:System.Data.Common.DbCommandBuilder.RefreshSchema%2A> method to update the metadata.      > [!NOTE] >  If the SELECT statement assigned to the <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A> property uses aliased column names, the resulting INSERT, UPDATE, and DELETE statements may be inaccurate or fail. If the underlying ODBC driver cannot provide the appropriate base column name for the alias column name (using the SQL_DESC_BASE_COLUMN_NAME value of `SQLColAttribute`), the alias name could be used in the generated INSERT, UPDATE, and DELETE statements. For example, the Microsoft ODBC Driver for Oracle returns the alias name as the base column name. Therefore, the generated INSERT, UPDATE, and DELETE statements would cause errors.       The OdbcCommandBuilder also uses the <xref:System.Data.Odbc.OdbcCommand.Connection%2A>, <xref:System.Data.Odbc.OdbcCommand.CommandTimeout%2A>, and <xref:System.Data.Odbc.OdbcCommand.Transaction%2A> properties referenced by the <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A>. The user should call <xref:System.Data.Common.DbCommandBuilder.RefreshSchema%2A> if one or more of these properties are modified, or if the value of the <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A> property itself is changed. Otherwise the <xref:System.Data.Odbc.OdbcDataAdapter.InsertCommand%2A>, <xref:System.Data.Odbc.OdbcDataAdapter.UpdateCommand%2A>, and <xref:System.Data.Odbc.OdbcDataAdapter.DeleteCommand%2A> properties retain their previous values.       If you call <xref:System.ComponentModel.Component.Dispose%2A>, the OdbcCommandBuilder is disassociated from the <xref:System.Data.Odbc.OdbcDataAdapter>, and the generated commands are no longer used."
+  summary: "Genereert automatisch één tabel opdrachten die worden gebruikt om af te stemmen wijzigingen aangebracht in een <xref href=&quot;System.Data.DataSet&quot;> </xref> met de bijbehorende gegevensbron. Deze klasse kan niet worden overgenomen."
+  remarks: "De <xref:System.Data.Odbc.OdbcDataAdapter>wordt niet automatisch genereren van de SQL-instructies die nodig zijn om af te stemmen wijzigingen aangebracht in een <xref:System.Data.DataSet>die zijn gekoppeld aan de gegevensbron.</xref:System.Data.DataSet> </xref:System.Data.Odbc.OdbcDataAdapter> U kunt echter een OdbcCommandBuilder-object waarmee SQL-instructies voor updates voor één tabel gegenereerd door de <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A>eigenschap van het <xref:System.Data.Odbc.OdbcDataAdapter>.</xref:System.Data.Odbc.OdbcDataAdapter> </xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A> maken De OdbcCommandBuilder genereert vervolgens aanvullende SQL-instructies die u instelt.       De relatie tussen een <xref:System.Data.Odbc.OdbcDataAdapter>en de bijbehorende OdbcCommandBuilder is altijd-op-een.</xref:System.Data.Odbc.OdbcDataAdapter> Als u deze overeenkomst, u stelt de <xref:System.Data.Odbc.OdbcDataAdapter>eigenschap van het object OdbcCommandBuilder.</xref:System.Data.Odbc.OdbcDataAdapter> Dit zorgt ervoor dat de OdbcCommandBuilder zelf registreren als een listener, hetgeen resulteert in de uitvoer van <xref:System.Data.Odbc.OdbcDataAdapter.RowUpdating>gebeurtenissen die van invloed zijn op de <xref:System.Data.DataSet>.</xref:System.Data.DataSet> </xref:System.Data.Odbc.OdbcDataAdapter.RowUpdating>       Voor het genereren van de instructies INSERT, UPDATE of DELETE de OdbcCommandBuilder maakt gebruik van de <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A>eigenschap voor het ophalen van een vereiste set metagegevens.</xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A> Als u de waarde van wijzigt <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A>nadat de metagegevens zijn opgehaald, zoals na de eerste update, moet u vervolgens aanroepen de <xref:System.Data.Common.DbCommandBuilder.RefreshSchema%2A>methode voor het bijwerken van de metagegevens.</xref:System.Data.Common.DbCommandBuilder.RefreshSchema%2A> </xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A>      > [!NOTE] > Als de SELECT-instructie die is toegewezen aan de <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A>eigenschap maakt gebruik van alias kolomnamen, de resulterende INSERT, UPDATE en DELETE-instructies is mogelijk onjuist of mislukken.</xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A> Als het onderliggende ODBC-stuurprogramma kan niet de juiste basiskolom naam voor de aliasnaam van de kolom (met behulp van de waarde SQL_DESC_BASE_COLUMN_NAME van `SQLColAttribute`), de aliasnaam kan worden gebruikt in de gegenereerde INSERT, UPDATE en DELETE-instructies. Het Microsoft ODBC-stuurprogramma voor Oracle retourneert bijvoorbeeld de aliasnaam als de naam van het basistype kolom. Daarom kan de gegenereerde INSERT, UPDATE en DELETE-instructies zou leiden tot fouten.       De OdbcCommandBuilder gebruikt ook de <xref:System.Data.Odbc.OdbcCommand.Connection%2A>, <xref:System.Data.Odbc.OdbcCommand.CommandTimeout%2A>, en <xref:System.Data.Odbc.OdbcCommand.Transaction%2A>eigenschappen waarnaar wordt verwezen door de <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A>.</xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A> </xref:System.Data.Odbc.OdbcCommand.Transaction%2A> </xref:System.Data.Odbc.OdbcCommand.CommandTimeout%2A> </xref:System.Data.Odbc.OdbcCommand.Connection%2A> De gebruiker moet aanroepen <xref:System.Data.Common.DbCommandBuilder.RefreshSchema%2A>als een of meer van deze eigenschappen zijn gewijzigd, of als de waarde van de <xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A>eigenschap zelf wordt gewijzigd.</xref:System.Data.Odbc.OdbcDataAdapter.SelectCommand%2A> </xref:System.Data.Common.DbCommandBuilder.RefreshSchema%2A> Anders de <xref:System.Data.Odbc.OdbcDataAdapter.InsertCommand%2A>, <xref:System.Data.Odbc.OdbcDataAdapter.UpdateCommand%2A>, en <xref:System.Data.Odbc.OdbcDataAdapter.DeleteCommand%2A>eigenschappen behouden hun vorige waarden.</xref:System.Data.Odbc.OdbcDataAdapter.DeleteCommand%2A> </xref:System.Data.Odbc.OdbcDataAdapter.UpdateCommand%2A> </xref:System.Data.Odbc.OdbcDataAdapter.InsertCommand%2A>       Als u aanroept <xref:System.ComponentModel.Component.Dispose%2A>, de OdbcCommandBuilder is ontkoppeld van de <xref:System.Data.Odbc.OdbcDataAdapter>, en de gegenereerde opdrachten worden niet meer gebruikt.</xref:System.Data.Odbc.OdbcDataAdapter> </xref:System.ComponentModel.Component.Dispose%2A>"
   example:
   - "The following example uses <xref:System.Data.Odbc.OdbcCommand>, together with <xref:System.Data.Odbc.OdbcDataAdapter> and <xref:System.Data.Odbc.OdbcConnection>, to select rows from a data source. The example is passed an initialized <xref:System.Data.DataSet>, a connection string, a query string that is an SQL SELECT statement, and a string that is the name of the data source table. The example then creates an OdbcCommandBuilder.  \n  \n [!code-cs[Classic WebData OdbcCommandBuilder#1](~/add/codesnippet/csharp/t-system.data.odbc.odbcc_1_1.cs)]\n [!code-vb[Classic WebData OdbcCommandBuilder#1](~/add/codesnippet/visualbasic/t-system.data.odbc.odbcc_1_1.vb)]"
   syntax:
@@ -80,8 +80,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.Odbc.OdbcCommandBuilder&quot;></xref> class."
-  remarks: "The base constructor initializes all fields to their default values."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Data.Odbc.OdbcCommandBuilder&quot;> </xref> klasse."
+  remarks: "De base constructor initialiseert alle velden op hun standaardwaarden."
   syntax:
     content: public OdbcCommandBuilder ();
     parameters: []
@@ -101,14 +101,14 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.Odbc.OdbcCommandBuilder&quot;></xref> class with the associated <xref href=&quot;System.Data.Odbc.OdbcDataAdapter&quot;></xref> object."
-  remarks: "The <xref:System.Data.Odbc.OdbcCommandBuilder> registers itself as a listener for <xref:System.Data.Odbc.OdbcDataAdapter.RowUpdating> events that are generated by the <xref:System.Data.Odbc.OdbcDataAdapter> specified in this property.       When you create a new instance of <xref:System.Data.Odbc.OdbcCommandBuilder>, any existing <xref:System.Data.Odbc.OdbcCommandBuilder> associated with this <xref:System.Data.Odbc.OdbcDataAdapter> is released."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Data.Odbc.OdbcCommandBuilder&quot;> </xref> klasse met de bijbehorende <xref href=&quot;System.Data.Odbc.OdbcDataAdapter&quot;> </xref> object."
+  remarks: "De <xref:System.Data.Odbc.OdbcCommandBuilder>geregistreerd als een listener voor <xref:System.Data.Odbc.OdbcDataAdapter.RowUpdating>gebeurtenissen die worden gegenereerd door de <xref:System.Data.Odbc.OdbcDataAdapter>opgegeven voor deze eigenschap.</xref:System.Data.Odbc.OdbcDataAdapter> </xref:System.Data.Odbc.OdbcDataAdapter.RowUpdating> </xref:System.Data.Odbc.OdbcCommandBuilder>       Wanneer u een nieuw exemplaar van maakt <xref:System.Data.Odbc.OdbcCommandBuilder>, elke bestaande <xref:System.Data.Odbc.OdbcCommandBuilder>die zijn gekoppeld aan dit <xref:System.Data.Odbc.OdbcDataAdapter>wordt vrijgegeven.</xref:System.Data.Odbc.OdbcDataAdapter> </xref:System.Data.Odbc.OdbcCommandBuilder> </xref:System.Data.Odbc.OdbcCommandBuilder>"
   syntax:
     content: public OdbcCommandBuilder (System.Data.Odbc.OdbcDataAdapter adapter);
     parameters:
     - id: adapter
       type: System.Data.Odbc.OdbcDataAdapter
-      description: "An <xref href=&quot;System.Data.Odbc.OdbcDataAdapter&quot;></xref> object to associate with this <xref href=&quot;System.Data.Odbc.OdbcCommandBuilder&quot;></xref>."
+      description: "Een <xref href=&quot;System.Data.Odbc.OdbcDataAdapter&quot;> </xref> object wilt koppelen aan dit <xref href=&quot;System.Data.Odbc.OdbcCommandBuilder&quot;> </xref>."
   overload: System.Data.Odbc.OdbcCommandBuilder.#ctor*
   exceptions: []
   platform:
@@ -130,16 +130,16 @@ items:
     parameters:
     - id: parameter
       type: System.Data.Common.DbParameter
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     - id: datarow
       type: System.Data.DataRow
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     - id: statementType
       type: System.Data.StatementType
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     - id: whereClause
       type: System.Boolean
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   overload: System.Data.Odbc.OdbcCommandBuilder.ApplyParameterInfo*
   exceptions: []
   platform:
@@ -156,13 +156,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets or sets an <xref href=&quot;System.Data.Odbc.OdbcDataAdapter&quot;></xref> object for which this <xref href=&quot;System.Data.Odbc.OdbcCommandBuilder&quot;></xref> object will generate SQL statements."
-  remarks: "The <xref:System.Data.Odbc.OdbcCommandBuilder> registers itself as a listener for <xref:System.Data.Odbc.OdbcDataAdapter.RowUpdating> events that are generated by the <xref:System.Data.Odbc.OdbcDataAdapter> specified in this property.       When you create a new instance of <xref:System.Data.Odbc.OdbcCommandBuilder>, any existing <xref:System.Data.Odbc.OdbcCommandBuilder> associated with this <xref:System.Data.Odbc.OdbcDataAdapter> is released."
+  summary: "Opgehaald of ingesteld een <xref href=&quot;System.Data.Odbc.OdbcDataAdapter&quot;> </xref> object waarvoor deze <xref href=&quot;System.Data.Odbc.OdbcCommandBuilder&quot;> </xref> object SQL-instructies worden gegenereerd."
+  remarks: "De <xref:System.Data.Odbc.OdbcCommandBuilder>geregistreerd als een listener voor <xref:System.Data.Odbc.OdbcDataAdapter.RowUpdating>gebeurtenissen die worden gegenereerd door de <xref:System.Data.Odbc.OdbcDataAdapter>opgegeven voor deze eigenschap.</xref:System.Data.Odbc.OdbcDataAdapter> </xref:System.Data.Odbc.OdbcDataAdapter.RowUpdating> </xref:System.Data.Odbc.OdbcCommandBuilder>       Wanneer u een nieuw exemplaar van maakt <xref:System.Data.Odbc.OdbcCommandBuilder>, elke bestaande <xref:System.Data.Odbc.OdbcCommandBuilder>die zijn gekoppeld aan dit <xref:System.Data.Odbc.OdbcDataAdapter>wordt vrijgegeven.</xref:System.Data.Odbc.OdbcDataAdapter> </xref:System.Data.Odbc.OdbcCommandBuilder> </xref:System.Data.Odbc.OdbcCommandBuilder>"
   syntax:
     content: public System.Data.Odbc.OdbcDataAdapter DataAdapter { get; set; }
     return:
       type: System.Data.Odbc.OdbcDataAdapter
-      description: "An <xref href=&quot;System.Data.Odbc.OdbcDataAdapter&quot;></xref> object that is associated with this <xref href=&quot;System.Data.Odbc.OdbcCommandBuilder&quot;></xref>."
+      description: "Een <xref href=&quot;System.Data.Odbc.OdbcDataAdapter&quot;> </xref> -object dat is gekoppeld aan dit <xref href=&quot;System.Data.Odbc.OdbcCommandBuilder&quot;> </xref>."
   overload: System.Data.Odbc.OdbcCommandBuilder.DataAdapter*
   exceptions: []
   platform:
@@ -179,19 +179,19 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Retrieves parameter information from the stored procedure specified in the <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;></xref> and populates the <xref:System.Data.Odbc.OdbcCommand.Parameters*> collection of the specified <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;></xref> object."
-  remarks: "DeriveParameters overwrites any existing parameter information for the <xref:System.Data.Odbc.OdbcCommand>.       DeriveParameters requires an additional call to the data source to obtain the information. If the parameter information is known in advance, it is more efficient to populate the parameters collection by setting the information explicitly.       You can only use DeriveParameters with stored procedures. You cannot use DeriveParameters to populate the <xref:System.Data.Odbc.OdbcParameterCollection> with arbitrary Transact-SQL statements, such as a parameterized SELECT statement."
+  summary: "Haalt informatie voor de parameter van de opgeslagen procedure die is opgegeven in de <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;> </xref> en vult de <xref:System.Data.Odbc.OdbcCommand.Parameters*>verzameling van het opgegeven <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;> </xref> object.</xref:System.Data.Odbc.OdbcCommand.Parameters*>"
+  remarks: "DeriveParameters overschrijft alle bestaande parametergegevens voor de <xref:System.Data.Odbc.OdbcCommand>.</xref:System.Data.Odbc.OdbcCommand>       DeriveParameters vereist een extra aanroep van de gegevensbron om de informatie te verkrijgen. Als de parameterinformatie van tevoren bekend is, is het efficiënter voor het vullen van de parameterverzameling expliciet door de gegevens.       U kunt DeriveParameters ondersteunt alleen gebruiken met opgeslagen procedures. U kunt DeriveParameters niet gebruiken voor het vullen van de <xref:System.Data.Odbc.OdbcParameterCollection>met willekeurige Transact-SQL-instructies, zoals een geparameteriseerde SELECT-instructie.</xref:System.Data.Odbc.OdbcParameterCollection>"
   syntax:
     content: public static void DeriveParameters (System.Data.Odbc.OdbcCommand command);
     parameters:
     - id: command
       type: System.Data.Odbc.OdbcCommand
-      description: "The <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;></xref> referencing the stored procedure from which the parameter information is to be derived. The derived parameters are added to the <xref:System.Data.Odbc.OdbcCommand.Parameters*> collection of the <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;></xref>."
+      description: "De <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;> </xref> verwijst naar de opgeslagen procedure van waaruit de parametergegevens is moet worden afgeleid. De afgeleide parameters worden toegevoegd aan de <xref:System.Data.Odbc.OdbcCommand.Parameters*>verzameling van de <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;> </xref>.</xref:System.Data.Odbc.OdbcCommand.Parameters*>"
   overload: System.Data.Odbc.OdbcCommandBuilder.DeriveParameters*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The underlying ODBC driver does not support returning stored procedure parameter information, or the command text is not a valid stored procedure name, or the <xref href=&quot;System.Data.CommandType&quot;></xref> specified was not <xref uid=&quot;langword_csharp_CommandType.StoredProcedure&quot; name=&quot;CommandType.StoredProcedure&quot; href=&quot;&quot;></xref>."
+    description: "Het onderliggende ODBC-stuurprogramma biedt geen ondersteuning voor het retourneren van informatie over de parameters van opgeslagen procedure of de opdrachttekst is niet geldig, opgeslagen procedurenaam, of de <xref href=&quot;System.Data.CommandType&quot;> </xref> niet opgegeven is <xref uid=&quot;langword_csharp_CommandType.StoredProcedure&quot; name=&quot;CommandType.StoredProcedure&quot; href=&quot;&quot;> </xref>."
   platform:
   - net462
 - uid: System.Data.Odbc.OdbcCommandBuilder.GetDeleteCommand
@@ -206,14 +206,14 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets the automatically generated <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;></xref> object required to perform deletions at the data source."
-  remarks: "You can use the GetDeleteCommand method for informational or troubleshooting purposes because it returns the <xref:System.Data.Odbc.OdbcCommand> object to be executed.       You can also use GetDeleteCommand as the basis of a modified command. For example, you might call GetDeleteCommand and modify the <xref:System.Data.Odbc.OdbcCommand.CommandTimeout%2A> value, and then explicitly set that on the <xref:System.Data.Odbc.OdbcDataAdapter>.       After the SQL statement is first generated, you must explicitly call <xref:System.Data.Common.DbCommandBuilder.RefreshSchema%2A> if it changes the statement in any way. Otherwise, the GetDeleteCommand will be using information from the previous statement, which might not be correct. The SQL statements are first generated when the application calls either <xref:System.Data.Common.DbDataAdapter.Update%2A> or GetDeleteCommand."
+  summary: "Haalt de automatisch gegenereerde <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;> </xref> object is vereist om uit te voeren verwijderingen aan de gegevensbron."
+  remarks: "Gebruik de methode GetDeleteCommand voor informatie of probleemoplossingsinformatie doeleinden omdat deze retourneert de <xref:System.Data.Odbc.OdbcCommand>object dat moet worden uitgevoerd.</xref:System.Data.Odbc.OdbcCommand>       U kunt ook GetDeleteCommand gebruiken als basis voor een aangepaste opdracht. U kunt bijvoorbeeld GetDeleteCommand aanroepen en wijzig de <xref:System.Data.Odbc.OdbcCommand.CommandTimeout%2A>waarde, en vervolgens de expliciet instellen die op de <xref:System.Data.Odbc.OdbcDataAdapter>.</xref:System.Data.Odbc.OdbcDataAdapter> </xref:System.Data.Odbc.OdbcCommand.CommandTimeout%2A>       Nadat de SQL-instructie voor het eerst wordt gegenereerd, moet u expliciet aanroepen <xref:System.Data.Common.DbCommandBuilder.RefreshSchema%2A>Als de instructie op een manier wordt gewijzigd.</xref:System.Data.Common.DbCommandBuilder.RefreshSchema%2A> Anders wordt zullen de GetDeleteCommand gebruikmaken van gegevens uit de vorige instructie, die misschien niet juist. De SQL-instructies eerst worden gegenereerd wanneer de toepassing wordt aangeroepen ofwel <xref:System.Data.Common.DbDataAdapter.Update%2A>of GetDeleteCommand.</xref:System.Data.Common.DbDataAdapter.Update%2A>"
   syntax:
     content: public System.Data.Odbc.OdbcCommand GetDeleteCommand ();
     parameters: []
     return:
       type: System.Data.Odbc.OdbcCommand
-      description: "The automatically generated <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;></xref> object required to perform deletions."
+      description: "De automatisch gegenereerde <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;> </xref> object nodig voor het uitvoeren van verwijderingen."
   overload: System.Data.Odbc.OdbcCommandBuilder.GetDeleteCommand*
   exceptions: []
   platform:
@@ -230,17 +230,17 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets the automatically generated <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;></xref> object required to perform deletions at the data source."
-  remarks: "You can use the <xref:System.Data.Odbc.OdbcCommandBuilder.GetDeleteCommand%2A> method for informational or troubleshooting purposes because it returns the <xref:System.Data.Odbc.OdbcCommand> object to be executed.       You can also use <xref:System.Data.Odbc.OdbcCommandBuilder.GetDeleteCommand%2A> as the basis of a modified command. For example, you might call <xref:System.Data.Odbc.OdbcCommandBuilder.GetDeleteCommand%2A> and modify the <xref:System.Data.Odbc.OdbcCommand.CommandTimeout%2A> value, and then explicitly set that on the <xref:System.Data.Odbc.OdbcDataAdapter>.       After the SQL statement is first generated, you must explicitly call <xref:System.Data.Common.DbCommandBuilder.RefreshSchema%2A> if it changes the statement in any way. Otherwise, the <xref:System.Data.Odbc.OdbcCommandBuilder.GetDeleteCommand%2A> will be using information from the previous statement, which might not be correct. The SQL statements are first generated when the application calls either <xref:System.Data.Common.DbDataAdapter.Update%2A> or <xref:System.Data.Odbc.OdbcCommandBuilder.GetDeleteCommand%2A>.       The default behavior, when generating parameter names, is to use @p1, @p2, and so on for the various parameters. Passing `true` for the `useColumnsForParameterNames` parameter lets you force the <xref:System.Data.Odbc.OdbcCommandBuilder> to generate parameters based on the column names instead. This succeeds only if the following conditions are met:      -   The <xref:System.Data.Common.DbMetaDataColumnNames.ParameterNameMaxLength> has been specified, and its length is equal to or greater than the generated parameter name.      -   The generated parameter name meets the criteria specified in the <xref:System.Data.Common.DbMetaDataColumnNames.ParameterNamePattern> regular expression.      -   A <xref:System.Data.Common.DbMetaDataColumnNames.ParameterMarkerFormat> is specified."
+  summary: "Haalt de automatisch gegenereerde <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;> </xref> object is vereist om uit te voeren verwijderingen aan de gegevensbron."
+  remarks: "U kunt de <xref:System.Data.Odbc.OdbcCommandBuilder.GetDeleteCommand%2A>methode voor informatie of probleemoplossingsinformatie wordt gebruikt omdat deze retourneert de <xref:System.Data.Odbc.OdbcCommand>object dat moet worden uitgevoerd.</xref:System.Data.Odbc.OdbcCommand> </xref:System.Data.Odbc.OdbcCommandBuilder.GetDeleteCommand%2A>       U kunt ook <xref:System.Data.Odbc.OdbcCommandBuilder.GetDeleteCommand%2A>Als de basis van een aangepaste opdracht.</xref:System.Data.Odbc.OdbcCommandBuilder.GetDeleteCommand%2A> U kunt bijvoorbeeld aanroepen <xref:System.Data.Odbc.OdbcCommandBuilder.GetDeleteCommand%2A>en wijzig de <xref:System.Data.Odbc.OdbcCommand.CommandTimeout%2A>waarde, en vervolgens de expliciet instellen die op de <xref:System.Data.Odbc.OdbcDataAdapter>.</xref:System.Data.Odbc.OdbcDataAdapter> </xref:System.Data.Odbc.OdbcCommand.CommandTimeout%2A> </xref:System.Data.Odbc.OdbcCommandBuilder.GetDeleteCommand%2A>       Nadat de SQL-instructie voor het eerst wordt gegenereerd, moet u expliciet aanroepen <xref:System.Data.Common.DbCommandBuilder.RefreshSchema%2A>Als de instructie op een manier wordt gewijzigd.</xref:System.Data.Common.DbCommandBuilder.RefreshSchema%2A> Anders wordt de <xref:System.Data.Odbc.OdbcCommandBuilder.GetDeleteCommand%2A>gebruik van gegevens uit de vorige instructie, die misschien niet juist.</xref:System.Data.Odbc.OdbcCommandBuilder.GetDeleteCommand%2A> De SQL-instructies worden eerst gegenereerd wanneer de toepassing wordt aangeroepen <xref:System.Data.Common.DbDataAdapter.Update%2A>of <xref:System.Data.Odbc.OdbcCommandBuilder.GetDeleteCommand%2A>.</xref:System.Data.Odbc.OdbcCommandBuilder.GetDeleteCommand%2A> </xref:System.Data.Common.DbDataAdapter.Update%2A>       Het standaardgedrag bij het genereren van parameternamen, is het gebruik @p1, @p2, enzovoort voor de verschillende parameters. Doorgegeven `true` voor de `useColumnsForParameterNames` parameter kunt u ervoor zorgen dat de <xref:System.Data.Odbc.OdbcCommandBuilder>genereren op basis van de kolomnamen in plaats daarvan parameters.</xref:System.Data.Odbc.OdbcCommandBuilder> Dit lukt alleen als de volgende voorwaarden wordt voldaan: - de <xref:System.Data.Common.DbMetaDataColumnNames.ParameterNameMaxLength>is opgegeven, en de lengte is gelijk aan of groter zijn dan de gegenereerde parameternaam.</xref:System.Data.Common.DbMetaDataColumnNames.ParameterNameMaxLength>      -De gegenereerde parameternaam voldoet aan de criteria die zijn opgegeven in de <xref:System.Data.Common.DbMetaDataColumnNames.ParameterNamePattern>reguliere expressie.</xref:System.Data.Common.DbMetaDataColumnNames.ParameterNamePattern>      -A <xref:System.Data.Common.DbMetaDataColumnNames.ParameterMarkerFormat>is opgegeven.</xref:System.Data.Common.DbMetaDataColumnNames.ParameterMarkerFormat>"
   syntax:
     content: public System.Data.Odbc.OdbcCommand GetDeleteCommand (bool useColumnsForParameterNames);
     parameters:
     - id: useColumnsForParameterNames
       type: System.Boolean
-      description: "If <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, generate parameter names matching column names, if it is possible. If <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>, generate @p1, @p2, and so on."
+      description: "Als <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>, parameternamen die overeenkomt met de kolomnamen, genereren als het is mogelijk. Als <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>, genereren @p1, @p2, enzovoort."
     return:
       type: System.Data.Odbc.OdbcCommand
-      description: "The automatically generated <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;></xref> object required to perform deletions."
+      description: "De automatisch gegenereerde <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;> </xref> object nodig voor het uitvoeren van verwijderingen."
   overload: System.Data.Odbc.OdbcCommandBuilder.GetDeleteCommand*
   exceptions: []
   platform:
@@ -257,14 +257,14 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets the automatically generated <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;></xref> object required to perform insertions at the data source."
-  remarks: "You can use the GetInsertCommand method for informational or troubleshooting purposes because it returns the <xref:System.Data.Odbc.OdbcCommand> object to be executed.       You can also use GetInsertCommand as the basis of a modified command. For example, you might call GetInsertCommand and modify the <xref:System.Data.Odbc.OdbcCommand.CommandTimeout%2A> value, and then explicitly set that on the <xref:System.Data.Odbc.OdbcDataAdapter>.       After the SQL statement is first generated, you must explicitly call <xref:System.Data.Common.DbCommandBuilder.RefreshSchema%2A> if it changes the statement in any way. Otherwise, the GetInsertCommand still will be using information from the previous statement, which might not be correct. The SQL statements are first generated when the application calls either <xref:System.Data.Common.DbDataAdapter.Update%2A> or GetInsertCommand."
+  summary: "Haalt de automatisch gegenereerde <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;> </xref> object is vereist om uit te voeren invoegingen in de gegevensbron."
+  remarks: "Gebruik de methode GetInsertCommand voor informatie of probleemoplossingsinformatie doeleinden omdat deze retourneert de <xref:System.Data.Odbc.OdbcCommand>object dat moet worden uitgevoerd.</xref:System.Data.Odbc.OdbcCommand>       U kunt ook GetInsertCommand gebruiken als basis voor een aangepaste opdracht. U kunt bijvoorbeeld GetInsertCommand aanroepen en wijzig de <xref:System.Data.Odbc.OdbcCommand.CommandTimeout%2A>waarde, en vervolgens de expliciet instellen die op de <xref:System.Data.Odbc.OdbcDataAdapter>.</xref:System.Data.Odbc.OdbcDataAdapter> </xref:System.Data.Odbc.OdbcCommand.CommandTimeout%2A>       Nadat de SQL-instructie voor het eerst wordt gegenereerd, moet u expliciet aanroepen <xref:System.Data.Common.DbCommandBuilder.RefreshSchema%2A>Als de instructie op een manier wordt gewijzigd.</xref:System.Data.Common.DbCommandBuilder.RefreshSchema%2A> Anders wordt wordt de GetInsertCommand nog gebruikt gegevens uit de vorige instructie, die misschien niet juist. De SQL-instructies eerst worden gegenereerd wanneer de toepassing wordt aangeroepen ofwel <xref:System.Data.Common.DbDataAdapter.Update%2A>of GetInsertCommand.</xref:System.Data.Common.DbDataAdapter.Update%2A>"
   syntax:
     content: public System.Data.Odbc.OdbcCommand GetInsertCommand ();
     parameters: []
     return:
       type: System.Data.Odbc.OdbcCommand
-      description: "The automatically generated <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;></xref> object required to perform insertions."
+      description: "De automatisch gegenereerde <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;> </xref> object vereist invoegingen uitvoeren."
   overload: System.Data.Odbc.OdbcCommandBuilder.GetInsertCommand*
   exceptions: []
   platform:
@@ -281,17 +281,17 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets the automatically generated <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;></xref> object required to perform insertions at the data source."
-  remarks: "You can use the <xref:System.Data.Odbc.OdbcCommandBuilder.GetInsertCommand%2A> method for informational or troubleshooting purposes because it returns the <xref:System.Data.Odbc.OdbcCommand> object to be executed.       You can also use <xref:System.Data.Odbc.OdbcCommandBuilder.GetInsertCommand%2A> as the basis of a modified command. For example, you might call <xref:System.Data.Odbc.OdbcCommandBuilder.GetInsertCommand%2A> and modify the <xref:System.Data.Odbc.OdbcCommand.CommandTimeout%2A> value, and then explicitly set that on the <xref:System.Data.Odbc.OdbcDataAdapter>.       After the SQL statement is first generated, you must explicitly call <xref:System.Data.Common.DbCommandBuilder.RefreshSchema%2A> if it changes the statement in any way. Otherwise, the <xref:System.Data.Odbc.OdbcCommandBuilder.GetInsertCommand%2A> will be using information from the previous statement, which might not be correct. The SQL statements are first generated when the application calls either <xref:System.Data.Common.DbDataAdapter.Update%2A> or <xref:System.Data.Odbc.OdbcCommandBuilder.GetInsertCommand%2A>.       The default behavior, when generating parameter names, is to use @p1, @p2, and so on for the various parameters. Passing `true` for the `useColumnsForParameterNames` parameter lets you force the <xref:System.Data.Common.DbCommandBuilder> to generate parameters based on the column names instead. This succeeds only if the following conditions are met:      -   The <xref:System.Data.Common.DbMetaDataColumnNames.ParameterNameMaxLength> has been specified, and its length is equal to or greater than the generated parameter name.      -   The generated parameter name meets the criteria specified in the <xref:System.Data.Common.DbMetaDataColumnNames.ParameterNamePattern> regular expression.      -   A <xref:System.Data.Common.DbMetaDataColumnNames.ParameterMarkerFormat> is specified."
+  summary: "Haalt de automatisch gegenereerde <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;> </xref> object is vereist om uit te voeren invoegingen in de gegevensbron."
+  remarks: "U kunt de <xref:System.Data.Odbc.OdbcCommandBuilder.GetInsertCommand%2A>methode voor informatie of probleemoplossingsinformatie wordt gebruikt omdat deze retourneert de <xref:System.Data.Odbc.OdbcCommand>object dat moet worden uitgevoerd.</xref:System.Data.Odbc.OdbcCommand> </xref:System.Data.Odbc.OdbcCommandBuilder.GetInsertCommand%2A>       U kunt ook <xref:System.Data.Odbc.OdbcCommandBuilder.GetInsertCommand%2A>Als de basis van een aangepaste opdracht.</xref:System.Data.Odbc.OdbcCommandBuilder.GetInsertCommand%2A> U kunt bijvoorbeeld aanroepen <xref:System.Data.Odbc.OdbcCommandBuilder.GetInsertCommand%2A>en wijzig de <xref:System.Data.Odbc.OdbcCommand.CommandTimeout%2A>waarde, en vervolgens de expliciet instellen die op de <xref:System.Data.Odbc.OdbcDataAdapter>.</xref:System.Data.Odbc.OdbcDataAdapter> </xref:System.Data.Odbc.OdbcCommand.CommandTimeout%2A> </xref:System.Data.Odbc.OdbcCommandBuilder.GetInsertCommand%2A>       Nadat de SQL-instructie voor het eerst wordt gegenereerd, moet u expliciet aanroepen <xref:System.Data.Common.DbCommandBuilder.RefreshSchema%2A>Als de instructie op een manier wordt gewijzigd.</xref:System.Data.Common.DbCommandBuilder.RefreshSchema%2A> Anders wordt de <xref:System.Data.Odbc.OdbcCommandBuilder.GetInsertCommand%2A>gebruik van gegevens uit de vorige instructie, die misschien niet juist.</xref:System.Data.Odbc.OdbcCommandBuilder.GetInsertCommand%2A> De SQL-instructies worden eerst gegenereerd wanneer de toepassing wordt aangeroepen <xref:System.Data.Common.DbDataAdapter.Update%2A>of <xref:System.Data.Odbc.OdbcCommandBuilder.GetInsertCommand%2A>.</xref:System.Data.Odbc.OdbcCommandBuilder.GetInsertCommand%2A> </xref:System.Data.Common.DbDataAdapter.Update%2A>       Het standaardgedrag bij het genereren van parameternamen, is het gebruik @p1, @p2, enzovoort voor de verschillende parameters. Doorgegeven `true` voor de `useColumnsForParameterNames` parameter kunt u ervoor zorgen dat de <xref:System.Data.Common.DbCommandBuilder>genereren op basis van de kolomnamen in plaats daarvan parameters.</xref:System.Data.Common.DbCommandBuilder> Dit lukt alleen als de volgende voorwaarden wordt voldaan: - de <xref:System.Data.Common.DbMetaDataColumnNames.ParameterNameMaxLength>is opgegeven, en de lengte is gelijk aan of groter zijn dan de gegenereerde parameternaam.</xref:System.Data.Common.DbMetaDataColumnNames.ParameterNameMaxLength>      -De gegenereerde parameternaam voldoet aan de criteria die zijn opgegeven in de <xref:System.Data.Common.DbMetaDataColumnNames.ParameterNamePattern>reguliere expressie.</xref:System.Data.Common.DbMetaDataColumnNames.ParameterNamePattern>      -A <xref:System.Data.Common.DbMetaDataColumnNames.ParameterMarkerFormat>is opgegeven.</xref:System.Data.Common.DbMetaDataColumnNames.ParameterMarkerFormat>"
   syntax:
     content: public System.Data.Odbc.OdbcCommand GetInsertCommand (bool useColumnsForParameterNames);
     parameters:
     - id: useColumnsForParameterNames
       type: System.Boolean
-      description: "If <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, generate parameter names matching column names, if it is possible. If <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>, generate @p1, @p2, and so on."
+      description: "Als <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>, parameternamen die overeenkomt met de kolomnamen, genereren als het is mogelijk. Als <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>, genereren @p1, @p2, enzovoort."
     return:
       type: System.Data.Odbc.OdbcCommand
-      description: "The automatically generated <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;></xref> object required to perform insertions."
+      description: "De automatisch gegenereerde <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;> </xref> object vereist invoegingen uitvoeren."
   overload: System.Data.Odbc.OdbcCommandBuilder.GetInsertCommand*
   exceptions: []
   platform:
@@ -313,10 +313,10 @@ items:
     parameters:
     - id: parameterOrdinal
       type: System.Int32
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     return:
       type: System.String
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   overload: System.Data.Odbc.OdbcCommandBuilder.GetParameterName*
   exceptions: []
   platform:
@@ -338,10 +338,10 @@ items:
     parameters:
     - id: parameterName
       type: System.String
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     return:
       type: System.String
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   overload: System.Data.Odbc.OdbcCommandBuilder.GetParameterName*
   exceptions: []
   platform:
@@ -363,10 +363,10 @@ items:
     parameters:
     - id: parameterOrdinal
       type: System.Int32
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     return:
       type: System.String
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   overload: System.Data.Odbc.OdbcCommandBuilder.GetParameterPlaceholder*
   exceptions: []
   platform:
@@ -383,14 +383,14 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets the automatically generated <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;></xref> object required to perform updates at the data source."
-  remarks: "You can use the GetUpdateCommand method for informational or troubleshooting purposes because it returns the <xref:System.Data.Odbc.OdbcCommand> object to be executed.       You can also use GetUpdateCommand as the basis of a modified command. For example, you might call GetUpdateCommand and modify the <xref:System.Data.Odbc.OdbcCommand.CommandTimeout%2A> value, and then explicitly set that on the <xref:System.Data.Odbc.OdbcDataAdapter>.       After the SQL statement is first generated, you must explicitly call <xref:System.Data.Common.DbCommandBuilder.RefreshSchema%2A> if it changes the statement in any way. Otherwise, the GetUpdateCommand still will be using information from the previous statement, which might not be correct. The SQL statements are first generated when the application calls either <xref:System.Data.Common.DbDataAdapter.Update%2A> or GetUpdateCommand."
+  summary: "Haalt de automatisch gegenereerde <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;> </xref> object nodig voor het uitvoeren van updates op de gegevensbron."
+  remarks: "Gebruik de methode GetUpdateCommand voor informatie of probleemoplossingsinformatie doeleinden omdat deze retourneert de <xref:System.Data.Odbc.OdbcCommand>object dat moet worden uitgevoerd.</xref:System.Data.Odbc.OdbcCommand>       U kunt ook GetUpdateCommand gebruiken als basis voor een aangepaste opdracht. U kunt bijvoorbeeld GetUpdateCommand aanroepen en wijzig de <xref:System.Data.Odbc.OdbcCommand.CommandTimeout%2A>waarde, en vervolgens de expliciet instellen die op de <xref:System.Data.Odbc.OdbcDataAdapter>.</xref:System.Data.Odbc.OdbcDataAdapter> </xref:System.Data.Odbc.OdbcCommand.CommandTimeout%2A>       Nadat de SQL-instructie voor het eerst wordt gegenereerd, moet u expliciet aanroepen <xref:System.Data.Common.DbCommandBuilder.RefreshSchema%2A>Als de instructie op een manier wordt gewijzigd.</xref:System.Data.Common.DbCommandBuilder.RefreshSchema%2A> Anders wordt wordt de GetUpdateCommand nog gebruikt gegevens uit de vorige instructie, die misschien niet juist. De SQL-instructies eerst worden gegenereerd wanneer de toepassing wordt aangeroepen ofwel <xref:System.Data.Common.DbDataAdapter.Update%2A>of GetUpdateCommand.</xref:System.Data.Common.DbDataAdapter.Update%2A>"
   syntax:
     content: public System.Data.Odbc.OdbcCommand GetUpdateCommand ();
     parameters: []
     return:
       type: System.Data.Odbc.OdbcCommand
-      description: "The automatically generated <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;></xref> object required to perform updates."
+      description: "De automatisch gegenereerde <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;> </xref> object nodig voor het uitvoeren van updates."
   overload: System.Data.Odbc.OdbcCommandBuilder.GetUpdateCommand*
   exceptions: []
   platform:
@@ -407,17 +407,17 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets the automatically generated <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;></xref> object required to perform updates at the data source."
-  remarks: "You can use the <xref:System.Data.Odbc.OdbcCommandBuilder.GetUpdateCommand%2A> method for informational or troubleshooting purposes because it returns the <xref:System.Data.Odbc.OdbcCommand> object to be executed.       You can also use <xref:System.Data.Odbc.OdbcCommandBuilder.GetUpdateCommand%2A> as the basis of a modified command. For example, you might call <xref:System.Data.Odbc.OdbcCommandBuilder.GetUpdateCommand%2A> and modify the <xref:System.Data.Odbc.OdbcCommand.CommandTimeout%2A> value, and then explicitly set that on the <xref:System.Data.Odbc.OdbcDataAdapter>.       After the SQL statement is first generated, you must explicitly call <xref:System.Data.Common.DbCommandBuilder.RefreshSchema%2A> if it changes the statement in any way. Otherwise, the <xref:System.Data.Odbc.OdbcCommandBuilder.GetUpdateCommand%2A> still will be using information from the previous statement, which might not be correct. The SQL statements are first generated when the application calls either <xref:System.Data.Common.DbDataAdapter.Update%2A> or <xref:System.Data.Odbc.OdbcCommandBuilder.GetUpdateCommand%2A>.       The default behavior, when generating parameter names, is to use @p1, @p2, and so on for the various parameters. Passing `true` for the `useColumnsForParameterNames` parameter lets you force the <xref:System.Data.Common.DbCommandBuilder> to generate parameters based on the column names instead. This succeeds only if the following conditions are met:      -   The <xref:System.Data.Common.DbMetaDataColumnNames.ParameterNameMaxLength> has been specified, and its length is equal to or greater than the generated parameter name.      -   The generated parameter name meets the criteria specified in the <xref:System.Data.Common.DbMetaDataColumnNames.ParameterNamePattern> regular expression.      -   A <xref:System.Data.Common.DbMetaDataColumnNames.ParameterMarkerFormat> is specified."
+  summary: "Haalt de automatisch gegenereerde <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;> </xref> object nodig voor het uitvoeren van updates op de gegevensbron."
+  remarks: "U kunt de <xref:System.Data.Odbc.OdbcCommandBuilder.GetUpdateCommand%2A>methode voor informatie of probleemoplossingsinformatie wordt gebruikt omdat deze retourneert de <xref:System.Data.Odbc.OdbcCommand>object dat moet worden uitgevoerd.</xref:System.Data.Odbc.OdbcCommand> </xref:System.Data.Odbc.OdbcCommandBuilder.GetUpdateCommand%2A>       U kunt ook <xref:System.Data.Odbc.OdbcCommandBuilder.GetUpdateCommand%2A>Als de basis van een aangepaste opdracht.</xref:System.Data.Odbc.OdbcCommandBuilder.GetUpdateCommand%2A> U kunt bijvoorbeeld aanroepen <xref:System.Data.Odbc.OdbcCommandBuilder.GetUpdateCommand%2A>en wijzig de <xref:System.Data.Odbc.OdbcCommand.CommandTimeout%2A>waarde, en vervolgens de expliciet instellen die op de <xref:System.Data.Odbc.OdbcDataAdapter>.</xref:System.Data.Odbc.OdbcDataAdapter> </xref:System.Data.Odbc.OdbcCommand.CommandTimeout%2A> </xref:System.Data.Odbc.OdbcCommandBuilder.GetUpdateCommand%2A>       Nadat de SQL-instructie voor het eerst wordt gegenereerd, moet u expliciet aanroepen <xref:System.Data.Common.DbCommandBuilder.RefreshSchema%2A>Als de instructie op een manier wordt gewijzigd.</xref:System.Data.Common.DbCommandBuilder.RefreshSchema%2A> Anders wordt de <xref:System.Data.Odbc.OdbcCommandBuilder.GetUpdateCommand%2A>nog steeds gebruikt gegevens uit de vorige instructie, die misschien niet juist.</xref:System.Data.Odbc.OdbcCommandBuilder.GetUpdateCommand%2A> De SQL-instructies worden eerst gegenereerd wanneer de toepassing wordt aangeroepen <xref:System.Data.Common.DbDataAdapter.Update%2A>of <xref:System.Data.Odbc.OdbcCommandBuilder.GetUpdateCommand%2A>.</xref:System.Data.Odbc.OdbcCommandBuilder.GetUpdateCommand%2A> </xref:System.Data.Common.DbDataAdapter.Update%2A>       Het standaardgedrag bij het genereren van parameternamen, is het gebruik @p1, @p2, enzovoort voor de verschillende parameters. Doorgegeven `true` voor de `useColumnsForParameterNames` parameter kunt u ervoor zorgen dat de <xref:System.Data.Common.DbCommandBuilder>genereren op basis van de kolomnamen in plaats daarvan parameters.</xref:System.Data.Common.DbCommandBuilder> Dit lukt alleen als de volgende voorwaarden wordt voldaan: - de <xref:System.Data.Common.DbMetaDataColumnNames.ParameterNameMaxLength>is opgegeven, en de lengte is gelijk aan of groter zijn dan de gegenereerde parameternaam.</xref:System.Data.Common.DbMetaDataColumnNames.ParameterNameMaxLength>      -De gegenereerde parameternaam voldoet aan de criteria die zijn opgegeven in de <xref:System.Data.Common.DbMetaDataColumnNames.ParameterNamePattern>reguliere expressie.</xref:System.Data.Common.DbMetaDataColumnNames.ParameterNamePattern>      -A <xref:System.Data.Common.DbMetaDataColumnNames.ParameterMarkerFormat>is opgegeven.</xref:System.Data.Common.DbMetaDataColumnNames.ParameterMarkerFormat>"
   syntax:
     content: public System.Data.Odbc.OdbcCommand GetUpdateCommand (bool useColumnsForParameterNames);
     parameters:
     - id: useColumnsForParameterNames
       type: System.Boolean
-      description: "If <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, generate parameter names matching column names, if it is possible. If <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>, generate @p1, @p2, and so on."
+      description: "Als <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>, parameternamen die overeenkomt met de kolomnamen, genereren als het is mogelijk. Als <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>, genereren @p1, @p2, enzovoort."
     return:
       type: System.Data.Odbc.OdbcCommand
-      description: "The automatically generated <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;></xref> object required to perform updates."
+      description: "De automatisch gegenereerde <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;> </xref> object nodig voor het uitvoeren van updates."
   overload: System.Data.Odbc.OdbcCommandBuilder.GetUpdateCommand*
   exceptions: []
   platform:
@@ -434,16 +434,16 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Given an unquoted identifier in the correct catalog case, returns the correct quoted form of that identifier. This includes correctly escaping any embedded quotes in the identifier."
+  summary: "Gegeven een zonder aanhalingstekens id in het geval van de juiste catalogus, retourneert de juiste vorm van die id aanhalingstekens. Dit omvat alle ingesloten aanhalingstekens in de id juist escapereeksen."
   syntax:
     content: public override string QuoteIdentifier (string unquotedIdentifier);
     parameters:
     - id: unquotedIdentifier
       type: System.String
-      description: "The original unquoted identifier."
+      description: "De id van het oorspronkelijke zonder aanhalingstekens."
     return:
       type: System.String
-      description: "The quoted version of the identifier. Embedded quotes within the identifier are correctly escaped."
+      description: "De aanhalingstekens versie van de id. Ingesloten aanhalingstekens binnen de id zijn correct escape-teken."
   overload: System.Data.Odbc.OdbcCommandBuilder.QuoteIdentifier*
   exceptions: []
   platform:
@@ -460,19 +460,19 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Given an unquoted identifier in the correct catalog case, returns the correct quoted form of that identifier. This includes correctly escaping any embedded quotes in the identifier."
+  summary: "Gegeven een zonder aanhalingstekens id in het geval van de juiste catalogus, retourneert de juiste vorm van die id aanhalingstekens. Dit omvat alle ingesloten aanhalingstekens in de id juist escapereeksen."
   syntax:
     content: public string QuoteIdentifier (string unquotedIdentifier, System.Data.Odbc.OdbcConnection connection);
     parameters:
     - id: unquotedIdentifier
       type: System.String
-      description: "The original unquoted identifier."
+      description: "De id van het oorspronkelijke zonder aanhalingstekens."
     - id: connection
       type: System.Data.Odbc.OdbcConnection
-      description: "When a connection is passed, causes the managed wrapper to get the quote character from the ODBC driver, calling SQLGetInfo(SQL_IDENTIFIER_QUOTE_CHAR). When no connection is passed, the string is quoted using values from <xref:System.Data.Common.DbCommandBuilder.QuotePrefix*> and <xref:System.Data.Common.DbCommandBuilder.QuoteSuffix*>."
+      description: "Wanneer een verbinding wordt doorgegeven, zorgt ervoor dat de wrapper aanhalingstekens van het ODBC-stuurprogramma voor het aanroepen van SQLGetInfo(SQL_IDENTIFIER_QUOTE_CHAR) ophalen. Wanneer er geen verbinding is doorgegeven, de tekenreeks is aangehaald met waarden uit <> </> *> en <> </> *>."
     return:
       type: System.String
-      description: "The quoted version of the identifier. Embedded quotes within the identifier are correctly escaped."
+      description: "De aanhalingstekens versie van de id. Ingesloten aanhalingstekens binnen de id zijn correct escape-teken."
   overload: System.Data.Odbc.OdbcCommandBuilder.QuoteIdentifier*
   exceptions: []
   platform:
@@ -494,7 +494,7 @@ items:
     parameters:
     - id: adapter
       type: System.Data.Common.DbDataAdapter
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   overload: System.Data.Odbc.OdbcCommandBuilder.SetRowUpdatingHandler*
   exceptions: []
   platform:
@@ -511,16 +511,16 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Given a quoted identifier, returns the correct unquoted form of that identifier, including correctly unescaping any embedded quotes in the identifier."
+  summary: "Opgegeven van een id met aanhalingstekens, retourneert unescaping de juiste zonder aanhalingstekens vorm van die id, met inbegrip van correct alle ingesloten aanhalingstekens in de id."
   syntax:
     content: public override string UnquoteIdentifier (string quotedIdentifier);
     parameters:
     - id: quotedIdentifier
       type: System.String
-      description: "The identifier that will have its embedded quotes removed."
+      description: "De id waarvoor de ingesloten aanhalingstekens verwijderd."
     return:
       type: System.String
-      description: "The unquoted identifier, with embedded quotes correctly unescaped."
+      description: "De zonder aanhalingstekens id ingesloten aanhalingstekens correct unescaped."
   overload: System.Data.Odbc.OdbcCommandBuilder.UnquoteIdentifier*
   exceptions: []
   platform:
@@ -537,19 +537,19 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Given a quoted identifier, returns the correct unquoted form of that identifier, including correctly unescaping any embedded quotes in the identifier."
+  summary: "Opgegeven van een id met aanhalingstekens, retourneert unescaping de juiste zonder aanhalingstekens vorm van die id, met inbegrip van correct alle ingesloten aanhalingstekens in de id."
   syntax:
     content: public string UnquoteIdentifier (string quotedIdentifier, System.Data.Odbc.OdbcConnection connection);
     parameters:
     - id: quotedIdentifier
       type: System.String
-      description: "The identifier that will have its embedded quotes removed."
+      description: "De id waarvoor de ingesloten aanhalingstekens verwijderd."
     - id: connection
       type: System.Data.Odbc.OdbcConnection
       description: "The <xref href=&quot;System.Data.Odbc.OdbcConnection&quot;></xref>."
     return:
       type: System.String
-      description: "The unquoted identifier, with embedded quotes correctly unescaped."
+      description: "De zonder aanhalingstekens id ingesloten aanhalingstekens correct unescaped."
   overload: System.Data.Odbc.OdbcCommandBuilder.UnquoteIdentifier*
   exceptions: []
   platform:

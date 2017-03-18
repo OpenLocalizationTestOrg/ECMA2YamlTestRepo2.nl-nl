@@ -17,8 +17,8 @@ items:
   nameWithType: ServerChannelSinkStack
   fullName: System.Runtime.Remoting.Channels.ServerChannelSinkStack
   type: Class
-  summary: "Holds the stack of server channel sinks."
-  remarks: "This class makes a link demand. A security exception is thrown if the immediate caller does not have infrastructure permission. See [Link Demands](~/add/includes/ajax-current-ext-md.md) for more information."
+  summary: "Bevat de server kanaal put-stack."
+  remarks: "Deze klasse maakt een verbinding is vereist. Een uitzondering gegenereerd als de onmiddellijke aanroeper heeft geen machtiging voor infrastructuur. Zie [koppeling eisen](~/add/includes/ajax-current-ext-md.md) voor meer informatie."
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -45,7 +45,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Initializes a new instance of the <xref href=&quot;System.Runtime.Remoting.Channels.ServerChannelSinkStack&quot;></xref> class."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Runtime.Remoting.Channels.ServerChannelSinkStack&quot;> </xref> klasse."
   syntax:
     content: public ServerChannelSinkStack ();
     parameters: []
@@ -65,25 +65,25 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Requests asynchronous processing of a method call on the sinks in the current sink stack."
-  remarks: "This method initializes asynchronous processing on the top sink in the current sink stack. For additional information, see the <xref:System.Runtime.Remoting.Channels.IServerChannelSink.AsyncProcessResponse%2A> method."
+  summary: "Aanvragen asynchrone verwerking van een methode niet aanroepen voor de sinks in de huidige filterstack."
+  remarks: "Deze methode initialiseert de asynchrone verwerking op de bovenste sink in de huidige filterstack. Zie voor meer informatie de <xref:System.Runtime.Remoting.Channels.IServerChannelSink.AsyncProcessResponse%2A>methode.</xref:System.Runtime.Remoting.Channels.IServerChannelSink.AsyncProcessResponse%2A>"
   syntax:
     content: public void AsyncProcessResponse (System.Runtime.Remoting.Messaging.IMessage msg, System.Runtime.Remoting.Channels.ITransportHeaders headers, System.IO.Stream stream);
     parameters:
     - id: msg
       type: System.Runtime.Remoting.Messaging.IMessage
-      description: "The message to be serialized onto the requested stream."
+      description: "Het bericht wordt geserialiseerd naar de aangevraagde stroom."
     - id: headers
       type: System.Runtime.Remoting.Channels.ITransportHeaders
-      description: "The headers retrieved from the server response stream."
+      description: "De headers opgehaald uit de stroom van de server-antwoord."
     - id: stream
       type: System.IO.Stream
-      description: "The stream coming back from the transport sink."
+      description: "De stroom terug afkomstig is van de transportsink."
   overload: System.Runtime.Remoting.Channels.ServerChannelSinkStack.AsyncProcessResponse*
   exceptions:
   - type: System.Runtime.Remoting.RemotingException
     commentId: T:System.Runtime.Remoting.RemotingException
-    description: "The current sink stack is empty."
+    description: "De huidige filterstack is leeg."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Channels.ServerChannelSinkStack.GetResponseStream(System.Runtime.Remoting.Messaging.IMessage,System.Runtime.Remoting.Channels.ITransportHeaders)
@@ -98,25 +98,25 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Returns the <xref:System.IO.Stream> onto which the specified message is to be serialized."
-  remarks: "This method returns the stream returned by the <xref:System.Runtime.Remoting.Channels.IServerChannelSink.GetResponseStream%2A?displayProperty=fullName> called with the `msg` and `headers` parameters (<xref:System.Runtime.Remoting.Channels.IServerChannelSink.GetResponseStream%2A> (`msg`, `headers`)) on the top sink in the current sink stack. The top sink in the sink stack remains unchanged."
+  summary: "Retourneert de <xref:System.IO.Stream>op die het opgegeven bericht is worden geserialiseerd.</xref:System.IO.Stream>"
+  remarks: "Deze methode retourneert de stroom is geretourneerd door de <xref:System.Runtime.Remoting.Channels.IServerChannelSink.GetResponseStream%2A?displayProperty=fullName>aangeroepen met de `msg` en `headers` parameters (<xref:System.Runtime.Remoting.Channels.IServerChannelSink.GetResponseStream%2A> (`msg`, `headers`)) op de bovenste sink in de huidige filterstack.</xref:System.Runtime.Remoting.Channels.IServerChannelSink.GetResponseStream%2A> </xref:System.Runtime.Remoting.Channels.IServerChannelSink.GetResponseStream%2A?displayProperty=fullName> De bovenste sink in de filterstack blijft ongewijzigd."
   syntax:
     content: public System.IO.Stream GetResponseStream (System.Runtime.Remoting.Messaging.IMessage msg, System.Runtime.Remoting.Channels.ITransportHeaders headers);
     parameters:
     - id: msg
       type: System.Runtime.Remoting.Messaging.IMessage
-      description: "The message to be serialized onto the requested stream."
+      description: "Het bericht wordt geserialiseerd naar de aangevraagde stroom."
     - id: headers
       type: System.Runtime.Remoting.Channels.ITransportHeaders
-      description: "The headers retrieved from the server response stream."
+      description: "De headers opgehaald uit de stroom van de server-antwoord."
     return:
       type: System.IO.Stream
-      description: "The <xref:System.IO.Stream> onto which the specified message is to be serialized."
+      description: "De <xref:System.IO.Stream>op die het opgegeven bericht is worden geserialiseerd.</xref:System.IO.Stream>"
   overload: System.Runtime.Remoting.Channels.ServerChannelSinkStack.GetResponseStream*
   exceptions:
   - type: System.Runtime.Remoting.RemotingException
     commentId: T:System.Runtime.Remoting.RemotingException
-    description: "The sink stack is empty."
+    description: "De filterstack is leeg."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Channels.ServerChannelSinkStack.Pop(System.Runtime.Remoting.Channels.IServerChannelSink)
@@ -131,21 +131,21 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Pops the information associated with all the sinks from the sink stack up to and including the specified sink."
+  summary: "De informatie die is gekoppeld aan alle sinks uit de filterstack tot en met de opgegeven sink verschijnt."
   syntax:
     content: public object Pop (System.Runtime.Remoting.Channels.IServerChannelSink sink);
     parameters:
     - id: sink
       type: System.Runtime.Remoting.Channels.IServerChannelSink
-      description: "The sink to remove and return from the sink stack."
+      description: "De sink te verwijderen en het retourneren van de filterstack."
     return:
       type: System.Object
-      description: "Information generated on the request side and associated with the specified sink."
+      description: "Gegevens die aan de kant van de aanvraag wordt gegenereerd en die zijn gekoppeld aan de opgegeven sink."
   overload: System.Runtime.Remoting.Channels.ServerChannelSinkStack.Pop*
   exceptions:
   - type: System.Runtime.Remoting.RemotingException
     commentId: T:System.Runtime.Remoting.RemotingException
-    description: "The current sink stack is empty, or the specified sink was never pushed onto the current stack."
+    description: "De huidige filterstack leeg is of de opgegeven sink is nooit naar de huidige stack doorgeschoven."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Channels.ServerChannelSinkStack.Push(System.Runtime.Remoting.Channels.IServerChannelSink,System.Object)
@@ -160,17 +160,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Pushes the specified sink and information associated with it onto the sink stack."
-  remarks: "The information generated on the request side and specified in the `state` parameter is returned in the `state` parameter of the <xref:System.Runtime.Remoting.Channels.IServerChannelSink.AsyncProcessResponse%2A> method on the corresponding sink."
+  summary: "De opgegeven sink en gegevens die zijn gekoppeld naar de filterstack duwt."
+  remarks: "De informatie aan de kant van de aanvraag gegenereerd en is opgegeven in de `state` parameter wordt geretourneerd als de `state` parameter van de <xref:System.Runtime.Remoting.Channels.IServerChannelSink.AsyncProcessResponse%2A>methode op de bijbehorende sink.</xref:System.Runtime.Remoting.Channels.IServerChannelSink.AsyncProcessResponse%2A>"
   syntax:
     content: public void Push (System.Runtime.Remoting.Channels.IServerChannelSink sink, object state);
     parameters:
     - id: sink
       type: System.Runtime.Remoting.Channels.IServerChannelSink
-      description: "The sink to push onto the sink stack."
+      description: "De sink voor de push naar de filterstack."
     - id: state
       type: System.Object
-      description: "Information generated on the request side that is needed on the response side."
+      description: "Gegevens die aan de aanvraag dat nodig is op de reactie aan clientzijde worden gegenereerd."
   overload: System.Runtime.Remoting.Channels.ServerChannelSinkStack.Push*
   exceptions: []
   platform:
@@ -187,14 +187,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Provides a <xref:System.AsyncCallback> delegate to handle a callback after a message has been dispatched asynchronously."
-  remarks: "The dispatched message represents a request method call on a remote object.       The ServerCallback method is intended for use only by the .NET Framework remoting infrastructure. You should not call it directly."
+  summary: "Biedt een <xref:System.AsyncCallback>gemachtigde voor het afhandelen van een retouraanroep nadat een bericht asynchroon is verzonden.</xref:System.AsyncCallback>"
+  remarks: "Het bericht verzonden vertegenwoordigt een methodeaanroep aanvraag voor een extern object.       De methode ServerCallback is bedoeld voor gebruik door de .NET Framework externe infrastructuur. U moet niet rechtstreeks aangeroepen."
   syntax:
     content: public void ServerCallback (IAsyncResult ar);
     parameters:
     - id: ar
       type: System.IAsyncResult
-      description: "The status and state of an asynchronous operation on a remote object."
+      description: "De status en de status van een asynchrone bewerking voor een extern object."
   overload: System.Runtime.Remoting.Channels.ServerChannelSinkStack.ServerCallback*
   exceptions: []
   platform:
@@ -211,22 +211,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Stores a message sink and its associated state for later asynchronous processing."
-  remarks: "The Store method is intended for use only by the .NET Framework remoting infrastructure. You should not call it directly."
+  summary: "Slaat een sink bericht en de bijbehorende status voor later asynchrone verwerking."
+  remarks: "De methode Store is bedoeld voor gebruik door de externe infrastructuur van .NET Framework. U moet niet rechtstreeks aangeroepen."
   syntax:
     content: public void Store (System.Runtime.Remoting.Channels.IServerChannelSink sink, object state);
     parameters:
     - id: sink
       type: System.Runtime.Remoting.Channels.IServerChannelSink
-      description: "A server channel sink."
+      description: "Een kanaalfilter server."
     - id: state
       type: System.Object
-      description: "The state associated with `sink`."
+      description: "De status is gekoppeld aan `sink`."
   overload: System.Runtime.Remoting.Channels.ServerChannelSinkStack.Store*
   exceptions:
   - type: System.Runtime.Remoting.RemotingException
     commentId: T:System.Runtime.Remoting.RemotingException
-    description: "The current sink stack is empty.       -or-       The specified sink was never pushed onto the current stack."
+    description: "De huidige filterstack is leeg.       - of - de opgegeven sink is nooit naar de huidige stack doorgeschoven."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Channels.ServerChannelSinkStack.StoreAndDispatch(System.Runtime.Remoting.Channels.IServerChannelSink,System.Object)
@@ -241,17 +241,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Stores a message sink and its associated state, and then dispatches a message asynchronously, using the sink just stored and any other stored sinks."
-  remarks: "The StoreAndDispatch method is intended for use only by the .NET Framework remoting infrastructure. You should not call it directly.       The method should be only called by a transport sink to complete an asynchronous dispatch."
+  summary: "Slaat een sink bericht en de bijbehorende status en klikt u vervolgens verzendt een bericht asynchroon, met behulp van de sink zojuist hebt opgeslagen en andere opgeslagen Put."
+  remarks: "De methode StoreAndDispatch is bedoeld voor gebruik door de .NET Framework externe infrastructuur. U moet niet rechtstreeks aangeroepen.       De methode mag alleen worden aangeroepen door een transportsink voltooien van een asynchrone verzending."
   syntax:
     content: public void StoreAndDispatch (System.Runtime.Remoting.Channels.IServerChannelSink sink, object state);
     parameters:
     - id: sink
       type: System.Runtime.Remoting.Channels.IServerChannelSink
-      description: "A server channel sink."
+      description: "Een kanaalfilter server."
     - id: state
       type: System.Object
-      description: "The state associated with `sink`."
+      description: "De status is gekoppeld aan `sink`."
   overload: System.Runtime.Remoting.Channels.ServerChannelSinkStack.StoreAndDispatch*
   exceptions: []
   platform:

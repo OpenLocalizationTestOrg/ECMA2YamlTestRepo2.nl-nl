@@ -17,8 +17,8 @@ items:
   nameWithType: OleDbTransaction
   fullName: System.Data.OleDb.OleDbTransaction
   type: Class
-  summary: "Represents an SQL transaction to be made at a data source. This class cannot be inherited."
-  remarks: "The application creates an OleDbTransaction object by calling <xref:System.Data.OleDb.OleDbConnection.BeginTransaction%2A> on the <xref:System.Data.OleDb.OleDbConnection> object. All subsequent operations associated with the transaction (for example, committing or aborting the transaction), are performed on the OleDbTransaction object."
+  summary: "Hiermee geeft u een SQL-transactie worden gemaakt met een gegevensbron. Deze klasse kan niet worden overgenomen."
+  remarks: "De toepassing maakt een OleDbTransaction-object door aan te roepen <xref:System.Data.OleDb.OleDbConnection.BeginTransaction%2A>op de <xref:System.Data.OleDb.OleDbConnection>object.</xref:System.Data.OleDb.OleDbConnection> </xref:System.Data.OleDb.OleDbConnection.BeginTransaction%2A> Alle volgende bewerkingen die zijn gekoppeld aan de transactie (bijvoorbeeld doorvoeren of afbreken van de transactie), worden uitgevoerd op het object OleDbTransaction."
   syntax:
     content: 'public sealed class OleDbTransaction : System.Data.Common.DbTransaction'
   inheritance:
@@ -47,19 +47,19 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Initiates a nested database transaction."
-  remarks: "The new transaction is nested within the current transaction."
+  summary: "Een geneste databasetransactie start."
+  remarks: "De nieuwe transactie is genest binnen de huidige transactie."
   syntax:
     content: public System.Data.OleDb.OleDbTransaction Begin ();
     parameters: []
     return:
       type: System.Data.OleDb.OleDbTransaction
-      description: "A nested database transaction."
+      description: "Een op geneste databasetransactie."
   overload: System.Data.OleDb.OleDbTransaction.Begin*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Nested transactions are not supported."
+    description: "Geneste transacties worden niet ondersteund."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbTransaction.Begin(System.Data.IsolationLevel)
@@ -74,22 +74,22 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Initiates a nested database transaction and specifies the isolation level to use for the new transaction."
-  remarks: "The new transaction is nested within the current transaction."
+  summary: "Een geneste databasetransactie Start en geeft het isolatieniveau voor de nieuwe transactie."
+  remarks: "De nieuwe transactie is genest binnen de huidige transactie."
   syntax:
     content: public System.Data.OleDb.OleDbTransaction Begin (System.Data.IsolationLevel isolevel);
     parameters:
     - id: isolevel
       type: System.Data.IsolationLevel
-      description: "The isolation level to use for the transaction."
+      description: "Het isolatieniveau voor de transactie."
     return:
       type: System.Data.OleDb.OleDbTransaction
-      description: "A nested database transaction."
+      description: "Een op geneste databasetransactie."
   overload: System.Data.OleDb.OleDbTransaction.Begin*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Nested transactions are not supported."
+    description: "Geneste transacties worden niet ondersteund."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbTransaction.Commit
@@ -104,7 +104,7 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Commits the database transaction."
+  summary: "De database-transactie worden doorgevoerd."
   remarks: ''
   example:
   - "The following example creates an <xref:System.Data.OleDb.OleDbConnection> and an <xref:System.Data.OleDb.OleDbTransaction>. It also demonstrates how to use the <xref:System.Data.OleDb.OleDbConnection.BeginTransaction%2A>, a Commit, and <xref:System.Data.OleDb.OleDbTransaction.Rollback%2A> methods.  \n  \n [!code-cs[Classic WebData OleDbConnection.BeginTransaction1 Example#1](~/add/codesnippet/csharp/m-system.data.oledb.oled_13_1.cs)]\n [!code-vb[Classic WebData OleDbConnection.BeginTransaction1 Example#1](~/add/codesnippet/visualbasic/m-system.data.oledb.oled_13_1.vb)]"
@@ -115,10 +115,10 @@ items:
   exceptions:
   - type: System.Exception
     commentId: T:System.Exception
-    description: "An error occurred while trying to commit the transaction."
+    description: "Er is een fout opgetreden tijdens het doorvoeren van de transactie."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The transaction has already been committed or rolled back.       -or-       The connection is broken."
+    description: "De transactie is al doorgevoerd of teruggedraaid.       - of - de verbinding is verbroken."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbTransaction.Connection
@@ -133,13 +133,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets the <xref href=&quot;System.Data.OleDb.OleDbConnection&quot;></xref> object associated with the transaction, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the transaction is no longer valid."
-  remarks: "A single application may have multiple database connections, each with zero or more transactions. This property lets you determine the connection object associated with a particular transaction created by <xref:System.Data.OleDb.OleDbConnection.BeginTransaction%2A>."
+  summary: "Haalt de <xref href=&quot;System.Data.OleDb.OleDbConnection&quot;> </xref> object dat is gekoppeld aan de transactie of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> als de transactie niet meer geldig is."
+  remarks: "Één toepassing mogelijk meerdere databaseverbindingen, elk met nul of meer transacties. Deze eigenschap kunt u het verbindingsobject dat is gekoppeld aan een bepaalde transactie gemaakt door <xref:System.Data.OleDb.OleDbConnection.BeginTransaction%2A>.</xref:System.Data.OleDb.OleDbConnection.BeginTransaction%2A> bepalen"
   syntax:
     content: public System.Data.OleDb.OleDbConnection Connection { get; }
     return:
       type: System.Data.OleDb.OleDbConnection
-      description: "The <xref href=&quot;System.Data.OleDb.OleDbConnection&quot;></xref> object associated with the transaction."
+      description: "De <xref href=&quot;System.Data.OleDb.OleDbConnection&quot;> </xref> object dat is gekoppeld aan de transactie."
   overload: System.Data.OleDb.OleDbTransaction.Connection*
   exceptions: []
   platform:
@@ -160,7 +160,7 @@ items:
     content: protected override System.Data.Common.DbConnection DbConnection { get; }
     return:
       type: System.Data.Common.DbConnection
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   overload: System.Data.OleDb.OleDbTransaction.DbConnection*
   exceptions: []
   platform:
@@ -182,7 +182,7 @@ items:
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   overload: System.Data.OleDb.OleDbTransaction.Dispose*
   exceptions: []
   platform:
@@ -199,13 +199,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Specifies the <xref href=&quot;System.Data.IsolationLevel&quot;></xref> for this transaction."
-  remarks: "Parallel transactions are not supported. Therefore, the <xref:System.Data.IsolationLevel> applies to the whole transaction."
+  summary: "Hiermee geeft u de <xref href=&quot;System.Data.IsolationLevel&quot;> </xref> voor deze transactie."
+  remarks: "Parallelle transacties worden niet ondersteund. Daarom de <xref:System.Data.IsolationLevel>geldt voor de hele transactie.</xref:System.Data.IsolationLevel>"
   syntax:
     content: public override System.Data.IsolationLevel IsolationLevel { get; }
     return:
       type: System.Data.IsolationLevel
-      description: "The <xref href=&quot;System.Data.IsolationLevel&quot;></xref> for this transaction. The default is <xref uid=&quot;langword_csharp_ReadCommitted&quot; name=&quot;ReadCommitted&quot; href=&quot;&quot;></xref>."
+      description: "De <xref href=&quot;System.Data.IsolationLevel&quot;> </xref> voor deze transactie. De standaardwaarde is <xref uid=&quot;langword_csharp_ReadCommitted&quot; name=&quot;ReadCommitted&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.OleDb.OleDbTransaction.IsolationLevel*
   exceptions: []
   platform:
@@ -222,8 +222,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Rolls back a transaction from a pending state."
-  remarks: "The transaction can only be rolled back from a pending state (after <xref:System.Data.OleDb.OleDbConnection.BeginTransaction%2A> has been called, but before <xref:System.Data.OleDb.OleDbTransaction.Commit%2A> is called). The transaction will be rolled back in the event it is disposed before `Commit` or `Rollback` is called."
+  summary: "Een transactie teruggedraaid in behandeling."
+  remarks: "De transactie kan alleen worden teruggezet vanuit een status in behandeling (nadat <xref:System.Data.OleDb.OleDbConnection.BeginTransaction%2A>is aangeroepen, maar voordat <xref:System.Data.OleDb.OleDbTransaction.Commit%2A>wordt genoemd).</xref:System.Data.OleDb.OleDbTransaction.Commit%2A> </xref:System.Data.OleDb.OleDbConnection.BeginTransaction%2A> De transactie wordt teruggedraaid terug in de gebeurtenis is buiten gebruik gesteld voordat `Commit` of `Rollback` wordt aangeroepen."
   example:
   - "The following example creates an <xref:System.Data.OleDb.OleDbConnection> and an <xref:System.Data.OleDb.OleDbTransaction>. It also demonstrates how to use the <xref:System.Data.OleDb.OleDbConnection.BeginTransaction%2A>, a <xref:System.Data.OleDb.OleDbTransaction.Commit%2A>, and Rollback methods.  \n  \n [!code-cs[Classic WebData OleDbConnection.BeginTransaction1 Example#1](~/add/codesnippet/csharp/m-system.data.oledb.oled_10_1.cs)]\n [!code-vb[Classic WebData OleDbConnection.BeginTransaction1 Example#1](~/add/codesnippet/visualbasic/m-system.data.oledb.oled_10_1.vb)]"
   syntax:
@@ -233,10 +233,10 @@ items:
   exceptions:
   - type: System.Exception
     commentId: T:System.Exception
-    description: "An error occurred while trying to commit the transaction."
+    description: "Er is een fout opgetreden tijdens het doorvoeren van de transactie."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The transaction has already been committed or rolled back.       -or-       The connection is broken."
+    description: "De transactie is al doorgevoerd of teruggedraaid.       - of - de verbinding is verbroken."
   platform:
   - net462
 references:

@@ -13,8 +13,8 @@ items:
   nameWithType: MergeOption
   fullName: System.Data.Objects.MergeOption
   type: Enum
-  summary: "Specifies how objects being loaded into the object context are merged with objects already in the object context."
-  remarks: "The [!INCLUDE[adonet_ef](~/add/includes/adonet-ef-md.md)] only maintains a single instance of an object with a specific entity key in the cache. The <xref:System.Data.EntityKey> objects are immutable objects that that represent object&quot;s identity. Entity keys are used to perform identity resolution in the object context. For more information, see [Working with Entity Keys](http://msdn.microsoft.com/en-us/fe3f4206-d277-43a1-a72f-4e86fdf12b9f). If an entity with the same identity is already being tracked, the data coming from the data source and the data already in the state manager are merged according to the MergeOption of the query."
+  summary: "Hiermee geeft u op hoe objecten in de context van het object wordt geladen worden samengevoegd met objecten al in de ObjectContext."
+  remarks: "De [!INCLUDE[adonet_ef](~/add/includes/adonet-ef-md.md)] onderhoudt slechts één exemplaar van een object met een sleutel specifieke entiteit in de cache. De <xref:System.Data.EntityKey>objecten zijn niet-wijzigbaar dat die staan voor de identiteit van het object.</xref:System.Data.EntityKey> Entiteitssleutels worden gebruikt om uit te voeren omzetting van de identiteit in de ObjectContext. Zie voor meer informatie [werken met entiteitssleutels](http://msdn.microsoft.com/en-us/fe3f4206-d277-43a1-a72f-4e86fdf12b9f). Als een entiteit met dezelfde identiteit is al wordt bijgehouden, worden de gegevens die afkomstig zijn van de gegevensbron en de gegevens die al in de status manager samengevoegd volgens de MergeOption van de query."
   syntax:
     content: public enum MergeOption
   inheritance:
@@ -33,12 +33,12 @@ items:
   assemblies:
   - System.Data.Entity
   namespace: System.Data.Objects
-  summary: "Objects that do not exist in the object context are attached to the context. If an object is already in the context, the current and original values of object&quot;s properties in the entry are not overwritten with data source values. The state of the object&quot;s entry and state of properties of the object in the entry do not change. AppendOnly is the default merge option."
+  summary: "Objecten die niet zijn opgenomen in de context van het object zijn gekoppeld aan de context. Als een object al in de context is, worden de huidige en oorspronkelijke waarden van de eigenschappen van het object in de vermelding niet overschreven met de gegevenswaarden bron. De status van de vermelding van het object en de status van de eigenschappen van het object in de vermelding wijzigen niet. AppendOnly is de standaardoptie voor samenvoegen."
   syntax:
     content: AppendOnly
     return:
       type: System.Data.Objects.MergeOption
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -54,12 +54,12 @@ items:
   assemblies:
   - System.Data.Entity
   namespace: System.Data.Objects
-  summary: "Objects are maintained in a <xref:System.Data.EntityState.Detached> state and are not tracked in the <xref href=&quot;System.Data.Objects.ObjectStateManager&quot;></xref>. However, [!INCLUDE[adonet_ef](~/add/includes/adonet-ef-md.md)]-generated entities and POCO entities with proxies maintain a reference to the object context to facilitate loading of related objects."
+  summary: "Objecten worden bijgehouden in een <xref:System.Data.EntityState.Detached>status en worden niet bijgehouden de <xref href=&quot;System.Data.Objects.ObjectStateManager&quot;> </xref>.</xref:System.Data.EntityState.Detached> Echter, [!INCLUDE[adonet_ef](~/add/includes/adonet-ef-md.md)]-gegenereerde entiteiten en POCO entiteiten met proxy&quot;s een verwijzing naar de context van het object te laden van verwante objecten vergemakkelijken onderhouden."
   syntax:
     content: NoTracking
     return:
       type: System.Data.Objects.MergeOption
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -75,12 +75,12 @@ items:
   assemblies:
   - System.Data.Entity
   namespace: System.Data.Objects
-  summary: "Objects that do not exist in the object context are attached to the context. If an object is already in the context, the current and original values of object&quot;s properties in the entry are overwritten with data source values. The state of the object&quot;s entry is set to <xref:System.Data.EntityState.Unchanged>, no properties are marked as modified."
+  summary: "Objecten die niet zijn opgenomen in de context van het object zijn gekoppeld aan de context. Als een object al in de context is, worden de huidige en oorspronkelijke waarden van de eigenschappen van het object in de vermelding overschreven met de gegevenswaarden bron. De status van de vermelding van het object is ingesteld op <xref:System.Data.EntityState.Unchanged>, er zijn geen eigenschappen zijn gemarkeerd als gewijzigd.</xref:System.Data.EntityState.Unchanged>"
   syntax:
     content: OverwriteChanges
     return:
       type: System.Data.Objects.MergeOption
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -96,13 +96,13 @@ items:
   assemblies:
   - System.Data.Entity
   namespace: System.Data.Objects
-  summary: "Objects that do not exist in the object context are attached to the context."
-  remarks: "If the state of the entity is <xref:System.Data.EntityState.Unchanged>, the current and original values in the entry are overwritten with data source values. The state of the entity remains <xref:System.Data.EntityState.Unchanged> and no properties are marked as modified.       If the state of the entity is <xref:System.Data.EntityState.Modified>, the current values of modified properties are not overwritten with data source values. The original values of unmodified properties are overwritten with the values from the data source.       In the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] version 4, the [!INCLUDE[adonet_ef](~/add/includes/adonet-ef-md.md)] compares the current values of unmodified properties with the values that were returned from the data source. If the values are not the same, the property is marked as modified.       In the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] version 3.5 SP1, the [!INCLUDE[adonet_ef](~/add/includes/adonet-ef-md.md)] does not mark the property as modified, even if the value in the data source is different.       Only modified properties are persisted to the data source when you call <xref:System.Data.Objects.ObjectContext.SaveChanges%2A>.       To preserve the 3.5 SP1 behavior, set <xref:System.Data.Objects.ObjectContextOptions.UseLegacyPreserveChangesBehavior%2A> to `true`. The PreserveChanges option can be used to resolve optimistic concurrency exceptions while preserving changes in the local context. For more information, see [Saving Changes and Managing Concurrency](http://msdn.microsoft.com/en-us/b8378601-4f26-4a05-a24a-f50aeb68610e)."
+  summary: "Objecten die niet zijn opgenomen in de context van het object zijn gekoppeld aan de context."
+  remarks: "Als de status van de entiteit <xref:System.Data.EntityState.Unchanged>, de huidige en oorspronkelijke waarden in de vermelding worden overschreven met de gegevenswaarden bron.</xref:System.Data.EntityState.Unchanged> De status van de entiteit blijft <xref:System.Data.EntityState.Unchanged>en er zijn geen eigenschappen zijn gemarkeerd als gewijzigd.</xref:System.Data.EntityState.Unchanged>       Als de status van de entiteit <xref:System.Data.EntityState.Modified>, de huidige waarden van gewijzigde eigenschappen worden niet overschreven met de gegevenswaarden bron.</xref:System.Data.EntityState.Modified> De oorspronkelijke waarden van eigenschappen ongewijzigd worden overschreven door de waarden uit de gegevensbron.       In de [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] versie 4, de [!INCLUDE[adonet_ef](~/add/includes/adonet-ef-md.md)] vergelijkt de huidige waarden van eigenschappen ongewijzigd door de waarden die zijn geretourneerd uit de gegevensbron. Als de waarden niet hetzelfde zijn, wordt de eigenschap is gemarkeerd als gewijzigd.       In de [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] versie 3.5 SP1, de [!INCLUDE[adonet_ef](~/add/includes/adonet-ef-md.md)] niet markeren de eigenschap gewijzigd, zelfs als de waarde in de gegevensbron verschilt.       Alleen de gewijzigde eigenschappen worden opgeslagen in de gegevensbron bij het aanroepen van <xref:System.Data.Objects.ObjectContext.SaveChanges%2A>.</xref:System.Data.Objects.ObjectContext.SaveChanges%2A>       Als u wilt het 3.5 SP1 gedrag behouden, ingesteld <xref:System.Data.Objects.ObjectContextOptions.UseLegacyPreserveChangesBehavior%2A>naar `true`.</xref:System.Data.Objects.ObjectContextOptions.UseLegacyPreserveChangesBehavior%2A> De optie PreserveChanges kan worden gebruikt om op te lossen optimistische gelijktijdigheid uitzonderingen behoud van wijzigingen in de lokale context. Zie voor meer informatie [wijzigingen opslaan en beheren van gelijktijdigheid](http://msdn.microsoft.com/en-us/b8378601-4f26-4a05-a24a-f50aeb68610e)."
   syntax:
     content: PreserveChanges
     return:
       type: System.Data.Objects.MergeOption
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
