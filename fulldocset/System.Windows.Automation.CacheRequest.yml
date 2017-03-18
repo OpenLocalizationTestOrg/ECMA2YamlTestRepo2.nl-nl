@@ -20,8 +20,8 @@ items:
   nameWithType: CacheRequest
   fullName: System.Windows.Automation.CacheRequest
   type: Class
-  summary: "Specifies properties and patterns that the [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] framework caches when an <xref href=&quot;System.Windows.Automation.AutomationElement&quot;></xref> is obtained."
-  remarks: "Retrieving properties and patterns through [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] requires cross-process calls that can slow down performance. By caching values of proprieties and patterns in a batch operation, you can enhance the performance of your application.       Create a new cache request by calling the class constructor. The request is populated by repeated calls to the <xref:System.Windows.Automation.CacheRequest.Add%2A> method.       Only a single CacheRequest can be active. There are two ways to activate a request:      -   Call <xref:System.Windows.Automation.CacheRequest.Activate%2A> on the request. This pushes the request onto the stack, and the request is popped when the object is disposed. To ensure disposal even if an exception is raised, use the return value from <xref:System.Windows.Automation.CacheRequest.Activate%2A> within a `using` block (`Using` in [!INCLUDE[TLA#tla_visualbnet](~/add/includes/tlasharptla-visualbnet-md.md)]).      -   Put the request onto the internal stack by calling <xref:System.Windows.Automation.CacheRequest.Push%2A>. Only the topmost request on the stack is active, and it must be the next one removed from the stack by <xref:System.Windows.Automation.CacheRequest.Pop%2A>. Popping the request deactivates it.       [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] elements obtained while the request is active will have cached values for the properties and patterns specified."
+  summary: "Hiermee geeft u op eigenschappen en patronen die de [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] framework in de cache opgeslagen wanneer een <xref href=&quot;System.Windows.Automation.AutomationElement&quot;> </xref> wordt verkregen."
+  remarks: "Bij het ophalen van eigenschappen en patronen via [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] vereist tussen processen aanroepen die prestaties kunnen vertragen. U kunt de prestaties van uw toepassing te verbeteren door de waarden van eigenschappen en patronen in een batchbewerking cache.       Maak een nieuwe aanvraag in de cache door het aanroepen van de klassen-constructor. De aanvraag wordt gevuld met herhaalde aanroepen naar de <xref:System.Windows.Automation.CacheRequest.Add%2A>methode.</xref:System.Windows.Automation.CacheRequest.Add%2A>       Alleen een enkele CacheRequest kan actief zijn. Er zijn twee manieren voor het activeren van een aanvraag:-aanroepen <xref:System.Windows.Automation.CacheRequest.Activate%2A>op de aanvraag.</xref:System.Windows.Automation.CacheRequest.Activate%2A> Deze stuurt de aanvraag in de stack te plaatsen en de aanvraag is verschijnt wanneer het object is verwijderd. Gebruik om verwijdering zelfs als er een uitzondering is opgetreden. de geretourneerde waarde van <xref:System.Windows.Automation.CacheRequest.Activate%2A>binnen een `using` blok (`Using` in [!INCLUDE[TLA#tla_visualbnet](~/add/includes/tlasharptla-visualbnet-md.md)]).</xref:System.Windows.Automation.CacheRequest.Activate%2A>      -Het plaatsen van de aanvraag naar de interne stack door het aanroepen van <xref:System.Windows.Automation.CacheRequest.Push%2A>.</xref:System.Windows.Automation.CacheRequest.Push%2A> Alleen de bovenste aanvraag op de stack is actief en moet er een verwijderd uit de stack door <xref:System.Windows.Automation.CacheRequest.Pop%2A>.</xref:System.Windows.Automation.CacheRequest.Pop%2A> De aanvraag verschijnen gedeactiveerd.       [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)]elementen die zijn verkregen terwijl de aanvraag actief is zal hebben in cache opgeslagen waarden voor de eigenschappen en patronen die zijn opgegeven."
   example:
   - "The following example shows how to use <xref:System.Windows.Automation.CacheRequest.Activate%2A> to cache patterns and properties.  \n  \n [!code-vb[UIAClient_snip#107](~/add/codesnippet/visualbasic/UIAClient_snip/ClientForm.vb#107)]\n [!code-cs[UIAClient_snip#107](~/add/codesnippet/csharp/CustomElementClient/ClientForm.cs#107)]  \n  \n The following example shows how to use <xref:System.Windows.Automation.CacheRequest.Push%2A> and <xref:System.Windows.Automation.CacheRequest.Pop%2A> to cache patterns and properties.  \n  \n [!code-vb[UIAClient_snip#108](~/add/codesnippet/visualbasic/UIAClient_snip/ClientForm.vb#108)]\n [!code-cs[UIAClient_snip#108](~/add/codesnippet/csharp/CustomElementClient/ClientForm.cs#108)]"
   syntax:
@@ -44,8 +44,8 @@ items:
   assemblies:
   - UIAutomationClient
   namespace: System.Windows.Automation
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Automation.CacheRequest&quot;></xref> class."
-  remarks: "When a <xref:System.Windows.Automation.CacheRequest> is created, the <xref:System.Windows.Automation.AutomationElement.RuntimeIdProperty> identifier is added as a default property to cache."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Windows.Automation.CacheRequest&quot;> </xref> klasse."
+  remarks: "Wanneer een <xref:System.Windows.Automation.CacheRequest>is gemaakt, de <xref:System.Windows.Automation.AutomationElement.RuntimeIdProperty>id standaardeigenschap wordt toegevoegd aan cache.</xref:System.Windows.Automation.AutomationElement.RuntimeIdProperty> </xref:System.Windows.Automation.CacheRequest>"
   syntax:
     content: public CacheRequest ();
     parameters: []
@@ -65,8 +65,8 @@ items:
   assemblies:
   - UIAutomationClient
   namespace: System.Windows.Automation
-  summary: "Sets this <xref href=&quot;System.Windows.Automation.CacheRequest&quot;></xref> as the active specification for the items that are returned when an <xref href=&quot;System.Windows.Automation.AutomationElement&quot;></xref> is requested on the same thread."
-  remarks: "Using this method is usually preferable to using <xref:System.Windows.Automation.CacheRequest.Push%2A> and <xref:System.Windows.Automation.CacheRequest.Pop%2A> as a means of activating the <xref:System.Windows.Automation.CacheRequest>. The object is pushed onto the stack when Activate is called, and then popped off when it is disposed. To ensure disposal, place the return value within a `using` block (`Using` in [!INCLUDE[TLA#tla_visualbnet](~/add/includes/tlasharptla-visualbnet-md.md)])."
+  summary: "Hiermee stelt u dit <xref href=&quot;System.Windows.Automation.CacheRequest&quot;> </xref> als de actieve specificatie voor de items die worden geretourneerd wanneer een <xref href=&quot;System.Windows.Automation.AutomationElement&quot;> </xref> is aangevraagd op dezelfde thread."
+  remarks: "Met deze methode is meestal de voorkeur voor het gebruik <xref:System.Windows.Automation.CacheRequest.Push%2A>en <xref:System.Windows.Automation.CacheRequest.Pop%2A>als een van de <xref:System.Windows.Automation.CacheRequest>.</xref:System.Windows.Automation.CacheRequest> activeren</xref:System.Windows.Automation.CacheRequest.Pop%2A> </xref:System.Windows.Automation.CacheRequest.Push%2A> Het object wordt naar de stack doorgeschoven wanneer Activate is aangeroepen en vervolgens verschijnt uitschakelen wanneer deze is verwijderd. Om ervoor te zorgen verwijdering, plaatst u de retourwaarde binnen een `using` blok (`Using` in [!INCLUDE[TLA#tla_visualbnet](~/add/includes/tlasharptla-visualbnet-md.md)])."
   example:
   - "The following example shows how to use Activate to cache patterns and properties.  \n  \n [!code-vb[UIAClient_snip#107](~/add/codesnippet/visualbasic/UIAClient_snip/ClientForm.vb#107)]\n [!code-cs[UIAClient_snip#107](~/add/codesnippet/csharp/CustomElementClient/ClientForm.cs#107)]"
   syntax:
@@ -74,7 +74,7 @@ items:
     parameters: []
     return:
       type: System.IDisposable
-      description: "The object that can be used to dispose the <xref href=&quot;System.Windows.Automation.CacheRequest&quot;></xref>."
+      description: "Het object dat kan worden gebruikt bij het verwijderen van de <xref href=&quot;System.Windows.Automation.CacheRequest&quot;> </xref>."
   overload: System.Windows.Automation.CacheRequest.Activate*
   exceptions: []
   platform:
@@ -91,8 +91,8 @@ items:
   assemblies:
   - UIAutomationClient
   namespace: System.Windows.Automation
-  summary: "Adds the specified <xref href=&quot;System.Windows.Automation.AutomationPattern&quot;></xref> identifier to this <xref href=&quot;System.Windows.Automation.CacheRequest&quot;></xref>."
-  remarks: "Adding a pattern that is already in the cache request has no effect."
+  summary: "Voegt de opgegeven <xref href=&quot;System.Windows.Automation.AutomationPattern&quot;> </xref> id aan dit <xref href=&quot;System.Windows.Automation.CacheRequest&quot;> </xref>."
+  remarks: "Toevoegen van een patroon dat is al in de cache-aanvraag heeft geen effect."
   example:
   - "The following example shows how to construct a <xref:System.Windows.Automation.CacheRequest> and add a pattern to be cached.  \n  \n [!code-vb[UIAClient_snip#202](~/add/codesnippet/visualbasic/UIAClient_snip/ClientForm.vb#202)]\n [!code-cs[UIAClient_snip#202](~/add/codesnippet/csharp/CustomElementClient/ClientForm.cs#202)]"
   syntax:
@@ -100,12 +100,12 @@ items:
     parameters:
     - id: pattern
       type: System.Windows.Automation.AutomationPattern
-      description: "An identifier specifying a pattern to cache."
+      description: "Een id opgeven van een patroon met cache."
   overload: System.Windows.Automation.CacheRequest.Add*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref href=&quot;System.Windows.Automation.CacheRequest&quot;></xref> is active."
+    description: "De <xref href=&quot;System.Windows.Automation.CacheRequest&quot;> </xref> actief is."
   platform:
   - net462
 - uid: System.Windows.Automation.CacheRequest.Add(System.Windows.Automation.AutomationProperty)
@@ -120,8 +120,8 @@ items:
   assemblies:
   - UIAutomationClient
   namespace: System.Windows.Automation
-  summary: "Adds the specified <xref href=&quot;System.Windows.Automation.AutomationProperty&quot;></xref> identifier to this <xref href=&quot;System.Windows.Automation.CacheRequest&quot;></xref>."
-  remarks: "When a <xref:System.Windows.Automation.CacheRequest> is created, the <xref:System.Windows.Automation.AutomationElement.RuntimeIdProperty> identifier is added as a default property to cache.       Adding a property that is already in the cache request has no effect."
+  summary: "Voegt de opgegeven <xref href=&quot;System.Windows.Automation.AutomationProperty&quot;> </xref> id aan dit <xref href=&quot;System.Windows.Automation.CacheRequest&quot;> </xref>."
+  remarks: "Wanneer een <xref:System.Windows.Automation.CacheRequest>is gemaakt, de <xref:System.Windows.Automation.AutomationElement.RuntimeIdProperty>id standaardeigenschap wordt toegevoegd aan cache.</xref:System.Windows.Automation.AutomationElement.RuntimeIdProperty> </xref:System.Windows.Automation.CacheRequest>       Toevoegen van een eigenschap die is al in de cache-aanvraag heeft geen effect."
   example:
   - "The following example shows how to construct a <xref:System.Windows.Automation.CacheRequest> and add a property to be cached.  \n  \n [!code-vb[UIAClient_snip#202](~/add/codesnippet/visualbasic/UIAClient_snip/ClientForm.vb#202)]\n [!code-cs[UIAClient_snip#202](~/add/codesnippet/csharp/CustomElementClient/ClientForm.cs#202)]"
   syntax:
@@ -129,12 +129,12 @@ items:
     parameters:
     - id: property
       type: System.Windows.Automation.AutomationProperty
-      description: "An identifier specifying a property value to cache."
+      description: "Een id opgeven van de waarde van een eigenschap aan het cachegeheugen."
   overload: System.Windows.Automation.CacheRequest.Add*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref href=&quot;System.Windows.Automation.CacheRequest&quot;></xref> is active."
+    description: "De <xref href=&quot;System.Windows.Automation.CacheRequest&quot;> </xref> actief is."
   platform:
   - net462
 - uid: System.Windows.Automation.CacheRequest.AutomationElementMode
@@ -149,15 +149,15 @@ items:
   assemblies:
   - UIAutomationClient
   namespace: System.Windows.Automation
-  summary: "Gets or sets a value that specifies whether returned elements should contain full references to the underlying [!INCLUDE[TLA#tla_ui](~/add/includes/tlasharptla-ui-md.md)], or only cached information."
-  remarks: "<xref:System.Windows.Automation.AutomationElementMode> is the default value, and specifies that returned elements contain a full reference to the underlying [!INCLUDE[TLA2#tla_ui](~/add/includes/ajax-current-ext-md.md)]. <xref:System.Windows.Automation.AutomationElementMode> specifies that the returned elements have no reference to the underlying [!INCLUDE[TLA2#tla_ui](~/add/includes/ajax-current-ext-md.md)], and contain only cached information.       Certain operations on elements, including <xref:System.Windows.Automation.AutomationElement.GetCurrentPropertyValue%2A>, <xref:System.Windows.Automation.AutomationElement.GetCurrentPattern%2A>, and <xref:System.Windows.Automation.AutomationElement.SetFocus%2A>, require a full reference; attempting to perform these on an element that has none results in an <xref:System.InvalidOperationException>.       Using <xref:System.Windows.Automation.AutomationElementMode> can be more efficient when only properties are needed, as it avoids the overhead involved in setting up full references."
+  summary: "Opgehaald of ingesteld van een waarde die aangeeft of geretourneerde elementen volledige verwijzingen naar de onderliggende moeten bevatten [!INCLUDE[TLA#tla_ui](~/add/includes/tlasharptla-ui-md.md)], of alleen in cache opgeslagen gegevens."
+  remarks: "<xref:System.Windows.Automation.AutomationElementMode>de standaardwaarde is, en geeft aan dat geretourneerde elementen een volledige verwijzing naar de onderliggende bevatten [!INCLUDE[TLA2#tla_ui](~/add/includes/ajax-current-ext-md.md)].</xref:System.Windows.Automation.AutomationElementMode> <xref:System.Windows.Automation.AutomationElementMode>Geeft aan dat de geretourneerde elementen geen verwijzing naar de onderliggende zijn [!INCLUDE[TLA2#tla_ui](~/add/includes/ajax-current-ext-md.md)], en alleen in cache opgeslagen gegevens bevatten.</xref:System.Windows.Automation.AutomationElementMode>       Bepaalde bewerkingen op elementen, waaronder <xref:System.Windows.Automation.AutomationElement.GetCurrentPropertyValue%2A>, <xref:System.Windows.Automation.AutomationElement.GetCurrentPattern%2A>, en <xref:System.Windows.Automation.AutomationElement.SetFocus%2A>, vereisen een volledige verwijzing; het uitvoeren van deze op een element dat ingesteld op none is resulteert in een <xref:System.InvalidOperationException>.</xref:System.InvalidOperationException> </xref:System.Windows.Automation.AutomationElement.SetFocus%2A> </xref:System.Windows.Automation.AutomationElement.GetCurrentPattern%2A> </xref:System.Windows.Automation.AutomationElement.GetCurrentPropertyValue%2A>       Met behulp van <xref:System.Windows.Automation.AutomationElementMode>kan worden efficiënter wanneer alleen eigenschappen die nodig zijn, aangezien dit voorkomt dat de overhead die betrokken zijn bij het instellen van de volledige verwijzingen.</xref:System.Windows.Automation.AutomationElementMode>"
   example:
   - "In the following example, AutomationElementMode is set to <xref:System.Windows.Automation.AutomationElementMode>, with the result that only cached properties and patterns are available for the retrieved object.  \n  \n [!code-vb[UIAClient_snip#108](~/add/codesnippet/visualbasic/UIAClient_snip/ClientForm.vb#108)]\n [!code-cs[UIAClient_snip#108](~/add/codesnippet/csharp/CustomElementClient/ClientForm.cs#108)]"
   syntax:
     content: public System.Windows.Automation.AutomationElementMode AutomationElementMode { get; set; }
     return:
       type: System.Windows.Automation.AutomationElementMode
-      description: "<xref href=&quot;System.Windows.Automation.AutomationElementMode&quot;></xref> if the returned elements have a full reference to the underlying [!INCLUDE[TLA#tla_ui](~/add/includes/tlasharptla-ui-md.md)]; otherwise <xref href=&quot;System.Windows.Automation.AutomationElementMode&quot;></xref>."
+      description: "<xref href=&quot;System.Windows.Automation.AutomationElementMode&quot;></xref>Als de geretourneerde elementen een volledige verwijzing naar de onderliggende hebben [!INCLUDE[TLA#tla_ui](~/add/includes/tlasharptla-ui-md.md)]; anders <xref href=&quot;System.Windows.Automation.AutomationElementMode&quot;> </xref>."
   overload: System.Windows.Automation.CacheRequest.AutomationElementMode*
   exceptions: []
   platform:
@@ -174,13 +174,13 @@ items:
   assemblies:
   - UIAutomationClient
   namespace: System.Windows.Automation
-  summary: "Creates a copy of this <xref href=&quot;System.Windows.Automation.CacheRequest&quot;></xref>."
+  summary: "Maakt een kopie van dit <xref href=&quot;System.Windows.Automation.CacheRequest&quot;> </xref>."
   syntax:
     content: public System.Windows.Automation.CacheRequest Clone ();
     parameters: []
     return:
       type: System.Windows.Automation.CacheRequest
-      description: "A modifiable copy of the current object."
+      description: "Een bewerkbaar kopie van het huidige object."
   overload: System.Windows.Automation.CacheRequest.Clone*
   exceptions: []
   platform:
@@ -197,12 +197,12 @@ items:
   assemblies:
   - UIAutomationClient
   namespace: System.Windows.Automation
-  summary: "Gets the <xref href=&quot;System.Windows.Automation.CacheRequest&quot;></xref> that is active on the current thread."
+  summary: "Haalt de <xref href=&quot;System.Windows.Automation.CacheRequest&quot;> </xref> die actief is op de huidige thread."
   syntax:
     content: public static System.Windows.Automation.CacheRequest Current { get; }
     return:
       type: System.Windows.Automation.CacheRequest
-      description: "The active <xref href=&quot;System.Windows.Automation.CacheRequest&quot;></xref>."
+      description: "De actieve <xref href=&quot;System.Windows.Automation.CacheRequest&quot;> </xref>."
   overload: System.Windows.Automation.CacheRequest.Current*
   exceptions: []
   platform:
@@ -219,8 +219,8 @@ items:
   assemblies:
   - UIAutomationClient
   namespace: System.Windows.Automation
-  summary: "Removes the active <xref href=&quot;System.Windows.Automation.CacheRequest&quot;></xref> from the internal stack for the current thread."
-  remarks: "Only the currently active request can be removed using the Pop method. Attempting to remove a request that is not the current one results in an exception.       Unless you are nesting cache requests, it is preferable to use <xref:System.Windows.Automation.CacheRequest.Activate%2A> to place the request on the stack. The reason is that you can use <xref:System.Windows.Automation.CacheRequest.Activate%2A> within a `using` block (`Using` in [!INCLUDE[TLA#tla_visualbnet](~/add/includes/tlasharptla-visualbnet-md.md)]), ensuring that the request is popped off the stack even if an exception is raised."
+  summary: "Hiermee verwijdert u de actieve <xref href=&quot;System.Windows.Automation.CacheRequest&quot;> </xref> van de interne stack voor de huidige thread."
+  remarks: "Alleen de momenteel actieve aanvraag kan worden verwijderd via de Pop-methode. Het verwijderen van een aanvraag die is niet de huidige één resulteert in een uitzondering.       Tenzij u cacheaanvragen zijn genest, is het raadzaam om gebruik <xref:System.Windows.Automation.CacheRequest.Activate%2A>plaatsen van de aanvraag op de stack.</xref:System.Windows.Automation.CacheRequest.Activate%2A> De reden is dat u kunt gebruiken <xref:System.Windows.Automation.CacheRequest.Activate%2A>binnen een `using` blok (`Using` in [!INCLUDE[TLA#tla_visualbnet](~/add/includes/tlasharptla-visualbnet-md.md)]), waarbij u ervoor zorgt dat de aanvraag uit de stack is verschijnt, zelfs als er een uitzondering is opgetreden.</xref:System.Windows.Automation.CacheRequest.Activate%2A>"
   example:
   - "The following example shows how to deactivate a <xref:System.Windows.Automation.CacheRequest> by using Pop.  \n  \n [!code-vb[UIAClient_snip#108](~/add/codesnippet/visualbasic/UIAClient_snip/ClientForm.vb#108)]\n [!code-cs[UIAClient_snip#108](~/add/codesnippet/csharp/CustomElementClient/ClientForm.cs#108)]"
   syntax:
@@ -230,7 +230,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "An attempt was made to remove a cache request that was not the last one pushed onto the stack."
+    description: "Verwijderen van een cache-aanvraag niet het laatste bestand dat naar de stack doorgeschoven is, is een poging gedaan."
   platform:
   - net462
 - uid: System.Windows.Automation.CacheRequest.Push
@@ -245,8 +245,8 @@ items:
   assemblies:
   - UIAutomationClient
   namespace: System.Windows.Automation
-  summary: "Places the <xref href=&quot;System.Windows.Automation.CacheRequest&quot;></xref> on the internal state stack, making it the active request on the current thread."
-  remarks: "Multiple <xref:System.Windows.Automation.CacheRequest> objects can be placed onto the state stack. Cache requests must be removed from the stack in the order they were pushed on; otherwise, an <xref:System.InvalidOperationException> exception is raised.       Unless you are nesting cache requests, it is preferable to use <xref:System.Windows.Automation.CacheRequest.Activate%2A> to place the request on the stack. The reason is that you can use <xref:System.Windows.Automation.CacheRequest.Activate%2A> within a `using` block (`Using` in [!INCLUDE[TLA#tla_visualbnet](~/add/includes/tlasharptla-visualbnet-md.md)]), ensuring that the request is popped off the stack even if an exception is raised."
+  summary: "Plaats de <xref href=&quot;System.Windows.Automation.CacheRequest&quot;> </xref> voor de interne status stack, waardoor het de actieve aanvraag in de huidige thread."
+  remarks: "Meerdere <xref:System.Windows.Automation.CacheRequest>-objecten in de stack status worden geplaatst.</xref:System.Windows.Automation.CacheRequest> Cacheaanvragen moeten worden verwijderd uit de stack in de volgorde waarin die ze werden gedistribueerd op; anders wordt een <xref:System.InvalidOperationException>is een uitzondering gegenereerd.</xref:System.InvalidOperationException>       Tenzij u cacheaanvragen zijn genest, is het raadzaam om gebruik <xref:System.Windows.Automation.CacheRequest.Activate%2A>plaatsen van de aanvraag op de stack.</xref:System.Windows.Automation.CacheRequest.Activate%2A> De reden is dat u kunt gebruiken <xref:System.Windows.Automation.CacheRequest.Activate%2A>binnen een `using` blok (`Using` in [!INCLUDE[TLA#tla_visualbnet](~/add/includes/tlasharptla-visualbnet-md.md)]), waarbij u ervoor zorgt dat de aanvraag uit de stack is verschijnt, zelfs als er een uitzondering is opgetreden.</xref:System.Windows.Automation.CacheRequest.Activate%2A>"
   example:
   - "The following example shows how to activate a <xref:System.Windows.Automation.CacheRequest> by using Push.  \n  \n [!code-vb[UIAClient_snip#108](~/add/codesnippet/visualbasic/UIAClient_snip/ClientForm.vb#108)]\n [!code-cs[UIAClient_snip#108](~/add/codesnippet/csharp/CustomElementClient/ClientForm.cs#108)]"
   syntax:
@@ -268,15 +268,15 @@ items:
   assemblies:
   - UIAutomationClient
   namespace: System.Windows.Automation
-  summary: "Gets or sets a value specifying the view of the [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] element tree to use when caching."
-  remarks: "For additional information on views of the [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] element tree, see [UI Automation Tree Overview](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Opgehaald of ingesteld van een waarde die aangeeft van de weergave van de [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] element structuur moet worden gebruikt bij het opslaan in cache."
+  remarks: "Voor meer informatie over de weergaven van de [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] element structuur, Zie [UI Automation structuur overzicht](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "In the following example, TreeFilter is set to <xref:System.Windows.Automation.Automation.RawViewCondition> so that caching is done for all elements, regardless of whether they are part of the content view or the control view.  \n  \n [!code-vb[UIAClient_snip#108](~/add/codesnippet/visualbasic/UIAClient_snip/ClientForm.vb#108)]\n [!code-cs[UIAClient_snip#108](~/add/codesnippet/csharp/CustomElementClient/ClientForm.cs#108)]"
   syntax:
     content: public System.Windows.Automation.Condition TreeFilter { get; set; }
     return:
       type: System.Windows.Automation.Condition
-      description: "The view of the [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] element tree. The default view is <xref href=&quot;System.Windows.Automation.Automation.ControlViewCondition&quot;></xref>."
+      description: "De weergave van de [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] element structuur. De standaardweergave is <xref href=&quot;System.Windows.Automation.Automation.ControlViewCondition&quot;> </xref>."
   overload: System.Windows.Automation.CacheRequest.TreeFilter*
   exceptions: []
   platform:
@@ -293,20 +293,20 @@ items:
   assemblies:
   - UIAutomationClient
   namespace: System.Windows.Automation
-  summary: "Gets or sets a value that specifies whether caching is done only for the root of the subtree, or also for its children or descendants."
-  remarks: "The scope of caching is in relation to the object or objects being fetched, not in relation to the object on which <xref:System.Windows.Automation.AutomationElement.FindFirst%2A> or <xref:System.Windows.Automation.AutomationElement.FindAll%2A> is called. See the example."
+  summary: "Opgehaald of ingesteld van een waarde die aangeeft of opslaan in cache alleen voor de hoofdmap van de substructuur of voor de onderliggende elementen of descendants geldt."
+  remarks: "Het bereik van de cache wordt ten opzichte van het object of de objecten worden opgehaald, niet ten opzichte van het object waarop <xref:System.Windows.Automation.AutomationElement.FindFirst%2A>of <xref:System.Windows.Automation.AutomationElement.FindAll%2A>wordt aangeroepen.</xref:System.Windows.Automation.AutomationElement.FindAll%2A> </xref:System.Windows.Automation.AutomationElement.FindFirst%2A> Zie het voorbeeld."
   example:
   - "In the following example, a list box element is obtained from the parent window element while a <xref:System.Windows.Automation.CacheRequest> is active and TreeScope is <xref:System.Windows.Automation.TreeScope>. The specified properties of the child elements (that is, the list items) are stored in the cache and can be retrieved from the <xref:System.Windows.Automation.AutomationElement.CachedChildren%2A> of the list box.  \n  \n [!code-vb[UIAClient_snip#119](~/add/codesnippet/visualbasic/UIAClient_snip/ClientForm.vb#119)]\n [!code-cs[UIAClient_snip#119](~/add/codesnippet/csharp/CustomElementClient/ClientForm.cs#119)]"
   syntax:
     content: public System.Windows.Automation.TreeScope TreeScope { get; set; }
     return:
       type: System.Windows.Automation.TreeScope
-      description: "One or more of <xref href=&quot;System.Windows.Automation.TreeScope&quot;></xref>, <xref href=&quot;System.Windows.Automation.TreeScope&quot;></xref>, <xref href=&quot;System.Windows.Automation.TreeScope&quot;></xref>, or <xref href=&quot;System.Windows.Automation.TreeScope&quot;></xref>. The default value is <xref href=&quot;System.Windows.Automation.TreeScope&quot;></xref>."
+      description: "One or more of <xref href=&quot;System.Windows.Automation.TreeScope&quot;></xref>, <xref href=&quot;System.Windows.Automation.TreeScope&quot;></xref>, <xref href=&quot;System.Windows.Automation.TreeScope&quot;></xref>, or <xref href=&quot;System.Windows.Automation.TreeScope&quot;></xref>. De standaardwaarde is <xref href=&quot;System.Windows.Automation.TreeScope&quot;> </xref>."
   overload: System.Windows.Automation.CacheRequest.TreeScope*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "An attempt was made to set the property to <xref href=&quot;System.Windows.Automation.TreeScope&quot;></xref> or <xref href=&quot;System.Windows.Automation.TreeScope&quot;></xref>."
+    description: "Er is een poging gedaan de eigenschap instellen op <xref href=&quot;System.Windows.Automation.TreeScope&quot;> </xref> of <xref href=&quot;System.Windows.Automation.TreeScope&quot;> </xref>."
   platform:
   - net462
 references:

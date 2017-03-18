@@ -14,8 +14,8 @@ items:
   nameWithType: ITrackingPersonalizable
   fullName: System.Web.UI.WebControls.WebParts.ITrackingPersonalizable
   type: Interface
-  summary: "Allows Web Parts controls to track the specific phases of the personalization load and save process."
-  remarks: "This interface allows control developers to track different phases of the personalization life cycle, including the loading and saving of personalization data. In most cases, to use this interface you would create a custom <xref:System.Web.UI.WebControls.WebParts.WebPart> or <xref:System.Web.UI.WebControls.WebParts.WebPartManager> and implement this interface. Additionally, controls that need to manage their own change (&quot;dirty&quot;) tracking should implement this interface. Controls that manage their own change tracking should return `true` from the <xref:System.Web.UI.WebControls.WebParts.ITrackingPersonalizable.TracksChanges%2A> property.       If `false` is returned, then ASP.NET is responsible for determining changes by comparing the property information loaded with the property information that was saved."
+  summary: "Hiermee kunt webonderdelen besturingselementen voor het bijhouden van de afzonderlijke fasen van de belasting van persoonlijke instellingen en proces opslaan."
+  remarks: "Deze interface kan ontwikkelaars een besturingselement voor het bijhouden van de verschillende fasen van de levenscyclus van persoonlijke instellingen, met inbegrip van het laden en opslaan van persoonlijke gegevens. In de meeste gevallen gebruik van deze interface maakt u een aangepaste <xref:System.Web.UI.WebControls.WebParts.WebPart>of <xref:System.Web.UI.WebControls.WebParts.WebPartManager>en implementeert deze interface.</xref:System.Web.UI.WebControls.WebParts.WebPartManager> </xref:System.Web.UI.WebControls.WebParts.WebPart> Besturingselementen die nodig zijn voor het beheren van hun eigen wijzigingen bijhouden is (&quot;dirty&quot;) moeten bovendien deze interface implementeren. Besturingselementen die hun eigen wijzigingen bijhouden beheren moeten retourneren `true` van de <xref:System.Web.UI.WebControls.WebParts.ITrackingPersonalizable.TracksChanges%2A>eigenschap.</xref:System.Web.UI.WebControls.WebParts.ITrackingPersonalizable.TracksChanges%2A>       Als `false` wordt geretourneerd, en vervolgens ASP.NET verantwoordelijk is voor het bepalen van de wijzigingen door te vergelijken met de informatie over de geladen met de eigenschapsinformatie die is opgeslagen."
   example:
   - "The following code example demonstrates using ITrackingPersonalizable methods and properties to track the loading and saving of personalization information. The example consists of two parts, an .aspx page and a file that should be placed in an App_Code subdirectory.  \n  \n The following code example creates a Web Parts control that allows a user to enter URL information and saves this information for the user.  \n  \n [!code-vb[WebParts_IPersonalizable#9](~/add/codesnippet/visualbasic/t-system.web.ui.webcontr_24_1.vb)]\n [!code-cs[WebParts_IPersonalizable#9](~/add/codesnippet/csharp/t-system.web.ui.webcontr_24_1.cs)]  \n  \n The following .aspx page creates a Web Parts zone and adds the control to the zone. The page also references a login control that you should use to log on individual users so that personalization can be applied.  \n  \n [!code-cs[WebParts_IPersonalizable#10](~/add/codesnippet/csharp/t-system.web.ui.webcontr_24_2.aspx)]\n [!code-vb[WebParts_IPersonalizable#10](~/add/codesnippet/visualbasic/t-system.web.ui.webcontr_24_2.aspx)]"
   syntax:
@@ -35,8 +35,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Represents the beginning of the load phase for personalization information."
-  remarks: "The Web Parts control set calls this method prior to applying personalization data. A control that tracks its own change state should use this method to set an internal flag indicating that properties should not call <xref:System.Web.UI.WebControls.WebParts.WebPart.SetPersonalizationDirty%2A>. This is because property-setting methods can be called during the application of personalization data, subsequent to the call to BeginLoad. In most scenarios, a control should not be considered changed (&quot;dirty&quot;) just because its personalizable properties have been set based on data loaded from the underlying data store.      > [!NOTE] >  This method is also called when personalization data is applied after importing a Web Parts control."
+  summary: "Hiermee geeft u het begin van de load-fase voor persoonlijke informatie."
+  remarks: "De webonderdelen besturingselement set roept deze methode vóór personalisatiegegevens zijn toegepast. Een besturingselement dat een eigen wijziging van de status wordt bijgehouden Gebruik deze methode om in te stellen van een interne vlag die aangeeft dat eigenschappen <xref:System.Web.UI.WebControls.WebParts.WebPart.SetPersonalizationDirty%2A>.</xref:System.Web.UI.WebControls.WebParts.WebPart.SetPersonalizationDirty%2A> moeten niet aanroepen Dit is omdat de instelling van de eigenschap methoden kunnen worden aangeroepen tijdens de toepassing van personalisatiegegevens na het aanroepen van BeginLoad. In de meeste gevallen een besturingselement moet niet worden beschouwd als gewijzigd (&quot;dirty&quot;) omdat de personalizable eigenschappen zijn ingesteld op basis van gegevens die worden geladen uit het onderliggende gegevensarchief.      > [!NOTE] > Deze methode wordt ook aangeroepen wanneer personalisatiegegevens na het importeren van een besturingselement van webonderdelen wordt toegepast."
   example:
   - "The following code example demonstrates using the BeginLoad method. For a complete, working code example that consists of a control and an .aspx page, see the <xref:System.Web.UI.WebControls.WebParts.IPersonalizable> class overview topic.  \n  \n [!code-vb[WebParts_IPersonalizable#4](~/add/codesnippet/visualbasic/m-system.web.ui.webcontr_102_1.vb)]\n [!code-cs[WebParts_IPersonalizable#4](~/add/codesnippet/csharp/m-system.web.ui.webcontr_102_1.cs)]"
   syntax:
@@ -58,8 +58,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Represents the phase prior to extracting personalization data from a control."
-  remarks: "The Web Parts control set calls this method prior to extracting personalization data from the control."
+  summary: "Hiermee geeft u de fase vóór personalisatiegegevens extraheren uit een besturingselement."
+  remarks: "De webonderdelen besturingselement set roept deze methode vóór personalisatiegegevens extraheren uit het besturingselement."
   example:
   - "The following code example demonstrates using the BeginSave method. For a complete, working code example that consists of a control and an .aspx page, see the <xref:System.Web.UI.WebControls.WebParts.IPersonalizable> class overview topic.  \n  \n [!code-vb[WebParts_IPersonalizable#5](~/add/codesnippet/visualbasic/m-system.web.ui.webcontr_129_1.vb)]\n [!code-cs[WebParts_IPersonalizable#5](~/add/codesnippet/csharp/m-system.web.ui.webcontr_129_1.cs)]"
   syntax:
@@ -81,8 +81,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Represents the phase after personalization data has been applied to a control."
-  remarks: "The Web Parts control set calls this method after personalization data has been applied to the control. A control that tracks its change state should use this method to reset its internal state to indicate that subsequent property-setting methods should call <xref:System.Web.UI.WebControls.WebParts.WebPart.SetPersonalizationDirty%2A>. By the time the EndLoad method is called, the Web Parts control set has completed any application of personalization data to the control. As a result, subsequent changes to the control&quot;s state should be considered valid indicators that the control has changed (is &quot;dirty&quot;).      > [!NOTE] >  This method is also called when personalization data is applied after importing a Web Parts control."
+  summary: "Hiermee geeft u de fase nadat personalisatiegegevens zijn toegepast op een besturingselement."
+  remarks: "Het besturingselement webonderdelen ingesteld aanroepen deze methode na personalisatiegegevens op het besturingselement toegepast is. Een besturingselement dat de wijziging van de status wordt bijgehouden Gebruik deze methode om in te stellen van de interne status om aan te geven dat verdere methoden van de instelling van de eigenschap <xref:System.Web.UI.WebControls.WebParts.WebPart.SetPersonalizationDirty%2A>.</xref:System.Web.UI.WebControls.WebParts.WebPart.SetPersonalizationDirty%2A> moeten aanroepen Op het moment dat de EndLoad-methode wordt aangeroepen, is de set van webonderdelen besturingselement toepassing van persoonlijke gegevens op het besturingselement voltooid. Als gevolg hiervan volgende wijzigingen aan de status van het besturingselement moeten worden beschouwd als geldig indicatoren die het besturingselement is gewijzigd (is &quot;vervuild&quot;).      > [!NOTE] > Deze methode wordt ook aangeroepen wanneer personalisatiegegevens na het importeren van een besturingselement van webonderdelen wordt toegepast."
   example:
   - "The following code example demonstrates using the EndLoad method. For a complete, working code example that consists of a control and an .aspx page, see the <xref:System.Web.UI.WebControls.WebParts.IPersonalizable> class overview topic.  \n  \n [!code-vb[WebParts_IPersonalizable#6](~/add/codesnippet/visualbasic/m-system.web.ui.webcontr_42_1.vb)]\n [!code-cs[WebParts_IPersonalizable#6](~/add/codesnippet/csharp/m-system.web.ui.webcontr_42_1.cs)]"
   syntax:
@@ -104,8 +104,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Represents the phase after personalization data has been extracted from a control."
-  remarks: "The Web Parts control set calls this method after personalization data has been extracted from the control."
+  summary: "Hiermee geeft u de fase na personalisatiegegevens is afkomstig uit een besturingselement."
+  remarks: "Het besturingselement webonderdelen ingesteld aanroepen met deze methode na personalisatiegegevens zijn geëxtraheerd uit het besturingselement."
   example:
   - "The following code example demonstrates using the EndSave method. For a complete, working code example that consists of a control and an .aspx page, see the <xref:System.Web.UI.WebControls.WebParts.IPersonalizable> class overview topic.  \n  \n [!code-vb[WebParts_IPersonalizable#7](~/add/codesnippet/visualbasic/m-system.web.ui.webcontr_10_1.vb)]\n [!code-cs[WebParts_IPersonalizable#7](~/add/codesnippet/csharp/m-system.web.ui.webcontr_10_1.cs)]"
   syntax:
@@ -127,15 +127,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Indicates whether the control tracks the status of its changes."
-  remarks: "If a control returns `true` from this property, then it is the Web Parts control&quot;s responsibility to determine when it considers itself &quot;dirty.&quot; If a control determines that it has changed (is &quot;dirty&quot;), that control must call <xref:System.Web.UI.WebControls.WebParts.WebPart.SetPersonalizationDirty%2A> on itself."
+  summary: "Hiermee wordt aangegeven of het besturingselement de status van de wijzigingen houdt."
+  remarks: "Als een besturingselement retourneert `true` van deze eigenschap is van het besturingselement webonderdelen verantwoordelijkheid om te bepalen wanneer er vanuit dat zelf &quot;vervuild&quot;. Als een besturingselement wordt vastgesteld dat deze is gewijzigd (is &quot;vervuild&quot;), besturingselement moet worden aangeroepen <xref:System.Web.UI.WebControls.WebParts.WebPart.SetPersonalizationDirty%2A>op zichzelf.</xref:System.Web.UI.WebControls.WebParts.WebPart.SetPersonalizationDirty%2A>"
   example:
   - "The following code example demonstrates setting the TracksChanges property. For a complete, working code example that consists of a control and an .aspx page, see the <xref:System.Web.UI.WebControls.WebParts.ITrackingPersonalizable> class overview topic.  \n  \n [!code-vb[WebParts_IPersonalizable#8](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_924_1.vb)]\n [!code-cs[WebParts_IPersonalizable#8](~/add/codesnippet/csharp/p-system.web.ui.webcontr_924_1.cs)]"
   syntax:
     content: public bool TracksChanges { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the Web Parts control is responsible for determining when the control is considered changed (&quot;dirty&quot;); otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als het besturingselement webonderdelen is verantwoordelijk voor het bepalen wanneer het besturingselement wordt beschouwd als gewijzigd (&quot;dirty&quot;); anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.WebParts.ITrackingPersonalizable.TracksChanges*
   exceptions: []
   platform:

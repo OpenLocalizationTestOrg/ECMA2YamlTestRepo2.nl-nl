@@ -12,8 +12,8 @@ items:
   nameWithType: ConvertEventArgs
   fullName: System.Windows.Forms.ConvertEventArgs
   type: Class
-  summary: "Provides data for the <xref href=&quot;System.Windows.Forms.Binding.Format&quot;></xref> and <xref href=&quot;System.Windows.Forms.Binding.Parse&quot;></xref> events."
-  remarks: "The ConvertEventArgs is used to format and unformat values displayed by a Windows Forms control that is bound to data through a <xref:System.Windows.Forms.Binding> object. The <xref:System.Windows.Forms.Binding.Format> event occurs whenever a control property is bound to a value and the <xref:System.Windows.Forms.Binding.Parse> event occurs whenever the bound value changes.       The <xref:System.Windows.Forms.Binding.Format> and <xref:System.Windows.Forms.Binding.Parse> events allow you to create custom formats for displaying data. For example, if the data in a table is of type <xref:System.Decimal>, you can specify that the data should be displayed in the local currency format--by setting the <xref:System.Windows.Forms.ConvertEventArgs.Value%2A> property of the ConvertEventArgs to the formatted value in the <xref:System.Windows.Forms.Binding.Format> event. You must consequently unformat the displayed value in the <xref:System.Windows.Forms.Binding.Parse> event.       For more information about handling events, see [Events](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Biedt gegevens voor de <xref href=&quot;System.Windows.Forms.Binding.Format&quot;> </xref> en <xref href=&quot;System.Windows.Forms.Binding.Parse&quot;> </xref> gebeurtenissen."
+  remarks: "De ConvertEventArgs wordt gebruikt om te formatteren en formatteren van de waarden die worden weergegeven door een Windows Forms-besturingselement is gebonden aan gegevens via een <xref:System.Windows.Forms.Binding>object.</xref:System.Windows.Forms.Binding> De <xref:System.Windows.Forms.Binding.Format>gebeurtenis treedt op wanneer de eigenschap van een besturingselement is gebonden aan een waarde en de <xref:System.Windows.Forms.Binding.Parse>gebeurtenis treedt op wanneer de afhankelijke waarde wordt gewijzigd.</xref:System.Windows.Forms.Binding.Parse> </xref:System.Windows.Forms.Binding.Format>       De <xref:System.Windows.Forms.Binding.Format>en <xref:System.Windows.Forms.Binding.Parse>gebeurtenissen kunnen u aangepaste indelingen voor het weergeven van gegevens maken.</xref:System.Windows.Forms.Binding.Parse> </xref:System.Windows.Forms.Binding.Format> Bijvoorbeeld, als de gegevens in een tabel is van het type <xref:System.Decimal>, kunt u opgeven dat de gegevens in de lokale valuta-indeling moet worden weergegeven door in te stellen de <xref:System.Windows.Forms.ConvertEventArgs.Value%2A>eigenschap van de ConvertEventArgs de ingedeelde waarde in de <xref:System.Windows.Forms.Binding.Format>gebeurtenis.</xref:System.Windows.Forms.Binding.Format> </xref:System.Windows.Forms.ConvertEventArgs.Value%2A> </xref:System.Decimal> U moet daarom formattering de weergegeven waarde in de <xref:System.Windows.Forms.Binding.Parse>gebeurtenis.</xref:System.Windows.Forms.Binding.Parse>       Zie voor meer informatie over het verwerken van gebeurtenissen [gebeurtenissen](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following code example creates a <xref:System.Windows.Forms.Binding>, adds a <xref:System.Windows.Forms.ConvertEventHandler> delegate to both the <xref:System.Windows.Forms.Binding.Parse> and <xref:System.Windows.Forms.Binding.Format> events, and uses the <xref:System.Windows.Forms.Control.DataBindings%2A> property to add the <xref:System.Windows.Forms.Binding> to the <xref:System.Windows.Forms.BindingsCollection> of a <xref:System.Windows.Forms.TextBox> control. The `DecimalToCurrencyString` event delegate, which is added to the <xref:System.Windows.Forms.Binding.Format> event, uses the <xref:System.Decimal.ToString%2A> method to format the bound value (a <xref:System.Decimal> type) as currency. The `CurrencyStringToDecimal` event delegate, which is added to the <xref:System.Windows.Forms.Binding.Parse> event, converts the value displayed by the control back to the <xref:System.Decimal> type.  \n  \n [!code-cs[Classic ConvertEventArgs Example#1](~/add/codesnippet/csharp/t-system.windows.forms.c_12_1.cs)]\n [!code-vb[Classic ConvertEventArgs Example#1](~/add/codesnippet/visualbasic/t-system.windows.forms.c_12_1.vb)]\n [!code-cpp[Classic ConvertEventArgs Example#1](~/add/codesnippet/cpp/t-system.windows.forms.c_12_1.cpp)]"
   syntax:
@@ -36,16 +36,16 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Forms.ConvertEventArgs&quot;></xref> class."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Windows.Forms.ConvertEventArgs&quot;> </xref> klasse."
   syntax:
     content: public ConvertEventArgs (object value, Type desiredType);
     parameters:
     - id: value
       type: System.Object
-      description: "An <xref:System.Object> that contains the value of the current property."
+      description: "Een <xref:System.Object>die de waarde van de huidige eigenschap bevat.</xref:System.Object>"
     - id: desiredType
       type: System.Type
-      description: "The <xref:System.Type> of the value."
+      description: "De <xref:System.Type>van de waarde.</xref:System.Type>"
   overload: System.Windows.Forms.ConvertEventArgs.#ctor*
   exceptions: []
   platform:
@@ -62,15 +62,15 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Gets the data type of the desired value."
-  remarks: "The DesiredType property enables you to check the type of the property that the value is being converted to."
+  summary: "Hiermee haalt u het gegevenstype van de gewenste waarde."
+  remarks: "De eigenschap DesiredType kunt u om te controleren van het type van de eigenschap die in de waarde wordt omgezet."
   example:
   - "The following code example uses the DesiredType property to determine whether the conversion of one type to another can proceed. The `DecimalToCurrencyString` method tests whether the DesiredType is a string. If not, the code exits the method. Similarly, the `CurrencyStringToDecimal` method tests whether the DesiredType is a <xref:System.Decimal>, and exits if it is not `true`.  \n  \n [!code-cpp[Classic ConvertEventArgs.DesiredType Example#1](~/add/codesnippet/cpp/p-system.windows.forms.c_16_1.cpp)]\n [!code-cs[Classic ConvertEventArgs.DesiredType Example#1](~/add/codesnippet/csharp/p-system.windows.forms.c_16_1.cs)]\n [!code-vb[Classic ConvertEventArgs.DesiredType Example#1](~/add/codesnippet/visualbasic/p-system.windows.forms.c_16_1.vb)]"
   syntax:
     content: public Type DesiredType { get; }
     return:
       type: System.Type
-      description: "The <xref:System.Type> of the desired value."
+      description: "De <xref:System.Type>van de gewenste waarde.</xref:System.Type>"
   overload: System.Windows.Forms.ConvertEventArgs.DesiredType*
   exceptions: []
   platform:
@@ -87,15 +87,15 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Gets or sets the value of the <xref href=&quot;System.Windows.Forms.ConvertEventArgs&quot;></xref>."
-  remarks: "The value contained by the Value property depends on the event in which the <xref:System.Windows.Forms.ConvertEventArgs> is returned. The <xref:System.Windows.Forms.ConvertEventArgs> can be returned in either the <xref:System.Windows.Forms.Binding.Format> event or the <xref:System.Windows.Forms.Binding.Parse> event.       When the <xref:System.Windows.Forms.ConvertEventArgs> is returned in the <xref:System.Windows.Forms.Binding.Format> event, the Value property contains the unformatted property value of the data source. Within the <xref:System.Windows.Forms.Binding.Format> event, you can read the property value, format the value, and reset the Value property to the new (formatted) value, thereby setting the value displayed in the data-bound control.       When the <xref:System.Windows.Forms.ConvertEventArgs> is returned in the <xref:System.Windows.Forms.Binding.Parse> event, the property contains the custom-formatted value of the data-bound control. Within the <xref:System.Windows.Forms.Binding.Parse> event, you must read the formatted value, parse it, and convert it back to the same data type as the data source. You can then reset the Value property to the unformatted value, and thereby set the value of the data source. To determine the type of the data source, examine the <xref:System.Windows.Forms.ConvertEventArgs.DesiredType%2A> property value."
+  summary: "Opgehaald of ingesteld van de waarde van de <xref href=&quot;System.Windows.Forms.ConvertEventArgs&quot;> </xref>."
+  remarks: "De waarde die deel uitmaken van de eigenschap Value is afhankelijk van de gebeurtenis waarin de <xref:System.Windows.Forms.ConvertEventArgs>wordt geretourneerd.</xref:System.Windows.Forms.ConvertEventArgs> De <xref:System.Windows.Forms.ConvertEventArgs>kan worden geretourneerd in ofwel de <xref:System.Windows.Forms.Binding.Format>gebeurtenis of de <xref:System.Windows.Forms.Binding.Parse>gebeurtenis.</xref:System.Windows.Forms.Binding.Parse> </xref:System.Windows.Forms.Binding.Format> </xref:System.Windows.Forms.ConvertEventArgs>       Wanneer de <xref:System.Windows.Forms.ConvertEventArgs>wordt geretourneerd als de <xref:System.Windows.Forms.Binding.Format>gebeurtenis, de eigenschap Value bevat de niet-opgemaakt eigenschapswaarde van de gegevensbron.</xref:System.Windows.Forms.Binding.Format> </xref:System.Windows.Forms.ConvertEventArgs> Binnen de <xref:System.Windows.Forms.Binding.Format>gebeurtenis, vindt u de waarde van de eigenschap, de waarde-indeling en opnieuw instellen van de eigenschap Value naar de nieuwe (opgemaakte) waarde, waardoor het instellen van de waarde in het besturingselement gegevensgebonden weergegeven.</xref:System.Windows.Forms.Binding.Format>       Wanneer de <xref:System.Windows.Forms.ConvertEventArgs>wordt geretourneerd als de <xref:System.Windows.Forms.Binding.Parse>gebeurtenis, de eigenschap bevat de waarde voor aangepaste opmaak van het besturingselement gegevensgebonden.</xref:System.Windows.Forms.Binding.Parse> </xref:System.Windows.Forms.ConvertEventArgs> Binnen de <xref:System.Windows.Forms.Binding.Parse>gebeurtenis, u moet de ingedeelde waarde lezen, het parseren en weer converteren naar hetzelfde gegevenstype als de gegevensbron.</xref:System.Windows.Forms.Binding.Parse> U kunt de eigenschap Value instellen voor de niet-ingedeelde waarde en waardoor de waarde van de gegevensbron. Om te bepalen het type van de gegevensbron, controleert de <xref:System.Windows.Forms.ConvertEventArgs.DesiredType%2A>eigenschapswaarde.</xref:System.Windows.Forms.ConvertEventArgs.DesiredType%2A>"
   example:
   - "The following code example creates a <xref:System.Windows.Forms.Binding>, adds a <xref:System.Windows.Forms.ConvertEventHandler> delegate to both the <xref:System.Windows.Forms.Binding.Parse> and <xref:System.Windows.Forms.Binding.Format> events, and uses the <xref:System.Windows.Forms.Control.DataBindings%2A> property to add the <xref:System.Windows.Forms.Binding> to the <xref:System.Windows.Forms.BindingsCollection> of a <xref:System.Windows.Forms.TextBox> control. The `DecimalToCurrencyString` event delegate, which is added to the <xref:System.Windows.Forms.Binding.Format> event, uses the <xref:System.Decimal.ToString%2A> method to format the bound value (a <xref:System.Decimal> type) as currency. The `CurrencyStringToDecimal` event delegate, which is added to the <xref:System.Windows.Forms.Binding.Parse> event, converts the value displayed by the control back to the <xref:System.Decimal> type.  \n  \n [!code-cs[Classic ConvertEventArgs Example#1](~/add/codesnippet/csharp/p-system.windows.forms.c_27_1.cs)]\n [!code-vb[Classic ConvertEventArgs Example#1](~/add/codesnippet/visualbasic/p-system.windows.forms.c_27_1.vb)]\n [!code-cpp[Classic ConvertEventArgs Example#1](~/add/codesnippet/cpp/p-system.windows.forms.c_27_1.cpp)]"
   syntax:
     content: public object Value { get; set; }
     return:
       type: System.Object
-      description: "The value of the <xref href=&quot;System.Windows.Forms.ConvertEventArgs&quot;></xref>."
+      description: "De waarde van de <xref href=&quot;System.Windows.Forms.ConvertEventArgs&quot;> </xref>."
   overload: System.Windows.Forms.ConvertEventArgs.Value*
   exceptions: []
   platform:

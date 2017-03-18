@@ -12,8 +12,8 @@ items:
   nameWithType: IMessageSink
   fullName: System.Runtime.Remoting.Messaging.IMessageSink
   type: Interface
-  summary: "Defines the interface for a message sink."
-  remarks: "When a method call is made on the proxy, the remoting infrastructure provides the necessary support for passing the arguments to the actual object across the remoting boundaries, calling the actual object method with the arguments, and returning the results back to the client of the proxy object.       A remote method call is a message that goes from the client end to the server end and possibly back again. As it crosses remoting boundaries on the way, the remote method call passes through a chain of `IMessageSink` objects. Each sink in the chain receives the message object, performs a specific operation, and delegates to the next sink in the chain. The proxy object contains a reference to the first `IMessageSink` it needs to use to start off the chain.       For asynchronous calls, at the time of delegation, each sink provides a reply sink (another `IMessageSink`) that will be called by the next sink when the reply is on its way back.       Different types of sinks perform different operations, depending on the type of message object received. For example, one sink could cause a lock to be taken, another could enforce call security, another could perform flow call control and reliability services, and yet another could transport the call to a different <xref:System.AppDomain>, process, or computer. Two or more message sinks in the chain can interact with each other in regard to each specific action."
+  summary: "Hiermee definieert u de interface voor een bericht sink."
+  remarks: "Wanneer er wordt een methodeaanroep gedaan op de proxy, biedt de externe infrastructuur de benodigde ondersteuning voor de argumenten van het werkelijke object buiten de grenzen van de externe toegang, aanroepen van de werkelijke objectmethode met de argumenten en de resultaten te retourneren terug naar de client van de proxyobject doorgeven.       Een externe methode-aanroep is een bericht dat naar het servereinde vanaf het clienteinde gaat en mogelijk weer. Als het externe grenzen van de manier waarop bestrijkt, de methode voor externe aanroep wordt doorgegeven via een keten van `IMessageSink` objecten. Elke sink in de keten het berichtobject ontvangt, voert een specifieke bewerking en delegeert naar de volgende sink in de keten. De proxyobject bevat een verwijzing naar de eerste `IMessageSink` moet worden gebruikt om te beginnen in de keten.       Voor asynchrone aanroepen op het moment van overdracht, elke sink biedt een sink antwoord (een andere `IMessageSink`) die door de volgende sink moet worden aangeroepen wanneer het antwoord onderweg terug is.       Verschillende soorten put verschillende bewerkingen uitvoeren, afhankelijk van het type message-object is ontvangen. Bijvoorbeeld één sink kan ervoor zorgen dat een vergrendeling op te nemen, kan een andere aanroep van beveiliging afdwingen, een andere stroom aanroep besturingselement en betrouwbaarheid services kan worden uitgevoerd en nog een ander de aanroep naar een andere kan transport <xref:System.AppDomain>, computer of proces.</xref:System.AppDomain> Twee of meer bericht put in de keten kunnen voor elke specifieke actie met elkaar communiceren."
   example:
   - "The following code example shows the implementation of the IMessageSink interface. Note that the sample assumes type definitions and assembly references that must be provided for the sample to compile.  \n  \n [!code-cs[IMessageSink_Client#3](~/add/codesnippet/csharp/t-system.runtime.remotin_40_1.cs)]\n [!code-vb[IMessageSink_Client#3](~/add/codesnippet/visualbasic/t-system.runtime.remotin_40_1.vb)]\n [!code-cpp[IMessageSink_Client#3](~/add/codesnippet/cpp/t-system.runtime.remotin_40_1.cpp)]"
   syntax:
@@ -36,25 +36,25 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Messaging
-  summary: "Asynchronously processes the given message."
-  remarks: "This method is invoked on the message sink by the remoting infrastructure or by a previous sink for asynchronous messages."
+  summary: "Het opgegeven bericht verwerkt asynchroon."
+  remarks: "Deze methode wordt aangeroepen op de sink bericht met de externe infrastructuur of met een vorige sink voor asynchrone berichten."
   syntax:
     content: public System.Runtime.Remoting.Messaging.IMessageCtrl AsyncProcessMessage (System.Runtime.Remoting.Messaging.IMessage msg, System.Runtime.Remoting.Messaging.IMessageSink replySink);
     parameters:
     - id: msg
       type: System.Runtime.Remoting.Messaging.IMessage
-      description: "The message to process."
+      description: "Het bericht te verwerken."
     - id: replySink
       type: System.Runtime.Remoting.Messaging.IMessageSink
-      description: "The reply sink for the reply message."
+      description: "De sink antwoord voor het antwoordbericht."
     return:
       type: System.Runtime.Remoting.Messaging.IMessageCtrl
-      description: "Returns an <xref href=&quot;System.Runtime.Remoting.Messaging.IMessageCtrl&quot;></xref> interface that provides a way to control asynchronous messages after they have been dispatched."
+      description: "Retourneert een <xref href=&quot;System.Runtime.Remoting.Messaging.IMessageCtrl&quot;> </xref> interface die een manier om te bepalen van asynchrone berichten nadat ze zijn verzonden."
   overload: System.Runtime.Remoting.Messaging.IMessageSink.AsyncProcessMessage*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller makes the call through a reference to the interface and does not have infrastructure permission."
+    description: "De onmiddellijke aanroeper maakt de aanroep van een verwijzing naar de interface en is niet gemachtigd infrastructuur."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Messaging.IMessageSink.NextSink
@@ -69,17 +69,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Messaging
-  summary: "Gets the next message sink in the sink chain."
+  summary: "Hiermee haalt u het volgende bericht sink in de keten sink."
   syntax:
     content: public System.Runtime.Remoting.Messaging.IMessageSink NextSink { get; }
     return:
       type: System.Runtime.Remoting.Messaging.IMessageSink
-      description: "The next message sink in the sink chain."
+      description: "Het volgende bericht in de keten sink-sink."
   overload: System.Runtime.Remoting.Messaging.IMessageSink.NextSink*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller makes the call through a reference to the interface and does not have infrastructure permission."
+    description: "De onmiddellijke aanroeper maakt de aanroep van een verwijzing naar de interface en is niet gemachtigd infrastructuur."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Messaging.IMessageSink.SyncProcessMessage(System.Runtime.Remoting.Messaging.IMessage)
@@ -94,22 +94,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Messaging
-  summary: "Synchronously processes the given message."
-  remarks: "The SyncProcessMessage method is invoked on the message sink by the remoting infrastructure or by a previous sink for synchronous messages."
+  summary: "Het opgegeven bericht verwerkt synchroon."
+  remarks: "De methode SyncProcessMessage wordt aangeroepen op de sink bericht door de externe infrastructuur of door een vorige sink voor synchrone berichten."
   syntax:
     content: public System.Runtime.Remoting.Messaging.IMessage SyncProcessMessage (System.Runtime.Remoting.Messaging.IMessage msg);
     parameters:
     - id: msg
       type: System.Runtime.Remoting.Messaging.IMessage
-      description: "The message to process."
+      description: "Het bericht te verwerken."
     return:
       type: System.Runtime.Remoting.Messaging.IMessage
-      description: "A reply message in response to the request."
+      description: "Een antwoordbericht in antwoord op de aanvraag."
   overload: System.Runtime.Remoting.Messaging.IMessageSink.SyncProcessMessage*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller makes the call through a reference to the interface and does not have infrastructure permission."
+    description: "De onmiddellijke aanroeper maakt de aanroep van een verwijzing naar de interface en is niet gemachtigd infrastructuur."
   platform:
   - net462
 references:

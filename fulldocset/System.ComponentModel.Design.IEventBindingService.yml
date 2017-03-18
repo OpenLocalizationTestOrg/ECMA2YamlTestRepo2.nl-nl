@@ -17,8 +17,8 @@ items:
   nameWithType: IEventBindingService
   fullName: System.ComponentModel.Design.IEventBindingService
   type: Interface
-  summary: "Provides a service for registering event handlers for component events."
-  remarks: "The event binding service provides a way to link an event handler with a component event from designer code.       To link an event handler with a component event using the IEventBindingService, you must first obtain an <xref:System.ComponentModel.EventDescriptor> for the event of the component you intend to link. The IEventBindingService provides methods that can convert an <xref:System.ComponentModel.EventDescriptor> to a <xref:System.ComponentModel.PropertyDescriptor> which you can use to configure the event with an event handler method name.       The <xref:System.ComponentModel.TypeDescriptor> object provides a <xref:System.ComponentModel.TypeDescriptor.GetEvents%2A> method that you can use to obtain an <xref:System.ComponentModel.EventDescriptorCollection> containing <xref:System.ComponentModel.EventDescriptor> objects for each event of a component. The <xref:System.ComponentModel.Design.IEventBindingService.GetEventProperty%2A> and <xref:System.ComponentModel.Design.IEventBindingService.GetEventProperties%2A> methods of the IEventBindingService return a <xref:System.ComponentModel.PropertyDescriptor> for each <xref:System.ComponentModel.EventDescriptor> passed to either method. Each <xref:System.ComponentModel.PropertyDescriptor> returned from <xref:System.ComponentModel.Design.IEventBindingService.GetEventProperty%2A> or <xref:System.ComponentModel.Design.IEventBindingService.GetEventProperties%2A> has a property type of string. You can set this string to a value that indicates the name of the event-handler method to link the event with using the <xref:System.ComponentModel.PropertyDescriptor.SetValue%2A> method of the <xref:System.ComponentModel.PropertyDescriptor>."
+  summary: "Biedt een service voor het registreren van gebeurtenis-handlers voor onderdeel gebeurtenissen."
+  remarks: "De service voor gebeurtenisbinding biedt een manier om te koppelen van een gebeurtenis-handler met een gebeurtenis onderdeel van de ontwerpfunctie code.       Als u wilt een gebeurtenis-handler koppelen met een onderdeel-gebeurtenis met behulp van de IEventBindingService, moet u eerst aanvragen een <xref:System.ComponentModel.EventDescriptor>voor de gebeurtenis van het onderdeel dat u van plan bent om te koppelen.</xref:System.ComponentModel.EventDescriptor> De IEventBindingService biedt methoden die kunnen worden geconverteerd een <xref:System.ComponentModel.EventDescriptor>naar een <xref:System.ComponentModel.PropertyDescriptor>dat u kunt gebruiken voor het configureren van de gebeurtenis met de naam van een gebeurtenis-handler-methode.</xref:System.ComponentModel.PropertyDescriptor> </xref:System.ComponentModel.EventDescriptor>       De <xref:System.ComponentModel.TypeDescriptor>-object biedt een <xref:System.ComponentModel.TypeDescriptor.GetEvents%2A>methode die u gebruiken kunt om op te halen een <xref:System.ComponentModel.EventDescriptorCollection>met <xref:System.ComponentModel.EventDescriptor>objecten voor elke gebeurtenis van een onderdeel.</xref:System.ComponentModel.EventDescriptor> </xref:System.ComponentModel.EventDescriptorCollection> </xref:System.ComponentModel.TypeDescriptor.GetEvents%2A> </xref:System.ComponentModel.TypeDescriptor> De <xref:System.ComponentModel.Design.IEventBindingService.GetEventProperty%2A>en <xref:System.ComponentModel.Design.IEventBindingService.GetEventProperties%2A>methoden voor het retourtype IEventBindingService een <xref:System.ComponentModel.PropertyDescriptor>voor elk <xref:System.ComponentModel.EventDescriptor>doorgegeven aan de methode.</xref:System.ComponentModel.EventDescriptor> </xref:System.ComponentModel.PropertyDescriptor> </xref:System.ComponentModel.Design.IEventBindingService.GetEventProperties%2A> </xref:System.ComponentModel.Design.IEventBindingService.GetEventProperty%2A> Elke <xref:System.ComponentModel.PropertyDescriptor>geretourneerd van <xref:System.ComponentModel.Design.IEventBindingService.GetEventProperty%2A>of <xref:System.ComponentModel.Design.IEventBindingService.GetEventProperties%2A>heeft het eigenschapstype van een tekenreeks.</xref:System.ComponentModel.Design.IEventBindingService.GetEventProperties%2A> </xref:System.ComponentModel.Design.IEventBindingService.GetEventProperty%2A> </xref:System.ComponentModel.PropertyDescriptor> U kunt deze tekenreeks instellen op een waarde die aangeeft van de naam van de gebeurtenis-handler-methode voor het koppelen van de gebeurtenis met behulp van de <xref:System.ComponentModel.PropertyDescriptor.SetValue%2A>methode van de <xref:System.ComponentModel.PropertyDescriptor>.</xref:System.ComponentModel.PropertyDescriptor> </xref:System.ComponentModel.PropertyDescriptor.SetValue%2A>"
   example:
   - "The following example demonstrates a designer that uses the IEventBindingService to link a component's event with an event handler at design time when the custom shortcut menu command that the designer adds for the component is invoked. To use the example, compile it to a class library, add a reference from a Windows Forms project, add the component in the class library to the Toolbox by right-clicking the Toolbox and selecting Customize Toolbox..., then choosing the class library and clicking OK, and add an instance of the EventControl to a Form. Then right-click the EventControl and click the Connect testEvent shortcut menu command. An empty event handler method is created and the EventControl's testEvent method is initialized to this event handler in the initialization code for the Form.  \n  \n [!code-cpp[IEventBindingServiceExample#1](~/add/codesnippet/cpp/t-system.componentmodel._102_1.cpp)]\n [!code-vb[IEventBindingServiceExample#1](~/add/codesnippet/visualbasic/t-system.componentmodel._102_1.vb)]\n [!code-cs[IEventBindingServiceExample#1](~/add/codesnippet/csharp/t-system.componentmodel._102_1.cs)]"
   syntax:
@@ -41,20 +41,20 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Creates a unique name for an event-handler method for the specified component and event."
-  remarks: "This method returns a name that is unique from any other method name in the user&quot;s source code."
+  summary: "Hiermee maakt u een unieke naam voor een gebeurtenis-handler-methode voor het opgegeven onderdeel en de gebeurtenis."
+  remarks: "Deze methode retourneert een naam die is uniek in vergelijking met andere methodenaam in de broncode van de gebruiker."
   syntax:
     content: public string CreateUniqueMethodName (System.ComponentModel.IComponent component, System.ComponentModel.EventDescriptor e);
     parameters:
     - id: component
       type: System.ComponentModel.IComponent
-      description: "The component instance the event is connected to."
+      description: "Het exemplaar van het onderdeel de gebeurtenis is verbonden met."
     - id: e
       type: System.ComponentModel.EventDescriptor
-      description: "The event to create a name for."
+      description: "De gebeurtenis voor het maken van een naam op voor."
     return:
       type: System.String
-      description: "The recommended name for the event-handler method for this event."
+      description: "De aanbevolen naam voor de gebeurtenis-handler-methode voor deze gebeurtenis."
   overload: System.ComponentModel.Design.IEventBindingService.CreateUniqueMethodName*
   exceptions: []
   platform:
@@ -71,17 +71,17 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Gets a collection of event-handler methods that have a method signature compatible with the specified event."
-  remarks: "Each string in the collection is the name of a method that has a method signature compatible with the specified event."
+  summary: "Hiermee haalt u een verzameling van gebeurtenis-handler-methoden met een methodehandtekening die compatibel is met de opgegeven gebeurtenis."
+  remarks: "Elke tekenreeks in de verzameling is de naam van een methode die een methodehandtekening die compatibel is met de opgegeven gebeurtenis heeft."
   syntax:
     content: public System.Collections.ICollection GetCompatibleMethods (System.ComponentModel.EventDescriptor e);
     parameters:
     - id: e
       type: System.ComponentModel.EventDescriptor
-      description: "The event to get the compatible event-handler methods for."
+      description: "De gebeurtenis ophalen van de methoden compatibel gebeurtenis-handler voor."
     return:
       type: System.Collections.ICollection
-      description: "A collection of strings."
+      description: "Een verzameling van tekenreeksen."
   overload: System.ComponentModel.Design.IEventBindingService.GetCompatibleMethods*
   exceptions: []
   platform:
@@ -98,16 +98,16 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Gets an <xref href=&quot;System.ComponentModel.EventDescriptor&quot;></xref> for the event that the specified property descriptor represents, if it represents an event."
+  summary: "Haalt een <xref href=&quot;System.ComponentModel.EventDescriptor&quot;> </xref> voor de gebeurtenis die de opgegeven eigenschapsdescriptor vertegenwoordigt, als er een gebeurtenis vertegenwoordigt."
   syntax:
     content: public System.ComponentModel.EventDescriptor GetEvent (System.ComponentModel.PropertyDescriptor property);
     parameters:
     - id: property
       type: System.ComponentModel.PropertyDescriptor
-      description: "The property that represents an event."
+      description: "De eigenschap die een gebeurtenis."
     return:
       type: System.ComponentModel.EventDescriptor
-      description: "An <xref href=&quot;System.ComponentModel.EventDescriptor&quot;></xref> for the event that the property represents, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the property does not represent an event."
+      description: "Een <xref href=&quot;System.ComponentModel.EventDescriptor&quot;> </xref> voor de gebeurtenis die de eigenschap vertegenwoordigt, of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> als de eigenschap is geen vertegenwoordiging van een gebeurtenis."
   overload: System.ComponentModel.Design.IEventBindingService.GetEvent*
   exceptions: []
   platform:
@@ -124,17 +124,17 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Converts a set of event descriptors to a set of property descriptors."
-  remarks: "Each returned <xref:System.ComponentModel.PropertyDescriptor> has a <xref:System.ComponentModel.PropertyDescriptor.PropertyType%2A> of string."
+  summary: "Zet een set van descriptors gebeurtenis om een set van eigenschap descriptors."
+  remarks: "Elk geretourneerd <xref:System.ComponentModel.PropertyDescriptor>heeft een <xref:System.ComponentModel.PropertyDescriptor.PropertyType%2A>van een tekenreeks.</xref:System.ComponentModel.PropertyDescriptor.PropertyType%2A> </xref:System.ComponentModel.PropertyDescriptor>"
   syntax:
     content: public System.ComponentModel.PropertyDescriptorCollection GetEventProperties (System.ComponentModel.EventDescriptorCollection events);
     parameters:
     - id: events
       type: System.ComponentModel.EventDescriptorCollection
-      description: "The events to convert to properties."
+      description: "De gebeurtenissen om te converteren naar eigenschappen."
     return:
       type: System.ComponentModel.PropertyDescriptorCollection
-      description: "An array of <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;></xref> objects that describe the event set."
+      description: "Een matrix van <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;> </xref> objecten die het gebeurtenis beschrijven."
   overload: System.ComponentModel.Design.IEventBindingService.GetEventProperties*
   exceptions: []
   platform:
@@ -151,17 +151,17 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Converts a single event descriptor to a property descriptor."
-  remarks: "The returned <xref:System.ComponentModel.PropertyDescriptor> has a <xref:System.ComponentModel.PropertyDescriptor.PropertyType%2A> of string."
+  summary: "Een enkelvoudige gebeurtenis descriptor converteert naar een eigenschapsdescriptor."
+  remarks: "De geretourneerde <xref:System.ComponentModel.PropertyDescriptor>heeft een <xref:System.ComponentModel.PropertyDescriptor.PropertyType%2A>van een tekenreeks.</xref:System.ComponentModel.PropertyDescriptor.PropertyType%2A> </xref:System.ComponentModel.PropertyDescriptor>"
   syntax:
     content: public System.ComponentModel.PropertyDescriptor GetEventProperty (System.ComponentModel.EventDescriptor e);
     parameters:
     - id: e
       type: System.ComponentModel.EventDescriptor
-      description: "The event to convert."
+      description: "De gebeurtenis te converteren."
     return:
       type: System.ComponentModel.PropertyDescriptor
-      description: "A <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;></xref> that describes the event."
+      description: "Een <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;> </xref> die beschrijft de gebeurtenis."
   overload: System.ComponentModel.Design.IEventBindingService.GetEventProperty*
   exceptions: []
   platform:
@@ -178,14 +178,14 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Displays the user code for the designer."
-  remarks: "This method displays the code editor."
+  summary: "Bevat de gebruikerscode van de ontwerpfunctie."
+  remarks: "Deze methode wordt de code-editor weergegeven."
   syntax:
     content: public bool ShowCode ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the code is displayed; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de code wordt weergegeven. anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.Design.IEventBindingService.ShowCode*
   exceptions: []
   platform:
@@ -202,17 +202,17 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Displays the user code for the designer at the specified line."
-  remarks: "This method displays the code editor and positions the cursor on the specified line."
+  summary: "Bevat de gebruikerscode van de ontwerpfunctie op de opgegeven regel."
+  remarks: "Deze methode wordt de code-editor en plaatst u de cursor op de opgegeven regel."
   syntax:
     content: public bool ShowCode (int lineNumber);
     parameters:
     - id: lineNumber
       type: System.Int32
-      description: "The line number to place the caret on."
+      description: "Het regelnummer caret om op te plaatsen."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the code is displayed; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de code wordt weergegeven. anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.Design.IEventBindingService.ShowCode*
   exceptions: []
   platform:
@@ -229,20 +229,20 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Displays the user code for the specified event."
-  remarks: "This method displays the code editor and positions the cursor on the line that the specified event is declared on."
+  summary: "Geeft de gebruikerscode voor de opgegeven gebeurtenis."
+  remarks: "Deze methode wordt de code-editor en plaatst u de cursor op de regel die de opgegeven gebeurtenis is gedeclareerd."
   syntax:
     content: public bool ShowCode (System.ComponentModel.IComponent component, System.ComponentModel.EventDescriptor e);
     parameters:
     - id: component
       type: System.ComponentModel.IComponent
-      description: "The component that the event is connected to."
+      description: "Het onderdeel waarmee de gebeurtenis is verbonden."
     - id: e
       type: System.ComponentModel.EventDescriptor
-      description: "The event to display."
+      description: "De gebeurtenis om weer te geven."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the code is displayed; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de code wordt weergegeven. anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.Design.IEventBindingService.ShowCode*
   exceptions: []
   platform:
