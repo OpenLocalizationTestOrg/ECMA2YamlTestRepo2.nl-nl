@@ -15,8 +15,8 @@ items:
   nameWithType: TransactionManager
   fullName: System.Transactions.TransactionManager
   type: Class
-  summary: "Contains methods used for transaction management. This class cannot be inherited."
-  remarks: "This class contains static properties and methods used to obtain information about the default transaction options. It also contains several static methods used for recovery of a durable resource when the durable resource fails. No special action is required of a durable resource if the Microsoft Distributed Transaction Coordinator (MSDTC) fails."
+  summary: "Bevat de methoden die worden gebruikt voor het transactiebeheer van de. Deze klasse kan niet worden overgenomen."
+  remarks: "Deze klasse bevat statische eigenschappen en methoden die worden gebruikt om informatie te verkrijgen over de standaard transactie-opties. Het bevat ook verschillende statische methoden die worden gebruikt voor herstel van een duurzame wanneer de duurzame bron mislukt. Er is geen speciale actie vereist van een duurzame resource als de Microsoft Distributed Transaction Coordinator (MSDTC) is mislukt."
   syntax:
     content: public static class TransactionManager
   inheritance:
@@ -37,13 +37,13 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Gets the default timeout interval for new transactions."
-  remarks: "The timeout interval of a transaction is the time within which the transaction must be completed. If the transaction manager has not heard from all transaction participants within the timeout interval, it aborts the transaction.       This value can be set in the `DefaultSettingsSection` of the config file."
+  summary: "Hiermee haalt u de standaard time-outinterval voor nieuwe transacties."
+  remarks: "De time-outinterval van een transactie is de tijd waarbinnen de transactie moet worden voltooid. Als de transactiebeheerder heeft geen gehoord dat alle Transactiedeelnemers binnen de time-outinterval, breekt de transactie af.       Deze waarde kan worden ingesteld in de `DefaultSettingsSection` van het configuratiebestand."
   syntax:
     content: public static TimeSpan DefaultTimeout { get; }
     return:
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> value that specifies the timeout interval for new transactions."
+      description: "Een <xref:System.TimeSpan>waarde waarmee de time-outinterval voor nieuwe transacties.</xref:System.TimeSpan>"
   overload: System.Transactions.TransactionManager.DefaultTimeout*
   exceptions: []
   platform:
@@ -60,13 +60,13 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Indicates that a distributed transaction has started."
-  remarks: "**Caution** Signing up for this event degrades the performance of all distributed transactions. Local transactions are not monitored as performance is affected even more.       **Note** This method uses <xref:System.Security.Permissions.SecurityAction> to prevent it from being called from untrusted code; however, only the immediate caller is required to possess the `FullTrust` permission set."
+  summary: "Hiermee wordt aangegeven dat een gedistribueerde transactie is gestart."
+  remarks: "**Waarschuwing** aanmelden voor deze gebeurtenis de prestaties van alle gedistribueerde transacties vermindert. Lokale transacties worden niet bewaakt als prestaties nog verder worden beïnvloed.       **Opmerking** maakt gebruik van deze methode <xref:System.Security.Permissions.SecurityAction>om te voorkomen dat deze wordt aangeroepen vanuit niet-vertrouwde code; alleen de onmiddellijke aanroeper is echter vereist dat de `FullTrust` machtigingenset.</xref:System.Security.Permissions.SecurityAction>"
   syntax:
     content: public static event System.Transactions.TransactionStartedEventHandler DistributedTransactionStarted;
     return:
       type: System.Transactions.TransactionStartedEventHandler
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -82,13 +82,13 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Gets or sets a custom transaction factory."
-  remarks: '**Note** This method uses <xref:System.Security.Permissions.SecurityAction> to prevent it from being called from untrusted code; however, only the immediate caller is required to possess the `FullTrust` permission set.'
+  summary: "Opgehaald of ingesteld van een aangepaste transactie-factory."
+  remarks: '**Opmerking** maakt gebruik van deze methode <xref:System.Security.Permissions.SecurityAction>om te voorkomen dat deze wordt aangeroepen vanuit niet-vertrouwde code; alleen de onmiddellijke aanroeper is echter vereist dat de `FullTrust` machtigingenset.</xref:System.Security.Permissions.SecurityAction>'
   syntax:
     content: public static System.Transactions.HostCurrentTransactionCallback HostCurrentCallback { get; set; }
     return:
       type: System.Transactions.HostCurrentTransactionCallback
-      description: "A <xref href=&quot;System.Transactions.HostCurrentTransactionCallback&quot;></xref> that contains a custom transaction factory."
+      description: "Een <xref href=&quot;System.Transactions.HostCurrentTransactionCallback&quot;> </xref> die een aangepaste transactie-factory bevat."
   overload: System.Transactions.TransactionManager.HostCurrentCallback*
   exceptions: []
   platform:
@@ -105,13 +105,13 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Gets the default maximum timeout interval for new transactions."
-  remarks: "For an explanation of the timeout interval, see the documentation for the <xref:System.Transactions.TransactionManager.DefaultTimeout%2A> property.       This value can be set in the `MachineSettingsSection` of the config file."
+  summary: "Hiermee haalt u de standaard maximum time-outinterval voor nieuwe transacties."
+  remarks: "Voor een uitleg van de time-outinterval, Zie de documentatie voor de <xref:System.Transactions.TransactionManager.DefaultTimeout%2A>eigenschap.</xref:System.Transactions.TransactionManager.DefaultTimeout%2A>       Deze waarde kan worden ingesteld in de `MachineSettingsSection` van het configuratiebestand."
   syntax:
     content: public static TimeSpan MaximumTimeout { get; }
     return:
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> value that specifies the maximum timeout interval that is allowed when creating new transactions."
+      description: "Een <xref:System.TimeSpan>waarde waarmee de maximum time-outperiode die is toegestaan tijdens het maken van nieuwe transacties.</xref:System.TimeSpan>"
   overload: System.Transactions.TransactionManager.MaximumTimeout*
   exceptions: []
   platform:
@@ -128,14 +128,14 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Notifies the transaction manager that a resource manager recovering from failure has finished reenlisting in all unresolved transactions."
-  remarks: "All durable resource managers should do recovery when they first start up by calling the <xref:System.Transactions.TransactionManager.Reenlist%2A> method for each outstanding transaction.  Only when all of the reenlistments are done should the resource manager call RecoveryComplete.       For more information on recovery, see [Performing Recovery](http://msdn.microsoft.com/en-us/d342c5c7-da64-4a4c-8e63-b52f4fbf2691).       **Note** This method uses <xref:System.Security.Permissions.SecurityAction> to prevent it from being called from untrusted code; however, only the immediate caller is required to possess the `FullTrust` permission set."
+  summary: "De transactiebeheerder waarschuwt dat een resourcemanager herstellen van fouten is voltooid reenlisting alle niet-omgezette transacties."
+  remarks: "Alle duurzame bronbeheer herstel moeten doen als ze eerst worden opgestart door het aanroepen van de <xref:System.Transactions.TransactionManager.Reenlist%2A>methode voor elke openstaande transactie.</xref:System.Transactions.TransactionManager.Reenlist%2A>  Alleen wanneer alle van de reenlistments klaar bent met aanroept de resourcemanager RecoveryComplete.       Zie voor meer informatie over herstel [herstel uitvoeren van](http://msdn.microsoft.com/en-us/d342c5c7-da64-4a4c-8e63-b52f4fbf2691).       **Opmerking** maakt gebruik van deze methode <xref:System.Security.Permissions.SecurityAction>om te voorkomen dat deze wordt aangeroepen vanuit niet-vertrouwde code; alleen de onmiddellijke aanroeper is echter vereist dat de `FullTrust` machtigingenset.</xref:System.Security.Permissions.SecurityAction>"
   syntax:
     content: public static void RecoveryComplete (Guid resourceManagerIdentifier);
     parameters:
     - id: resourceManagerIdentifier
       type: System.Guid
-      description: "A <xref:System.Guid> that uniquely identifies the resource to be recovered from."
+      description: "Een <xref:System.Guid>die de resource moet worden hersteld van een unieke identificeert.</xref:System.Guid>"
   overload: System.Transactions.TransactionManager.RecoveryComplete*
   exceptions:
   - type: System.ArgumentNullException
@@ -155,34 +155,34 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Reenlists a durable participant in a transaction."
-  remarks: "A resource manager facilitates resolution of durable enlistments in a transaction by reenlisting the transaction participant after resource failure.       The `resourceManagerIdentifier` parameter is used to consistently label the participant of a transaction in the event of a resource failure.  When calling the Reenlist method, the resource manager must provide the same `resourceManagerIdentifier` as it used when it originally called the <xref:System.Transactions.Transaction.EnlistDurable%2A> method during enlistment, or a <xref:System.Transactions.TransactionException> is thrown.       When a participant is reenlisted using this method, the phase 2 methods of <xref:System.Transactions.IEnlistmentNotification> that correspond to the transaction&quot;s outcome (that is, <xref:System.Transactions.IEnlistmentNotification.Commit%2A> , <xref:System.Transactions.IEnlistmentNotification.Rollback%2A> or <xref:System.Transactions.IEnlistmentNotification.InDoubt%2A> ) are called as appropriate.       After the participants are successfully reenlisted, you should then call <xref:System.Transactions.TransactionManager.RecoveryComplete%2A> to complete the recovery.       You should only call this method when a resource manager restarts from failure. In addition, you should only reenlist unresolved transactions logged by a resource manager during the initial Prepare phase of a two-phase commit. Any attempt to call this method at invalid times can produce erroneous results.       If the transaction manager fails, and your resource manager performs recovery only a short time after you called the <xref:System.Transactions.PreparingEnlistment.Prepared%2A> method on an enlistment in phase 1 of the Two-Phase Commit protocol, your resource manager might either receive the <xref:System.Transactions.IEnlistmentNotification.InDoubt%2A> or <xref:System.Transactions.IEnlistmentNotification.Rollback%2A> callback.       For more information on recovery, see [Performing Recovery](http://msdn.microsoft.com/en-us/d342c5c7-da64-4a4c-8e63-b52f4fbf2691).       **Note** This method uses <xref:System.Security.Permissions.SecurityAction> to prevent it from being called from untrusted code; however, only the immediate caller is required to possess the `FullTrust` permission set."
+  summary: "Reenlists een duurzame deelnemer in een transactie."
+  remarks: "Een resourcemanager vergemakkelijkt de resolutie van langdurige inschrijvingen toegestaan in een transactie door de deelnemer transactie reenlisting na een storing in bron.       De `resourceManagerIdentifier` parameter wordt gebruikt als consistent label de deelnemer van een transactie bij een storing van de resource.  Bij het aanroepen van de Reenlist-methode, moet de resourcemanager bieden dezelfde `resourceManagerIdentifier` zoals het wordt gebruikt wanneer deze oorspronkelijk aangeroepen de <xref:System.Transactions.Transaction.EnlistDurable%2A>methode tijdens de aanmelding is, of een <xref:System.Transactions.TransactionException>gegenereerd.</xref:System.Transactions.TransactionException> </xref:System.Transactions.Transaction.EnlistDurable%2A>       Wanneer een deelnemer is reenlisted met behulp van deze methode is de fase 2-methoden van <xref:System.Transactions.IEnlistmentNotification>die overeenkomen met de uitkomst van de transactie (dat wil zeggen, <xref:System.Transactions.IEnlistmentNotification.Commit%2A>, <xref:System.Transactions.IEnlistmentNotification.Rollback%2A>of <xref:System.Transactions.IEnlistmentNotification.InDoubt%2A>) zo nodig worden genoemd.</xref:System.Transactions.IEnlistmentNotification.InDoubt%2A> </xref:System.Transactions.IEnlistmentNotification.Rollback%2A> </xref:System.Transactions.IEnlistmentNotification.Commit%2A> </xref:System.Transactions.IEnlistmentNotification>       Nadat de deelnemers zijn met succes reenlisted, moet u vervolgens aanroepen <xref:System.Transactions.TransactionManager.RecoveryComplete%2A>om het herstel te voltooien.</xref:System.Transactions.TransactionManager.RecoveryComplete%2A>       U moet deze methode pas aanroepen wanneer een resourcemanager fout opnieuw wordt opgestart. Bovendien moet u alleen niet-omgezette transacties die zijn vastgelegd door een resourcemanager tijdens de eerste fase voorbereiden van een doorvoertransactie opnieuw. Elke poging deze methode niet aanroepen op ongeldige tijdstippen kan foutieve resultaten opleveren.       Als de transactiebeheerder is mislukt en de resourcemanager herstel alleen een korte periode voert nadat u aangeroepen de <xref:System.Transactions.PreparingEnlistment.Prepared%2A>methode op een inschrijving voor fase 1 van het protocol doorvoer in twee fasen doorvoeren uw resourcemanager mogelijk ontvangt de <xref:System.Transactions.IEnlistmentNotification.InDoubt%2A>of <xref:System.Transactions.IEnlistmentNotification.Rollback%2A>retouraanroep.</xref:System.Transactions.IEnlistmentNotification.Rollback%2A> </xref:System.Transactions.IEnlistmentNotification.InDoubt%2A> </xref:System.Transactions.PreparingEnlistment.Prepared%2A>       Zie voor meer informatie over herstel [herstel uitvoeren van](http://msdn.microsoft.com/en-us/d342c5c7-da64-4a4c-8e63-b52f4fbf2691).       **Opmerking** maakt gebruik van deze methode <xref:System.Security.Permissions.SecurityAction>om te voorkomen dat deze wordt aangeroepen vanuit niet-vertrouwde code; alleen de onmiddellijke aanroeper is echter vereist dat de `FullTrust` machtigingenset.</xref:System.Security.Permissions.SecurityAction>"
   syntax:
     content: public static System.Transactions.Enlistment Reenlist (Guid resourceManagerIdentifier, byte[] recoveryInformation, System.Transactions.IEnlistmentNotification enlistmentNotification);
     parameters:
     - id: resourceManagerIdentifier
       type: System.Guid
-      description: "A <xref:System.Guid> that uniquely identifies the resource manager."
+      description: "Een <xref:System.Guid>die wordt aangeduid de resourcemanager.</xref:System.Guid>"
     - id: recoveryInformation
       type: System.Byte[]
-      description: "Contains additional information of recovery information."
+      description: "Bevat aanvullende informatie van herstelgegevens."
     - id: enlistmentNotification
       type: System.Transactions.IEnlistmentNotification
-      description: "A resource object that implements <xref href=&quot;System.Transactions.IEnlistmentNotification&quot;></xref> to receive notifications."
+      description: "Een resource-object implementeert <xref href=&quot;System.Transactions.IEnlistmentNotification&quot;> </xref> om meldingen te ontvangen."
     return:
       type: System.Transactions.Enlistment
-      description: "An <xref href=&quot;System.Transactions.Enlistment&quot;></xref> that describes the enlistment."
+      description: "Een <xref href=&quot;System.Transactions.Enlistment&quot;> </xref> die de inschrijving wordt beschreven."
   overload: System.Transactions.TransactionManager.Reenlist*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>recoveryInformation</code> is invalid.       -or-       Transaction Manager information in <code>recoveryInformation</code> does not match the configured transaction manager.       -or-       <code>RecoveryInformation</code> is not recognized by <xref href=&quot;System.Transactions&quot;></xref>."
+    description: "<code>recoveryInformation</code>is ongeldig.       - of - informatie van de transactiebeheerder in <code>recoveryInformation</code> komt niet overeen met de geconfigureerde transactiebeheerder.       - of - <code>RecoveryInformation</code> wordt niet herkend door <xref href=&quot;System.Transactions&quot;> </xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<xref:System.Transactions.TransactionManager.RecoveryComplete*> has already been called for the specified <code>resourceManagerIdentifier</code>. The reenlistment is rejected."
+    description: "<xref:System.Transactions.TransactionManager.RecoveryComplete*>is al aangeroepen voor het opgegeven <code> resourceManagerIdentifier </code>.</xref:System.Transactions.TransactionManager.RecoveryComplete*> De reenlistment wordt geweigerd."
   - type: System.Transactions.TransactionException
     commentId: T:System.Transactions.TransactionException
-    description: "The <code>resourceManagerIdentifier</code> does not match the content of the specified recovery information in <code>recoveryInformation</code>."
+    description: "De <code> resourceManagerIdentifier </code> komt niet overeen met de inhoud van de opgegeven herstelgegevens in <code> recoveryInformation </code>."
   platform:
   - net462
 references:

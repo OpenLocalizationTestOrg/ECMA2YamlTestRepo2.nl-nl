@@ -16,8 +16,8 @@ items:
   nameWithType: IsolationLevel
   fullName: System.Transactions.IsolationLevel
   type: Enum
-  summary: "Specifies the isolation level of a transaction."
-  remarks: "The data affected by a transaction is called volatile. When you create a transaction, you can specify the isolation level that applies to the transaction. The isolation level of a transaction determines what level of access other transactions have to volatile data before a transaction completes.       The lowest isolation level, `ReadUncommitted`, allows many transactions to operate on a data store simultaneously and provides no protection against data corruption due to interruptive transactions. The highest isolation level, `Serializable`, provides a high degree of protection against interruptive transactions, but requires that each transaction complete before any other transactions are allowed to operate on the data.       The isolation level of a transaction is determined when the transaction is created. By default, the <xref:System.Transactions> infrastructure creates `Serializable` transactions. You can determine the isolation level of an existing transaction using the <xref:System.Transactions.Transaction.IsolationLevel%2A> property of a transaction."
+  summary: "Hiermee geeft u het isolatieniveau van een transactie."
+  remarks: "De gegevens die van invloed op een door een transactie wordt vluchtige genoemd. Wanneer u een transactie maakt, kunt u het isolatieniveau die voor de transactie geldt. Het isolatieniveau van een transactie bepaalt welk niveau van toegang tot andere transacties vluchtige gegevens voordat een transactie zijn is voltooid.       Het isolatieniveau laagste `ReadUncommitted`, kunt u veel transacties moeten tegelijkertijd worden uitgevoerd voor een gegevensarchief en biedt geen bescherming tegen gegevensbeschadiging vanwege interruptive transacties. Het isolatieniveau hoogste `Serializable`, biedt een hoge mate van bescherming tegen interruptive transacties, maar vereist dat elke transactie voltooien voordat andere transacties die bewerkingen uitvoeren op de gegevens zijn toegestaan.       Het isolatieniveau van een transactie wordt bepaald wanneer de transactie is gemaakt. Standaard de <xref:System.Transactions>infrastructuur maakt `Serializable` transacties.</xref:System.Transactions> U kunt bepalen het isolatieniveau van een bestaande transactie met de <xref:System.Transactions.Transaction.IsolationLevel%2A>eigenschap van een transactie.</xref:System.Transactions.Transaction.IsolationLevel%2A>"
   syntax:
     content: public enum IsolationLevel
   inheritance:
@@ -36,12 +36,12 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "The pending changes from more highly isolated transactions cannot be overwritten."
+  summary: "De wijzigingen in behandeling van hoger isolatieniveau transacties kunnen niet worden overschreven."
   syntax:
     content: Chaos
     return:
       type: System.Transactions.IsolationLevel
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -57,12 +57,12 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Volatile data cannot be read during the transaction, but can be modified."
+  summary: "Vluchtige gegevens tijdens de transactie kan niet worden gelezen, maar kan worden gewijzigd."
   syntax:
     content: ReadCommitted
     return:
       type: System.Transactions.IsolationLevel
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -78,12 +78,12 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Volatile data can be read and modified during the transaction."
+  summary: "Vluchtige gegevens kunnen worden gelezen en gewijzigd tijdens de transactie."
   syntax:
     content: ReadUncommitted
     return:
       type: System.Transactions.IsolationLevel
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -99,12 +99,12 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Volatile data can be read but not modified during the transaction. New data can be added during the transaction."
+  summary: "Vluchtige gegevens kunnen worden lezen maar niet worden gewijzigd tijdens de transactie. Nieuwe gegevens kunnen worden toegevoegd tijdens de transactie."
   syntax:
     content: RepeatableRead
     return:
       type: System.Transactions.IsolationLevel
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -120,12 +120,12 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Volatile data can be read but not modified, and no new data can be added during the transaction."
+  summary: "Vluchtige gegevens kunnen worden gelezen, maar niet gewijzigd en er worden geen nieuwe gegevens kunnen worden toegevoegd tijdens de transactie."
   syntax:
     content: Serializable
     return:
       type: System.Transactions.IsolationLevel
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -141,13 +141,13 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Volatile data can be read. Before a transaction modifies data, it verifies if another transaction has changed the data after it was initially read. If the data has been updated, an error is raised. This allows a transaction to get to the previously committed value of the data."
-  remarks: "When you try to promote a transaction that was created with this isolation level, an <xref:System.InvalidOperationException> is thrown with the error message &quot;Transactions with IsolationLevel Snapshot cannot be promoted&quot;."
+  summary: "Vluchtige gegevens kunnen worden gelezen. Voordat gegevens worden gewijzigd door een transactie wordt gecontroleerd of een andere transactie de gegevens is gewijzigd nadat het oorspronkelijk is gelezen. Als de gegevens is bijgewerkt, treedt een fout op. Hierdoor kan een transactie naar de eerder toegewezen waarde van de gegevens."
+  remarks: "Wanneer u probeert te promoveren van een transactie die is gemaakt met deze isolatieniveau een <xref:System.InvalidOperationException>gegenereerd met de fout bericht &quot; transacties met IsolationLevel-momentopname kan niet worden gepromoveerd&quot;.</xref:System.InvalidOperationException>"
   syntax:
     content: Snapshot
     return:
       type: System.Transactions.IsolationLevel
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -163,12 +163,12 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "A different isolation level than the one specified is being used, but the level cannot be determined. An exception is thrown if this value is set."
+  summary: "Een ander isolatieniveau dan de opgegeven versie wordt gebruikt, maar het niveau kan niet worden bepaald. Als deze waarde is ingesteld, wordt er een uitzondering gegenereerd."
   syntax:
     content: Unspecified
     return:
       type: System.Transactions.IsolationLevel
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
