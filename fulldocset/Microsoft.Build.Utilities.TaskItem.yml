@@ -28,8 +28,8 @@ items:
   nameWithType: TaskItem
   fullName: Microsoft.Build.Utilities.TaskItem
   type: Class
-  summary: "Defines a single item of the project as it is passed into a task."
-  remarks: "TaskItem objects do not exactly correspond to item elements in project files. If they did, then tasks would have access to data that was not explicitly passed into the task through the project file. This is not a security issue, but rather an issue with project file clarity and transparency.       This class has to be sealed since the build engine instantiates its own copy of this type. If a third party were to extend this class, then the build engine will yield an undesired behavior."
+  summary: "Hiermee definieert u één item van het project, zoals deze in een taak wordt doorgegeven."
+  remarks: "TaskItem objecten komen niet exact overeen met de item-elementen in de project-bestanden. Als ze hebt gedaan, zou taken toegang tot gegevens die niet expliciet aan de taak via het projectbestand doorgegeven is hebben. Dit is niet een beveiligingsprobleem, maar in plaats daarvan een probleem met de project-bestand duidelijkheid en transparantie.       Deze klasse moet worden gesloten omdat de engine voor het bouwen een eigen kopie van dit type ServiceHost. Als een derde partij zijn deze klasse uit te breiden en vervolgens de build-engine in een ongewenst gedrag resulteert."
   syntax:
     content: 'public sealed class TaskItem : MarshalByRefObject, Microsoft.Build.Framework.ITaskItem2'
   inheritance:
@@ -55,8 +55,8 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Initializes a new instance of the <xref href=&quot;Microsoft.Build.Utilities.TaskItem&quot;></xref> class."
-  remarks: "This constructor enables this type to be COM-creatable."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;Microsoft.Build.Utilities.TaskItem&quot;> </xref> klasse."
+  remarks: "Deze constructor kan dit type moet COM worden gemaakt."
   syntax:
     content: public TaskItem ();
     parameters: []
@@ -76,13 +76,13 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Initializes a new instance of the <xref href=&quot;Microsoft.Build.Utilities.TaskItem&quot;></xref> class using the specified source <xref href=&quot;Microsoft.Build.Framework.ITaskItem&quot;></xref>."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;Microsoft.Build.Utilities.TaskItem&quot;> </xref> klasse met behulp van de opgegeven bron <xref href=&quot;Microsoft.Build.Framework.ITaskItem&quot;> </xref>."
   syntax:
     content: public TaskItem (Microsoft.Build.Framework.ITaskItem sourceItem);
     parameters:
     - id: sourceItem
       type: Microsoft.Build.Framework.ITaskItem
-      description: "The item to copy."
+      description: "Het item te kopiëren."
   overload: Microsoft.Build.Utilities.TaskItem.#ctor*
   exceptions: []
   platform:
@@ -99,13 +99,13 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Initializes a new instance of the <xref href=&quot;Microsoft.Build.Utilities.TaskItem&quot;></xref> class using the specified item-specification string."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;Microsoft.Build.Utilities.TaskItem&quot;> </xref> klasse met de tekenreeks opgegeven item-specificatie."
   syntax:
     content: public TaskItem (string itemSpec);
     parameters:
     - id: itemSpec
       type: System.String
-      description: "The item specification."
+      description: "De specificatie van het item."
   overload: Microsoft.Build.Utilities.TaskItem.#ctor*
   exceptions: []
   platform:
@@ -122,16 +122,16 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Initializes a new instance of the <xref href=&quot;Microsoft.Build.Utilities.TaskItem&quot;></xref> class using the specified item-specification string and its metadata."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;Microsoft.Build.Utilities.TaskItem&quot;> </xref> met behulp van de tekenreeks opgegeven item-specificatie en de metagegevens van de klasse."
   syntax:
     content: public TaskItem (string itemSpec, System.Collections.IDictionary itemMetadata);
     parameters:
     - id: itemSpec
       type: System.String
-      description: "The item specification."
+      description: "De specificatie van het item."
     - id: itemMetadata
       type: System.Collections.IDictionary
-      description: "The custom metadata for the item specification."
+      description: "De aangepaste metagegevens voor de specificatie van het item."
   overload: Microsoft.Build.Utilities.TaskItem.#ctor*
   exceptions: []
   platform:
@@ -148,14 +148,14 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Clones the collection of custom metadata for the item specification."
-  remarks: "This method does not include built-in metadata."
+  summary: "De verzameling van aangepaste metagegevens voor de specificatie item klonen."
+  remarks: "Deze methode omvat geen ingebouwde metagegevens."
   syntax:
     content: public System.Collections.IDictionary CloneCustomMetadata ();
     parameters: []
     return:
       type: System.Collections.IDictionary
-      description: "An <xref:System.Collections.IDictionary> that represents a clone of the custom metadata."
+      description: "Een <xref:System.Collections.IDictionary>die staat voor een kloon van de metagegevens van de aangepaste.</xref:System.Collections.IDictionary>"
   overload: Microsoft.Build.Utilities.TaskItem.CloneCustomMetadata*
   exceptions: []
   platform:
@@ -172,14 +172,14 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Copies the item-specification metadata to the specified destination task item."
-  remarks: "If the metadata already exists on the destination item, then it is not overwritten. The original metadata value supersedes the copied metadata value.       This method does not copy the item specification to the destination task item."
+  summary: "De metagegevens van de specificatie van het item gekopieerd naar het taakitem opgegeven bestemming."
+  remarks: "Als de metagegevens zijn al op de doel-item bestaat, is klikt u vervolgens het niet overschreven. De oorspronkelijke metagegevenswaarde van vervangt de gekopieerde metagegevenswaarde.       Deze methode biedt de specificatie van het item niet kopiëren naar het taakitem bestemming."
   syntax:
     content: public void CopyMetadataTo (Microsoft.Build.Framework.ITaskItem destinationItem);
     parameters:
     - id: destinationItem
       type: Microsoft.Build.Framework.ITaskItem
-      description: "The item that this method will copy metadata to."
+      description: "Het item dat u deze methode metagegevens om te worden gekopieerd."
   overload: Microsoft.Build.Utilities.TaskItem.CopyMetadataTo*
   exceptions: []
   platform:
@@ -196,16 +196,16 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Retrieves the specified metadata on the item."
+  summary: "Haalt de metagegevens van de opgegeven op het item."
   syntax:
     content: public string GetMetadata (string metadataName);
     parameters:
     - id: metadataName
       type: System.String
-      description: "The name of the metadata to retrieve."
+      description: "De naam van de metagegevens ophalen."
     return:
       type: System.String
-      description: "A <xref:System.String> that represents the metadata value."
+      description: "Een <xref:System.String>die staat voor de metagegevenswaarde.</xref:System.String>"
   overload: Microsoft.Build.Utilities.TaskItem.GetMetadata*
   exceptions: []
   platform:
@@ -222,14 +222,14 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "When overridden in a derived class, gives task items infinite lease time."
-  remarks: "Otherwise, a limited lease of 5 minutes will result; and task instances can expire if they take a long time to process."
+  summary: "Wanneer in een afgeleide klasse genegeerd, krijgt de taak items oneindig leasetijd."
+  remarks: "Anders resulteert een beperkte lease van 5 minuten; en taakexemplaren kunnen vervallen wanneer ze erg lang duren om te verwerken."
   syntax:
     content: public override object InitializeLifetimeService ();
     parameters: []
     return:
       type: System.Object
-      description: "<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> to specify an infinite lifetime."
+      description: "<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>een oneindige levensduur opgeven."
   overload: Microsoft.Build.Utilities.TaskItem.InitializeLifetimeService*
   exceptions: []
   platform:
@@ -246,13 +246,13 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Gets or sets the item specification."
-  remarks: "The <xref:Microsoft.Build.Framework.ITaskItem.ItemSpec%2A> for the following item declaration in a project file is `File.cs`.      ```   <ItemGroup>       <Compile Include=&quot;File.cs&quot;/>   </ItemGroup>   ```"
+  summary: "Opgehaald of ingesteld van de specificatie van het item."
+  remarks: "De <xref:Microsoft.Build.Framework.ITaskItem.ItemSpec%2A>voor de declaratie van de volgende item in een project is het bestand `File.cs`.</xref:Microsoft.Build.Framework.ITaskItem.ItemSpec%2A>      ```   <ItemGroup>       <Compile Include=&quot;File.cs&quot;/>   </ItemGroup>   ```"
   syntax:
     content: public string ItemSpec { get; set; }
     return:
       type: System.String
-      description: "A <xref:System.String> that represents the item specification."
+      description: "Een <xref:System.String>die staat voor de specificatie van het item.</xref:System.String>"
   overload: Microsoft.Build.Utilities.TaskItem.ItemSpec*
   exceptions: []
   platform:
@@ -269,12 +269,12 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Gets the number of metadata set on the item."
+  summary: "Hiermee haalt u het nummer van de metagegevens die zijn ingesteld op het item."
   syntax:
     content: public int MetadataCount { get; }
     return:
       type: System.Int32
-      description: "An <xref:System.Int32> that represents the count of metadata set on the item."
+      description: "Een <xref:System.Int32>die staat voor de telling van de metagegevens die zijn ingesteld op het item.</xref:System.Int32>"
   overload: Microsoft.Build.Utilities.TaskItem.MetadataCount*
   exceptions: []
   platform:
@@ -291,12 +291,12 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Gets the names of all the metadata on the item."
+  summary: "Hiermee haalt u de namen van alle metagegevens op het item."
   syntax:
     content: public System.Collections.ICollection MetadataNames { get; }
     return:
       type: System.Collections.ICollection
-      description: "An <xref:System.Collections.ICollection> of metadata names."
+      description: "Een <xref:System.Collections.ICollection>van namen van metagegevens.</xref:System.Collections.ICollection>"
   overload: Microsoft.Build.Utilities.TaskItem.MetadataNames*
   exceptions: []
   platform:
@@ -314,13 +314,13 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "<xref href=&quot;Microsoft.Build.Framework.ITaskItem2&quot;></xref> implementation which returns a clone of the metadata on this object. Values returned are in their original escaped form."
+  summary: "<xref href=&quot;Microsoft.Build.Framework.ITaskItem2&quot;></xref>de implementatie die resulteert in een kloon van de metagegevens voor dit object. Geretourneerde waarden zijn in hun oorspronkelijke formulier escape-teken."
   syntax:
     content: System.Collections.IDictionary ITaskItem2.CloneCustomMetadataEscaped ();
     parameters: []
     return:
       type: System.Collections.IDictionary
-      description: "Returns the cloned metadata, with values&quot; escaping preserved."
+      description: "Retourneert de metagegevens van de gekloonde met waarden aanhalingstekens behouden blijven."
   overload: Microsoft.Build.Utilities.TaskItem.Microsoft#Build#Framework#ITaskItem2#CloneCustomMetadataEscaped*
   exceptions: []
   platform:
@@ -338,12 +338,12 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "<xref href=&quot;Microsoft.Build.Framework.ITaskItem2&quot;></xref> implementation which gets or sets the item include value.  For disk-based items this would be the file path."
+  summary: "<xref href=&quot;Microsoft.Build.Framework.ITaskItem2&quot;></xref>implementatie die opgehaald of ingesteld van het item waarde bevatten.  Dit zou het bestandspad zijn voor items op basis van schijven."
   syntax:
     content: string Microsoft.Build.Framework.ITaskItem2.EvaluatedIncludeEscaped { get; set; }
     return:
       type: System.String
-      description: "Returns the item include value."
+      description: "Retourneert het item opgegeven."
   overload: Microsoft.Build.Utilities.TaskItem.Microsoft#Build#Framework#ITaskItem2#EvaluatedIncludeEscaped*
   exceptions: []
   platform:
@@ -361,16 +361,16 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "<xref href=&quot;Microsoft.Build.Framework.ITaskItem2&quot;></xref> implementation which allows the values of metadata on the item to be queried."
+  summary: "<xref href=&quot;Microsoft.Build.Framework.ITaskItem2&quot;></xref>implementatie waarmee de waarden van de metagegevens op het item dat moet worden opgevraagd."
   syntax:
     content: string ITaskItem2.GetMetadataValueEscaped (string metadataName);
     parameters:
     - id: metadataName
       type: System.String
-      description: "The metadata to be queried"
+      description: "De metagegevens moeten worden opgevraagd"
     return:
       type: System.String
-      description: "Returns the escaped metadata value."
+      description: "Retourneert de metagegevenswaarde van escape-teken."
   overload: Microsoft.Build.Utilities.TaskItem.Microsoft#Build#Framework#ITaskItem2#GetMetadataValueEscaped*
   exceptions: []
   platform:
@@ -388,16 +388,16 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "<xref href=&quot;Microsoft.Build.Framework.ITaskItem2&quot;></xref> implementation which allows a piece of custom metadata to be set on the item. Assumes that the value passed in is unescaped, and escapes the value as necessary in order to maintain its value."
+  summary: "<xref href=&quot;Microsoft.Build.Framework.ITaskItem2&quot;></xref>implementatie waarmee een stukje aangepaste metagegevens worden ingesteld op het item. Wordt ervan uitgegaan dat de doorgegeven waarde unescaped en verlaat u de waarde indien nodig om toegang te houden van de waarde ervan."
   syntax:
     content: void ITaskItem2.SetMetadataValueLiteral (string metadataName, string metadataValue);
     parameters:
     - id: metadataName
       type: System.String
-      description: "The metadata name."
+      description: "De naam van de metagegevens."
     - id: metadataValue
       type: System.String
-      description: "The metadata value."
+      description: "De metagegevenswaarde."
   overload: Microsoft.Build.Utilities.TaskItem.Microsoft#Build#Framework#ITaskItem2#SetMetadataValueLiteral*
   exceptions: []
   platform:
@@ -419,10 +419,10 @@ items:
     parameters:
     - id: taskItemToCast
       type: Microsoft.Build.Utilities.TaskItem
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     return:
       type: System.String
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   overload: Microsoft.Build.Utilities.TaskItem.op_Explicit*
   exceptions: []
   platform:
@@ -439,13 +439,13 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Removes the specified metadata on the item."
+  summary: "Hiermee verwijdert u de opgegeven metagegevens op het item."
   syntax:
     content: public void RemoveMetadata (string metadataName);
     parameters:
     - id: metadataName
       type: System.String
-      description: "The name of metadata to remove."
+      description: "De naam van de metagegevens om te verwijderen."
   overload: Microsoft.Build.Utilities.TaskItem.RemoveMetadata*
   exceptions: []
   platform:
@@ -462,16 +462,16 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Sets or modifies the value of the specified metadata on the item."
+  summary: "Hiermee stelt u of de waarde van de opgegeven metagegevens op het item wordt gewijzigd."
   syntax:
     content: public void SetMetadata (string metadataName, string metadataValue);
     parameters:
     - id: metadataName
       type: System.String
-      description: "The name of metadata to set or modify."
+      description: "De naam van de metagegevens instellen of wijzigen."
     - id: metadataValue
       type: System.String
-      description: "The new value of metadata."
+      description: "De nieuwe waarde van metagegevens."
   overload: Microsoft.Build.Utilities.TaskItem.SetMetadata*
   exceptions: []
   platform:
@@ -488,13 +488,13 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Gets the item specification."
+  summary: "Hiermee haalt u de specificatie van het item."
   syntax:
     content: public override string ToString ();
     parameters: []
     return:
       type: System.String
-      description: "A <xref:System.String> that represents the item specification."
+      description: "Een <xref:System.String>die staat voor de specificatie van het item.</xref:System.String>"
   overload: Microsoft.Build.Utilities.TaskItem.ToString*
   exceptions: []
   platform:

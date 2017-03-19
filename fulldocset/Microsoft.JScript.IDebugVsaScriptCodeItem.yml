@@ -11,7 +11,7 @@ items:
   nameWithType: IDebugVsaScriptCodeItem
   fullName: Microsoft.JScript.IDebugVsaScriptCodeItem
   type: Interface
-  summary: "Defines methods that evaluate expressions and parse strings. This interface is typically implemented by an object that represents a code block, and it is typically called by a debugger. This interface provides extra functionality that is needed by an IActiveScript host."
+  summary: "Definieert de methoden die expressies evalueren en parseren van tekenreeksen. Deze interface wordt gewoonlijk geïmplementeerd door een object dat een codeblok vertegenwoordigt en deze doorgaans door een debugger wordt aangeroepen. Deze interface biedt extra functionaliteit die nodig is voor een host IActiveScript."
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -34,14 +34,14 @@ items:
   assemblies:
   - Microsoft.JScript
   namespace: Microsoft.JScript
-  summary: "When implemented in a class, evaluates the block, expression, or statement represented by the code item and returns the value. It is typically called by a debugger that needs to evaluate an expression (in a Watch window, for example). For expressions, the value is the result of the expression. For blocks and statements, the resulting expression is the last expression calculated by the block or statement."
-  remarks: "Note that the Evaluate method is functionally identical to the <xref:Microsoft.JScript.IVsaScriptCodeItem.Execute%2A> method. Only the marshaling attributes differ. This version of the interface allows an unmanaged debugger to obtain the return value as an `IUnknown` pointer rather than a `VARIANT`."
+  summary: "Wanneer een geïmplementeerd in een klasse, evalueert het blok, expressie of instructie vertegenwoordigd door het code-item en retourneert de waarde. Doorgaans wordt aangeroepen door een foutopsporingsprogramma die moet een expressie (in een controlevenster voor voorbeeld) niet evalueren. De waarde is voor expressies, het resultaat van de expressie. Voor blokken en instructies is de resulterende expressie de laatste expressie berekend door het blok of -instructie."
+  remarks: "Houd er rekening mee dat de methode Evaluate is identiek aan de <xref:Microsoft.JScript.IVsaScriptCodeItem.Execute%2A>methode.</xref:Microsoft.JScript.IVsaScriptCodeItem.Execute%2A> Alleen de Marshal kenmerken verschillen. Deze versie van de interface kan een niet-beheerde foutopsporingsprogramma verkrijgen van de geretourneerde waarde als een `IUnknown` aanwijzer in plaats van een `VARIANT`."
   syntax:
     content: public object Evaluate ();
     parameters: []
     return:
       type: System.Object
-      description: "Returns a value that represents the evaluation of the statement, expression, or block."
+      description: "Retourneert een waarde die aangeeft van de evaluatie van de instructie, expressie of blokkeren."
   overload: Microsoft.JScript.IDebugVsaScriptCodeItem.Evaluate*
   exceptions: []
   platform:
@@ -58,31 +58,31 @@ items:
   assemblies:
   - Microsoft.JScript
   namespace: Microsoft.JScript
-  summary: 'When implemented in a class, parses strings and returns the parsed-out information. This method is typically called by a debugger that needs to parse information about a breakpoint that is represented as a <xref uid=&quot;langword_csharp_string&quot; name=&quot;string&quot; href=&quot;&quot;></xref>. The debugger might have a breakpoint typed in by the user in the form *functionname-arguments-ILoffset*. A named breakpoint string can have a complex format, for example, `F.B(C.D[], int, arg : double ) : C.Abc + 123.` The parameter list is optional, as is the IL offset.'
+  summary: 'Wanneer een geïmplementeerd in een klasse, parseert tekenreeksen en retourneert de informatie geparseerd-out. Deze methode wordt doorgaans aangeroepen door een foutopsporingsprogramma dat moet worden geparseerd informatie over een onderbrekingspunt die wordt weergegeven als een <xref uid=&quot;langword_csharp_string&quot; name=&quot;string&quot; href=&quot;&quot;> </xref>. Het foutopsporingsprogramma wellicht een onderbrekingspunt in door de gebruiker in het formulier hebt getypt *functienaam-argumenten-ILoffset*. Een tekenreeks met de naam onderbrekingspunt kan bijvoorbeeld een complexe indeling hebben `F.B(C.D[], int, arg : double ) : C.Abc + 123.` de parameterlijst is optioneel, omdat de IL-offset.'
   syntax:
     content: public bool ParseNamedBreakPoint (string input, out string functionName, out int nargs, out string arguments, out string returnType, out ulong offset);
     parameters:
     - id: input
       type: System.String
-      description: "A well-formed named breakpoint string giving a function, optional argument list, and optional IL offset."
+      description: "Een goed ingedeelde benoemde onderbrekingspunt tekenreeks geeft een functie, een lijst met optioneel argument en een optionele IL-offset."
     - id: functionName
       type: System.String
-      description: "Out parameter returning the name of the function parsed out of the input string, or the empty string if the input string is not well formed."
+      description: "Uitvoerparameter die de naam van de functie retourneert geparseerd buiten de invoerreeks of een lege tekenreeks als de invoertekenreeks is niet grammaticaal correct."
     - id: nargs
       type: System.Int32
-      description: "Out parameter returning the number of arguments in the optional argument list. Returns zero if there is no arguments list or if the string is not well formed."
+      description: "Retourneert het aantal argumenten in de lijst optioneel argument uitvoerparameter. Geeft nul als er geen argumenten lijst is of als de tekenreeks is niet grammaticaal correct."
     - id: arguments
       type: System.String
-      description: "Out parameter returning a space-separated list of the names of the types of all the arguments in the arguments list, or an empty string if the arguments list was missing or the input string was not well formed."
+      description: "Uitvoerparameter wordt een door spaties gescheiden lijst van de namen van de typen van alle argumenten in de lijst met argumenten of een lege tekenreeks geretourneerd als de lijst met argumenten ontbreekt of de invoertekenreeks is niet grammaticaal correct."
     - id: returnType
       type: System.String
-      description: "Out parameter returning a string containing the return type of the function named in the input, or the empty string if the return type was missing or the input string was not well formed."
+      description: "Uitvoerparameter is retourneert een tekenreeks met het retourtype van de functie met de naam in de invoer of lege tekenreeks als het retourtype ontbreekt of de invoertekenreeks niet goed samengesteld."
     - id: offset
       type: System.UInt64
-      description: "Unsigned long integer giving the IL offset from the input string, or zero if there was no IL offset or the string was not well formed."
+      description: "Niet-ondertekende lange integer geeft de IL-offset van de invoertekenreeks of nul als er geen IL-offset is of de tekenreeks is niet grammaticaal correct."
     return:
       type: System.Boolean
-      description: "Returns <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the named breakpoint is successfully parsed, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> otherwise."
+      description: "Retourneert <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> als het benoemde onderbrekingspunt wordt geparseerd, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> anders."
   overload: Microsoft.JScript.IDebugVsaScriptCodeItem.ParseNamedBreakPoint*
   exceptions: []
   platform:
