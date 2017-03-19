@@ -11,8 +11,8 @@ items:
   nameWithType: AddInEnvironment
   fullName: System.AddIn.Hosting.AddInEnvironment
   type: Class
-  summary: "Provides access to the application domain and process of an add-in."
-  remarks: "Use this class to load add-ins into a desired environment, which can be one of the following:      -   An existing application domain for which you have the <xref:System.AppDomain> object.      -   An application domain that was automatically generated to activate an add-in.      -   An existing external process.       To obtain the AddInEnvironment object for an add-in, pass the add-in&quot;s application domain to the AddInEnvironment class constructor. Alternatively, you can use the <xref:System.AddIn.Hosting.AddInController.AddInEnvironment%2A> property of the <xref:System.AddIn.Hosting.AddInController> class to obtain the add-in&quot;s AddInEnvironment object.       After you obtain the AddInEnvironment object, you can do the following:      -   Pass that AddInEnvironment object to the appropriate <xref:System.AddIn.Hosting.AddInToken.Activate%2A> method overload. The add-in will be activated in the application domain and process that is represented by the AddInEnvironment object.      -   Use the <xref:System.AddIn.Hosting.AddInEnvironment.Process%2A> property to obtain an <xref:System.AddIn.Hosting.AddInProcess> object. Then pass that object to the appropriate <xref:System.AddIn.Hosting.AddInToken.Activate%2A> method overload. The add-in will be activated in the process that is represented by the <xref:System.AddIn.Hosting.AddInProcess> object but in a new application domain."
+  summary: "Biedt toegang tot het toepassingsdomein en het proces van een invoegtoepassing."
+  remarks: "Deze klasse gebruiken om te laden van invoegtoepassingen in een gewenste omgeving die een van de volgende opties:-een bestaand toepassingsdomein waarvoor u hebt de <xref:System.AppDomain>object.</xref:System.AppDomain>      -Een toepassingsdomein is automatisch gegenereerd voor het activeren van een invoegtoepassing.      -Een bestaand extern proces.       Voor het object AddInEnvironment voor een invoegtoepassing niet aan de AddInEnvironment klassen-constructor doorgeven van de invoegtoepassing toepassingsdomein. U kunt ook de <xref:System.AddIn.Hosting.AddInController.AddInEnvironment%2A>eigenschap van de <xref:System.AddIn.Hosting.AddInController>klasse om van de invoegtoepassing AddInEnvironment-object te verkrijgen.</xref:System.AddIn.Hosting.AddInController> </xref:System.AddIn.Hosting.AddInController.AddInEnvironment%2A>       Nadat u het object AddInEnvironment verkregen, kunt u het volgende doen:-dat AddInEnvironment object doorgeven aan de juiste <xref:System.AddIn.Hosting.AddInToken.Activate%2A>methode-overload.</xref:System.AddIn.Hosting.AddInToken.Activate%2A> De invoegtoepassing wordt geactiveerd in het toepassingsdomein en het proces dat wordt vertegenwoordigd door het object AddInEnvironment.      -Gebruik de <xref:System.AddIn.Hosting.AddInEnvironment.Process%2A>eigenschap verkrijgen van een <xref:System.AddIn.Hosting.AddInProcess>object.</xref:System.AddIn.Hosting.AddInProcess> </xref:System.AddIn.Hosting.AddInEnvironment.Process%2A> Vervolgens moet u dat object doorgeven aan de juiste <xref:System.AddIn.Hosting.AddInToken.Activate%2A>methode-overload.</xref:System.AddIn.Hosting.AddInToken.Activate%2A> De invoegtoepassing worden geactiveerd in het proces dat wordt vertegenwoordigd door de <xref:System.AddIn.Hosting.AddInProcess>object, maar in een nieuw toepassingsdomein.</xref:System.AddIn.Hosting.AddInProcess>"
   syntax:
     content: public sealed class AddInEnvironment
   inheritance:
@@ -33,22 +33,22 @@ items:
   assemblies:
   - System.AddIn
   namespace: System.AddIn.Hosting
-  summary: "Initializes a new instance of the <xref href=&quot;System.AddIn.Hosting.AddInEnvironment&quot;></xref> class."
-  remarks: "If you have access to the application domain that contains the add-in you need, you can use this constructor to obtain the add-in&quot;s <xref:System.AddIn.Hosting.AddInEnvironment> object. Otherwise, you can use the <xref:System.AddIn.Hosting.AddInController.AddInEnvironment%2A> property of the <xref:System.AddIn.Hosting.AddInController> class to obtain the <xref:System.AddIn.Hosting.AddInEnvironment> object."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.AddIn.Hosting.AddInEnvironment&quot;> </xref> klasse."
+  remarks: "Als u toegang tot het toepassingsdomein waarin de invoegtoepassing die u nodig hebt hebt, kunt u deze constructor gebruiken om op te halen van de invoegtoepassing <xref:System.AddIn.Hosting.AddInEnvironment>object.</xref:System.AddIn.Hosting.AddInEnvironment> Anders kunt u de <xref:System.AddIn.Hosting.AddInController.AddInEnvironment%2A>eigenschap van de <xref:System.AddIn.Hosting.AddInController>klasse verkrijgen van de <xref:System.AddIn.Hosting.AddInEnvironment>object.</xref:System.AddIn.Hosting.AddInEnvironment> </xref:System.AddIn.Hosting.AddInController> </xref:System.AddIn.Hosting.AddInController.AddInEnvironment%2A>"
   syntax:
     content: public AddInEnvironment (AppDomain appDomain);
     parameters:
     - id: appDomain
       type: System.AppDomain
-      description: "The application domain that contains the add-in."
+      description: "Het toepassingsdomein waarin de invoegtoepassing bij."
   overload: System.AddIn.Hosting.AddInEnvironment.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>appDomain</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>appDomain</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "Full-trust permission is demanded. A caller in the call chain does not have sufficient permission."
+    description: "De machtiging Volledig vertrouwen is vereist. Een aanroeper in de keten aanroep is niet gemachtigd."
   platform:
   - net462
 - uid: System.AddIn.Hosting.AddInEnvironment.Process
@@ -63,13 +63,13 @@ items:
   assemblies:
   - System.AddIn
   namespace: System.AddIn.Hosting
-  summary: "Gets the <xref href=&quot;System.AddIn.Hosting.AddInProcess&quot;></xref> object that represents the process in which the add-in is running."
-  remarks: "You can use this property to activate multiple add-ins in the same process but in different domains.       Pass the <xref:System.AddIn.Hosting.AddInProcess> object obtained with this property to the appropriate <xref:System.AddIn.Hosting.AddInToken.Activate%2A> method overload.       If you want to activate them in the same domain in an external process you should pass the <xref:System.AddIn.Hosting.AddInEnvironment> object directly to the <xref:System.AddIn.Hosting.AddInToken.Activate%60%601%28System.AddIn.Hosting.AddInEnvironment%29?displayProperty=fullName> method overload."
+  summary: "Haalt de <xref href=&quot;System.AddIn.Hosting.AddInProcess&quot;> </xref> -object met het proces waarin de invoegtoepassing wordt uitgevoerd."
+  remarks: "U kunt deze eigenschap gebruiken voor het activeren van meerdere invoegtoepassingen in hetzelfde proces, maar in verschillende domeinen bevinden.       Geeft de <xref:System.AddIn.Hosting.AddInProcess>object dat is verkregen met deze eigenschap in op de juiste <xref:System.AddIn.Hosting.AddInToken.Activate%2A>methode-overload.</xref:System.AddIn.Hosting.AddInToken.Activate%2A> </xref:System.AddIn.Hosting.AddInProcess>       Als u wilt activeren in hetzelfde domein in een extern proces geeft u de <xref:System.AddIn.Hosting.AddInEnvironment>object rechtstreeks naar de <xref:System.AddIn.Hosting.AddInToken.Activate%60%601%28System.AddIn.Hosting.AddInEnvironment%29?displayProperty=fullName>methode-overload.</xref:System.AddIn.Hosting.AddInToken.Activate%60%601%28System.AddIn.Hosting.AddInEnvironment%29?displayProperty=fullName> </xref:System.AddIn.Hosting.AddInEnvironment>"
   syntax:
     content: public System.AddIn.Hosting.AddInProcess Process { get; }
     return:
       type: System.AddIn.Hosting.AddInProcess
-      description: "The process in which the add-in is running."
+      description: "Het proces waarin de invoegtoepassing wordt uitgevoerd."
   overload: System.AddIn.Hosting.AddInEnvironment.Process*
   exceptions: []
   platform:

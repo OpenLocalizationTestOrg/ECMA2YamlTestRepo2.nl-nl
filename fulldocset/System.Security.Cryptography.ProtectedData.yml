@@ -11,7 +11,7 @@ items:
   nameWithType: ProtectedData
   fullName: System.Security.Cryptography.ProtectedData
   type: Class
-  summary: "Provides methods for encrypting and decrypting data. This class cannot be inherited."
+  summary: "Biedt methoden voor het versleutelen en ontsleutelen van gegevens. Deze klasse kan niet worden overgenomen."
   remarks: "This class provides access to the Data Protection API (DPAPI) available in Microsoft Windows 2000 and later operating systems. This is a service that is provided by the operating system and does not require additional libraries. It provides protection using the user or machine credentials to encrypt or decrypt data.  \n  \n The class consists of two wrappers for the unmanaged DPAPI, [Protect(Byte\\[\\], Byte\\[\\], DataProtectionScope)](assetId:///M:System.Security.Cryptography.ProtectedData.Protect(System.Byte[],System.Byte[],System.Security.Cryptography.DataProtectionScope)?qualifyHint=False&autoUpgrade=True) and [Unprotect(Byte\\[\\], Byte\\[\\], DataProtectionScope)](assetId:///M:System.Security.Cryptography.ProtectedData.Unprotect(System.Byte[],System.Byte[],System.Security.Cryptography.DataProtectionScope)?qualifyHint=False&autoUpgrade=True). These two methods can be used to encrypt and decrypt data such as passwords, keys, and connection strings.  \n  \n If you use these methods during impersonation, you may receive the following error: \"Key not valid for use in specified state.\" This occurs because the DPAPI stores the key data in user profiles. If the profile is not loaded, DPAPI won’t be able to perform the decryption. To prevent this error, load the profile of the user you want to impersonate before calling either method. Using DPAPI with impersonation can incur significant complication and requires careful design choices."
   example:
   - "The following example shows how to use data protection.  \n  \n [!code-cs[Cryptography.DataProtectionSample#1](~/add/codesnippet/csharp/t-system.security.crypto_126_1.cs)]\n [!code-cpp[Cryptography.DataProtectionSample#1](~/add/codesnippet/cpp/t-system.security.crypto_126_1.cpp)]\n [!code-vb[Cryptography.DataProtectionSample#1](~/add/codesnippet/visualbasic/t-system.security.crypto_126_1.vb)]"
@@ -35,8 +35,8 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography
-  summary: "Encrypts the data in a specified byte array and returns a byte array that contains the encrypted data."
-  remarks: "This method can be used to encrypt data such as passwords, keys, or connection strings. The `optionalEntropy` parameter enables you to add data to increase the complexity of the encryption; specify `null` for no additional complexity. If provided, this information must also be used when decrypting the data using the <xref:System.Security.Cryptography.ProtectedData.Unprotect%2A> method.      > [!NOTE] >  If you use this method during impersonation, you may receive the following error: &quot;Key not valid for use in specified state.&quot; To prevent this error, load the profile of the user you want to impersonate before calling the method."
+  summary: "Versleutelt de gegevens in een opgegeven byte-matrix en retourneert een bytematrix die de versleutelde gegevens bevat."
+  remarks: "Deze methode kan worden gebruikt voor het versleutelen van gegevens, zoals wachtwoorden, sleutels of verbindingsreeksen. De `optionalEntropy` parameter kunt u gegevens voor een verhoging van de complexiteit van de codering toe te voegen; Geef `null` voor geen extra complexiteit. Indien opgegeven, deze informatie moet ook worden gebruikt bij het decoderen van de gegevens met de <xref:System.Security.Cryptography.ProtectedData.Unprotect%2A>methode.</xref:System.Security.Cryptography.ProtectedData.Unprotect%2A>      > [!NOTE] > Als u deze methode tijdens de imitatie gebruikt, ontvangt u mogelijk de volgende fout: &quot;Sleutel is niet geldig voor gebruik in de opgegeven status&quot;. Om te voorkomen dat deze fout, het profiel van de gebruiker die u wilt voordat u de methode aanroept imiteren niet laden."
   example:
   - "The following example shows how to use data protection.  \n  \n [!code-cs[Cryptography.DataProtectionSample#1](~/add/codesnippet/csharp/95867340-d3f0-4c9c-82ca-_1.cs)]\n [!code-cpp[Cryptography.DataProtectionSample#1](~/add/codesnippet/cpp/95867340-d3f0-4c9c-82ca-_1.cpp)]\n [!code-vb[Cryptography.DataProtectionSample#1](~/add/codesnippet/visualbasic/95867340-d3f0-4c9c-82ca-_1.vb)]"
   syntax:
@@ -44,16 +44,16 @@ items:
     parameters:
     - id: userData
       type: System.Byte[]
-      description: "A byte array that contains data to encrypt."
+      description: "Een byte-matrix met gegevens te versleutelen."
     - id: optionalEntropy
       type: System.Byte[]
-      description: "An optional additional byte array used to increase the complexity of the encryption, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> for no additional complexity."
+      description: "Een optionele extra bytematrix gebruikt voor het verhogen van de complexiteit van de versleuteling of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> voor geen extra complexiteit."
     - id: scope
       type: System.Security.Cryptography.DataProtectionScope
-      description: "One of the enumeration values that specifies the scope of encryption."
+      description: "Een van de opsommingswaarden die Hiermee geeft u het bereik van versleuteling."
     return:
       type: System.Byte[]
-      description: "A byte array representing the encrypted data."
+      description: "Een bytematrix die staat voor de versleutelde gegevens."
   overload: System.Security.Cryptography.ProtectedData.Protect*
   exceptions:
   - type: System.ArgumentNullException
@@ -61,13 +61,13 @@ items:
     description: "The <code>userData</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The encryption failed."
+    description: "De versleuteling is mislukt."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The operating system does not support this method."
+    description: "Het besturingssysteem biedt geen ondersteuning voor deze methode."
   - type: System.OutOfMemoryException
     commentId: T:System.OutOfMemoryException
-    description: "The system ran out of memory while encrypting the data."
+    description: "Het systeem heeft te weinig geheugen tijdens het versleutelen van de gegevens."
   platform:
   - net462
 - uid: System.Security.Cryptography.ProtectedData.Unprotect(System.Byte[],System.Byte[],System.Security.Cryptography.DataProtectionScope)
@@ -82,8 +82,8 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography
-  summary: "Decrypts the data in a specified byte array and returns a byte array that contains the decrypted data."
-  remarks: "This method can be used to unprotect data that was encrypted using the <xref:System.Security.Cryptography.ProtectedData.Protect%2A> method. If the `optionalEntropy` parameter was used during encryption, it must be supplied to unencrypt the data.      > [!NOTE] >  If you use this method during impersonation, you may receive the following error: &quot;Key not valid for use in specified state.&quot; To prevent this error, load the profile of the user you want to impersonate before calling the method."
+  summary: "De gegevens in een opgegeven byte-matrix ontsleutelt en retourneert een bytematrix die de ontsleutelde gegevens bevat."
+  remarks: "Deze methode kan worden gebruikt om op te heffen gegevens die is versleuteld met behulp van de <xref:System.Security.Cryptography.ProtectedData.Protect%2A>methode.</xref:System.Security.Cryptography.ProtectedData.Protect%2A> Als de `optionalEntropy` parameter is gebruikt tijdens het versleutelen, deze moet worden opgegeven om door te decoderen: u moet de gegevens.      > [!NOTE] > Als u deze methode tijdens de imitatie gebruikt, ontvangt u mogelijk de volgende fout: &quot;Sleutel is niet geldig voor gebruik in de opgegeven status&quot;. Om te voorkomen dat deze fout, het profiel van de gebruiker die u wilt voordat u de methode aanroept imiteren niet laden."
   example:
   - "The following code example shows how to use data protection.  \n  \n [!code-cs[Cryptography.DataProtectionSample#1](~/add/codesnippet/csharp/52a5e76e-1631-47b1-9e44-_1.cs)]\n [!code-cpp[Cryptography.DataProtectionSample#1](~/add/codesnippet/cpp/52a5e76e-1631-47b1-9e44-_1.cpp)]\n [!code-vb[Cryptography.DataProtectionSample#1](~/add/codesnippet/visualbasic/52a5e76e-1631-47b1-9e44-_1.vb)]"
   syntax:
@@ -91,16 +91,16 @@ items:
     parameters:
     - id: encryptedData
       type: System.Byte[]
-      description: "A byte array containing data encrypted using the <xref:System.Security.Cryptography.ProtectedData.Protect*> method."
+      description: "Een bytematrix die gegevens versleuteld met de <xref:System.Security.Cryptography.ProtectedData.Protect*>methode.</xref:System.Security.Cryptography.ProtectedData.Protect*>"
     - id: optionalEntropy
       type: System.Byte[]
-      description: "An optional additional byte array that was used to encrypt the data, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the additional byte array was not used."
+      description: "Een optionele extra bytematrix die is gebruikt om de gegevens te versleutelen of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> als de aanvullende bytematrix niet is gebruikt."
     - id: scope
       type: System.Security.Cryptography.DataProtectionScope
-      description: "One of the enumeration values that specifies the scope of data protection that was used to encrypt the data."
+      description: "Een van de opsommingswaarden die het bereik van gegevensbeveiliging die is gebruikt voor het versleutelen van de gegevens aangeeft."
     return:
       type: System.Byte[]
-      description: "A byte array representing the decrypted data."
+      description: "Een bytematrix die staat voor de ontsleutelde gegevens."
   overload: System.Security.Cryptography.ProtectedData.Unprotect*
   exceptions:
   - type: System.ArgumentNullException
@@ -108,13 +108,13 @@ items:
     description: "The <code>encryptedData</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The decryption failed."
+    description: "De ontsleuteling is mislukt."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The operating system does not support this method."
+    description: "Het besturingssysteem biedt geen ondersteuning voor deze methode."
   - type: System.OutOfMemoryException
     commentId: T:System.OutOfMemoryException
-    description: "Out of memory."
+    description: "Onvoldoende geheugen."
   platform:
   - net462
 references:
