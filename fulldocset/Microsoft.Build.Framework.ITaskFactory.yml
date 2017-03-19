@@ -15,7 +15,7 @@ items:
   nameWithType: ITaskFactory
   fullName: Microsoft.Build.Framework.ITaskFactory
   type: Interface
-  summary: "Interface that a task factory Instance should implement."
+  summary: "Interface die een taak factory exemplaar te implementeren."
   syntax:
     content: public interface ITaskFactory
   implements: []
@@ -33,13 +33,13 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Cleans up any context or state that may have been built up for a given task."
+  summary: "Ruimt geen context of heeft die zijn gebouwd voor een bepaalde taak."
   syntax:
     content: public void CleanupTask (Microsoft.Build.Framework.ITask task);
     parameters:
     - id: task
       type: Microsoft.Build.Framework.ITask
-      description: "The task to clean up."
+      description: "De taak om op te schonen."
   overload: Microsoft.Build.Framework.ITaskFactory.CleanupTask*
   exceptions: []
   platform:
@@ -56,16 +56,16 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Creates an instance of the task to be used in a batch. The task factory logging host will log messages in the context of the task."
+  summary: "Maakt een exemplaar van de taak moet worden gebruikt in een batch. De taak factory logboekregistratie host Meld u berichten in de context van de taak."
   syntax:
     content: public Microsoft.Build.Framework.ITask CreateTask (Microsoft.Build.Framework.IBuildEngine taskFactoryLoggingHost);
     parameters:
     - id: taskFactoryLoggingHost
       type: Microsoft.Build.Framework.IBuildEngine
-      description: "The logging host for the task factory."
+      description: "De host van de logboekregistratie voor de taak-factory."
     return:
       type: Microsoft.Build.Framework.ITask
-      description: "Returns an instance of the task to be used in a batch."
+      description: "Retourneert een exemplaar van de taak moet worden gebruikt in een batch."
   overload: Microsoft.Build.Framework.ITaskFactory.CreateTask*
   exceptions: []
   platform:
@@ -82,12 +82,12 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Gets the name of the factory."
+  summary: "Hiermee haalt u de naam van de gegevensfactory."
   syntax:
     content: public string FactoryName { get; }
     return:
       type: System.String
-      description: "The name of the factory."
+      description: "De naam van de gegevensfactory."
   overload: Microsoft.Build.Framework.ITaskFactory.FactoryName*
   exceptions: []
   platform:
@@ -104,13 +104,13 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Get the descriptions for all the task&quot;s parameters."
+  summary: "Haal de beschrijvingen van parameters van de taak."
   syntax:
     content: public Microsoft.Build.Framework.TaskPropertyInfo[] GetTaskParameters ();
     parameters: []
     return:
       type: Microsoft.Build.Framework.TaskPropertyInfo[]
-      description: "A non-null array of property descriptions."
+      description: "Een niet-null-matrix met eigenschapbeschrijvingen."
   overload: Microsoft.Build.Framework.ITaskFactory.GetTaskParameters*
   exceptions: []
   platform:
@@ -127,26 +127,26 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Initializes this factory for instantiating tasks with a particular inline task block."
-  remarks: "The MSBuild engine calls this method to initialize the factory. After initialization, the factory can be asked whether or not task names can be created by the factory.       The `taskFactoryLoggingHost` will log messages in the context of the target where the task is first used."
+  summary: "Deze factory voor taken met een bepaalde inline taak blok instantiëren initialiseert."
+  remarks: "De MSBuild-engine roept deze methode voor het initialiseren van de fabriek. Na de initialisatie van, de factory vragen of de namen van taken kunnen worden gemaakt door de factory.       De `taskFactoryLoggingHost` wordt Leg berichten vast in de context van het doel waar de taak voor het eerst wordt gebruikt."
   syntax:
     content: public bool Initialize (string taskName, System.Collections.Generic.IDictionary<string,Microsoft.Build.Framework.TaskPropertyInfo> parameterGroup, string taskBody, Microsoft.Build.Framework.IBuildEngine taskFactoryLoggingHost);
     parameters:
     - id: taskName
       type: System.String
-      description: "Name of the task."
+      description: "De naam van de taak."
     - id: parameterGroup
       type: System.Collections.Generic.IDictionary{System.String,Microsoft.Build.Framework.TaskPropertyInfo}
-      description: "The parameter group."
+      description: "De parameter-groep."
     - id: taskBody
       type: System.String
-      description: "The task body."
+      description: "De hoofdcode van de taak."
     - id: taskFactoryLoggingHost
       type: Microsoft.Build.Framework.IBuildEngine
-      description: "The task factory logging host."
+      description: "De taak factory logboekregistratie host."
     return:
       type: System.Boolean
-      description: "A value indicating whether initialization was successful."
+      description: "Een waarde die aangeeft of de initialisatie geslaagd is."
   overload: Microsoft.Build.Framework.ITaskFactory.Initialize*
   exceptions: []
   platform:
@@ -163,12 +163,12 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Gets the type of the task this factory will instantiate."
+  summary: "Hiermee wordt het type van de taak die wordt een exemplaar van deze factory."
   syntax:
     content: public Type TaskType { get; }
     return:
       type: System.Type
-      description: "The type of task."
+      description: "Het type taak."
   overload: Microsoft.Build.Framework.ITaskFactory.TaskType*
   exceptions: []
   platform:

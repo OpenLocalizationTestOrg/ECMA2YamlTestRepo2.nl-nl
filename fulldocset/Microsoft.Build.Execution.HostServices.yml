@@ -16,8 +16,8 @@ items:
   nameWithType: HostServices
   fullName: Microsoft.Build.Execution.HostServices
   type: Class
-  summary: "Implementation of a host service that mediates access from the build to the host."
-  remarks: "See also <xref:Microsoft.Build.Utilities.Task.HostObject%2A>."
+  summary: "Implementatie van een hostservice die de build toegang heeft tot de host doorgeeft."
+  remarks: "Zie ook <xref:Microsoft.Build.Utilities.Task.HostObject%2A>.</xref:Microsoft.Build.Utilities.Task.HostObject%2A>"
   syntax:
     content: >-
       [System.Diagnostics.DebuggerDisplay("#Entries={hostObjectMap.Count}")]
@@ -41,7 +41,7 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Creates a host service."
+  summary: "Hiermee maakt u een host-service."
   syntax:
     content: public HostServices ();
     parameters: []
@@ -61,22 +61,22 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Gets the host service for the given task where the task appears within a target and project with the given names."
+  summary: "Hiermee haalt u de host-service voor de opgegeven taak waar de taak wordt weergegeven binnen een doel en -project met de namen opgegeven."
   syntax:
     content: public Microsoft.Build.Framework.ITaskHost GetHostObject (string projectFile, string targetName, string taskName);
     parameters:
     - id: projectFile
       type: System.String
-      description: "The name of the project file."
+      description: "De naam van het projectbestand."
     - id: targetName
       type: System.String
-      description: "The name of the target."
+      description: "De naam van het doel."
     - id: taskName
       type: System.String
-      description: "The task name associated with the host service."
+      description: "De naam van de taak die is gekoppeld aan de host-service."
     return:
       type: Microsoft.Build.Framework.ITaskHost
-      description: "Returns the host service for the given task where the task appears within a target and project with the given names. If no host service exists, returns null."
+      description: "Retourneert de host-service voor de opgegeven taak waar de taak wordt weergegeven binnen een doel en -project met de namen opgegeven. Als er geen host-service aanwezig is, retourneert null."
   overload: Microsoft.Build.Execution.HostServices.GetHostObject*
   exceptions: []
   platform:
@@ -93,16 +93,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Gets the node affinity for the given project file."
+  summary: "Hiermee haalt u de knooppuntsaffiniteit voor het opgegeven bestand."
   syntax:
     content: public Microsoft.Build.Execution.NodeAffinity GetNodeAffinity (string projectFile);
     parameters:
     - id: projectFile
       type: System.String
-      description: "The project file associated with the node."
+      description: "Het projectbestand die zijn gekoppeld aan het knooppunt."
     return:
       type: Microsoft.Build.Execution.NodeAffinity
-      description: "Returns the node affinity for the given project file."
+      description: "Retourneert het knooppuntaffiniteitsmasker voor het opgegeven bestand."
   overload: Microsoft.Build.Execution.HostServices.GetNodeAffinity*
   exceptions: []
   platform:
@@ -119,17 +119,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Updates the host services table when a project is named or renamed."
-  remarks: "A project is named when it is given a new full path and the old path is null."
+  summary: "De tabel van de services host bijgewerkt wanneer een project met de naam is of gewijzigd."
+  remarks: "Een project de naam is wanneer er een nieuwe volledig pad is opgegeven en het oude pad null is."
   syntax:
     content: public void OnRenameProject (string oldFullPath, string newFullPath);
     parameters:
     - id: oldFullPath
       type: System.String
-      description: "The current path to the project file."
+      description: "Het huidige pad naar het projectbestand."
     - id: newFullPath
       type: System.String
-      description: "The new path to the project file."
+      description: "Het nieuwe pad naar het projectbestand."
   overload: Microsoft.Build.Execution.HostServices.OnRenameProject*
   exceptions: []
   platform:
@@ -146,23 +146,23 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Register a host service for the given task/target pair."
-  remarks: "Overwrites any existing host service."
+  summary: "Een host-service voor het paar opgegeven taakdoel registreren."
+  remarks: "Eventuele bestaande host-service, worden overschreven."
   syntax:
     content: public void RegisterHostObject (string projectFile, string targetName, string taskName, Microsoft.Build.Framework.ITaskHost hostObject);
     parameters:
     - id: projectFile
       type: System.String
-      description: "The project file containing the task/target pair."
+      description: "Het projectbestand met het paar doel-taak."
     - id: targetName
       type: System.String
-      description: "The name of the target."
+      description: "De naam van het doel."
     - id: taskName
       type: System.String
-      description: "The name of the task."
+      description: "De naam van de taak."
     - id: hostObject
       type: Microsoft.Build.Framework.ITaskHost
-      description: "The host service."
+      description: "De host-service."
   overload: Microsoft.Build.Execution.HostServices.RegisterHostObject*
   exceptions: []
   platform:
@@ -179,16 +179,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Sets the node affinity for the given project file."
+  summary: "Hiermee stelt u de knooppuntsaffiniteit voor het opgegeven bestand."
   syntax:
     content: public void SetNodeAffinity (string projectFile, Microsoft.Build.Execution.NodeAffinity nodeAffinity);
     parameters:
     - id: projectFile
       type: System.String
-      description: "The project file. If set to String.Empty, all projects will use the given node affinity. If set to null, all node affinities will be cleared."
+      description: "Het projectbestand. Ingesteld op String.Empty, alle projecten zal gebruiken als de affiniteit opgegeven knooppunt. Als op null ingesteld alle knooppunt affiniteiten worden gewist."
     - id: nodeAffinity
       type: Microsoft.Build.Execution.NodeAffinity
-      description: "The node affinity."
+      description: "De knooppuntsaffiniteit."
   overload: Microsoft.Build.Execution.HostServices.SetNodeAffinity*
   exceptions: []
   platform:
@@ -205,13 +205,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Unregister the project&quot;s host objects, if any and remove any node affinities associated with it."
+  summary: "Hef de registratie van objecten van de host van het project, indien van toepassing en verwijder alle affiniteiten knooppunt is gekoppeld."
   syntax:
     content: public void UnregisterProject (string projectFullPath);
     parameters:
     - id: projectFullPath
       type: System.String
-      description: "The path to the project to unregister."
+      description: "Het pad naar het project registratie."
   overload: Microsoft.Build.Execution.HostServices.UnregisterProject*
   exceptions: []
   platform:

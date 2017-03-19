@@ -60,7 +60,7 @@ items:
   nameWithType: ToolLocationHelper
   fullName: Microsoft.Build.Utilities.ToolLocationHelper
   type: Class
-  summary: "Provides utility methods for locating [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] and [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] SDK files and directories."
+  summary: "Biedt hulpprogrammamethoden voor het zoeken van [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] en [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] SDK bestanden en mappen."
   remarks: ''
   example:
   - "The following example creates a <xref:Microsoft.Build.Utilities.ToolTask> that runs [Ilasm.exe (IL Assembler)](~/add/includes/ajax-current-ext-md.md). The <xref:Microsoft.Build.Utilities.CommandLineBuilder>, ToolLocationHelper, and <xref:Microsoft.Build.Utilities.TaskLoggingHelper> classes are used to generate the information needed to run the task.  \n  \n [!code-cs[msbuild_ToolTask#1](~/add/codesnippet/csharp/ILAsm/ILAsm.cs#1)]\n [!code-vb[msbuild_ToolTask#1](~/add/codesnippet/visualbasic/ILAsmVB/ILAsm.vb#1)]"
@@ -84,7 +84,7 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Clears the appDomain wide cache of platform and extension SDKs."
+  summary: "Hiermee wist u de wide appDomain-cache van het platform en extensie SDK&quot;s."
   syntax:
     content: public static void ClearSDKStaticCache ();
     parameters: []
@@ -104,32 +104,32 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Gets a sorted list of <xref href=&quot;Microsoft.Build.Utilities.AssemblyFoldersExInfo&quot;></xref> objects which contain information about the directories in which the third party assemblies are registered. This information is used at build and design time."
-  remarks: "This method enumerates the `AssemblyFoldersEx` registry location and returns the list of `AssemblyFoldersExInfo`in the same order that they are searched for reference assemblies at design and build time.       On a 64-bit operating system, if targeting 64-bit, add in the 64-bit hive then the 32-bit hive; if targeting 32-bit, add in the 32-bit hive then the 64-bit hive. On 32-bit machine only add in the 32-bit hive."
+  summary: "Hiermee haalt u een gesorteerde lijst van <xref href=&quot;Microsoft.Build.Utilities.AssemblyFoldersExInfo&quot;> </xref> objecten die informatie bevatten over de mappen waarin de assembly&quot;s van derden worden geregistreerd. Deze informatie wordt gebruikt tijdens het samenstellen en ontwerpen."
+  remarks: "Deze methode inventariseert de `AssemblyFoldersEx` registerlocatie en retourneert de lijst met `AssemblyFoldersExInfo`in dezelfde volgorde waarin ze worden doorzocht op verwijzings-assembly&quot;s bij het ontwerpen en bouwen.       Op een 64-bits besturingssysteem, als 64-bits ontwikkelt, toevoegen in de component 64-bits vervolgens de 32-bits-component; Als u ontwikkelt voor 32-bits, toevoegen in de component 32-bits vervolgens de 64-bits-component. Voeg op alleen 32-bits computer in de 32-bits-component."
   syntax:
     content: public static System.Collections.Generic.IList<Microsoft.Build.Utilities.AssemblyFoldersExInfo> GetAssemblyFoldersExInfo (string registryRoot, string targetFrameworkVersion, string registryKeySuffix, string osVersion, string platform, System.Reflection.ProcessorArchitecture targetProcessorArchitecture);
     parameters:
     - id: registryRoot
       type: System.String
-      description: "The root registry location for the targeted framework. For .NET this is SOFTWARE\\MICROSOFT\\\\.NETFramework."
+      description: "De registerlocatie hoofdmap voor de betreffende framework. Dit is voor .NET SOFTWARE\\MICROSOFT\\\\. NETFramework."
     - id: targetFrameworkVersion
       type: System.String
-      description: "The targeted framework version (2.0, 3.0, 3.5, 4.0, ….)."
+      description: "De betreffende framework-versie (2.0, 3.0, 3.5, 4.0,...)."
     - id: registryKeySuffix
       type: System.String
-      description: "The name of the folder, (AssemblyFoldersEx) could also be PocketPC\\AssemblyFoldersEx, or others."
+      description: "De naam van de map (AssemblyFoldersEx) kan ook worden PocketPC\\AssemblyFoldersEx of anderen."
     - id: osVersion
       type: System.String
-      description: "The targeted minimum and maximum OS versions in the registry. These values are used to return only directories for OS versions between the declared minimum and maximum. If this value is blank or null, no filtering is done."
+      description: "De betreffende minimale en maximale OS-versies in het register. Deze waarden worden gebruikt voor het retourneren van Directory&quot;s voor versies van het besturingssysteem tussen de gedeclareerde minimum en maximum. Als deze waarde leeg of null is, wordt geen filter uitgevoerd."
     - id: platform
       type: System.String
-      description: "The targeted platform GUIDs. Used to return only directories which have a matching platform GUID. If this value is blank or null no filtering is done."
+      description: "Het doelplatform GUID&quot;s. Gebruikt om te retourneren van alleen de mappen met een overeenkomende GUID-platform. Als deze waarde leeg of null is wordt geen filters uitgevoerd."
     - id: targetProcessorArchitecture
       type: System.Reflection.ProcessorArchitecture
-      description: "The targeted processor architecture. This determines which registry hives are searched and in which order."
+      description: "De betreffende processorarchitectuur. Hiermee bepaalt u welke registeronderdelen doorzocht en in welke volgorde."
     return:
       type: System.Collections.Generic.IList{Microsoft.Build.Utilities.AssemblyFoldersExInfo}
-      description: "Returns list of <xref uid=&quot;langword_csharp_AssemblyFoldersExInfo&quot; name=&quot;AssemblyFoldersExInfo&quot; href=&quot;&quot;></xref>."
+      description: "Retourneert het aantal <xref uid=&quot;langword_csharp_AssemblyFoldersExInfo&quot; name=&quot;AssemblyFoldersExInfo&quot; href=&quot;&quot;> </xref>."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetAssemblyFoldersExInfo*
   exceptions: []
   platform:
@@ -146,20 +146,20 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Creates a display name given the target framework details."
-  remarks: "This is the equivalent of the target framework moniker, but for display.       If one cannot be found from the redist list file, a synthesized one is returned, so there is always a display name."
+  summary: "Maakt een weergavenaam op basis van de details van de doel-framework."
+  remarks: "Dit is het equivalent van de doel-framework moniker, maar om weer te geven.       Als er een kan niet worden gevonden van het bestand redist lijst, gesyntheseerde een wordt geretourneerd, dus er is altijd een weergavenaam."
   syntax:
     content: public static string GetDisplayNameForTargetFrameworkDirectory (string targetFrameworkDirectory, System.Runtime.Versioning.FrameworkName frameworkName);
     parameters:
     - id: targetFrameworkDirectory
       type: System.String
-      description: "The target framework directory."
+      description: "De doel-framework-map."
     - id: frameworkName
       type: System.Runtime.Versioning.FrameworkName
-      description: "The framework name."
+      description: "De naam van het framework."
     return:
       type: System.String
-      description: "Returns a display name given the target framework details."
+      description: "Retourneert een weergavenaam op basis van de details van de doel-framework."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetDisplayNameForTargetFrameworkDirectory*
   exceptions: []
   platform:
@@ -176,16 +176,16 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Gets the full name of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] root registry key."
+  summary: "Hiermee wordt de volledige naam van de [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] hoofdsleutel in het register."
   syntax:
     content: public static string GetDotNetFrameworkRootRegistryKey (Microsoft.Build.Utilities.TargetDotNetFrameworkVersion version);
     parameters:
     - id: version
       type: Microsoft.Build.Utilities.TargetDotNetFrameworkVersion
-      description: "The version of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] to target."
+      description: "De versie van de [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] naar doel."
     return:
       type: System.String
-      description: "A string containing the full name of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] root registry key."
+      description: "Een tekenreeks met de volledige naam van de [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] hoofdsleutel in het register."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetDotNetFrameworkRootRegistryKey*
   exceptions: []
   platform:
@@ -202,16 +202,16 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Gets the name of the value under the <xref:Microsoft.Build.Utilities.ToolLocationHelper.GetDotNetFrameworkRootRegistryKey*> that contains the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] SDK installation path."
+  summary: "Hiermee wordt de naam van de waarde onder de <xref:Microsoft.Build.Utilities.ToolLocationHelper.GetDotNetFrameworkRootRegistryKey*>die bevat de [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] SDK installatie pad</xref:Microsoft.Build.Utilities.ToolLocationHelper.GetDotNetFrameworkRootRegistryKey*>"
   syntax:
     content: public static string GetDotNetFrameworkSdkInstallKeyValue (Microsoft.Build.Utilities.TargetDotNetFrameworkVersion version);
     parameters:
     - id: version
       type: Microsoft.Build.Utilities.TargetDotNetFrameworkVersion
-      description: "The version of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] to target."
+      description: "De versie van de [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] naar doel."
     return:
       type: System.String
-      description: "Returns a string containing the name of the registry key value under the <xref:Microsoft.Build.Utilities.ToolLocationHelper.GetDotNetFrameworkRootRegistryKey*> that contains the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] SDK installation path."
+      description: "Retourneert een tekenreeks met de naam van de registersleutelwaarde onder de <xref:Microsoft.Build.Utilities.ToolLocationHelper.GetDotNetFrameworkRootRegistryKey*>die bevat de [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] SDK installatie pad</xref:Microsoft.Build.Utilities.ToolLocationHelper.GetDotNetFrameworkRootRegistryKey*>"
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetDotNetFrameworkSdkInstallKeyValue*
   exceptions: []
   platform:
@@ -228,19 +228,19 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Name of the value of GetDotNetFrameworkRootRegistryKey that contains the SDK install root path"
+  summary: "Naam van de waarde van GetDotNetFrameworkRootRegistryKey met de SDK installeren hoofdpad"
   syntax:
     content: public static string GetDotNetFrameworkSdkInstallKeyValue (Microsoft.Build.Utilities.TargetDotNetFrameworkVersion version, Microsoft.Build.Utilities.VisualStudioVersion visualStudioVersion);
     parameters:
     - id: version
       type: Microsoft.Build.Utilities.TargetDotNetFrameworkVersion
-      description: "Version of the targeted .NET Framework"
+      description: "Versie van de betreffende .NET Framework"
     - id: visualStudioVersion
       type: Microsoft.Build.Utilities.VisualStudioVersion
-      description: "Version of Visual Studio the requested SDK is associated with"
+      description: "Versie van Visual Studio de gevraagde SDK is gekoppeld"
     return:
       type: System.String
-      description: "Returns <xref:System.String>."
+      description: "Retourneert <xref:System.String>.</xref:System.String>"
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetDotNetFrameworkSdkInstallKeyValue*
   exceptions: []
   platform:
@@ -257,16 +257,16 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Returns the full name of the .NET Framework SDK root registry key."
+  summary: "Retourneert de volledige naam van de registersleutel voor .NET Framework SDK-hoofdmap."
   syntax:
     content: public static string GetDotNetFrameworkSdkRootRegistryKey (Microsoft.Build.Utilities.TargetDotNetFrameworkVersion version);
     parameters:
     - id: version
       type: Microsoft.Build.Utilities.TargetDotNetFrameworkVersion
-      description: "Version of the targeted .NET Framework"
+      description: "Versie van de betreffende .NET Framework"
     return:
       type: System.String
-      description: "Returns a string representation of the registry key root which indicates where to find the .NETFramework sdk."
+      description: "Retourneert een tekenreeksrepresentatie van de belangrijkste basis-register waarmee wordt aangegeven waar vind ik het. NETFramework sdk."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetDotNetFrameworkSdkRootRegistryKey*
   exceptions: []
   platform:
@@ -283,19 +283,19 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Returns the full name of the .NET Framework SDK root registry key"
+  summary: "Retourneert de volledige naam van de registersleutel voor .NET Framework SDK-basis"
   syntax:
     content: public static string GetDotNetFrameworkSdkRootRegistryKey (Microsoft.Build.Utilities.TargetDotNetFrameworkVersion version, Microsoft.Build.Utilities.VisualStudioVersion visualStudioVersion);
     parameters:
     - id: version
       type: Microsoft.Build.Utilities.TargetDotNetFrameworkVersion
-      description: "Version of the targeted .NET Framework"
+      description: "Versie van de betreffende .NET Framework"
     - id: visualStudioVersion
       type: Microsoft.Build.Utilities.VisualStudioVersion
-      description: "Version of Visual Studio the requested SDK is associated with"
+      description: "Versie van Visual Studio de gevraagde SDK is gekoppeld"
     return:
       type: System.String
-      description: "Returns <xref:System.String>."
+      description: "Retourneert <xref:System.String>.</xref:System.String>"
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetDotNetFrameworkSdkRootRegistryKey*
   exceptions: []
   platform:
@@ -312,17 +312,17 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Gets the prefix of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] folder."
-  remarks: "An example of the value returned is the string &quot;v2.0&quot;."
+  summary: "Haalt het voorvoegsel van de [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] map."
+  remarks: "Een voorbeeld van de geretourneerde waarde is de tekenreeks &quot;v2.0&quot;."
   syntax:
     content: public static string GetDotNetFrameworkVersionFolderPrefix (Microsoft.Build.Utilities.TargetDotNetFrameworkVersion version);
     parameters:
     - id: version
       type: Microsoft.Build.Utilities.TargetDotNetFrameworkVersion
-      description: "The version of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] to target."
+      description: "De versie van de [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] naar doel."
     return:
       type: System.String
-      description: "Returns the prefix of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] folder."
+      description: "Retourneert het voorvoegsel van de [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] map."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetDotNetFrameworkVersionFolderPrefix*
   exceptions: []
   platform:
@@ -339,16 +339,16 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Gets a fully qualified path to the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] root directory."
+  summary: "Opgehaald van een volledig gekwalificeerde pad naar de [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] hoofdmap."
   syntax:
     content: public static string GetPathToDotNetFramework (Microsoft.Build.Utilities.TargetDotNetFrameworkVersion version);
     parameters:
     - id: version
       type: Microsoft.Build.Utilities.TargetDotNetFrameworkVersion
-      description: "The version of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] to target."
+      description: "De versie van de [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] naar doel."
     return:
       type: System.String
-      description: "A string containing the fully qualified path to the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] root directory, or a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in [!INCLUDE[vbprvb](~/add/includes/vbprvb-md.md)]) if the targeted version of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] is not installed."
+      description: "Een tekenreeks met de volledig gekwalificeerde pad naar de [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] hoofdmap of een null-verwijzing (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> in [!INCLUDE[vbprvb](~/add/includes/vbprvb-md.md)]) als de doelversie van de [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] is niet geïnstalleerd."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetPathToDotNetFramework*
   exceptions: []
   platform:
@@ -365,19 +365,19 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Gets a fully qualified path to the framework&quot;s root directory."
+  summary: "Hiermee haalt u een volledig gekwalificeerde pad naar de hoofdmap van het framework."
   syntax:
     content: public static string GetPathToDotNetFramework (Microsoft.Build.Utilities.TargetDotNetFrameworkVersion version, Microsoft.Build.Utilities.DotNetFrameworkArchitecture architecture);
     parameters:
     - id: version
       type: Microsoft.Build.Utilities.TargetDotNetFrameworkVersion
-      description: "Version of the targeted .NET Framework"
+      description: "Versie van de betreffende .NET Framework"
     - id: architecture
       type: Microsoft.Build.Utilities.DotNetFrameworkArchitecture
-      description: "Desired architecture, or DotNetFrameworkArchitecture.Current for the architecture this process is currently running under."
+      description: "Architectuur of DotNetFrameworkArchitecture.Current voor de architectuur die dit proces wordt momenteel uitgevoerd met de gewenste."
     return:
       type: System.String
-      description: "Returns a fully qualified path to the framework&quot;s root directory."
+      description: "Retourneert een volledig gekwalificeerde pad naar de hoofdmap van het framework."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetPathToDotNetFramework*
   exceptions: []
   platform:
@@ -394,7 +394,7 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Gets a fully qualified path to a file in the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] directory."
+  summary: "Opgehaald van een volledig gekwalificeerde pad naar een bestand in de [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] directory."
   remarks: ''
   example:
   - "The following example creates a <xref:Microsoft.Build.Utilities.ToolTask> that runs [Ilasm.exe (IL Assembler)](~/add/includes/ajax-current-ext-md.md). The <xref:Microsoft.Build.Utilities.CommandLineBuilder>, <xref:Microsoft.Build.Utilities.ToolLocationHelper>, and <xref:Microsoft.Build.Utilities.TaskLoggingHelper> classes are used to generate the information needed to run the task.  \n  \n [!code-cs[msbuild_ToolTask#1](~/add/codesnippet/csharp/ILAsm/ILAsm.cs#1)]\n [!code-vb[msbuild_ToolTask#1](~/add/codesnippet/visualbasic/ILAsmVB/ILAsm.vb#1)]"
@@ -403,13 +403,13 @@ items:
     parameters:
     - id: fileName
       type: System.String
-      description: "The file to locate in the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] directory."
+      description: "Het bestand te vinden in de [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] directory."
     - id: version
       type: Microsoft.Build.Utilities.TargetDotNetFrameworkVersion
-      description: "The version of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] to target."
+      description: "De versie van de [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] naar doel."
     return:
       type: System.String
-      description: "A string containing the fully qualified path to the specified file, or a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in [!INCLUDE[vbprvb](~/add/includes/vbprvb-md.md)]) if the targeted version of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] is not installed."
+      description: "Een tekenreeks met de volledig gekwalificeerde pad naar het opgegeven bestand of een null-verwijzing (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> in [!INCLUDE[vbprvb](~/add/includes/vbprvb-md.md)]) als de doelversie van de [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] is niet geïnstalleerd."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetPathToDotNetFrameworkFile*
   exceptions: []
   platform:
@@ -426,22 +426,22 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Gets a fully qualified path to a file in the frameworks root directory for the specified architecture."
+  summary: "Hiermee haalt u een volledig gekwalificeerde pad naar een bestand in de hoofdmap frameworks voor de opgegeven architectuur."
   syntax:
     content: public static string GetPathToDotNetFrameworkFile (string fileName, Microsoft.Build.Utilities.TargetDotNetFrameworkVersion version, Microsoft.Build.Utilities.DotNetFrameworkArchitecture architecture);
     parameters:
     - id: fileName
       type: System.String
-      description: "File name to locate in the .NET Framework directory"
+      description: "De bestandsnaam te vinden in de .NET Framework-map"
     - id: version
       type: Microsoft.Build.Utilities.TargetDotNetFrameworkVersion
-      description: "Version of the targeted .NET Framework"
+      description: "Versie van de betreffende .NET Framework"
     - id: architecture
       type: Microsoft.Build.Utilities.DotNetFrameworkArchitecture
-      description: "Desired architecture, or DotNetFrameworkArchitecture.Current for the architecture this process is currently running under."
+      description: "Architectuur of DotNetFrameworkArchitecture.Current voor de architectuur die dit proces wordt momenteel uitgevoerd met de gewenste."
     return:
       type: System.String
-      description: "Returns a fully qualified path to a file in the frameworks root directory."
+      description: "Retourneert een volledig gekwalificeerde pad naar een bestand in de hoofdmap frameworks."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetPathToDotNetFrameworkFile*
   exceptions: []
   platform:
@@ -458,16 +458,16 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Returns the path to the reference assemblies location for the given framework version."
+  summary: "Retourneert het pad naar de locatie van de referentie-assembly&quot;s voor de gegeven framework-versie."
   syntax:
     content: public static string GetPathToDotNetFrameworkReferenceAssemblies (Microsoft.Build.Utilities.TargetDotNetFrameworkVersion version);
     parameters:
     - id: version
       type: Microsoft.Build.Utilities.TargetDotNetFrameworkVersion
-      description: "Version of the targeted .NET Framework"
+      description: "Versie van de betreffende .NET Framework"
     return:
       type: System.String
-      description: "Returns a string containing the fully qualified path to the Reference Assemblies folder, or a null reference (Nothing in Visual Basic) if the targeted version of the .NET Framework is not installed."
+      description: "Retourneert een tekenreeks met de volledig gekwalificeerde pad naar de map verwijzings-assembly&quot;s of een null-verwijzing (Nothing in Visual Basic) als de doelversie van .NET Framework niet is geïnstalleerd."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetPathToDotNetFrameworkReferenceAssemblies*
   exceptions: []
   platform:
@@ -484,16 +484,16 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Gets the fully qualified path to the \\bin directory of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] SDK."
+  summary: "Haalt het volledig gekwalificeerde pad naar de map \\bin van de [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] SDK."
   syntax:
     content: public static string GetPathToDotNetFrameworkSdk (Microsoft.Build.Utilities.TargetDotNetFrameworkVersion version);
     parameters:
     - id: version
       type: Microsoft.Build.Utilities.TargetDotNetFrameworkVersion
-      description: "The version of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] to target."
+      description: "De versie van de [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] naar doel."
     return:
       type: System.String
-      description: "A string containing the fully qualified path to the \\bin directory of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] SDK, or a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in [!INCLUDE[vbprvb](~/add/includes/vbprvb-md.md)]) if the targeted version of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] SDK is not installed."
+      description: "Een tekenreeks met de volledig gekwalificeerde pad naar de map \\bin van de [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] SDK, of een null-verwijzing (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> in [!INCLUDE[vbprvb](~/add/includes/vbprvb-md.md)]) als de doelversie van de [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] SDK niet is geïnstalleerd."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetPathToDotNetFrameworkSdk*
   exceptions: []
   platform:
@@ -510,19 +510,19 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Returns the path to the &quot;bin&quot; directory of the .NET Framework SDK."
+  summary: "Retourneert het pad naar de map &quot;bin&quot; van de .NET Framework SDK."
   syntax:
     content: public static string GetPathToDotNetFrameworkSdk (Microsoft.Build.Utilities.TargetDotNetFrameworkVersion version, Microsoft.Build.Utilities.VisualStudioVersion visualStudioVersion);
     parameters:
     - id: version
       type: Microsoft.Build.Utilities.TargetDotNetFrameworkVersion
-      description: "Version of the targeted .NET Framework"
+      description: "Versie van de betreffende .NET Framework"
     - id: visualStudioVersion
       type: Microsoft.Build.Utilities.VisualStudioVersion
-      description: "Version of Visual Studio the requested SDK is associated with"
+      description: "Versie van Visual Studio de gevraagde SDK is gekoppeld"
     return:
       type: System.String
-      description: "Path string."
+      description: "De tekenreeks."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetPathToDotNetFrameworkSdk*
   exceptions: []
   platform:
@@ -539,20 +539,20 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Gets the fully qualified path to a file in the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] SDK."
-  remarks: "The path for the SDK takes in consideration the processor architecture environment information for the calling process, so it might end up being &quot;.../bin/i64&quot;, for example.       Unlike <xref:Microsoft.Build.Utilities.ToolLocationHelper.GetPathToDotNetFrameworkFile%2A> and <xref:Microsoft.Build.Utilities.ToolLocationHelper.GetPathToSystemFile%2A> this method checks for the existence of the file, so that an invalid `fileName` returns null."
+  summary: "Haalt het volledig gekwalificeerde pad naar een bestand in de [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] SDK."
+  remarks: "Het pad voor de SDK duurt in overweging de processor-architectuur omgevingsinformatie voor het aanroepende proces, zodat deze kan worden uiteindelijk &quot;.../bin/i64&quot;, bijvoorbeeld.       In tegenstelling tot <xref:Microsoft.Build.Utilities.ToolLocationHelper.GetPathToDotNetFrameworkFile%2A>en <xref:Microsoft.Build.Utilities.ToolLocationHelper.GetPathToSystemFile%2A>deze methode wordt gecontroleerd op de aanwezigheid van het bestand, zodat een ongeldige `fileName` retourneert null.</xref:Microsoft.Build.Utilities.ToolLocationHelper.GetPathToSystemFile%2A> </xref:Microsoft.Build.Utilities.ToolLocationHelper.GetPathToDotNetFrameworkFile%2A>"
   syntax:
     content: public static string GetPathToDotNetFrameworkSdkFile (string fileName, Microsoft.Build.Utilities.TargetDotNetFrameworkVersion version);
     parameters:
     - id: fileName
       type: System.String
-      description: "The file to locate in the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] SDK."
+      description: "Het bestand te vinden in de [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] SDK."
     - id: version
       type: Microsoft.Build.Utilities.TargetDotNetFrameworkVersion
-      description: "The version of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] to target."
+      description: "De versie van de [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] naar doel."
     return:
       type: System.String
-      description: "A string containing the fully qualified path to the \\bin directory of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] SDK, or a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in [!INCLUDE[vbprvb](~/add/includes/vbprvb-md.md)]) if the targeted version of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] SDK is not installed."
+      description: "Een tekenreeks met de volledig gekwalificeerde pad naar de map \\bin van de [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] SDK, of een null-verwijzing (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> in [!INCLUDE[vbprvb](~/add/includes/vbprvb-md.md)]) als de doelversie van de [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] SDK niet is geïnstalleerd."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetPathToDotNetFrameworkSdkFile*
   exceptions: []
   platform:
@@ -569,22 +569,22 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Gets a fully qualified path to a file in the .NET Framework SDK."
+  summary: "Hiermee haalt u een volledig gekwalificeerde pad naar een bestand in de .NET Framework SDK."
   syntax:
     content: public static string GetPathToDotNetFrameworkSdkFile (string fileName, Microsoft.Build.Utilities.TargetDotNetFrameworkVersion version, Microsoft.Build.Utilities.DotNetFrameworkArchitecture architecture);
     parameters:
     - id: fileName
       type: System.String
-      description: "File name to locate in the .NET Framework SDK directory"
+      description: "De bestandsnaam te vinden in de .NET Framework SDK-map"
     - id: version
       type: Microsoft.Build.Utilities.TargetDotNetFrameworkVersion
-      description: "Version of the targeted .NET Framework"
+      description: "Versie van de betreffende .NET Framework"
     - id: architecture
       type: Microsoft.Build.Utilities.DotNetFrameworkArchitecture
-      description: "The required architecture of the requested file."
+      description: "De vereiste architectuur van het aangevraagde bestand."
     return:
       type: System.String
-      description: "Returns a fully qualified path to a file in the .NET Framework SDK. Throws an error if the .NET Framework SDK can&quot;t be found."
+      description: "Retourneert een volledig gekwalificeerde pad naar een bestand in de .NET Framework SDK. Genereert een fout als de .NET Framework SDK kan worden gevonden."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetPathToDotNetFrameworkSdkFile*
   exceptions: []
   platform:
@@ -601,22 +601,22 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Get a fully qualified path to a file in the .NET Framework SDK. Error if the .NET Framework SDK can&quot;t be found."
+  summary: "Een volledig gekwalificeerde pad naar een bestand in de .NET Framework SDK worden opgehaald. Fout bij als de .NET Framework SDK kan worden gevonden."
   syntax:
     content: public static string GetPathToDotNetFrameworkSdkFile (string fileName, Microsoft.Build.Utilities.TargetDotNetFrameworkVersion version, Microsoft.Build.Utilities.VisualStudioVersion visualStudioVersion);
     parameters:
     - id: fileName
       type: System.String
-      description: "File name to locate in the .NET Framework SDK directory"
+      description: "De bestandsnaam te vinden in de .NET Framework SDK-map"
     - id: version
       type: Microsoft.Build.Utilities.TargetDotNetFrameworkVersion
-      description: "Version of the targeted .NET Framework"
+      description: "Versie van de betreffende .NET Framework"
     - id: visualStudioVersion
       type: Microsoft.Build.Utilities.VisualStudioVersion
-      description: "Version of Visual Studio associated with the requested SDK."
+      description: "De versie van Visual Studio die zijn gekoppeld aan de gevraagde SDK."
     return:
       type: System.String
-      description: "Path string."
+      description: "De tekenreeks."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetPathToDotNetFrameworkSdkFile*
   exceptions: []
   platform:
@@ -633,25 +633,25 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Get a fully qualified path to a file in the .NET Framework SDK. Error if the .NET Framework SDK can&quot;t be found."
+  summary: "Een volledig gekwalificeerde pad naar een bestand in de .NET Framework SDK worden opgehaald. Fout bij als de .NET Framework SDK kan worden gevonden."
   syntax:
     content: public static string GetPathToDotNetFrameworkSdkFile (string fileName, Microsoft.Build.Utilities.TargetDotNetFrameworkVersion version, Microsoft.Build.Utilities.VisualStudioVersion visualStudioVersion, Microsoft.Build.Utilities.DotNetFrameworkArchitecture architecture);
     parameters:
     - id: fileName
       type: System.String
-      description: "File name to locate in the .NET Framework SDK directory"
+      description: "De bestandsnaam te vinden in de .NET Framework SDK-map"
     - id: version
       type: Microsoft.Build.Utilities.TargetDotNetFrameworkVersion
-      description: "Version of the targeted .NET Framework"
+      description: "Versie van de betreffende .NET Framework"
     - id: visualStudioVersion
       type: Microsoft.Build.Utilities.VisualStudioVersion
-      description: "Version of Visual Studio associated with the requested SDK."
+      description: "De versie van Visual Studio die zijn gekoppeld aan de gevraagde SDK."
     - id: architecture
       type: Microsoft.Build.Utilities.DotNetFrameworkArchitecture
-      description: "The required architecture of the requested file."
+      description: "De vereiste architectuur van het aangevraagde bestand."
     return:
       type: System.String
-      description: "Path string."
+      description: "De tekenreeks."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetPathToDotNetFrameworkSdkFile*
   exceptions: []
   platform:
@@ -668,22 +668,22 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Gets the paths to the reference assemblies location for the given target framework."
-  remarks: "This method assumes that the requested ReferenceAssemblyRoot path will be the ProgramFiles directory that is specified by Environment.SpecialFolder.ProgramFiles. In addition, when the .NETFramework or .NET Framework targetFrameworkIdentifiers are seen and targetFrameworkVersion is 2.0, 3.0, 3.5, or 4, the correctly chained reference assembly paths for the legacy .NET Framework versions will be returned. This chaining will use the existing GetPathToDotNetFrameworkReferenceAssemblies to build up the list of reference assembly paths."
+  summary: "Hiermee haalt u de paden naar de locatie van de referentie-assembly&quot;s voor het opgegeven doel-framework."
+  remarks: "Deze methode wordt ervan uitgegaan dat het aangevraagde ReferenceAssemblyRoot-pad moet de ProgramFiles map die is opgegeven door Environment.SpecialFolder.ProgramFiles. Bovendien, wanneer de. TargetFrameworkIdentifiers NETFramework of .NET Framework zijn zichtbaar en targetFrameworkVersion 2.0, 3.0, 3.5 of 4 is, wordt de paden van de assembly juist keten verwijzing voor de oudere versies van .NET Framework worden geretourneerd. Deze koppeling om de bestaande GetPathToDotNetFrameworkReferenceAssemblies voor het bouwen van de lijst van verwijzing naar assembly paden te gebruiken."
   syntax:
     content: public static System.Collections.Generic.IList<string> GetPathToReferenceAssemblies (System.Runtime.Versioning.FrameworkName frameworkName);
     parameters:
     - id: frameworkName
       type: System.Runtime.Versioning.FrameworkName
-      description: "The framework name."
+      description: "De naam van het framework."
     return:
       type: System.Collections.Generic.IList{System.String}
-      description: "Returns the paths to the reference assemblies location."
+      description: "Retourneert de paden naar de locatie van de referentie-assembly&quot;s."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetPathToReferenceAssemblies*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "When the frameworkName is null"
+    description: "Wanneer de frameworkName is null"
   platform:
   - net462
 - uid: Microsoft.Build.Utilities.ToolLocationHelper.GetPathToReferenceAssemblies(System.String,System.Runtime.Versioning.FrameworkName)
@@ -698,20 +698,20 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Gets the paths to the reference assemblies location for the given framework version relative to a given targetFrameworkRoot."
-  remarks: "This method does not check to see if the path exists or not."
+  summary: "Hiermee haalt u de paden naar de locatie van de referentie-assembly&quot;s voor de opgegeven framework-versie ten opzichte van een bepaalde targetFrameworkRoot."
+  remarks: "Deze methode wordt niet gecontroleerd om te zien als het pad of niet bestaat."
   syntax:
     content: public static System.Collections.Generic.IList<string> GetPathToReferenceAssemblies (string targetFrameworkRootPath, System.Runtime.Versioning.FrameworkName frameworkName);
     parameters:
     - id: targetFrameworkRootPath
       type: System.String
-      description: "Root directory which will be used to calculate the reference assembly path. The references assembies will be generated in the following way TargetFrameworkRootPath\\TargetFrameworkIdentifier\\TargetFrameworkVersion\\SubType\\TargetFrameworkSubType."
+      description: "Hoofdmap die wordt gebruikt voor het berekenen van de referentie-assembly-pad. De verwijzingen assembies wordt gegenereerd in de volgende manier TargetFrameworkRootPath\\TargetFrameworkIdentifier\\TargetFrameworkVersion\\SubType\\TargetFrameworkSubType."
     - id: frameworkName
       type: System.Runtime.Versioning.FrameworkName
-      description: "A frameworkName class which represents a TargetFrameworkMoniker. This cannot be null."
+      description: "Een frameworkName-klasse die een TargetFrameworkMoniker vertegenwoordigt. Dit kan niet null zijn."
     return:
       type: System.Collections.Generic.IList{System.String}
-      description: "Returns the paths to the reference assemblies location."
+      description: "Retourneert de paden naar de locatie van de referentie-assembly&quot;s."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetPathToReferenceAssemblies*
   exceptions: []
   platform:
@@ -728,27 +728,27 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Returns the paths to the reference assemblies location for the given target framework. This method will assume the requested ReferenceAssemblyRoot path will be the ProgramFiles directory specified by Environment.SpecialFolder.ProgramFiles In additon when the .NETFramework or .NET Framework targetFrameworkIdentifiers are seen and targetFrameworkVersion is 2.0, 3.0, 3.5 or 4.0 we will return the correctly chained reference assembly paths for the legacy .NET Framework versions. This chaining will use the existing GetPathToDotNetFrameworkReferenceAssemblies to build up the list of reference assembly paths."
+  summary: "Retourneert de paden naar de locatie van de referentie-assembly&quot;s voor het opgegeven doel-framework. Deze methode wordt van uitgegaan dat het aangevraagde ReferenceAssemblyRoot-pad moet de directory ProgramFiles Environment.SpecialFolder.ProgramFiles In additon wanneer de. TargetFrameworkIdentifiers NETFramework of .NET Framework zijn zichtbaar en targetFrameworkVersion is 2.0, 3.0, 3.5 of 4.0 we de paden van de assembly juist keten verwijzing voor de oudere versies van .NET Framework wordt geretourneerd. Deze koppeling om de bestaande GetPathToDotNetFrameworkReferenceAssemblies voor het bouwen van de lijst van verwijzing naar assembly paden te gebruiken."
   syntax:
     content: public static System.Collections.Generic.IList<string> GetPathToReferenceAssemblies (string targetFrameworkIdentifier, string targetFrameworkVersion, string targetFrameworkProfile);
     parameters:
     - id: targetFrameworkIdentifier
       type: System.String
-      description: "Identifier being targeted"
+      description: "ID die wordt benaderd"
     - id: targetFrameworkVersion
       type: System.String
-      description: "Version being targeted"
+      description: "Versie die wordt benaderd"
     - id: targetFrameworkProfile
       type: System.String
-      description: "Profile being targeted"
+      description: "Profiel wordt benaderd"
     return:
       type: System.Collections.Generic.IList{System.String}
-      description: "Collection of reference assembly locations."
+      description: "Verzameling van verwijzing naar assembly locaties."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetPathToReferenceAssemblies*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "When the frameworkName is null"
+    description: "Wanneer de frameworkName is null"
   platform:
   - net462
 - uid: Microsoft.Build.Utilities.ToolLocationHelper.GetPathToStandardLibraries(System.String,System.String,System.String)
@@ -763,27 +763,27 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Returns the path to the reference assemblies location for the given target framework&quot;s standard libraries (i.e. mscorlib). This method will assume the requested ReferenceAssemblyRoot path will be the ProgramFiles directory specified by Environment.SpecialFolder.ProgramFiles In additon when the .NETFramework or .NET Framework targetFrameworkIdentifiers are seen and targetFrameworkVersion is 2.0, 3.0, 3.5 or 4.0 we will return the correctly chained reference assembly paths for the legacy .NET Framework versions. This chaining will use the existing GetPathToDotNetFrameworkReferenceAssemblies to build up the list of reference assembly paths."
+  summary: "Retourneert het pad naar de locatie van de referentie-assembly&quot;s voor het opgegeven doel-framework standaardbibliotheken (dat wil zeggen mscorlib). Deze methode wordt van uitgegaan dat het aangevraagde ReferenceAssemblyRoot-pad moet de directory ProgramFiles Environment.SpecialFolder.ProgramFiles In additon wanneer de. TargetFrameworkIdentifiers NETFramework of .NET Framework zijn zichtbaar en targetFrameworkVersion is 2.0, 3.0, 3.5 of 4.0 we de paden van de assembly juist keten verwijzing voor de oudere versies van .NET Framework wordt geretourneerd. Deze koppeling om de bestaande GetPathToDotNetFrameworkReferenceAssemblies voor het bouwen van de lijst van verwijzing naar assembly paden te gebruiken."
   syntax:
     content: public static string GetPathToStandardLibraries (string targetFrameworkIdentifier, string targetFrameworkVersion, string targetFrameworkProfile);
     parameters:
     - id: targetFrameworkIdentifier
       type: System.String
-      description: "Identifier being targeted"
+      description: "ID die wordt benaderd"
     - id: targetFrameworkVersion
       type: System.String
-      description: "Version being targeted"
+      description: "Versie die wordt benaderd"
     - id: targetFrameworkProfile
       type: System.String
-      description: "Profile being targeted"
+      description: "Profiel wordt benaderd"
     return:
       type: System.String
-      description: "Collection of reference assembly locations."
+      description: "Verzameling van verwijzing naar assembly locaties."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetPathToStandardLibraries*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "When the frameworkName is null"
+    description: "Wanneer de frameworkName is null"
   platform:
   - net462
 - uid: Microsoft.Build.Utilities.ToolLocationHelper.GetPathToStandardLibraries(System.String,System.String,System.String,System.String)
@@ -798,30 +798,30 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Returns the path to mscorlib and system.dll"
+  summary: "Retourneert het pad van mscorlib en system.dll"
   syntax:
     content: public static string GetPathToStandardLibraries (string targetFrameworkIdentifier, string targetFrameworkVersion, string targetFrameworkProfile, string platformTarget);
     parameters:
     - id: targetFrameworkIdentifier
       type: System.String
-      description: "Identifier being targeted"
+      description: "ID die wordt benaderd"
     - id: targetFrameworkVersion
       type: System.String
-      description: "Version being targeted"
+      description: "Versie die wordt benaderd"
     - id: targetFrameworkProfile
       type: System.String
-      description: "Profile being targeted"
+      description: "Profiel wordt benaderd"
     - id: platformTarget
       type: System.String
-      description: "This is used to determine where we should look for the standard libraries. Note, this parameter is only used for .NET Framework 3.5 or less."
+      description: "Dit wordt gebruikt om te bepalen waar we de standaardbibliotheken moet letten. Opmerking: deze parameter is alleen gebruikt voor .NET Framework 3.5 of minder."
     return:
       type: System.String
-      description: "Collection of reference assembly locations."
+      description: "Verzameling van verwijzing naar assembly locaties."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetPathToStandardLibraries*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "When the frameworkName is null"
+    description: "Wanneer de frameworkName is null"
   platform:
   - net462
 - uid: Microsoft.Build.Utilities.ToolLocationHelper.GetPathToSystemFile(System.String)
@@ -836,17 +836,17 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Gets a fully qualified path to a file in the system directory."
-  remarks: "This API builds the full path plus filename for a file in the System folder. It doesn&quot;t check for the existence of the file prior to returning."
+  summary: "Hiermee haalt u een volledig gekwalificeerde pad naar een bestand in de map van het systeem."
+  remarks: "Deze API bouwt het volledige pad plus de bestandsnaam op van een bestand in de map System. Deze controleert niet op de aanwezigheid van het bestand voordat retourneren."
   syntax:
     content: public static string GetPathToSystemFile (string fileName);
     parameters:
     - id: fileName
       type: System.String
-      description: "The file to locate in the System folder."
+      description: "Het bestand te vinden in de map System."
     return:
       type: System.String
-      description: "A string containing the fully qualified path to the the file in the system directory."
+      description: "Een tekenreeks met de volledig gekwalificeerde pad naar de het bestand in de map van het systeem."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetPathToSystemFile*
   exceptions: []
   platform:
@@ -863,19 +863,19 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Returns the path to the Windows SDK for the desired .NET Framework and Visual Studio version. Note that this is only supported for a targeted .NET Framework version of 4.5 and above."
+  summary: "Retourneert het pad naar de Windows SDK voor de gewenste versie van .NET Framework en Visual Studio. Houd er rekening mee dat dit alleen wordt ondersteund voor een bepaalde versie van .NET Framework 4.5 en hoger."
   syntax:
     content: public static string GetPathToWindowsSdk (Microsoft.Build.Utilities.TargetDotNetFrameworkVersion version, Microsoft.Build.Utilities.VisualStudioVersion visualStudioVersion);
     parameters:
     - id: version
       type: Microsoft.Build.Utilities.TargetDotNetFrameworkVersion
-      description: "Target .NET Framework version"
+      description: ".NET Framework-doelversie"
     - id: visualStudioVersion
       type: Microsoft.Build.Utilities.VisualStudioVersion
-      description: "Version of Visual Studio associated with the SDK."
+      description: "De versie van Visual Studio die zijn gekoppeld aan de SDK."
     return:
       type: System.String
-      description: "Path to the appropriate Windows SDK location"
+      description: "Pad naar de juiste Windows SDK-locatie"
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetPathToWindowsSdk*
   exceptions: []
   platform:
@@ -892,22 +892,22 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Returns the path to a file in the Windows SDK for the desired .NET Framework and Visual Studio version. Note that this is only supported for a targeted .NET Framework version of 4.5 and above."
+  summary: "Retourneert het pad naar een bestand in de Windows SDK voor de gewenste versie van .NET Framework en Visual Studio. Houd er rekening mee dat dit alleen wordt ondersteund voor een bepaalde versie van .NET Framework 4.5 en hoger."
   syntax:
     content: public static string GetPathToWindowsSdkFile (string fileName, Microsoft.Build.Utilities.TargetDotNetFrameworkVersion version, Microsoft.Build.Utilities.VisualStudioVersion visualStudioVersion);
     parameters:
     - id: fileName
       type: System.String
-      description: "The name of the file being requested."
+      description: "De naam van het bestand wordt aangevraagd."
     - id: version
       type: Microsoft.Build.Utilities.TargetDotNetFrameworkVersion
-      description: "Target .NET Framework version."
+      description: ".NET Framework-doelversie."
     - id: visualStudioVersion
       type: Microsoft.Build.Utilities.VisualStudioVersion
-      description: "Version of Visual Studio associated with the SDK."
+      description: "De versie van Visual Studio die zijn gekoppeld aan de SDK."
     return:
       type: System.String
-      description: "Path to the appropriate Windows SDK file"
+      description: "Pad naar het juiste bestand voor de Windows SDK"
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetPathToWindowsSdkFile*
   exceptions: []
   platform:
@@ -924,25 +924,25 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Returns the path to a file in the Windows SDK for the desired .NET Framework and Visual Studio version and the desired architecture. Note that this is only supported for a targeted .NET Framework version of 4.5 and above."
+  summary: "Retourneert het pad naar een bestand in de Windows SDK voor de gewenste versie van .NET Framework en Visual Studio en de gewenste architectuur. Houd er rekening mee dat dit alleen wordt ondersteund voor een bepaalde versie van .NET Framework 4.5 en hoger."
   syntax:
     content: public static string GetPathToWindowsSdkFile (string fileName, Microsoft.Build.Utilities.TargetDotNetFrameworkVersion version, Microsoft.Build.Utilities.VisualStudioVersion visualStudioVersion, Microsoft.Build.Utilities.DotNetFrameworkArchitecture architecture);
     parameters:
     - id: fileName
       type: System.String
-      description: "The name of the file being requested."
+      description: "De naam van het bestand wordt aangevraagd."
     - id: version
       type: Microsoft.Build.Utilities.TargetDotNetFrameworkVersion
-      description: "Target .NET Framework version."
+      description: ".NET Framework-doelversie."
     - id: visualStudioVersion
       type: Microsoft.Build.Utilities.VisualStudioVersion
-      description: "Version of Visual Studio associated with the requested SDK."
+      description: "De versie van Visual Studio die zijn gekoppeld aan de gevraagde SDK."
     - id: architecture
       type: Microsoft.Build.Utilities.DotNetFrameworkArchitecture
-      description: "Desired architecture of the resultant file."
+      description: "Gewenste architectuur van het resulterende bestand."
     return:
       type: System.String
-      description: "Path to the appropriate Windows SDK file"
+      description: "Pad naar het juiste bestand voor de Windows SDK"
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetPathToWindowsSdkFile*
   exceptions: []
   platform:
@@ -959,22 +959,22 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Given an SDK moniker and the targeted platform get the path to the SDK root if it exists."
+  summary: "Basis van een moniker SDK en doelplatform op te halen het pad naar de SDK-hoofdmap als deze bestaat."
   syntax:
     content: public static string GetPlatformExtensionSDKLocation (string sdkMoniker, string targetPlatformIdentifier, string targetPlatformVersion);
     parameters:
     - id: sdkMoniker
       type: System.String
-      description: "Moniker for the sdk"
+      description: "Moniker voor de sdk"
     - id: targetPlatformIdentifier
       type: System.String
-      description: "Identifier for the platform"
+      description: "ID voor het platform"
     - id: targetPlatformVersion
       type: System.String
-      description: "Version of the platform"
+      description: "Versie van het platform"
     return:
       type: System.String
-      description: "A full path to the sdk root if the sdk exists in the targeted platform or an empty string if it does not exist."
+      description: "Een volledig pad naar de sdk-hoofdmap als de sdk in het doelplatform of een lege tekenreeks bestaat als deze niet bestaat."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetPlatformExtensionSDKLocation*
   exceptions: []
   platform:
@@ -991,22 +991,22 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Given an SDKName, targetPlatformIdentifier and TargetPlatformVersion search the default sdk locations for the passed in sdk name.       The format of the sdk moniker is SDKName, Version=X.X"
+  summary: "Een SDKName gezien, targetPlatformIdentifier en TargetPlatformVersion zoeken de standaardlocaties voor de sdk voor het doorgegeven in de sdk-naam.       De indeling van de sdk-moniker is SDKName, Version=X.X"
   syntax:
     content: public static string GetPlatformExtensionSDKLocation (string sdkMoniker, string targetPlatformIdentifier, Version targetPlatformVersion);
     parameters:
     - id: sdkMoniker
       type: System.String
-      description: "Name of the SDK to determine the installation location for."
+      description: "Naam van de SDK om te bepalen voor de locatie van de installatie."
     - id: targetPlatformIdentifier
       type: System.String
-      description: "Targeted platform to find SDKs for"
+      description: "Doelplatform SDK&quot;s voor vinden"
     - id: targetPlatformVersion
       type: System.Version
-      description: "Targeted platform version to find SDKs for"
+      description: "Doelplatform versie vinden van SDK&quot;s voor"
     return:
       type: System.String
-      description: "Location of the SDK if it is found, empty string if it could not be found"
+      description: "Locatie van de SDK als deze wordt gevonden, lege tekenreeks als is niet gevonden"
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetPlatformExtensionSDKLocation*
   exceptions: []
   platform:
@@ -1023,28 +1023,28 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Given an SDKName, targetPlatformIdentifier and TargetPlatformVersion search the default sdk locations for the passed in sdk name.       The format of the sdk moniker is SDKName, Version=X.X"
+  summary: "Een SDKName gezien, targetPlatformIdentifier en TargetPlatformVersion zoeken de standaardlocaties voor de sdk voor het doorgegeven in de sdk-naam.       De indeling van de sdk-moniker is SDKName, Version=X.X"
   syntax:
     content: public static string GetPlatformExtensionSDKLocation (string sdkMoniker, string targetPlatformIdentifier, string targetPlatformVersion, string diskRoots, string registryRoot);
     parameters:
     - id: sdkMoniker
       type: System.String
-      description: "Name of the SDK to determine the installation location for."
+      description: "Naam van de SDK om te bepalen voor de locatie van de installatie."
     - id: targetPlatformIdentifier
       type: System.String
-      description: "Targeted platform to find SDKs for"
+      description: "Doelplatform SDK&quot;s voor vinden"
     - id: targetPlatformVersion
       type: System.String
-      description: "Targeted platform version to find SDKs for"
+      description: "Doelplatform versie vinden van SDK&quot;s voor"
     - id: diskRoots
       type: System.String
-      description: "List of disk roots to search for sdks within"
+      description: "Lijst met hoofdmappen schijf om te zoeken naar SDK&quot;s binnen"
     - id: registryRoot
       type: System.String
-      description: "Registry root to look for sdks within"
+      description: "Registerhoofdmap op zoek naar SDK&quot;s in"
     return:
       type: System.String
-      description: "Location of the SDK if it is found, empty string if it could not be found"
+      description: "Locatie van de SDK als deze wordt gevonden, lege tekenreeks als is niet gevonden"
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetPlatformExtensionSDKLocation*
   exceptions: []
   platform:
@@ -1061,28 +1061,28 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Given an SDKName, targetPlatformIdentifier and TargetPlatformVersion search the default sdk locations for the passed in sdk name.       The format of the sdk moniker is SDKName, Version=X.X"
+  summary: "Een SDKName gezien, targetPlatformIdentifier en TargetPlatformVersion zoeken de standaardlocaties voor de sdk voor het doorgegeven in de sdk-naam.       De indeling van de sdk-moniker is SDKName, Version=X.X"
   syntax:
     content: public static string GetPlatformExtensionSDKLocation (string sdkMoniker, string targetPlatformIdentifier, Version targetPlatformVersion, string[] diskRoots, string registryRoot);
     parameters:
     - id: sdkMoniker
       type: System.String
-      description: "Name of the SDK to determine the installation location for."
+      description: "Naam van de SDK om te bepalen voor de locatie van de installatie."
     - id: targetPlatformIdentifier
       type: System.String
-      description: "Targeted platform to find SDKs for"
+      description: "Doelplatform SDK&quot;s voor vinden"
     - id: targetPlatformVersion
       type: System.Version
-      description: "Targeted platform version to find SDKs for"
+      description: "Doelplatform versie vinden van SDK&quot;s voor"
     - id: diskRoots
       type: System.String[]
-      description: "List of disk roots to search for sdks within"
+      description: "Lijst met hoofdmappen schijf om te zoeken naar SDK&quot;s binnen"
     - id: registryRoot
       type: System.String
-      description: "Registry root to look for sdks within"
+      description: "Registerhoofdmap op zoek naar SDK&quot;s in"
     return:
       type: System.String
-      description: "Location of the SDK if it is found, empty string if it could not be found"
+      description: "Locatie van de SDK als deze wordt gevonden, lege tekenreeks als is niet gevonden"
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetPlatformExtensionSDKLocation*
   exceptions: []
   platform:
@@ -1099,19 +1099,19 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Get a list of SDK&quot;s installed on the machine for a given target platform"
+  summary: "Haal een lijst van de SDK geïnstalleerd op de computer voor een bepaald doelplatform"
   syntax:
     content: public static System.Collections.Generic.IDictionary<string,string> GetPlatformExtensionSDKLocations (string targetPlatformIdentifier, Version targetPlatformVersion);
     parameters:
     - id: targetPlatformIdentifier
       type: System.String
-      description: "Targeted platform to find SDKs for"
+      description: "Doelplatform SDK&quot;s voor vinden"
     - id: targetPlatformVersion
       type: System.Version
-      description: "Targeted platform version to find SDKs for"
+      description: "Doelplatform versie vinden van SDK&quot;s voor"
     return:
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "IDictionary of installed SDKS and their location. K:SDKName V:SDK installation location"
+      description: "IDictionary van geïnstalleerde SDK&quot;s en de locatie. Installatielocatie K:SDKName V:SDK"
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetPlatformExtensionSDKLocations*
   exceptions: []
   platform:
@@ -1128,25 +1128,25 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Get a list of SDK&quot;s installed on the machine for a given target platform"
+  summary: "Haal een lijst van de SDK geïnstalleerd op de computer voor een bepaald doelplatform"
   syntax:
     content: public static System.Collections.Generic.IDictionary<string,string> GetPlatformExtensionSDKLocations (string[] diskRoots, string registryRoot, string targetPlatformIdentifier, Version targetPlatformVersion);
     parameters:
     - id: diskRoots
       type: System.String[]
-      description: "Array of disk locations to search for sdks"
+      description: "Matrix van locaties van de schijf om te zoeken naar SDK &quot;s"
     - id: registryRoot
       type: System.String
-      description: "Root registry location to look for sdks"
+      description: "Hoofdmap registerlocatie op zoek naar SDK &quot;s"
     - id: targetPlatformIdentifier
       type: System.String
-      description: "Targeted platform to find SDKs for"
+      description: "Doelplatform SDK&quot;s voor vinden"
     - id: targetPlatformVersion
       type: System.Version
-      description: "Targeted platform version to find SDKs for"
+      description: "Doelplatform versie vinden van SDK&quot;s voor"
     return:
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "IDictionary of installed SDKS and their location. K:SDKName V:SDK installation location"
+      description: "IDictionary van geïnstalleerde SDK&quot;s en de locatie. Installatielocatie K:SDKName V:SDK"
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetPlatformExtensionSDKLocations*
   exceptions: []
   platform:
@@ -1163,19 +1163,19 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Given a target platform identifier and a target platform version, search the default SDK locations for the platform SDK for that target platform."
+  summary: "Gezien een doel-platform-id en een doelplatformversie, zoek de standaardlocaties voor de SDK voor het platform SDK voor dat doelplatform."
   syntax:
     content: public static string GetPlatformSDKLocation (string targetPlatformIdentifier, string targetPlatformVersion);
     parameters:
     - id: targetPlatformIdentifier
       type: System.String
-      description: "Targeted platform for which to find SDK."
+      description: "Het doelplatform waarvoor SDK vinden."
     - id: targetPlatformVersion
       type: System.String
-      description: "Targeted platform version for which to find SDK."
+      description: "Doelplatform versie waarvoor SDK vinden."
     return:
       type: System.String
-      description: "Returns the location of the SDK if it is found, otherwise, returns an empty string if the SDK could not be found."
+      description: "Retourneert dat de locatie van de SDK als deze wordt gevonden, anders retourneert een lege tekenreeks als de SDK kan niet worden gevonden."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetPlatformSDKLocation*
   exceptions: []
   platform:
@@ -1192,19 +1192,19 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Given a target platform identifier and a target platform version, search the default SDK locations for the platform SDK for that target platform."
+  summary: "Gezien een doel-platform-id en een doelplatformversie, zoek de standaardlocaties voor de SDK voor het platform SDK voor dat doelplatform."
   syntax:
     content: public static string GetPlatformSDKLocation (string targetPlatformIdentifier, Version targetPlatformVersion);
     parameters:
     - id: targetPlatformIdentifier
       type: System.String
-      description: "Targeted platform for which to find SDK."
+      description: "Het doelplatform waarvoor SDK vinden."
     - id: targetPlatformVersion
       type: System.Version
-      description: "Targeted platform version for which to find SDK."
+      description: "Doelplatform versie waarvoor SDK vinden."
     return:
       type: System.String
-      description: "Returns the location of the SDK if it is found, otherwise, returns an empty string if the SDK could not be found."
+      description: "Retourneert dat de locatie van de SDK als deze wordt gevonden, anders retourneert een lege tekenreeks als de SDK kan niet worden gevonden."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetPlatformSDKLocation*
   exceptions: []
   platform:
@@ -1221,25 +1221,25 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Given a target platform identifier and a target platform version, search the default SDK locations for the platform SDK for that target platform."
+  summary: "Gezien een doel-platform-id en een doelplatformversie, zoek de standaardlocaties voor de SDK voor het platform SDK voor dat doelplatform."
   syntax:
     content: public static string GetPlatformSDKLocation (string targetPlatformIdentifier, string targetPlatformVersion, string diskRoots, string registryRoot);
     parameters:
     - id: targetPlatformIdentifier
       type: System.String
-      description: "Targeted platform for which to find SDK."
+      description: "Het doelplatform waarvoor SDK vinden."
     - id: targetPlatformVersion
       type: System.String
-      description: "Targeted platform version for which to find SDK."
+      description: "Doelplatform versie waarvoor SDK vinden."
     - id: diskRoots
       type: System.String
-      description: "Array of disk roots within which to search for SDK."
+      description: "Matrix van schijf hoofdmappen waarbinnen om te zoeken naar SDK."
     - id: registryRoot
       type: System.String
-      description: "Registry root within which to search for SDK."
+      description: "Register root waarbinnen om te zoeken naar SDK."
     return:
       type: System.String
-      description: "Returns the location of the SDK if it is found, otherwise, returns an empty string if the SDK could not be found."
+      description: "Retourneert dat de locatie van de SDK als deze wordt gevonden, anders retourneert een lege tekenreeks als de SDK kan niet worden gevonden."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetPlatformSDKLocation*
   exceptions: []
   platform:
@@ -1256,25 +1256,25 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Given a target platform identifier and a target platform version, search the default SDK locations for the platform SDK for that target platform."
+  summary: "Gezien een doel-platform-id en een doelplatformversie, zoek de standaardlocaties voor de SDK voor het platform SDK voor dat doelplatform."
   syntax:
     content: public static string GetPlatformSDKLocation (string targetPlatformIdentifier, Version targetPlatformVersion, string[] diskRoots, string registryRoot);
     parameters:
     - id: targetPlatformIdentifier
       type: System.String
-      description: "Targeted platform for which to find SDK."
+      description: "Het doelplatform waarvoor SDK vinden."
     - id: targetPlatformVersion
       type: System.Version
-      description: "Targeted platform version for which to find SDK."
+      description: "Doelplatform versie waarvoor SDK vinden."
     - id: diskRoots
       type: System.String[]
-      description: "Array of disk roots within which to search for SDK."
+      description: "Matrix van schijf hoofdmappen waarbinnen om te zoeken naar SDK."
     - id: registryRoot
       type: System.String
-      description: "Registry root within which to search for SDK."
+      description: "Register root waarbinnen om te zoeken naar SDK."
     return:
       type: System.String
-      description: "Returns the location of the SDK if it is found, otherwise, returns an empty string if the SDK could not be found."
+      description: "Retourneert dat de locatie van de SDK als deze wordt gevonden, anders retourneert een lege tekenreeks als de SDK kan niet worden gevonden."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetPlatformSDKLocation*
   exceptions: []
   platform:
@@ -1291,13 +1291,13 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Gets the root location for the reference assembly directory under the program files directory."
+  summary: "Hiermee haalt u de hoofdmaplocatie voor de verwijzing naar assembly-map onder de map program files."
   syntax:
     content: public static string GetProgramFilesReferenceAssemblyRoot ();
     parameters: []
     return:
       type: System.String
-      description: "Returns the root location for the reference assembly directory."
+      description: "Retourneert de hoofdlocatie voor de referentie-assembly-map."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetProgramFilesReferenceAssemblyRoot*
   exceptions: []
   platform:
@@ -1314,16 +1314,16 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Get the list of SDK folders which contain the design-time files for the SDK at the specified SDK root. The list is in the order that must be used in searching for references."
+  summary: "Haal de lijst van de SDK-mappen die het moment van ontwerp-bestanden voor de SDK in de opgegeven SDK-hoofdmap bevatten. De lijst is in de volgorde die moet worden gebruikt bij het zoeken voor verwijzingen."
   syntax:
     content: public static System.Collections.Generic.IList<string> GetSDKDesignTimeFolders (string sdkRoot);
     parameters:
     - id: sdkRoot
       type: System.String
-      description: "The root folder for the SDK, must contain a design-time folder."
+      description: "De hoofdmap voor de SDK, moet een map ontwerptijd bevatten."
     return:
       type: System.Collections.Generic.IList{System.String}
-      description: "Returns the list of folders to be used in searching for design-time files in the SDK, in the order that must be used for the search."
+      description: "Retourneert de lijst met mappen moet worden gebruikt in de ontwerpmodus bestanden zoeken in de SDK, in de volgorde die moet worden gebruikt voor de zoekopdracht."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetSDKDesignTimeFolders*
   exceptions: []
   platform:
@@ -1340,22 +1340,22 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Get the list of SDK folders which contain the design-time files for the SDK at the specified SDK root. The list is in the order that must be used in searching for references."
+  summary: "Haal de lijst van de SDK-mappen die het moment van ontwerp-bestanden voor de SDK in de opgegeven SDK-hoofdmap bevatten. De lijst is in de volgorde die moet worden gebruikt bij het zoeken voor verwijzingen."
   syntax:
     content: public static System.Collections.Generic.IList<string> GetSDKDesignTimeFolders (string sdkRoot, string targetConfiguration, string targetArchitecture);
     parameters:
     - id: sdkRoot
       type: System.String
-      description: "The root folder for the SDK, must contain a design-time folder."
+      description: "De hoofdmap voor de SDK, moet een map ontwerptijd bevatten."
     - id: targetConfiguration
       type: System.String
-      description: "The configuration the SDK is targeting. This is “Debug” or “Retail”."
+      description: "De configuratie van die de SDK is gericht. Dit is &quot;Debug&quot; of &quot;Retail&quot;."
     - id: targetArchitecture
       type: System.String
-      description: "The architecture the SDK is targeting."
+      description: "De architectuur van die de SDK is gericht."
     return:
       type: System.Collections.Generic.IList{System.String}
-      description: "Returns the list of folders to be used in searching for design-time files in the SDK, in the order that must be used for the search."
+      description: "Retourneert de lijst met mappen moet worden gebruikt in de ontwerpmodus bestanden zoeken in de SDK, in de volgorde die moet worden gebruikt voor de zoekopdracht."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetSDKDesignTimeFolders*
   exceptions: []
   platform:
@@ -1372,16 +1372,16 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Get the list of SDK folders which contain the redist files for the SDK at the specified SDK root. The list is in the order that must be used in searching for references."
+  summary: "De lijst van de SDK-mappen waarin de bestanden redist voor de SDK in de hoofdmap van de opgegeven SDK ophalen. De lijst is in de volgorde die moet worden gebruikt bij het zoeken voor verwijzingen."
   syntax:
     content: public static System.Collections.Generic.IList<string> GetSDKRedistFolders (string sdkRoot);
     parameters:
     - id: sdkRoot
       type: System.String
-      description: "The root folder for the SDK, must contain a redist folder."
+      description: "De hoofdmap voor de SDK, moet een map redist bevatten."
     return:
       type: System.Collections.Generic.IList{System.String}
-      description: "Returns the list of folders to be used in searching for redist files in the SDK, in the order that must be used for the search."
+      description: "Retourneert de lijst met mappen moet worden gebruikt in redist bestanden zoeken in de SDK, in de volgorde die moet worden gebruikt voor de zoekopdracht."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetSDKRedistFolders*
   exceptions: []
   platform:
@@ -1398,22 +1398,22 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Get the list of SDK folders which contain the redist files for the SDK at the specified SDK root. The list is in the order that must be used in searching for references."
+  summary: "De lijst van de SDK-mappen waarin de bestanden redist voor de SDK in de hoofdmap van de opgegeven SDK ophalen. De lijst is in de volgorde die moet worden gebruikt bij het zoeken voor verwijzingen."
   syntax:
     content: public static System.Collections.Generic.IList<string> GetSDKRedistFolders (string sdkRoot, string targetConfiguration, string targetArchitecture);
     parameters:
     - id: sdkRoot
       type: System.String
-      description: "The root folder for the SDK, must contain a redist folder."
+      description: "De hoofdmap voor de SDK, moet een map redist bevatten."
     - id: targetConfiguration
       type: System.String
-      description: "The configuration the SDK is targeting. This is “Debug” or “Retail”."
+      description: "De configuratie van die de SDK is gericht. Dit is &quot;Debug&quot; of &quot;Retail&quot;."
     - id: targetArchitecture
       type: System.String
-      description: "The architecture the SDK is targeting."
+      description: "De architectuur van die de SDK is gericht."
     return:
       type: System.Collections.Generic.IList{System.String}
-      description: "Returns the list of folders to be used in searching for redist files in the SDK, in the order that must be used for the search."
+      description: "Retourneert de lijst met mappen moet worden gebruikt in redist bestanden zoeken in de SDK, in de volgorde die moet worden gebruikt voor de zoekopdracht."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetSDKRedistFolders*
   exceptions: []
   platform:
@@ -1430,16 +1430,16 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Get the list of SDK folders which contain the references for the SDK at the specified SDK root. The list is in the order that must be used in searching for references."
+  summary: "De lijst van de SDK-mappen waarin de referenties voor de SDK in de hoofdmap van de opgegeven SDK ophalen. De lijst is in de volgorde die moet worden gebruikt bij het zoeken voor verwijzingen."
   syntax:
     content: public static System.Collections.Generic.IList<string> GetSDKReferenceFolders (string sdkRoot);
     parameters:
     - id: sdkRoot
       type: System.String
-      description: "The root folder for the SDK."
+      description: "De hoofdmap voor de SDK."
     return:
       type: System.Collections.Generic.IList{System.String}
-      description: "Returns the list of folders to be used in searching for references in the SDK, in the order that must be used for the search."
+      description: "Retourneert de lijst met mappen moet worden gebruikt in de verwijzingen in de SDK, in de volgorde die moet worden gebruikt voor de zoekfunctie zoekt."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetSDKReferenceFolders*
   exceptions: []
   platform:
@@ -1456,22 +1456,22 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Get the list of SDK folders which contain the references for the SDK at the specified SDK root. The list is in the order that must be used in searching for references."
+  summary: "De lijst van de SDK-mappen waarin de referenties voor de SDK in de hoofdmap van de opgegeven SDK ophalen. De lijst is in de volgorde die moet worden gebruikt bij het zoeken voor verwijzingen."
   syntax:
     content: public static System.Collections.Generic.IList<string> GetSDKReferenceFolders (string sdkRoot, string targetConfiguration, string targetArchitecture);
     parameters:
     - id: sdkRoot
       type: System.String
-      description: "The root folder for the SDK."
+      description: "De hoofdmap voor de SDK."
     - id: targetConfiguration
       type: System.String
-      description: "The configuration the SDK is targeting. This is “Debug” or “Retail”."
+      description: "De configuratie van die de SDK is gericht. Dit is &quot;Debug&quot; of &quot;Retail&quot;."
     - id: targetArchitecture
       type: System.String
-      description: "The architecture the SDK is targeting."
+      description: "De architectuur van die de SDK is gericht."
     return:
       type: System.Collections.Generic.IList{System.String}
-      description: "Returns the list of folders to be used in searching for references in the SDK, in the order that must be used for the search."
+      description: "Retourneert de lijst met mappen moet worden gebruikt in de verwijzingen in de SDK, in de volgorde die moet worden gebruikt voor de zoekfunctie zoekt."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetSDKReferenceFolders*
   exceptions: []
   platform:
@@ -1488,13 +1488,13 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Gets a list of supported target framework monikers."
+  summary: "Een lijst van ondersteunde doel-framework monikers ophalen."
   syntax:
     content: public static System.Collections.Generic.IList<string> GetSupportedTargetFrameworks ();
     parameters: []
     return:
       type: System.Collections.Generic.IList{System.String}
-      description: "list of supported target framework monikers"
+      description: "lijst van ondersteunde doel-framework monikers"
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetSupportedTargetFrameworks*
   exceptions: []
   platform:
@@ -1511,13 +1511,13 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Get a list of target platform SDKs on the machine."
+  summary: "Een lijst met doelplatform SDK&quot;s op de machine ophalen."
   syntax:
     content: public static System.Collections.Generic.IList<Microsoft.Build.Utilities.TargetPlatformSDK> GetTargetPlatformSdks ();
     parameters: []
     return:
       type: System.Collections.Generic.IList{Microsoft.Build.Utilities.TargetPlatformSDK}
-      description: 'List of Target Platform SDKs, Item1: TargetPlatformName Item2: Version of SDK Item3: Path to sdk root'
+      description: 'Lijst met doel Platform SDK&quot;s, Item1: TargetPlatformName Item2: versie van SDK ART3: pad naar de hoofdmap van de sdk'
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetTargetPlatformSdks*
   exceptions: []
   platform:
@@ -1534,19 +1534,19 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Get a list of target platform SDKs on the machine."
+  summary: "Een lijst met doelplatform SDK&quot;s op de machine ophalen."
   syntax:
     content: public static System.Collections.Generic.IList<Microsoft.Build.Utilities.TargetPlatformSDK> GetTargetPlatformSdks (string[] diskRoots, string registryRoot);
     parameters:
     - id: diskRoots
       type: System.String[]
-      description: "List of disk locations to search for platform SDKs."
+      description: "Lijst van locaties van de schijf om te zoeken naar platform SDK&quot;s."
     - id: registryRoot
       type: System.String
-      description: "Registry root location to look for platform SDKs."
+      description: "Hoofdmap registerlocatie op zoek naar platform SDK&quot;s."
     return:
       type: System.Collections.Generic.IList{Microsoft.Build.Utilities.TargetPlatformSDK}
-      description: "Returns a list of target platform SDKs."
+      description: "Retourneert een lijst met doelplatform SDK&quot;s."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.GetTargetPlatformSdks*
   exceptions: []
   platform:
@@ -1563,19 +1563,19 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Gets the highest version of a target framework moniker based on the identifier."
+  summary: "Hiermee haalt u de hoogste versie van een doel-framework moniker op basis van de id."
   syntax:
     content: public static System.Runtime.Versioning.FrameworkName HighestVersionOfTargetFrameworkIdentifier (string targetFrameworkRootDirectory, string frameworkIdentifier);
     parameters:
     - id: targetFrameworkRootDirectory
       type: System.String
-      description: "Target framework root directory."
+      description: "Hoofdmap van de doel-framework."
     - id: frameworkIdentifier
       type: System.String
-      description: "Framework identifier."
+      description: "Framework-id."
     return:
       type: System.Runtime.Versioning.FrameworkName
-      description: "Returns the highest version of a target framework moniker based on the identifier. This method will only find full frameworks; no profiles will be returned."
+      description: "Retourneert de hoogste versie van een doel-framework moniker op basis van de id. Deze methode wordt alleen volledige frameworks; zoeken Er zijn geen profielen worden geretourneerd."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.HighestVersionOfTargetFrameworkIdentifier*
   exceptions: []
   platform:
@@ -1592,13 +1592,13 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Gets the fully qualified path of the system directory."
-  remarks: "An example of the value returned is the string &quot;C:\\WinNT\\System32&quot;."
+  summary: "Hiermee haalt u de volledig gekwalificeerde pad naar de systeemmap."
+  remarks: "Een voorbeeld van de geretourneerde waarde is de tekenreeks &quot;C:\\WinNT\\System32&quot;."
   syntax:
     content: public static string PathToSystem { get; }
     return:
       type: System.String
-      description: "A string containing a directory path to the system directory."
+      description: "Een tekenreeks met een pad naar de map van het systeem."
   overload: Microsoft.Build.Utilities.ToolLocationHelper.PathToSystem*
   exceptions: []
   platform:

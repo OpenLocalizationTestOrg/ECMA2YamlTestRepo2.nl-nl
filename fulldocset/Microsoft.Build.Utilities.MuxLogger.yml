@@ -17,8 +17,8 @@ items:
   nameWithType: MuxLogger
   fullName: Microsoft.Build.Utilities.MuxLogger
   type: Class
-  summary: "Represents a multiplexing logger. The purpose of this logger is to register and unregister multiple loggers during the build. Supports the [!INCLUDE[vs_current_short](~/add/includes/ajax-current-ext-md.md)] IDE scenario in which loggers are registered and unregistered for each project system’s build request. One physical build can have multiple logical builds, each with its own set of loggers.       The <xref uid=&quot;langword_csharp_MuxLogger&quot; name=&quot;MuxLogger&quot; href=&quot;&quot;></xref>registers itself with the build manager as a regular central /l style logger. It receives messages from the build manager and routes them to the correct logger, based on the logical build that the message came from."
-  remarks: "The `MuxLogger`generally functions as follows:      -   The `MuxLogger` is registered at the beginning of the build manager’s Begin build.           Any loggers registered before the build manager starts the build get the build-started event at the same time as the `MuxLogger`.           Any loggers registered after the build manager starts the build get a synthesized build-started event. The event cannot be cached because the timestamp of the build-started event is determined when the event is created, and caching the event would give incorrect build times in the loggers registered to the `MuxLogger`.      -   The `MuxLogger` is initialized by the build manager           The `MuxLogger` listens to all events on the event source from the build manager and routes events correctly to the registered loggers.      -   The `MuxLogger` is shutdown when the build is finished in end build. At this time, it unregisters any loggers attached to it.      -   The `MuxLogger` logs the build-finished event when the project-finished event for the first project-started event is seen for each logger.       The `MuxLogger` registers loggers in the following way:      1.  The logger is passed to the `MuxLogger.RegisterLogger` method with a submission ID that is used to route a message to that logger.      2.  The `MuxLogger` registers the logger to the `MuxLogger` event source.      3.  If the build-started event has already been logged, the `MuxLogger` creates a new build-started event and sends it to the logger’s event source.       The `MuxLogger` unregisters loggers in the following way:      1.  When a build submission is completed, the `MuxLogger.UnregisterLogger` method is called with the submission ID for the logger.      2.  The `MuxLogger` looks up the success state of the project-finished event for the submission ID and logs a build-finished event to the logger.      3.  The `MuxLogger`cleans up the event source.           Note that the unregister comes from a thread other than the logging thread and a synchronization issue could occur if unregister is called while events are being logged."
+  summary: "Vertegenwoordigt een multiplexing berichtenlogboek. Het doel van dit logboek is geregistreerd en ongedaan maken van meerdere voorkomen tijdens het opbouwen. Ondersteunt de [!INCLUDE[vs_current_short](~/add/includes/ajax-current-ext-md.md)] IDE-scenario waarin voorkomen zijn geregistreerd en verwijderd voor de aanvraag voor het samenstellen van elk projectsysteem. Een fysieke build kan meerdere logische builds, elk met een eigen set voorkomen hebben.       De <xref uid=&quot;langword_csharp_MuxLogger&quot; name=&quot;MuxLogger&quot; href=&quot;&quot;> </xref>automatisch geregistreerd bij de build-manager als een reguliere centrale/l stijl berichtenlogboek. Deze berichten ontvangt van de build-manager en routes ze het juiste logboek, op basis van de logische bouwen die het bericht afkomstig is."
+  remarks: "De `MuxLogger`doorgaans fungeert als volgt: - de `MuxLogger` aan het begin van build van het Begin van de build-manager is geregistreerd.           Alle voorkomen registreren voordat u de build-manager Start de build ophalen van de gebeurtenis build gestart op hetzelfde moment als de `MuxLogger`.           Alle voorkomen geregistreerd nadat de build-manager de build start ophalen een gesyntheseerde Opbouwen gestart gebeurtenis. De gebeurtenis kan niet worden opgeslagen omdat de tijdstempel van de gebeurtenis build gestart, wordt bepaald wanneer de gebeurtenis wordt gemaakt en opslaan in cache van de gebeurtenis, de onjuiste build-tijden in de geregistreerd om te voorkomen krijgt de `MuxLogger`.      -De `MuxLogger` wordt geïnitialiseerd door de build-manager de `MuxLogger` luistert op alle gebeurtenissen in de gebeurtenisbron uit build-beheer en gebeurtenissen naar de geregistreerde voorkomen correct worden doorgestuurd.      -De `MuxLogger` wordt afgesloten wanneer de build in end build is voltooid. Op dit moment registratie eventuele gekoppeld voorkomen opheffen.      -De `MuxLogger` registreert de gebeurtenis build voltooid wanneer de gebeurtenis project voltooid voor de eerste project gestart gebeurtenis is die u voor elke berichtenlogboek.       De `MuxLogger` registreert voorkomen in de volgende manier: 1.  Het logboek wordt doorgegeven aan de `MuxLogger.RegisterLogger` methode met een aanvraag-ID die wordt gebruikt voor het routeren van een bericht naar die berichtenlogboek.      2.  De `MuxLogger` registreert het logboek voor de `MuxLogger` gebeurtenisbron.      3.  Als de gebeurtenis build gestart al is geregistreerd, de `MuxLogger` maakt een nieuwe gebeurtenis voor opbouwen gestart en verzendt het naar het logboek gebeurtenisbron.       De `MuxLogger` deregistreren voorkomen in de volgende manier: 1.  Wanneer een inzending build is voltooid, de `MuxLogger.UnregisterLogger` methode wordt aangeroepen met de aanvraag-ID voor het logboek.      2.  De `MuxLogger` Hiermee zoekt u een goede status van de gebeurtenis project voltooid voor de aanvraag-ID en wordt een gebeurtenis build voltooid in het logboek geregistreerd.      3.  De `MuxLogger`ruimt de gebeurtenisbron.           Houd er rekening mee dat de registratie is afkomstig uit een andere thread dan de thread logboekregistratie en een synchronisatieprobleem optreden kan als unregister is aangeroepen terwijl er gebeurtenissen worden vastgelegd."
   syntax:
     content: 'public class MuxLogger : Microsoft.Build.Framework.INodeLogger'
   inheritance:
@@ -40,7 +40,7 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Creates a new instance of the multiplexing logger."
+  summary: "Maakt een nieuw exemplaar van de multiplexing berichtenlogboek."
   syntax:
     content: public MuxLogger ();
     parameters: []
@@ -60,13 +60,13 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Initialize the <xref uid=&quot;langword_csharp_MuxLogger&quot; name=&quot;MuxLogger&quot; href=&quot;&quot;></xref> instance with the specified event source."
+  summary: "Initialisatie van de <xref uid=&quot;langword_csharp_MuxLogger&quot; name=&quot;MuxLogger&quot; href=&quot;&quot;> </xref> -exemplaar met de opgegeven gebeurtenisbron."
   syntax:
     content: public void Initialize (Microsoft.Build.Framework.IEventSource eventSource);
     parameters:
     - id: eventSource
       type: Microsoft.Build.Framework.IEventSource
-      description: "The event source."
+      description: "De gebeurtenisbron."
   overload: Microsoft.Build.Utilities.MuxLogger.Initialize*
   exceptions: []
   platform:
@@ -83,16 +83,16 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Initialize the <xref uid=&quot;langword_csharp_MuxLogger&quot; name=&quot;MuxLogger&quot; href=&quot;&quot;></xref> instance with the specified event source and specified maximum number of nodes."
+  summary: "Initialisatie van de <xref uid=&quot;langword_csharp_MuxLogger&quot; name=&quot;MuxLogger&quot; href=&quot;&quot;> </xref> -exemplaar met de opgegeven gebeurtenisbron en het opgegeven maximum aantal knooppunten."
   syntax:
     content: public void Initialize (Microsoft.Build.Framework.IEventSource eventSource, int maxNodeCount);
     parameters:
     - id: eventSource
       type: Microsoft.Build.Framework.IEventSource
-      description: "The event source."
+      description: "De gebeurtenisbron."
     - id: maxNodeCount
       type: System.Int32
-      description: "The maximum number of nodes."
+      description: "Het maximum aantal knooppunten."
   overload: Microsoft.Build.Utilities.MuxLogger.Initialize*
   exceptions: []
   platform:
@@ -109,12 +109,12 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Gets and sets the Parameters attribute, required by the <xref uid=&quot;langword_csharp_ILogger&quot; name=&quot;ILogger&quot; href=&quot;&quot;></xref> interface."
+  summary: "Opgehaald en ingesteld van het kenmerk Parameters vereist zijn voor de <xref uid=&quot;langword_csharp_ILogger&quot; name=&quot;ILogger&quot; href=&quot;&quot;> </xref> interface."
   syntax:
     content: public string Parameters { get; set; }
     return:
       type: System.String
-      description: "Returns the Parameters attribute."
+      description: "Retourneert de Parameters-kenmerk."
   overload: Microsoft.Build.Utilities.MuxLogger.Parameters*
   exceptions: []
   platform:
@@ -131,16 +131,16 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Registers a logger on the <xref uid=&quot;langword_csharp_MuxLogger&quot; name=&quot;MuxLogger&quot; href=&quot;&quot;></xref> and raises a build-started event if the build-started event has already been logged."
+  summary: "Registreert een logboek op de <xref uid=&quot;langword_csharp_MuxLogger&quot; name=&quot;MuxLogger&quot; href=&quot;&quot;> </xref> en genereert een gebeurtenis Opbouwen gestart als de gebeurtenis build gestart is al aangemeld."
   syntax:
     content: public void RegisterLogger (int submissionId, Microsoft.Build.Framework.ILogger logger);
     parameters:
     - id: submissionId
       type: System.Int32
-      description: "The submission ID of the logger being registered."
+      description: "De aanvraag-ID van het logboek wordt geregistreerd."
     - id: logger
       type: Microsoft.Build.Framework.ILogger
-      description: "The logger to register."
+      description: "Het logboek te registreren."
   overload: Microsoft.Build.Utilities.MuxLogger.RegisterLogger*
   exceptions: []
   platform:
@@ -157,7 +157,7 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Shuts down the <xref uid=&quot;langword_csharp_MuxLogger&quot; name=&quot;MuxLogger&quot; href=&quot;&quot;></xref> and clears out any state."
+  summary: "Afgesloten de <xref uid=&quot;langword_csharp_MuxLogger&quot; name=&quot;MuxLogger&quot; href=&quot;&quot;> </xref> en Hiermee wist u geen status."
   syntax:
     content: public void Shutdown ();
     parameters: []
@@ -177,16 +177,16 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Removes the specified logger from the MuxLogger."
+  summary: "Het opgegeven logboek verwijdert uit de MuxLogger."
   syntax:
     content: public bool UnregisterLoggers (int submissionId);
     parameters:
     - id: submissionId
       type: System.Int32
-      description: "The submission ID of the logger to be removed."
+      description: "De aanvraag-ID van het logboek moet worden verwijderd."
     return:
       type: System.Boolean
-      description: "Returns <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the method is successful in removing the logger, otherwise, returns <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "Retourneert <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> als de methode mislukt is bij het verwijderen van het logboek, retourneert anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: Microsoft.Build.Utilities.MuxLogger.UnregisterLoggers*
   exceptions: []
   platform:
@@ -203,12 +203,12 @@ items:
   assemblies:
   - Microsoft.Build.Utilities.v4.0
   namespace: Microsoft.Build.Utilities
-  summary: "Gets and sets the Verbosity attribute, required by the <xref uid=&quot;langword_csharp_ILogger&quot; name=&quot;ILogger&quot; href=&quot;&quot;></xref> interface."
+  summary: "Opgehaald en ingesteld van het kenmerk uitgebreidheid vereist door de <xref uid=&quot;langword_csharp_ILogger&quot; name=&quot;ILogger&quot; href=&quot;&quot;> </xref> interface."
   syntax:
     content: public Microsoft.Build.Framework.LoggerVerbosity Verbosity { get; set; }
     return:
       type: Microsoft.Build.Framework.LoggerVerbosity
-      description: "Returns the Verbosity attribute."
+      description: "Retourneert de uitgebreidheid-kenmerk."
   overload: Microsoft.Build.Utilities.MuxLogger.Verbosity*
   exceptions: []
   platform:

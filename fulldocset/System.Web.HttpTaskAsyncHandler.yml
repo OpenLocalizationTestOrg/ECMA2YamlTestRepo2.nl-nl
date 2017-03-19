@@ -15,8 +15,8 @@ items:
   nameWithType: HttpTaskAsyncHandler
   fullName: System.Web.HttpTaskAsyncHandler
   type: Class
-  summary: "Provides methods that a derived task handler class can implement in order to process an asynchronous task."
-  remarks: "TheHttpTaskAsyncHandler class provides a simplified way to handle asynchronous tasks without having to implement the <xref:System.Web.IHttpAsyncHandler.BeginProcessRequest%2A> and <xref:System.Web.IHttpAsyncHandler.EndProcessRequest%2A> methods.  To create a handler for an asynchronous task, you can override the <xref:System.Web.HttpTaskAsyncHandler.ProcessRequestAsync%2A> method and implement custom task handling code."
+  summary: "Biedt methoden die een afgeleide taak handler-klasse om te kunnen verwerken van een asynchrone taak kunt implementeren."
+  remarks: "TheHttpTaskAsyncHandler klasse biedt een vereenvoudigde manier voor het verwerken van asynchrone taken te implementeren zonder de <xref:System.Web.IHttpAsyncHandler.BeginProcessRequest%2A>en <xref:System.Web.IHttpAsyncHandler.EndProcessRequest%2A>methoden.</xref:System.Web.IHttpAsyncHandler.EndProcessRequest%2A> </xref:System.Web.IHttpAsyncHandler.BeginProcessRequest%2A>  Als u wilt een handler voor een asynchrone taak hebt gemaakt, kunt u overschrijven de <xref:System.Web.HttpTaskAsyncHandler.ProcessRequestAsync%2A>methode en implementeer aangepaste taak afhandeling van code.</xref:System.Web.HttpTaskAsyncHandler.ProcessRequestAsync%2A>"
   syntax:
     content: 'public abstract class HttpTaskAsyncHandler : System.Web.IHttpAsyncHandler'
   inheritance:
@@ -38,7 +38,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Called from constructors in derived classes to initialize the <xref href=&quot;System.Web.HttpTaskAsyncHandler&quot;></xref> class."
+  summary: "Aangeroepen vanuit een constructors in afgeleide klassen initialiseren de <xref href=&quot;System.Web.HttpTaskAsyncHandler&quot;> </xref> klasse."
   syntax:
     content: protected HttpTaskAsyncHandler ();
     parameters: []
@@ -58,12 +58,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "When overridden in a derived class, gets a value that indicates whether the task handler class instance can be reused for another asynchronous task."
+  summary: "Wanneer in een afgeleide klasse genegeerd, krijgt een waarde die aangeeft of de taak handler klasse-instantie van een andere asynchrone taak kan worden hergebruikt."
   syntax:
     content: public virtual bool IsReusable { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the handler can be reused; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>.  The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als u de handler kan worden hergebruikt; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>.  De standaardwaarde is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.HttpTaskAsyncHandler.IsReusable*
   exceptions: []
   platform:
@@ -80,18 +80,18 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "When overridden in a derived class, provides code that handles a synchronous task."
+  summary: "Wanneer in een afgeleide klasse genegeerd, biedt de code die verantwoordelijk is voor een synchrone taak."
   syntax:
     content: public virtual void ProcessRequest (System.Web.HttpContext context);
     parameters:
     - id: context
       type: System.Web.HttpContext
-      description: "The HTTP context."
+      description: "De HTTP-context."
   overload: System.Web.HttpTaskAsyncHandler.ProcessRequest*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The method is implemented but does not provide any default handling for synchronous tasks."
+    description: "De methode is geïmplementeerd, maar biedt geen een standaard verwerking voor synchrone taken."
   platform:
   - net462
 - uid: System.Web.HttpTaskAsyncHandler.ProcessRequestAsync(System.Web.HttpContext)
@@ -106,17 +106,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "When overridden in a derived class, provides code that handles an asynchronous task."
-  remarks: "To create a custom handler for an asynchronous task, override the ProcessRequestAsync method."
+  summary: "Wanneer in een afgeleide klasse genegeerd, biedt de code die verantwoordelijk is voor een asynchrone taak."
+  remarks: "Overschrijf de ProcessRequestAsync-methode voor het maken van een aangepaste handler voor een asynchrone taak."
   syntax:
     content: public abstract System.Threading.Tasks.Task ProcessRequestAsync (System.Web.HttpContext context);
     parameters:
     - id: context
       type: System.Web.HttpContext
-      description: "The HTTP context."
+      description: "De HTTP-context."
     return:
       type: System.Threading.Tasks.Task
-      description: "The asynchronous task."
+      description: "De asynchrone taak."
   overload: System.Web.HttpTaskAsyncHandler.ProcessRequestAsync*
   exceptions: []
   platform:
@@ -134,23 +134,23 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Initiates asynchronous processing of a task in an HTTP task handler."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.HttpTaskAsyncHandler> instance is cast to an <xref:System.Web.IHttpAsyncHandler> interface."
+  summary: "Initieert asynchrone verwerking van een taak in een HTTP-handler van de taak."
+  remarks: "Dit lid is een expliciete interface lid-implementatie. Het kan worden gebruikt alleen wanneer de <xref:System.Web.HttpTaskAsyncHandler>exemplaar is geconverteerd naar een <xref:System.Web.IHttpAsyncHandler>interface.</xref:System.Web.IHttpAsyncHandler> </xref:System.Web.HttpTaskAsyncHandler>"
   syntax:
     content: IAsyncResult IHttpAsyncHandler.BeginProcessRequest (System.Web.HttpContext context, AsyncCallback cb, object extraData);
     parameters:
     - id: context
       type: System.Web.HttpContext
-      description: "The HTTP context."
+      description: "De HTTP-context."
     - id: cb
       type: System.AsyncCallback
-      description: "The callback method to invoke when the method returns."
+      description: "De callback-methode aan te roepen wanneer de methode retourneert."
     - id: extraData
       type: System.Object
-      description: "Additional data for processing the task."
+      description: "Extra gegevens voor het verwerken van de taak."
     return:
       type: System.IAsyncResult
-      description: "An object that contains status data about the asynchronous operation."
+      description: "Een object met de van statusgegevens over de asynchrone bewerking."
   overload: System.Web.HttpTaskAsyncHandler.System#Web#IHttpAsyncHandler#BeginProcessRequest*
   exceptions: []
   platform:
@@ -168,14 +168,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Ends asynchronous processing of a task in an HTTP task handler."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.HttpTaskAsyncHandler> instance is cast to an <xref:System.Web.IHttpAsyncHandler> interface."
+  summary: "Ends asynchrone verwerking van een taak in een HTTP-handler van de taak."
+  remarks: "Dit lid is een expliciete interface lid-implementatie. Het kan worden gebruikt alleen wanneer de <xref:System.Web.HttpTaskAsyncHandler>exemplaar is geconverteerd naar een <xref:System.Web.IHttpAsyncHandler>interface.</xref:System.Web.IHttpAsyncHandler> </xref:System.Web.HttpTaskAsyncHandler>"
   syntax:
     content: void IHttpAsyncHandler.EndProcessRequest (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The status of the asynchronous operation."
+      description: "De status van de asynchrone bewerking."
   overload: System.Web.HttpTaskAsyncHandler.System#Web#IHttpAsyncHandler#EndProcessRequest*
   exceptions: []
   platform:
