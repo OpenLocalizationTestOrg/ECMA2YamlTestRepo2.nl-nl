@@ -11,8 +11,8 @@ items:
   nameWithType: IStateFormatter
   fullName: System.Web.UI.IStateFormatter
   type: Interface
-  summary: "Defines methods that a type implements to serialize and deserialize an object graph."
-  remarks: "The IStateFormatter interface defines methods that a type can implement to serialize and deserialize the state that an ASP.NET Web server control maintains in its <xref:System.Web.UI.Control.ViewState%2A> property. This infrastructure is used by classes that derive from the <xref:System.Web.UI.PageStatePersister> class to maintain an ASP.NET page&quot;s state between requests. By default, ASP.NET page state is serialized and deserialized by an instance of the <xref:System.Web.UI.ObjectStateFormatter> class; however, site and adapter developers can implement the IStateFormatter interface on their own types to perform this work.       For more information about Web server control state management and view state, see [ASP.NET State Management Overview](~/add/includes/ajax-current-ext-md.md) and [Dynamic Web Server Controls and View State](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Definieert de methoden die een type implementeert voor het serialiseren en deserialiseren van een objectgrafiek."
+  remarks: "De interface IStateFormatter definieert methoden die een type voor het serialiseren en deserialiseren van de status die een ASP.NET-webtoepassing serverbesturingselement onderhoudt in kunt implementeren de <xref:System.Web.UI.Control.ViewState%2A>eigenschap.</xref:System.Web.UI.Control.ViewState%2A> Deze infrastructuur wordt gebruikt door de klassen die zijn afgeleid van de <xref:System.Web.UI.PageStatePersister>klasse om de status van een ASP.NET-pagina tussen aanvragen te behouden.</xref:System.Web.UI.PageStatePersister> Standaard wordt de status van ASP.NET-pagina geserialiseerd en gedeserialiseerd door een exemplaar van de <xref:System.Web.UI.ObjectStateFormatter>klasse; echter site hebben en ontwikkelaars de interface IStateFormatter kunnen implementeren op hun eigen typen om deze werk te verrichten.</xref:System.Web.UI.ObjectStateFormatter>       Zie voor meer informatie over Web server besturingselement beheer en de weergave status [ASP.NET State Management Overview](~/add/includes/ajax-current-ext-md.md) en [weergavestatus en dynamische webserverbesturingselementen](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following code example demonstrates how to create a <xref:System.Web.UI.PageStatePersister> object that saves view and control state to a stream on the Web server. The `StreamPageStatePersister` class demonstrates how to override the <xref:System.Web.UI.PageStatePersister.Load%2A> and <xref:System.Web.UI.PageStatePersister.Save%2A> methods to extract and save page state information. These methods use the IStateFormatter interface inherited from the <xref:System.Web.UI.PageStatePersister> class to serialize and deserialize view state. This code example is part of a larger example provided for the <xref:System.Web.UI.PageStatePersister> class.  \n  \n [!code-cs[Samples.AspNet.Alexkr.TextFilePageStatePersister_2#1](~/add/codesnippet/csharp/t-system.web.ui.istatefo_1.cs)]\n [!code-vb[Samples.AspNet.Alexkr.TextFilePageStatePersister_2#1](~/add/codesnippet/visualbasic/t-system.web.ui.istatefo_1.vb)]"
   syntax:
@@ -32,8 +32,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Deserializes an object state graph from its serialized string form."
-  remarks: "Use the Deserialize method to reconstitute the state object for an ASP.NET page or server control that has been serialized using the <xref:System.Web.UI.IStateFormatter.Serialize%2A> method."
+  summary: "Deserializes een objectgrafiek van de status van de vorm van een geserialiseerde tekenreeks."
+  remarks: "Gebruik de methode Deserialize om het opnieuw samenstellen van het object staat voor een ASP.NET-pagina of server besturingselement dat is geserialiseerd met de <xref:System.Web.UI.IStateFormatter.Serialize%2A>methode.</xref:System.Web.UI.IStateFormatter.Serialize%2A>"
   example:
   - "The following code example demonstrates how the Deserialize method loads view state information. The <xref:System.Web.UI.PageStatePersister.Load%2A> method of the `StreamPageStatePersister` class uses the <xref:System.Web.UI.IStateFormatter> interface inherited from the <xref:System.Web.UI.PageStatePersister> class to deserialize view state. This code example is part of a larger example provided for the <xref:System.Web.UI.IStateFormatter> interface.  \n  \n [!code-cs[Samples.AspNet.Alexkr.TextFilePageStatePersister_2#2](~/add/codesnippet/csharp/m-system.web.ui.istatefo_1_1.cs)]\n [!code-vb[Samples.AspNet.Alexkr.TextFilePageStatePersister_2#2](~/add/codesnippet/visualbasic/m-system.web.ui.istatefo_1_1.vb)]"
   syntax:
@@ -41,10 +41,10 @@ items:
     parameters:
     - id: serializedState
       type: System.String
-      description: "A string that the <xref href=&quot;System.Web.UI.IStateFormatter&quot;></xref> deserializes into an initialized object."
+      description: "Een tekenreeks die de <xref href=&quot;System.Web.UI.IStateFormatter&quot;> </xref> deserializes in een geïnitialiseerd object."
     return:
       type: System.Object
-      description: "An object that represents the state of an ASP.NET server control."
+      description: "Een object dat de status van een ASP.NET-serverbesturingselement vertegenwoordigt."
   overload: System.Web.UI.IStateFormatter.Deserialize*
   exceptions: []
   platform:
@@ -61,8 +61,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Serializes ASP.NET Web server control state to string form."
-  remarks: "Use the Serialize method to transform an object state graph to string form. Reconstitute a state object from the string using the <xref:System.Web.UI.IStateFormatter.Deserialize%2A> method."
+  summary: "Serialiseert ASP.NET Web serverstatus aan een vorm van een tekenreeks."
+  remarks: "Gebruik de methode serialiseren voor het transformeren van een objectgrafiek status aan een vorm van een tekenreeks. Opnieuw samenstellen van een object met de status van de tekenreeks met behulp de <xref:System.Web.UI.IStateFormatter.Deserialize%2A>methode.</xref:System.Web.UI.IStateFormatter.Deserialize%2A>"
   example:
   - "The following code example demonstrates how the Serialize method persists view state information to a file. The <xref:System.Web.UI.PageStatePersister.Save%2A> method of the `StreamPageStatePersister` class uses the <xref:System.Web.UI.IStateFormatter> interface inherited from the <xref:System.Web.UI.PageStatePersister> class to serialize view state. This code example is part of a larger example provided for the <xref:System.Web.UI.IStateFormatter> interface.  \n  \n [!code-cs[Samples.AspNet.Alexkr.TextFilePageStatePersister_2#3](~/add/codesnippet/csharp/m-system.web.ui.istatefo_0_1.cs)]\n [!code-vb[Samples.AspNet.Alexkr.TextFilePageStatePersister_2#3](~/add/codesnippet/visualbasic/m-system.web.ui.istatefo_0_1.vb)]"
   syntax:
@@ -70,10 +70,10 @@ items:
     parameters:
     - id: state
       type: System.Object
-      description: "The object that represents the view state of the Web server control to serialize to string form."
+      description: "Het object dat de weergavestatus van het webbesturingselement voor server voor het serialiseren van tekenreeks formulier vertegenwoordigt."
     return:
       type: System.String
-      description: "A string that represents a Web server control&quot;s view state."
+      description: "Een tekenreeks met een Web server-control weergavestatus."
   overload: System.Web.UI.IStateFormatter.Serialize*
   exceptions: []
   platform:

@@ -12,8 +12,8 @@ items:
   nameWithType: DeadLetterQueue
   fullName: System.ServiceModel.DeadLetterQueue
   type: Enum
-  summary: "Specifies the type of dead-letter queue to be used."
-  remarks: "The dead-letter queue is a queue on the queue manager of the sending application for expired messages that have failed to be delivered. The DeadLetterQueue enumeration specifies the type of dead-letter queue to use. The values are:      -   None: No dead-letter queue is required. If a message fails delivery, no record of it is maintained in the dead-letter queue. This is the default value when <xref:System.ServiceModel.MsmqBindingBase.ExactlyOnce%2A> is set to `false`.      -   System: The system-wide, dead-letter queue is used to record messages that fail delivery. MSMQ has a transactional, system, dead-letter queue and a non-transactional, system, dead-letter queue to record expired messages that failed delivery from transactional and non-transactional queues, respectively. This is the default value when <xref:System.ServiceModel.MsmqBindingBase.ExactlyOnce%2A> is set to `true`.      -   Custom: The queue specified in the <xref:System.ServiceModel.MsmqBindingBase.CustomDeadLetterQueue%2A> is used to record messages that fail delivery.       A message can fail to reach the receiving application for any of the following reasons:      -   A transactional message is sent to a non-transactional queue.      -   A non-transactional message is sent to a transactional queue.      -   An unauthenticated message is sent to a queue that accepts only authenticated messages.      -   An unencrypted message is sent to a queue that accepts only encrypted messages.      -   The message&quot;s time-to-live value expires before the message is delivered to a receiver.      -   The message storage quota of the target computer or the storage quota of the destination queue is exceeded, or there is no available storage space on the target computer when the message arrives.      -   The sender does not have the [access rights](http://go.microsoft.com/fwlink/?LinkID=96167) required to place the message in the destination queue.      -   The digital signature attached to the message is not valid.      -   An encrypted message cannot be decrypted by the destination queue manager.      -   The destination queue is purged or deleted before the message is retrieved."
+  summary: "Geeft het type van de wachtrij voor onbestelbare berichten moeten worden gebruikt."
+  remarks: "De wachtrij voor onbestelbare berichten is een wachtrij op de wachtrijbeheerder van de verzendende toepassing voor verlopen berichten die niet worden bezorgd. De opsomming DeadLetterQueue geeft het type van de wachtrij voor onbestelbare berichten te gebruiken. De waarden zijn:-geen: Er is geen wachtrij voor onbestelbare berichten is vereist. Als een bericht bezorging is mislukt, is geen record van deze wordt bijgehouden in de wachtrij voor onbestelbare berichten. Dit is de standaardinstelling waarde wanneer <xref:System.ServiceModel.MsmqBindingBase.ExactlyOnce%2A>is ingesteld op `false`.</xref:System.ServiceModel.MsmqBindingBase.ExactlyOnce%2A>      -Systeem: De wachtrij met het hele systeem, onbestelbare berichten wordt gebruikt voor het vastleggen van berichten die niet voldoen aan levering. MSMQ is een transactionele, systeem, wachtrij voor onbestelbare berichten en een niet-transactionele, systeem, wachtrij voor onbestelbare berichten verlopen berichten die levering transactionele en niet-transactionele wachtrijen, respectievelijk niet vastleggen. Dit is de standaardinstelling waarde wanneer <xref:System.ServiceModel.MsmqBindingBase.ExactlyOnce%2A>is ingesteld op `true`.</xref:System.ServiceModel.MsmqBindingBase.ExactlyOnce%2A>      -Aangepaste: De opgegeven wachtrij de <xref:System.ServiceModel.MsmqBindingBase.CustomDeadLetterQueue%2A>wordt gebruikt voor berichten in de record die niet voldoen aan levering.</xref:System.ServiceModel.MsmqBindingBase.CustomDeadLetterQueue%2A>       Een bericht niet kan bereiken van de ontvangende toepassing voor een van de volgende oorzaken hebben:-een transactioneel bericht wordt verzonden naar een niet-transactionele wachtrij.      -Een niet-transactionele bericht wordt verzonden naar een transactionele wachtrij.      -Een niet-geverifieerde bericht is verzonden naar een wachtrij alleen geverifieerde berichten accepteert.      -Een niet-versleutelde bericht is verzonden naar een wachtrij die alleen versleutelde berichten accepteert.      -Time-to-live de bericht-waarde is verlopen voordat het bericht wordt geleverd aan een ontvanger.      -De bericht-opslagquotum van de doelcomputer of de opslaglimiet van de doelwachtrij is overschreden of er geen opslagruimte beschikbaar is op de doelcomputer wanneer het bericht aankomt.      -De afzender niet over de [toegangsrechten](http://go.microsoft.com/fwlink/?LinkID=96167) vereist voor het bericht in de doelwachtrij plaatsen.      -De digitale handtekening die is gekoppeld aan het bericht is niet geldig.      -Een gecodeerd bericht kan niet worden ontsleuteld door de wachtrijbeheerder van de bestemming.      -De doelwachtrij is opgeschoond of verwijderd voordat het bericht wordt opgehaald."
   syntax:
     content: public enum DeadLetterQueue
   inheritance:
@@ -32,12 +32,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Custom dead-letter queue."
+  summary: "Aangepaste wachtrij met onbestelbare berichten."
   syntax:
     content: Custom
     return:
       type: System.ServiceModel.DeadLetterQueue
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -53,12 +53,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "No dead-letter queue is to be used."
+  summary: "Er is geen wachtrij voor onbestelbare berichten wordt gebruikt."
   syntax:
     content: None
     return:
       type: System.ServiceModel.DeadLetterQueue
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -74,12 +74,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Use the system-wide, dead-letter queue."
+  summary: "Het hele systeem, onbestelbare wachtrij gebruiken."
   syntax:
     content: System
     return:
       type: System.ServiceModel.DeadLetterQueue
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
