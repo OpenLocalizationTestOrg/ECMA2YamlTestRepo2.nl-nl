@@ -13,8 +13,8 @@ items:
   nameWithType: MachineKey
   fullName: System.Web.Security.MachineKey
   type: Class
-  summary: "Provides a way to encrypt or hash data (or both) by using the same algorithms and key values that are used for ASP.NET forms authentication and view state."
-  remarks: "The MachineKey class provides methods that expose the hashing and encryption logic that ASP.NET provides. For information about which encryption and hashing algorithms ASP.NET uses, and the key values that it uses with them, see [machineKey Element (ASP.NET Settings Schema)](http://msdn.microsoft.com/en-us/4b5699a9-bc21-4c4a-85f1-8b3b8ebd2d46).      > [!WARNING] >  The  MachineKey APIs should only be used in an ASP.NET app. Behavior of the MachineKey APIs outside the context of an ASP.NET application is undefined"
+  summary: "Met de dezelfde algoritmen en sleutelwaarden die worden gebruikt voor de weergavestatus en ASP.NET-formulierverificatie biedt een manier om te versleutelen of hash-gegevens (of beide)."
+  remarks: "De MachineKey-klasse biedt methoden die de hash- en versleutelingsinstellingen logica waarmee ASP.NET blootstellen. Zie voor meer informatie over welke versleuteling en hash-algoritmen ASP.NET gebruikt en de sleutelwaarden die worden gebruikt met hen [machineKey Element (ASP.NET-instellingenschema)](http://msdn.microsoft.com/en-us/4b5699a9-bc21-4c4a-85f1-8b3b8ebd2d46).      > [!WARNING] > De MachineKey APIs mag alleen worden gebruikt in een ASP.NET-app. Gedrag van de MachineKey APIs buiten de context van een ASP.NET-toepassing is niet gedefinieerd"
   syntax:
     content: public static class MachineKey
   inheritance:
@@ -35,8 +35,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Decodes and/or validates data that has been encrypted or provided with a hash-based message authentication code (HMAC)."
-  remarks: "For information about which encryption and hashing algorithms ASP.NET uses to decrypt and validate the data that is passed in, see [machineKey Element (ASP.NET Settings Schema)](http://msdn.microsoft.com/en-us/4b5699a9-bc21-4c4a-85f1-8b3b8ebd2d46)."
+  summary: "Decodeert en/of gegevens die zijn gecodeerd of voorzien van een hash op basis van een message authentication code (HMAC) worden geverifieerd."
+  remarks: "Zie voor informatie over de versleuteling en hash-algoritmen ASP.NET gebruikt om te ontsleutelen en valideren van de gegevens die wordt doorgegeven in [machineKey Element (ASP.NET-instellingenschema)](http://msdn.microsoft.com/en-us/4b5699a9-bc21-4c4a-85f1-8b3b8ebd2d46)."
   example:
   - For a code example, see the <xref:System.Web.Security.MachineKey> class overview.
   syntax:
@@ -44,13 +44,13 @@ items:
     parameters:
     - id: encodedData
       type: System.String
-      description: "The encrypted data to decrypt and/or validate."
+      description: "De versleutelde gegevens te ontsleutelen en/of valideren."
     - id: protectionOption
       type: System.Web.Security.MachineKeyProtection
-      description: "Indicates whether the `encodedData` parameter should be encrypted and/or hashed."
+      description: "Hiermee wordt aangegeven of de `encodedData` parameter moet worden versleuteld en/of gehasht."
     return:
       type: System.Byte[]
-      description: "A <xref:System.Byte> array that represents the decrypted data."
+      description: "Een <xref:System.Byte>matrix die staat voor de gegevens te ontsleutelen.</xref:System.Byte>"
   overload: System.Web.Security.MachineKey.Decode*
   exceptions: []
   platform:
@@ -67,8 +67,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Encrypts data and/or appends a hash-based message authentication code (HMAC)."
-  remarks: "For information about which encryption and hashing algorithms ASP.NET uses to decrypt and validate the data that is passed in, see [machineKey Element (ASP.NET Settings Schema)](http://msdn.microsoft.com/en-us/4b5699a9-bc21-4c4a-85f1-8b3b8ebd2d46)."
+  summary: "Versleutelt gegevens en/of voegt een hash op basis van een message authentication code (HMAC)."
+  remarks: "Zie voor informatie over de versleuteling en hash-algoritmen ASP.NET gebruikt om te ontsleutelen en valideren van de gegevens die wordt doorgegeven in [machineKey Element (ASP.NET-instellingenschema)](http://msdn.microsoft.com/en-us/4b5699a9-bc21-4c4a-85f1-8b3b8ebd2d46)."
   example:
   - For a code example, see the <xref:System.Web.Security.MachineKey> class overview.
   syntax:
@@ -76,13 +76,13 @@ items:
     parameters:
     - id: data
       type: System.Byte[]
-      description: "The data to encrypt."
+      description: "De gegevens te versleutelen."
     - id: protectionOption
       type: System.Web.Security.MachineKeyProtection
-      description: "Indicates whether the `data` parameter should be encrypted and/or hashed."
+      description: "Hiermee wordt aangegeven of de `data` parameter moet worden versleuteld en/of gehasht."
     return:
       type: System.String
-      description: "The encrypted value, the input value with an HMAC appended, or the result of encrypting the input value with an HMAC appended."
+      description: "De versleutelde waarde, de invoerwaarde met een HMAC toegevoegd of het resultaat van het versleutelen van de invoerwaarde met een HMAC toegevoegd."
   overload: System.Web.Security.MachineKey.Encode*
   exceptions: []
   platform:
@@ -99,28 +99,28 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Protects the specified data by encrypting or signing it."
-  remarks: "This method supersedes the <xref:System.Web.Security.MachineKey.Encode%2A> method, which requires the caller to specify whether the plaintext data should be encrypted, signed, or both. The Protect method performs the appropriate operation and securely protects the data. Ciphertext data produced by this method can only be deciphered by the <xref:System.Web.Security.MachineKey.Unprotect%2A> method.       The `purposes` parameter is an optional list of reasons that can lock the ciphertext to a specific purpose. This parameter lets you isolate cryptographic operations performed by different subsystems within an application. A malicious client should not be able to get the result of one subsystem&quot;s Protect method and feed it as input to another subsystem&quot;s <xref:System.Web.Security.MachineKey.Unprotect%2A> method, which could compromise application security. The `purposes` parameter helps ensure that protected data can only be used by the component that originally generated it. Applications should make sure that each subsystem uses a unique `purposes` list.       For example, to protect or unprotect an authentication token, you could call the method using code like the following example:      ```c#   MachineKey.Protect(..., &quot;Authentication token&quot;);   MachineKey.Unprotect(..., &quot;Authentication token&quot;);   ```      ```vb   MachineKey.Protect(..., &quot;Authentication token&quot;)   MachineKey.Unprotect(..., &quot;Authentication token&quot;)   ```       Applications can dynamically generate the `purposes` parameter. In that case, prefix user-supplied values with a fixed value (like &quot;`Username:` &quot; + *username*) to minimize the risk of a malicious client crafting input that matches a token that is used by some other part of the system. Any dynamically-generated strings should come after fixed strings. For example, to protect or unprotect a private message that is tied to a specific user, use code like the following example:      ```c#   MachineKey.Protect(..., &quot;Private message&quot;, &quot;Recipient: &quot; + username);   MachineKey.Unprotect(..., &quot;Private message&quot;, &quot;Recipient: &quot; + username);   ```      ```vb   MachineKey.Protect(..., &quot;Private message&quot;, &quot;Recipient: &quot; + username)   MachineKey.Unprotect(..., &quot;Private message&quot;, &quot;Recipient: &quot; + username)   ```       When the <xref:System.Web.Security.MachineKey.Unprotect%2A> method is called, the value that is provided for the `purposes` parameter must be the same value that was provided to the Protect method. Otherwise the operation will fail with a <xref:System.Security.Cryptography.CryptographicException> exception.       The configuration settings that are required for the <xref:System.Web.Configuration.MachineKeyCompatibilityMode?displayProperty=fullName> option are required for this method even if the <xref:System.Web.Configuration.MachineKeySection.CompatibilityMode%2A?displayProperty=fullName> property is not set to the <xref:System.Web.Configuration.MachineKeyCompatibilityMode> option."
+  summary: "De opgegeven gegevens beveiligt door het versleutelen of ondertekent."
+  remarks: "Deze methode vervangt de <xref:System.Web.Security.MachineKey.Encode%2A>methode waarvoor de aanroeper om op te geven of de gegevens als leesbare tekst moet worden versleuteld, zijn ondertekend, of beide.</xref:System.Web.Security.MachineKey.Encode%2A> De methode Protect voert de juiste bewerking en veilig beveiligt de gegevens. Gecodeerde tekst gegevens geproduceerd door deze methode kan alleen worden ontcijferd door de <xref:System.Web.Security.MachineKey.Unprotect%2A>methode.</xref:System.Web.Security.MachineKey.Unprotect%2A>       De `purposes` parameter is een optionele lijst redenen waarom de gecodeerde tekst naar een specifiek doel kunt vergrendelen. Deze parameter kunt u de cryptografische bewerkingen wordt uitgevoerd door verschillende subsystemen weer in een toepassing te isoleren. Een schadelijke client niet zou mogen voor het ophalen van het resultaat van de methode Protect één subsysteem en voer deze als invoer voor een andere subsysteem <xref:System.Web.Security.MachineKey.Unprotect%2A>methode, waarmee het beveiligingsrisico van toepassing.</xref:System.Web.Security.MachineKey.Unprotect%2A> De `purposes` parameter zorgt ervoor dat beveiligde gegevens kunnen alleen worden gebruikt door het onderdeel die oorspronkelijk is gegenereerd. Toepassingen moeten ervoor zorgen dat elk subsysteem gebruikmaakt van een unieke `purposes` lijst.       Bijvoorbeeld, als u wilt beveiligen of een verificatietoken voor beveiliging, kan roept u de methode met code op het volgende voorbeeld: ```c#   MachineKey.Protect(..., &quot;Authentication token&quot;);   MachineKey.Unprotect(..., &quot;Authentication token&quot;);   ``` ```vb   MachineKey.Protect(..., &quot;Authentication token&quot;)   MachineKey.Unprotect(..., &quot;Authentication token&quot;)   ``` toepassingen kunnen dynamisch genereren de `purposes` parameter.       Gebruiker geleverde waarden met een vaste waarde in dat geval het voorvoegsel (zoals &quot;`Username:` &quot;+ *gebruikersnaam*) het risico van een schadelijke client invoer die overeenkomt met een token dat wordt gebruikt door een andere deel van het systeem samenstellen minimaliseren. Dynamisch gegenereerd reeksen moeten later zijn vaste tekenreeksen. Gebruik bijvoorbeeld wilt beveiligen of een persoonlijk bericht dat is gebonden aan een specifieke gebruiker opheffen, code op het volgende voorbeeld: ```c#   MachineKey.Protect(..., &quot;Private message&quot;, &quot;Recipient: &quot; + username);   MachineKey.Unprotect(..., &quot;Private message&quot;, &quot;Recipient: &quot; + username);   ``` ```vb   MachineKey.Protect(..., &quot;Private message&quot;, &quot;Recipient: &quot; + username)   MachineKey.Unprotect(..., &quot;Private message&quot;, &quot;Recipient: &quot; + username)   ``` wanneer de <xref:System.Web.Security.MachineKey.Unprotect%2A>methode wordt aangeroepen, wordt de waarde die is opgegeven voor de `purposes` parameter moet dezelfde waarde die is opgegeven voor de methode Protect.</xref:System.Web.Security.MachineKey.Unprotect%2A>       Anders mislukt de bewerking met een <xref:System.Security.Cryptography.CryptographicException>uitzondering.</xref:System.Security.Cryptography.CryptographicException>       De configuratie-instellingen die vereist zijn voor de <xref:System.Web.Configuration.MachineKeyCompatibilityMode?displayProperty=fullName>optie zijn vereist voor deze methode zelfs als de <xref:System.Web.Configuration.MachineKeySection.CompatibilityMode%2A?displayProperty=fullName>eigenschap niet is ingesteld op de <xref:System.Web.Configuration.MachineKeyCompatibilityMode>optie.</xref:System.Web.Configuration.MachineKeyCompatibilityMode> </xref:System.Web.Configuration.MachineKeySection.CompatibilityMode%2A?displayProperty=fullName> </xref:System.Web.Configuration.MachineKeyCompatibilityMode?displayProperty=fullName>"
   syntax:
     content: public static byte[] Protect (byte[] userData, string[] purposes);
     parameters:
     - id: userData
       type: System.Byte[]
-      description: "The data to protect. This data is passed as plaintext."
+      description: "De gegevens te beschermen. Deze gegevens worden doorgegeven als tekst zonder opmaak."
     - id: purposes
       type: System.String[]
-      description: "A list of purposes for the data. If this value is specified, the same list must be passed to the <xref:System.Web.Security.MachineKey.Unprotect*> method in order to decipher the returned ciphertext."
+      description: "Een lijst met doelen voor de gegevens. Als deze waarde is opgegeven, dezelfde lijst moet worden doorgegeven aan de <xref:System.Web.Security.MachineKey.Unprotect*>methode om de geretourneerde gecodeerde tekst ontcijferd.</xref:System.Web.Security.MachineKey.Unprotect*>"
     return:
       type: System.Byte[]
-      description: "The ciphertext data."
+      description: "De gegevens van de gecodeerde tekst."
   overload: System.Web.Security.MachineKey.Protect*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The <code>userData</code> parameter is null."
+    description: "De <code> userData </code> -parameter is null."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The purposes array contains one or more whitespace-only entries."
+    description: "De matrix doeleinden bevat een of meer vermeldingen voor alleen uit witruimte."
   platform:
   - net462
 - uid: System.Web.Security.MachineKey.Unprotect(System.Byte[],System.String[])
@@ -135,31 +135,31 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Unprotects the specified data, which was protected by the <xref:System.Web.Security.MachineKey.Protect*> method."
-  remarks: "For information about this method, see the <xref:System.Web.Security.MachineKey.Protect%2A> method."
+  summary: "Wordt de beveiliging van de opgegeven gegevens, die is beveiligd door opgeheven de <xref:System.Web.Security.MachineKey.Protect*>methode.</xref:System.Web.Security.MachineKey.Protect*>"
+  remarks: "Zie voor meer informatie over deze methode de <xref:System.Web.Security.MachineKey.Protect%2A>methode.</xref:System.Web.Security.MachineKey.Protect%2A>"
   syntax:
     content: public static byte[] Unprotect (byte[] protectedData, string[] purposes);
     parameters:
     - id: protectedData
       type: System.Byte[]
-      description: "The ciphertext data to unprotect."
+      description: "De gegevens van de gecodeerde tekst om op te heffen."
     - id: purposes
       type: System.String[]
-      description: "A list of purposes that describe what the data is meant for. This must be the same value that was passed to the <xref:System.Web.Security.MachineKey.Protect*> method when the data was protected."
+      description: "Een lijst met doelen waarin wordt beschreven wat de gegevens is bedoeld. Dit moet dezelfde waarde die is doorgegeven aan de <xref:System.Web.Security.MachineKey.Protect*>methode wanneer de gegevens is beveiligd.</xref:System.Web.Security.MachineKey.Protect*>"
     return:
       type: System.Byte[]
-      description: "The plaintext data."
+      description: "De gecodeerde gegevens."
   overload: System.Web.Security.MachineKey.Unprotect*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The <code>protectedData</code> parameter is null."
+    description: "De <code> protectedData </code> -parameter is null."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The purposes array contains one or more whitespace-only entries."
+    description: "De matrix doeleinden bevat een of meer vermeldingen voor alleen uit witruimte."
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "Possible causes include the following:      -   The protected data was tampered with.      -   The value of the <code>purposes</code> parameter is not the same as the value that was specified when the data was protected.      -   The application is deployed to more than one server and is using auto-generated encryption keys."
+    description: "Mogelijke oorzaken zijn onder andere het volgende:-is geknoeid met de beveiligde gegevens.      -De waarde van de <code> purposes </code> parameter is niet hetzelfde als de waarde die is opgegeven als de gegevens is beveiligd.      -De toepassing wordt geïmplementeerd op meer dan één server en gebruikt automatisch gegenereerde versleutelingssleutels."
   platform:
   - net462
 references:

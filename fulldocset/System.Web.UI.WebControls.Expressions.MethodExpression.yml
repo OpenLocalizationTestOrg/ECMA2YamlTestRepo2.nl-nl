@@ -14,8 +14,8 @@ items:
   nameWithType: MethodExpression
   fullName: System.Web.UI.WebControls.Expressions.MethodExpression
   type: Class
-  summary: "Provides a way to specify a custom LINQ query that is defined in a method."
-  remarks: "The <xref:System.Web.UI.WebControls.QueryExtender> control supports custom LINQ queries. You can define a custom LINQ query in a method and use the MethodExpression filter option to invoke the query in the <xref:System.Web.UI.WebControls.QueryExtender> control.       The method that contains the custom LINQ query must meet the following criteria:      -   The method must be static (`Shared` in Visual Basic). The first parameter must be an <xref:System.Linq.IQueryable%601> or <xref:System.Collections.Generic.IEnumerable%601> object. The method can have more than one parameter.      -   The return value cannot change the <xref:System.Linq.IQueryable%601> or <xref:System.Collections.Generic.IEnumerable%601> type that is queried.       The MethodExpression searches for the method that contains the query in the following order:      1.  If a <xref:System.Web.UI.WebControls.Expressions.MethodExpression.TypeName%2A> property is specified in the <xref:System.Web.UI.WebControls.QueryExtender> control, the MethodExpression object looks for the method in the specified type.      2.  If the data source implements <xref:System.Web.DynamicData.IDynamicDataSource>, the method looks for the method on the context type (<xref:System.Data.Linq.DataContext> or <xref:System.Data.Objects.ObjectContext> object.)      3.  The method looks for the method in a template control, in the base class for the page, or in a user control.       The MethodExpression class is like the <xref:System.Web.UI.WebControls.Expressions.CustomExpression> class except that the method expression is executed in response to a method call, and the custom expression is executed in response to an event."
+  summary: "Biedt een manier om op te geven van een aangepaste LINQ-query die is gedefinieerd in een methode."
+  remarks: "De <xref:System.Web.UI.WebControls.QueryExtender>besturingselement ondersteunt aangepaste LINQ-query&quot;s.</xref:System.Web.UI.WebControls.QueryExtender> U kunt een aangepaste LINQ-query definiëren in een methode en de filteroptie MethodExpression gebruiken om aan te roepen van de query in de <xref:System.Web.UI.WebControls.QueryExtender>besturingselement.</xref:System.Web.UI.WebControls.QueryExtender>       De methode met de aangepaste LINQ-query moet voldoen aan de volgende criteria:-de methode moet statisch zijn (`Shared` in Visual Basic). De eerste parameter moet een <xref:System.Linq.IQueryable%601>of <xref:System.Collections.Generic.IEnumerable%601>object.</xref:System.Collections.Generic.IEnumerable%601> </xref:System.Linq.IQueryable%601> De methode kan meer dan één parameter hebben.      -De retourwaarde niet wijzigen de <xref:System.Linq.IQueryable%601>of <xref:System.Collections.Generic.IEnumerable%601>type dat wordt opgevraagd.</xref:System.Collections.Generic.IEnumerable%601> </xref:System.Linq.IQueryable%601>       De MethodExpression zoekt naar de methode met de query in de volgende volgorde: 1.  Als een <xref:System.Web.UI.WebControls.Expressions.MethodExpression.TypeName%2A>eigenschap is opgegeven in de <xref:System.Web.UI.WebControls.QueryExtender>besturingselement, het object MethodExpression ziet er voor de methode in het opgegeven type.</xref:System.Web.UI.WebControls.QueryExtender> </xref:System.Web.UI.WebControls.Expressions.MethodExpression.TypeName%2A>      2.  Als de gegevensbron implements <xref:System.Web.DynamicData.IDynamicDataSource>, de methode wordt gezocht naar de methode op het type gegevenscontext (<xref:System.Data.Linq.DataContext> of <xref:System.Data.Objects.ObjectContext>object.)</xref:System.Data.Objects.ObjectContext> </xref:System.Data.Linq.DataContext> </xref:System.Web.DynamicData.IDynamicDataSource>      3.  De methode wordt gezocht naar de methode in een besturingselement van de sjabloon, in de basisklasse voor de pagina of in een gebruikersbesturingselement.       De klasse MethodExpression is vergelijkbaar met de <xref:System.Web.UI.WebControls.Expressions.CustomExpression>klasse, behalve dat de methode expressie wordt uitgevoerd in reactie op een methodeaanroep van en de aangepaste expressie worden uitgevoerd in reactie op een gebeurtenis.</xref:System.Web.UI.WebControls.Expressions.CustomExpression>"
   example:
   - "The following example shows how to search the ListPrice field of the Products table in the AdventureWorks database for products that have a list price of 400 or more. This example shows how to create a custom LINQ query in a method in page code and how to invoke the method in the <xref:System.Web.UI.WebControls.QueryExtender> control.  \n  \n [Visual Basic]  \n  \n```  \nPublic Shared Function FilterStandardPrice(ByVal query As _  \n        IQueryable(Of Product)) As IQueryable(Of Product)  \n        Return From p In query _  \n            Where p.ListPrice >= 400 _  \n            Select p  \n    End Function  \n```  \n  \n [C#]  \n  \n```  \npublic static IQueryable<Product>   \n        FilterStandardPrice(IQueryable<Product> query)  \n{  \n        return from p in query  \n                  where p.ListPrice >= 400  \n                  select p;  \n  \n    }  \n```  \n  \n The following example shows how to call the method in the page.  \n  \n```  \n<html>  \n<head runat=\"server\">  \n  <title>Custom Filter</title>  \n</head>  \n<body>  \n  <form id=\"form1\" runat=\"server\">  \n    <asp:LinqDataSource ID=\"LinqDataSource1\" runat=\"server\"   \n        ContextTypeName=\"AdventureworksDataContext\" EntityTypeName=\"\"   \n        TableName=\"Products\">  \n    </asp:LinqDataSource>  \n  \n    <asp:QueryExtender ID=\"QueryExtender1\" runat=\"server\"   \n        TargetControlID=\"LinqDataSource1\">  \n      <asp:MethodExpression MethodName=\"FilterStandardPrice\" >  \n      </asp:MethodExpression>  \n    </asp:QueryExtender>  \n  \n    <asp:GridView ID=\"GridView1\" runat=\"server\"   \n        DataSourceID=\"LinqDataSource1\"   \n        DataKeyNames=\"ProductID\"   \n    </asp:GridView>  \n  </form>  \n</body>  \n</html>  \n```"
   syntax:
@@ -55,7 +55,7 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls.Expressions
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.UI.WebControls.Expressions.MethodExpression&quot;></xref> class."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Web.UI.WebControls.Expressions.MethodExpression&quot;> </xref> klasse."
   syntax:
     content: public MethodExpression ();
     parameters: []
@@ -75,24 +75,24 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls.Expressions
-  summary: "Resolves the expression by using the specified <xref:System.Linq.IQueryable> object."
+  summary: "De expressie oplossing met behulp van de opgegeven <xref:System.Linq.IQueryable>object.</xref:System.Linq.IQueryable>"
   syntax:
     content: public override System.Linq.IQueryable GetQueryable (System.Linq.IQueryable source);
     parameters:
     - id: source
       type: System.Linq.IQueryable
-      description: "The data source control to use."
+      description: "Besturingselement voor de gegevensbron te gebruiken."
     return:
       type: System.Linq.IQueryable
-      description: "An instance of the <xref:System.Linq.IQueryable> object that was used to resolve the expression."
+      description: "Een exemplaar van de <xref:System.Linq.IQueryable>-object dat is gebruikt voor het omzetten van de expressie.</xref:System.Linq.IQueryable>"
   overload: System.Web.UI.WebControls.Expressions.MethodExpression.GetQueryable*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The data source control is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Besturingselement voor de gegevensbron is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The method was not found.       -or-       The method is not static.       -or-       The type of the passed <xref uid=&quot;langword_csharp_IQuerable&lt;T&gt;&quot; name=&quot;IQuerable&lt;T&gt;&quot; href=&quot;&quot;></xref> object was changed."
+    description: "De methode is niet gevonden.       - of - de methode is niet statisch.       - of - het type van de doorgegeven <xref uid=&quot;langword_csharp_IQuerable&lt;T&gt;&quot; name=&quot;IQuerable&lt;T&gt;&quot; href=&quot;&quot;> </xref> object is gewijzigd."
   platform:
   - net462
 - uid: System.Web.UI.WebControls.Expressions.MethodExpression.IgnoreIfNotFound
@@ -107,13 +107,13 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls.Expressions
-  summary: "Gets or sets a value that indicates whether the expression should be ignored."
-  remarks: "The <xref:System.Web.UI.WebControls.Expressions.MethodExpression> object searches for a method that contains the query by looking in specific locations and searching in a specific order. You can set this property to `false` to throw an exception if the <xref:System.Web.UI.WebControls.Expressions.CustomExpression> object does not find a method that contains a LINQ."
+  summary: "Opgehaald of ingesteld van een waarde die aangeeft of de expressie moet worden genegeerd."
+  remarks: "De <xref:System.Web.UI.WebControls.Expressions.MethodExpression>object zoekt naar een methode met de query door specifieke locaties te bekijken en te zoeken in een bepaalde volgorde.</xref:System.Web.UI.WebControls.Expressions.MethodExpression> U kunt deze eigenschap instellen op `false` naar Veroorzaak een uitzondering als de <xref:System.Web.UI.WebControls.Expressions.CustomExpression>object heeft een methode met een LINQ niet vinden.</xref:System.Web.UI.WebControls.Expressions.CustomExpression>"
   syntax:
     content: public bool IgnoreIfNotFound { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the expression is ignored; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de expressie wordt genegeerd. anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.Expressions.MethodExpression.IgnoreIfNotFound*
   exceptions: []
   platform:
@@ -130,15 +130,15 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls.Expressions
-  summary: "Gets or sets the name of the method that contains a custom LINQ query."
-  remarks: "The <xref:System.Web.UI.WebControls.Expressions.MethodExpression> object enables you to call a custom LINQ query that is defined in a method. You specify the method in the <xref:System.Web.UI.WebControls.QueryExtender> control in the page."
+  summary: "Opgehaald of ingesteld van de naam van de methode die een aangepaste LINQ-query bevat."
+  remarks: "De <xref:System.Web.UI.WebControls.Expressions.MethodExpression>object kunt u een aangepaste LINQ-query die is gedefinieerd in een methode niet aanroepen.</xref:System.Web.UI.WebControls.Expressions.MethodExpression> U geeft de methode in de <xref:System.Web.UI.WebControls.QueryExtender>besturingselement op de pagina.</xref:System.Web.UI.WebControls.QueryExtender>"
   example:
   - "The following example shows how to specify the `FilterStandardPrice` method in the <xref:System.Web.UI.WebControls.QueryExtender> control. The custom LINQ query is defined in a `FilterStandardPrice` method.  \n  \n```  \n<asp:QueryExtender ID=\"QueryExtender1\" runat=\"server\"   \n    TargetControlID=\"LinqDataSource1\">  \n  <asp:MethodExpression MethodName=\"FilterStandardPrice\">  \n  </asp:MethodExpression>  \n  </asp:QueryExtender>  \n```"
   syntax:
     content: public string MethodName { get; set; }
     return:
       type: System.String
-      description: "The name of the method that contains the custom LINQ query."
+      description: "De naam van de methode waarmee de aangepaste LINQ-query bevat."
   overload: System.Web.UI.WebControls.Expressions.MethodExpression.MethodName*
   exceptions: []
   platform:
@@ -155,13 +155,13 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI.WebControls.Expressions
-  summary: "Gets or sets the class whose method contains the custom query."
-  remarks: "The <xref:System.Web.UI.WebControls.Expressions.MethodExpression> class enables you to specify a custom expression for a data source in the <xref:System.Web.UI.WebControls.QueryExtender> control. You can use the TypeName property to specify the class to which the method belongs."
+  summary: "Opgehaald of ingesteld van de klasse waarvan de methode de aangepaste query bevat."
+  remarks: "De <xref:System.Web.UI.WebControls.Expressions.MethodExpression>klasse kunt u opgeven dat een aangepaste expressie voor een gegevensbron in de <xref:System.Web.UI.WebControls.QueryExtender>besturingselement.</xref:System.Web.UI.WebControls.QueryExtender> </xref:System.Web.UI.WebControls.Expressions.MethodExpression> U kunt de eigenschap TypeName gebruiken om op te geven van de klasse waarop de methode behoort."
   syntax:
     content: public string TypeName { get; set; }
     return:
       type: System.String
-      description: "The class that the method is a member of."
+      description: "De klasse die de methode een lid van is."
   overload: System.Web.UI.WebControls.Expressions.MethodExpression.TypeName*
   exceptions: []
   platform:

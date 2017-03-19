@@ -31,7 +31,7 @@ items:
   nameWithType: PageParserFilter
   fullName: System.Web.UI.PageParserFilter
   type: Class
-  summary: "Provides an abstract base class for a page parser filter that is used by the ASP.NET parser to determine whether an item is allowed in the page at parse time."
+  summary: "Biedt een abstracte basisklasse voor een paginafilter parser dat wordt gebruikt door de ASP.NET-parser om te bepalen of een item in de pagina is toegestaan tijdens het parseren."
   remarks: ''
   example:
   - "The following example demonstrates how you can create a class that derives from the PageParserFilter class to govern the behavior of the ASP.NET page parser. The `CustomPageParserFilter` is a parser filter that explicitly rejects code in the page. It does this by overriding the <xref:System.Web.UI.PageParserFilter.AllowCode%2A> property.  \n  \n [!code-vb[System.Web.UI.PageParserFilter#2](~/add/codesnippet/visualbasic/t-system.web.ui.pagepars_1.vb)]\n [!code-cs[System.Web.UI.PageParserFilter#2](~/add/codesnippet/csharp/t-system.web.ui.pagepars_1.cs)]  \n  \n To use the `CustomPageParserFilter` sample, place the class in your App_Code directory. You must configure the ASP.NET parsers to use the filter in the `pages` section of your site's Web.config configuration file. The following example configuration file shows the configuration for `CustomPageParserFilter`. When configured to use a parser filter, the ASP.NET parser throws an exception during the build if it encounters code in a page.  \n  \n `<?xml version=\"1.0\" ?>`  \n  \n `<configuration xmlns=\"http://schemas.microsoft.com/.NetConfiguration/v2.0\">`  \n  \n `<system.web>`  \n  \n `<pages`  \n  \n `pageParserFilterType=\"Samples.AspNet.CS.CustomPageParserFilter\">`  \n  \n `</pages>`  \n  \n `</system.web>`  \n  \n `</configuration>`"
@@ -55,7 +55,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.UI.PageParserFilter&quot;></xref> class."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Web.UI.PageParserFilter&quot;> </xref> klasse."
   syntax:
     content: protected PageParserFilter ();
     parameters: []
@@ -75,17 +75,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Adds a <xref href=&quot;System.Web.UI.ControlBuilder&quot;></xref> object in the page control tree at the current page parser position."
-  remarks: "AddControl is introduced in the .NET Framework version 3.5.  For more information, see [Versions and Dependencies](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Voegt een <xref href=&quot;System.Web.UI.ControlBuilder&quot;> </xref> -object in de structuur van de pagina besturingselementen op de positie van de huidige pagina-parser."
+  remarks: "AddControl is opgenomen in de .NET Framework versie 3.5.  Zie voor meer informatie [versies en afhankelijkheden](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: protected void AddControl (Type type, System.Collections.IDictionary attributes);
     parameters:
     - id: type
       type: System.Type
-      description: "The control type that the <xref href=&quot;System.Web.UI.ControlBuilder&quot;></xref> represents."
+      description: "Het besturingselement typen die de <xref href=&quot;System.Web.UI.ControlBuilder&quot;> </xref> vertegenwoordigt."
     - id: attributes
       type: System.Collections.IDictionary
-      description: "The <xref:System.Collections.IDictionary> object that holds all the specified tag attributes."
+      description: "De <xref:System.Collections.IDictionary>-object met de opgegeven codekenmerken.</xref:System.Collections.IDictionary>"
   overload: System.Web.UI.PageParserFilter.AddControl*
   exceptions: []
   platform:
@@ -102,17 +102,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Determines whether the page can be derived from the specified <xref:System.Type>."
-  remarks: "The <xref:System.Web.UI.TemplateParser> class determines whether a base type is permitted."
+  summary: "Hiermee wordt bepaald of de pagina kan worden afgeleid van de opgegeven <xref:System.Type>.</xref:System.Type>"
+  remarks: "De <xref:System.Web.UI.TemplateParser>klasse bepaalt of het basistype is toegestaan.</xref:System.Web.UI.TemplateParser>"
   syntax:
     content: public virtual bool AllowBaseType (Type baseType);
     parameters:
     - id: baseType
       type: System.Type
-      description: "A <xref:System.Type> that represents the potential base class of the current page."
+      description: "Een <xref:System.Type>die staat voor de mogelijke basisklasse van de huidige pagina.</xref:System.Type>"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the page can inherit from the specified type; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de pagina van het opgegeven type overnemen kan; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. De standaardwaarde is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.PageParserFilter.AllowBaseType*
   exceptions: []
   platform:
@@ -129,13 +129,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets a value indicating whether an ASP.NET parser filter permits code on the page."
-  remarks: "The <xref:System.Web.UI.TemplateParser> class checks any associated <xref:System.Web.UI.PageParserFilter> instance to determine whether a page can contain code that can be compiled."
+  summary: "Haalt een waarde die aangeeft of een ASP.NET-parser filter code op de pagina toestaat."
+  remarks: "De <xref:System.Web.UI.TemplateParser>klasse controleert eventuele bijbehorende <xref:System.Web.UI.PageParserFilter>exemplaar om te bepalen of een pagina code die kan worden gecompileerd kan bevatten.</xref:System.Web.UI.PageParserFilter> </xref:System.Web.UI.TemplateParser>"
   syntax:
     content: public virtual bool AllowCode { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if a parser filter permits code; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als een filter parser code toestaat; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. De standaardwaarde is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.PageParserFilter.AllowCode*
   exceptions: []
   platform:
@@ -152,20 +152,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets a value indicating whether the specified control type is allowed for this page."
-  remarks: "The <xref:System.Web.UI.TemplateParser> class checks to see whether controls are permitted in a page at parse time. Override the AllowControl method to reject or permit specific controls in your pages."
+  summary: "Haalt een waarde die aangeeft of het opgegeven besturingselementtype is toegestaan voor deze pagina."
+  remarks: "De <xref:System.Web.UI.TemplateParser>klasse controleert of besturingselementen zijn toegestaan in een pagina tijdens het parseren.</xref:System.Web.UI.TemplateParser> Negeer de methode AllowControl weigeren of specifieke besturingselementen in uw pagina&quot;s wordt toegestaan."
   syntax:
     content: public virtual bool AllowControl (Type controlType, System.Web.UI.ControlBuilder builder);
     parameters:
     - id: controlType
       type: System.Type
-      description: "A <xref:System.Type> that represents the type of control to add."
+      description: "Een <xref:System.Type>die staat voor het type besturingselement om toe te voegen</xref:System.Type>"
     - id: builder
       type: System.Web.UI.ControlBuilder
-      description: "A <xref href=&quot;System.Web.UI.ControlBuilder&quot;></xref> used to build the specified type of control."
+      description: "Een <xref href=&quot;System.Web.UI.ControlBuilder&quot;> </xref> gebruikt voor het ontwikkelen van het opgegeven type besturingselement."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the control can be used with the current page; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default value is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als het besturingselement kan worden gebruikt met de huidige pagina. anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. De standaardwaarde is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.PageParserFilter.AllowControl*
   exceptions: []
   platform:
@@ -182,17 +182,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Determines whether a parser permits a specific server-side include on a page."
-  remarks: "Override the AllowServerSideInclude method to reject all or specific server-side includes. For more information about server-side include syntax, see [Server-Side Include Directive Syntax](http://msdn.microsoft.com/en-us/42a6925a-f68c-4690-a9c4-d710358886a9)."
+  summary: "Hiermee wordt bepaald of een parser kunnen inhoud met een specifieke serverzijde op een pagina bevatten."
+  remarks: "Negeer de methode AllowServerSideInclude alles afwijzen of specifieke include-bestanden. Zie voor meer informatie over serverzijde bevatten syntaxis, [serverzijde omvatten richtlijn syntaxis](http://msdn.microsoft.com/en-us/42a6925a-f68c-4690-a9c4-d710358886a9)."
   syntax:
     content: public virtual bool AllowServerSideInclude (string includeVirtualPath);
     parameters:
     - id: includeVirtualPath
       type: System.String
-      description: "The virtual path to the included file."
+      description: "Het virtuele pad naar het bestand opgenomen."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if a parser permits the specific server-side include; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als een parser is toegestaan voor de specifieke insluiten vanaf server; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. De standaardwaarde is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.PageParserFilter.AllowServerSideInclude*
   exceptions: []
   platform:
@@ -209,20 +209,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Determines whether a parser permits a virtual reference to a specific type of resource on a page."
-  remarks: "The <xref:System.Web.UI.TemplateParser> class determines whether a particular type of resource can be referenced from a page."
+  summary: "Hiermee wordt bepaald of een parser is toegestaan voor een virtuele verwijzing naar een bepaald type resource op een pagina."
+  remarks: "De <xref:System.Web.UI.TemplateParser>klasse bepaalt of een bepaald type resource van een pagina kan worden verwezen.</xref:System.Web.UI.TemplateParser>"
   syntax:
     content: public virtual bool AllowVirtualReference (string referenceVirtualPath, System.Web.UI.VirtualReferenceType referenceType);
     parameters:
     - id: referenceVirtualPath
       type: System.String
-      description: "The virtual path to a resource, such as a master page file, ASP.NET page, or user control."
+      description: "Het virtuele pad naar een resource, zoals een basispagina-bestand, de ASP.NET-pagina of het besturingselement."
     - id: referenceType
       type: System.Web.UI.VirtualReferenceType
-      description: "A <xref href=&quot;System.Web.UI.VirtualReferenceType&quot;></xref> value that identifies the type of resource."
+      description: "Een <xref href=&quot;System.Web.UI.VirtualReferenceType&quot;> </xref> waarde die het type resource identificeert."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the parser permits a virtual reference to a specific type of resource; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de parser een virtuele verwijzing naar een bepaald type resource toestaat; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.PageParserFilter.AllowVirtualReference*
   exceptions: []
   platform:
@@ -239,13 +239,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets a value that indicates whether the parser filter was called from the page."
-  remarks: "This property is set to `true` when an implementation of the <xref:System.Web.UI.PageParserFilter> class is invoked by calling the `ParseControl`method of the <xref:System.Web.UI.Page> class or by calling the `ParseControl` method of the `TemplateControl` reference of the <xref:System.Web.UI.Page> class."
+  summary: "Haalt een waarde die aangeeft of het filter parser is aangeroepen vanuit de pagina."
+  remarks: "Deze eigenschap is ingesteld op `true` wanneer een implementatie van de <xref:System.Web.UI.PageParserFilter>klasse wordt aangeroepen door het aanroepen van de `ParseControl`methode van de <xref:System.Web.UI.Page>klasse of door het aanroepen van de `ParseControl` methode van de `TemplateControl` verwijzing van de <xref:System.Web.UI.Page>klasse</xref:System.Web.UI.Page> </xref:System.Web.UI.Page> </xref:System.Web.UI.PageParserFilter>"
   syntax:
     content: protected bool CalledFromParseControl { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if a parser filter was called from the page; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als een filter parser is aangeroepen vanuit de pagina. anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.PageParserFilter.CalledFromParseControl*
   exceptions: []
   platform:
@@ -262,17 +262,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Retrieves the current compilation mode for the page."
-  remarks: "The <xref:System.Web.UI.TemplateControlParser> class checks any associated <xref:System.Web.UI.PageParserFilter> instance to apply a compilation mode to the currently processed page. The default implementation of the GetCompilationMode method simply returns the <xref:System.Web.UI.CompilationMode> value that is passed in the current parameter. Override the GetCompilationMode method to use a specific or different <xref:System.Web.UI.CompilationMode> value."
+  summary: "Hiermee haalt u de huidige compilatiemodus voor de pagina."
+  remarks: "De <xref:System.Web.UI.TemplateControlParser>klasse controleert eventuele bijbehorende <xref:System.Web.UI.PageParserFilter>exemplaar een compilatiemodus toepassen op de pagina momenteel verwerkt.</xref:System.Web.UI.PageParserFilter> </xref:System.Web.UI.TemplateControlParser> De standaardimplementatie van de methode GetCompilationMode retourneert alleen de <xref:System.Web.UI.CompilationMode>waarde die wordt doorgegeven in de huidige parameter.</xref:System.Web.UI.CompilationMode> Negeer de methode GetCompilationMode gebruik van een specifieke of andere <xref:System.Web.UI.CompilationMode>waarde.</xref:System.Web.UI.CompilationMode>"
   syntax:
     content: public virtual System.Web.UI.CompilationMode GetCompilationMode (System.Web.UI.CompilationMode current);
     parameters:
     - id: current
       type: System.Web.UI.CompilationMode
-      description: "The current compilation mode for the page."
+      description: "De huidige compilatiemodus voor de pagina."
     return:
       type: System.Web.UI.CompilationMode
-      description: "One of the <xref href=&quot;System.Web.UI.CompilationMode&quot;></xref> values."
+      description: "Een van de <xref href=&quot;System.Web.UI.CompilationMode&quot;> </xref> waarden."
   overload: System.Web.UI.PageParserFilter.GetCompilationMode*
   exceptions: []
   platform:
@@ -289,14 +289,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Returns a <xref:System.Type> that should be used for pages or controls that are not dynamically compiled."
-  remarks: "You can override the GetNoCompileUserControlType method to specify the return type of pages or controls that are treated as if they are not dynamically compiled. The default is `null`.       GetNoCompileUserControlType is introduced in the .NET Framework version 3.5.  For more information, see [Versions and Dependencies](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Retourneert een <xref:System.Type>die moet worden gebruikt voor pagina&quot;s of besturingselementen die niet dynamisch worden gecompileerd.</xref:System.Type>"
+  remarks: "U kunt de methode GetNoCompileUserControlType om op te geven het retourtype van pagina&quot;s of besturingselementen die worden behandeld alsof ze niet dynamisch worden gecompileerd overschrijven. De standaardwaarde is `null`.       GetNoCompileUserControlType is opgenomen in de .NET Framework versie 3.5.  Zie voor meer informatie [versies en afhankelijkheden](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public virtual Type GetNoCompileUserControlType ();
     parameters: []
     return:
       type: System.Type
-      description: "The return <xref:System.Type> that should be used for pages or controls that are not dynamically compiled. The default is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Het retourtype <xref:System.Type>die moet worden gebruikt voor pagina&quot;s of besturingselementen die niet dynamisch worden gecompileerd.</xref:System.Type> De standaardwaarde is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.PageParserFilter.GetNoCompileUserControlType*
   exceptions: []
   platform:
@@ -313,8 +313,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Initializes a filter used for a page."
-  remarks: "Because the <xref:System.Web.UI.PageParserFilter> class does not expose well-defined public constructors, it is initialized by the page parsers that use the Initialize method. Override the Initialize method to add your own custom initialization steps when an instance of <xref:System.Web.UI.PageParserFilter> is created and used by ASP.NET. The `virtualPath` parameter passed to the Initialize method sets the <xref:System.Web.UI.PageParserFilter.VirtualPath%2A> property, and cannot be `null`."
+  summary: "Initialiseert een filter dat wordt gebruikt voor een pagina."
+  remarks: "Omdat de <xref:System.Web.UI.PageParserFilter>klasse wordt niet goed gedefinieerde openbare constructors beschikbaar, deze wordt geïnitialiseerd door de pagina parsers die gebruikmaken van de methode Initialize.</xref:System.Web.UI.PageParserFilter> Negeer de methode Initialize voor het toevoegen van uw eigen aangepaste initialisatie met stappen wanneer een exemplaar van <xref:System.Web.UI.PageParserFilter>is gemaakt en gebruikt door ASP.NET.</xref:System.Web.UI.PageParserFilter> De `virtualPath` parameter doorgegeven aan de methode Initialize sets de <xref:System.Web.UI.PageParserFilter.VirtualPath%2A>-eigenschap en kan niet worden `null`.</xref:System.Web.UI.PageParserFilter.VirtualPath%2A>"
   syntax:
     content: protected virtual void Initialize ();
     parameters: []
@@ -334,13 +334,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets the line number that is currently being parsed in the file."
-  remarks: "In a custom <xref:System.Web.UI.PageParserFilter> implementation, use the Line property to report where errors occur during parsing.       Line is introduced in the .NET Framework version 3.5.  For more information, see [Versions and Dependencies](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Hiermee haalt u het regelnummer die momenteel in het bestand wordt geparseerd."
+  remarks: "In een aangepaste <xref:System.Web.UI.PageParserFilter>implementatie, gebruikt u de eigenschap regel aan rapport waar fouten optreden tijdens het parseren.</xref:System.Web.UI.PageParserFilter>       Regel is opgenomen in de .NET Framework versie 3.5.  Zie voor meer informatie [versies en afhankelijkheden](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: protected int Line { get; }
     return:
       type: System.Int32
-      description: "The integer value representing the line in the file that the parser filter is currently processing."
+      description: "Het geheel getal dat de regel in het bestand dat momenteel wordt verwerkt door het filter parser vertegenwoordigt."
   overload: System.Web.UI.PageParserFilter.Line*
   exceptions: []
   platform:
@@ -357,13 +357,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets the maximum number of controls that a parser filter can parse for a single page."
-  remarks: "The ASP.NET page parser keeps track of the controls it parses, and if the number exceeds the limit set by a <xref:System.Web.UI.PageParserFilter> instance, it throws an <xref:System.Web.HttpException> exception."
+  summary: "Hiermee wordt het maximum aantal besturingselementen die kan worden geparseerd door een filter parser voor één pagina."
+  remarks: "De ASP.NET-pagina-parser houdt van de besturingselementen van het bestand wordt geparseerd en als het getal de limiet die is ingesteld overschrijdt door een <xref:System.Web.UI.PageParserFilter>exemplaar, genereert een <xref:System.Web.HttpException>uitzondering.</xref:System.Web.HttpException> </xref:System.Web.UI.PageParserFilter>"
   syntax:
     content: public virtual int NumberOfControlsAllowed { get; }
     return:
       type: System.Int32
-      description: "The maximum number of controls a parser filter can parse for a page. The default value is 0, which indicates that no controls are parsed."
+      description: "Het maximum aantal besturingselementen die een filter parser voor pagina&quot;s kan worden geparseerd. De standaardwaarde is 0, waarmee wordt aangegeven dat er geen besturingselementen worden geparseerd."
   overload: System.Web.UI.PageParserFilter.NumberOfControlsAllowed*
   exceptions: []
   platform:
@@ -380,13 +380,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets the maximum number of direct file dependencies that the page parser permits for a single page."
-  remarks: "The <xref:System.Web.UI.TemplateParser> class keeps track of the number of direct and indirect file dependencies it parses, and if the number exceeds the limit set by a <xref:System.Web.UI.PageParserFilter> instance, it throws an exception."
+  summary: "Hiermee wordt het maximale aantal directe afhankelijkheden waarmee de parser pagina voor één pagina."
+  remarks: "De <xref:System.Web.UI.TemplateParser>klasse bijgehouden het nummer van de directe en indirecte afhankelijkheden van het bestand wordt geparseerd en als het getal de limiet overschrijdt is ingesteld door een <xref:System.Web.UI.PageParserFilter>exemplaar, er een uitzondering gegenereerd.</xref:System.Web.UI.PageParserFilter> </xref:System.Web.UI.TemplateParser>"
   syntax:
     content: public virtual int NumberOfDirectDependenciesAllowed { get; }
     return:
       type: System.Int32
-      description: "The maximum number of direct file dependencies the page parser can parse for a page. The default is 0, which that indicates no dependencies are allowed."
+      description: "Het maximale aantal directe afhankelijkheden van die de parser pagina voor een pagina kan worden geparseerd. De standaardwaarde is 0, wat die aangeeft dat er geen afhankelijkheden zijn toegestaan."
   overload: System.Web.UI.PageParserFilter.NumberOfDirectDependenciesAllowed*
   exceptions: []
   platform:
@@ -403,13 +403,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Called by an ASP.NET page parser to notify a filter when the parsing of a page is complete."
+  summary: "Aangeroepen door een ASP.NET-pagina-parser een filter te melden bij het parseren van een pagina voltooid is."
   syntax:
     content: public virtual void ParseComplete (System.Web.UI.ControlBuilder rootBuilder);
     parameters:
     - id: rootBuilder
       type: System.Web.UI.ControlBuilder
-      description: "The <xref href=&quot;System.Web.UI.ControlBuilder&quot;></xref> associated with the page parsing."
+      description: "De <xref href=&quot;System.Web.UI.ControlBuilder&quot;> </xref> die zijn gekoppeld aan de pagina parseren."
   overload: System.Web.UI.PageParserFilter.ParseComplete*
   exceptions: []
   platform:
@@ -426,17 +426,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Allows the page parser filter to preprocess page directives."
-  remarks: "The page parser calls the PreprocessDirective method for each directive encountered during parsing."
+  summary: "Hiermee kunt de parser paginafilter met de voorverwerking van pagina-instructies."
+  remarks: "De pagina parser roept de methode PreprocessDirective voor elke instructie aangetroffen tijdens het parseren."
   syntax:
     content: public virtual void PreprocessDirective (string directiveName, System.Collections.IDictionary attributes);
     parameters:
     - id: directiveName
       type: System.String
-      description: "The page directive."
+      description: "De instructie page."
     - id: attributes
       type: System.Collections.IDictionary
-      description: "A collection of attributes and values parsed from the page."
+      description: "Een verzameling van kenmerken en waarden geparseerd uit de pagina."
   overload: System.Web.UI.PageParserFilter.PreprocessDirective*
   exceptions: []
   platform:
@@ -453,20 +453,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Returns a value that indicates whether a code block should be processed by subsequent parser filters."
-  remarks: "You can override the ProcessCodeConstruct method to parse code contained in code constructs when implementing a custom <xref:System.Web.UI.PageParserFilter>. After processing the code, this method returns `true` if the parser should process the code further; otherwise, it returns `false`.       The type of allowed code constructs are the <xref:System.Web.UI.CodeConstructType> enumeration values.       ProcessCodeConstruct is introduced in the .NET Framework version 3.5.  For more information, see [Versions and Dependencies](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Retourneert een waarde die aangeeft of een codeblok moet worden verwerkt door de volgende parser filters."
+  remarks: "U kunt de ProcessCodeConstruct-methode voor het parseren van de programmacode in codeconstructies bij het implementeren van een aangepaste <xref:System.Web.UI.PageParserFilter>.</xref:System.Web.UI.PageParserFilter> overschrijven Na het verwerken van de code in deze methode retourneert `true` als de parser de code verwerken verdere; anders is moet, retourneert `false`.       Het type toegestane codeconstructies zijn de <xref:System.Web.UI.CodeConstructType>opsommingswaarden.</xref:System.Web.UI.CodeConstructType>       ProcessCodeConstruct is opgenomen in de .NET Framework versie 3.5.  Zie voor meer informatie [versies en afhankelijkheden](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public virtual bool ProcessCodeConstruct (System.Web.UI.CodeConstructType codeType, string code);
     parameters:
     - id: codeType
       type: System.Web.UI.CodeConstructType
-      description: "One of the <xref href=&quot;System.Web.UI.CodeConstructType&quot;></xref> enumeration values that identifies the type of the code construct."
+      description: "Een van de <xref href=&quot;System.Web.UI.CodeConstructType&quot;> </xref> opsommingswaarden die aangeeft welk type van de constructie code."
     - id: code
       type: System.String
-      description: "The string literal that contains the code inside the code construct."
+      description: "De letterlijke tekenreeks die de code in de code-constructie bevat."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the parser should process a code construct further; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de parser moet een code-constructie verdere; verwerken anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. De standaardwaarde is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.PageParserFilter.ProcessCodeConstruct*
   exceptions: []
   platform:
@@ -483,23 +483,23 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Returns a value that indicates whether the parser filter processes a data binding expression in an attribute."
-  remarks: "You can override the ProcessDataBindingAttribute method to allow the parser filter to process data binding expressions when implementing a custom <xref:System.Web.UI.PageParserFilter> class. An example of a data binding expression used with an attribute is `<%# expression %>`.       ProcessDataBindingAttribute is introduced in the .NET Framework version 3.5.  For more information, see [Versions and Dependencies](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Retourneert een waarde die aangeeft of het filter parser expressie voor gegevensbinding in een kenmerk verwerkt."
+  remarks: "U kunt de methode ProcessDataBindingAttribute zodat de verwerkingstijd van de expressies voor gegevensbinding bij het implementeren van een aangepaste <xref:System.Web.UI.PageParserFilter>klasse.</xref:System.Web.UI.PageParserFilter> parser filter onderdrukken Een voorbeeld van een expressie voor gegevensbinding gebruikt met een kenmerk is `<%# expression %>`.       ProcessDataBindingAttribute is opgenomen in de .NET Framework versie 3.5.  Zie voor meer informatie [versies en afhankelijkheden](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public virtual bool ProcessDataBindingAttribute (string controlId, string name, string value);
     parameters:
     - id: controlId
       type: System.String
-      description: "The ID of the control that contains the data binding attribute."
+      description: "De ID van het besturingselement dat het kenmerk van de binding bevat."
     - id: name
       type: System.String
-      description: "The name of the attribute with the data binding expression."
+      description: "De naam van het kenmerk met de expressie voor gegevensbinding."
     - id: value
       type: System.String
-      description: "The data binding expression."
+      description: "De expressie voor gegevensbinding."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the parser filter processes data binding attributes; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als het filter parser verwerkt gegevensbinding kenmerken zijn. anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. De standaardwaarde is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.PageParserFilter.ProcessDataBindingAttribute*
   exceptions: []
   platform:
@@ -516,23 +516,23 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Returns a value that indicates whether event handlers should be processed further by the parser filter."
-  remarks: "You can override the ProcessEventHookup method to allow the parser to process event hookups when implementing a custom <xref:System.Web.UI.PageParserFilter> class. An example of an event handler is providing a handler for the <xref:System.Web.UI.WebControls.Button.Click> event of the <xref:System.Web.UI.WebControls.Button> control.       ProcessEventHookup is introduced in the .NET Framework version 3.5.  For more information, see [Versions and Dependencies](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Retourneert een waarde die aangeeft of gebeurtenis-handlers moeten worden verwerkt door het filter parser verdere."
+  remarks: "U kunt de methode ProcessEventHookup zodat de parser gebeurtenis hookups verwerkt bij het implementeren van een aangepaste <xref:System.Web.UI.PageParserFilter>klasse</xref:System.Web.UI.PageParserFilter> overschrijven Een voorbeeld van een gebeurtenis-handler levert een handler voor de <xref:System.Web.UI.WebControls.Button.Click>gebeurtenis van de <xref:System.Web.UI.WebControls.Button>besturingselement.</xref:System.Web.UI.WebControls.Button> </xref:System.Web.UI.WebControls.Button.Click>       ProcessEventHookup is opgenomen in de .NET Framework versie 3.5.  Zie voor meer informatie [versies en afhankelijkheden](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public virtual bool ProcessEventHookup (string controlId, string eventName, string handlerName);
     parameters:
     - id: controlId
       type: System.String
-      description: "The ID of the control whose event has the event handler to process."
+      description: "De ID van het besturingselement waarvan de gebeurtenis heeft de gebeurtenishandler verwerkt."
     - id: eventName
       type: System.String
-      description: "The event name of the `controlID` to filter on."
+      description: "De naam van de gebeurtenis van de `controlID` om op te filteren."
     - id: handlerName
       type: System.String
-      description: "The handler of the `eventName` name to filter on."
+      description: "De handler van de `eventName` naam om te filteren op."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the parser processes event handlers; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de parser gebeurtenis-handlers verwerkt; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. De standaardwaarde is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.PageParserFilter.ProcessEventHookup*
   exceptions: []
   platform:
@@ -549,20 +549,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Sets a property on a control derived from the <xref href=&quot;System.Web.UI.TemplateControl&quot;></xref> class, which includes the <xref href=&quot;System.Web.UI.Page&quot;></xref>, <xref href=&quot;System.Web.UI.UserControl&quot;></xref>, and <xref href=&quot;System.Web.UI.MasterPage&quot;></xref> controls."
-  remarks: "SetPageProperty is introduced in the .NET Framework version 3.5.  For more information, see [Versions and Dependencies](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Een eigenschap wordt ingesteld op een besturingselement dat is afgeleid van de <xref href=&quot;System.Web.UI.TemplateControl&quot;> </xref> klasse, waaronder de <xref href=&quot;System.Web.UI.Page&quot;> </xref>, <xref href=&quot;System.Web.UI.UserControl&quot;> </xref>, en <xref href=&quot;System.Web.UI.MasterPage&quot;> </xref> besturingselementen."
+  remarks: "SetPageProperty is opgenomen in de .NET Framework versie 3.5.  Zie voor meer informatie [versies en afhankelijkheden](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: protected void SetPageProperty (string filter, string name, string value);
     parameters:
     - id: filter
       type: System.String
-      description: "A string containing the value of the filter on an expression. For an example, see <xref href=&quot;System.Web.UI.PropertyEntry&quot;></xref>."
+      description: "Een tekenreeks met de waarde van het filter op een expressie. Zie voor een voorbeeld <xref href=&quot;System.Web.UI.PropertyEntry&quot;> </xref>."
     - id: name
       type: System.String
-      description: "The name of the property to set a value for."
+      description: "De naam van de eigenschap een waarde voor ingesteld."
     - id: value
       type: System.String
-      description: "The value of the property to set."
+      description: "De waarde van de eigenschap in te stellen."
   overload: System.Web.UI.PageParserFilter.SetPageProperty*
   exceptions: []
   platform:
@@ -579,13 +579,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets the maximum number of direct and indirect file dependencies that the page parser permits for a single page."
-  remarks: "The <xref:System.Web.UI.TemplateParser> class keeps track of the number of direct and indirect file dependencies it parses, and if the number exceeds the limit set by a <xref:System.Web.UI.PageParserFilter> instance, it throws an exception."
+  summary: "Hiermee wordt het maximale aantal directe en indirecte bestandsafhankelijkheden waarmee de parser pagina voor één pagina."
+  remarks: "De <xref:System.Web.UI.TemplateParser>klasse bijgehouden het nummer van de directe en indirecte afhankelijkheden van het bestand wordt geparseerd en als het getal de limiet overschrijdt is ingesteld door een <xref:System.Web.UI.PageParserFilter>exemplaar, er een uitzondering gegenereerd.</xref:System.Web.UI.PageParserFilter> </xref:System.Web.UI.TemplateParser>"
   syntax:
     content: public virtual int TotalNumberOfDependenciesAllowed { get; }
     return:
       type: System.Int32
-      description: "The maximum number of direct and indirect file dependencies the page parser can parse for a page. The default is 0, which indicates that no dependencies are allowed."
+      description: "Het maximale aantal directe en indirecte bestandsafhankelijkheden de parser pagina voor een pagina kan worden geparseerd. De standaardwaarde is 0, waarmee wordt aangegeven dat er geen afhankelijkheden zijn toegestaan."
   overload: System.Web.UI.PageParserFilter.TotalNumberOfDependenciesAllowed*
   exceptions: []
   platform:
@@ -602,13 +602,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets the virtual path to the page currently being parsed."
-  remarks: "The VirtualPath property is never `null`."
+  summary: "Hiermee haalt u het virtuele pad naar de pagina die momenteel wordt geparseerd."
+  remarks: "De eigenschap VirtualPath is nooit `null`."
   syntax:
     content: protected string VirtualPath { get; }
     return:
       type: System.String
-      description: "A virtual path to an ASP.NET page."
+      description: "Een virtueel pad naar een ASP.NET-pagina."
   overload: System.Web.UI.PageParserFilter.VirtualPath*
   exceptions: []
   platform:

@@ -12,8 +12,8 @@ items:
   nameWithType: QueryActivatableWorkflowsCommand
   fullName: System.Activities.DurableInstancing.QueryActivatableWorkflowsCommand
   type: Class
-  summary: "Represents the command that a generic host executes against an instance store to retrieve activation parameters. The generic host uses these activation parameters to create a workflow host, which in turn loads a runnable service instance."
-  remarks: "An instance is *activatable*, if it is not in the suspended state or the completed state and satisfies the following conditions:      -   The instance is *runnable*. An instance in the persistence database is considered as runnable if it satisfies the following conditions:          -   The instance is unlocked and has a pending timer that has expired.          -   The instance is unlocked and its status is **Executing**.          -   The instance has an expired lock on it.      -   There is no workflow host capable of loading the instance is running on the local computer.       An instance store should periodically search for activatable workflow instances that belong to a workflow host that uses the store. It should raise the <xref:System.Activities.DurableInstancing.HasActivatableWorkflowEvent> when it finds an activatable instance in the persistence store. If the instance store does not find an activatable instance in the persistence store, it should continue to monitor the persistence store for any activatable instances.       After raising the HasActivatableWorkflowEvent, the instance store should stop monitoring the persistence store for activatable instances until it receives and executes the QueryActivatableWorkflowsCommand. The monitoring continues only if the command execution does not return any activatable workflow instances.       When a generic host receives this event, it executes the QueryActivatableWorkflowsCommand against the instance store to obtain activation parameters required to create a workflow host. The generic host uses these activation parameters to create a workflow host, which in turn loads and runs the service instance. The activation parameters for the WAS activation type are: Site Name, Application Path (relative to the site), and Service Path (relative to the application). An instance store could return multiple sets of these three activation parameters.       A generic host is a host that has an XName parameter named **ActivationType**, which should be set to a value supported by the instance store. Currently, the SQL Workflow Instance Store supports generic hosts with ActivationType parameter set to value: **WAS**. If the ActivationType is not set at all, the SQL Workflow Instance Store treats the host as a generic host.      > [!NOTE] >  The Workflow Management Service that ships with the code named “Dublin” (Application Server Extensions for .NET 4.0) is a generic host that has the activation type set to **WAS**."
+  summary: "Hiermee geeft u de opdracht of een algemene host uitgevoerd op basis van een exemplaaropslag Activeringsparameters ophalen. De algemene host gebruikt deze Activeringsparameters voor maken van een werkstroom host, die op zijn beurt wordt geladen uitvoerbare service-exemplaar."
+  remarks: "Een exemplaar is *activeringsfabriek*als deze zich niet in de onderbroken status of de status voltooid en voldoet aan de volgende voorwaarden:-het exemplaar is *uitvoerbare*. Een exemplaar in de database persistentie wordt beschouwd als als uitvoerbare als deze voldoet aan de volgende voorwaarden:-het exemplaar is ontgrendeld en een in behandeling timer heeft dat is verlopen.          -Het exemplaar is ontgrendeld en de status is **Executing**.          -Het exemplaar heeft een verlopen vergrendeld.      -Er is geen werkstroomhost geschikt is voor het laden van die het exemplaar wordt uitgevoerd op de lokale computer.       Een exemplaaropslag moet regelmatig worden gezocht naar activeringsfabriek workflowexemplaren die deel uitmaken van een werkstroom host die gebruikmaakt van het archief. Het moet verhogen de <xref:System.Activities.DurableInstancing.HasActivatableWorkflowEvent>wanneer een activeringsfabriek exemplaar worden gevonden in het persistentie-archief.</xref:System.Activities.DurableInstancing.HasActivatableWorkflowEvent> Als de instance store een activeringsfabriek exemplaar niet in het persistentie-archief vinden biedt, moeten blijven het persistentie-archief voor geen activeringsfabriek instanties bewaken.       Na de HasActivatableWorkflowEvent verhogen, moet de exemplaaropslag stop het persistentie-archief voor activeringsfabriek exemplaren bewaking totdat dit ontvangt en de QueryActivatableWorkflowsCommand wordt uitgevoerd. De bewaking gaat door alleen als de uitvoering van de opdracht niet in alle activeringsfabriek werkstroomexemplaren resulteert.       Wanneer een algemene host deze gebeurtenis ontvangt, wordt de QueryActivatableWorkflowsCommand tegen de exemplaaropslag om op te halen Activeringsparameters vereist voor het maken van een werkstroomhost uitgevoerd. De algemene host gebruikt deze Activeringsparameters voor maken van een werkstroom-host, die op zijn beurt laden en het service-exemplaar. De Activeringsparameters voor het activeringstype WAS zijn: sitenaam toepassingspad (ten opzichte van de site) en Service-pad (ten opzichte van de toepassing). Een exemplaaropslag kan meerdere sets van deze drie Activeringsparameters retourneren.       Een algemene host is een host met een XName-parameter met de naam **ActivationType**, die moet worden ingesteld op een waarde die wordt ondersteund door de exemplaaropslag. Op dit moment ondersteunt de Exemplaaropslag van de SQL-werkstroom algemene hosts met ActivationType parameter instellen op waarde: **WAS**. Als de ActivationType helemaal niet is ingesteld, wordt de host in SQL werkstroom Instance Store beschouwd als een algemene host.      > [!NOTE] > De werkstroom Management-Service dat wordt geleverd met de code met de naam &quot;Dublin&quot; (toepassing-serverextensies voor .NET 4.0) is een algemene host die het activeringstype dat is ingesteld is op **WAS**."
   syntax:
     content: 'public sealed class QueryActivatableWorkflowsCommand : System.Runtime.DurableInstancing.InstancePersistenceCommand'
   inheritance:
@@ -37,7 +37,7 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.DurableInstancing
-  summary: "Initializes an instance of the <xref href=&quot;System.Activities.DurableInstancing.QueryActivatableWorkflowsCommand&quot;></xref> class."
+  summary: "Initialiseert een exemplaar van de <xref href=&quot;System.Activities.DurableInstancing.QueryActivatableWorkflowsCommand&quot;> </xref> klasse."
   syntax:
     content: public QueryActivatableWorkflowsCommand ();
     parameters: []
@@ -61,7 +61,7 @@ items:
     content: protected override bool IsTransactionEnlistmentOptional { get; }
     return:
       type: System.Boolean
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   overload: System.Activities.DurableInstancing.QueryActivatableWorkflowsCommand.IsTransactionEnlistmentOptional*
   exceptions: []
   platform:
@@ -83,7 +83,7 @@ items:
     parameters:
     - id: view
       type: System.Runtime.DurableInstancing.InstanceView
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   overload: System.Activities.DurableInstancing.QueryActivatableWorkflowsCommand.Validate*
   exceptions: []
   platform:
