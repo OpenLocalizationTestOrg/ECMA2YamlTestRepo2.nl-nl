@@ -12,8 +12,8 @@ items:
   nameWithType: JavaScriptTypeResolver
   fullName: System.Web.Script.Serialization.JavaScriptTypeResolver
   type: Class
-  summary: "Provides the abstract base class for implementing a custom type resolver."
-  remarks: "The JavaScriptTypeResolver class provides the services for:      -   Converting managed type information to a string value through the <xref:System.Web.Script.Serialization.JavaScriptTypeResolver.ResolveTypeId%2A> method.      -   Resolving a string value back to the appropriate managed type through the <xref:System.Web.Script.Serialization.JavaScriptTypeResolver.ResolveType%2A> method.       When the <xref:System.Web.Script.Serialization.JavaScriptSerializer> object serializes custom types, it can optionally include in the serialized JavaScript Object Notation (JSON) string a value that contains type information. During deserialization, <xref:System.Web.Script.Serialization.JavaScriptSerializer> can then reference this string value to determine the appropriate managed type to which the JSON string will be converted.       If you provide a type resolver to the <xref:System.Web.Script.Serialization.JavaScriptSerializer> instance, the serializer will use the <xref:System.Web.Script.Serialization.JavaScriptTypeResolver.ResolveTypeId%2A> and <xref:System.Web.Script.Serialization.JavaScriptTypeResolver.ResolveType%2A> methods to map between the managed type and the string value during the serialization and deserialization process, respectively.       The JavaScriptTypeResolver class is the base class for the <xref:System.Web.Script.Serialization.SimpleTypeResolver> class, which provides an implementation of a type resolver that uses the managed type assembly-qualified name."
+  summary: "Biedt de abstracte basisklasse voor de uitvoering van een aangepast type-resolver."
+  remarks: "De klasse JavaScriptTypeResolver biedt de services voor:-converteren van beheerde Typ gegevens in een tekenreekswaarde via de <xref:System.Web.Script.Serialization.JavaScriptTypeResolver.ResolveTypeId%2A>methode.</xref:System.Web.Script.Serialization.JavaScriptTypeResolver.ResolveTypeId%2A>      -Het omzetten van een string-waarde op de juiste beheerde type via de <xref:System.Web.Script.Serialization.JavaScriptTypeResolver.ResolveType%2A>methode.</xref:System.Web.Script.Serialization.JavaScriptTypeResolver.ResolveType%2A>       Wanneer de <xref:System.Web.Script.Serialization.JavaScriptSerializer>object serialiseert aangepaste typen, deze kan desgewenst opnemen in de geserialiseerde JSON JavaScript Object Notation ()-tekenreeks een waarde die informatie bevat.</xref:System.Web.Script.Serialization.JavaScriptSerializer> Tijdens de deserialisatie- <xref:System.Web.Script.Serialization.JavaScriptSerializer>kunnen vervolgens de verwijzing naar deze string-waarde om te bepalen van de juiste beheerde type die de JSON-tekenreeks geconverteerd.</xref:System.Web.Script.Serialization.JavaScriptSerializer>       Als u een type-resolver bieden de <xref:System.Web.Script.Serialization.JavaScriptSerializer>exemplaar, de serialisatiefunctie gebruikt de <xref:System.Web.Script.Serialization.JavaScriptTypeResolver.ResolveTypeId%2A>en <xref:System.Web.Script.Serialization.JavaScriptTypeResolver.ResolveType%2A>methoden tussen het beheerde type en de tekenreekswaarde toewijzen tijdens de serialisatie en deserialisatie, respectievelijk.</xref:System.Web.Script.Serialization.JavaScriptTypeResolver.ResolveType%2A> </xref:System.Web.Script.Serialization.JavaScriptTypeResolver.ResolveTypeId%2A> </xref:System.Web.Script.Serialization.JavaScriptSerializer>       De klasse JavaScriptTypeResolver is de basisklasse voor de <xref:System.Web.Script.Serialization.SimpleTypeResolver>klasse, die voorziet in een implementatie van een type resolver die gebruikmaakt van de beheerde assembly gekwalificeerde typenaam.</xref:System.Web.Script.Serialization.SimpleTypeResolver>"
   example:
   - "The following example demonstrates how to create a custom type resolver.  \n  \n [!code-vb[System.Web.Script.Serialization.TypeResolver#2](~/add/codesnippet/visualbasic/t-system.web.script.seri_0_1.vb)]\n [!code-cs[System.Web.Script.Serialization.TypeResolver#2](~/add/codesnippet/csharp/t-system.web.script.seri_0_1.cs)]"
   syntax:
@@ -36,7 +36,7 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.Script.Serialization
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.Script.Serialization.JavaScriptTypeResolver&quot;></xref> class."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Web.Script.Serialization.JavaScriptTypeResolver&quot;> </xref> klasse."
   syntax:
     content: protected JavaScriptTypeResolver ();
     parameters: []
@@ -56,17 +56,17 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.Script.Serialization
-  summary: "When overridden in a derived class, returns the <xref:System.Type> object that is associated with the specified type name."
-  remarks: "When a type resolver is associated with a <xref:System.Web.Script.Serialization.JavaScriptSerializer> instance, the serializer uses the ResolveType method when it iterates through a JSON string to determine the specific managed type to which the JSON type should be converted."
+  summary: "Wanneer in een afgeleide klasse genegeerd, retourneert de <xref:System.Type>-object dat is gekoppeld aan de opgegeven typenaam.</xref:System.Type>"
+  remarks: "Wanneer een resolver type is gekoppeld aan een <xref:System.Web.Script.Serialization.JavaScriptSerializer>exemplaar, de serialisatiefunctie gebruikt de methode ResolveType wanneer doorlopen een JSON-tekenreeks om te bepalen van de specifieke beheerd type waarop u het JSON-type worden geconverteerd.</xref:System.Web.Script.Serialization.JavaScriptSerializer>"
   syntax:
     content: public abstract Type ResolveType (string id);
     parameters:
     - id: id
       type: System.String
-      description: "The name of the managed type."
+      description: "De naam van het beheerde type."
     return:
       type: System.Type
-      description: "The <xref:System.Type> object that is associated with the specified type name."
+      description: "De <xref:System.Type>-object dat is gekoppeld aan de opgegeven typenaam.</xref:System.Type>"
   overload: System.Web.Script.Serialization.JavaScriptTypeResolver.ResolveType*
   exceptions: []
   platform:
@@ -83,17 +83,17 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.Script.Serialization
-  summary: "When overridden in a derived class, returns the type name for the specified <xref:System.Type> object."
-  remarks: "If the ResolveTypeId method returns either `null` or <xref:System.String>, then the type resolver does not support the type."
+  summary: "Wanneer in een afgeleide klasse genegeerd, retourneert de typenaam voor de opgegeven <xref:System.Type>object.</xref:System.Type>"
+  remarks: "Als de ResolveTypeId-methode een retourneert `null` of <xref:System.String>, en vervolgens het type niet wordt ondersteund door de type-resolver.</xref:System.String>"
   syntax:
     content: public abstract string ResolveTypeId (Type type);
     parameters:
     - id: type
       type: System.Type
-      description: "The managed type to be resolved."
+      description: "Het beheerde type kunnen worden omgezet."
     return:
       type: System.String
-      description: "The name of the specified managed type."
+      description: "De naam van het opgegeven beheerde type."
   overload: System.Web.Script.Serialization.JavaScriptTypeResolver.ResolveTypeId*
   exceptions: []
   platform:

@@ -13,8 +13,8 @@ items:
   nameWithType: BrowserCapabilitiesCodeGenerator
   fullName: System.Web.Configuration.BrowserCapabilitiesCodeGenerator
   type: Class
-  summary: "The BrowserCapabilitiesCodeGenerator class is used internally by the <xref uid=&quot;langword_csharp_aspnet_regbrowsers&quot; name=&quot;aspnet_regbrowsers&quot; href=&quot;&quot;></xref> tool to parse .browser browser definition files and add browsers to the run-time collection of known browsers contained in the <xref href=&quot;System.Web.Configuration.BrowserCapabilitiesFactory&quot;></xref> object."
-  remarks: "This class generates the source code for an assembly for the <xref:System.Web.Configuration.BrowserCapabilitiesFactory> class, which, at run time, produces request-specific <xref:System.Web.Configuration.HttpCapabilitiesBase> objects to be publicly accessed through the ASP.NET intrinsic `Request.Browser` property."
+  summary: "De klasse BrowserCapabilitiesCodeGenerator door intern wordt gebruikt de <xref uid=&quot;langword_csharp_aspnet_regbrowsers&quot; name=&quot;aspnet_regbrowsers&quot; href=&quot;&quot;> </xref> hulpprogramma .browser browser definitiebestanden parseren en browsers toevoegen aan de runtime-verzameling van bekende browsers die zijn opgenomen in de <xref href=&quot;System.Web.Configuration.BrowserCapabilitiesFactory&quot;> </xref> object."
+  remarks: "Deze klasse genereert de broncode voor een assembly voor de <xref:System.Web.Configuration.BrowserCapabilitiesFactory>klasse, die tijdens runtime, die de aanvraag-specifieke <xref:System.Web.Configuration.HttpCapabilitiesBase>objecten openbaar toegankelijk via de ingebouwde ASP.NET `Request.Browser` eigenschap.</xref:System.Web.Configuration.HttpCapabilitiesBase> </xref:System.Web.Configuration.BrowserCapabilitiesFactory>"
   syntax:
     content: public class BrowserCapabilitiesCodeGenerator
   inheritance:
@@ -35,7 +35,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Used internally to create a new instance of <xref href=&quot;System.Web.Configuration.BrowserCapabilitiesCodeGenerator&quot;></xref>."
+  summary: "Intern gebruikt voor het maken van een nieuw exemplaar van <xref href=&quot;System.Web.Configuration.BrowserCapabilitiesCodeGenerator&quot;> </xref>."
   syntax:
     content: public BrowserCapabilitiesCodeGenerator ();
     parameters: []
@@ -55,8 +55,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Used internally to coordinate the behavior of this class."
-  remarks: "This method first iterates through the &quot;Browsers&quot; folder. It then calls <xref:System.Web.Configuration.BrowserCapabilitiesCodeGenerator.ProcessBrowserFiles%2A>, which loads and parses the XML contained in a collection of browser-definition files and inserts the information contained therein into an internal collection of browsers. Then it calls an internal method which generates the source code compiles it, and registers it as an assembly in the global assembly cache for the <xref:System.Web.Configuration.BrowserCapabilitiesFactory> object. If necessary, this method then calls an internal method that restarts the Web server."
+  summary: "Intern gebruikt voor het coördineren van het gedrag van deze klasse."
+  remarks: "Deze methode doorlopen eerst naar de map &quot;Browsers&quot;. Vervolgens roept <xref:System.Web.Configuration.BrowserCapabilitiesCodeGenerator.ProcessBrowserFiles%2A>, die wordt geladen en parseert de XML in een verzameling van browserdefinitie bestanden en voegt de informatie die hierin staan in een interne verzameling browsers.</xref:System.Web.Configuration.BrowserCapabilitiesCodeGenerator.ProcessBrowserFiles%2A> Vervolgens wordt een interne methode die de bron-code wordt gecompileerd genereert aangeroepen en registreert als een assembly in de global assembly cache om de <xref:System.Web.Configuration.BrowserCapabilitiesFactory>object.</xref:System.Web.Configuration.BrowserCapabilitiesFactory> Indien nodig, zijn deze methode roept vervolgens een interne methode die de webserver opnieuw wordt opgestart."
   syntax:
     content: public virtual void Create ();
     parameters: []
@@ -76,16 +76,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Loads and parses the XML contained in a collection of browser-definition files and inserts the information contained therein into an internal collection of browsers."
+  summary: "Wordt geladen en parseert de XML in een verzameling browserdefinitie bestanden en voegt de informatie in een interne verzameling browsers daarin."
   syntax:
     content: protected void ProcessBrowserFiles (bool useVirtualPath, string virtualDir);
     parameters:
     - id: useVirtualPath
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to use a virtual path; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>gebruik van een virtueel pad zijn. anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. De standaardwaarde is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     - id: virtualDir
       type: System.String
-      description: "The path to the virtual directory that contains the browser-definition files. The default is <xref:System.String>."
+      description: "Het pad naar de virtuele map met de definitie van de browser-bestanden. De standaardwaarde is <xref:System.String>.</xref:System.String>"
   overload: System.Web.Configuration.BrowserCapabilitiesCodeGenerator.ProcessBrowserFiles*
   exceptions:
   - type: System.Web.HttpParseException
@@ -105,14 +105,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Removes the browser capabilities factory from the global assembly cache and deletes its strong name public key token file."
-  remarks: "This method restarts the Web service. The browser capabilities factory is then removed from the global assembly cache, and its strong name public key token file is deleted. The Web service is then restarted again if the uninstall succeeds."
+  summary: "Hiermee verwijdert u de browser mogelijkheden factory uit de global assemblycache en wordt verwijderd van de sterke naam token bestand met openbare sleutel."
+  remarks: "Deze methode wordt opnieuw gestart met de webservice. De browser mogelijkheden factory vervolgens wordt verwijderd uit de global assemblycache en de sterke naam public key token bestand wordt verwijderd. De webservice wordt vervolgens opnieuw worden gestart als de verwijdering is gelukt."
   syntax:
     content: public bool Uninstall ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the browser capabilities factory was uninstalled from the global assembly cache; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de browser mogelijkheden factory is verwijderd uit de global assemblycache; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.Configuration.BrowserCapabilitiesCodeGenerator.Uninstall*
   exceptions: []
   platform:

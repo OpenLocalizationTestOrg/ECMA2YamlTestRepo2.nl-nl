@@ -17,8 +17,8 @@ items:
   nameWithType: MessageQueueEnumerator
   fullName: System.Messaging.MessageQueueEnumerator
   type: Class
-  summary: "Provides a forward-only cursor to enumerate through messages in a message queue."
-  remarks: "Use MessageQueueEnumerator for dynamic interaction with queues on the network. Methods available through the <xref:System.Messaging.MessageQueue> class can return either a MessageQueueEnumerator containing a dynamic list of queues, or an array that contains a snapshot of the queue collection at the time the specified method was called.       There is no defined ordering of queues in a network. They are not ordered, for example, by computer, label, public or private status, or other user-accessible criteria. A MessageQueueEnumerator is a cursor, initialized to the head of a dynamic list. You can move the cursor to the first queue of the enumeration by calling <xref:System.Messaging.MessageQueueEnumerator.MoveNext%2A>. After the enumerator has been initialized, you can use <xref:System.Messaging.MessageQueueEnumerator.MoveNext%2A> to step forward through the remaining queues.       It is not possible to step backward with a MessageQueueEnumerator. A cursor only allows forward movement through the queue enumeration. However, you can call <xref:System.Messaging.MessageQueueEnumerator.Reset%2A> to reset the enumeration and put the cursor at the beginning of the list again. Because the enumerator is dynamic, a queue that is appended beyond the cursor&quot;s current position can be accessed by the enumerator. A queue that is inserted before the cursor&quot;s current position cannot be accessed without first calling Reset."
+  summary: "Biedt een alleen-voorwaarts cursor voor berichten in de berichtenwachtrij van een inventariseren."
+  remarks: "Gebruik MessageQueueEnumerator voor dynamische interactie met wachtrijen op het netwerk. Methoden die beschikbaar is via de <xref:System.Messaging.MessageQueue>klasse ofwel een MessageQueueEnumerator met een dynamische lijst met wachtrijen of een matrix met een momentopname van de verzameling van de wachtrij op het moment dat de opgegeven methode is aangeroepen kunt terugkeren.</xref:System.Messaging.MessageQueue>       Er is geen gedefinieerde ordening van wachtrijen in een netwerk. Ze zijn geen geordende, bijvoorbeeld door de computer, label, openbare of persoonlijke status of een andere gebruiker toegankelijk criteria. Een MessageQueueEnumerator is een cursor, geïnitialiseerd op de kop van een dynamische lijst. U kunt de cursor verplaatsen naar de eerste wachtrij van de inventarisatie door het aanroepen van <xref:System.Messaging.MessageQueueEnumerator.MoveNext%2A>.</xref:System.Messaging.MessageQueueEnumerator.MoveNext%2A> Nadat de enumerator is geïnitialiseerd, kunt u <xref:System.Messaging.MessageQueueEnumerator.MoveNext%2A>naar stap vooruit via de resterende wachtrijen.</xref:System.Messaging.MessageQueueEnumerator.MoveNext%2A>       Het is niet mogelijk naar stap achteruit met een MessageQueueEnumerator. Een cursor staat alleen voorwaartse beweging via de wachtrij-opsomming. U kunt echter aanroepen <xref:System.Messaging.MessageQueueEnumerator.Reset%2A>opnieuw instellen van de inventarisatie en plaats de cursor aan het begin van de lijst opnieuw.</xref:System.Messaging.MessageQueueEnumerator.Reset%2A> Omdat de enumerator dynamisch is, zijn een wachtrij die wordt toegevoegd na de huidige cursorpositie toegankelijk voor de enumerator. Een wachtrij die wordt ingevoegd vóór de huidige cursorpositie zijn zonder de eerste aanroep opnieuw instellen niet toegankelijk."
   example:
   - "The following code example iterates through all the message queues in the network, and examines the path for each queue. Finally, it displays the number of public queues on the network.  \n  \n [!code-cs[MessageQueue.GetMessageQueueEnumerator_noparms#1](~/add/codesnippet/csharp/t-system.messaging.messa_7_1.cs)]\n [!code-cpp[MessageQueue.GetMessageQueueEnumerator_noparms#1](~/add/codesnippet/cpp/t-system.messaging.messa_7_1.cpp)]\n [!code-vb[MessageQueue.GetMessageQueueEnumerator_noparms#1](~/add/codesnippet/visualbasic/t-system.messaging.messa_7_1.vb)]"
   syntax:
@@ -48,8 +48,8 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "Frees the resources associated with the enumerator."
-  remarks: "The operating system retains an open handle, <xref:System.Messaging.MessageQueueEnumerator.LocatorHandle%2A>, to the queue enumerator during the lifetime of the cursor. When you finish working with the enumerator, call Close to release the resources associated with the handle."
+  summary: "Maakt de resources die zijn gekoppeld aan de enumerator."
+  remarks: "Het besturingssysteem behoudt een geopende ingang <xref:System.Messaging.MessageQueueEnumerator.LocatorHandle%2A>, naar de wachtrij enumerator tijdens de levensduur van de cursor.</xref:System.Messaging.MessageQueueEnumerator.LocatorHandle%2A> Wanneer u klaar bent met de enumerator, vrijgeven aanroep dicht bij de resources die zijn gekoppeld aan de ingang."
   syntax:
     content: public void Close ();
     parameters: []
@@ -69,18 +69,18 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "Gets the current <xref href=&quot;System.Messaging.MessageQueue&quot;></xref> of the enumeration."
-  remarks: "When the enumerator is created, it does not point to anything, so Current is not valid and will throw an exception if it is accessed. You must call <xref:System.Messaging.MessageQueueEnumerator.MoveNext%2A> to position the cursor at the first queue in the enumeration.       Multiple calls to Current with no intervening calls to <xref:System.Messaging.MessageQueueEnumerator.MoveNext%2A> will return the same <xref:System.Messaging.MessageQueue> object."
+  summary: "De huidige opgehaald <xref href=&quot;System.Messaging.MessageQueue&quot;> </xref> van de inventarisatie."
+  remarks: "Wanneer de enumerator is gemaakt, wijst het niet naar alles zijn, zodat de huidige is niet geldig en genereert een uitzondering als deze is geopend. U moet aanroepen <xref:System.Messaging.MessageQueueEnumerator.MoveNext%2A>naar plaats de cursor op de eerste wachtrij in de opsomming.</xref:System.Messaging.MessageQueueEnumerator.MoveNext%2A>       Meerdere aanroepen naar huidige met geen Tussenkomende aanroepen <xref:System.Messaging.MessageQueueEnumerator.MoveNext%2A>retourneert dezelfde <xref:System.Messaging.MessageQueue>object.</xref:System.Messaging.MessageQueue> </xref:System.Messaging.MessageQueueEnumerator.MoveNext%2A>"
   syntax:
     content: public System.Messaging.MessageQueue Current { get; }
     return:
       type: System.Messaging.MessageQueue
-      description: "The queue at which the cursor is currently positioned."
+      description: "De wachtrij waarmee de cursor is geplaatst."
   overload: System.Messaging.MessageQueueEnumerator.Current*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "You called Current before the first call to <xref:System.Messaging.MessageQueueEnumerator.MoveNext*>. The cursor is located before the first queue in the enumeration.       -or-       You called Current after a call to <xref:System.Messaging.MessageQueueEnumerator.MoveNext*> had returned false (indicating the cursor is located after the last queue in the enumeration)."
+    description: "U huidige aangeroepen voordat de eerste aanroep <> </> *>. De cursor bevindt zich vóór de eerste wachtrij in de opsomming.       - of - u huidige aangeroepen na een aanroep van <> </> *> retourneert onwaar (indicatie dat de cursor bevindt zich na de laatste wachtrij in de inventarisatie)."
   platform:
   - net462
 - uid: System.Messaging.MessageQueueEnumerator.Dispose
@@ -95,8 +95,8 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "Releases all resources used by the <xref href=&quot;System.Messaging.MessageQueueEnumerator&quot;></xref>."
-  remarks: "Calling Dispose allows the resources used by the <xref:System.Messaging.MessageQueueEnumerator> to be reallocated for other purposes. For more information about Dispose, see [Cleaning Up Unmanaged Resources](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Versies van alle resources die worden gebruikt door de <xref href=&quot;System.Messaging.MessageQueueEnumerator&quot;> </xref>."
+  remarks: "Aanroepen van Dispose kan de bronnen die worden gebruikt door de <xref:System.Messaging.MessageQueueEnumerator>naar opnieuw worden toegewezen voor andere doeleinden.</xref:System.Messaging.MessageQueueEnumerator> Zie voor meer informatie over Dispose [onbeheerde hulpbronnen reinigen](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -116,14 +116,14 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "Releases the unmanaged resources used by the <xref href=&quot;System.Messaging.MessageQueueEnumerator&quot;></xref> and optionally releases the managed resources."
-  remarks: "This method is called by the public <xref:System.Messaging.MessageQueueEnumerator.Dispose%2A> method and the <xref:System.Object.Finalize%2A> method. `Dispose` invokes the protected `Dispose(Boolean)` method with the `disposing` parameter set to `true`. <xref:System.Object.Finalize%2A> invokes `Dispose` with `disposing` set to `false`.       When the `disposing` parameter is `true`, this method releases all resources held by any managed objects that this <xref:System.Messaging.MessageQueueEnumerator> references. This method invokes the `Dispose` method of each referenced object."
+  summary: "Heft de niet-beheerde bronnen worden gebruikt door de <xref href=&quot;System.Messaging.MessageQueueEnumerator&quot;> </xref> en eventueel de beheerde bronnen vrij."
+  remarks: "Deze methode wordt aangeroepen door het publiek <xref:System.Messaging.MessageQueueEnumerator.Dispose%2A>methode en de <xref:System.Object.Finalize%2A>methode.</xref:System.Object.Finalize%2A> </xref:System.Messaging.MessageQueueEnumerator.Dispose%2A> `Dispose`Hiermee wordt de beveiligde `Dispose(Boolean)` methode met de `disposing` parameter ingesteld op `true`. <xref:System.Object.Finalize%2A>roept `Dispose` met `disposing` ingesteld op `false`.</xref:System.Object.Finalize%2A>       Wanneer de `disposing` parameter `true`, deze methode worden alle resources die beheerde objecten waarover vrijgegeven dat dit <xref:System.Messaging.MessageQueueEnumerator>verwijzingen.</xref:System.Messaging.MessageQueueEnumerator> Deze methode roept de `Dispose` methode van elk object waarnaar wordt verwezen."
   syntax:
     content: protected virtual void Dispose (bool disposing);
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to release both managed and unmanaged resources; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to release only unmanaged resources."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>voor het vrijgeven van zowel beheerde als onbeheerde hulpbronnen; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> om alleen niet-beheerde bronnen vrij te geven."
   overload: System.Messaging.MessageQueueEnumerator.Dispose*
   exceptions: []
   platform:
@@ -140,21 +140,21 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "Gets the native Message Queuing handle used to locate queues in a network."
-  remarks: "When you no longer need this <xref:System.Messaging.MessageQueueEnumerator> instance, call <xref:System.Messaging.MessageQueueEnumerator.Close%2A> to free this handle to the resource."
+  summary: "Hiermee haalt u de systeemeigen koppeling Message Queuing gebruikt voor het vinden van wachtrijen in een netwerk."
+  remarks: "Wanneer u niet langer hoeft dit <xref:System.Messaging.MessageQueueEnumerator>exemplaar, neemt u contact <xref:System.Messaging.MessageQueueEnumerator.Close%2A>vrij deze ingang naar de resource.</xref:System.Messaging.MessageQueueEnumerator.Close%2A> </xref:System.Messaging.MessageQueueEnumerator>"
   syntax:
     content: public IntPtr LocatorHandle { get; }
     return:
       type: System.IntPtr
-      description: "The native handle to the current queue."
+      description: "De systeemeigen koppeling naar de huidige wachtrij."
   overload: System.Messaging.MessageQueueEnumerator.LocatorHandle*
   exceptions:
   - type: System.Messaging.MessageQueueException
     commentId: T:System.Messaging.MessageQueueException
-    description: "The handle does not exist."
+    description: "De ingang bestaat niet."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The calling code does not have browse permissions."
+    description: "De aanroepende code heeft geen leesmachtigingen."
   platform:
   - net462
 - uid: System.Messaging.MessageQueueEnumerator.MoveNext
@@ -169,19 +169,19 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "Advances the enumerator to the next queue of the enumeration, if one is currently available."
-  remarks: "MoveNext returns `false` immediately if there are no queues associated with the enumeration.       MoveNext will return `true` until it has reached the end of the collection. It will then return `false` for each successive call. However once MoveNext has returned `false`, accessing the <xref:System.Messaging.MessageQueueEnumerator.Current%2A> property will throw an exception.       Upon creation, an enumerator is conceptually positioned before the first <xref:System.Messaging.MessageQueue> of the enumeration, and the first call to MoveNext brings the first queue of the enumeration into view."
+  summary: "De enumerator verplaatst naar de volgende wachtrij van de inventarisatie, als deze momenteel beschikbaar is."
+  remarks: "MoveNext retourneert `false` onmiddellijk als er geen wachtrijen die zijn gekoppeld aan de opsomming.       MoveNext retourneert `true` totdat het het einde van de verzameling is bereikt. Vervolgens wordt geretourneerd `false` voor elke volgende aanroep. Maar nadat MoveNext heeft geretourneerd `false`, toegang tot de <xref:System.Messaging.MessageQueueEnumerator.Current%2A>eigenschap genereert een uitzondering.</xref:System.Messaging.MessageQueueEnumerator.Current%2A>       Nadat deze is gemaakt, conceptueel gezien een enumerator bevindt zich voor de eerste <xref:System.Messaging.MessageQueue>van de inventarisatie en de eerste aanroep van MoveNext brengt de eerste wachtrij van de inventarisatie in weergave.</xref:System.Messaging.MessageQueue>"
   syntax:
     content: public bool MoveNext ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the enumerator was successfully advanced to the next queue; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the enumerator has reached the end of the enumeration."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de enumerator is is voortgezet naar de volgende wachtrij; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> als de enumerator heeft het einde van de inventarisatie bereikt."
   overload: System.Messaging.MessageQueueEnumerator.MoveNext*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The calling code does not have browse permissions."
+    description: "De aanroepende code heeft geen leesmachtigingen."
   platform:
   - net462
 - uid: System.Messaging.MessageQueueEnumerator.Reset
@@ -196,8 +196,8 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "Resets the cursor, so it points to the beginning of the enumeration."
-  remarks: "An enumerator moves in a forward-only direction. Use this method to return to the beginning of the enumeration of queues.       Reset positions the cursor at the first queue in the list. You do not need to call <xref:System.Messaging.MessageQueueEnumerator.MoveNext%2A> after calling Reset to move the cursor forward to the first queue in the enumeration."
+  summary: "Hiermee stelt u de cursor, zodat deze naar het begin van de inventarisatie verwijst."
+  remarks: "Een enumerator wordt verplaatst in een alleen-voorwaarts richting. Gebruik deze methode om terug te keren naar het begin van de inventarisatie van wachtrijen.       Opnieuw instellen van plaatst u de cursor op de eerste wachtrij in de lijst. U hoeft niet aan te roepen <xref:System.Messaging.MessageQueueEnumerator.MoveNext%2A>na het opnieuw instellen voor het verplaatsen van de cursor wordt aangeroepen door te sturen naar de eerste wachtrij in de opsomming.</xref:System.Messaging.MessageQueueEnumerator.MoveNext%2A>"
   syntax:
     content: public void Reset ();
     parameters: []
@@ -218,12 +218,12 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "Gets the current <xref href=&quot;System.Messaging.MessageQueue&quot;></xref> of the enumeration."
+  summary: "De huidige opgehaald <xref href=&quot;System.Messaging.MessageQueue&quot;> </xref> van de inventarisatie."
   syntax:
     content: object System.Collections.IEnumerator.Current { get; }
     return:
       type: System.Object
-      description: "The queue at which the cursor is currently positioned."
+      description: "De wachtrij waarmee de cursor is geplaatst."
   overload: System.Messaging.MessageQueueEnumerator.System#Collections#IEnumerator#Current*
   exceptions: []
   platform:

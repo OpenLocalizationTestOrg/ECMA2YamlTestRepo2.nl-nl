@@ -15,8 +15,8 @@ items:
   nameWithType: Handle
   fullName: System.Activities.Handle
   type: Class
-  summary: "Represents a type that has its lifetime controlled by the workflow runtime."
-  remarks: "Types derived from Handle have their lifetimes controlled by the workflow runtime. For workflow variables of handle types, the runtime uses the required default constructor to create an instance of the type, assigns it to the <xref:System.Activities.Variable>, and calls <xref:System.Activities.Handle.OnInitialize%2A> when initializing the environment. When the variable goes out of scope, <xref:System.Activities.Handle.OnUninitialize%2A> is called."
+  summary: "Vertegenwoordigt een type dat de levensduur beheerd door de WorkflowRuntime is."
+  remarks: "Typen die zijn afgeleid van Handle hebben hun levensduur beheerd door de workflowruntime. Voor Werkstroomvariabelen van de van de ingang typen de runtime maakt met de standaardconstructor vereist een exemplaar van het type en wijst deze naar de <xref:System.Activities.Variable>, en aanroepen <xref:System.Activities.Handle.OnInitialize%2A>bij het initialiseren van de omgeving.</xref:System.Activities.Handle.OnInitialize%2A> </xref:System.Activities.Variable> Wanneer de variabele buiten het bereik, <xref:System.Activities.Handle.OnUninitialize%2A>wordt aangeroepen.</xref:System.Activities.Handle.OnUninitialize%2A>"
   syntax:
     content: >-
       [System.Runtime.Serialization.DataContract]
@@ -40,8 +40,8 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities
-  summary: "Initializes a new instance of the <xref href=&quot;System.Activities.Handle&quot;></xref> class."
-  remarks: "Classes that derive from <xref:System.Activities.Handle> must provide a default constructor."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Activities.Handle&quot;> </xref> klasse."
+  remarks: "Klassen die zijn afgeleid van <xref:System.Activities.Handle>moet een standaardconstructor opgeven.</xref:System.Activities.Handle>"
   syntax:
     content: protected Handle ();
     parameters: []
@@ -61,12 +61,12 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities
-  summary: "Gets the name to be used by this <xref href=&quot;System.Activities.Handle&quot;></xref> when added to an activity’s execution properties."
+  summary: "Hiermee wordt de naam moet worden gebruikt door dit <xref href=&quot;System.Activities.Handle&quot;> </xref> wanneer toegevoegd aan de eigenschappen van uitvoering van een activiteit."
   syntax:
     content: public string ExecutionPropertyName { get; }
     return:
       type: System.String
-      description: "The name of derived type as provided by <xref:System.Type.FullName*>."
+      description: "De naam van het afgeleide type als opgegeven door <xref:System.Type.FullName*>.</xref:System.Type.FullName*>"
   overload: System.Activities.Handle.ExecutionPropertyName*
   exceptions: []
   platform:
@@ -83,13 +83,13 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities
-  summary: "Called by the workflow runtime when the environment that contains the <xref href=&quot;System.Activities.Handle&quot;></xref> is initialized."
+  summary: "Door de runtime werkstroom wordt aangeroepen wanneer de omgeving waarin de <xref href=&quot;System.Activities.Handle&quot;> </xref> is geïnitialiseerd."
   syntax:
     content: protected virtual void OnInitialize (System.Activities.HandleInitializationContext context);
     parameters:
     - id: context
       type: System.Activities.HandleInitializationContext
-      description: "The environment in which the handle is being created."
+      description: "De omgeving waarin de ingang wordt gemaakt."
   overload: System.Activities.Handle.OnInitialize*
   exceptions: []
   platform:
@@ -106,13 +106,13 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities
-  summary: "Called by the workflow runtime when the <xref href=&quot;System.Activities.Variable&quot;></xref> for the <xref href=&quot;System.Activities.Handle&quot;></xref> goes out of scope."
+  summary: "Door de runtime werkstroom wordt aangeroepen wanneer de <xref href=&quot;System.Activities.Variable&quot;> </xref> voor de <xref href=&quot;System.Activities.Handle&quot;> </xref> buiten het bereik valt."
   syntax:
     content: protected virtual void OnUninitialize (System.Activities.HandleInitializationContext context);
     parameters:
     - id: context
       type: System.Activities.HandleInitializationContext
-      description: "The environment in which the handle was created."
+      description: "De omgeving waarin de ingang is gemaakt."
   overload: System.Activities.Handle.OnUninitialize*
   exceptions: []
   platform:
@@ -129,12 +129,12 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities
-  summary: "Gets the <xref href=&quot;System.Activities.ActivityInstance&quot;></xref> that contains the <xref href=&quot;System.Activities.Variable&quot;></xref> that contains the <xref href=&quot;System.Activities.Handle&quot;></xref>."
+  summary: "Haalt de <xref href=&quot;System.Activities.ActivityInstance&quot;> </xref> die bevat de <xref href=&quot;System.Activities.Variable&quot;> </xref> die bevat de <xref href=&quot;System.Activities.Handle&quot;> </xref>."
   syntax:
     content: public System.Activities.ActivityInstance Owner { get; }
     return:
       type: System.Activities.ActivityInstance
-      description: "The activity instance that contains the <xref href=&quot;System.Activities.Variable&quot;></xref> that contains the <xref href=&quot;System.Activities.Handle&quot;></xref>."
+      description: "Het Activiteitexemplaar waardoor bevat de <xref href=&quot;System.Activities.Variable&quot;> </xref> die bevat de <xref href=&quot;System.Activities.Handle&quot;> </xref>."
   overload: System.Activities.Handle.Owner*
   exceptions: []
   platform:
@@ -151,8 +151,8 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities
-  summary: "Throws an <xref:System.InvalidOperationException> if the <xref href=&quot;System.Activities.Handle&quot;></xref> has not been initialized."
-  remarks: "ThrowIfUninitialized gives custom handle derived class authors a convenient method to call from any methods or properties of the derived class that are not valid if the <xref:System.Activities.Handle> is uninitialized."
+  summary: "Genereert een <xref:System.InvalidOperationException>Als de <xref href=&quot;System.Activities.Handle&quot;> </xref> is niet geïnitialiseerd.</xref:System.InvalidOperationException>"
+  remarks: "ThrowIfUninitialized aangepaste ingang afgeleide klasse auteurs biedt een handige methode aan te roepen vanuit methoden of eigenschappen van de afgeleide klasse die niet geldig als de <xref:System.Activities.Handle>is niet geïnitialiseerd.</xref:System.Activities.Handle>"
   syntax:
     content: protected void ThrowIfUninitialized ();
     parameters: []

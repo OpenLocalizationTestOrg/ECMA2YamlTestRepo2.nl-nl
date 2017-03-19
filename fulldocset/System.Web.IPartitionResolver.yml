@@ -11,8 +11,8 @@ items:
   nameWithType: IPartitionResolver
   fullName: System.Web.IPartitionResolver
   type: Interface
-  summary: "Defines methods that must be implemented for custom session-state partition resolution."
-  remarks: "Implement the IPartitionResolver interface and the <xref:System.Web.IPartitionResolver.Initialize%2A> and <xref:System.Web.IPartitionResolver.ResolvePartition%2A> methods, if you are providing custom partition resolution for session-state data across multiple backend nodes when in SQL or state-server mode.       The session-state management information can be configured in the [sessionState Element (ASP.NET Settings Schema)](http://msdn.microsoft.com/en-us/bda6fb8c-0076-43e3-9ce2-8cf1f8bdaa7d) of the configuration file with the `partitionResolverType` attribute. If a value is specified for the `partitionResolverType` attribute, the `sqlConnectionString` and `stateConnectionString` attributes are ignored.       The partition resolution configuration can also be set programmatically using the <xref:System.Web.Configuration.SessionStateSection.PartitionResolverType%2A> property. If the <xref:System.Web.Configuration.SessionStateSection.PartitionResolverType%2A> property is specified, the <xref:System.Web.Configuration.SessionStateSection.SqlConnectionString%2A> and <xref:System.Web.Configuration.SessionStateSection.StateConnectionString%2A> properties are ignored."
+  summary: "Methoden die moeten worden geïmplementeerd voor de omzetting van de aangepaste sessiestatus partitie definieert."
+  remarks: "Het IPartitionResolver-interface implementeren en de <xref:System.Web.IPartitionResolver.Initialize%2A>en <xref:System.Web.IPartitionResolver.ResolvePartition%2A>methoden, als u biedt aangepaste partitie resolutie voor sessiestatusgegevens op meerdere knooppunten van de back-end in SQL- of statusserver modus.</xref:System.Web.IPartitionResolver.ResolvePartition%2A> </xref:System.Web.IPartitionResolver.Initialize%2A>       De sessiestatus gegevens kan worden geconfigureerd in de [sessionState Element (ASP.NET-instellingenschema)](http://msdn.microsoft.com/en-us/bda6fb8c-0076-43e3-9ce2-8cf1f8bdaa7d) van het configuratiebestand met de `partitionResolverType` kenmerk. Als een waarde is opgegeven voor de `partitionResolverType` kenmerk, de `sqlConnectionString` en `stateConnectionString` kenmerken worden genegeerd.       De configuratie van de omzetting van de partitie kan ook worden ingesteld programmatisch met behulp van de <xref:System.Web.Configuration.SessionStateSection.PartitionResolverType%2A>eigenschap.</xref:System.Web.Configuration.SessionStateSection.PartitionResolverType%2A> Als de <xref:System.Web.Configuration.SessionStateSection.PartitionResolverType%2A>eigenschap is opgegeven, de <xref:System.Web.Configuration.SessionStateSection.SqlConnectionString%2A>en <xref:System.Web.Configuration.SessionStateSection.StateConnectionString%2A>Eigenschappen worden genegeerd.</xref:System.Web.Configuration.SessionStateSection.StateConnectionString%2A> </xref:System.Web.Configuration.SessionStateSection.SqlConnectionString%2A> </xref:System.Web.Configuration.SessionStateSection.PartitionResolverType%2A>"
   syntax:
     content: public interface IPartitionResolver
   implements: []
@@ -30,8 +30,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Initializes the custom partition resolver."
-  remarks: "Use the Initialize method to provide any initialization code that is needed for your custom partition resolution. The <xref:System.Web.SessionState.SessionStateModule> creates the type implementing the <xref:System.Web.IPartitionResolver> interface, calls the Initialize method to initialize it (once per instance), and then indicates to the ASP.NET state service or SQL Server provider that partitioning is being used and passes a resolver instance to the provider."
+  summary: "Initialiseert de resolver aangepaste partitie."
+  remarks: "Gebruik de methode Initialize initialisatiecode die nodig is voor de omzetting van uw aangepaste partitie op te geven. De <xref:System.Web.SessionState.SessionStateModule>maakt het type implementatie van de <xref:System.Web.IPartitionResolver>interface, roept de methode Initialize om geïnitialiseerd (eenmaal per exemplaar) en vervolgens geeft u aan de ASP.NET-statusservice of de SQL Server-provider dat partitioneren wordt gebruikt en een exemplaar resolver wordt doorgegeven aan de provider.</xref:System.Web.IPartitionResolver> </xref:System.Web.SessionState.SessionStateModule>"
   syntax:
     content: public void Initialize ();
     parameters: []
@@ -51,17 +51,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Resolves the partition based on a key parameter."
-  remarks: "The `key` parameter of the ResolvePartition method is the <xref:System.Web.SessionState.HttpSessionState.SessionID%2A> property. The <xref:System.Web.SessionState.HttpSessionState.SessionID%2A> property uniquely identifies a browser with session data on the server."
+  summary: "Oplossing voor de partitie op basis van een sleutelparameter."
+  remarks: "De `key` parameter van de methode ResolvePartition is de <xref:System.Web.SessionState.HttpSessionState.SessionID%2A>eigenschap.</xref:System.Web.SessionState.HttpSessionState.SessionID%2A> De <xref:System.Web.SessionState.HttpSessionState.SessionID%2A>eigenschap een unieke identificatie van een browser met sessiegegevens op de server.</xref:System.Web.SessionState.HttpSessionState.SessionID%2A>"
   syntax:
     content: public string ResolvePartition (object key);
     parameters:
     - id: key
       type: System.Object
-      description: "An identifier used to determine which partition to use for the current session state."
+      description: "Een id die wordt gebruikt om te bepalen welke partitie moet worden gebruikt voor de status van de huidige sessie."
     return:
       type: System.String
-      description: "A string with connection information."
+      description: "Een tekenreeks met de verbindingsinformatie."
   overload: System.Web.IPartitionResolver.ResolvePartition*
   exceptions: []
   platform:
