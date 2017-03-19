@@ -12,8 +12,8 @@ items:
   nameWithType: IWsdlImportExtension
   fullName: System.ServiceModel.Description.IWsdlImportExtension
   type: Interface
-  summary: "Implement and attach to a <xref href=&quot;System.ServiceModel.Description.WsdlImporter&quot;></xref> object to control how the importer maps Web Services Description Language (WSDL) parts to those of a <xref href=&quot;System.Web.Services.Description.ServiceDescription&quot;></xref> object."
-  remarks: "Implement the IWsdlImportExtension interface to control the mapping between WSDL and <xref:System.ServiceModel.Description.ServiceEndpoint> and <xref:System.ServiceModel.Description.ContractDescription> objects, especially when reading custom WSDL extensions to modify your contract or endpoint information. Then attach your custom IWsdlImportExtension object to a <xref:System.ServiceModel.Description.WsdlImporter> either programmatically or by using an application configuration file. You can also attach your custom IWsdlImportExtension object to the internal <xref:System.ServiceModel.Description.WsdlImporter> used by the [ServiceModel Metadata Utility Tool (Svcutil.exe)](~/add/includes/ajax-current-ext-md.md) using an application configuration file.       The <xref:System.ServiceModel.Description.IWsdlImportExtension.ImportContract%2A> method is called to import a contract.       Use the <xref:System.ServiceModel.Description.IWsdlImportExtension.BeforeImport%2A> method to modify the metadata that is then imported into <xref:System.ServiceModel.Description.ServiceEndpoint> and <xref:System.ServiceModel.Description.ContractDescription> objects."
+  summary: "Implementeren en te koppelen aan een <xref href=&quot;System.ServiceModel.Description.WsdlImporter&quot;> </xref> object om te bepalen hoe de importfunctie beschrijving taal WSDL (Web Services) toegewezen delen met die van een <xref href=&quot;System.Web.Services.Description.ServiceDescription&quot;> </xref> object."
+  remarks: "Implementeert de interface IWsdlImportExtension om te bepalen van de toewijzing tussen WSDL en <xref:System.ServiceModel.Description.ServiceEndpoint>en <xref:System.ServiceModel.Description.ContractDescription>objecten, vooral wanneer lezen van de aangepaste WSDL-uitbreidingen voor het wijzigen van gegevens van uw contract of eindpunt.</xref:System.ServiceModel.Description.ContractDescription> </xref:System.ServiceModel.Description.ServiceEndpoint> Koppel vervolgens uw aangepaste IWsdlImportExtension-object aan een <xref:System.ServiceModel.Description.WsdlImporter>via programmacode of via een toepassingsconfiguratiebestand.</xref:System.ServiceModel.Description.WsdlImporter> U kunt ook uw aangepaste IWsdlImportExtension object koppelen met het interne <xref:System.ServiceModel.Description.WsdlImporter>die wordt gebruikt door de [ServiceModel metagegevens-hulpprogramma (Svcutil.exe)](~/add/includes/ajax-current-ext-md.md) met een configuratiebestand voor de toepassing.</xref:System.ServiceModel.Description.WsdlImporter>       De <xref:System.ServiceModel.Description.IWsdlImportExtension.ImportContract%2A>methode wordt aangeroepen voor het importeren van een contract.</xref:System.ServiceModel.Description.IWsdlImportExtension.ImportContract%2A>       Gebruik de <xref:System.ServiceModel.Description.IWsdlImportExtension.BeforeImport%2A>methode voor het wijzigen van de metagegevens die wordt vervolgens geïmporteerd in <xref:System.ServiceModel.Description.ServiceEndpoint>en <xref:System.ServiceModel.Description.ContractDescription>objecten.</xref:System.ServiceModel.Description.ContractDescription> </xref:System.ServiceModel.Description.ServiceEndpoint> </xref:System.ServiceModel.Description.IWsdlImportExtension.BeforeImport%2A>"
   example:
   - "The following code example shows the use of IWsdlImportExtension to add an <xref:System.ServiceModel.Description.IServiceContractGenerationExtension?displayProperty=fullName> and an <xref:System.ServiceModel.Description.IOperationContractGenerationExtension?displayProperty=fullName> (the `WsdlDocumentationImporter`, in this case) to modify generated [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] client code at the interface and operation level.  \n  \n [!code-cs[C_CustomWSDLExtensions#4](~/add/codesnippet/csharp/c_customwsdlextensions.client/wsdldocumentationimporter.cs#4)]  \n  \n The following code example shows how to configure the client metadata system to use the custom IWsdlImportExtension from an application configuration file.  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]"
   syntax:
@@ -33,20 +33,20 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Called prior to importing metadata documents."
-  remarks: "The BeforeImport methods of all registered <xref:System.ServiceModel.Description.IWsdlImportExtension> objects is called before anything is imported from the supplied metadata."
+  summary: "Aangeroepen voordat het importeren van metagegevens-documenten."
+  remarks: "De methoden BeforeImport van alle geregistreerde <xref:System.ServiceModel.Description.IWsdlImportExtension>objecten wordt aangeroepen voordat iets wordt geïmporteerd uit de opgegeven metagegevens.</xref:System.ServiceModel.Description.IWsdlImportExtension>"
   syntax:
     content: public void BeforeImport (System.Web.Services.Description.ServiceDescriptionCollection wsdlDocuments, System.Xml.Schema.XmlSchemaSet xmlSchemas, System.Collections.Generic.ICollection<System.Xml.XmlElement> policy);
     parameters:
     - id: wsdlDocuments
       type: System.Web.Services.Description.ServiceDescriptionCollection
-      description: "The service descriptions to modify."
+      description: "De beschrijvingen van de service te wijzigen."
     - id: xmlSchemas
       type: System.Xml.Schema.XmlSchemaSet
-      description: "The schema collection to be used when importing."
+      description: "De schemaverzameling moet worden gebruikt bij het importeren."
     - id: policy
       type: System.Collections.Generic.ICollection{System.Xml.XmlElement}
-      description: "The policy assertions used when importing."
+      description: "De beleidsverklaringen gebruikt bij het importeren."
   overload: System.ServiceModel.Description.IWsdlImportExtension.BeforeImport*
   exceptions: []
   platform:
@@ -63,8 +63,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Called when importing a contract."
-  remarks: "The ImportContract method is called when a contract is being imported. You can modify the contract or insert other exporting behaviors such as <xref:System.ServiceModel.Description.IServiceContractGenerationExtension?displayProperty=fullName> and an <xref:System.ServiceModel.Description.IOperationContractGenerationExtension?displayProperty=fullName> objects to modify the code that is generated for the contract."
+  summary: "Bij het importeren van een contract genoemd."
+  remarks: "De methode ImportContract wordt aangeroepen wanneer er een contract worden geïmporteerd. U kunt wijzigen van het contract of andere uitvoer gedrag zoals invoegen <xref:System.ServiceModel.Description.IServiceContractGenerationExtension?displayProperty=fullName>en een <xref:System.ServiceModel.Description.IOperationContractGenerationExtension?displayProperty=fullName>objecten om te wijzigen van de code die wordt gegenereerd voor het contract.</xref:System.ServiceModel.Description.IOperationContractGenerationExtension?displayProperty=fullName> </xref:System.ServiceModel.Description.IServiceContractGenerationExtension?displayProperty=fullName>"
   example:
   - "The following code example shows the use of <xref:System.ServiceModel.Description.IWsdlImportExtension> to add an <xref:System.ServiceModel.Description.IServiceContractGenerationExtension?displayProperty=fullName> and an <xref:System.ServiceModel.Description.IOperationContractGenerationExtension?displayProperty=fullName> (the `WsdlDocumentationImporter`, in this case) to modify generated [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] client code at the interface and operation level.  \n  \n [!code-cs[C_CustomWSDLExtensions#4](~/add/codesnippet/csharp/c_customwsdlextensions.client/wsdldocumentationimporter.cs#4)]  \n  \n The following code example shows how to configure the client metadata system to use the custom <xref:System.ServiceModel.Description.IWsdlImportExtension> from an application configuration file.  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]"
   syntax:
@@ -72,10 +72,10 @@ items:
     parameters:
     - id: importer
       type: System.ServiceModel.Description.WsdlImporter
-      description: "The importer."
+      description: "De importfunctie."
     - id: context
       type: System.ServiceModel.Description.WsdlContractConversionContext
-      description: "The import context to be modified."
+      description: "De import-context om te worden gewijzigd."
   overload: System.ServiceModel.Description.IWsdlImportExtension.ImportContract*
   exceptions: []
   platform:
@@ -92,17 +92,17 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Called when importing an endpoint."
-  remarks: "The ImportEndpoint method is called when importing an endpoint. Modify the context properties to customize the imported endpoint."
+  summary: "Bij het importeren van een eindpunt genoemd."
+  remarks: "De methode ImportEndpoint wordt aangeroepen bij het importeren van een eindpunt. De contexteigenschappen van de voor het aanpassen van het geïmporteerde eindpunt wijzigen."
   syntax:
     content: public void ImportEndpoint (System.ServiceModel.Description.WsdlImporter importer, System.ServiceModel.Description.WsdlEndpointConversionContext context);
     parameters:
     - id: importer
       type: System.ServiceModel.Description.WsdlImporter
-      description: "The importer."
+      description: "De importfunctie."
     - id: context
       type: System.ServiceModel.Description.WsdlEndpointConversionContext
-      description: "The import context to modify."
+      description: "De context importeren om te wijzigen."
   overload: System.ServiceModel.Description.IWsdlImportExtension.ImportEndpoint*
   exceptions: []
   platform:
