@@ -11,8 +11,8 @@ items:
   nameWithType: IAuthorizationPolicy
   fullName: System.IdentityModel.Policy.IAuthorizationPolicy
   type: Interface
-  summary: "Defines a set of rules for authorizing a user, given a set of claims."
-  remarks: "Implement the IAuthorizationPolicy interface to add or map one set of claims to another. An authorization policy examines a set of claims and adds additional claims based on the current set. For example, an authorization policy might evaluate a claim that contains the date of birth and add a claim that asserts that the user is over 21 years old and add an Over21 claim to the <xref:System.IdentityModel.Policy.EvaluationContext>.       Classes that implement the IAuthorizationPolicy interface do not authorize users, but they enable the <xref:System.ServiceModel.ServiceAuthorizationManager> class to do so. The <xref:System.ServiceModel.ServiceAuthorizationManager> calls the <xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A> method for each authorization policy in effect. The <xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A> method determines whether additional claims should be added for the user, based on the current context. An authorization policy&quot;s <xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A> method may be called multiple times, as claims are added to the <xref:System.IdentityModel.Policy.EvaluationContext> by other authorization policies. When all authorization policies in effect are done, the <xref:System.ServiceModel.ServiceAuthorizationManager> class makes authorization decisions based upon the final set of claims. The <xref:System.ServiceModel.ServiceAuthorizationManager> class then creates an <xref:System.IdentityModel.Policy.AuthorizationContext> that contains an immutable set of claims that reflects these authorization decisions."
+  summary: "Hiermee definieert u een reeks regels voor het machtigen van een gebruiker een set claims gegeven."
+  remarks: "Implementeert de interface geen interface IAuthorizationPolicy toevoegen of een set claims naar de andere worden toegewezen. Een autorisatiebeleid een set claims worden gecontroleerd en voegt extra claims op basis van de huidige set. Bijvoorbeeld, een autorisatiebeleid mogelijk een claim met de geboortedatum evalueren en toevoegen van een claim die beschouwt de gebruiker meer dan 21 jaar en een claim Over21 naar de <xref:System.IdentityModel.Policy.EvaluationContext>.</xref:System.IdentityModel.Policy.EvaluationContext> toevoegen       Klassen die de interface IAuthorizationPolicy-interface implementeren gebruikers niet toestaan, maar ze de <xref:System.ServiceModel.ServiceAuthorizationManager>klasse om te doen. maar</xref:System.ServiceModel.ServiceAuthorizationManager> inschakelen De <xref:System.ServiceModel.ServiceAuthorizationManager>aanroepen de <xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A>methode voor elk autorisatiebeleid van kracht.</xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A> </xref:System.ServiceModel.ServiceAuthorizationManager> De <xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A>methode bepaalt of extra claims voor de gebruiker, op basis van de huidige context moeten worden toegevoegd.</xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A> Een autorisatiebeleid <xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A>methode mogelijk meerdere keren worden aangeroepen wanneer claims worden toegevoegd aan de <xref:System.IdentityModel.Policy.EvaluationContext>door andere autorisatiebeleid.</xref:System.IdentityModel.Policy.EvaluationContext> </xref:System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate%2A> Wanneer alle beleidsregels voor autorisatie van kracht klaar bent, de <xref:System.ServiceModel.ServiceAuthorizationManager>klasse maakt op basis van de uiteindelijke set claims autorisatiebeslissingen.</xref:System.ServiceModel.ServiceAuthorizationManager> De <xref:System.ServiceModel.ServiceAuthorizationManager>klasse maakt vervolgens een <xref:System.IdentityModel.Policy.AuthorizationContext>die bevat een niet-wijzigbaar set claims die overeenkomt met deze autorisatiebeslissingen.</xref:System.IdentityModel.Policy.AuthorizationContext> </xref:System.ServiceModel.ServiceAuthorizationManager>"
   example:
   - >-
     [!code-cs[C_IAuthorizationPolicy#1](~/add/codesnippet/csharp/t-system.identitymodel.p_1_1.cs)]
@@ -35,8 +35,8 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Policy
-  summary: "Evaluates whether a user meets the requirements for this authorization policy."
-  remarks: "> [!NOTE] >  Implementers of the <xref:System.IdentityModel.Policy.IAuthorizationPolicy> interface should expect the Evaluate method to be called multiple times by different threads.       Implementers of the <xref:System.IdentityModel.Policy.IAuthorizationPolicy> interface can use the `state` parameter to track state between calls to the Evaluate method. If a state object is set inside a given call to the Evaluate method, the same object instance is passed to each and every subsequent call to the Evaluate method in the current evaluation process."
+  summary: "Evalueert of een gebruiker voldoet aan de vereisten voor dit autorisatiebeleid."
+  remarks: "> [!NOTE]> Implementeerders van de <xref:System.IdentityModel.Policy.IAuthorizationPolicy>interface rekening met de methode Evaluate wordt meerdere keren aangeroepen door verschillende threads.</xref:System.IdentityModel.Policy.IAuthorizationPolicy>       Implementeerders van de <xref:System.IdentityModel.Policy.IAuthorizationPolicy>interface kunt gebruiken de `state` parameter staat tussen aanroepen van de methode Evaluate bijhouden.</xref:System.IdentityModel.Policy.IAuthorizationPolicy> Als een object met de status is ingesteld in een opgegeven aanroep van de methode Evaluate, wordt de hetzelfde exemplaar van het object doorgegeven aan elk van de volgende aanroep aan de methode evalueren in het huidige evaluatieproces."
   example:
   - >-
     [!code-cs[C_IAuthorizationPolicy#2](~/add/codesnippet/csharp/b64090c9-1ef7-4f2c-956c-_1.cs)]
@@ -46,13 +46,13 @@ items:
     parameters:
     - id: evaluationContext
       type: System.IdentityModel.Policy.EvaluationContext
-      description: "An <xref href=&quot;System.IdentityModel.Policy.EvaluationContext&quot;></xref> that contains the claim set that the authorization policy evaluates."
+      description: "Een <xref href=&quot;System.IdentityModel.Policy.EvaluationContext&quot;> </xref> die de claimset waarvan de evaluatie van het verificatiebeleid bevat."
     - id: state
       type: System.Object
-      description: "A <xref:System.Object>, passed by reference that represents the custom state for this authorization policy."
+      description: "Een <xref:System.Object>, doorgegeven door de referentie die staat voor de aangepaste status voor dit autorisatiebeleid.</xref:System.Object>"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the Evaluate method for this authorization policy must be called if additional claims are added by other authorization policies to <code>evaluationContext</code>; otherwise, <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to state no additional evaluation is required by this authorization policy."
+      description: "<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>Als de methode Evaluate voor dit autorisatiebeleid moet worden aangeroepen als er aanvullende claims worden toegevoegd door andere autorisatiebeleid naar <code> evaluationContext </code>; anders <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> staat geen extra evaluatie is vereist voor dit autorisatiebeleid."
   overload: System.IdentityModel.Policy.IAuthorizationPolicy.Evaluate*
   exceptions: []
   platform:
@@ -69,12 +69,12 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Policy
-  summary: "Gets a claim set that represents the issuer of the authorization policy."
+  summary: "Hiermee haalt u een claimset met de verlener van het autorisatiebeleid."
   syntax:
     content: public System.IdentityModel.Claims.ClaimSet Issuer { get; }
     return:
       type: System.IdentityModel.Claims.ClaimSet
-      description: "A <xref href=&quot;System.IdentityModel.Claims.ClaimSet&quot;></xref> that represents the issuer of the authorization policy."
+      description: "Een <xref href=&quot;System.IdentityModel.Claims.ClaimSet&quot;> </xref> die staat voor de verlener van het autorisatiebeleid."
   overload: System.IdentityModel.Policy.IAuthorizationPolicy.Issuer*
   exceptions: []
   platform:

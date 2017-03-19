@@ -41,7 +41,7 @@ items:
   nameWithType: RSACryptoServiceProvider
   fullName: System.Security.Cryptography.RSACryptoServiceProvider
   type: Class
-  summary: "Performs asymmetric encryption and decryption using the implementation of the <xref href=&quot;System.Security.Cryptography.RSA&quot;></xref> algorithm provided by the cryptographic service provider (CSP). This class cannot be inherited."
+  summary: "Voert asymmetrische versleuteling en ontsleuteling met de implementatie van de <xref href=&quot;System.Security.Cryptography.RSA&quot;> </xref> algoritme geleverd door de cryptografieprovider (CSP). Deze klasse kan niet worden overgenomen."
   remarks: "This is the default implementation of <xref:System.Security.Cryptography.RSA>.  \n  \n The RSACryptoServiceProvider supports key sizes from 384 bits to 16384 bits in increments of 8 bits if you have the Microsoft Enhanced Cryptographic Provider installed.  It supports key sizes from 384 bits to 512 bits in increments of 8 bits if you have the Microsoft Base Cryptographic Provider installed.  \n  \n Valid key sizes are dependent on the cryptographic service provider (CSP) that is used by the RSACryptoServiceProvider instance. Windows CSPs enable keys sizes of 384 to 16384 bits for Windows versions prior to [!INCLUDE[win81](~/add/includes/ajax-current-ext-md.md)], and key sizes of 512 to 16384 bits for [!INCLUDE[win81](~/add/includes/ajax-current-ext-md.md)]. For more information, see [CryptGenKey](http://msdn.microsoft.com/library/aa379941\\(v=vs.85\\).aspx) function in the Windows documentation.  \n  \n## Interoperation with the Microsoft Cryptographic API (CAPI)  \n Unlike the RSA implementation in unmanaged CAPI, the RSACryptoServiceProvider class reverses the order of an encrypted array of bytes after encryption and before decryption.  By default, data encrypted by the RSACryptoServiceProvider class cannot be decrypted by the CAPI `CryptDecrypt` function and data encrypted by the CAPI `CryptEncrypt` method cannot be decrypted by the RSACryptoServiceProvider class.  \n  \n If you do not compensate for the reverse ordering when interoperating between APIs, the RSACryptoServiceProvider class throws a <xref:System.Security.Cryptography.CryptographicException>.  \n  \n To interoperate with CAPI, you must manually reverse the order of encrypted bytes before the encrypted data interoperates with another API.  You can easily reverse the order of a managed byte array by calling the <xref:System.Array.Reverse%2A?displayProperty=fullName> method."
   example:
   - "The following code example uses the RSACryptoServiceProvider class to encrypt a string into an array of bytes and then decrypt the bytes back into a string.  \n  \n [!code-cpp[System.Security.Cryptography.RSACryptoServiceProvider#1](~/add/codesnippet/cpp/t-system.security.crypto_34_1.cpp)]\n [!code-cs[System.Security.Cryptography.RSACryptoServiceProvider#1](~/add/codesnippet/csharp/t-system.security.crypto_34_1.cs)]\n [!code-vb[System.Security.Cryptography.RSACryptoServiceProvider#1](~/add/codesnippet/visualbasic/t-system.security.crypto_34_1.vb)]  \n  \n The following code example exports the key information created using the RSACryptoServiceProvider into an <xref:System.Security.Cryptography.RSAParameters> object.  \n  \n [!code-cs[System.Security.Cryptography.RSACryptoServiceProvider.ExportParameters#1](~/add/codesnippet/csharp/t-system.security.crypto_34_2.cs)]\n [!code-cpp[System.Security.Cryptography.RSACryptoServiceProvider.ExportParameters#1](~/add/codesnippet/cpp/t-system.security.crypto_34_2.cpp)]\n [!code-vb[System.Security.Cryptography.RSACryptoServiceProvider.ExportParameters#1](~/add/codesnippet/visualbasic/t-system.security.crypto_34_2.vb)]"
@@ -86,8 +86,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Cryptography.RSACryptoServiceProvider&quot;></xref> class using the default key."
-  remarks: "If no default key is found, a new key is created.       This constructor creates an <xref:System.Security.Cryptography.KeyNumber> key pair suitable to encrypt session keys so that they can be safely stored and exchanged with other users.  The generated key corresponds to a key generated using the `AT_KEYEXCHANGE` value used in the unmanaged Microsoft Cryptographic API (CAPI)."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Security.Cryptography.RSACryptoServiceProvider&quot;> </xref> klasse met de standaardsleutel."
+  remarks: "Als er geen standaard-sleutel wordt gevonden, wordt een nieuwe sleutel gemaakt.       Deze constructor maakt een <xref:System.Security.Cryptography.KeyNumber>sleutelpaar geschikt is voor het versleutelen van sessie-codes zodat deze veilig kunnen worden opgeslagen en uitgewisseld met andere gebruikers.</xref:System.Security.Cryptography.KeyNumber>  De gegenereerde sleutel komt overeen met een sleutel die is gegenereerd met de `AT_KEYEXCHANGE` waarde die wordt gebruikt in de niet-beheerde Microsoft Cryptographic API (CAPI)."
   example:
   - "The following code example uses the <xref:System.Security.Cryptography.RSACryptoServiceProvider> class to encrypt a string into an array of bytes and then decrypt the bytes back into a string.  \n  \n [!code-cpp[System.Security.Cryptography.RSACryptoServiceProvider#1](~/add/codesnippet/cpp/m-system.security.crypto_117_1.cpp)]\n [!code-cs[System.Security.Cryptography.RSACryptoServiceProvider#1](~/add/codesnippet/csharp/m-system.security.crypto_117_1.cs)]\n [!code-vb[System.Security.Cryptography.RSACryptoServiceProvider#1](~/add/codesnippet/visualbasic/m-system.security.crypto_117_1.vb)]"
   syntax:
@@ -97,7 +97,7 @@ items:
   exceptions:
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The cryptographic service provider (CSP) cannot be acquired."
+    description: "De cryptografieprovider (CSP) kan niet worden opgehaald."
   platform:
   - net462
 - uid: System.Security.Cryptography.RSACryptoServiceProvider.#ctor(System.Int32)
@@ -112,8 +112,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Cryptography.RSACryptoServiceProvider&quot;></xref> class with the specified key size."
-  remarks: "If no default key is found, a new key is created.       This constructor creates an <xref:System.Security.Cryptography.KeyNumber> key pair suitable to encrypt session keys so that they can be safely stored and exchanged with other users.  The generated key corresponds to a key generated using the `AT_KEYEXCHANGE` value used in the unmanaged Microsoft Cryptographic API (CAPI)."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Security.Cryptography.RSACryptoServiceProvider&quot;> </xref> klasse met de opgegeven sleutelgrootte."
+  remarks: "Als er geen standaard-sleutel wordt gevonden, wordt een nieuwe sleutel gemaakt.       Deze constructor maakt een <xref:System.Security.Cryptography.KeyNumber>sleutelpaar geschikt is voor het versleutelen van sessie-codes zodat deze veilig kunnen worden opgeslagen en uitgewisseld met andere gebruikers.</xref:System.Security.Cryptography.KeyNumber>  De gegenereerde sleutel komt overeen met een sleutel die is gegenereerd met de `AT_KEYEXCHANGE` waarde die wordt gebruikt in de niet-beheerde Microsoft Cryptographic API (CAPI)."
   example:
   - "The following code example creates a <xref:System.Security.Cryptography.RSACryptoServiceProvider>, generates a new key, and stores it in a key container.  \n  \n [!code-cs[Cryptography.RSACSP.ctor-int32-2#1](~/add/codesnippet/csharp/m-system.security.crypto_54_1.cs)]\n [!code-cpp[Cryptography.RSACSP.ctor-int32-2#1](~/add/codesnippet/cpp/m-system.security.crypto_54_1.cpp)]\n [!code-vb[Cryptography.RSACSP.ctor-int32-2#1](~/add/codesnippet/visualbasic/m-system.security.crypto_54_1.vb)]"
   syntax:
@@ -121,12 +121,12 @@ items:
     parameters:
     - id: dwKeySize
       type: System.Int32
-      description: "The size of the key to use in bits."
+      description: "De grootte van de sleutel moet worden gebruikt in bits."
   overload: System.Security.Cryptography.RSACryptoServiceProvider.#ctor*
   exceptions:
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The cryptographic service provider (CSP) cannot be acquired."
+    description: "De cryptografieprovider (CSP) kan niet worden opgehaald."
   platform:
   - net462
 - uid: System.Security.Cryptography.RSACryptoServiceProvider.#ctor(System.Security.Cryptography.CspParameters)
@@ -141,8 +141,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Cryptography.RSACryptoServiceProvider&quot;></xref> class with the specified parameters."
-  remarks: "This constructor creates or reuses a key container specified using the <xref:System.Security.Cryptography.CspParameters> field of the `parameters` parameter.       By default, this constructor creates an <xref:System.Security.Cryptography.KeyNumber> key pair suitable to encrypt session keys so that they can be safely stored and exchanged with other users.  The generated key corresponds to a key generated using the `AT_KEYEXCHANGE` value used in the unmanaged Microsoft Cryptographic API (CAPI).       You can create a <xref:System.Security.Cryptography.KeyNumber> key pair suitable for authenticating (digitally signed) messages or files by setting the <xref:System.Security.Cryptography.CspParameters.KeyNumber> field of the `parameters` parameter to the <xref:System.Security.Cryptography.KeyNumber> value. This type of key corresponds to the `AT_SIGNATURE` value used in CAPI.       If you create an <xref:System.Security.Cryptography.RSACryptoServiceProvider> object with the <xref:System.Security.Cryptography.KeyNumber> value specified and then create another <xref:System.Security.Cryptography.RSACryptoServiceProvider> object with the <xref:System.Security.Cryptography.KeyNumber> value specified, both keys will be placed in a single container if both objects specify the same key container name.       To create a key that is compatible with stong-name signing using the <xref:System.Security.Cryptography.RSACryptoServiceProvider> class, you must create a <xref:System.Security.Cryptography.KeyNumber> key pair."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Security.Cryptography.RSACryptoServiceProvider&quot;> </xref> klasse met de opgegeven parameters."
+  remarks: "Deze constructor gemaakt of hergebruikt sleutelcontainer met een opgegeven met behulp van de <xref:System.Security.Cryptography.CspParameters>veld van de `parameters` parameter.</xref:System.Security.Cryptography.CspParameters>       Deze constructor maakt standaard een <xref:System.Security.Cryptography.KeyNumber>sleutelpaar geschikt is voor het versleutelen van sessie-codes zodat deze veilig kunnen worden opgeslagen en uitgewisseld met andere gebruikers.</xref:System.Security.Cryptography.KeyNumber>  De gegenereerde sleutel komt overeen met een sleutel die is gegenereerd met de `AT_KEYEXCHANGE` waarde die wordt gebruikt in de niet-beheerde Microsoft Cryptographic API (CAPI).       Kunt u een <xref:System.Security.Cryptography.KeyNumber>sleutelpaar geschikt is voor het verifiëren van berichten (digitaal ondertekende) of bestanden door in te stellen de <xref:System.Security.Cryptography.CspParameters.KeyNumber>veld van de `parameters` -parameter voor de <xref:System.Security.Cryptography.KeyNumber>waarde.</xref:System.Security.Cryptography.KeyNumber> </xref:System.Security.Cryptography.CspParameters.KeyNumber> </xref:System.Security.Cryptography.KeyNumber> Dit type sleutel komt overeen met de `AT_SIGNATURE` waarde die wordt gebruikt in CAPI.       Als u maakt een <xref:System.Security.Cryptography.RSACryptoServiceProvider>object met de <xref:System.Security.Cryptography.KeyNumber>-waarde is opgegeven en maak vervolgens een andere <xref:System.Security.Cryptography.RSACryptoServiceProvider>object met de <xref:System.Security.Cryptography.KeyNumber>waarde is opgegeven, beide sleutels worden geplaatst in een enkele container als beide objecten opgeeft sleutelcontainer met dezelfde naam.</xref:System.Security.Cryptography.KeyNumber> </xref:System.Security.Cryptography.RSACryptoServiceProvider> </xref:System.Security.Cryptography.KeyNumber> </xref:System.Security.Cryptography.RSACryptoServiceProvider>       Maken van een sleutel die compatibel is met stong-naam van de ondertekening met behulp van de <xref:System.Security.Cryptography.RSACryptoServiceProvider>klasse, moet u een <xref:System.Security.Cryptography.KeyNumber>sleutelpaar.</xref:System.Security.Cryptography.KeyNumber> </xref:System.Security.Cryptography.RSACryptoServiceProvider>"
   example:
   - "The following code example creates an <xref:System.Security.Cryptography.RSACryptoServiceProvider> object, generates a new key, and stores it in a key container.  \n  \n [!code-cpp[Cryptography.RSACSP.ctor-csp#1](~/add/codesnippet/cpp/c05514b0-515d-4fa6-b581-_1.cpp)]\n [!code-vb[Cryptography.RSACSP.ctor-csp#1](~/add/codesnippet/visualbasic/c05514b0-515d-4fa6-b581-_1.vb)]\n [!code-cs[Cryptography.RSACSP.ctor-csp#1](~/add/codesnippet/csharp/c05514b0-515d-4fa6-b581-_1.cs)]"
   syntax:
@@ -150,12 +150,12 @@ items:
     parameters:
     - id: parameters
       type: System.Security.Cryptography.CspParameters
-      description: "The parameters to be passed to the cryptographic service provider (CSP)."
+      description: "De parameters worden doorgegeven aan de cryptografieprovider (CSP)."
   overload: System.Security.Cryptography.RSACryptoServiceProvider.#ctor*
   exceptions:
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The CSP cannot be acquired."
+    description: "De CSP kan niet worden verkregen."
   platform:
   - net462
 - uid: System.Security.Cryptography.RSACryptoServiceProvider.#ctor(System.Int32,System.Security.Cryptography.CspParameters)
@@ -170,8 +170,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Cryptography.RSACryptoServiceProvider&quot;></xref> class with the specified key size and parameters."
-  remarks: "This constructor creates or reuses a key container specified using the <xref:System.Security.Cryptography.CspParameters> field of the `parameters` parameter.       By default, this constructor creates an <xref:System.Security.Cryptography.KeyNumber> key pair suitable to encrypt session keys so that they can be safely stored and exchanged with other users.  The generated key corresponds to a key generated using the `AT_KEYEXCHANGE` value used in the unmanaged Microsoft Cryptographic API (CAPI).       You can create a <xref:System.Security.Cryptography.KeyNumber> key pair suitable for authenticating (digitally signed) messages or files by setting the <xref:System.Security.Cryptography.CspParameters.KeyNumber> field of the `parameters` parameter to the <xref:System.Security.Cryptography.KeyNumber> value. This type of key corresponds to the `AT_SIGNATURE` value used in CAPI.       If you create an <xref:System.Security.Cryptography.RSACryptoServiceProvider> object with the <xref:System.Security.Cryptography.KeyNumber> value specified and then create another <xref:System.Security.Cryptography.RSACryptoServiceProvider> object with the <xref:System.Security.Cryptography.KeyNumber> value specified, both keys will be placed in a single container if both objects specify the same key container name.       To create a key that is compatible with stong-name signing using the <xref:System.Security.Cryptography.RSACryptoServiceProvider> class, you must create a <xref:System.Security.Cryptography.KeyNumber> key pair."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Security.Cryptography.RSACryptoServiceProvider&quot;> </xref> klasse met de opgegeven sleutelgrootte en parameters."
+  remarks: "Deze constructor gemaakt of hergebruikt sleutelcontainer met een opgegeven met behulp van de <xref:System.Security.Cryptography.CspParameters>veld van de `parameters` parameter.</xref:System.Security.Cryptography.CspParameters>       Deze constructor maakt standaard een <xref:System.Security.Cryptography.KeyNumber>sleutelpaar geschikt is voor het versleutelen van sessie-codes zodat deze veilig kunnen worden opgeslagen en uitgewisseld met andere gebruikers.</xref:System.Security.Cryptography.KeyNumber>  De gegenereerde sleutel komt overeen met een sleutel die is gegenereerd met de `AT_KEYEXCHANGE` waarde die wordt gebruikt in de niet-beheerde Microsoft Cryptographic API (CAPI).       Kunt u een <xref:System.Security.Cryptography.KeyNumber>sleutelpaar geschikt is voor het verifiëren van berichten (digitaal ondertekende) of bestanden door in te stellen de <xref:System.Security.Cryptography.CspParameters.KeyNumber>veld van de `parameters` -parameter voor de <xref:System.Security.Cryptography.KeyNumber>waarde.</xref:System.Security.Cryptography.KeyNumber> </xref:System.Security.Cryptography.CspParameters.KeyNumber> </xref:System.Security.Cryptography.KeyNumber> Dit type sleutel komt overeen met de `AT_SIGNATURE` waarde die wordt gebruikt in CAPI.       Als u maakt een <xref:System.Security.Cryptography.RSACryptoServiceProvider>object met de <xref:System.Security.Cryptography.KeyNumber>-waarde is opgegeven en maak vervolgens een andere <xref:System.Security.Cryptography.RSACryptoServiceProvider>object met de <xref:System.Security.Cryptography.KeyNumber>waarde is opgegeven, beide sleutels worden geplaatst in een enkele container als beide objecten opgeeft sleutelcontainer met dezelfde naam.</xref:System.Security.Cryptography.KeyNumber> </xref:System.Security.Cryptography.RSACryptoServiceProvider> </xref:System.Security.Cryptography.KeyNumber> </xref:System.Security.Cryptography.RSACryptoServiceProvider>       Maken van een sleutel die compatibel is met stong-naam van de ondertekening met behulp van de <xref:System.Security.Cryptography.RSACryptoServiceProvider>klasse, moet u een <xref:System.Security.Cryptography.KeyNumber>sleutelpaar.</xref:System.Security.Cryptography.KeyNumber> </xref:System.Security.Cryptography.RSACryptoServiceProvider>"
   example:
   - "The following code example creates a <xref:System.Security.Cryptography.RSACryptoServiceProvider>, generates a new key, and stores it in a key container.  \n  \n [!code-cpp[Cryptography.RSACSP.ctor-int32-csp#1](~/add/codesnippet/cpp/d6fb023a-3018-4e24-9035-_1.cpp)]\n [!code-cs[Cryptography.RSACSP.ctor-int32-csp#1](~/add/codesnippet/csharp/d6fb023a-3018-4e24-9035-_1.cs)]\n [!code-vb[Cryptography.RSACSP.ctor-int32-csp#1](~/add/codesnippet/visualbasic/d6fb023a-3018-4e24-9035-_1.vb)]"
   syntax:
@@ -179,15 +179,15 @@ items:
     parameters:
     - id: dwKeySize
       type: System.Int32
-      description: "The size of the key to use in bits."
+      description: "De grootte van de sleutel moet worden gebruikt in bits."
     - id: parameters
       type: System.Security.Cryptography.CspParameters
-      description: "The parameters to be passed to the cryptographic service provider (CSP)."
+      description: "De parameters worden doorgegeven aan de cryptografieprovider (CSP)."
   overload: System.Security.Cryptography.RSACryptoServiceProvider.#ctor*
   exceptions:
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The CSP cannot be acquired.       -or-       The key cannot be created."
+    description: "De CSP kan niet worden verkregen.       - of - de sleutel kan niet worden gemaakt."
   platform:
   - net462
 - uid: System.Security.Cryptography.RSACryptoServiceProvider.CspKeyContainerInfo
@@ -202,15 +202,15 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Gets a <xref href=&quot;System.Security.Cryptography.CspKeyContainerInfo&quot;></xref> object that describes additional information about a cryptographic key pair."
-  remarks: "Use the CspKeyContainerInfo property to retrieve additional information about a cryptographic key pair.  The returned <xref:System.Security.Cryptography.CspKeyContainerInfo> object describes whether the key is exportable, and specifies the key container name, information about the provider, and other information.       In cases where a random key is generated, a key container will not be created until you call a method that uses the key.  Some properties of the <xref:System.Security.Cryptography.CspKeyContainerInfo> object returned by the <xref:System.Security.Cryptography.DSACryptoServiceProvider.CspKeyContainerInfo%2A> property will throw a <xref:System.Security.Cryptography.CryptographicException> if a key container has not been created.  To make sure that a key container has been created, call a method such as <xref:System.Security.Cryptography.RSACryptoServiceProvider.Encrypt%2A>, <xref:System.Security.Cryptography.RSACryptoServiceProvider.Decrypt%2A>, <xref:System.Security.Cryptography.RSACryptoServiceProvider.SignData%2A>, <xref:System.Security.Cryptography.DSACryptoServiceProvider.SignHash%2A>, and so on, before you call the <xref:System.Security.Cryptography.DSACryptoServiceProvider.CspKeyContainerInfo%2A> property."
+  summary: "Haalt een <xref href=&quot;System.Security.Cryptography.CspKeyContainerInfo&quot;> </xref> -object dat wordt beschreven aanvullende informatie over een cryptografisch sleutelpaar."
+  remarks: "Gebruik de eigenschap CspKeyContainerInfo aanvullende informatie ophalen over een cryptografisch sleutelpaar.  De geretourneerde <xref:System.Security.Cryptography.CspKeyContainerInfo>-object of de sleutel exporteerbaar is en de naam van de sleutelcontainer, informatie over de provider en andere informatie geeft beschrijft.</xref:System.Security.Cryptography.CspKeyContainerInfo>       In gevallen waarin een willekeurige sleutel wordt gegenereerd, wordt een sleutelcontainer niet worden gemaakt totdat u een methode die gebruikmaakt van de sleutel aanroept.  Sommige eigenschappen van de <xref:System.Security.Cryptography.CspKeyContainerInfo>object dat wordt geretourneerd door de <xref:System.Security.Cryptography.DSACryptoServiceProvider.CspKeyContainerInfo%2A>eigenschap genereert een <xref:System.Security.Cryptography.CryptographicException>als een sleutelcontainer is niet gemaakt.</xref:System.Security.Cryptography.CryptographicException> </xref:System.Security.Cryptography.DSACryptoServiceProvider.CspKeyContainerInfo%2A> </xref:System.Security.Cryptography.CspKeyContainerInfo>  Om ervoor te zorgen dat er een sleutelcontainer is gemaakt, zoals een methode aanroept <xref:System.Security.Cryptography.RSACryptoServiceProvider.Encrypt%2A>, <xref:System.Security.Cryptography.RSACryptoServiceProvider.Decrypt%2A>, <xref:System.Security.Cryptography.RSACryptoServiceProvider.SignData%2A>, <xref:System.Security.Cryptography.DSACryptoServiceProvider.SignHash%2A>, enzovoort, voordat u contact opneemt met de <xref:System.Security.Cryptography.DSACryptoServiceProvider.CspKeyContainerInfo%2A>eigenschap.</xref:System.Security.Cryptography.DSACryptoServiceProvider.CspKeyContainerInfo%2A> </xref:System.Security.Cryptography.DSACryptoServiceProvider.SignHash%2A> </xref:System.Security.Cryptography.RSACryptoServiceProvider.SignData%2A> </xref:System.Security.Cryptography.RSACryptoServiceProvider.Decrypt%2A> </xref:System.Security.Cryptography.RSACryptoServiceProvider.Encrypt%2A>"
   example:
   - "The following code example demonstrates how to call the <xref:System.Security.Cryptography.CspKeyContainerInfo> property.  \n  \n [!code-cpp[Cryptography.RsaCryptoServiceProvider.CspKeyContainerInfo#1](~/add/codesnippet/cpp/p-system.security.crypto_35_1.cpp)]\n [!code-vb[Cryptography.RsaCryptoServiceProvider.CspKeyContainerInfo#1](~/add/codesnippet/visualbasic/p-system.security.crypto_35_1.vb)]\n [!code-cs[Cryptography.RsaCryptoServiceProvider.CspKeyContainerInfo#1](~/add/codesnippet/csharp/p-system.security.crypto_35_1.cs)]"
   syntax:
     content: public System.Security.Cryptography.CspKeyContainerInfo CspKeyContainerInfo { get; }
     return:
       type: System.Security.Cryptography.CspKeyContainerInfo
-      description: "A <xref href=&quot;System.Security.Cryptography.CspKeyContainerInfo&quot;></xref> object that describes additional information about a cryptographic key pair."
+      description: "Een <xref href=&quot;System.Security.Cryptography.CspKeyContainerInfo&quot;> </xref> -object dat wordt beschreven aanvullende informatie over een cryptografisch sleutelpaar."
   overload: System.Security.Cryptography.RSACryptoServiceProvider.CspKeyContainerInfo*
   exceptions: []
   platform:
@@ -227,8 +227,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Decrypts data with the <xref href=&quot;System.Security.Cryptography.RSA&quot;></xref> algorithm."
-  remarks: "Use <xref:System.Security.Cryptography.RSACryptoServiceProvider.Encrypt%2A> to encrypt data for decryption with this method."
+  summary: "Decodeert gegevens met de <xref href=&quot;System.Security.Cryptography.RSA&quot;> </xref> algoritme."
+  remarks: "Gebruik <xref:System.Security.Cryptography.RSACryptoServiceProvider.Encrypt%2A>om gegevens te coderen voor ontsleuteling met deze methode.</xref:System.Security.Cryptography.RSACryptoServiceProvider.Encrypt%2A>"
   example:
   - "The following code example encrypts and decrypts data.  \n  \n This example uses the <xref:System.Text.ASCIIEncoding> class; however, the <xref:System.Text.UnicodeEncoding> class may be preferable in large data operations. The encrypted value can be saved as an `nvarchar` data type in Microsoft SQL Server 2005.  \n  \n [!code-cs[Cryptography.RSACSP.Decrypt#1](~/add/codesnippet/csharp/8cfd6fd2-9442-4043-ad36-_1.cs)]\n [!code-cpp[Cryptography.RSACSP.Decrypt#1](~/add/codesnippet/cpp/8cfd6fd2-9442-4043-ad36-_1.cpp)]\n [!code-vb[Cryptography.RSACSP.Decrypt#1](~/add/codesnippet/visualbasic/8cfd6fd2-9442-4043-ad36-_1.vb)]"
   syntax:
@@ -236,18 +236,18 @@ items:
     parameters:
     - id: rgb
       type: System.Byte[]
-      description: "The data to be decrypted."
+      description: "De gegevens te ontsleutelen."
     - id: fOAEP
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to perform direct <xref href=&quot;System.Security.Cryptography.RSA&quot;></xref> decryption using OAEP padding (only available on a computer running Microsoft Windows XP or later); otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to use PKCS#1 v1.5 padding."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>direct uitvoeren <xref href=&quot;System.Security.Cryptography.RSA&quot;> </xref> decodering OAEP-opvulling (alleen beschikbaar op een computer met Microsoft Windows XP of hoger) met; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> PKCS&#1; v1.5 opvulling gebruiken."
     return:
       type: System.Byte[]
-      description: "The decrypted data, which is the original plain text before encryption."
+      description: "De ontsleutelde gegevens, die de oorspronkelijke tekst zonder opmaak voordat deze wordt versleuteld."
   overload: System.Security.Cryptography.RSACryptoServiceProvider.Decrypt*
   exceptions:
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The cryptographic service provider (CSP) cannot be acquired.       -or-       The <code>fOAEP</code> parameter is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> and the length of the <code>rgb</code> parameter is greater than <xref:System.Security.Cryptography.RSACryptoServiceProvider.KeySize*>.       -or-       The <code>fOAEP</code> parameter is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> and OAEP is not supported.       -or-       The key does not match the encrypted data. However, the exception wording may not be accurate. For example, it may say `Not enough storage is available to process this command`."
+    description: "De cryptografieprovider (CSP) kan niet worden opgehaald.       - of - de <code> fOAEP </code> parameter <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> en de lengte van de <code> rgb </code> parameter is groter dan <xref:System.Security.Cryptography.RSACryptoServiceProvider.KeySize*>.</xref:System.Security.Cryptography.RSACryptoServiceProvider.KeySize*>       - of - de <code> fOAEP </code> parameter <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> en OAEP wordt niet ondersteund.       - of - de sleutel komt niet overeen met de versleutelde gegevens. Echter, de tekst van de uitzondering mogelijk niet juist. Het kan bijvoorbeeld, `Not enough storage is available to process this command`."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: "<code>rgb </code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
@@ -265,28 +265,28 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Decrypts data that was previously encrypted with the <xref href=&quot;System.Security.Cryptography.RSA&quot;></xref> algorithm by using the specified padding."
-  remarks: '`padding` must be either <xref:System.Security.Cryptography.RSAEncryptionPadding.Pkcs1%2A?displayProperty=fullName> or <xref:System.Security.Cryptography.RSAEncryptionPadding.OaepSHA1%2A?displayProperty=fullName>.'
+  summary: "Decodeert gegevens die eerder is versleuteld met de <xref href=&quot;System.Security.Cryptography.RSA&quot;> </xref> algoritme met behulp van de opgegeven opvulling."
+  remarks: '`padding`moet ofwel <xref:System.Security.Cryptography.RSAEncryptionPadding.Pkcs1%2A?displayProperty=fullName>of <xref:System.Security.Cryptography.RSAEncryptionPadding.OaepSHA1%2A?displayProperty=fullName>.</xref:System.Security.Cryptography.RSAEncryptionPadding.OaepSHA1%2A?displayProperty=fullName> </xref:System.Security.Cryptography.RSAEncryptionPadding.Pkcs1%2A?displayProperty=fullName>'
   syntax:
     content: public override byte[] Decrypt (byte[] data, System.Security.Cryptography.RSAEncryptionPadding padding);
     parameters:
     - id: data
       type: System.Byte[]
-      description: "The data to decrypt."
+      description: "De gegevens te ontsleutelen."
     - id: padding
       type: System.Security.Cryptography.RSAEncryptionPadding
-      description: "The padding."
+      description: "De opvulling."
     return:
       type: System.Byte[]
-      description: "The decrypted data."
+      description: "De gegevens te ontsleutelen."
   overload: System.Security.Cryptography.RSACryptoServiceProvider.Decrypt*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>data</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>padding</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>data</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>padding</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The padding mode is not supported."
+    description: "De opvullingsmodus wordt niet ondersteund."
   platform:
   - net462
 - uid: System.Security.Cryptography.RSACryptoServiceProvider.DecryptValue(System.Byte[])
@@ -301,21 +301,21 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "This method is not supported in the current version."
+  summary: "Deze methode wordt niet ondersteund in de huidige versie."
   syntax:
     content: public override byte[] DecryptValue (byte[] rgb);
     parameters:
     - id: rgb
       type: System.Byte[]
-      description: "The data to be decrypted."
+      description: "De gegevens te ontsleutelen."
     return:
       type: System.Byte[]
-      description: "The decrypted data, which is the original plain text before encryption."
+      description: "De ontsleutelde gegevens, die de oorspronkelijke tekst zonder opmaak voordat deze wordt versleuteld."
   overload: System.Security.Cryptography.RSACryptoServiceProvider.DecryptValue*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "This method is not supported in the current version."
+    description: "Deze methode wordt niet ondersteund in de huidige versie."
   platform:
   - net462
 - uid: System.Security.Cryptography.RSACryptoServiceProvider.Dispose(System.Boolean)
@@ -335,7 +335,7 @@ items:
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   overload: System.Security.Cryptography.RSACryptoServiceProvider.Dispose*
   exceptions: []
   platform:
@@ -352,8 +352,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Encrypts data with the <xref href=&quot;System.Security.Cryptography.RSA&quot;></xref> algorithm."
-  remarks: "The following table describes the padding supported by different versions of Microsoft Windows and the maximum length of `rgb` allowed by the different combinations of operating systems and padding.      |Padding|Operating System Supported|Maximum Length of rgb Parameter|   |-------------|--------------------------------|-------------------------------------|   |OAEP padding (PKCS#1 v2)|Windows XP or later.|Modulus size -2 -2*hLen, where hLen is the size of the hash.|   |Direct Encryption (PKCS#1 v1.5)|Microsoft Windows 2000 or later with the high encryption pack installed.|Modulus size - 11. (11 bytes is the minimum padding possible.)|   |Direct Encryption and OAEP padding not supported|Microsoft Windows 98, Windows Millennium Edition, or Windows 2000 or later without the high encryption pack installed.|The maximum size allowed for a symmetric key.|       Use <xref:System.Security.Cryptography.RSACryptoServiceProvider.Decrypt%2A> to decrypt the results of this method."
+  summary: "Versleutelt gegevens met de <xref href=&quot;System.Security.Cryptography.RSA&quot;> </xref> algoritme."
+  remarks: "De volgende tabel beschrijft de opvulling ondersteund door verschillende versies van Microsoft Windows en de maximale lengte van `rgb` toegestaan door de verschillende combinaties van besturingssystemen en opvulling.      | Opvulling | Ondersteund besturingssysteem | Maximale lengte van rgb-Parameter |   |-------------|--------------------------------|-------------------------------------|   | OAEP-opvulling (PKCS #1 v2) | Windows XP of hoger. | Het formaat van modulus-2 -2 * hLen, waarbij hLen de grootte van de hash is. |   | Directe versleuteling (PKCS #1 v1.5) | Microsoft Windows 2000 of hoger met sterke codering pack geïnstalleerd. | Grootte van Modulus - 11. (11 bytes is de minimale mogelijk opvulling.) |   | Directe versleuteling en OAEP-opvulling niet ondersteund | Microsoft Windows 98, Windows ME of Windows 2000 of hoger zonder sterke codering pack geïnstalleerd. | De maximale grootte die is toegestaan voor een symmetrische sleutel. |       Gebruik <xref:System.Security.Cryptography.RSACryptoServiceProvider.Decrypt%2A>voor het ontsleutelen van de resultaten van deze methode.</xref:System.Security.Cryptography.RSACryptoServiceProvider.Decrypt%2A>"
   example:
   - "The following code example initializes an <xref:System.Security.Cryptography.RSACryptoServiceProvider> object to the value of a public key (sent by another party), generates a session key using the <xref:System.Security.Cryptography.RijndaelManaged> algorithm, and then encrypts the session key using the <xref:System.Security.Cryptography.RSACryptoServiceProvider> object.  Using this scheme, the session key could be sent back to the owner of the private RSA key and the two parties could use the session key to exchange encrypted data.  \n  \n [!code-cs[System.Security.Cryptography.RSACryptoServiceProvider.Encrypt#1](~/add/codesnippet/csharp/6b432226-1f8c-408d-a101-_1.cs)]\n [!code-cpp[System.Security.Cryptography.RSACryptoServiceProvider.Encrypt#1](~/add/codesnippet/cpp/6b432226-1f8c-408d-a101-_1.cpp)]\n [!code-vb[System.Security.Cryptography.RSACryptoServiceProvider.Encrypt#1](~/add/codesnippet/visualbasic/6b432226-1f8c-408d-a101-_1.vb)]"
   syntax:
@@ -361,18 +361,18 @@ items:
     parameters:
     - id: rgb
       type: System.Byte[]
-      description: "The data to be encrypted."
+      description: "De gegevens worden versleuteld."
     - id: fOAEP
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to perform direct <xref href=&quot;System.Security.Cryptography.RSA&quot;></xref> encryption using OAEP padding (only available on a computer running Windows XP or later); otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to use PKCS#1 v1.5 padding."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>direct uitvoeren <xref href=&quot;System.Security.Cryptography.RSA&quot;> </xref> versleuteling met behulp van OAEP-opvulling (alleen beschikbaar op een computer met Windows XP of hoger); anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> PKCS&#1; v1.5 opvulling gebruiken."
     return:
       type: System.Byte[]
-      description: "The encrypted data."
+      description: "De versleutelde gegevens."
   overload: System.Security.Cryptography.RSACryptoServiceProvider.Encrypt*
   exceptions:
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The cryptographic service provider (CSP) cannot be acquired.       -or-       The length of the <code>rgb</code> parameter is greater than the maximum allowed length.       -or-       The <code>fOAEP</code> parameter is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> and OAEP padding is not supported."
+    description: "De cryptografieprovider (CSP) kan niet worden opgehaald.       - of - de lengte van de <code> rgb </code> parameter is groter dan de maximaal toegestane lengte.       - of - de <code> fOAEP </code> parameter <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> en OAEP-opvulling wordt niet ondersteund."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: "<code>rgb </code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
@@ -390,28 +390,28 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Encrypts data with the <xref href=&quot;System.Security.Cryptography.RSA&quot;></xref> algorithm using the specified padding."
-  remarks: '`padding` must be either <xref:System.Security.Cryptography.RSAEncryptionPadding.Pkcs1%2A?displayProperty=fullName> or <xref:System.Security.Cryptography.RSAEncryptionPadding.OaepSHA1%2A?displayProperty=fullName>.'
+  summary: "Versleutelt gegevens met de <xref href=&quot;System.Security.Cryptography.RSA&quot;> </xref> algoritme met de opgegeven opvulling."
+  remarks: '`padding`moet ofwel <xref:System.Security.Cryptography.RSAEncryptionPadding.Pkcs1%2A?displayProperty=fullName>of <xref:System.Security.Cryptography.RSAEncryptionPadding.OaepSHA1%2A?displayProperty=fullName>.</xref:System.Security.Cryptography.RSAEncryptionPadding.OaepSHA1%2A?displayProperty=fullName> </xref:System.Security.Cryptography.RSAEncryptionPadding.Pkcs1%2A?displayProperty=fullName>'
   syntax:
     content: public override byte[] Encrypt (byte[] data, System.Security.Cryptography.RSAEncryptionPadding padding);
     parameters:
     - id: data
       type: System.Byte[]
-      description: "The data to encrypt."
+      description: "De gegevens te versleutelen."
     - id: padding
       type: System.Security.Cryptography.RSAEncryptionPadding
-      description: "The padding."
+      description: "De opvulling."
     return:
       type: System.Byte[]
-      description: "The encrypted data."
+      description: "De versleutelde gegevens."
   overload: System.Security.Cryptography.RSACryptoServiceProvider.Encrypt*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>data</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>padding</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>data</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>padding</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The padding mode is not supported."
+    description: "De opvullingsmodus wordt niet ondersteund."
   platform:
   - net462
 - uid: System.Security.Cryptography.RSACryptoServiceProvider.EncryptValue(System.Byte[])
@@ -426,21 +426,21 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "This method is not supported in the current version."
+  summary: "Deze methode wordt niet ondersteund in de huidige versie."
   syntax:
     content: public override byte[] EncryptValue (byte[] rgb);
     parameters:
     - id: rgb
       type: System.Byte[]
-      description: "The data to be encrypted."
+      description: "De gegevens worden versleuteld."
     return:
       type: System.Byte[]
-      description: "The encrypted data."
+      description: "De versleutelde gegevens."
   overload: System.Security.Cryptography.RSACryptoServiceProvider.EncryptValue*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "This method is not supported in the current version."
+    description: "Deze methode wordt niet ondersteund in de huidige versie."
   platform:
   - net462
 - uid: System.Security.Cryptography.RSACryptoServiceProvider.ExportCspBlob(System.Boolean)
@@ -455,17 +455,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Exports a blob containing the key information associated with an <xref href=&quot;System.Security.Cryptography.RSACryptoServiceProvider&quot;></xref> object."
-  remarks: "The ExportCspBlob method returns a blob containing key information that is compatible with the unmanaged Microsoft Cryptographic API (CAPI)."
+  summary: "Exporteert een blob met de gegevens van de sleutel die is gekoppeld aan een <xref href=&quot;System.Security.Cryptography.RSACryptoServiceProvider&quot;> </xref> object."
+  remarks: "De methode ExportCspBlob retourneert een blob met belangrijke informatie die compatibel is met de niet-beheerde Microsoft Cryptographic API (CAPI)."
   syntax:
     content: public byte[] ExportCspBlob (bool includePrivateParameters);
     parameters:
     - id: includePrivateParameters
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to include the private key; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>om op te nemen van de persoonlijke sleutel; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Byte[]
-      description: "A byte array containing the key information associated with an <xref href=&quot;System.Security.Cryptography.RSACryptoServiceProvider&quot;></xref> object."
+      description: "Een bytematrix die de gegevens van de sleutel die is gekoppeld aan een <xref href=&quot;System.Security.Cryptography.RSACryptoServiceProvider&quot;> </xref> object."
   overload: System.Security.Cryptography.RSACryptoServiceProvider.ExportCspBlob*
   exceptions: []
   platform:
@@ -482,7 +482,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Exports the <xref href=&quot;System.Security.Cryptography.RSAParameters&quot;></xref>."
+  summary: "Uitvoer de <xref href=&quot;System.Security.Cryptography.RSAParameters&quot;> </xref>."
   remarks: ''
   example:
   - "The following code example exports the key information created using the <xref:System.Security.Cryptography.RSACryptoServiceProvider> into an <xref:System.Security.Cryptography.RSAParameters> object.  \n  \n [!code-cs[System.Security.Cryptography.RSACryptoServiceProvider.ExportParameters#1](~/add/codesnippet/csharp/f018c1e5-b1fd-413d-8285-_1.cs)]\n [!code-cpp[System.Security.Cryptography.RSACryptoServiceProvider.ExportParameters#1](~/add/codesnippet/cpp/f018c1e5-b1fd-413d-8285-_1.cpp)]\n [!code-vb[System.Security.Cryptography.RSACryptoServiceProvider.ExportParameters#1](~/add/codesnippet/visualbasic/f018c1e5-b1fd-413d-8285-_1.vb)]"
@@ -491,15 +491,15 @@ items:
     parameters:
     - id: includePrivateParameters
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to include private parameters; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>om op te nemen persoonlijke parameters. anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Security.Cryptography.RSAParameters
-      description: "The parameters for <xref href=&quot;System.Security.Cryptography.RSA&quot;></xref>."
+      description: "De parameters voor <xref href=&quot;System.Security.Cryptography.RSA&quot;> </xref>."
   overload: System.Security.Cryptography.RSACryptoServiceProvider.ExportParameters*
   exceptions:
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The key cannot be exported."
+    description: "De sleutel kan niet worden geëxporteerd."
   platform:
   - net462
 - uid: System.Security.Cryptography.RSACryptoServiceProvider.HashData(System.IO.Stream,System.Security.Cryptography.HashAlgorithmName)
@@ -519,13 +519,13 @@ items:
     parameters:
     - id: data
       type: System.IO.Stream
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     - id: hashAlgorithm
       type: System.Security.Cryptography.HashAlgorithmName
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     return:
       type: System.Byte[]
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   overload: System.Security.Cryptography.RSACryptoServiceProvider.HashData*
   exceptions: []
   platform:
@@ -547,19 +547,19 @@ items:
     parameters:
     - id: data
       type: System.Byte[]
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     - id: offset
       type: System.Int32
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     - id: count
       type: System.Int32
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     - id: hashAlgorithm
       type: System.Security.Cryptography.HashAlgorithmName
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     return:
       type: System.Byte[]
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   overload: System.Security.Cryptography.RSACryptoServiceProvider.HashData*
   exceptions: []
   platform:
@@ -576,14 +576,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Imports a blob that represents RSA key information."
-  remarks: "The ImportCspBlob method initializes the key data of an <xref:System.Security.Cryptography.RSACryptoServiceProvider> object using a blob that is compatible with the unmanaged Microsoft Cryptographic API (CAPI)."
+  summary: "Hiermee importeert u een blob die RSA-sleutelgegevens aangeeft."
+  remarks: "De methode ImportCspBlob initialiseert de belangrijkste gegevens van een <xref:System.Security.Cryptography.RSACryptoServiceProvider>object met een blob die compatibel is met de niet-beheerde Microsoft Cryptographic API (CAPI).</xref:System.Security.Cryptography.RSACryptoServiceProvider>"
   syntax:
     content: public void ImportCspBlob (byte[] keyBlob);
     parameters:
     - id: keyBlob
       type: System.Byte[]
-      description: "A byte array that represents an RSA key blob."
+      description: "Een bytematrix die een RSA-sleutel blob vertegenwoordigt."
   overload: System.Security.Cryptography.RSACryptoServiceProvider.ImportCspBlob*
   exceptions: []
   platform:
@@ -600,7 +600,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Imports the specified <xref href=&quot;System.Security.Cryptography.RSAParameters&quot;></xref>."
+  summary: "De opgegeven invoer <xref href=&quot;System.Security.Cryptography.RSAParameters&quot;> </xref>."
   remarks: ''
   example:
   - "The following code example imports key information created from an <xref:System.Security.Cryptography.RSAParameters> object into an <xref:System.Security.Cryptography.RSACryptoServiceProvider> object.  \n  \n [!code-cpp[System.Security.Cryptography.RSACryptoServiceProvider.ImportParameters#1](~/add/codesnippet/cpp/c5e7ebba-6f05-4c89-be06-_1.cpp)]\n [!code-cs[System.Security.Cryptography.RSACryptoServiceProvider.ImportParameters#1](~/add/codesnippet/csharp/c5e7ebba-6f05-4c89-be06-_1.cs)]\n [!code-vb[System.Security.Cryptography.RSACryptoServiceProvider.ImportParameters#1](~/add/codesnippet/visualbasic/c5e7ebba-6f05-4c89-be06-_1.vb)]"
@@ -609,12 +609,12 @@ items:
     parameters:
     - id: parameters
       type: System.Security.Cryptography.RSAParameters
-      description: "The parameters for <xref href=&quot;System.Security.Cryptography.RSA&quot;></xref>."
+      description: "De parameters voor <xref href=&quot;System.Security.Cryptography.RSA&quot;> </xref>."
   overload: System.Security.Cryptography.RSACryptoServiceProvider.ImportParameters*
   exceptions:
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The cryptographic service provider (CSP) cannot be acquired.       -or-       The <code>parameters</code> parameter has missing fields."
+    description: "De cryptografieprovider (CSP) kan niet worden opgehaald.       - of - de <code> parameters </code> parameter heeft ontbrekende velden."
   platform:
   - net462
 - uid: System.Security.Cryptography.RSACryptoServiceProvider.KeyExchangeAlgorithm
@@ -629,13 +629,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Gets the name of the key exchange algorithm available with this implementation of <xref href=&quot;System.Security.Cryptography.RSA&quot;></xref>."
-  remarks: "This property indicates the name of the algorithm, not of the type. For example, RSA-PKCS1-KeyEx is a key exchange algorithm name."
+  summary: "Hiermee wordt de naam van het algoritme voor sleuteluitwisseling beschikbaar met deze implementatie van <xref href=&quot;System.Security.Cryptography.RSA&quot;> </xref>."
+  remarks: "Deze eigenschap geeft de naam van het algoritme, niet van het type. RSA-PKCS1-KeyEx is bijvoorbeeld een naam van de algoritme voor sleuteluitwisseling."
   syntax:
     content: public override string KeyExchangeAlgorithm { get; }
     return:
       type: System.String
-      description: "The name of the key exchange algorithm if it exists; otherwise, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "De naam van het algoritme voor sleuteluitwisseling als deze bestaat; anders <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Cryptography.RSACryptoServiceProvider.KeyExchangeAlgorithm*
   exceptions: []
   platform:
@@ -652,13 +652,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Gets the size of the current key."
+  summary: "Hiermee wordt de grootte van de huidige sleutel opgehaald."
   remarks: "The <xref:System.Security.Cryptography.RSACryptoServiceProvider> supports key sizes from 384 bits to 16384 bits in increments of 8 bits if you have the Microsoft Enhanced Cryptographic Provider installed.  It supports key sizes from 384 bits to 512 bits in increments of 8 bits if you have the Microsoft Base Cryptographic Provider installed.  \n  \n Valid key sizes are dependent on the cryptographic service provider (CSP) that is used by the <xref:System.Security.Cryptography.RSACryptoServiceProvider> instance. Windows CSPs enable key sizes of 384 to 16384 bits for Windows versions prior to [!INCLUDE[win81](~/add/includes/ajax-current-ext-md.md)], and key sizes of 512 to 16384 bits for [!INCLUDE[win81](~/add/includes/ajax-current-ext-md.md)]. For more information, see [CryptGenKey](http://msdn.microsoft.com/library/aa379941\\(v=vs.85\\).aspx) function in the Windows documentation.  \n  \n The <xref:System.Security.Cryptography.RSACryptoServiceProvider> class does not allow you to change key sizes using the KeySize property.  Any value written to this property will fail to update the property without error.  To change the key size, use one of the constructor overloads."
   syntax:
     content: public override int KeySize { get; }
     return:
       type: System.Int32
-      description: "The size of the key in bits."
+      description: "De grootte van de sleutel in bits."
   overload: System.Security.Cryptography.RSACryptoServiceProvider.KeySize*
   exceptions: []
   platform:
@@ -675,15 +675,15 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Gets or sets a value indicating whether the key should be persisted in the cryptographic service provider (CSP)."
-  remarks: "Use this property to persist a key in a key container.       The PersistKeyInCsp property is automatically set to `true` when you specify a key container name in the <xref:System.Security.Cryptography.CspParameters.KeyContainerName> field of a <xref:System.Security.Cryptography.CspParameters> object and use it to initialize an <xref:System.Security.Cryptography.RSACryptoServiceProvider> object by calling one of the constructors with a `parameters` parameter.       The PersistKeyInCsp property has no effect if the <xref:System.Security.Cryptography.RSACryptoServiceProvider> object is created with a `null` key container name."
+  summary: "Opgehaald of ingesteld van een waarde die aangeeft of de sleutel moet worden gehandhaafd in de cryptografieprovider (CSP)."
+  remarks: "Gebruik deze eigenschap voor het persistent maken van een sleutel in een sleutelcontainer.       De eigenschap PersistKeyInCsp automatisch ingesteld op `true` wanneer u opgeeft dat de naam van een sleutelcontainer in de <xref:System.Security.Cryptography.CspParameters.KeyContainerName>veld van een <xref:System.Security.Cryptography.CspParameters>object en deze gebruiken om te initialiseren een <xref:System.Security.Cryptography.RSACryptoServiceProvider>object door een van de constructors met een `parameters` parameter.</xref:System.Security.Cryptography.RSACryptoServiceProvider> </xref:System.Security.Cryptography.CspParameters> </xref:System.Security.Cryptography.CspParameters.KeyContainerName>       De eigenschap PersistKeyInCsp heeft geen effect als de <xref:System.Security.Cryptography.RSACryptoServiceProvider>object is gemaakt met een `null` sleutelcontainernaam.</xref:System.Security.Cryptography.RSACryptoServiceProvider>"
   example:
   - "The following code example creates an <xref:System.Security.Cryptography.RSACryptoServiceProvider> object and persists the key to a key container.  \n  \n [!code-cs[Cryptography.RSACSP.PersistKey#1](~/add/codesnippet/csharp/p-system.security.crypto_52_1.cs)]\n [!code-vb[Cryptography.RSACSP.PersistKey#1](~/add/codesnippet/visualbasic/p-system.security.crypto_52_1.vb)]\n [!code-cpp[Cryptography.RSACSP.PersistKey#1](~/add/codesnippet/cpp/p-system.security.crypto_52_1.cpp)]"
   syntax:
     content: public bool PersistKeyInCsp { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the key should be persisted in the CSP; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de sleutel moet worden gehandhaafd in de CSP; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Cryptography.RSACryptoServiceProvider.PersistKeyInCsp*
   exceptions: []
   platform:
@@ -700,13 +700,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Gets a value that indicates whether the <xref href=&quot;System.Security.Cryptography.RSACryptoServiceProvider&quot;></xref> object contains only a public key."
-  remarks: "The <xref:System.Security.Cryptography.RSACryptoServiceProvider> class can be initialized either with a public key only or with both a public and private key.  Use the PublicOnly property to determine whether the current instance contains only a public key or both a public and private key."
+  summary: "Hiermee wordt een waarde die aangeeft of de <xref href=&quot;System.Security.Cryptography.RSACryptoServiceProvider&quot;> </xref> object bevat alleen een openbare sleutel."
+  remarks: "De <xref:System.Security.Cryptography.RSACryptoServiceProvider>klasse kan worden geïnitialiseerd ofwel met een openbare sleutel die alleen of met zowel een openbare en persoonlijke sleutel.</xref:System.Security.Cryptography.RSACryptoServiceProvider>  Gebruik de eigenschap PublicOnly om te bepalen of de huidige instantie alleen een openbare sleutel of een openbare en persoonlijke sleutel bevat."
   syntax:
     content: public bool PublicOnly { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <xref href=&quot;System.Security.Cryptography.RSACryptoServiceProvider&quot;></xref> object contains only a public key; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de <xref href=&quot;System.Security.Cryptography.RSACryptoServiceProvider&quot;> </xref> object bevat alleen een openbare sleutel, anders wordt <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Cryptography.RSACryptoServiceProvider.PublicOnly*
   exceptions: []
   platform:
@@ -723,13 +723,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Gets the name of the signature algorithm available with this implementation of <xref href=&quot;System.Security.Cryptography.RSA&quot;></xref>."
-  remarks: "This property is used in XML digital signature classes to indicate the algorithm URI. In this implementation, this property always returns http://www.w3.org/2000/09/xmldsig#rsa-sha1."
+  summary: "Hiermee wordt de naam van het algoritme voor handtekening beschikbaar met deze implementatie van <xref href=&quot;System.Security.Cryptography.RSA&quot;> </xref>."
+  remarks: "Deze eigenschap wordt gebruikt in XML-digitale handtekening klassen om aan te geven van de URI-algoritme. Deze eigenschap retourneert altijd http://www.w3.org/2000/09/xmldsig#rsa-sha1 in deze implementatie."
   syntax:
     content: public override string SignatureAlgorithm { get; }
     return:
       type: System.String
-      description: "The name of the signature algorithm."
+      description: "De naam van het algoritme voor handtekening."
   overload: System.Security.Cryptography.RSACryptoServiceProvider.SignatureAlgorithm*
   exceptions: []
   platform:
@@ -746,8 +746,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Computes the hash value of the specified byte array using the specified hash algorithm, and signs the resulting hash value."
-  remarks: "This method creates a digital signature that is verified using the <xref:System.Security.Cryptography.RSACryptoServiceProvider.VerifyData%2A> method.       The `halg` parameter can accept a <xref:System.String>, a <xref:System.Security.Cryptography.HashAlgorithm>, or a <xref:System.Type>."
+  summary: "Berekent de hash-waarde van de opgegeven byte-matrix met de opgegeven hash-algoritme en de resulterende hashwaarde ondertekent."
+  remarks: "Deze methode maakt u een digitale handtekening die is geverifieerd met behulp van de <xref:System.Security.Cryptography.RSACryptoServiceProvider.VerifyData%2A>methode.</xref:System.Security.Cryptography.RSACryptoServiceProvider.VerifyData%2A>       De `halg` parameter accepteert een <xref:System.String>, een <xref:System.Security.Cryptography.HashAlgorithm>, of een <xref:System.Type>.</xref:System.Type> </xref:System.Security.Cryptography.HashAlgorithm> </xref:System.String>"
   example:
   - "The following code example signs and verifies data.  \n  \n [!code-cpp[Cryptography.RSACSP.SignData2#1](~/add/codesnippet/cpp/ad78ce39-1ac6-4acb-8c2f-_1.cpp)]\n [!code-cs[Cryptography.RSACSP.SignData2#1](~/add/codesnippet/csharp/ad78ce39-1ac6-4acb-8c2f-_1.cs)]\n [!code-vb[Cryptography.RSACSP.SignData2#1](~/add/codesnippet/visualbasic/ad78ce39-1ac6-4acb-8c2f-_1.vb)]"
   syntax:
@@ -755,13 +755,13 @@ items:
     parameters:
     - id: buffer
       type: System.Byte[]
-      description: "The input data for which to compute the hash."
+      description: "De ingevoerde gegevens waarvoor u de hash te berekenen."
     - id: halg
       type: System.Object
-      description: "The hash algorithm to use to create the hash value."
+      description: "Het hash-algoritme gebruiken voor het maken van de hash-waarde."
     return:
       type: System.Byte[]
-      description: "The <xref href=&quot;System.Security.Cryptography.RSA&quot;></xref> signature for the specified data."
+      description: "De <xref href=&quot;System.Security.Cryptography.RSA&quot;> </xref> handtekening voor de opgegeven gegevens."
   overload: System.Security.Cryptography.RSACryptoServiceProvider.SignData*
   exceptions:
   - type: System.ArgumentNullException
@@ -769,7 +769,7 @@ items:
     description: "The <code>halg</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>halg</code> parameter is not a valid type."
+    description: "De <code> halg </code> parameter is geen geldig type."
   platform:
   - net462
 - uid: System.Security.Cryptography.RSACryptoServiceProvider.SignData(System.IO.Stream,System.Object)
@@ -784,8 +784,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Computes the hash value of the specified input stream using the specified hash algorithm, and signs the resulting hash value."
-  remarks: "The `halg` parameter can accept a <xref:System.String>, a <xref:System.Security.Cryptography.HashAlgorithm>, or a <xref:System.Type>."
+  summary: "Berekent de hashwaarde van de opgegeven invoerstroom met behulp van de opgegeven hash-algoritme en de resulterende hashwaarde ondertekent."
+  remarks: "De `halg` parameter accepteert een <xref:System.String>, een <xref:System.Security.Cryptography.HashAlgorithm>, of een <xref:System.Type>.</xref:System.Type> </xref:System.Security.Cryptography.HashAlgorithm> </xref:System.String>"
   example:
   - "The following code example signs and verifies data.  \n  \n [!code-cs[Cryptography.RSACSP.SignData3#1](~/add/codesnippet/csharp/35bfe7e1-edb8-40ab-9df0-_1.cs)]\n [!code-cpp[Cryptography.RSACSP.SignData3#1](~/add/codesnippet/cpp/35bfe7e1-edb8-40ab-9df0-_1.cpp)]\n [!code-vb[Cryptography.RSACSP.SignData3#1](~/add/codesnippet/visualbasic/35bfe7e1-edb8-40ab-9df0-_1.vb)]"
   syntax:
@@ -793,13 +793,13 @@ items:
     parameters:
     - id: inputStream
       type: System.IO.Stream
-      description: "The input data for which to compute the hash."
+      description: "De ingevoerde gegevens waarvoor u de hash te berekenen."
     - id: halg
       type: System.Object
-      description: "The hash algorithm to use to create the hash value."
+      description: "Het hash-algoritme gebruiken voor het maken van de hash-waarde."
     return:
       type: System.Byte[]
-      description: "The <xref href=&quot;System.Security.Cryptography.RSA&quot;></xref> signature for the specified data."
+      description: "De <xref href=&quot;System.Security.Cryptography.RSA&quot;> </xref> handtekening voor de opgegeven gegevens."
   overload: System.Security.Cryptography.RSACryptoServiceProvider.SignData*
   exceptions:
   - type: System.ArgumentNullException
@@ -807,7 +807,7 @@ items:
     description: "The <code>halg</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>halg</code> parameter is not a valid type."
+    description: "De <code> halg </code> parameter is geen geldig type."
   platform:
   - net462
 - uid: System.Security.Cryptography.RSACryptoServiceProvider.SignData(System.Byte[],System.Int32,System.Int32,System.Object)
@@ -822,8 +822,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Computes the hash value of a subset of the specified byte array using the specified hash algorithm, and signs the resulting hash value."
-  remarks: "This method creates a digital signature that is verified using the <xref:System.Security.Cryptography.RSACryptoServiceProvider.VerifyData%2A> method.       The `halg` parameter can accept a <xref:System.String>, a <xref:System.Security.Cryptography.HashAlgorithm>, or a <xref:System.Type>. The string value can be one of the following:      -   The object identifier (OID) friendly name of the hash algorithm to use, either a name registered in the crypto config file or one in the Crypto API OID table.      -   The OID value. The OID must be one recognized by the Crypto API.       For example, you could use SignData(new byte[5], &quot;1.3.14.3.2.26&quot;) or SignData(new byte[5], &quot;sha1&quot;), or SignData(new byte[5], &quot;SHA1&quot;)."
+  summary: "Berekent de hash-waarde van een subset van de opgegeven byte-matrix met de opgegeven hash-algoritme en de resulterende hashwaarde ondertekent."
+  remarks: "Deze methode maakt u een digitale handtekening die is geverifieerd met behulp van de <xref:System.Security.Cryptography.RSACryptoServiceProvider.VerifyData%2A>methode.</xref:System.Security.Cryptography.RSACryptoServiceProvider.VerifyData%2A>       De `halg` parameter accepteert een <xref:System.String>, een <xref:System.Security.Cryptography.HashAlgorithm>, of een <xref:System.Type>.</xref:System.Type> </xref:System.Security.Cryptography.HashAlgorithm> </xref:System.String> De string-waarde kan een van de volgende zijn:-de object-id (OID) beschrijvende naam van het hash-algoritme om te gebruiken, een naam die zijn geregistreerd in de crypto-configuratiebestand of in de tabel OID voor Crypto-API.      -De OID-waarde. De OID moet een herkend door de Crypto-API.       Bijvoorbeeld, kunt u SignData (nieuwe byte [5], &quot;1.3.14.3.2.26&quot;) of SignData (nieuwe byte [5], &quot;sha1&quot;) of SignData (nieuwe byte [5], &quot;SHA1&quot;)."
   example:
   - "The following code example signs and verifies data.  \n  \n [!code-cpp[Cryptography.RSACSP.SignData1#1](~/add/codesnippet/cpp/7bb71f9b-03f8-4e5b-ab7e-_1.cpp)]\n [!code-cs[Cryptography.RSACSP.SignData1#1](~/add/codesnippet/csharp/7bb71f9b-03f8-4e5b-ab7e-_1.cs)]\n [!code-vb[Cryptography.RSACSP.SignData1#1](~/add/codesnippet/visualbasic/7bb71f9b-03f8-4e5b-ab7e-_1.vb)]"
   syntax:
@@ -831,19 +831,19 @@ items:
     parameters:
     - id: buffer
       type: System.Byte[]
-      description: "The input data for which to compute the hash."
+      description: "De ingevoerde gegevens waarvoor u de hash te berekenen."
     - id: offset
       type: System.Int32
-      description: "The offset into the array from which to begin using data."
+      description: "De offset in de matrix waaruit de gegevens in gebruik neemt."
     - id: count
       type: System.Int32
-      description: "The number of bytes in the array to use as data."
+      description: "Het aantal bytes in de matrix te gebruiken als gegevens."
     - id: halg
       type: System.Object
-      description: "The hash algorithm to use to create the hash value."
+      description: "Het hash-algoritme gebruiken voor het maken van de hash-waarde."
     return:
       type: System.Byte[]
-      description: "The <xref href=&quot;System.Security.Cryptography.RSA&quot;></xref> signature for the specified data."
+      description: "De <xref href=&quot;System.Security.Cryptography.RSA&quot;> </xref> handtekening voor de opgegeven gegevens."
   overload: System.Security.Cryptography.RSACryptoServiceProvider.SignData*
   exceptions:
   - type: System.ArgumentNullException
@@ -851,7 +851,7 @@ items:
     description: "The <code>halg</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>halg</code> parameter is not a valid type."
+    description: "De <code> halg </code> parameter is geen geldig type."
   platform:
   - net462
 - uid: System.Security.Cryptography.RSACryptoServiceProvider.SignHash(System.Byte[],System.String)
@@ -866,8 +866,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Computes the signature for the specified hash value by encrypting it with the private key."
-  remarks: "This method creates a digital signature that is verified using the <xref:System.Security.Cryptography.RSACryptoServiceProvider.VerifyHash%2A> method.       The valid hash algorithms are <xref:System.Security.Cryptography.SHA1> and <xref:System.Security.Cryptography.MD5>. The algorithm identifier can be derived from the hash name by using the <xref:System.Security.Cryptography.CryptoConfig.MapNameToOID%2A> method."
+  summary: "Berekent de handtekening voor de opgegeven hash-waarde door deze te coderen met de persoonlijke sleutel."
+  remarks: "Deze methode maakt u een digitale handtekening die is geverifieerd met behulp van de <xref:System.Security.Cryptography.RSACryptoServiceProvider.VerifyHash%2A>methode.</xref:System.Security.Cryptography.RSACryptoServiceProvider.VerifyHash%2A>       De geldige hash-algoritmen zijn <xref:System.Security.Cryptography.SHA1>en <xref:System.Security.Cryptography.MD5>.</xref:System.Security.Cryptography.MD5> </xref:System.Security.Cryptography.SHA1> De algoritme-id kan worden afgeleid van de naam van de hash met behulp van de <xref:System.Security.Cryptography.CryptoConfig.MapNameToOID%2A>methode.</xref:System.Security.Cryptography.CryptoConfig.MapNameToOID%2A>"
   example:
   - "The following code example encrypts some data, creates a hash of the encrypted data, and then signs hash with a digital signature.  \n  \n [!code-cpp[System.Security.Cryptography.RSACryptoServiceProvider ManualHash Example#1](~/add/codesnippet/cpp/f4f73450-8212-4a5d-b1df-_1.cpp)]\n [!code-cs[System.Security.Cryptography.RSACryptoServiceProvider ManualHash Example#1](~/add/codesnippet/csharp/f4f73450-8212-4a5d-b1df-_1.cs)]\n [!code-vb[System.Security.Cryptography.RSACryptoServiceProvider ManualHash Example#1](~/add/codesnippet/visualbasic/f4f73450-8212-4a5d-b1df-_1.vb)]"
   syntax:
@@ -875,13 +875,13 @@ items:
     parameters:
     - id: rgbHash
       type: System.Byte[]
-      description: "The hash value of the data to be signed."
+      description: "De hash-waarde van de gegevens moeten worden ondertekend."
     - id: str
       type: System.String
-      description: "The hash algorithm identifier (OID) used to create the hash value of the data."
+      description: "De hash-algoritme-id (OID) gebruikt voor het maken van de hash-waarde van de gegevens."
     return:
       type: System.Byte[]
-      description: "The <xref href=&quot;System.Security.Cryptography.RSA&quot;></xref> signature for the specified hash value."
+      description: "De <xref href=&quot;System.Security.Cryptography.RSA&quot;> </xref> handtekening voor de opgegeven hash-waarde."
   overload: System.Security.Cryptography.RSACryptoServiceProvider.SignHash*
   exceptions:
   - type: System.ArgumentNullException
@@ -889,7 +889,7 @@ items:
     description: "The <code>rgbHash</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The cryptographic service provider (CSP) cannot be acquired.       -or-       There is no private key."
+    description: "De cryptografieprovider (CSP) kan niet worden opgehaald.       - of - er is geen persoonlijke sleutel."
   platform:
   - net462
 - uid: System.Security.Cryptography.RSACryptoServiceProvider.SignHash(System.Byte[],System.Security.Cryptography.HashAlgorithmName,System.Security.Cryptography.RSASignaturePadding)
@@ -904,33 +904,33 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Computes the signature for the specified hash value by encrypting it with the private key using the specified padding."
+  summary: "Berekent de handtekening voor de opgegeven hash-waarde door deze te coderen met de persoonlijke sleutel met behulp van de opgegeven opvulling."
   syntax:
     content: public override byte[] SignHash (byte[] hash, System.Security.Cryptography.HashAlgorithmName hashAlgorithm, System.Security.Cryptography.RSASignaturePadding padding);
     parameters:
     - id: hash
       type: System.Byte[]
-      description: "The hash value of the data to be signed."
+      description: "De hash-waarde van de gegevens moeten worden ondertekend."
     - id: hashAlgorithm
       type: System.Security.Cryptography.HashAlgorithmName
-      description: "The hash algorithm name used to create the hash value of the data."
+      description: "De naam van het hash-algoritme is gebruikt voor het maken van de hash-waarde van de gegevens."
     - id: padding
       type: System.Security.Cryptography.RSASignaturePadding
-      description: "The padding."
+      description: "De opvulling."
     return:
       type: System.Byte[]
-      description: "The <xref href=&quot;System.Security.Cryptography.RSA&quot;></xref> signature for the specified hash value."
+      description: "De <xref href=&quot;System.Security.Cryptography.RSA&quot;> </xref> handtekening voor de opgegeven hash-waarde."
   overload: System.Security.Cryptography.RSACryptoServiceProvider.SignHash*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>hashAlgorithm</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or &lt;xref:System.String.Empty?displayProperty=fullName&gt;."
+    description: "<code>hashAlgorithm</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> of &lt;xref:System.String.Empty?displayProperty=fullName&gt;."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>hash</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>padding</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>hash</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>padding</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "<code>padding</code> does not equal &lt;xref:System.Security.Cryptography.RSASignaturePadding.Pkcs1%2A?displayProperty=fullName&gt;."
+    description: "<code>padding</code>is niet gelijk aan &lt;xref:System.Security.Cryptography.RSASignaturePadding.Pkcs1%2A?displayProperty=fullName&gt;."
   platform:
   - net462
 - uid: System.Security.Cryptography.RSACryptoServiceProvider.UseMachineKeyStore
@@ -945,15 +945,15 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Gets or sets a value indicating whether the key should be persisted in the computer&quot;s key store instead of the user profile store."
-  remarks: "Setting this property to `true` is equivalent to passing the <xref:System.Security.Cryptography.CspProviderFlags> flag to a <xref:System.Security.Cryptography.CspParameters> object. The UseMachineKeyStore property applies to all code in the current application domain, whereas the <xref:System.Security.Cryptography.CspParameters> object applies only to classes that explicitly reference it. These settings are useful when impersonating or running under an account whose user profile is not loaded. Setting UseMachineKeyStore affects the key store location only if <xref:System.Security.Cryptography.RSACryptoServiceProvider> is initialized with no parameters."
+  summary: "Opgehaald of ingesteld van een waarde die aangeeft of de sleutel moet worden vastgehouden in sleutelarchief in plaats van de opgeslagen gebruikersprofiel van de computer."
+  remarks: "Deze eigenschap instelt op `true` is gelijk aan het doorgeven van de <xref:System.Security.Cryptography.CspProviderFlags>vlag in op een <xref:System.Security.Cryptography.CspParameters>object.</xref:System.Security.Cryptography.CspParameters> </xref:System.Security.Cryptography.CspProviderFlags> De eigenschap UseMachineKeyStore is van toepassing op alle code in het huidige toepassingsdomein terwijl het <xref:System.Security.Cryptography.CspParameters>object geldt alleen voor klassen die expliciet verwijzen naar deze</xref:System.Security.Cryptography.CspParameters> Deze instellingen zijn nuttig wanneer imiteren of uitgevoerd onder een account waarvan gebruikersprofiel is niet geladen. UseMachineKeyStore instelling is van invloed op de locatie sleutelarchief alleen als <xref:System.Security.Cryptography.RSACryptoServiceProvider>zonder parameters is geïnitialiseerd.</xref:System.Security.Cryptography.RSACryptoServiceProvider>"
   example:
   - "The following code example creates an <xref:System.Security.Cryptography.RSACryptoServiceProvider> object and sets the static UseMachineKeyStore property to use the machine key store instead of the user profile key store.  \n  \n [!code-cs[Cryptography.RSACSP.UseMachineKey#2](~/add/codesnippet/csharp/p-system.security.crypto_91_1.cs)]\n [!code-cpp[Cryptography.RSACSP.UseMachineKey#2](~/add/codesnippet/cpp/p-system.security.crypto_91_1.cpp)]\n [!code-vb[Cryptography.RSACSP.UseMachineKey#2](~/add/codesnippet/visualbasic/p-system.security.crypto_91_1.vb)]"
   syntax:
     content: public static bool UseMachineKeyStore { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the key should be persisted in the computer key store; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de sleutel moet worden gehandhaafd in de archief van de computer; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Cryptography.RSACryptoServiceProvider.UseMachineKeyStore*
   exceptions: []
   platform:
@@ -970,8 +970,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Verifies that a digital signature is valid by determining the hash value in the signature using the provided public key and comparing it to the hash value of the provided data."
-  remarks: "This method verifies the <xref:System.Security.Cryptography.RSA> digital signature produced by the <xref:System.Security.Cryptography.RSACryptoServiceProvider.SignData%2A> method. The signature is verified by obtaining the hash value from the signature using the public key it was signed with, and comparing that value to the hash value of the provided data.       The `halg` parameter can accept a <xref:System.String>, a <xref:System.Security.Cryptography.HashAlgorithm>, or a <xref:System.Type>."
+  summary: "Controleert of een digitale handtekening ongeldig is door het bepalen van de hash waarde in de handtekening met behulp van de opgegeven openbare sleutel en vergelijken met de hash-waarde van de opgegeven gegevens."
+  remarks: "Deze methode controleert of de <xref:System.Security.Cryptography.RSA>digitale handtekening die wordt geproduceerd door de <xref:System.Security.Cryptography.RSACryptoServiceProvider.SignData%2A>methode.</xref:System.Security.Cryptography.RSACryptoServiceProvider.SignData%2A> </xref:System.Security.Cryptography.RSA> De handtekening wordt geverifieerd door het verkrijgen van de hash-waarde van de handtekening met de openbare sleutel, het is ondertekend met, en dat de waarde voor de hash-waarde van de opgegeven gegevens vergelijken.       De `halg` parameter accepteert een <xref:System.String>, een <xref:System.Security.Cryptography.HashAlgorithm>, of een <xref:System.Type>.</xref:System.Type> </xref:System.Security.Cryptography.HashAlgorithm> </xref:System.String>"
   example:
   - "The following example shows how to use the VerifyData method to verify a signature. This code example is part of a larger example provided for the <xref:System.Security.Cryptography.RSACryptoServiceProvider.SignHash%2A> method.  \n  \n [!code-cpp[System.Security.Cryptography.RSACryptoServiceProvider ManualHash Example#2](~/add/codesnippet/cpp/3df3f07d-a09f-413c-b97a-_1.cpp)]\n [!code-cs[System.Security.Cryptography.RSACryptoServiceProvider ManualHash Example#2](~/add/codesnippet/csharp/3df3f07d-a09f-413c-b97a-_1.cs)]\n [!code-vb[System.Security.Cryptography.RSACryptoServiceProvider ManualHash Example#2](~/add/codesnippet/visualbasic/3df3f07d-a09f-413c-b97a-_1.vb)]"
   syntax:
@@ -979,16 +979,16 @@ items:
     parameters:
     - id: buffer
       type: System.Byte[]
-      description: "The data that was signed."
+      description: "De gegevens die is ondertekend."
     - id: halg
       type: System.Object
-      description: "The name of the hash algorithm used to create the hash value of the data."
+      description: "De naam van het hash-algoritme gebruikt voor het maken van de hash-waarde van de gegevens."
     - id: signature
       type: System.Byte[]
-      description: "The signature data to be verified."
+      description: "De handtekeninggegevens worden gecontroleerd."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the signature is valid; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de handtekening geldig is. anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Cryptography.RSACryptoServiceProvider.VerifyData*
   exceptions:
   - type: System.ArgumentNullException
@@ -996,7 +996,7 @@ items:
     description: "The <code>halg</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>halg</code> parameter is not a valid type."
+    description: "De <code> halg </code> parameter is geen geldig type."
   platform:
   - net462
 - uid: System.Security.Cryptography.RSACryptoServiceProvider.VerifyHash(System.Byte[],System.String,System.Byte[])
@@ -1011,8 +1011,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Verifies that a digital signature is valid by determining the hash value in the signature using the provided public key and comparing it to the provided hash value."
-  remarks: "This method verifies the <xref:System.Security.Cryptography.RSA> digital signature produced by the <xref:System.Security.Cryptography.RSACryptoServiceProvider.SignHash%2A> method. The signature is verified by obtaining the hash value from the signature using the public key it was signed with, and comparing that value to the hash value of the provided data.       The valid hash algorithms are <xref:System.Security.Cryptography.SHA1> and <xref:System.Security.Cryptography.MD5>. The algorithm identifier can be derived from the hash name by using the <xref:System.Security.Cryptography.CryptoConfig.MapNameToOID%2A> method."
+  summary: "Controleert of een digitale handtekening ongeldig is door het bepalen van de hash waarde in de handtekening met behulp van de opgegeven openbare sleutel en vergelijken met de opgegeven hash-waarde."
+  remarks: "Deze methode controleert of de <xref:System.Security.Cryptography.RSA>digitale handtekening die wordt geproduceerd door de <xref:System.Security.Cryptography.RSACryptoServiceProvider.SignHash%2A>methode.</xref:System.Security.Cryptography.RSACryptoServiceProvider.SignHash%2A> </xref:System.Security.Cryptography.RSA> De handtekening wordt geverifieerd door het verkrijgen van de hash-waarde van de handtekening met de openbare sleutel, het is ondertekend met, en dat de waarde voor de hash-waarde van de opgegeven gegevens vergelijken.       De geldige hash-algoritmen zijn <xref:System.Security.Cryptography.SHA1>en <xref:System.Security.Cryptography.MD5>.</xref:System.Security.Cryptography.MD5> </xref:System.Security.Cryptography.SHA1> De algoritme-id kan worden afgeleid van de naam van de hash met behulp van de <xref:System.Security.Cryptography.CryptoConfig.MapNameToOID%2A>methode.</xref:System.Security.Cryptography.CryptoConfig.MapNameToOID%2A>"
   example:
   - "The following example shows how to use the VerifyHash method to verify a signature. This code example is part of a larger example provided for the <xref:System.Security.Cryptography.RSACryptoServiceProvider.SignHash%2A> method.  \n  \n [!code-cpp[System.Security.Cryptography.RSACryptoServiceProvider ManualHash Example#2](~/add/codesnippet/cpp/2148dfcd-6562-4b9d-a47c-_1.cpp)]\n [!code-cs[System.Security.Cryptography.RSACryptoServiceProvider ManualHash Example#2](~/add/codesnippet/csharp/2148dfcd-6562-4b9d-a47c-_1.cs)]\n [!code-vb[System.Security.Cryptography.RSACryptoServiceProvider ManualHash Example#2](~/add/codesnippet/visualbasic/2148dfcd-6562-4b9d-a47c-_1.vb)]"
   syntax:
@@ -1020,16 +1020,16 @@ items:
     parameters:
     - id: rgbHash
       type: System.Byte[]
-      description: "The hash value of the signed data."
+      description: "De hashwaarde van de ondertekende gegevens."
     - id: str
       type: System.String
-      description: "The hash algorithm identifier (OID) used to create the hash value of the data."
+      description: "De hash-algoritme-id (OID) gebruikt voor het maken van de hash-waarde van de gegevens."
     - id: rgbSignature
       type: System.Byte[]
-      description: "The signature data to be verified."
+      description: "De handtekeninggegevens worden gecontroleerd."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the signature is valid; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de handtekening geldig is. anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Cryptography.RSACryptoServiceProvider.VerifyHash*
   exceptions:
   - type: System.ArgumentNullException
@@ -1037,7 +1037,7 @@ items:
     description: "The <code>rgbHash</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The <code>rgbSignature</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "The cryptographic service provider (CSP) cannot be acquired.       -or-       The signature cannot be verified."
+    description: "De cryptografieprovider (CSP) kan niet worden opgehaald.       - of - de handtekening kan niet worden geverifieerd."
   platform:
   - net462
 - uid: System.Security.Cryptography.RSACryptoServiceProvider.VerifyHash(System.Byte[],System.Byte[],System.Security.Cryptography.HashAlgorithmName,System.Security.Cryptography.RSASignaturePadding)
@@ -1052,36 +1052,36 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Verifies that a digital signature is valid by determining the hash value in the signature using the specified hashing algorithm and padding, and comparing it to the provided hash value."
+  summary: "Controleert of een digitale handtekening ongeldig is door het bepalen van de hashwaarde in de handtekening met behulp van de opgegeven hash-algoritme en opvulling en vergelijken met de opgegeven hash-waarde."
   syntax:
     content: public override bool VerifyHash (byte[] hash, byte[] signature, System.Security.Cryptography.HashAlgorithmName hashAlgorithm, System.Security.Cryptography.RSASignaturePadding padding);
     parameters:
     - id: hash
       type: System.Byte[]
-      description: "The hash value of the signed data."
+      description: "De hashwaarde van de ondertekende gegevens."
     - id: signature
       type: System.Byte[]
-      description: "The signature data to be verified."
+      description: "De handtekeninggegevens worden gecontroleerd."
     - id: hashAlgorithm
       type: System.Security.Cryptography.HashAlgorithmName
-      description: "The hash algorithm name used to create the hash value."
+      description: "De naam van het hash-algoritme is gebruikt voor het maken van de hash-waarde."
     - id: padding
       type: System.Security.Cryptography.RSASignaturePadding
-      description: "The padding."
+      description: "De opvulling."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the signature is valid; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de handtekening geldig is. anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Cryptography.RSACryptoServiceProvider.VerifyHash*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>hashAlgorithm</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or &lt;xref:System.String.Empty?displayProperty=fullName&gt;."
+    description: "<code>hashAlgorithm</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> of &lt;xref:System.String.Empty?displayProperty=fullName&gt;."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>hash</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>padding</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>hash</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>padding</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "<code>padding</code> does not equal &lt;xref:System.Security.Cryptography.RSASignaturePadding.Pkcs1%2A?displayProperty=fullName&gt;."
+    description: "<code>padding</code>is niet gelijk aan &lt;xref:System.Security.Cryptography.RSASignaturePadding.Pkcs1%2A?displayProperty=fullName&gt;."
   platform:
   - net462
 references:
