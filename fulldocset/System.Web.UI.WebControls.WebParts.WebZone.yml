@@ -40,8 +40,8 @@ items:
   nameWithType: WebZone
   fullName: System.Web.UI.WebControls.WebParts.WebZone
   type: Class
-  summary: "Serves as the base class for all controls that act as containers for server controls (including Web Parts <xref href=&quot;System.Web.UI.WebControls.WebParts.Part&quot;></xref> controls, server controls, and user controls) in Web Parts applications."
-  remarks: "A Web Parts zone is a defined region that contains server controls on a Web page, and provides a consistent user interface (UI), layout, and rendering for the contained controls. Zones are rendered in a browser as HTML tables.       The WebZone class is the base class for all Web Parts zones. A zone control is a composite control designed to contain other controls, hence the WebZone class inherits from the <xref:System.Web.UI.WebControls.CompositeControl> class. Together with the <xref:System.Web.UI.WebControls.WebParts.WebPartManager> control and <xref:System.Web.UI.WebControls.WebParts.Part> controls (or other user or server controls that can be placed in zones), zone controls derived from the WebZone base class form the essential building blocks of a Web Parts application.       A critical role of Web Parts zones is to enable full Web Parts functionality for the controls they contain. Every Web Parts page contains at least one zone, and a zone can contain zero or more part controls. Zones are required for Web Parts functionality. Without zones, even controls that derive from the <xref:System.Web.UI.WebControls.WebParts.WebPart> class can have very little Web Parts functionality. Conversely, because of the design of the Web Parts control set, you can place ordinary ASP.NET controls, server controls, or user controls into a <xref:System.Web.UI.WebControls.WebParts.WebPartZoneBase> zone (which derives from WebZone), and by virtue of being in the zone, these ordinary server controls are enable to act as <xref:System.Web.UI.WebControls.WebParts.WebPart> controls at run time. For details, see the documentation for the <xref:System.Web.UI.WebControls.WebParts.GenericWebPart> class.      > [!NOTE] >  It is possible to add <xref:System.Web.UI.WebControls.WebParts.Part> or <xref:System.Web.UI.WebControls.WebParts.WebPart> controls to a page outside of a zone, but in that case they simply function as ordinary server controls.       There are two broad categories of zones in the Web Parts control set, all of which inherit from the base WebZone class.      -   <xref:System.Web.UI.WebControls.WebParts.WebPartZoneBase> zones. These contain <xref:System.Web.UI.WebControls.WebParts.WebPart> (and other server and user) controls, and form the primary UI of Web Parts pages that users interact with most of the time.      -   <xref:System.Web.UI.WebControls.WebParts.ToolZone> zones. These zones provide special views of a Web Parts page that enable users to modify (personalize) the content, layout, appearance, behavior, and properties of controls contained in <xref:System.Web.UI.WebControls.WebParts.WebPartZoneBase> zones on a Web Parts page. For example, a <xref:System.Web.UI.WebControls.WebParts.CatalogZoneBase> zone is a <xref:System.Web.UI.WebControls.WebParts.ToolZone> that provides a catalog view of a page, enabling users to add and remove server controls. An <xref:System.Web.UI.WebControls.WebParts.EditorZoneBase> zone is another type of <xref:System.Web.UI.WebControls.WebParts.ToolZone> that provides an editing view of a page, enabling users to modify and edit the layout of the page, along with the properties, appearance, and behavior of the controls.       Each zone in the Web Parts control set is designed to contain a corresponding type of control derived from the <xref:System.Web.UI.WebControls.WebParts.Part> class, with the part controls serving as the main content and primary UI of the zone. Zone types in the Web Parts control set, along with the corresponding types of part controls they contain, are shown in the following table.      |Part control type|Zone type|   |-----------------------|---------------|   |<xref:System.Web.UI.WebControls.WebParts.WebPart> (and server and user controls, which are wrapped with a <xref:System.Web.UI.WebControls.WebParts.GenericWebPart> at run time)|<xref:System.Web.UI.WebControls.WebParts.WebPartZone> (the base class is <xref:System.Web.UI.WebControls.WebParts.WebPartZoneBase> )|   |<xref:System.Web.UI.WebControls.WebParts.EditorPart> (several derived controls are provided with the Web Parts control set, and custom <xref:System.Web.UI.WebControls.WebParts.EditorPart> controls can be developed)|<xref:System.Web.UI.WebControls.WebParts.EditorZone> (the base class is <xref:System.Web.UI.WebControls.WebParts.EditorZoneBase> )|   |<xref:System.Web.UI.WebControls.WebParts.CatalogPart> (several derived controls are provided with the Web Parts control set, and custom <xref:System.Web.UI.WebControls.WebParts.CatalogPart> controls can be developed)|<xref:System.Web.UI.WebControls.WebParts.CatalogZone> (the base class is <xref:System.Web.UI.WebControls.WebParts.CatalogZoneBase> )|   |<xref:System.Web.UI.WebControls.WebParts.WebPartConnection> (connection controls are unique in that they are not part controls that inherit from the base class)|<xref:System.Web.UI.WebControls.WebParts.ConnectionsZone> (inherits directly from <xref:System.Web.UI.WebControls.WebParts.ToolZone> )|       All zones in the Web Parts control have basic, common user interface elements that they inherit from the base WebZone class. Not all these elements are visible on every zone, but each zone type is capable of having these common, zone-related UI elements, as described in the following table.      |Zone section|Description|   |------------------|-----------------|   |Header|The top section of a zone. It includes header text, which can include a title for the zone; style attributes (such as a border or background color) that distinguish the header; and zone-level verbs (represented by buttons, hyperlinks, or images) that users can click to perform UI actions that apply to the entire zone, such as closing a zone. Several WebZone properties, such as <xref:System.Web.UI.WebControls.WebParts.WebZone.HasHeader%2A>, <xref:System.Web.UI.WebControls.WebParts.WebZone.HeaderStyle%2A>, and <xref:System.Web.UI.WebControls.WebParts.WebZone.HeaderText%2A>, relate to the header area of a zone. If there are zone-level verbs in the zone, the <xref:System.Web.UI.WebControls.WebParts.WebZone.VerbButtonType%2A> and <xref:System.Web.UI.WebControls.WebParts.WebZone.VerbStyle%2A> properties apply to them. Note that these two verb properties apply to zone-level verbs only, not to verbs in the individual part controls contained in the zone. Headers are not present in every type of zone; typically they appear in <xref:System.Web.UI.WebControls.WebParts.ToolZone> zones where there is a need to have a common header area with text and a verb, such as a close verb.|   |Body|The main contents section of a zone. Every zone that derives from WebZone has a body section. For all types of zones in the Web Parts control set, the body of the zone contains the designated type of <xref:System.Web.UI.WebControls.WebParts.Part> controls (or other server controls) that correspond to a zone type, as indicated in the previous table. Various members of the WebZone class affect the contents of the body section, such as the <xref:System.Web.UI.WebControls.WebParts.WebZone.BackImageUrl%2A>, <xref:System.Web.UI.WebControls.WebParts.WebZone.PartChromeStyle%2A>, <xref:System.Web.UI.WebControls.WebParts.WebZone.PartChromeType%2A>, and <xref:System.Web.UI.WebControls.WebParts.WebZone.PartStyle%2A> properties. If the body section is empty, the <xref:System.Web.UI.WebControls.WebParts.EditorZoneBase.EmptyZoneText%2A> message can be displayed in certain situations.|   |Chrome|The common UI elements rendered for each part control in a zone. This is distinct from a discussion of style attributes that apply to the zone itself; chrome applies specifically to the contained part controls. Chrome includes verbs, borders, and other style attributes such as background color, or font style of the title text, for a zone&quot;s part controls. A zone determines the chrome details by using a single chrome object appropriate to the type of part controls it contains (e.g., a <xref:System.Web.UI.WebControls.WebParts.CatalogPartChrome> object for a <xref:System.Web.UI.WebControls.WebParts.CatalogZone> that contains <xref:System.Web.UI.WebControls.WebParts.CatalogPart> controls). This single chrome object handles the chrome details and the rendering for all the part controls in the zone. This enables developers to create zones in which they can specify a consistent, common look and feel for all the part controls. Some properties that relate to the chrome for a zone&quot;s part controls include the <xref:System.Web.UI.WebControls.WebParts.WebZone.PartChromeStyle%2A>, <xref:System.Web.UI.WebControls.WebParts.WebZone.PartChromeType%2A>, <xref:System.Web.UI.WebControls.WebParts.WebZone.PartStyle%2A>, and <xref:System.Web.UI.WebControls.WebParts.WebZone.PartTitleStyle%2A> properties. Note that most chrome-related properties, including a specific property to reference the chrome object for a particular type of zone, are not implemented in the base WebZone class. Instead, most chrome-specific features of zones are implemented on specific zone types as appropriate to the unique needs of their part controls. See the topics for each zone type listed in the previous table of this topic.|   |Part Controls|The controls that reside in the body section of a zone. Every zone that inherits from the WebZone class contains in its body section one or more part controls of a corresponding type, as shown in the previous table in this topic. These part controls form the main UI of Web Parts applications. Most zone types that derive from WebZone have a collection property that enables them to reference all their contained part controls, such as the <xref:System.Web.UI.WebControls.WebParts.WebPartZoneBase.WebParts%2A> property on the <xref:System.Web.UI.WebControls.WebParts.WebPartZoneBase> class, and the <xref:System.Web.UI.WebControls.WebParts.EditorZoneBase.EditorParts%2A> property on the <xref:System.Web.UI.WebControls.WebParts.EditorZoneBase> class.|   |Footer|The bottom section of a zone. Like the header section, it is not present in every type of zone, but usually occurs in <xref:System.Web.UI.WebControls.WebParts.ToolZone> zones. Typical contents of a footer section are verbs such as an ok verb or an apply verb, which appear in the footer of <xref:System.Web.UI.WebControls.WebParts.EditorZoneBase> zones. Some properties that relate to the footer section include the <xref:System.Web.UI.WebControls.WebParts.WebZone.HasFooter%2A>, <xref:System.Web.UI.WebControls.WebParts.WebZone.FooterStyle%2A>, <xref:System.Web.UI.WebControls.WebParts.WebZone.VerbButtonType%2A>, and <xref:System.Web.UI.WebControls.WebParts.WebZone.VerbStyle%2A> properties.|       Most of the WebZone class&quot;s properties are discussed in the preceding table that describes the common UI elements of zones. The WebZone class also has several methods relating to its role of rendering content. The <xref:System.Web.UI.WebControls.WebParts.WebZone.RenderBody%2A>, <xref:System.Web.UI.WebControls.WebParts.WebZone.RenderContents%2A>, <xref:System.Web.UI.WebControls.WebParts.WebZone.RenderFooter%2A>, and <xref:System.Web.UI.WebControls.WebParts.WebZone.RenderHeader%2A> methods can all be overridden to provide programmatic control over the rendering of each specific section of a zone. For example, if you want to customize the rendering of all the footer sections of catalog zones in your application, you could inherit from the <xref:System.Web.UI.WebControls.WebParts.CatalogZoneBase> class, override the <xref:System.Web.UI.WebControls.WebParts.WebZone.RenderFooter%2A> method inherited from WebZone, and change the rendering of the footer section."
+  summary: "Fungeert als de basisklasse voor alle besturingselementen die als containers voor serverbesturingselementen fungeren (met inbegrip van webonderdelen <xref href=&quot;System.Web.UI.WebControls.WebParts.Part&quot;> </xref> besturingselementen, serverbesturingselementen en gebruikersbesturingselementen) in toepassingen met webonderdelen."
+  remarks: "Een zone webonderdelen is een gedefinieerde regio die serverbesturingselementen op webpagina&quot;s bevat en biedt een consistente gebruikersinterface (UI), de indeling en de rendering van de ingesloten besturingselementen. Zones worden weergegeven in een browser als HTML-tabellen.       De klasse WebZone is de basisklasse van alle zones voor webonderdelen. Een zone-besturingselement is een samengestelde ontworpen voor andere besturingselementen bevatten, dus de WebZone klasse neemt over van de <xref:System.Web.UI.WebControls.CompositeControl>klasse.</xref:System.Web.UI.WebControls.CompositeControl> Samen met de <xref:System.Web.UI.WebControls.WebParts.WebPartManager>besturingselement en <xref:System.Web.UI.WebControls.WebParts.Part>besturingselementen (of een andere gebruiker of de server-besturingselementen die in zones kunnen worden geplaatst), zone-besturingselementen die zijn afgeleid van het formulier in WebZone basisklasse de fundamentele bouwstenen van een toepassing met webonderdelen.</xref:System.Web.UI.WebControls.WebParts.Part> </xref:System.Web.UI.WebControls.WebParts.WebPartManager>       Een belangrijke rol van webonderdelen zones is om in te schakelen van de volledige functionaliteit van webonderdelen voor de besturingselementen die ze bevatten. Elke pagina webonderdelen bevat ten minste één zone en een zone kan nul of meer Onderdeelbesturingselementen bevatten. Zones zijn vereist voor webonderdelen-functionaliteit. Zonder zones, zelfs als deze besturingselementen die zijn afgeleid van de <xref:System.Web.UI.WebControls.WebParts.WebPart>klasse weinig webonderdelen functionaliteit kan hebben.</xref:System.Web.UI.WebControls.WebParts.WebPart> Als u daarentegen vanwege het ontwerp van de webonderdelen besturingselement is ingesteld, kunt u plaatsen gewone ASP.NET-besturingselementen, server of gebruikersbesturingselementen in een <xref:System.Web.UI.WebControls.WebParts.WebPartZoneBase>zone (dat wordt afgeleid van WebZone) en zijn doordat wordt in de zone, deze gewone server besturingselementen inschakelen om te fungeren als <xref:System.Web.UI.WebControls.WebParts.WebPart>besturingselementen tijdens runtime.</xref:System.Web.UI.WebControls.WebParts.WebPart> </xref:System.Web.UI.WebControls.WebParts.WebPartZoneBase> Zie voor meer informatie de documentatie voor de <xref:System.Web.UI.WebControls.WebParts.GenericWebPart>klasse.</xref:System.Web.UI.WebControls.WebParts.GenericWebPart>      > [!NOTE] > Is het mogelijk om toe te voegen <xref:System.Web.UI.WebControls.WebParts.Part>of <xref:System.Web.UI.WebControls.WebParts.WebPart>besturingselementen naar een pagina buiten een zone, maar in dat geval ze gewoon functioneren als gewone serverbesturingselementen.</xref:System.Web.UI.WebControls.WebParts.WebPart> </xref:System.Web.UI.WebControls.WebParts.Part>       Er zijn twee hoofdcategorieën zones in de webonderdelen besturingselement is ingesteld, die allemaal van de basisklasse WebZone overnemen.      - <xref:System.Web.UI.WebControls.WebParts.WebPartZoneBase>zones.</xref:System.Web.UI.WebControls.WebParts.WebPartZoneBase> Deze bevatten <xref:System.Web.UI.WebControls.WebParts.WebPart>(en andere server en gebruiker) beheert en de primaire gebruikersinterface webonderdelen pagina&quot;s die gebruikers met de meeste gevallen communiceren vormen.</xref:System.Web.UI.WebControls.WebParts.WebPart>      - <xref:System.Web.UI.WebControls.WebParts.ToolZone>zones.</xref:System.Web.UI.WebControls.WebParts.ToolZone> Deze zones bieden speciale weergaven van een pagina met webonderdelen dat inschakelen gebruikers om te wijzigen (aanpassen) de inhoud, indeling uiterlijk, gedrag en eigenschappen van besturingselementen die zijn opgenomen in <xref:System.Web.UI.WebControls.WebParts.WebPartZoneBase>zones op een pagina met webonderdelen.</xref:System.Web.UI.WebControls.WebParts.WebPartZoneBase> Bijvoorbeeld, een <xref:System.Web.UI.WebControls.WebParts.CatalogZoneBase>zone is een <xref:System.Web.UI.WebControls.WebParts.ToolZone>die zorgt voor een catalogusweergave van een pagina, zodat gebruikers toevoegen en verwijderen van de serverbesturingselementen.</xref:System.Web.UI.WebControls.WebParts.ToolZone> </xref:System.Web.UI.WebControls.WebParts.CatalogZoneBase> Een <xref:System.Web.UI.WebControls.WebParts.EditorZoneBase>zone is een ander type <xref:System.Web.UI.WebControls.WebParts.ToolZone>biedt een weergave voor het bewerken van een pagina, zodat gebruikers kunnen wijzigen en de indeling van de pagina, samen met de eigenschappen, uiterlijk en gedrag van de besturingselementen bewerken.</xref:System.Web.UI.WebControls.WebParts.ToolZone> </xref:System.Web.UI.WebControls.WebParts.EditorZoneBase>       Elke zone in de webonderdelen toegangsbeheer is ontworpen om een corresponderende type besturingselement bevatten die zijn afgeleid van de <xref:System.Web.UI.WebControls.WebParts.Part>klasse met de Onderdeelbesturingselementen die fungeren als de belangrijkste inhoud en primaire gebruikersinterface van de zone.</xref:System.Web.UI.WebControls.WebParts.Part> Typen zones in de webonderdelen besturingselement is ingesteld, samen met de overeenkomende typen Onderdeelbesturingselementen die ze bevatten, worden weergegeven in de volgende tabel.      | Besturingselementtype deel | Zonetype |   |-----------------------|---------------|   | <xref:System.Web.UI.WebControls.WebParts.WebPart>(en de server en de gebruiker besturingselementen die zijn verpakt met een <xref:System.Web.UI.WebControls.WebParts.GenericWebPart>tijdens runtime) |<xref:System.Web.UI.WebControls.WebParts.WebPartZone> (de basisklasse is <xref:System.Web.UI.WebControls.WebParts.WebPartZoneBase>) |   | <xref:System.Web.UI.WebControls.WebParts.EditorPart>(verschillende afgeleide besturingselementen worden voorzien van de webonderdelen besturingselement set en aangepaste <xref:System.Web.UI.WebControls.WebParts.EditorPart>-besturingselementen kunnen worden ontwikkeld) |<xref:System.Web.UI.WebControls.WebParts.EditorZone> (de basisklasse is <xref:System.Web.UI.WebControls.WebParts.EditorZoneBase>) |   | <xref:System.Web.UI.WebControls.WebParts.CatalogPart>(verschillende afgeleide besturingselementen worden voorzien van de webonderdelen besturingselement set en aangepaste <xref:System.Web.UI.WebControls.WebParts.CatalogPart>-besturingselementen kunnen worden ontwikkeld) |<xref:System.Web.UI.WebControls.WebParts.CatalogZone> (de basisklasse is <xref:System.Web.UI.WebControls.WebParts.CatalogZoneBase>) |   | <xref:System.Web.UI.WebControls.WebParts.WebPartConnection>(verbinding besturingselementen uniek zijn in dat ze maken geen deel uit van besturingselementen die van de basisklasse overnemen) | <xref:System.Web.UI.WebControls.WebParts.ConnectionsZone>(overneemt rechtstreeks vanuit <xref:System.Web.UI.WebControls.WebParts.ToolZone>) |       Alle zones in het besturingselement webonderdelen hebt basic, algemene gebruikersinterface-elementen die ze van de klasse van de basis WebZone overnemen</xref:System.Web.UI.WebControls.WebParts.ToolZone> </xref:System.Web.UI.WebControls.WebParts.ConnectionsZone> </xref:System.Web.UI.WebControls.WebParts.WebPartConnection> </xref:System.Web.UI.WebControls.WebParts.CatalogZoneBase> </xref:System.Web.UI.WebControls.WebParts.CatalogZone> </xref:System.Web.UI.WebControls.WebParts.CatalogPart> </xref:System.Web.UI.WebControls.WebParts.CatalogPart> </xref:System.Web.UI.WebControls.WebParts.EditorZoneBase> </xref:System.Web.UI.WebControls.WebParts.EditorZone> </xref:System.Web.UI.WebControls.WebParts.EditorPart> </xref:System.Web.UI.WebControls.WebParts.EditorPart> </xref:System.Web.UI.WebControls.WebParts.WebPartZoneBase> </xref:System.Web.UI.WebControls.WebParts.WebPartZone> </xref:System.Web.UI.WebControls.WebParts.GenericWebPart> </xref:System.Web.UI.WebControls.WebParts.WebPart> Niet alle deze elementen zichtbaar zijn op elke zone, maar elk zonetype kunnen met deze algemene, zone-gerelateerde UI-elementen, zoals beschreven in de volgende tabel is.      | Sectie zone | Beschrijving |   |------------------|-----------------|   | Koptekst | Het bovenste gedeelte van een zone. Het omvat koptekst, waaronder een titel voor de zone; stijlkenmerken (zoals een kleur rand of achtergrond) die onderscheiden van de header. en zoneniveau werkwoorden (vertegenwoordigd door knoppen, hyperlinks of installatiekopieën) waarop gebruikers klikken kunnen UI-bewerkingen die betrekking hebben op de hele zone, zoals het sluiten van een zone uit te voeren. Verschillende WebZone eigenschappen zoals <xref:System.Web.UI.WebControls.WebParts.WebZone.HasHeader%2A>, <xref:System.Web.UI.WebControls.WebParts.WebZone.HeaderStyle%2A>, en <xref:System.Web.UI.WebControls.WebParts.WebZone.HeaderText%2A>, hebben betrekking op het koptekstgebied van een zone.</xref:System.Web.UI.WebControls.WebParts.WebZone.HeaderText%2A> </xref:System.Web.UI.WebControls.WebParts.WebZone.HeaderStyle%2A> </xref:System.Web.UI.WebControls.WebParts.WebZone.HasHeader%2A> Als er zoneniveau termen in de zone, de <xref:System.Web.UI.WebControls.WebParts.WebZone.VerbButtonType%2A>en <xref:System.Web.UI.WebControls.WebParts.WebZone.VerbStyle%2A>Eigenschappen op hen van toepassing.</xref:System.Web.UI.WebControls.WebParts.WebZone.VerbStyle%2A> </xref:System.Web.UI.WebControls.WebParts.WebZone.VerbButtonType%2A> Houd er rekening mee dat deze twee verb-eigenschappen op zoneniveau termen alleen, niet op afzonderlijke Onderdeelbesturingselementen die in de zone-termen bevatten toegepast. Headers zijn niet aanwezig in elk type zone; doorgaans worden deze weergegeven in <xref:System.Web.UI.WebControls.WebParts.ToolZone>zones wanneer er een moet zijn van een algemene koptekstgebied met tekst en een term, zoals een sluiten term. |   | Hoofdtekst | De belangrijkste inhoud gedeelte van een zone.</xref:System.Web.UI.WebControls.WebParts.ToolZone> Elke zone die is afgeleid van WebZone heeft een gedeelte van de hoofdtekst. Voor alle typen zones in de webonderdelen besturen instellen, de hoofdtekst van de zone bevat het aangewezen type <xref:System.Web.UI.WebControls.WebParts.Part>(of andere serverbesturingselementen) die overeenkomen met een zonetype, zoals aangegeven in de vorige tabel.</xref:System.Web.UI.WebControls.WebParts.Part> Verschillende leden van de klasse WebZone invloed op de inhoud van de sectie hoofdtekst, zoals de <xref:System.Web.UI.WebControls.WebParts.WebZone.BackImageUrl%2A>, <xref:System.Web.UI.WebControls.WebParts.WebZone.PartChromeStyle%2A>, <xref:System.Web.UI.WebControls.WebParts.WebZone.PartChromeType%2A>, en <xref:System.Web.UI.WebControls.WebParts.WebZone.PartStyle%2A>Eigenschappen.</xref:System.Web.UI.WebControls.WebParts.WebZone.PartStyle%2A> </xref:System.Web.UI.WebControls.WebParts.WebZone.PartChromeType%2A> </xref:System.Web.UI.WebControls.WebParts.WebZone.PartChromeStyle%2A> </xref:System.Web.UI.WebControls.WebParts.WebZone.BackImageUrl%2A> Als de sectie hoofdtekst leeg is, kan het bericht <xref:System.Web.UI.WebControls.WebParts.EditorZoneBase.EmptyZoneText%2A>worden weergegeven in bepaalde situaties. |   | Chrome | De algemene UI-elementen voor elk onderdeel besturingselement in een zone wordt gerenderd.</xref:System.Web.UI.WebControls.WebParts.EditorZoneBase.EmptyZoneText%2A> Dit is hetzelfde als een beschrijving van de kenmerken die betrekking hebben op de zone zelf. chrome geldt specifiek voor de ingesloten Onderdeelbesturingselementen. Chrome bevat termen, randen en andere stijlkenmerken, zoals achtergrondkleur of tekenstijl van de titeltekst voor een zone Onderdeelbesturingselementen. Een zone bepaalt de chrome-details met een geschikt is voor het type deel besturingselementen bevat één chrome-object (bijvoorbeeld een <xref:System.Web.UI.WebControls.WebParts.CatalogPartChrome>object voor een <xref:System.Web.UI.WebControls.WebParts.CatalogZone>die bevat <xref:System.Web.UI.WebControls.WebParts.CatalogPart>besturingselementen).</xref:System.Web.UI.WebControls.WebParts.CatalogPart> </xref:System.Web.UI.WebControls.WebParts.CatalogZone> </xref:System.Web.UI.WebControls.WebParts.CatalogPartChrome> Dit object één chrome verwerkt de chrome-details en de weergave voor de Onderdeelbesturingselementen in de zone. Hierdoor kunnen ontwikkelaars maken zones waarvoor ze een consistente, algemene uiterlijk voor alle Onderdeelbesturingselementen kunnen opgeven. Sommige eigenschappen die betrekking op de chrominantie hebben voor een zone Onderdeelbesturingselementen, zijn de <xref:System.Web.UI.WebControls.WebParts.WebZone.PartChromeStyle%2A>, <xref:System.Web.UI.WebControls.WebParts.WebZone.PartChromeType%2A>, <xref:System.Web.UI.WebControls.WebParts.WebZone.PartStyle%2A>, en <xref:System.Web.UI.WebControls.WebParts.WebZone.PartTitleStyle%2A>Eigenschappen.</xref:System.Web.UI.WebControls.WebParts.WebZone.PartTitleStyle%2A> </xref:System.Web.UI.WebControls.WebParts.WebZone.PartStyle%2A> </xref:System.Web.UI.WebControls.WebParts.WebZone.PartChromeType%2A> </xref:System.Web.UI.WebControls.WebParts.WebZone.PartChromeStyle%2A> Houd er rekening mee dat de meest chrome-gerelateerde eigenschappen, met inbegrip van een bepaalde eigenschap om te verwijzen naar de chrome-object voor een bepaald type zone, niet in de basisklasse WebZone zijn geïmplementeerd. In plaats daarvan de meeste chrome-specifieke functies van zones op specifieke zonetypen afhankelijk van de unieke behoeften van hun Onderdeelbesturingselementen worden geïmplementeerd. Zie de onderwerpen voor elk zonetype die worden vermeld in de vorige tabel van dit onderwerp. |   | Besturingselementen deel | De besturingselementen die zich in de sectie hoofdtekst van een zone bevinden. Elke zone die eigenschappen van de klasse WebZone overneemt bevat in de sectie van de hoofdtekst van een of meer besturingselementen deel uitmaakt van een overeenkomend typt, zoals wordt weergegeven in de vorige tabel in dit onderwerp. Deze besturingselementen deel vormen de belangrijkste toepassingen van de gebruikersinterface van webonderdelen. De meeste typen van de zones die zijn afgeleid van WebZone hebben een verzameling eigenschappen waarmee ze verwijzen naar alle hun opgenomen Onderdeelbesturingselementen, zoals de eigenschap <xref:System.Web.UI.WebControls.WebParts.WebPartZoneBase.WebParts%2A>in de klasse <xref:System.Web.UI.WebControls.WebParts.WebPartZoneBase>en <xref:System.Web.UI.WebControls.WebParts.EditorZoneBase.EditorParts%2A>op de klasse <xref:System.Web.UI.WebControls.WebParts.EditorZoneBase>. |   | Voettekst | Het onderste gedeelte van een zone.</xref:System.Web.UI.WebControls.WebParts.EditorZoneBase> </xref:System.Web.UI.WebControls.WebParts.EditorZoneBase.EditorParts%2A> </xref:System.Web.UI.WebControls.WebParts.WebPartZoneBase> </xref:System.Web.UI.WebControls.WebParts.WebPartZoneBase.WebParts%2A> Net als de header-sectie is niet aanwezig in elk type zone, maar treedt meestal op <xref:System.Web.UI.WebControls.WebParts.ToolZone>zones.</xref:System.Web.UI.WebControls.WebParts.ToolZone> De Standaardinhoud van een voettekstsectie zijn termen zoals een ok-term of een term toepassen die worden weergegeven in de voettekst van <xref:System.Web.UI.WebControls.WebParts.EditorZoneBase>zones.</xref:System.Web.UI.WebControls.WebParts.EditorZoneBase> Sommige eigenschappen die betrekking op de voettekstsectie hebben bevatten de <xref:System.Web.UI.WebControls.WebParts.WebZone.HasFooter%2A> <xref:System.Web.UI.WebControls.WebParts.WebZone.FooterStyle%2A>, <xref:System.Web.UI.WebControls.WebParts.WebZone.VerbButtonType%2A>, en eigenschappen van <xref:System.Web.UI.WebControls.WebParts.WebZone.VerbStyle%2A>. |       De meeste van de WebZone-klasse-eigenschappen worden beschreven in de voorgaande tabel die de algemene gebruikersinterface-elementen van zones beschrijft.</xref:System.Web.UI.WebControls.WebParts.WebZone.VerbStyle%2A> </xref:System.Web.UI.WebControls.WebParts.WebZone.VerbButtonType%2A> </xref:System.Web.UI.WebControls.WebParts.WebZone.FooterStyle%2A> </xref:System.Web.UI.WebControls.WebParts.WebZone.HasFooter%2A> De klasse WebZone heeft ook verschillende methoden met betrekking tot de rol van de inhoud van de rendering. De <xref:System.Web.UI.WebControls.WebParts.WebZone.RenderBody%2A>, <xref:System.Web.UI.WebControls.WebParts.WebZone.RenderContents%2A>, <xref:System.Web.UI.WebControls.WebParts.WebZone.RenderFooter%2A>, en <xref:System.Web.UI.WebControls.WebParts.WebZone.RenderHeader%2A>methoden kunnen alle worden genegeerd voor programmatisch beheer over de rendering van elke specifieke sectie van een zone.</xref:System.Web.UI.WebControls.WebParts.WebZone.RenderHeader%2A> </xref:System.Web.UI.WebControls.WebParts.WebZone.RenderFooter%2A> </xref:System.Web.UI.WebControls.WebParts.WebZone.RenderContents%2A> </xref:System.Web.UI.WebControls.WebParts.WebZone.RenderBody%2A> Bijvoorbeeld, als u aanpassen van de weergave van alle secties van een voettekst van catalogus zones in uw toepassing wilt, u kan overnemen uit de <xref:System.Web.UI.WebControls.WebParts.CatalogZoneBase>klasse, overschrijft de <xref:System.Web.UI.WebControls.WebParts.WebZone.RenderFooter%2A>methode overgenomen uit WebZone en wijzig de rendering van de voettekstsectie.</xref:System.Web.UI.WebControls.WebParts.WebZone.RenderFooter%2A> </xref:System.Web.UI.WebControls.WebParts.CatalogZoneBase>"
   example:
   - "The following code example demonstrates the use of the WebZone class.  \n  \n The first part of the code example shows two custom controls that derive from the <xref:System.Web.UI.WebControls.WebParts.WebPart> class. For the code example to run, you must compile this source code. You can compile it explicitly and put the resulting assembly in your Web site's Bin folder or the global assembly cache. Alternatively, you can put the source code in your site's App_Code folder, where it will be dynamically compiled at run time. For a walkthrough that demonstrates both methods of compiling, see [Walkthrough: Developing and Using a Custom Web Server Control](~/add/includes/ajax-current-ext-md.md).  \n  \n [!code-cs[WebParts_Zone_Overview#2](~/add/codesnippet/csharp/t-system.web.ui.webcontr_200_1.cs)]\n [!code-vb[WebParts_Zone_Overview#2](~/add/codesnippet/visualbasic/t-system.web.ui.webcontr_200_1.vb)]  \n  \n The second part of the code example shows a Web page that hosts the <xref:System.Web.UI.WebControls.WebParts.WebPart> controls. Notice that the declarative markup contains two <xref:System.Web.UI.WebControls.WebParts.WebPartZone> controls, a <xref:System.Web.UI.WebControls.WebParts.CatalogZone> control and an <xref:System.Web.UI.WebControls.WebParts.EditorZone> control.  \n  \n [!code-vb[WebParts_Zone_Overview#1](~/add/codesnippet/visualbasic/t-system.web.ui.webcontr_200_2.aspx)]\n [!code-cs[WebParts_Zone_Overview#1](~/add/codesnippet/csharp/t-system.web.ui.webcontr_200_2.aspx)]  \n  \n You can load the page in a browser and switch among the various page display modes to see how the different zones behave. For more information on display modes and enabling users to switch among them, see [Walkthrough: Changing Display Modes on a Web Parts Page](~/add/includes/ajax-current-ext-md.md)."
   syntax:
@@ -208,15 +208,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Gets or sets the URL to a background image for a zone."
-  remarks: "The background image for a zone is visible in all display modes in which a zone&quot;s contents are visible. If a zone contains part controls, the image appears behind the controls. If a zone contains no controls, its contents are not rendered in browse mode, so the image is not displayed.       If the supplied image is smaller than the body of a zone, it is tiled to cover the full body area."
+  summary: "Opgehaald of ingesteld van de URL naar een achtergrondafbeelding voor een zone."
+  remarks: "De achtergrondafbeelding voor een zone wordt weergegeven in alle weergavemodus waarin een zone inhoud weergegeven wordt. Als een zone Onderdeelbesturingselementen bevat, wordt de afbeelding wordt achter de besturingselementen. Als een zone geen besturingselementen bevat, worden de inhoud ervan niet weergegeven in de bladermodus, zodat de afbeelding wordt niet weergegeven.       Als de opgegeven installatiekopie kleiner dan de hoofdtekst van een zone is, is het ten aanzien van de volledige hoofdtekst herhaald."
   example:
   - "The following code example demonstrates the use of the BackImageUrl property. Note that there are two zones in the declarative markup, and the second `<asp:webpartzone>` element is empty.  \n  \n [!code-cs[WebParts_Zone_BackImageUrl#1](~/add/codesnippet/csharp/p-system.web.ui.webcontr_167_1.aspx)]\n [!code-vb[WebParts_Zone_BackImageUrl#1](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_167_1.aspx)]  \n  \n In a browser, you can switch to design mode to see the image in the empty zone. Note that an actual URL for the BackImageUrl property is not provided in this example. For details on how to change page display modes, see [Walkthrough: Changing Display Modes on a Web Parts Page](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public virtual string BackImageUrl { get; set; }
     return:
       type: System.String
-      description: "A string that represents the URL to an image used as a background image for the zone. The default value is an empty string (&quot;&quot;)."
+      description: "Een tekenreeks met de URL naar een afbeelding die wordt gebruikt als een achtergrondafbeelding voor de zone. De standaardwaarde is een lege tekenreeks (&quot;&quot;)."
   overload: System.Web.UI.WebControls.WebParts.WebZone.BackImageUrl*
   exceptions: []
   platform:
@@ -233,15 +233,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Gets or sets a message that appears when a zone contains no controls."
-  remarks: "The text in the EmptyZoneText property appears when there are no controls in a zone, and the zone is in one of the personalization modes, such as edit, design, or catalog mode.      > [!NOTE] >  When a zone enters one of the personalization modes that would allow personalization changes to be made to the zone&quot;s contents, the <xref:System.Web.UI.WebControls.WebParts.WebPartManager> control sets the <xref:System.Web.UI.WebControls.WebParts.WebPartDisplayMode.AllowPageDesign%2A?displayProperty=fullName> property value to `true` on the display mode object referenced in its <xref:System.Web.UI.WebControls.WebParts.WebPartManager.DisplayMode%2A?displayProperty=fullName> property."
+  summary: "Opgehaald of ingesteld van een bericht dat wordt weergegeven wanneer een zone geen besturingselementen bevat."
+  remarks: "De tekst in de eigenschap EmptyZoneText wordt weergegeven wanneer er geen besturingselementen in een zone, en de zone in een modus voor de persoonlijke instellingen, zoals bewerken, ontwerp of de catalogus-modus.      > [!NOTE] > Wanneer een zone in een van de personalisatie modi waarmee personalisatiewijzigingen worden aangebracht aan de zone-inhoud, de <xref:System.Web.UI.WebControls.WebParts.WebPartManager>sets bepalen de <xref:System.Web.UI.WebControls.WebParts.WebPartDisplayMode.AllowPageDesign%2A?displayProperty=fullName>eigenschapswaarde voor `true` op het weergaveobject modus waarnaar wordt verwezen in de <xref:System.Web.UI.WebControls.WebParts.WebPartManager.DisplayMode%2A?displayProperty=fullName>eigenschap.</xref:System.Web.UI.WebControls.WebParts.WebPartManager.DisplayMode%2A?displayProperty=fullName> </xref:System.Web.UI.WebControls.WebParts.WebPartDisplayMode.AllowPageDesign%2A?displayProperty=fullName> </xref:System.Web.UI.WebControls.WebParts.WebPartManager>"
   example:
   - "The following code example demonstrates the use of the EmptyZoneText property. Note that there are two zones in the declarative markup, and the second `<asp:webpartzone>` element is empty.  \n  \n [!code-cs[WebParts_Zone_EmptyZoneText#1](~/add/codesnippet/csharp/p-system.web.ui.webcontr_679_1.aspx)]\n [!code-vb[WebParts_Zone_EmptyZoneText#1](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_679_1.aspx)]  \n  \n In a browser, you can switch to design mode to see the text supplied for the EmptyZoneText property displayed in the empty zone. For details on how to change page display modes, see [Walkthrough: Changing Display Modes on a Web Parts Page](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public virtual string EmptyZoneText { get; set; }
     return:
       type: System.String
-      description: "A string containing the message that appears in an empty zone. A default culture-specific string is supplied by the .NET Framework."
+      description: "Een tekenreeks met het bericht dat wordt weergegeven in een lege zone. Een standaardwaarde cultuur-specifieke tekenreeks is opgegeven door het .NET Framework."
   overload: System.Web.UI.WebControls.WebParts.WebZone.EmptyZoneText*
   exceptions: []
   platform:
@@ -258,13 +258,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Gets the style attributes for the placeholder text in an empty zone."
-  remarks: "The value of this property, when set, can be saved automatically to a resource file by using a designer tool. For more information, see <xref:System.ComponentModel.LocalizableAttribute> and [Globalization and Localization](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Hiermee haalt de stijlkenmerken voor de tijdelijke aanduiding voor tekst in een lege zone."
+  remarks: "De waarde van deze eigenschap, als de waarde, kunnen worden opgeslagen automatisch naar een resource-bestand met een ontwerpfunctie hulpprogramma. Zie voor meer informatie <xref:System.ComponentModel.LocalizableAttribute>en [globalisatie en lokalisatie](~/add/includes/ajax-current-ext-md.md).</xref:System.ComponentModel.LocalizableAttribute>"
   syntax:
     content: public System.Web.UI.WebControls.Style EmptyZoneTextStyle { get; }
     return:
       type: System.Web.UI.WebControls.Style
-      description: "A <xref href=&quot;System.Web.UI.WebControls.Style&quot;></xref> that contains style attributes for the text assigned to a zone&quot;s <xref:System.Web.UI.WebControls.WebParts.WebZone.EmptyZoneText*> property."
+      description: "Een <xref href=&quot;System.Web.UI.WebControls.Style&quot;> </xref> die stijlkenmerken voor de tekst die is toegewezen aan een zone bevat <xref:System.Web.UI.WebControls.WebParts.WebZone.EmptyZoneText*>eigenschap.</xref:System.Web.UI.WebControls.WebParts.WebZone.EmptyZoneText*>"
   overload: System.Web.UI.WebControls.WebParts.WebZone.EmptyZoneTextStyle*
   exceptions: []
   platform:
@@ -281,13 +281,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Gets the style attributes for rendering the error message that is displayed if a <xref href=&quot;System.Web.UI.WebControls.WebParts.WebPart&quot;></xref> control cannot be loaded or created."
-  remarks: "At run time, if the .NET Framework is unable to load or create an instance of a <xref:System.Web.UI.WebControls.WebParts.WebPart> control, an instance of the <xref:System.Web.UI.WebControls.WebParts.ErrorWebPart> class is created and displayed in its place. This object contains an error message, and the style attributes from the ErrorStyle property are applied to the error message."
+  summary: "De stijlkenmerken die wordt opgehaald voor rendering van het foutbericht dat wordt weergegeven als een <xref href=&quot;System.Web.UI.WebControls.WebParts.WebPart&quot;> </xref> besturingselement kan niet worden geladen of gemaakt."
+  remarks: "AT uitvoeringstijd, als het .NET Framework is niet kunnen laden of maken van een exemplaar van een <xref:System.Web.UI.WebControls.WebParts.WebPart>worden beheerd, een exemplaar van de <xref:System.Web.UI.WebControls.WebParts.ErrorWebPart>klasse is gemaakt en weergegeven in plaats daarvan.</xref:System.Web.UI.WebControls.WebParts.ErrorWebPart> </xref:System.Web.UI.WebControls.WebParts.WebPart> Dit object bevat een foutbericht weergegeven en de stijlkenmerken van de eigenschap ErrorStyle worden toegepast op het foutbericht."
   syntax:
     content: public System.Web.UI.WebControls.Style ErrorStyle { get; }
     return:
       type: System.Web.UI.WebControls.Style
-      description: "A <xref href=&quot;System.Web.UI.WebControls.Style&quot;></xref> that contains style attributes for the error message."
+      description: "Een <xref href=&quot;System.Web.UI.WebControls.Style&quot;> </xref> die stijlkenmerken voor het foutbericht bevat."
   overload: System.Web.UI.WebControls.WebParts.WebZone.ErrorStyle*
   exceptions: []
   platform:
@@ -304,12 +304,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Gets the style attributes for the contents of a zone&quot;s footer area."
+  summary: "Hiermee haalt u de stijlkenmerken voor de inhoud van een zone voettekstgebied."
   syntax:
     content: public System.Web.UI.WebControls.WebParts.TitleStyle FooterStyle { get; }
     return:
       type: System.Web.UI.WebControls.WebParts.TitleStyle
-      description: "A <xref href=&quot;System.Web.UI.WebControls.WebParts.TitleStyle&quot;></xref> that contains style attributes for the contents of a zone&quot;s footer area."
+      description: "Een <xref href=&quot;System.Web.UI.WebControls.WebParts.TitleStyle&quot;> </xref> die stijlkenmerken voor de inhoud van een zone voettekstgebied bevat."
   overload: System.Web.UI.WebControls.WebParts.WebZone.FooterStyle*
   exceptions: []
   platform:
@@ -326,21 +326,21 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Returns the actual or effective current <xref href=&quot;System.Web.UI.WebControls.WebParts.PartChromeType&quot;></xref> value of a <xref href=&quot;System.Web.UI.WebControls.WebParts.WebPart&quot;></xref> control, given the <xref:System.Web.UI.WebControls.WebParts.WebZone.PartChromeType*> property of the zone and the current display mode of the Web Parts page."
+  summary: "Retourneert de huidige werkelijke of effectieve <xref href=&quot;System.Web.UI.WebControls.WebParts.PartChromeType&quot;> </xref> waarde van een <xref href=&quot;System.Web.UI.WebControls.WebParts.WebPart&quot;> </xref> besturingselement, krijgt de <xref:System.Web.UI.WebControls.WebParts.WebZone.PartChromeType*>eigenschap van de zone en de huidige weergavemodus van de pagina met webonderdelen.</xref:System.Web.UI.WebControls.WebParts.WebZone.PartChromeType*>"
   syntax:
     content: public virtual System.Web.UI.WebControls.WebParts.PartChromeType GetEffectiveChromeType (System.Web.UI.WebControls.WebParts.Part part);
     parameters:
     - id: part
       type: System.Web.UI.WebControls.WebParts.Part
-      description: "A part control within the current zone."
+      description: "Een besturingselement onderdeel binnen de huidige zone."
     return:
       type: System.Web.UI.WebControls.WebParts.PartChromeType
-      description: "A <xref href=&quot;System.Web.UI.WebControls.WebParts.PartChromeType&quot;></xref> value that contains the kind of border that currently frames Web Parts controls contained by a zone."
+      description: "Een <xref href=&quot;System.Web.UI.WebControls.WebParts.PartChromeType&quot;> </xref> -waarde van de rand van het type dat momenteel met frames webonderdelen besturingselementen die deel uitmaken van een zone."
   overload: System.Web.UI.WebControls.WebParts.WebZone.GetEffectiveChromeType*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>part</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>part</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Web.UI.WebControls.WebParts.WebZone.HasFooter
@@ -355,13 +355,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Gets a value indicating whether a zone has a footer area."
-  remarks: "The HasFooter property is primarily used by control developers who are creating custom zones. It exists as a flag so that the Web Parts control set renders a footer only when appropriate for a zone. For example, the <xref:System.Web.UI.WebControls.WebParts.WebPartZoneBase.HasFooter%2A> property overrides this property and returns `false`, so that a footer is not rendered for a <xref:System.Web.UI.WebControls.WebParts.WebPartZone> control.       Tool zones (zones that derive indirectly from the <xref:System.Web.UI.WebControls.WebParts.WebZone> class by means of the <xref:System.Web.UI.WebControls.WebParts.ToolZone> class, such as <xref:System.Web.UI.WebControls.WebParts.EditorZone> and <xref:System.Web.UI.WebControls.WebParts.CatalogZone>) must have footers so that, for example, they can render common user interface (UI) verbs with buttons such as **OK**, **Apply**, and **Cancel** at the bottom of the zone. Because the HasFooter property is `true` by default, tool zones do not need to override the property."
+  summary: "Haalt een waarde die aangeeft of een zone gebied voor een voettekst heeft."
+  remarks: "De eigenschap HasFooter wordt voornamelijk gebruikt door besturingselement ontwikkelaars die aangepaste zones maken. Deze bestaat als een markering zodat de webonderdelen set beheren Hiermee maakt u een voettekst alleen als het nodig is voor een zone. Bijvoorbeeld, de <xref:System.Web.UI.WebControls.WebParts.WebPartZoneBase.HasFooter%2A>eigenschap heeft voorrang op deze eigenschap en retourneert `false`, zodat een voettekst wordt niet weergegeven voor een <xref:System.Web.UI.WebControls.WebParts.WebPartZone>besturingselement.</xref:System.Web.UI.WebControls.WebParts.WebPartZone> </xref:System.Web.UI.WebControls.WebParts.WebPartZoneBase.HasFooter%2A>       Hulpprogramma voor zones (zones die zijn afgeleid indirect van de <xref:System.Web.UI.WebControls.WebParts.WebZone>klasse door middel van de <xref:System.Web.UI.WebControls.WebParts.ToolZone>klasse, zoals <xref:System.Web.UI.WebControls.WebParts.EditorZone>en <xref:System.Web.UI.WebControls.WebParts.CatalogZone>) voetteksten moet hebben, zodat bijvoorbeeld ze zoals algemene gebruiker gebruikersinterface (UI)-bewerkingen met de knoppen kunnen weergeven **OK**, **toepassen**, en **annuleren** onder aan de zone.</xref:System.Web.UI.WebControls.WebParts.CatalogZone> </xref:System.Web.UI.WebControls.WebParts.EditorZone> </xref:System.Web.UI.WebControls.WebParts.ToolZone> </xref:System.Web.UI.WebControls.WebParts.WebZone> Omdat de eigenschap HasFooter `true` standaard hulpprogramma zones hoeft niet de eigenschap te overschrijven."
   syntax:
     content: protected virtual bool HasFooter { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the zone has a footer area; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default value is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de zone een voettekstgebied heeft; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. De standaardwaarde is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.WebParts.WebZone.HasFooter*
   exceptions: []
   platform:
@@ -378,13 +378,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Gets a value indicating whether a zone has a header area."
-  remarks: "The HasHeader property is primarily used by control developers who are creating custom zones. It exists as a flag so that the Web Parts control set renders a header only when appropriate for a zone. For example, the <xref:System.Web.UI.WebControls.WebParts.WebPartZoneBase.HasHeader%2A> property overrides this property and returns `false` unless the page is in one of the modes that allow personalization. In this case, a header is not rendered for a <xref:System.Web.UI.WebControls.WebParts.WebPartZone> control in browse mode, while in most other modes a header is rendered. For more information on display modes and enabling users to switch among them, see [Walkthrough: Changing Display Modes on a Web Parts Page](~/add/includes/ajax-current-ext-md.md).       Tool zones (zones that derive indirectly from the <xref:System.Web.UI.WebControls.WebParts.WebZone> class by means of the <xref:System.Web.UI.WebControls.WebParts.ToolZone> class, such as <xref:System.Web.UI.WebControls.WebParts.EditorZone> and <xref:System.Web.UI.WebControls.WebParts.CatalogZone>) must have headers that appear only when the page is in the appropriate display mode. Because the HasHeader property is `true` by default, they do not need to override the property."
+  summary: "Haalt een waarde die aangeeft of een zone een koptekstgebied heeft."
+  remarks: "De eigenschap HasHeader wordt voornamelijk gebruikt door besturingselement ontwikkelaars die aangepaste zones maken. Deze bestaat als een markering zodat de webonderdelen set beheren Hiermee maakt u een koptekst alleen als het nodig is voor een zone. Bijvoorbeeld, de <xref:System.Web.UI.WebControls.WebParts.WebPartZoneBase.HasHeader%2A>eigenschap heeft voorrang op deze eigenschap en retourneert `false` tenzij de pagina bevindt zich in een van de modi waarmee personalisatie.</xref:System.Web.UI.WebControls.WebParts.WebPartZoneBase.HasHeader%2A> In dit geval wordt een koptekst niet wordt weergegeven voor een <xref:System.Web.UI.WebControls.WebParts.WebPartZone>besturingselement in de bladermodus, terwijl in de meeste andere modi een koptekst wordt gerenderd.</xref:System.Web.UI.WebControls.WebParts.WebPartZone> Zie voor meer informatie over weergavemodus en waardoor gebruikers schakelen tussen deze [Walkthrough: weergegeven modi wijzigen op een pagina met webonderdelen](~/add/includes/ajax-current-ext-md.md).       Hulpprogramma voor zones (zones die zijn afgeleid indirect van de <xref:System.Web.UI.WebControls.WebParts.WebZone>klasse door middel van de <xref:System.Web.UI.WebControls.WebParts.ToolZone>klasse, zoals <xref:System.Web.UI.WebControls.WebParts.EditorZone>en <xref:System.Web.UI.WebControls.WebParts.CatalogZone>) headers die worden weergegeven wanneer de pagina is alleen in de juiste weergavemodus moet hebben.</xref:System.Web.UI.WebControls.WebParts.CatalogZone> </xref:System.Web.UI.WebControls.WebParts.EditorZone> </xref:System.Web.UI.WebControls.WebParts.ToolZone> </xref:System.Web.UI.WebControls.WebParts.WebZone> Omdat de eigenschap HasHeader `true` standaard niet vereist voor het onderdrukken van de eigenschap."
   syntax:
     content: protected virtual bool HasHeader { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the zone has a header area; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default value is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de zone een koptekstgebied heeft; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. De standaardwaarde is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.WebParts.WebZone.HasHeader*
   exceptions: []
   platform:
@@ -401,12 +401,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Gets the style attributes for the contents of a zone&quot;s header area."
+  summary: "De stijlkenmerken voor de inhoud van een zone koptekstgebied opgehaald."
   syntax:
     content: public System.Web.UI.WebControls.WebParts.TitleStyle HeaderStyle { get; }
     return:
       type: System.Web.UI.WebControls.WebParts.TitleStyle
-      description: "A <xref href=&quot;System.Web.UI.WebControls.WebParts.TitleStyle&quot;></xref> that contains style attributes for the contents of a zone&quot;s header area."
+      description: "Een <xref href=&quot;System.Web.UI.WebControls.WebParts.TitleStyle&quot;> </xref> die stijlkenmerken voor de inhoud van een zone koptekstgebied bevat."
   overload: System.Web.UI.WebControls.WebParts.WebZone.HeaderStyle*
   exceptions: []
   platform:
@@ -423,15 +423,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Gets or sets the text for the header area of a zone."
-  remarks: "The contents of a zone&quot;s HeaderText property are displayed when a Web page enters certain display modes. For example, on a page that has a <xref:System.Web.UI.WebControls.WebParts.WebPartZone> control, the text assigned to the HeaderText property becomes visible when the page enters edit, catalog, or design mode.       The value of this property, when set, can be saved automatically to a resource file by using a designer tool. For more information, see <xref:System.ComponentModel.LocalizableAttribute> and [Globalization and Localization](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Opgehaald of ingesteld van de tekst voor het koptekstgebied van een zone."
+  remarks: "De inhoud van een zone HeaderText eigenschap worden weergegeven wanneer een webpagina in bepaalde weergavemodus. Bijvoorbeeld: op een pagina met een <xref:System.Web.UI.WebControls.WebParts.WebPartZone>beheer, de tekst die wordt toegewezen aan de eigenschap HeaderText wordt weergegeven wanneer de pagina bewerken, catalogus of ontwerpmodus opgeeft.</xref:System.Web.UI.WebControls.WebParts.WebPartZone>       De waarde van deze eigenschap, als de waarde, kunnen worden opgeslagen automatisch naar een resource-bestand met een ontwerpfunctie hulpprogramma. Zie voor meer informatie <xref:System.ComponentModel.LocalizableAttribute>en [globalisatie en lokalisatie](~/add/includes/ajax-current-ext-md.md).</xref:System.ComponentModel.LocalizableAttribute>"
   example:
   - "The following code example demonstrates the use of the HeaderText property. Note that there are two zones in the declarative markup, and the second `<asp:webpartzone>` element is empty.  \n  \n [!code-cs[WebParts_Zone_HeaderText#1](~/add/codesnippet/csharp/p-system.web.ui.webcontr_500_1.aspx)]\n [!code-vb[WebParts_Zone_HeaderText#1](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_500_1.aspx)]  \n  \n In a browser, you can switch the page to design mode to see the text supplied for the HeaderText property displayed in the header area of the zone. For details on how to change page display modes, see [Walkthrough: Changing Display Modes on a Web Parts Page](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public virtual string HeaderText { get; set; }
     return:
       type: System.String
-      description: "A string that contains the header text for the zone. The default is an empty string (&quot;&quot;)."
+      description: "Een tekenreeks die de koptekst voor de zone bevat. De standaardwaarde is een lege tekenreeks (&quot;&quot;)."
   overload: System.Web.UI.WebControls.WebParts.WebZone.HeaderText*
   exceptions: []
   platform:
@@ -448,19 +448,19 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Loads previously saved state information for a zone."
-  remarks: "This method is used primarily by the .NET Framework infrastructure and is not intended to be used directly from your code. However, control developers can override this method to specify how a custom server control restores its view state. For more information, see [ASP.NET State Management Overview](~/add/includes/ajax-current-ext-md.md).       The LoadViewState method loads previously saved state information for a zone. It overrides the base <xref:System.Web.UI.Control.LoadViewState%2A> method to also load state information for the various style properties of a zone, such as <xref:System.Web.UI.WebControls.WebParts.WebZone.HeaderStyle%2A>, <xref:System.Web.UI.WebControls.WebParts.WebZone.FooterStyle%2A>, and <xref:System.Web.UI.WebControls.WebParts.WebZone.PartStyle%2A>."
+  summary: "Belastingen eerder opgeslagen informatie over de status voor een zone."
+  remarks: "Deze methode wordt hoofdzakelijk gebruikt door de .NET Framework-infrastructuur en is niet bedoeld voor rechtstreeks gebruik vanuit uw code. Besturingselement ontwikkelaars kunnen echter deze methode om op te geven hoe een aangepaste serverbesturingselement herstelt de weergavestatus overschrijven. Zie voor meer informatie [ASP.NET State Management Overview](~/add/includes/ajax-current-ext-md.md).       De methode LoadViewState wordt geladen gegevens van de eerder opgeslagen staat voor een zone. Deze voorrang op de base <xref:System.Web.UI.Control.LoadViewState%2A>methode ook informatie over de status voor de verschillende stijleigenschappen van een zone, zoals laden <xref:System.Web.UI.WebControls.WebParts.WebZone.HeaderStyle%2A>, <xref:System.Web.UI.WebControls.WebParts.WebZone.FooterStyle%2A>, en <xref:System.Web.UI.WebControls.WebParts.WebZone.PartStyle%2A>.</xref:System.Web.UI.WebControls.WebParts.WebZone.PartStyle%2A> </xref:System.Web.UI.WebControls.WebParts.WebZone.FooterStyle%2A> </xref:System.Web.UI.WebControls.WebParts.WebZone.HeaderStyle%2A> </xref:System.Web.UI.Control.LoadViewState%2A>"
   syntax:
     content: protected override void LoadViewState (object savedState);
     parameters:
     - id: savedState
       type: System.Object
-      description: "The previously saved state."
+      description: "De eerder opgeslagen status."
   overload: System.Web.UI.WebControls.WebParts.WebZone.LoadViewState*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The size of the <code>savedState</code> object does not equal the size of the current view-state object."
+    description: "De grootte van de <code> savedState </code> object is niet gelijk aan de grootte van het huidige weergavestatus object."
   platform:
   - net462
 - uid: System.Web.UI.WebControls.WebParts.WebZone.OnInit(System.EventArgs)
@@ -475,19 +475,19 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Raises the <xref href=&quot;System.Web.UI.Control.Init&quot;></xref> event."
-  remarks: "The OnInit method overrides the base <xref:System.Web.UI.Control.OnInit%2A> method to register a zone with the <xref:System.Web.UI.WebControls.WebParts.WebPartManager> control."
+  summary: "Geeft de <xref href=&quot;System.Web.UI.Control.Init&quot;> </xref> gebeurtenis."
+  remarks: "De OnInit-methode overschrijft de base <xref:System.Web.UI.Control.OnInit%2A>methode voor het registreren van een zone met de <xref:System.Web.UI.WebControls.WebParts.WebPartManager>besturingselement.</xref:System.Web.UI.WebControls.WebParts.WebPartManager> </xref:System.Web.UI.Control.OnInit%2A>"
   syntax:
     content: protected override void OnInit (EventArgs e);
     parameters:
     - id: e
       type: System.EventArgs
-      description: "An <xref:System.EventArgs> that contains the event data."
+      description: "Een <xref:System.EventArgs>waarin de gebeurtenisgegevens.</xref:System.EventArgs>"
   overload: System.Web.UI.WebControls.WebParts.WebZone.OnInit*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The zone control was added at too late of a stage in the page life cycle, or the <xref href=&quot;System.Web.UI.WebControls.WebParts.WebPartManager&quot;></xref> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Het besturingselement zone is toegevoegd aan te laat van een fase in de levenscyclus van de pagina of de <xref href=&quot;System.Web.UI.WebControls.WebParts.WebPartManager&quot;> </xref> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   platform:
   - net462
 - uid: System.Web.UI.WebControls.WebParts.WebZone.OnPreRender(System.EventArgs)
@@ -502,19 +502,19 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Raises the <xref href=&quot;System.Web.UI.Control.PreRender&quot;></xref> event."
-  remarks: "The OnPreRender method overrides the base <xref:System.Web.UI.Control.OnPreRender%2A> method in order to prevent a zone from rendering if its parent control is another zone or a part control."
+  summary: "Geeft de <xref href=&quot;System.Web.UI.Control.PreRender&quot;> </xref> gebeurtenis."
+  remarks: "De methode OnPreRender overschrijft de base <xref:System.Web.UI.Control.OnPreRender%2A>methode om te voorkomen dat een zone opbouwen als het bovenliggende besturingselement een andere zone of een besturingselement deel uitmaakt is.</xref:System.Web.UI.Control.OnPreRender%2A>"
   syntax:
     content: protected override void OnPreRender (EventArgs e);
     parameters:
     - id: e
       type: System.EventArgs
-      description: "An <xref:System.EventArgs> that contains the event data."
+      description: "Een <xref:System.EventArgs>waarin de gebeurtenisgegevens.</xref:System.EventArgs>"
   overload: System.Web.UI.WebControls.WebParts.WebZone.OnPreRender*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "A <xref href=&quot;System.Web.UI.WebControls.WebParts.WebZone&quot;></xref> control is nested within another zone or within a <xref href=&quot;System.Web.UI.WebControls.WebParts.Part&quot;></xref> control."
+    description: "Een <xref href=&quot;System.Web.UI.WebControls.WebParts.WebZone&quot;> </xref> is genest binnen een andere zone of binnen een <xref href=&quot;System.Web.UI.WebControls.WebParts.Part&quot;> </xref> besturingselement."
   platform:
   - net462
 - uid: System.Web.UI.WebControls.WebParts.WebZone.Padding
@@ -529,17 +529,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Gets or sets the cell padding attributes on the table that contains the <xref href=&quot;System.Web.UI.WebControls.WebParts.WebPart&quot;></xref> controls in a zone."
+  summary: "Opgehaald of ingesteld van de cel opvulling kenmerken op de tabel met de <xref href=&quot;System.Web.UI.WebControls.WebParts.WebPart&quot;> </xref> besturingselementen in een zone."
   syntax:
     content: public virtual int Padding { get; set; }
     return:
       type: System.Int32
-      description: "The number of pixels for the padding between items and their cell boundaries in the table rendered for a zone. The default is 2."
+      description: "Het aantal pixels voor de opvulling tussen de objecten en hun celgrenzen in de tabel wordt weergegeven voor een zone. De standaardwaarde is 2."
   overload: System.Web.UI.WebControls.WebParts.WebZone.Padding*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The property is set to a value less than -1."
+    description: "De eigenschap is ingesteld op een waarde lager dan -1."
   platform:
   - net462
 - uid: System.Web.UI.WebControls.WebParts.WebZone.PartChromePadding
@@ -554,18 +554,18 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Gets or sets the distance between the contents of a <xref href=&quot;System.Web.UI.WebControls.WebParts.WebPart&quot;></xref> control and the border of the control."
-  remarks: "Use this property to define a standard padding amount between the content of each control and its border for all controls contained in a zone."
+  summary: "Opgehaald of ingesteld van de afstand tussen de inhoud van een <xref href=&quot;System.Web.UI.WebControls.WebParts.WebPart&quot;> </xref> besturingselement en de rand van het besturingselement."
+  remarks: "Gebruik deze eigenschap voor het definiëren van een bedrag standaard opvulling tussen de inhoud van elk besturingselement en de rand voor alle besturingselementen zijn opgenomen in een zone."
   syntax:
     content: public System.Web.UI.WebControls.Unit PartChromePadding { get; set; }
     return:
       type: System.Web.UI.WebControls.Unit
-      description: "A <xref href=&quot;System.Web.UI.WebControls.Unit&quot;></xref> object that indicates the type of measurement and the amount of padding. The default padding for a zone is 5 pixels."
+      description: "Een <xref href=&quot;System.Web.UI.WebControls.Unit&quot;> </xref> object dat het type meting en de hoeveelheid opvulling aangeeft. De standaardwaarde voor een zone opvulling is 5 pixels."
   overload: System.Web.UI.WebControls.WebParts.WebZone.PartChromePadding*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The value assigned to the property is a negative number."
+    description: "De waarde die is toegewezen aan de eigenschap is geen negatief getal zijn."
   platform:
   - net462
 - uid: System.Web.UI.WebControls.WebParts.WebZone.PartChromeStyle
@@ -580,15 +580,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Gets style characteristics that apply to the borders of Web Parts controls contained by a zone."
-  remarks: "A Web Parts control can have its own border, defined in the <xref:System.Web.UI.WebControls.WebParts.WebZone.PartStyle%2A> property. The zone that contains the control can add an additional outer border around the control. The outer border that a zone can place around each of its Web Parts controls is determined by the PartChromeStyle property. This property does not cancel out the property attributes contained in the <xref:System.Web.UI.WebControls.WebParts.WebZone.PartStyle%2A> object; it is merged with or added to them. It enables a zone to provide a common and consistent border for each of the Web Parts controls it contains.      > [!IMPORTANT] >  Although the PartChromeStyle style settings apply primarily to the outer border that a zone can set around the controls it contains, if you set additional properties on the <xref:System.Web.UI.WebControls.Style> object referenced by the property, such as <xref:System.Web.UI.MobileControls.Style.BackColor%2A>, the browser interprets those style attributes as applying to all the sub-elements of the table used to render a zone. Hence, setting the <xref:System.Web.UI.MobileControls.Style.BackColor%2A> property for the style object referenced by the PartChromeStyle property has the same effect on a <xref:System.Web.UI.WebControls.WebParts.WebPart> control as setting the <xref:System.Web.UI.MobileControls.Style.BackColor%2A> property on the object referenced by the <xref:System.Web.UI.WebControls.WebParts.WebZone.PartStyle%2A> property."
+  summary: "Stijlkenmerken die betrekking hebben op de randen van webonderdelen-besturingselementen die deel uitmaken van een zone opgehaald."
+  remarks: "Een besturingselement webonderdelen kan hebben een eigen rand, gedefinieerd in de <xref:System.Web.UI.WebControls.WebParts.WebZone.PartStyle%2A>eigenschap.</xref:System.Web.UI.WebControls.WebParts.WebZone.PartStyle%2A> De zone met het besturingselement kunt toevoegen van een extra buitenste rand om het besturingselement. De buitenste rand die een zone kan worden geplaatst om elk van de besturingselementen voor webonderdelen wordt bepaald door de eigenschap PartChromeStyle. Deze eigenschap niet wegvalt van de kenmerken die zijn opgenomen de <xref:System.Web.UI.WebControls.WebParts.WebZone.PartStyle%2A>object; wordt samengevoegd met of toegevoegd.</xref:System.Web.UI.WebControls.WebParts.WebZone.PartStyle%2A> Hiermee kunt een zone voor een gemeenschappelijke en consistente rand voor elk van de besturingselementen voor webonderdelen bevat.      > [!IMPORTANT] > Maar de instellingen op de PartChromeStyle voornamelijk op de buitenste rand een zone kan ingesteld rondom de besturingselementen deze bevat, als u extra eigenschappen instellen op de <xref:System.Web.UI.WebControls.Style>object waarnaar wordt verwezen door de eigenschap, zoals <xref:System.Web.UI.MobileControls.Style.BackColor%2A>, de browser die stijlkenmerken als toepassen op alle onderliggende elementen van de tabel die wordt gebruikt voor het weergeven van een zone worden geïnterpreteerd.</xref:System.Web.UI.MobileControls.Style.BackColor%2A> </xref:System.Web.UI.WebControls.Style> Daarom instellen van de <xref:System.Web.UI.MobileControls.Style.BackColor%2A>eigenschap voor het style-object waarnaar wordt verwezen door de eigenschap PartChromeStyle hetzelfde effect heeft op een <xref:System.Web.UI.WebControls.WebParts.WebPart>besturingselement als de instelling de <xref:System.Web.UI.MobileControls.Style.BackColor%2A>eigenschap op het object waarnaar wordt verwezen door de <xref:System.Web.UI.WebControls.WebParts.WebZone.PartStyle%2A>eigenschap.</xref:System.Web.UI.WebControls.WebParts.WebZone.PartStyle%2A> </xref:System.Web.UI.MobileControls.Style.BackColor%2A> </xref:System.Web.UI.WebControls.WebParts.WebPart> </xref:System.Web.UI.MobileControls.Style.BackColor%2A>"
   example:
   - "The following code example demonstrates the use of the PartChromeStyle property to set style attributes for the outer borders of Web Parts controls contained in a zone.  \n  \n [!code-cs[WebParts_Zone_PartChromeStyle#1](~/add/codesnippet/csharp/p-system.web.ui.webcontr_1354_1.aspx)]\n [!code-vb[WebParts_Zone_PartChromeStyle#1](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_1354_1.aspx)]  \n  \n Note that when you first load the page in a browser, the upper control has its own green border with a width of 2 pixels, as set in the declarative markup for the page. After a user clicks the calendar, the page programmatically changes the borders of both controls in the zone to red, and sets their border width to 4 pixels, yet the upper control retains its original green inner border."
   syntax:
     content: public System.Web.UI.WebControls.Style PartChromeStyle { get; }
     return:
       type: System.Web.UI.WebControls.Style
-      description: "A <xref href=&quot;System.Web.UI.WebControls.Style&quot;></xref> that contains style attributes for the borders that surround Web Parts controls contained by a zone."
+      description: "Een <xref href=&quot;System.Web.UI.WebControls.Style&quot;> </xref> die stijlkenmerken voor de randen rondom webonderdelen besturingselementen die deel uitmaken van een zone bevat."
   overload: System.Web.UI.WebControls.WebParts.WebZone.PartChromeStyle*
   exceptions: []
   platform:
@@ -605,18 +605,18 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Gets or sets the type of border that frames Web Parts controls contained by a zone."
-  remarks: "The PartChromeType property acts like a default property for the Web Parts controls in a zone. If a Web Parts control has its <xref:System.Web.UI.WebControls.WebParts.WebPart.ChromeType%2A> property set, that property overrides the effect of the PartChromeType property at run time. If the control&quot;s <xref:System.Web.UI.WebControls.WebParts.WebPart.ChromeType%2A> property is not set, or is set to <xref:System.Web.UI.WebControls.WebParts.PartChromeType>, the value of the PartChromeType property determines what kind of border the control has."
+  summary: "Opgehaald of ingesteld van het type rand die frames webonderdelen besturingselementen opgenomen door een zone."
+  remarks: "De eigenschap PartChromeType fungeert als een standaardinstelling voor de eigenschap voor de webonderdelen besturingselementen in een zone. Als een besturingselement webonderdelen heeft de <xref:System.Web.UI.WebControls.WebParts.WebPart.ChromeType%2A>eigenschap is ingesteld, eigenschap overschrijft het effect van de eigenschap PartChromeType tijdens runtime.</xref:System.Web.UI.WebControls.WebParts.WebPart.ChromeType%2A> Als het besturingselement <xref:System.Web.UI.WebControls.WebParts.WebPart.ChromeType%2A>eigenschap is niet ingesteld of is ingesteld op <xref:System.Web.UI.WebControls.WebParts.PartChromeType>, de waarde van de eigenschap PartChromeType bepaalt welke van de rand van het besturingselement heeft.</xref:System.Web.UI.WebControls.WebParts.PartChromeType> </xref:System.Web.UI.WebControls.WebParts.WebPart.ChromeType%2A>"
   syntax:
     content: public virtual System.Web.UI.WebControls.WebParts.PartChromeType PartChromeType { get; set; }
     return:
       type: System.Web.UI.WebControls.WebParts.PartChromeType
-      description: "A <xref href=&quot;System.Web.UI.WebControls.WebParts.PartChromeType&quot;></xref> that determines the type of border that frames Web Parts controls contained by a zone."
+      description: "Een <xref href=&quot;System.Web.UI.WebControls.WebParts.PartChromeType&quot;> </xref> die bepaalt het type rand dat frames webonderdelen besturingselementen die deel uitmaken van een zone."
   overload: System.Web.UI.WebControls.WebParts.WebZone.PartChromeType*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The value is not one of the <xref href=&quot;System.Web.UI.WebControls.WebParts.PartChromeType&quot;></xref> values."
+    description: "De waarde is niet een van de <xref href=&quot;System.Web.UI.WebControls.WebParts.PartChromeType&quot;> </xref> waarden."
   platform:
   - net462
 - uid: System.Web.UI.WebControls.WebParts.WebZone.PartStyle
@@ -631,15 +631,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Gets style characteristics that apply to the border and contents of each Web Parts control contained by a zone."
-  remarks: "The style attributes apply to the border and contents of every Web Parts control in a zone. This property is read-only; however, you can set the properties of the <xref:System.Web.UI.WebControls.TableStyle> object it returns. This property enables you to provide a consistent style for the contents of all the controls a zone contains."
+  summary: "Stijlkenmerken die betrekking hebben op de rand en de inhoud van elke webonderdelen besturingselement deel uitmaken van een zone opgehaald."
+  remarks: "De stijlkenmerken van toepassing op de rand en de inhoud van elk besturingselement webonderdelen in een zone. Deze eigenschap is alleen-lezen. u kunt echter instellen de eigenschappen van de <xref:System.Web.UI.WebControls.TableStyle>object wordt geretourneerd.</xref:System.Web.UI.WebControls.TableStyle> Deze eigenschap kunt u een consistente stijl voor de inhoud van alle besturingselementen in die een zone bevat."
   example:
   - "The following code example demonstrates the use of the PartStyle property. Note that in the zone referenced in the declarative markup, there is an `<asp:calendar>` element and an `<asp:literal>` element, with both controls acting as Web Parts controls at run time because they are in a zone. After the user clicks a date on the calendar control, the page programmatically uses the PartStyle property to change the background color of all part controls in the zone to red.  \n  \n [!code-vb[WebParts_Zone_PartStyle#1](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_1338_1.aspx)]\n [!code-cs[WebParts_Zone_PartStyle#1](~/add/codesnippet/csharp/p-system.web.ui.webcontr_1338_1.aspx)]"
   syntax:
     content: public System.Web.UI.WebControls.TableStyle PartStyle { get; }
     return:
       type: System.Web.UI.WebControls.TableStyle
-      description: "A <xref href=&quot;System.Web.UI.WebControls.TableStyle&quot;></xref> that contains style attributes for the Web Parts controls in the zone."
+      description: "Een <xref href=&quot;System.Web.UI.WebControls.TableStyle&quot;> </xref> die stijlkenmerken voor de webonderdelen besturingselementen in de zone bevat."
   overload: System.Web.UI.WebControls.WebParts.WebZone.PartStyle*
   exceptions: []
   platform:
@@ -656,12 +656,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Gets style attributes for the title bar content for each Web Parts control contained by a zone."
+  summary: "Hiermee haalt stijlkenmerken voor de inhoud van de titel voor elk besturingselement webonderdelen is opgenomen in een zone."
   syntax:
     content: public System.Web.UI.WebControls.WebParts.TitleStyle PartTitleStyle { get; }
     return:
       type: System.Web.UI.WebControls.WebParts.TitleStyle
-      description: "A <xref href=&quot;System.Web.UI.WebControls.WebParts.TitleStyle&quot;></xref> that contains style attributes for the title bar content for each Web Parts control in the zone."
+      description: "Een <xref href=&quot;System.Web.UI.WebControls.WebParts.TitleStyle&quot;> </xref> die stijlkenmerken voor de inhoud van de titel voor elk besturingselement webonderdelen in de zone bevat."
   overload: System.Web.UI.WebControls.WebParts.WebZone.PartTitleStyle*
   exceptions: []
   platform:
@@ -678,14 +678,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Renders the opening HTML tag of the zone control to the specified <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;></xref> object."
-  remarks: "The RenderBeginTag method is used primarily by control developers. For a <xref:System.Web.UI.WebControls.WebParts.WebZone> control, the method sets style attributes for the HTML table that is rendered for the zone. The style attributes help render the HTML table properly in supported browsers."
+  summary: "Hiermee maakt u het openen van het besturingselement van de zone met de opgegeven HTML-tag <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;> </xref> object."
+  remarks: "De methode RenderBeginTag wordt voornamelijk door ontwikkelaars besturingselement gebruikt. Voor een <xref:System.Web.UI.WebControls.WebParts.WebZone>beheer, de methode stelt stijlkenmerken voor de HTML-tabel die wordt weergegeven voor de zone.</xref:System.Web.UI.WebControls.WebParts.WebZone> De stijlkenmerken helpen bij het weergeven van de HTML-tabel goed in ondersteunde browsers."
   syntax:
     content: public override void RenderBeginTag (System.Web.UI.HtmlTextWriter writer);
     parameters:
     - id: writer
       type: System.Web.UI.HtmlTextWriter
-      description: "An <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;></xref> that represents the output stream to render HTML content on the client."
+      description: "Een <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;> </xref> die staat voor de uitvoerstroom HTML-inhoud op de client weergeven."
   overload: System.Web.UI.WebControls.WebParts.WebZone.RenderBeginTag*
   exceptions: []
   platform:
@@ -702,14 +702,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Overrides rendering for the body of a zone control."
-  remarks: "The body of a zone control is the portion between its header and footer areas."
+  summary: "Onderdrukkingen weergeven voor de hoofdtekst van een zone-besturingselement."
+  remarks: "De hoofdtekst van een zone-besturingselement is het gedeelte tussen de kop- en voettekst gebieden."
   syntax:
     content: protected virtual void RenderBody (System.Web.UI.HtmlTextWriter writer);
     parameters:
     - id: writer
       type: System.Web.UI.HtmlTextWriter
-      description: "A <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;></xref> that represents the output stream to render HTML content on the client."
+      description: "Een <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;> </xref> die staat voor de uitvoerstroom HTML-inhoud op de client weergeven."
   overload: System.Web.UI.WebControls.WebParts.WebZone.RenderBody*
   exceptions: []
   platform:
@@ -726,12 +726,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Gets a value that indicates whether to render client script on a Web Parts page."
+  summary: "Hiermee wordt een waarde die aangeeft of het weergeven van scripts voor de client op een pagina met webonderdelen."
   syntax:
     content: protected bool RenderClientScript { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the zone renders client script when the page is in a given display mode; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default value is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de zone renders clientscript wanneer de pagina bevindt zich in een opgegeven weergavemodus; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. De standaardwaarde is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.WebParts.WebZone.RenderClientScript*
   exceptions: []
   platform:
@@ -748,14 +748,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Renders the entire contents of a zone control between the beginning and ending tags to the specified <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;></xref> object."
-  remarks: "The RenderContents method is used primarily by control developers. This method overrides the base <xref:System.Web.UI.WebControls.WebControl.RenderContents%2A> method to render a zone when the zone&quot;s <xref:System.Web.UI.WebControls.WebParts.WebZone.HasHeader%2A> property is set to `true`."
+  summary: "Hiermee maakt u de volledige inhoud van een besturingselement zone tussen het eerste en laatste labels aan de opgegeven <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;> </xref> object."
+  remarks: "De methode RenderContents wordt voornamelijk door ontwikkelaars besturingselement gebruikt. Deze methode overschrijft de base <xref:System.Web.UI.WebControls.WebControl.RenderContents%2A>methode voor het weergeven van een zone wanneer de zone <xref:System.Web.UI.WebControls.WebParts.WebZone.HasHeader%2A>eigenschap is ingesteld op `true`.</xref:System.Web.UI.WebControls.WebParts.WebZone.HasHeader%2A> </xref:System.Web.UI.WebControls.WebControl.RenderContents%2A>"
   syntax:
     content: protected override void RenderContents (System.Web.UI.HtmlTextWriter writer);
     parameters:
     - id: writer
       type: System.Web.UI.HtmlTextWriter
-      description: "An <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;></xref> that represents the output stream to render HTML content on the client."
+      description: "Een <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;> </xref> die staat voor de uitvoerstroom HTML-inhoud op de client weergeven."
   overload: System.Web.UI.WebControls.WebParts.WebZone.RenderContents*
   exceptions: []
   platform:
@@ -772,13 +772,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Overrides rendering for the footer of a zone control."
+  summary: "Onderdrukkingen weergeven voor de voettekst van een zone-besturingselement."
   syntax:
     content: protected virtual void RenderFooter (System.Web.UI.HtmlTextWriter writer);
     parameters:
     - id: writer
       type: System.Web.UI.HtmlTextWriter
-      description: "An <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;></xref> that represents the output stream to render HTML content on the client."
+      description: "Een <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;> </xref> die staat voor de uitvoerstroom HTML-inhoud op de client weergeven."
   overload: System.Web.UI.WebControls.WebParts.WebZone.RenderFooter*
   exceptions: []
   platform:
@@ -795,13 +795,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Overrides rendering for the header of a zone control."
+  summary: "Onderdrukkingen weergeven voor de koptekst van een zone-besturingselement."
   syntax:
     content: protected virtual void RenderHeader (System.Web.UI.HtmlTextWriter writer);
     parameters:
     - id: writer
       type: System.Web.UI.HtmlTextWriter
-      description: "An <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;></xref> that represents the output stream to render HTML content on the client."
+      description: "Een <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;> </xref> die staat voor de uitvoerstroom HTML-inhoud op de client weergeven."
   overload: System.Web.UI.WebControls.WebParts.WebZone.RenderHeader*
   exceptions: []
   platform:
@@ -818,14 +818,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Saves any view-state changes that have occurred after a page was posted back to the server."
-  remarks: "The SaveViewState method overrides the base <xref:System.Web.UI.Control.SaveViewState%2A> method to save view-state changes to the various style properties of a zone, such as <xref:System.Web.UI.WebControls.WebParts.WebZone.HeaderStyle%2A>, <xref:System.Web.UI.WebControls.WebParts.WebZone.FooterStyle%2A>, and <xref:System.Web.UI.WebControls.WebParts.WebZone.PartStyle%2A>."
+  summary: "Hiermee slaat u wijzigingen status weergeven die hebben plaatsgevonden na een pagina naar de server is geplaatst."
+  remarks: "De methode SaveViewState overschrijft de base <xref:System.Web.UI.Control.SaveViewState%2A>methode om op te slaan weergavestatus wijzigingen in de verschillende stijleigenschappen van een zone zoals <xref:System.Web.UI.WebControls.WebParts.WebZone.HeaderStyle%2A>, <xref:System.Web.UI.WebControls.WebParts.WebZone.FooterStyle%2A>, en <xref:System.Web.UI.WebControls.WebParts.WebZone.PartStyle%2A>.</xref:System.Web.UI.WebControls.WebParts.WebZone.PartStyle%2A> </xref:System.Web.UI.WebControls.WebParts.WebZone.FooterStyle%2A> </xref:System.Web.UI.WebControls.WebParts.WebZone.HeaderStyle%2A> </xref:System.Web.UI.Control.SaveViewState%2A>"
   syntax:
     content: protected override object SaveViewState ();
     parameters: []
     return:
       type: System.Object
-      description: "Returns the zone control&quot;s current view state. If no view state is associated with the zone, this method returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Retourneert de huidige weergavestatus van het besturingselement van de zone. Deze methode retourneert als er geen weergavestatus gekoppeld aan de zone is, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.WebParts.WebZone.SaveViewState*
   exceptions: []
   platform:
@@ -842,12 +842,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Gets the <xref href=&quot;System.Web.UI.HtmlTextWriterTag&quot;></xref> value that corresponds to this Web server control. This property is used primarily by control developers."
+  summary: "Haalt de <xref href=&quot;System.Web.UI.HtmlTextWriterTag&quot;> </xref> waarde die overeenkomt met dit Web server-besturingselement. Deze eigenschap wordt voornamelijk door besturingselement ontwikkelaars gebruikt."
   syntax:
     content: protected override System.Web.UI.HtmlTextWriterTag TagKey { get; }
     return:
       type: System.Web.UI.HtmlTextWriterTag
-      description: "One of the <xref href=&quot;System.Web.UI.HtmlTextWriterTag&quot;></xref> enumeration values."
+      description: "Een van de <xref href=&quot;System.Web.UI.HtmlTextWriterTag&quot;> </xref> opsommingswaarden."
   overload: System.Web.UI.WebControls.WebParts.WebZone.TagKey*
   exceptions: []
   platform:
@@ -864,8 +864,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Tracks changes to a zone control&quot;s view state."
-  remarks: "The TrackViewState method overrides the base <xref:System.Web.UI.Control.TrackViewState%2A> method to track view-state changes to the various style properties of a zone, such as <xref:System.Web.UI.WebControls.WebParts.WebZone.HeaderStyle%2A>, <xref:System.Web.UI.WebControls.WebParts.WebZone.FooterStyle%2A>, and <xref:System.Web.UI.WebControls.WebParts.WebZone.PartStyle%2A>."
+  summary: "Houdt wijzigingen in de weergavestatus van een besturingselement van de zone."
+  remarks: "De methode TrackViewState overschrijft de base <xref:System.Web.UI.Control.TrackViewState%2A>methode voor het bijhouden van weergave-status gewijzigd in de verschillende stijleigenschappen van een zone zoals <xref:System.Web.UI.WebControls.WebParts.WebZone.HeaderStyle%2A>, <xref:System.Web.UI.WebControls.WebParts.WebZone.FooterStyle%2A>, en <xref:System.Web.UI.WebControls.WebParts.WebZone.PartStyle%2A>.</xref:System.Web.UI.WebControls.WebParts.WebZone.PartStyle%2A> </xref:System.Web.UI.WebControls.WebParts.WebZone.FooterStyle%2A> </xref:System.Web.UI.WebControls.WebParts.WebZone.HeaderStyle%2A> </xref:System.Web.UI.Control.TrackViewState%2A>"
   syntax:
     content: protected override void TrackViewState ();
     parameters: []
@@ -885,18 +885,18 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Gets or sets what kind of button is used to represent verbs in a zone."
-  remarks: "The VerbButtonType property can be used to determine how the verbs will appear in the verbs menu of a zone. Verbs can appear as a button, a hyperlink, or a clickable image."
+  summary: "Opgehaald of ingesteld welk type knop wordt gebruikt voor bewerkingen in een zone."
+  remarks: "De eigenschap VerbButtonType kan worden gebruikt om te bepalen hoe de bewerkingen worden weergegeven in het opdrachtmenu van een zone. Bewerkingen kunnen worden weergegeven als een knop, een hyperlink of een afbeelding."
   syntax:
     content: public virtual System.Web.UI.WebControls.ButtonType VerbButtonType { get; set; }
     return:
       type: System.Web.UI.WebControls.ButtonType
-      description: "A <xref href=&quot;System.Web.UI.WebControls.ButtonType&quot;></xref> that indicates what kind of button will be visible to represent verbs in the user interface (UI). The default is <xref href=&quot;System.Web.UI.WebControls.ButtonType&quot;></xref>."
+      description: "Een <xref href=&quot;System.Web.UI.WebControls.ButtonType&quot;> </xref> die wordt aangegeven wat voor soort knop wordt weergegeven om aan te duiden termen in de gebruikersinterface (UI). De standaardwaarde is <xref href=&quot;System.Web.UI.WebControls.ButtonType&quot;> </xref>."
   overload: System.Web.UI.WebControls.WebParts.WebZone.VerbButtonType*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The property is not set to a <xref href=&quot;System.Web.UI.WebControls.ButtonType&quot;></xref> value."
+    description: "De eigenschap is niet ingesteld op een <xref href=&quot;System.Web.UI.WebControls.ButtonType&quot;> </xref> waarde."
   platform:
   - net462
 - uid: System.Web.UI.WebControls.WebParts.WebZone.VerbStyle
@@ -911,12 +911,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Gets the style attributes for the user interface (UI) verbs associated with Web Parts controls in a zone."
+  summary: "Hiermee haalt u de stijlkenmerken voor de gebruiker-gebruikersinterface (UI)-termen die zijn gekoppeld aan de webonderdelen besturingselementen in een zone."
   syntax:
     content: public System.Web.UI.WebControls.Style VerbStyle { get; }
     return:
       type: System.Web.UI.WebControls.Style
-      description: "A <xref href=&quot;System.Web.UI.WebControls.Style&quot;></xref> that contains style attributes for the verbs associated with Web Parts controls contained by a zone."
+      description: "Een <xref href=&quot;System.Web.UI.WebControls.Style&quot;> </xref> die stijlkenmerken voor de bewerkingen die zijn gekoppeld aan de webonderdelen besturingselementen die deel uitmaken van een zone bevat."
   overload: System.Web.UI.WebControls.WebParts.WebZone.VerbStyle*
   exceptions: []
   platform:
@@ -933,12 +933,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Gets a reference to the <xref href=&quot;System.Web.UI.WebControls.WebParts.WebPartManager&quot;></xref> control associated with a <xref href=&quot;System.Web.UI.WebControls.WebParts.WebZone&quot;></xref> control instance on a Web Parts page."
+  summary: "Wordt een verwijzing naar de <xref href=&quot;System.Web.UI.WebControls.WebParts.WebPartManager&quot;> </xref> besturingselement is gekoppeld aan een <xref href=&quot;System.Web.UI.WebControls.WebParts.WebZone&quot;> </xref> exemplaar van het besturingselement op een pagina met webonderdelen."
   syntax:
     content: protected System.Web.UI.WebControls.WebParts.WebPartManager WebPartManager { get; }
     return:
       type: System.Web.UI.WebControls.WebParts.WebPartManager
-      description: "The <xref href=&quot;System.Web.UI.WebControls.WebParts.WebPartManager&quot;></xref> control that is associated with a zone."
+      description: "De <xref href=&quot;System.Web.UI.WebControls.WebParts.WebPartManager&quot;> </xref> besturingselement dat is gekoppeld aan een zone."
   overload: System.Web.UI.WebControls.WebParts.WebZone.WebPartManager*
   exceptions: []
   platform:

@@ -15,8 +15,8 @@ items:
   nameWithType: IServiceContainer
   fullName: System.ComponentModel.Design.IServiceContainer
   type: Interface
-  summary: "Provides a container for services."
-  remarks: "A service container is, by definition, a service provider. In addition to providing services, it also provides a mechanism for adding and removing services. Services are a foundation of the .NET Framework design-time architecture. Services provide design-time objects access to specific features and methods implemented by a service object that provides a service or services.       To obtain a service at design time, call the <xref:System.ComponentModel.Component.GetService%2A> method of a component sited in design mode. Designers and other objects can add or remove services at design time through the <xref:System.ComponentModel.Design.IDesignerHost> interface.       Service containers can be contained by other service containers, forming a tree of service containers. By default, the IServiceContainer interface adds services to the closest service container. When a service is added, it can be added with instructions to promote it. When a service is promoted, it is added to any parent service container, on up until the top of the service container tree is reached. This allows a designer to provide a global service that other objects in the process can use."
+  summary: "Biedt een container voor services."
+  remarks: "Een servicecontainer is per definitie een serviceprovider. Naast het leveren van services, biedt het ook een mechanisme voor het toevoegen en verwijderen van services. Services zijn een basis van de architectuur van de ontwerptijd .NET Framework. Services ontwerptijd objecten toegang bieden tot specifieke functies en methoden die worden geïmplementeerd door een serviceobject dat een service of -services biedt.       Als u een service in de ontwerpfase, roepen de <xref:System.ComponentModel.Component.GetService%2A>methode van een onderdeel dat wordt geplaatst in de ontwerpmodus.</xref:System.ComponentModel.Component.GetService%2A> Ontwerpers en andere objecten kunnen toevoegen of verwijderen van services in de ontwerpfase via de <xref:System.ComponentModel.Design.IDesignerHost>interface.</xref:System.ComponentModel.Design.IDesignerHost>       Service-containers kunnen worden opgenomen door een andere servicecontainers, vormen een boomstructuur van de servicecontainers. Standaard wordt de IServiceContainer-interface services toegevoegd aan de dichtstbijzijnde servicecontainer. Wanneer een service wordt toegevoegd, kan deze worden toegevoegd met instructies om deze te promoveren. Wanneer een service wordt gepromoveerd, wordt deze toegevoegd aan een service bovenliggende container op totdat de bovenkant van de structuur van de container service is bereikt. Hierdoor kan een ontwerpfunctie voor een wereldwijde service die andere objecten in het proces kunnen gebruiken."
   example:
   - "The following code example contains the code for a <xref:System.Windows.Forms.Form> that is configured to demonstrate the behavior of a network of linked service containers.  \n  \n [!code-cs[IServiceContainerExample#1](~/add/codesnippet/csharp/t-system.componentmodel._108_1.cs)]\n [!code-cpp[IServiceContainerExample#1](~/add/codesnippet/cpp/t-system.componentmodel._108_1.cpp)]\n [!code-vb[IServiceContainerExample#1](~/add/codesnippet/visualbasic/t-system.componentmodel._108_1.vb)]"
   syntax:
@@ -40,7 +40,7 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Adds the specified service to the service container."
+  summary: "Voegt de opgegeven service aan de servicecontainer."
   remarks: ''
   example:
   - "The following example illustrates how to add a service to an <xref:System.ComponentModel.Design.IServiceContainer>.  \n  \n [!code-cs[ServiceContainerExample#3](~/add/codesnippet/csharp/4abfcb9d-94a0-4da6-9ce0-_1.cs)]\n [!code-vb[ServiceContainerExample#3](~/add/codesnippet/visualbasic/4abfcb9d-94a0-4da6-9ce0-_1.vb)]\n [!code-cpp[ServiceContainerExample#3](~/add/codesnippet/cpp/4abfcb9d-94a0-4da6-9ce0-_1.cpp)]"
@@ -49,10 +49,10 @@ items:
     parameters:
     - id: serviceType
       type: System.Type
-      description: "The type of service to add."
+      description: "Het type van de service om toe te voegen."
     - id: callback
       type: System.ComponentModel.Design.ServiceCreatorCallback
-      description: "A callback object that is used to create the service. This allows a service to be declared as available, but delays the creation of the object until the service is requested."
+      description: "Een object dat wordt gebruikt om de service te maken. Dit kan een service worden gedeclareerd als beschikbaar, maar het maken van het object uitgesteld totdat de service wordt aangevraagd."
   overload: System.ComponentModel.Design.IServiceContainer.AddService*
   exceptions: []
   platform:
@@ -69,7 +69,7 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Adds the specified service to the service container."
+  summary: "Voegt de opgegeven service aan de servicecontainer."
   remarks: ''
   example:
   - "The following example illustrates how to add a service to an <xref:System.ComponentModel.Design.IServiceContainer>.  \n  \n [!code-cs[ServiceContainerExample#2](~/add/codesnippet/csharp/78041303-5e2c-4bbb-9d48-_1.cs)]\n [!code-vb[ServiceContainerExample#2](~/add/codesnippet/visualbasic/78041303-5e2c-4bbb-9d48-_1.vb)]\n [!code-cpp[ServiceContainerExample#2](~/add/codesnippet/cpp/78041303-5e2c-4bbb-9d48-_1.cpp)]"
@@ -78,10 +78,10 @@ items:
     parameters:
     - id: serviceType
       type: System.Type
-      description: "The type of service to add."
+      description: "Het type van de service om toe te voegen."
     - id: serviceInstance
       type: System.Object
-      description: "An instance of the service type to add. This object must implement or inherit from the type indicated by the `serviceType` parameter."
+      description: "Een exemplaar van het type van de service om toe te voegen. Dit object moet implementeren of worden overgenomen van het type aangegeven door de `serviceType` parameter."
   overload: System.ComponentModel.Design.IServiceContainer.AddService*
   exceptions: []
   platform:
@@ -98,19 +98,19 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Adds the specified service to the service container, and optionally promotes the service to parent service containers."
+  summary: "Voegt de opgegeven service toe aan de servicecontainer en optioneel bijdraagt aan de bovenliggende servicecontainers-service."
   syntax:
     content: public void AddService (Type serviceType, System.ComponentModel.Design.ServiceCreatorCallback callback, bool promote);
     parameters:
     - id: serviceType
       type: System.Type
-      description: "The type of service to add."
+      description: "Het type van de service om toe te voegen."
     - id: callback
       type: System.ComponentModel.Design.ServiceCreatorCallback
-      description: "A callback object that is used to create the service. This allows a service to be declared as available, but delays the creation of the object until the service is requested."
+      description: "Een object dat wordt gebruikt om de service te maken. Dit kan een service worden gedeclareerd als beschikbaar, maar het maken van het object uitgesteld totdat de service wordt aangevraagd."
     - id: promote
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to promote this request to any parent service containers; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>ter bevordering van deze aanvraag voor een bovenliggende servicecontainers; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.Design.IServiceContainer.AddService*
   exceptions: []
   platform:
@@ -127,19 +127,19 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Adds the specified service to the service container, and optionally promotes the service to any parent service containers."
+  summary: "Voegt de opgegeven service toe aan de servicecontainer en optioneel bijdraagt aan de service geen bovenliggende servicecontainers."
   syntax:
     content: public void AddService (Type serviceType, object serviceInstance, bool promote);
     parameters:
     - id: serviceType
       type: System.Type
-      description: "The type of service to add."
+      description: "Het type van de service om toe te voegen."
     - id: serviceInstance
       type: System.Object
-      description: "An instance of the service type to add. This object must implement or inherit from the type indicated by the `serviceType` parameter."
+      description: "Een exemplaar van het type van de service om toe te voegen. Dit object moet implementeren of worden overgenomen van het type aangegeven door de `serviceType` parameter."
     - id: promote
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to promote this request to any parent service containers; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>ter bevordering van deze aanvraag voor een bovenliggende servicecontainers; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.Design.IServiceContainer.AddService*
   exceptions: []
   platform:
@@ -156,7 +156,7 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Removes the specified service type from the service container."
+  summary: "Het opgegeven servicetype verwijdert uit de servicecontainer."
   remarks: ''
   example:
   - "The following example demonstrates how to remove a service from an <xref:System.ComponentModel.Design.IServiceContainer>.  \n  \n [!code-cs[ServiceContainerExample#4](~/add/codesnippet/csharp/m-system.componentmodel._36_1.cs)]\n [!code-vb[ServiceContainerExample#4](~/add/codesnippet/visualbasic/m-system.componentmodel._36_1.vb)]\n [!code-cpp[ServiceContainerExample#4](~/add/codesnippet/cpp/m-system.componentmodel._36_1.cpp)]"
@@ -165,7 +165,7 @@ items:
     parameters:
     - id: serviceType
       type: System.Type
-      description: "The type of service to remove."
+      description: "Het type van de service kunnen worden verwijderd."
   overload: System.ComponentModel.Design.IServiceContainer.RemoveService*
   exceptions: []
   platform:
@@ -182,7 +182,7 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Removes the specified service type from the service container, and optionally promotes the service to parent service containers."
+  summary: "Het opgegeven servicetype verwijdert uit de servicecontainer en optioneel bijdraagt aan de bovenliggende servicecontainers-service."
   remarks: ''
   example:
   - "The following example demonstrates how to remove a service from an <xref:System.ComponentModel.Design.IServiceContainer>.  \n  \n [!code-cs[ServiceContainerExample#4](~/add/codesnippet/csharp/1ae84a0c-9fec-44a0-ac5a-_1.cs)]\n [!code-vb[ServiceContainerExample#4](~/add/codesnippet/visualbasic/1ae84a0c-9fec-44a0-ac5a-_1.vb)]\n [!code-cpp[ServiceContainerExample#4](~/add/codesnippet/cpp/1ae84a0c-9fec-44a0-ac5a-_1.cpp)]"
@@ -191,10 +191,10 @@ items:
     parameters:
     - id: serviceType
       type: System.Type
-      description: "The type of service to remove."
+      description: "Het type van de service kunnen worden verwijderd."
     - id: promote
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to promote this request to any parent service containers; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>ter bevordering van deze aanvraag voor een bovenliggende servicecontainers; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.Design.IServiceContainer.RemoveService*
   exceptions: []
   platform:

@@ -27,8 +27,8 @@ items:
   nameWithType: MenuCommandService
   fullName: System.ComponentModel.Design.MenuCommandService
   type: Class
-  summary: "Implements the <xref href=&quot;System.ComponentModel.Design.IMenuCommandService&quot;></xref> interface."
-  remarks: "The MenuCommandService class implements the <xref:System.ComponentModel.Design.IMenuCommandService> interface, which is the managed interface used to add handlers for menu commands and to define verbs.       The MenuCommandService class is automatically offered by the package class to offer global commands for an entire package, and it is also offered by the `Microsoft.VisualStudio.Shell.WindowPane` class to offer commands for the current window. This offering is always done through the service container, so anyone deriving from the package or window pane classes can remove or replace the default implementation of the <xref:System.ComponentModel.Design.IMenuCommandService> interface.       The MenuCommandService class utilizes several other services. All of these services are optional, so the behavior of the MenuCommandService class degrades if one or more services are missing. The following table shows which services are used and for what purpose.      |Service|Purpose|   |-------------|-------------|   |<xref:System.ComponentModel.Design.ISelectionService>|Used to discover the current selection in order to obtain verbs offered by the currently selected designer.|   |<xref:System.ComponentModel.Design.IDesignerHost>|Used to obtain the designer for the currently selected component, if any.|   |`Microsoft.VisualStudio.Shell.Interop.IVsUIShell`|Used to notify [!INCLUDE[vsprvs](~/add/includes/vsprvs-md.md)] that the command status has changed.|   |`Microsoft.VisualStudio.Shell.Interop.IOleComponentUIManager`|Used to show context menus.|"
+  summary: "Implementeert de <xref href=&quot;System.ComponentModel.Design.IMenuCommandService&quot;> </xref> interface."
+  remarks: "De MenuCommandService klasse implementeert de <xref:System.ComponentModel.Design.IMenuCommandService>interface, waardoor de beheerde interface die is gebruikt voor het toevoegen van de handlers voor menuopdrachten en termen definiëren.</xref:System.ComponentModel.Design.IMenuCommandService>       De klasse MenuCommandService automatisch wordt aangeboden door de Pakketklasse op het aanbod van globale opdrachten voor een volledige-pakket en die ook wordt aangeboden door de `Microsoft.VisualStudio.Shell.WindowPane` klasse op het aanbod van opdrachten voor het huidige venster. Deze aanbieding vindt altijd plaats via de servicecontainer zodat iedereen die zijn afgeleid van het pakket of venster deelvenster klassen kunnen verwijderen of vervangen van de standaardimplementatie van de <xref:System.ComponentModel.Design.IMenuCommandService>interface.</xref:System.ComponentModel.Design.IMenuCommandService>       De klasse MenuCommandService maakt gebruik van verschillende andere services. Al deze services zijn optioneel, zodat het gedrag van de klasse MenuCommandService vermindert als er een of meer services ontbreken. De volgende tabel ziet u welke services worden gebruikt en waarvoor.      | Service | Doel |   |-------------|-------------|   | <xref:System.ComponentModel.Design.ISelectionService>| Gebruikt voor het detecteren van de huidige selectie ter verkrijging van termen die worden aangeboden door de momenteel geselecteerde designer. |   | <xref:System.ComponentModel.Design.IDesignerHost>| Gebruikt voor het verkrijgen van de ontwerpfunctie voor de momenteel geselecteerde onderdelen, indien aanwezig. |   | `Microsoft.VisualStudio.Shell.Interop.IVsUIShell`| Gebruikt om te melden [!INCLUDE[vsprvs](~/add/includes/vsprvs-md.md)] die de Opdrachtstatus is gewijzigd. |   | `Microsoft.VisualStudio.Shell.Interop.IOleComponentUIManager`| Gebruikt voor het snelmenu&quot;s weergeven. |</xref:System.ComponentModel.Design.IDesignerHost> </xref:System.ComponentModel.Design.ISelectionService>"
   syntax:
     content: 'public class MenuCommandService : IDisposable, System.ComponentModel.Design.IMenuCommandService'
   inheritance:
@@ -51,14 +51,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Initializes a new instance of the <xref href=&quot;System.ComponentModel.Design.MenuCommandService&quot;></xref> class."
-  remarks: "If the service is being used with a designer, the `serviceProvider` parameter should be the service provider for the designer, as is the case with <xref:System.ComponentModel.Design.DesignSurface>."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.ComponentModel.Design.MenuCommandService&quot;> </xref> klasse."
+  remarks: "Als de service wordt gebruikt met een ontwerpfunctie de `serviceProvider` parameter moet de serviceprovider voor designer, zoals het geval <xref:System.ComponentModel.Design.DesignSurface>.</xref:System.ComponentModel.Design.DesignSurface>"
   syntax:
     content: public MenuCommandService (IServiceProvider serviceProvider);
     parameters:
     - id: serviceProvider
       type: System.IServiceProvider
-      description: "The service provider that this service uses to obtain other services."
+      description: "De serviceprovider die deze service wordt gebruikt om op te halen van andere services."
   overload: System.ComponentModel.Design.MenuCommandService.#ctor*
   exceptions: []
   platform:
@@ -75,8 +75,8 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Adds a command handler to the menu command service."
-  remarks: "The AddCommand method adds a command handler to the menu command service. Command handlers do not define the text, shortcut, or placement of a menu item. Rather, they define the menu item’s behavior if the item is clicked."
+  summary: "Voegt een opdrachthandler met de opdracht menu service."
+  remarks: "De methode AddCommand voegt een opdrachthandler met de opdracht menu service. Opdracht handlers definiëren de tekst, de snelkoppeling of de plaatsing van een menu-item. In plaats daarvan definiëren ze van de menuopdracht gedrag als het item wordt geklikt."
   syntax:
     content: public virtual void AddCommand (System.ComponentModel.Design.MenuCommand command);
     parameters:
@@ -87,10 +87,10 @@ items:
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>command</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>command</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "A command handler <code>command</code> already exists."
+    description: "Opdrachthandler <code> command </code> bestaat al."
   platform:
   - net462
 - uid: System.ComponentModel.Design.MenuCommandService.AddVerb(System.ComponentModel.Design.DesignerVerb)
@@ -105,8 +105,8 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Adds a verb to the verb table of the <xref href=&quot;System.ComponentModel.Design.MenuCommandService&quot;></xref>."
-  remarks: "This verb is available regardless of what designer is currently selected. Unlike menu commands, verbs can define the text that is displayed to the user, but they do not define the placement of the command on the actual menu."
+  summary: "Een term toegevoegd aan de tabel term van de <xref href=&quot;System.ComponentModel.Design.MenuCommandService&quot;> </xref>."
+  remarks: "Deze bewerking is beschikbaar ongeacht welke designer momenteel is geselecteerd. In tegenstelling tot de opdrachten in het menu, termen kunnen definiëren de tekst die wordt weergegeven voor de gebruiker, maar ze de plaatsing van de opdracht niet bepalen op het menu."
   syntax:
     content: public virtual void AddVerb (System.ComponentModel.Design.DesignerVerb verb);
     parameters:
@@ -117,7 +117,7 @@ items:
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>verb</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>verb</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Design.MenuCommandService.Dispose
@@ -132,8 +132,8 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Releases all resources used by the <xref href=&quot;System.ComponentModel.Design.MenuCommandService&quot;></xref>."
-  remarks: "Call Dispose when you are finished using the <xref:System.ComponentModel.Design.MenuCommandService>. The Dispose method leaves the <xref:System.ComponentModel.Design.MenuCommandService> in an unusable state. After calling Dispose, you must release all references to the <xref:System.ComponentModel.Design.MenuCommandService> so the garbage collector can reclaim the memory that the <xref:System.ComponentModel.Design.MenuCommandService> was occupying. For more information, see [Cleaning Up Unmanaged Resources](~/add/includes/ajax-current-ext-md.md) and [Implementing a Dispose Method](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] >  Always call Dispose before you release your last reference to the <xref:System.ComponentModel.Design.MenuCommandService>. Otherwise, the resources it is using will not be freed until the garbage collector calls the <xref:System.ComponentModel.Design.MenuCommandService> object&quot;s `Finalize` method."
+  summary: "Versies van alle resources die worden gebruikt door de <xref href=&quot;System.ComponentModel.Design.MenuCommandService&quot;> </xref>."
+  remarks: "Dispose aanroepen wanneer u klaar bent met de <xref:System.ComponentModel.Design.MenuCommandService>.</xref:System.ComponentModel.Design.MenuCommandService> De methode Dispose verlaat de <xref:System.ComponentModel.Design.MenuCommandService>in een onbruikbare status.</xref:System.ComponentModel.Design.MenuCommandService> Na Dispose aanroepen, moet u alle verwijzingen naar vrijgeven de <xref:System.ComponentModel.Design.MenuCommandService>zodat het geheugen door de garbage collector vrijmaken kunt die de <xref:System.ComponentModel.Design.MenuCommandService>is bepaald dat zich bevindt.</xref:System.ComponentModel.Design.MenuCommandService> </xref:System.ComponentModel.Design.MenuCommandService> Zie voor meer informatie [onbeheerde hulpbronnen reinigen](~/add/includes/ajax-current-ext-md.md) en [uitvoering van een methode Dispose](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] > Altijd aanroep verwijderen voordat u uw laatste verwijzing naar de <xref:System.ComponentModel.Design.MenuCommandService>.</xref:System.ComponentModel.Design.MenuCommandService> loslaat Anders wordt de resources die worden gebruikt niet vrij tot het aanroepen van de garbagecollector van de <xref:System.ComponentModel.Design.MenuCommandService>van het object `Finalize` methode.</xref:System.ComponentModel.Design.MenuCommandService>"
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -153,14 +153,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Releases all resources used by the <xref href=&quot;System.ComponentModel.Design.MenuCommandService&quot;></xref>."
-  remarks: "This method is called by the public `Dispose()`method and the <xref:System.Object.Finalize%2A> method. `Dispose()` invokes the protected `Dispose(Boolean)` method with the `disposing` parameter set to `true`. <xref:System.Object.Finalize%2A> invokes `Dispose` with `disposing` set to `false`.       When the `disposing` parameter is true, this method releases all resources held by any managed objects that this <xref:System.ComponentModel.Design.MenuCommandService> references. This method invokes the `Dispose()` method of each referenced object."
+  summary: "Versies van alle resources die worden gebruikt door de <xref href=&quot;System.ComponentModel.Design.MenuCommandService&quot;> </xref>."
+  remarks: "Deze methode wordt aangeroepen door het publiek `Dispose()`methode en de <xref:System.Object.Finalize%2A>methode.</xref:System.Object.Finalize%2A> `Dispose()`Hiermee wordt de beveiligde `Dispose(Boolean)` methode met de `disposing` parameter ingesteld op `true`. <xref:System.Object.Finalize%2A>roept `Dispose` met `disposing` ingesteld op `false`.</xref:System.Object.Finalize%2A>       Wanneer de `disposing` parameter is ingesteld op true, wordt deze methode worden alle resources die beheerde objecten waarover vrijgegeven dat dit <xref:System.ComponentModel.Design.MenuCommandService>verwijzingen.</xref:System.ComponentModel.Design.MenuCommandService> Deze methode roept de `Dispose()` methode van elk object waarnaar wordt verwezen."
   syntax:
     content: protected virtual void Dispose (bool disposing);
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to release both managed and unmanaged resources; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to release only unmanaged resources."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>voor het vrijgeven van zowel beheerde als onbeheerde hulpbronnen; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> om alleen niet-beheerde bronnen vrij te geven."
   overload: System.ComponentModel.Design.MenuCommandService.Dispose*
   exceptions: []
   platform:
@@ -177,8 +177,8 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Ensures that the verb list has been created."
-  remarks: "The EnsureVerbs method creates the verb list if it has not already been created."
+  summary: "Zorgt ervoor dat de woordenlijst is gemaakt."
+  remarks: "De methode EnsureVerbs maakt de lijst met woorden, als deze nog niet is gemaakt."
   syntax:
     content: protected void EnsureVerbs ();
     parameters: []
@@ -198,16 +198,16 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Searches for the <xref href=&quot;System.ComponentModel.Design.MenuCommand&quot;></xref> associated with the given command ID."
+  summary: "Zoekt naar de <xref href=&quot;System.ComponentModel.Design.MenuCommand&quot;> </xref> die zijn gekoppeld aan de opgegeven opdracht-ID."
   syntax:
     content: public System.ComponentModel.Design.MenuCommand FindCommand (System.ComponentModel.Design.CommandID commandID);
     parameters:
     - id: commandID
       type: System.ComponentModel.Design.CommandID
-      description: "The <xref href=&quot;System.ComponentModel.Design.CommandID&quot;></xref> to find."
+      description: "De <xref href=&quot;System.ComponentModel.Design.CommandID&quot;> </xref> vinden."
     return:
       type: System.ComponentModel.Design.MenuCommand
-      description: "The <xref href=&quot;System.ComponentModel.Design.MenuCommand&quot;></xref> associated with the given command; otherwise, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the command is not found."
+      description: "De <xref href=&quot;System.ComponentModel.Design.MenuCommand&quot;> </xref> gekoppeld aan de gegeven opdracht, anders wordt <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> als de opdracht is niet gevonden."
   overload: System.ComponentModel.Design.MenuCommandService.FindCommand*
   exceptions: []
   platform:
@@ -224,19 +224,19 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Searches for the <xref href=&quot;System.ComponentModel.Design.MenuCommand&quot;></xref> associated with the given command."
+  summary: "Zoekt naar de <xref href=&quot;System.ComponentModel.Design.MenuCommand&quot;> </xref> die zijn gekoppeld aan de gegeven opdracht."
   syntax:
     content: protected System.ComponentModel.Design.MenuCommand FindCommand (Guid guid, int id);
     parameters:
     - id: guid
       type: System.Guid
-      description: "The GUID of the command."
+      description: "De GUID van de opdracht."
     - id: id
       type: System.Int32
-      description: "The ID of the command."
+      description: "De ID van de opdracht."
     return:
       type: System.ComponentModel.Design.MenuCommand
-      description: "The <xref href=&quot;System.ComponentModel.Design.MenuCommand&quot;></xref> associated with the given command; otherwise, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the command is not found."
+      description: "De <xref href=&quot;System.ComponentModel.Design.MenuCommand&quot;> </xref> gekoppeld aan de gegeven opdracht, anders wordt <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> als de opdracht is niet gevonden."
   overload: System.ComponentModel.Design.MenuCommandService.FindCommand*
   exceptions: []
   platform:
@@ -253,16 +253,16 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Gets the command list for a given GUID."
+  summary: "Hiermee wordt de opdrachtenlijst voor een opgegeven GUID."
   syntax:
     content: protected System.Collections.ICollection GetCommandList (Guid guid);
     parameters:
     - id: guid
       type: System.Guid
-      description: "The GUID of the command list."
+      description: "De GUID van de opdrachtenlijst."
     return:
       type: System.Collections.ICollection
-      description: "An <xref:System.Collections.ICollection> of commands."
+      description: "Een <xref:System.Collections.ICollection>van opdrachten.</xref:System.Collections.ICollection>"
   overload: System.ComponentModel.Design.MenuCommandService.GetCommandList*
   exceptions: []
   platform:
@@ -279,21 +279,21 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Gets a reference to the requested service."
+  summary: "Hiermee haalt u een verwijzing naar de aangevraagde service."
   syntax:
     content: protected object GetService (Type serviceType);
     parameters:
     - id: serviceType
       type: System.Type
-      description: "The <xref:System.Type> of the service to retrieve."
+      description: "De <xref:System.Type>van de service om op te halen.</xref:System.Type>"
     return:
       type: System.Object
-      description: "A reference to <code>serviceType</code>; otherwise, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the service is not found."
+      description: "Een verwijzing naar <code> serviceType </code>; anders <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> als de service is niet gevonden."
   overload: System.ComponentModel.Design.MenuCommandService.GetService*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>serviceType</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>serviceType</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Design.MenuCommandService.GlobalInvoke(System.ComponentModel.Design.CommandID)
@@ -308,17 +308,17 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Invokes the given command on the local form or in the global environment."
-  remarks: "The local form is first searched for the given command ID. If it is found, it is invoked. Otherwise, the command ID is passed to the global environment command handler, if one is available."
+  summary: "Roept de gegeven opdracht op de lokale formulier of in de globale omgeving."
+  remarks: "Het lokale formulier wordt eerst gezocht naar de gegeven opdracht-ID. Als deze wordt gevonden, wordt deze aangeroepen. De opdracht-ID is anders wordt doorgegeven aan de handler van de opdracht globale omgeving als deze beschikbaar is."
   syntax:
     content: public virtual bool GlobalInvoke (System.ComponentModel.Design.CommandID commandID);
     parameters:
     - id: commandID
       type: System.ComponentModel.Design.CommandID
-      description: "The command to invoke."
+      description: "De opdracht om aan te roepen."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, if the command was found; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, als de opdracht is gevonden. anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.Design.MenuCommandService.GlobalInvoke*
   exceptions: []
   platform:
@@ -335,20 +335,20 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Invokes the given command with the given parameter on the local form or in the global environment."
-  remarks: "The local form is first searched for the given command ID. If it is found, it is invoked. Otherwise, the command ID is passed to the global environment command handler, if one is available."
+  summary: "Roept de gegeven opdracht uit met de opgegeven parameter in de lokale formulier of de globale omgeving."
+  remarks: "Het lokale formulier wordt eerst gezocht naar de gegeven opdracht-ID. Als deze wordt gevonden, wordt deze aangeroepen. De opdracht-ID is anders wordt doorgegeven aan de handler van de opdracht globale omgeving als deze beschikbaar is."
   syntax:
     content: public virtual bool GlobalInvoke (System.ComponentModel.Design.CommandID commandId, object arg);
     parameters:
     - id: commandId
       type: System.ComponentModel.Design.CommandID
-      description: "The command to invoke."
+      description: "De opdracht om aan te roepen."
     - id: arg
       type: System.Object
-      description: "A parameter for the invocation."
+      description: "Een parameter voor de aanroep."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, if the command was found; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, als de opdracht is gevonden. anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.Design.MenuCommandService.GlobalInvoke*
   exceptions: []
   platform:
@@ -365,13 +365,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Occurs when the status of a menu command has changed."
-  remarks: 'For more information about handling events, see [NIB: Consuming Events](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67).'
+  summary: "Deze gebeurtenis treedt op wanneer de status van een menuopdracht is gewijzigd."
+  remarks: 'Zie voor meer informatie over het verwerken van gebeurtenissen [KROONTJESPEN: gebeurtenissen verbruikt](http://msdn.microsoft.com/en-us/01e4f1bc-e55e-413f-98c7-6588493e5f67).'
   syntax:
     content: public event System.ComponentModel.Design.MenuCommandsChangedEventHandler MenuCommandsChanged;
     return:
       type: System.ComponentModel.Design.MenuCommandsChangedEventHandler
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -387,14 +387,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Raises the <xref href=&quot;System.ComponentModel.Design.MenuCommandService.MenuCommandsChanged&quot;></xref> event."
-  remarks: "The OnCommandsChanged method is called by a menu command when its status has changed.       Raising an event invokes the event handler through a delegate. For more information, see [NIB: Raising an Event](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2).       The OnCommandsChanged method also allows derived classes to handle the event without attaching a delegate. This is the preferred technique for handling the event in a derived class."
+  summary: "Geeft de <xref href=&quot;System.ComponentModel.Design.MenuCommandService.MenuCommandsChanged&quot;> </xref> gebeurtenis."
+  remarks: "De methode OnCommandsChanged wordt aangeroepen door een menuopdracht wanneer de status ervan is gewijzigd.       Een gebeurtenis te verhogen, roept de gebeurtenis-handler via een gemachtigde. Zie voor meer informatie [KROONTJESPEN: verhogen van een gebeurtenis](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2).       De methode OnCommandsChanged kan afgeleide klassen de gebeurtenis te verwerken zonder te koppelen van een gemachtigde. Dit is de voorkeur voor het afhandelen van de gebeurtenis in een afgeleide klasse."
   syntax:
     content: protected virtual void OnCommandsChanged (System.ComponentModel.Design.MenuCommandsChangedEventArgs e);
     parameters:
     - id: e
       type: System.ComponentModel.Design.MenuCommandsChangedEventArgs
-      description: "A <xref href=&quot;System.ComponentModel.Design.MenuCommandsChangedEventArgs&quot;></xref> that contains the event data."
+      description: "Een <xref href=&quot;System.ComponentModel.Design.MenuCommandsChangedEventArgs&quot;> </xref> waarin de gebeurtenisgegevens worden opgeslagen."
   overload: System.ComponentModel.Design.MenuCommandService.OnCommandsChanged*
   exceptions: []
   platform:
@@ -411,19 +411,19 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Removes the given menu command from the document."
-  remarks: "If there are no more commands in the command group, the group is removed."
+  summary: "Hiermee verwijdert u de gegeven opdracht uit het document."
+  remarks: "Als er geen meer opdrachten in de opdrachtgroep, wordt de groep verwijderd."
   syntax:
     content: public virtual void RemoveCommand (System.ComponentModel.Design.MenuCommand command);
     parameters:
     - id: command
       type: System.ComponentModel.Design.MenuCommand
-      description: "The command to remove."
+      description: "De opdracht om te verwijderen."
   overload: System.ComponentModel.Design.MenuCommandService.RemoveCommand*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>command</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>command</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Design.MenuCommandService.RemoveVerb(System.ComponentModel.Design.DesignerVerb)
@@ -438,18 +438,18 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Removes the given verb from the document."
+  summary: "Hiermee verwijdert u de opgegeven term uit het document."
   syntax:
     content: public virtual void RemoveVerb (System.ComponentModel.Design.DesignerVerb verb);
     parameters:
     - id: verb
       type: System.ComponentModel.Design.DesignerVerb
-      description: "The verb to remove."
+      description: "De opdracht om te verwijderen."
   overload: System.ComponentModel.Design.MenuCommandService.RemoveVerb*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>verb</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>verb</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Design.MenuCommandService.ShowContextMenu(System.ComponentModel.Design.CommandID,System.Int32,System.Int32)
@@ -464,20 +464,20 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Shows the shortcut menu with the given command ID at the given location."
-  remarks: "The default implementation does nothing."
+  summary: "Geeft het snelmenu met de gegeven opdracht-ID op de opgegeven locatie."
+  remarks: "De standaardimplementatie gebeurt er niets."
   syntax:
     content: public virtual void ShowContextMenu (System.ComponentModel.Design.CommandID menuID, int x, int y);
     parameters:
     - id: menuID
       type: System.ComponentModel.Design.CommandID
-      description: "The shortcut menu to display."
+      description: "Het snelmenu om weer te geven."
     - id: x
       type: System.Int32
-      description: "The x-coordinate of the shortcut menu&quot;s location."
+      description: "De x-coördinaat van de locatie van het snelmenu."
     - id: y
       type: System.Int32
-      description: "The y-coordinate of the shortcut menu&quot;s location."
+      description: "De y-coördinaat van de locatie van het snelmenu."
   overload: System.ComponentModel.Design.MenuCommandService.ShowContextMenu*
   exceptions: []
   platform:
@@ -494,13 +494,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Gets a collection of the designer verbs that are currently available."
-  remarks: "The Verbs property provides a collection of verbs. These verbs come from two places:      -   Verbs added through the <xref:System.ComponentModel.Design.MenuCommandService.AddVerb%2A> method of Verbs.      -   Verbs offered by the currently selected designer.       Verbs added to this service through the <xref:System.ComponentModel.Design.MenuCommandService.AddVerb%2A> method are called global verbs because they are global to this service, but generally there is one instance of this service for each tool or document window. Designer verbs are obtained by querying the service provider for <xref:System.ComponentModel.Design.IDesignerHost> and <xref:System.ComponentModel.Design.ISelectionService>. If the selection service offers a primary selection, and a designer can be obtained for that selection from <xref:System.ComponentModel.Design.IDesignerHost>, the designer’s verbs are added to this list. If the name of a global verb conflicts with the name of a designer verb, the designer-provided designer verb takes precedence."
+  summary: "Hiermee haalt u een verzameling van de ontwerpfunctie termen die momenteel beschikbaar zijn."
+  remarks: "De eigenschap termen bevat een verzameling van termen. Deze termen afkomstig zijn van de twee locaties:-termen die zijn toegevoegd via de <xref:System.ComponentModel.Design.MenuCommandService.AddVerb%2A>methode van termen.</xref:System.ComponentModel.Design.MenuCommandService.AddVerb%2A>      -Termen die worden aangeboden door de momenteel geselecteerde designer.       Termen die zijn toegevoegd aan deze service via de <xref:System.ComponentModel.Design.MenuCommandService.AddVerb%2A>methode globale termen worden genoemd, omdat ze zijn van toepassing op deze service, maar er wordt in het algemeen een exemplaar van deze service voor elk venster hulpprogramma of het document.</xref:System.ComponentModel.Design.MenuCommandService.AddVerb%2A> Opdrachten voor ontwerpen worden verkregen door het opvragen van de serviceprovider voor <xref:System.ComponentModel.Design.IDesignerHost>en <xref:System.ComponentModel.Design.ISelectionService>.</xref:System.ComponentModel.Design.ISelectionService> </xref:System.ComponentModel.Design.IDesignerHost> Als de selectie-service een primaire selectie biedt en een ontwerpfunctie kan worden verkregen voor de selectie van <xref:System.ComponentModel.Design.IDesignerHost>, de ontwerpfunctie termen worden toegevoegd aan deze lijst.</xref:System.ComponentModel.Design.IDesignerHost> Als de naam van een algemene term met de naam van een ontwerpfunctie term conflicteert, wordt de geleverde designer designer term voorrang."
   syntax:
     content: public virtual System.ComponentModel.Design.DesignerVerbCollection Verbs { get; }
     return:
       type: System.ComponentModel.Design.DesignerVerbCollection
-      description: "A <xref href=&quot;System.ComponentModel.Design.DesignerVerbCollection&quot;></xref> of the designer verbs that are currently available."
+      description: "Een <xref href=&quot;System.ComponentModel.Design.DesignerVerbCollection&quot;> </xref> van de ontwerpfunctie termen die momenteel beschikbaar zijn."
   overload: System.ComponentModel.Design.MenuCommandService.Verbs*
   exceptions: []
   platform:

@@ -15,8 +15,8 @@ items:
   nameWithType: DpapiDataProtector
   fullName: System.Security.Cryptography.DpapiDataProtector
   type: Class
-  summary: "Provides simple data protection methods."
-  remarks: "The DpapiDataProtector class provides a structured way to protect data by using the <xref:System.Security.Cryptography.ProtectedData> class. The class constructor has purpose parameters that serve like a password to identify the protected data. All three parameters are hashed and included as part of the encrypted data string. You must know the purpose parameters to unprotect the data. The <xref:System.Security.Cryptography.ProtectedData.Protect%2A?displayProperty=fullName> method that is called to encrypt the data has an `optionalEntropy` parameter that allows you to add qualifying information to encrypt the data more securely. The hash of the purpose parameters is used for optional entropy. Because you do not need a key to decrypt the data, carefully choosing the purpose data adds another level of security to data protection.       If you use a <xref:System.Security.Cryptography.DpapiDataProtector.Scope%2A> setting of <xref:System.Security.Cryptography.DataProtectionScope>, only a user with logon credentials that match those of the user who encrypted the data can decrypt the data. In addition, decryption usually can be done only on the computer where the data was encrypted. The Windows function that encrypts the data creates a session key to perform the encryption. The session key is derived again when the data is to be decrypted. For a detailed description of how data is protected by using session keys, see [Windows Data Protection](http://go.microsoft.com/fwlink/?LinkId=224686).       If you use a <xref:System.Security.Cryptography.DpapiDataProtector.Scope%2A> setting of <xref:System.Security.Cryptography.DataProtectionScope> when protecting the data and do not carefully identify the purpose parameters, any other application on that computer that knows the purposes can access and unprotect the data."
+  summary: "Biedt eenvoudige beveiligingsmethode."
+  remarks: "De klasse DpapiDataProtector biedt gestructureerd om gegevens te beveiligen met behulp van de <xref:System.Security.Cryptography.ProtectedData>klasse.</xref:System.Security.Cryptography.ProtectedData> De klassen-constructor heeft een doel-parameters die als een wachtwoord fungeren voor het identificeren van de beveiligde gegevens. Alle drie de parameters worden opgedeeld en opgenomen als onderdeel van de tekenreeks voor de versleutelde gegevens. U moet weten de doel-parameters voor de beveiliging opheffen. De <xref:System.Security.Cryptography.ProtectedData.Protect%2A?displayProperty=fullName>methode die wordt aangeroepen om de gegevens te versleutelen heeft een `optionalEntropy` parameter waarmee u in aanmerking komende gegevens voor het versleutelen van de gegevens veiliger toevoegen.</xref:System.Security.Cryptography.ProtectedData.Protect%2A?displayProperty=fullName> De hash van de parameters van het doel wordt gebruikt voor optionele entropie. Omdat u niet een sleutel om de gegevens te ontsleutelen hoeft, wordt een ander niveau van beveiliging van zorgvuldig kiezen van de doel-gegevens toegevoegd aan gegevensbeveiliging.       Als u een <xref:System.Security.Cryptography.DpapiDataProtector.Scope%2A>instellen van <xref:System.Security.Cryptography.DataProtectionScope>, alleen een gebruiker met de aanmeldingsreferenties die overeenkomen met die van de gebruiker die de gegevens versleuteld om de gegevens te ontsleutelen.</xref:System.Security.Cryptography.DataProtectionScope> </xref:System.Security.Cryptography.DpapiDataProtector.Scope%2A> Bovendien kan ontsleuteling meestal worden gedaan alleen op de computer waar de gegevens zijn gecodeerd. De Windows-functie die de gegevens versleutelt maakt een sessiesleutel voor de versleuteling wordt uitgevoerd. De sessiesleutel wordt opnieuw berekend als de gegevens moeten worden gedecodeerd. Zie voor een gedetailleerde beschrijving van hoe de gegevens zijn beveiligd met behulp van sessiesleutels [Windows Data Protection](http://go.microsoft.com/fwlink/?LinkId=224686).       Als u een <xref:System.Security.Cryptography.DpapiDataProtector.Scope%2A>instellen van <xref:System.Security.Cryptography.DataProtectionScope>bij het beveiligen van de gegevens en de doel-parameters niet zorgvuldig identificeren, een andere toepassing op de computer die de toepassing weet kan openen en de beveiliging opheffen.</xref:System.Security.Cryptography.DataProtectionScope> </xref:System.Security.Cryptography.DpapiDataProtector.Scope%2A>"
   syntax:
     content: 'public sealed class DpapiDataProtector : System.Security.Cryptography.DataProtector'
   inheritance:
@@ -45,25 +45,25 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography
-  summary: "Creates a new instance of the <xref href=&quot;System.Security.Cryptography.DpapiDataProtector&quot;></xref> class by using the specified application name, primary purpose, and specific purposes."
-  remarks: "The application name specified by the `appName` parameter is considered to be a part of the purpose for the protected data. The three parameters are hashed, and the hash is used for both protecting and unprotecting the data. Examples of `primaryPurpose` and `specificPurposes` values are **Giftcard** and **\\<gift card number>** or **Invoice** and **\\<invoice number>**."
+  summary: "Maakt een nieuw exemplaar van de <xref href=&quot;System.Security.Cryptography.DpapiDataProtector&quot;> </xref> klasse met behulp van de opgegeven toepassingsnaam, de primaire doel en de specifieke doeleinden."
+  remarks: "De naam van de toepassing opgegeven door de `appName` parameter wordt beschouwd als een deel van het doel voor de beveiligde gegevens. De drie parameters worden opgedeeld en de hash wordt gebruikt voor zowel beveiliging als unprotecting van de gegevens. Voorbeelden van `primaryPurpose` en `specificPurposes` waarden zijn **Giftcard** en ** \\<Cadeauverpakking creditcardnummer >** of **factuur** en ** \\<nummer van de factuur >**."
   syntax:
     content: public DpapiDataProtector (string appName, string primaryPurpose, string[] specificPurpose);
     parameters:
     - id: appName
       type: System.String
-      description: "The name of the application."
+      description: "De naam van de toepassing."
     - id: primaryPurpose
       type: System.String
-      description: "The primary purpose for the data protector."
+      description: "Het primaire doel voor de beveiliging van gegevens."
     - id: specificPurpose
       type: System.String[]
-      description: "The specific purpose(s) for the data protector."
+      description: "De specifieke doeleinden voor de beveiliging van gegevens."
   overload: System.Security.Cryptography.DpapiDataProtector.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>appName</code> is an empty string or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>primaryPurpose</code> is an empty string or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>specificPurposes</code> contains an empty string or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>appName</code>een lege tekenreeks of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>.       - of - <code>primaryPurpose</code> is een lege tekenreeks of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>.       - of - <code>specificPurposes</code> bevat een lege tekenreeks of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   platform:
   - net462
 - uid: System.Security.Cryptography.DpapiDataProtector.IsReprotectRequired(System.Byte[])
@@ -78,17 +78,17 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography
-  summary: "Determines if the data must be re-encrypted."
-  remarks: "This method always returns `true`."
+  summary: "Hiermee wordt bepaald of de gegevens opnieuw versleuteld moeten zijn."
+  remarks: "Deze methode retourneert altijd `true`."
   syntax:
     content: public override bool IsReprotectRequired (byte[] encryptedData);
     parameters:
     - id: encryptedData
       type: System.Byte[]
-      description: "The encrypted data to be checked."
+      description: "De versleutelde gegevens moeten worden gecontroleerd."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the data must be re-encrypted; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de gegevens opnieuw moeten worden versleuteld; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Cryptography.DpapiDataProtector.IsReprotectRequired*
   exceptions: []
   platform:
@@ -109,7 +109,7 @@ items:
     content: protected override bool PrependHashedPurposeToPlaintext { get; }
     return:
       type: System.Boolean
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   overload: System.Security.Cryptography.DpapiDataProtector.PrependHashedPurposeToPlaintext*
   exceptions: []
   platform:
@@ -131,10 +131,10 @@ items:
     parameters:
     - id: userData
       type: System.Byte[]
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     return:
       type: System.Byte[]
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   overload: System.Security.Cryptography.DpapiDataProtector.ProviderProtect*
   exceptions: []
   platform:
@@ -156,10 +156,10 @@ items:
     parameters:
     - id: encryptedData
       type: System.Byte[]
-      description: "To be added."
+      description: "Moet worden toegevoegd."
     return:
       type: System.Byte[]
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   overload: System.Security.Cryptography.DpapiDataProtector.ProviderUnprotect*
   exceptions: []
   platform:
@@ -176,13 +176,13 @@ items:
   assemblies:
   - System.Security
   namespace: System.Security.Cryptography
-  summary: "Gets or sets the scope of the data protection."
-  remarks: "Data protection encrypts the data on the disk so it cannot be read by other programs.  You do not need a key to protect or unprotect the data. If you set the Scope to <xref:System.Security.Cryptography.DataProtectionScope>, only applications running on your credentials can unprotect the data; however, that means that any application running on your credentials can access the protected data.  If you set the Scope to <xref:System.Security.Cryptography.DataProtectionScope>, any full-trust application on the computer can unprotect, access, and modify the data if it knows the application name, the primary purpose, and the specific purpose."
+  summary: "Opgehaald of ingesteld van het bereik van de gegevensbescherming."
+  remarks: "Gegevensbeveiliging versleutelt de gegevens op de schijf, zodat deze kan niet worden gelezen door andere programma&quot;s.  U hoeft niet een sleutel beveiligen of de beveiliging opheffen. Als u het bereik instellen op <xref:System.Security.Cryptography.DataProtectionScope>, alleen toepassingen die worden uitgevoerd op uw referenties kunnen de beveiliging opheffen; dat betekent echter dat een toepassing die wordt uitgevoerd op uw referenties toegang de beveiligde gegevens tot.</xref:System.Security.Cryptography.DataProtectionScope>  Als u het bereik instellen op <xref:System.Security.Cryptography.DataProtectionScope>, elke toepassing volledig vertrouwen op de computer kunt opheffen, toegang tot en de gegevens wijzigen als deze de naam van de toepassing, het doel van de primaire en het doel van de specifieke kent.</xref:System.Security.Cryptography.DataProtectionScope>"
   syntax:
     content: public System.Security.Cryptography.DataProtectionScope Scope { get; set; }
     return:
       type: System.Security.Cryptography.DataProtectionScope
-      description: "One of the enumeration values that specifies the scope of the data protection (either the current user or the local machine). The default is <xref href=&quot;System.Security.Cryptography.DataProtectionScope&quot;></xref>."
+      description: "Een van de opsommingswaarden die Hiermee geeft u het bereik van de gegevensbeveiliging (de huidige gebruiker of de lokale computer). De standaardwaarde is <xref href=&quot;System.Security.Cryptography.DataProtectionScope&quot;> </xref>."
   overload: System.Security.Cryptography.DpapiDataProtector.Scope*
   exceptions: []
   platform:
