@@ -13,8 +13,8 @@ items:
   nameWithType: IFragmentCapableXmlDictionaryWriter
   fullName: System.Xml.IFragmentCapableXmlDictionaryWriter
   type: Interface
-  summary: "Contains properties and methods that when implemented by a <xref:System.Xml.XmlDictionaryWriter>, allows processing of XML fragments."
-  remarks: "This class defines the properties and methods related to the capability of an <xref:System.Xml.XmlDictionaryWriter> to redirect part of its output (a &quot;fragment&quot;) to a different stream than the stream it was created with and to directly insert such a fragment captured by redirection back into the main stream of the same writer at a later point."
+  summary: "Bevat eigenschappen en methoden wordt geïmplementeerd door een <xref:System.Xml.XmlDictionaryWriter>, kan de verwerking van XML-fragmenten.</xref:System.Xml.XmlDictionaryWriter>"
+  remarks: "Deze klasse definieert de eigenschappen en methoden voor de mogelijkheid van een <xref:System.Xml.XmlDictionaryWriter>deel uit van de uitvoer (een &quot; fragment&quot;) omleiden naar een andere stroom dan de stroom die het is gemaakt en voegt u rechtstreeks dergelijke geen fragment vastgelegd door omleiding naar de belangrijkste stroom van de dezelfde schrijver op een later tijdstip.</xref:System.Xml.XmlDictionaryWriter>"
   syntax:
     content: public interface IFragmentCapableXmlDictionaryWriter
   implements: []
@@ -32,13 +32,13 @@ items:
   assemblies:
   - System.Runtime.Serialization
   namespace: System.Xml
-  summary: "Gets a value that indicates whether this <xref:System.Xml.XmlDictionaryWriter> can process XML fragments."
-  remarks: "Returns t`r`ue if the writer that implements this interface can generate and accept XML fragments."
+  summary: "Hiermee wordt een waarde die aangeeft of dit <xref:System.Xml.XmlDictionaryWriter>XML-fragmenten kan verwerken.</xref:System.Xml.XmlDictionaryWriter>"
+  remarks: "Retourneert t`r`ue als de writer die deze interface implementeert kunt genereren en XML accepteert-fragmenten."
   syntax:
     content: public bool CanFragment { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if this <xref:System.Xml.XmlDictionaryWriter> can process XML fragments; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als dit <xref:System.Xml.XmlDictionaryWriter>XML-fragmenten kan worden verwerkt; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>.</xref:System.Xml.XmlDictionaryWriter>"
   overload: System.Xml.IFragmentCapableXmlDictionaryWriter.CanFragment*
   exceptions: []
   platform:
@@ -55,8 +55,8 @@ items:
   assemblies:
   - System.Runtime.Serialization
   namespace: System.Xml
-  summary: "Ends the processing of an XML fragment."
-  remarks: "Stops redirecting output to the stream supplied by the matching `StartFragment` call. After this call, the XML writing output goes to the stream originally used by the writer before the `StartFragment` call."
+  summary: "De verwerking van een XML-fragment eindigt."
+  remarks: "Stopt de uitvoer omleiden naar de stroom die wordt geleverd door het overeenkomende `StartFragment` aanroepen. Na deze aanroep komt de XML die uitvoer schrijven naar de stroom die oorspronkelijk zijn gebruikt door de writer voordat de `StartFragment` aanroepen."
   syntax:
     content: public void EndFragment ();
     parameters: []
@@ -76,17 +76,17 @@ items:
   assemblies:
   - System.Runtime.Serialization
   namespace: System.Xml
-  summary: "Starts the processing of an XML fragment."
-  remarks: "Temporarily starts redirecting the writing of the XML output to the supplied stream until `EndFragment` is called. If `generateSelfContainedTextFragment` is `true`, then the redirected XML output is always text XML and is self-contained in terms of its namespace context. `StartFragment`() calls cannot be nested."
+  summary: "Start de verwerking van een XML-fragment."
+  remarks: "Tijdelijk begint het schrijven van de XML-uitvoer omleiden naar de opgegeven stroom tot `EndFragment` wordt aangeroepen. Als `generateSelfContainedTextFragment` is `true`, en vervolgens de omgeleide XML-uitvoer is altijd tekst XML en staat op zichzelf in termen van de naamruimte-context. `StartFragment`()-aanroepen kunnen niet worden genest."
   syntax:
     content: public void StartFragment (System.IO.Stream stream, bool generateSelfContainedTextFragment);
     parameters:
     - id: stream
       type: System.IO.Stream
-      description: "The stream to write to."
+      description: "De stroom schrijven naar."
     - id: generateSelfContainedTextFragment
       type: System.Boolean
-      description: "If <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, any namespaces declared outside the fragment is declared again if used inside of it; if <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> the namespaces are not declared again."
+      description: "Als <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>, naamruimten gedeclareerd buiten het fragment is gedeclareerd opnieuw als daarbinnen; wordt gebruikt als <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> de naamruimten niet opnieuw worden gedeclareerd."
   overload: System.Xml.IFragmentCapableXmlDictionaryWriter.StartFragment*
   exceptions: []
   platform:
@@ -103,8 +103,8 @@ items:
   assemblies:
   - System.Runtime.Serialization
   namespace: System.Xml
-  summary: "Writes an XML fragment to the underlying stream of the writer."
-  remarks: "Writes a fragment captured between `StartFragment` and `EndFragment` and calls back into the XmlDictionaryWriter&quot;s main stream. The fragment written is `count` bytes starting at the index `offset` from the supplied `buffer`. The behavior is undefined if the supplied fragment was not captured using this writer instance."
+  summary: "Een XML-fragment schrijft naar de onderliggende stroom van de schrijver."
+  remarks: "Schrijft een fragment vastgelegd tussen `StartFragment` en `EndFragment` en aanroepen naar de XmlDictionaryWriter belangrijkste stroom. Fragment van de geschreven is `count` bytes vanaf de index `offset` van de opgegeven `buffer`. Het gedrag is niet gedefinieerd als fragment van de opgegeven is niet vastgelegd met behulp van dit exemplaar van de schrijver."
   example:
   - "```  \nMemoryStream stream = new MemoryStream();  \nMemoryStream fragmentStream = new MemoryStream();  \nXmlDictionaryWriter writer = XmlDictionaryWriter.CreateTextWriter(stream);  \nIXmlFragmentCapableXmlDictionaryWriter fragmentWriter = writer as IXmlFragmentCapableXmlDictionaryWriter;  \nif (fragmentWriter == null || !fragmentWriter.CanFragment)  \n{  \nConsole.WriteLine(\"This writer doesn't support fragments\");  \nreturn;  \n}  \nwriter.WriteStartElement(\"Root\");  \nfragmentWriter.StartFragment(fragmentStream, false);  \nwriter.WriteStartElement(\"Body\");  \nwriter.WriteString(\"This is my body\");  \nwriter.WriteEndElement();  \nfragmentWriter.EndFragment();  \nwriter.WriteStartElement(\"CharsInTheBody\");  \nwriter.WriteValue(fragmentStream.Length);  \nwriter.WriteEndElement();  \nfragmentWriter.WriteFragment(fragmentStream.GetBuffer(), 0, (int)fragmentStream.Length);  \nwriter.WriteEndElement(); // Root  \n```"
   syntax:
@@ -112,13 +112,13 @@ items:
     parameters:
     - id: buffer
       type: System.Byte[]
-      description: "The buffer to write to."
+      description: "De buffer om naar te schrijven."
     - id: offset
       type: System.Int32
-      description: "The starting position from which to write in `buffer`."
+      description: "De beginpositie van waaruit schrijven in `buffer`."
     - id: count
       type: System.Int32
-      description: "The number of bytes to be written to the `buffer`."
+      description: "Het aantal bytes dat moet worden geschreven naar de `buffer`."
   overload: System.Xml.IFragmentCapableXmlDictionaryWriter.WriteFragment*
   exceptions: []
   platform:

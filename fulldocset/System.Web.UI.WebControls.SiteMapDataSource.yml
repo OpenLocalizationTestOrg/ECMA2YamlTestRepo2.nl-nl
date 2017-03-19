@@ -25,8 +25,8 @@ items:
   nameWithType: SiteMapDataSource
   fullName: System.Web.UI.WebControls.SiteMapDataSource
   type: Class
-  summary: "Provides a data source control that Web server controls and other controls can use to bind to hierarchical site map data."
-  remarks: "In this topic:      -   [Introduction](#introduction)      -   [Specifying the Starting Node](#specifying_the_starting_node)      -   [Retrieving Site Map Data](#retrieving_site_map_data)      -   [Declarative Syntax](#declarative_syntax)      <a name=&quot;introduction&quot;></a>    ## Introduction    The SiteMapDataSource control is a data source to the site map data that is stored by the site map providers that are configured for your site. The SiteMapDataSource enables Web server controls that are not specifically site navigation controls, such as the <xref:System.Web.UI.WebControls.TreeView>, <xref:System.Web.UI.WebControls.Menu>, and <xref:System.Web.UI.WebControls.DropDownList> controls, to bind to hierarchical site map data. You can use these Web server controls to display a site map as a table of contents or to actively navigate a site.  Alternatively, you can use the <xref:System.Web.UI.WebControls.SiteMapPath> control, which is designed specifically as a site navigation control and therefore does not need an instance of the SiteMapDataSource control.      <a name=&quot;specifying_the_starting_node&quot;></a>    ## Specifying the Starting Node    The SiteMapDataSource binds to site map data and presents its view based on a specified starting node in the site map hierarchy. By default, it is the root node of the hierarchy but it can also be any node within the hierarchy. The starting node is identified by the values of several SiteMapDataSource properties as follows:      |Starting Node|Property Values|   |-------------------|---------------------|   |The root node of the hierarchy (the default setting).|The <xref:System.Web.UI.WebControls.SiteMapDataSource.StartFromCurrentNode%2A> is `false`.<br /><br /> The <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl%2A> is not set.|   |The node that represents the currently viewed page.|The <xref:System.Web.UI.WebControls.SiteMapDataSource.StartFromCurrentNode%2A> is `true`.<br /><br /> The <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl%2A> is not set.|   |A specific node of the hierarchy.|The <xref:System.Web.UI.WebControls.SiteMapDataSource.StartFromCurrentNode%2A> is `false`.<br /><br /> The <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl%2A> is set.|       If the <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeOffset%2A> property is set to a value other than 0, it affects the starting node and with it the site map data hierarchy that is exposed by the SiteMapDataSource control. The negative or positive integer value of the <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeOffset%2A> identifies the number of levels up or down the site map hierarchy from the starting node that is identified by the <xref:System.Web.UI.WebControls.SiteMapDataSource.StartFromCurrentNode%2A> and <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl%2A> properties to offset the starting node of the subtree that is exposed by data source control.       If the <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeOffset%2A> property is set to a negative number *-n*, the starting node of the subtree that is exposed by the data source control is the ancestor node *n* hierarchical levels above the identified starting node. If the value *n* is greater than the number of ancestor levels in the hierarchical tree, the starting node of the subtree is the root node of the site map hierarchy.       If the <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeOffset%2A> property is set to a positive number +*n*, the starting node of the subtree that is exposed is a child node *n* levels below the identified starting node. Because more than one branch of child nodes might exist in the hierarchy, the SiteMapDataSource attempts to resolve a child node directly on the path between the identified starting node and the node that represents the currently requested page, if possible. If the node that represents the currently requested page is not in the subtree of the identified starting node, the value of the <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeOffset%2A> property is ignored. If the node that represents the currently requested page is less than *n* levels below the identified starting node, the currently requested page node is used as the starting node.      <a name=&quot;retrieving_site_map_data&quot;></a>    ## Retrieving Site Map Data    Site map data is retrieved from an <xref:System.Web.SiteMapProvider> object, such as <xref:System.Web.XmlSiteMapProvider>, which is the default site map provider for ASP.NET. You can specify any provider that is configured for your site to provide the site map data to the SiteMapDataSource and can obtain the list of available providers by accessing the <xref:System.Web.SiteMap.Providers%2A?displayProperty=fullName> collection.       Like all data source controls, every instance of a SiteMapDataSource is associated with a single helper object, known as a data source view. The <xref:System.Web.UI.WebControls.SiteMapDataSourceView> is a view on the site map data, according to the properties of the data source, and is retrieved by calling the <xref:System.Web.UI.WebControls.SiteMapDataSource.GetHierarchicalView%2A> method. The <xref:System.Web.UI.WebControls.SiteMapDataSourceView> maintains the <xref:System.Web.SiteMapNodeCollection> object that the controls bind to.       By default, the starting node is the root node of the hierarchy, but you can set the starting node to any node. The starting point can be a node that is relative to the current position in the site map or to an absolute position. You can specify the starting node by setting the <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl%2A> property.       The SiteMapDataSource is specialized for navigation data, and does not support common data source operations such as sorting, filtering, paging, caching, or data record operations such as updates, insertions or deletions.      <a name=&quot;declarative_syntax&quot;></a>    ## Declarative Syntax      ```   <asp:SiteMapDataSource       EnableTheming=&quot;True|False&quot;       EnableViewState=&quot;True|False&quot;       ID=&quot;string&quot;       OnDataBinding=&quot;DataBinding event handler&quot;       OnDisposed=&quot;Disposed event handler&quot;       OnInit=&quot;Init event handler&quot;       OnLoad=&quot;Load event handler&quot;       OnPreRender=&quot;PreRender event handler&quot;       OnUnload=&quot;Unload event handler&quot;       runat=&quot;server&quot;       ShowStartingNode=&quot;True|False&quot;       SiteMapProvider=&quot;string&quot;       SkinID=&quot;string&quot;       StartFromCurrentNode=&quot;True|False&quot;       StartingNodeOffset=&quot;integer&quot;       StartingNodeUrl=&quot;uri&quot;       Visible=&quot;True|False&quot;   />   ```"
+  summary: "Biedt een gegevensbronbesturingselement die webserverbesturingselementen en andere besturingselementen gebruiken kunnen voor het binden aan kaartgegevens hiërarchische site."
+  remarks: "In dit onderwerp:- [inleiding](#introduction)      -   [opgeven van het knooppunt vanaf](#specifying_the_starting_node)      -   [bij het ophalen van Site kaartgegevens](#retrieving_site_map_data)      -   [declaratieve syntaxis](#declarative_syntax) <a name=&quot;introduction&quot;> </a> ## inleiding de SiteMapDataSource besturingselement is een gegevensbron voor de kaart sitegegevens die zijn opgeslagen door de site kaart providers die zijn geconfigureerd voor uw site.       De SiteMapDataSource kunt webserverbesturingselementen die niet specifiek site navigatiebesturingselementen, zoals de <xref:System.Web.UI.WebControls.TreeView>, <xref:System.Web.UI.WebControls.Menu>, en <xref:System.Web.UI.WebControls.DropDownList>besturingselementen binden aan hiërarchische site kaartgegevens.</xref:System.Web.UI.WebControls.DropDownList> </xref:System.Web.UI.WebControls.Menu> </xref:System.Web.UI.WebControls.TreeView> U kunt deze webserverbesturingselementen gebruiken om een sitekaart als een tabel met inhoud weer te geven of om een site actief te bladeren.  U kunt ook de <xref:System.Web.UI.WebControls.SiteMapPath>besturingselement dat specifiek als een site navigatie-besturingselement is ontworpen en hoeft dus niet een exemplaar van het besturingselement SiteMapDataSource.</xref:System.Web.UI.WebControls.SiteMapPath>      <a name=&quot;specifying_the_starting_node&quot;></a>## Geven vanaf het knooppunt-SiteMapDataSource wordt gebonden aan een site kaartgegevens en geeft de weergave op basis van een opgegeven eerste knooppunt in de hiërarchie van de site-toewijzing. Standaard kan is het hoofdknooppunt van de hiërarchie maar het ook een willekeurig knooppunt in de hiërarchie. Het eerste knooppunt wordt aangeduid met de waarden van verschillende SiteMapDataSource eigenschappen als volgt: | Starten van knooppunt | Eigenschapswaarden |   |-------------------|---------------------|   | Het hoofdknooppunt van de hiërarchie (de standaardinstelling). | The <xref:System.Web.UI.WebControls.SiteMapDataSource.StartFromCurrentNode%2A> is `false`.</xref:System.Web.UI.WebControls.SiteMapDataSource.StartFromCurrentNode%2A><br /><br /> De <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl%2A>is niet ingesteld. |   | Het knooppunt dat de weergegeven pagina vertegenwoordigt. | The <xref:System.Web.UI.WebControls.SiteMapDataSource.StartFromCurrentNode%2A> is `true`.</xref:System.Web.UI.WebControls.SiteMapDataSource.StartFromCurrentNode%2A></xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl%2A><br /><br /> De <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl%2A>is niet ingesteld. |   | Een specifiek knooppunt van de hiërarchie. | The <xref:System.Web.UI.WebControls.SiteMapDataSource.StartFromCurrentNode%2A> is `false`.</xref:System.Web.UI.WebControls.SiteMapDataSource.StartFromCurrentNode%2A></xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl%2A><br /><br /> De <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl%2A>is ingesteld. |       Als de <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeOffset%2A>eigenschap is ingesteld op een andere waarde dan 0, is van invloed op het eerste knooppunt en aan de site gegevens hiërarchie die wordt blootgelegd door het besturingselement SiteMapDataSource toewijzen.</xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeOffset%2A> </xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl%2A> De waarde negatief of positief geheel getal van de <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeOffset%2A>geeft het aantal niveaus omhoog of omlaag kaart hiërarchie van de site van het beginknooppunt die wordt geïdentificeerd door de <xref:System.Web.UI.WebControls.SiteMapDataSource.StartFromCurrentNode%2A>en <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl%2A>besturingselement voor de eigenschappen van het eerste knooppunt van de substructuur die wordt blootgelegd door de gegevens wordt verschoven ten opzichte van de gegevensbron.</xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl%2A> </xref:System.Web.UI.WebControls.SiteMapDataSource.StartFromCurrentNode%2A> </xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeOffset%2A>       Als de <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeOffset%2A>eigenschap is ingesteld op een negatief getal *- n*, het eerste knooppunt van de substructuur die wordt blootgelegd door besturingselement voor de gegevensbron is het bovenliggende knooppunt *n* hiërarchische niveaus boven het geïdentificeerde beginknooppunt.</xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeOffset%2A> Als de waarde *n* is groter dan het aantal niveaus in de hiërarchische structuur van het eerste knooppunt van de substructuur bovenliggend element het hoofdknooppunt van de kaart sitehiërarchie is.       Als de <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeOffset%2A>eigenschap is ingesteld op een positief getal +*n*, het eerste knooppunt van de substructuur die wordt blootgelegd is een onderliggend knooppunt *n* niveaus onder de geïdentificeerde beginknooppunt.</xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeOffset%2A> Omdat meer dan een vertakking van onderliggende knooppunten in de hiërarchie bestaat mogelijk, probeert de SiteMapDataSource een onderliggend knooppunt rechtstreeks op het pad tussen de geïdentificeerde beginknooppunt en het knooppunt de momenteel aangevraagde pagina, indien mogelijk oplossen. Als het knooppunt dat staat voor de momenteel gevraagde pagina niet in de substructuur van het geïdentificeerde beginknooppunt, wordt de waarde van is de <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeOffset%2A>eigenschap wordt genegeerd.</xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeOffset%2A> Als het knooppunt dat staat voor de momenteel gevraagde pagina is minder dan *n* niveaus onder de geïdentificeerde beginknooppunt, het knooppunt momenteel aangevraagde pagina wordt gebruikt als het beginknooppunt.      <a name=&quot;retrieving_site_map_data&quot;></a>## Bij het ophalen van gegevens van de sites kaart kaartgegevens wordt opgehaald uit een <xref:System.Web.SiteMapProvider>object, zoals <xref:System.Web.XmlSiteMapProvider>, dit is de standaardprovider voor het toewijzen van site voor ASP.NET.</xref:System.Web.XmlSiteMapProvider> </xref:System.Web.SiteMapProvider> U kunt opgeven dat een provider die is geconfigureerd voor uw site voor de sitegegevens van de kaart aan de SiteMapDataSource en kan de lijst met beschikbare providers verkrijgen door het openen van de <xref:System.Web.SiteMap.Providers%2A?displayProperty=fullName>verzameling.</xref:System.Web.SiteMap.Providers%2A?displayProperty=fullName>       Net als alle besturingselementen voor gegevensbronnen is elke instantie van een SiteMapDataSource gekoppeld aan een enkele helperobject bekend als een gegevensbronweergave. De <xref:System.Web.UI.WebControls.SiteMapDataSourceView>is een weergave op de kaart sitegegevens volgens de eigenschappen van de gegevensbron en is opgehaald door het aanroepen van de <xref:System.Web.UI.WebControls.SiteMapDataSource.GetHierarchicalView%2A>methode.</xref:System.Web.UI.WebControls.SiteMapDataSource.GetHierarchicalView%2A> </xref:System.Web.UI.WebControls.SiteMapDataSourceView> De <xref:System.Web.UI.WebControls.SiteMapDataSourceView>houdt de <xref:System.Web.SiteMapNodeCollection>-object dat de besturingselementen aan binden.</xref:System.Web.SiteMapNodeCollection> </xref:System.Web.UI.WebControls.SiteMapDataSourceView>       Het eerste knooppunt is het hoofdknooppunt van de hiërarchie, maar u kunt het beginknooppunt instellen op een willekeurig knooppunt. Het beginpunt kan een knooppunt dat is ten opzichte van de huidige positie in de sitekaart of op de positie van een absoluut zijn. U kunt het beginknooppunt opgeven door de <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl%2A>eigenschap.</xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl%2A>       De SiteMapDataSource is speciaal bedoeld voor navigatie-gegevens en biedt geen ondersteuning voor algemene gegevensbron bewerkingen zoals sorteren, filteren, paginering, caching, of gegevens vastleggen bewerkingen zoals updates, invoegingen of verwijderingen.      <a name=&quot;declarative_syntax&quot;></a>## Declaratieve syntaxis```   <asp:SiteMapDataSource       EnableTheming=&quot;True|False&quot;       EnableViewState=&quot;True|False&quot;       ID=&quot;string&quot;       OnDataBinding=&quot;DataBinding event handler&quot;       OnDisposed=&quot;Disposed event handler&quot;       OnInit=&quot;Init event handler&quot;       OnLoad=&quot;Load event handler&quot;       OnPreRender=&quot;PreRender event handler&quot;       OnUnload=&quot;Unload event handler&quot;       runat=&quot;server&quot;       ShowStartingNode=&quot;True|False&quot;       SiteMapProvider=&quot;string&quot;       SkinID=&quot;string&quot;       StartFromCurrentNode=&quot;True|False&quot;       StartingNodeOffset=&quot;integer&quot;       StartingNodeUrl=&quot;uri&quot;       Visible=&quot;True|False&quot;   />   ```"
   example:
   - "The following code example demonstrates how to declaratively bind a <xref:System.Web.UI.WebControls.TreeView> control to a site map using a SiteMapDataSource control. The site map data is retrieved beginning at the root node level.  \n  \n [!code-cs[System.Web.UI.WebControls.SiteMapDataSource_decl_1#1](~/add/codesnippet/csharp/t-system.web.ui.webcontr_235_1.aspx)]\n [!code-vb[System.Web.UI.WebControls.SiteMapDataSource_decl_1#1](~/add/codesnippet/visualbasic/t-system.web.ui.webcontr_235_1.aspx)]"
   syntax:
@@ -173,7 +173,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.UI.WebControls.SiteMapDataSource&quot;></xref> class."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Web.UI.WebControls.SiteMapDataSource&quot;> </xref> klasse."
   syntax:
     content: public SiteMapDataSource ();
     parameters: []
@@ -193,13 +193,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets a value indicating whether the data source control contains a collection of data source view objects."
-  remarks: "The ContainsListCollection property calls the static <xref:System.Web.UI.ListSourceHelper.ContainsListCollection%2A> method of the <xref:System.Web.UI.ListSourceHelper> class."
+  summary: "Haalt een waarde die aangeeft of het gegevensbronbesturingselement een verzameling van gegevensobjecten bron weergeven bevat."
+  remarks: "De eigenschap ContainsListCollection roept de statische <xref:System.Web.UI.ListSourceHelper.ContainsListCollection%2A>methode van de <xref:System.Web.UI.ListSourceHelper>klasse.</xref:System.Web.UI.ListSourceHelper> </xref:System.Web.UI.ListSourceHelper.ContainsListCollection%2A>"
   syntax:
     content: public virtual bool ContainsListCollection { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the data source control contains a collection of data source view objects; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als het gegevensbronbesturingselement een verzameling van gegevensobjecten bron weergeven bevat; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.SiteMapDataSource.ContainsListCollection*
   exceptions: []
   platform:
@@ -216,27 +216,27 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Retrieves a single view on the site map data for the <xref href=&quot;System.Web.SiteMapProvider&quot;></xref> object according to the starting node and other properties of the data source."
+  summary: "Op de kaart sitegegevens voor één weergave haalt de <xref href=&quot;System.Web.SiteMapProvider&quot;> </xref> object volgens het beginknooppunt en andere eigenschappen van de gegevensbron."
   syntax:
     content: protected override System.Web.UI.HierarchicalDataSourceView GetHierarchicalView (string viewPath);
     parameters:
     - id: viewPath
       type: System.String
-      description: "The URL of the starting node, specified by the <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl*>."
+      description: "De URL van het eerste knooppunt, opgegeven door de <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl*>.</xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl*>"
     return:
       type: System.Web.UI.HierarchicalDataSourceView
-      description: "A <xref href=&quot;System.Web.UI.HierarchicalDataSourceView&quot;></xref> helper object on the site map data, starting with the node that is identified by the <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl*> or its child, if the <xref:System.Web.UI.WebControls.SiteMapDataSource.ShowStartingNode*> is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "Een <xref href=&quot;System.Web.UI.HierarchicalDataSourceView&quot;> </xref> helperobject op de sitegegevens tekens, vanaf het knooppunt dat wordt geïdentificeerd door de <> </> *> of het onderliggende als de <> </> *> is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.SiteMapDataSource.GetHierarchicalView*
   exceptions:
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "No <xref href=&quot;System.Web.SiteMapProvider&quot;></xref> is configured or available for the site."
+    description: "Geen <xref href=&quot;System.Web.SiteMapProvider&quot;> </xref> is geconfigureerd of beschikbaar is voor de site."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref:System.Web.UI.WebControls.SiteMapDataSource.StartFromCurrentNode*> is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> but the <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl*> is set."
+    description: "The <>*> is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> but the <>*> is set."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl*> is set but the <xref href=&quot;System.Web.UI.WebControls.SiteMapDataSource&quot;></xref> cannot resolve a node for the specified URL."
+    description: "De <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl*>is ingesteld, maar de <xref href=&quot;System.Web.UI.WebControls.SiteMapDataSource&quot;> </xref> een knooppunt voor de opgegeven URL kan niet worden omgezet.</xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl*>"
   platform:
   - net462
 - uid: System.Web.UI.WebControls.SiteMapDataSource.GetList
@@ -251,14 +251,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Retrieves a list of data source controls that can be used as sources of lists of data."
-  remarks: "Use the GetList method to retrieve a set of objects that can be used as sources for the <xref:System.Web.UI.WebControls.SiteMapDataSource> control. Site map data source controls encapsulate their lists of data as <xref:System.Web.UI.WebControls.SiteMapDataSourceView> objects. Therefore, when associated with one or more <xref:System.Web.UI.WebControls.SiteMapDataSourceView> objects, a <xref:System.Web.UI.WebControls.SiteMapDataSource> control represents a list source object and the GetList method returns a list containing one element — the data source control itself.       The GetList method calls the static <xref:System.Web.UI.ListSourceHelper.GetList%2A?displayProperty=fullName> method to retrieve a list of objects that can be used as sources of data. The <xref:System.Web.UI.ListSourceHelper> checks whether the <xref:System.Web.UI.WebControls.SiteMapDataSource.GetViewNames%2A> method returns a valid collection of view names. If it does, the <xref:System.Web.UI.ListSourceHelper> returns a list containing one element — the <xref:System.Web.UI.WebControls.SiteMapDataSource>."
+  summary: "Haalt een lijst met besturingselementen voor gegevensbronnen die kunnen worden gebruikt als bronnen van lijsten met gegevens."
+  remarks: "De methode GetList gebruiken voor het ophalen van een set objecten die kunnen worden gebruikt als bron voor de <xref:System.Web.UI.WebControls.SiteMapDataSource>besturingselement.</xref:System.Web.UI.WebControls.SiteMapDataSource> Besturingselementen voor gegevensbronnen kaart site inkapselen hun lijsten met gegevens als <xref:System.Web.UI.WebControls.SiteMapDataSourceView>objecten.</xref:System.Web.UI.WebControls.SiteMapDataSourceView> Daarom wanneer die zijn gekoppeld aan een of meer <xref:System.Web.UI.WebControls.SiteMapDataSourceView>objecten, een <xref:System.Web.UI.WebControls.SiteMapDataSource>besturingselement vertegenwoordigt een lijstobject bron en de GetList-methode retourneert een lijst met één element, het besturingselement zelf van de gegevensbron.</xref:System.Web.UI.WebControls.SiteMapDataSource> </xref:System.Web.UI.WebControls.SiteMapDataSourceView>       De methode GetList roept de statische <xref:System.Web.UI.ListSourceHelper.GetList%2A?displayProperty=fullName>methode voor het ophalen van een lijst met objecten die kunnen worden gebruikt als gegevensbron.</xref:System.Web.UI.ListSourceHelper.GetList%2A?displayProperty=fullName> De <xref:System.Web.UI.ListSourceHelper>controleert of de <xref:System.Web.UI.WebControls.SiteMapDataSource.GetViewNames%2A>methode retourneert een geldige verzameling weergavenamen.</xref:System.Web.UI.WebControls.SiteMapDataSource.GetViewNames%2A> </xref:System.Web.UI.ListSourceHelper> Zo ja, de <xref:System.Web.UI.ListSourceHelper>retourneert een lijst met één element: de <xref:System.Web.UI.WebControls.SiteMapDataSource>.</xref:System.Web.UI.WebControls.SiteMapDataSource> </xref:System.Web.UI.ListSourceHelper>"
   syntax:
     content: public virtual System.Collections.IList GetList ();
     parameters: []
     return:
       type: System.Collections.IList
-      description: "An <xref:System.Collections.IList> of data source controls that can be used as sources of lists of data."
+      description: "Een <xref:System.Collections.IList>van besturingselementen voor gegevensbronnen die kunnen worden gebruikt als bronnen van lijsten met gegevens.</xref:System.Collections.IList>"
   overload: System.Web.UI.WebControls.SiteMapDataSource.GetList*
   exceptions: []
   platform:
@@ -275,28 +275,28 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Retrieves a named view on the site map data of the site map provider according to the starting node and other properties of the data source."
-  remarks: "The `viewName` parameter is the URL for the root node of the view, not the name of the data source view as it is with other data source controls that support named views."
+  summary: "Hiermee haalt u een weergave op de kaart sitegegevens van de site kaartprovider volgens het beginknooppunt en andere eigenschappen van de gegevensbron."
+  remarks: "De `viewName` parameter is de URL voor het hoofdknooppunt van de weergave, niet de naam van de gegevensbronweergave is door andere gegevens besturingselementen voor gegevensbronnen die ondersteuning bieden voor benoemde weergaven."
   syntax:
     content: public virtual System.Web.UI.DataSourceView GetView (string viewName);
     parameters:
     - id: viewName
       type: System.String
-      description: "The name of the data source view to retrieve."
+      description: "De naam van de gegevens van de gegevensbronweergave om op te halen."
     return:
       type: System.Web.UI.DataSourceView
-      description: "A <xref href=&quot;System.Web.UI.HierarchicalDataSourceView&quot;></xref> helper object on the site map data, according to the starting node that is identified by the <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl*> property or its child, if the <xref:System.Web.UI.WebControls.SiteMapDataSource.ShowStartingNode*> is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "Een <xref href=&quot;System.Web.UI.HierarchicalDataSourceView&quot;> </xref> helperobject op de kaart sitegegevens volgens het beginknooppunt die wordt geïdentificeerd door de <> </> *> eigenschap of het onderliggende als de <> </> *> is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.SiteMapDataSource.GetView*
   exceptions:
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "The <xref:System.Web.UI.WebControls.SiteMapDataSource.Provider*> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "The <xref:System.Web.UI.WebControls.SiteMapDataSource.Provider*> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.</xref:System.Web.UI.WebControls.SiteMapDataSource.Provider*>"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref:System.Web.UI.WebControls.SiteMapDataSource.StartFromCurrentNode*> is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> but the <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl*> is set."
+    description: "The <>*> is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> but the <>*> is set."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl*> is set but the <xref href=&quot;System.Web.UI.WebControls.SiteMapDataSource&quot;></xref> cannot resolve a node for the specified URL."
+    description: "De <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl*>is ingesteld, maar de <xref href=&quot;System.Web.UI.WebControls.SiteMapDataSource&quot;> </xref> een knooppunt voor de opgegeven URL kan niet worden omgezet.</xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl*>"
   platform:
   - net462
 - uid: System.Web.UI.WebControls.SiteMapDataSource.GetViewNames
@@ -311,14 +311,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Retrieves a collection of named views for the data source control."
-  remarks: "The GetViewNames method returns a collection with one element (the default name) instead of `null` so that the <xref:System.Web.UI.WebControls.SiteMapDataSource.ContainsListCollection%2A> method returns `true`."
+  summary: "Een verzameling benoemde weergaven voor het besturingselement voor de gegevensbron opgehaald."
+  remarks: "De methode GetViewNames retourneert een verzameling met één element (de standaardnaam) in plaats van `null` zodat de <xref:System.Web.UI.WebControls.SiteMapDataSource.ContainsListCollection%2A>methode retourneert `true`.</xref:System.Web.UI.WebControls.SiteMapDataSource.ContainsListCollection%2A>"
   syntax:
     content: public virtual System.Collections.ICollection GetViewNames ();
     parameters: []
     return:
       type: System.Collections.ICollection
-      description: "An <xref:System.Collections.ICollection> of named <xref href=&quot;System.Web.UI.WebControls.SiteMapDataSourceView&quot;></xref> objects associated with the <xref href=&quot;System.Web.UI.WebControls.SiteMapDataSource&quot;></xref>. Because the <xref href=&quot;System.Web.UI.WebControls.SiteMapDataSource&quot;></xref> supports only one named view, the GetViewNames method returns an <xref:System.Collections.ICollection> with one &lt;xref:System.String.Empty?displayProperty=fullName&gt; element."
+      description: "Een <xref:System.Collections.ICollection>van benoemde <xref href=&quot;System.Web.UI.WebControls.SiteMapDataSourceView&quot;> </xref> objecten gekoppeld aan de <xref href=&quot;System.Web.UI.WebControls.SiteMapDataSource&quot;> </xref>.</xref:System.Collections.ICollection> Omdat de <xref href=&quot;System.Web.UI.WebControls.SiteMapDataSource&quot;> </xref> ondersteunt slechts één weergave met de naam, de GetViewNames-methode retourneert een <xref:System.Collections.ICollection>met een &lt;xref:System.String.Empty?displayProperty=fullName&gt; element.</xref:System.Collections.ICollection>"
   overload: System.Web.UI.WebControls.SiteMapDataSource.GetViewNames*
   exceptions: []
   platform:
@@ -335,13 +335,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets or sets a <xref href=&quot;System.Web.SiteMapProvider&quot;></xref> object that is associated with the data source control."
-  remarks: "Use the Provider property to specify the site map provider instance to use with the data source control. The instance can be different than the provider that is identified by the <xref:System.Web.UI.WebControls.SiteMapDataSource.SiteMapProvider%2A> property, if set."
+  summary: "Opgehaald of ingesteld een <xref href=&quot;System.Web.SiteMapProvider&quot;> </xref> -object dat is gekoppeld aan een besturingselement van de gegevensbron."
+  remarks: "Gebruik de eigenschap Provider om op te geven van de site kaart providerexemplaar voor gebruik met een besturingselement van de gegevensbron. Het exemplaar mag afwijken van de provider die wordt geïdentificeerd door de <xref:System.Web.UI.WebControls.SiteMapDataSource.SiteMapProvider%2A>-eigenschap als ingesteld.</xref:System.Web.UI.WebControls.SiteMapDataSource.SiteMapProvider%2A>"
   syntax:
     content: public System.Web.SiteMapProvider Provider { get; set; }
     return:
       type: System.Web.SiteMapProvider
-      description: "A <xref href=&quot;System.Web.SiteMapProvider&quot;></xref> that is associated with the data source control; otherwise, if no provider is explicitly set, the default site map provider."
+      description: "Een <xref href=&quot;System.Web.SiteMapProvider&quot;> </xref> dat is gekoppeld aan het gegevensbronbesturingselement; anders, als er geen provider expliciet is ingesteld, de standaardlocatie wijst provider."
   overload: System.Web.UI.WebControls.SiteMapDataSource.Provider*
   exceptions:
   - type: System.Web.HttpException
@@ -361,13 +361,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets or sets a value indicating whether the starting node is retrieved and displayed."
-  remarks: "The ShowStartingNode property is evaluated during calls to the <xref:System.Web.UI.WebControls.SiteMapDataSource.GetView%2A> and <xref:System.Web.UI.WebControls.SiteMapDataSource.GetHierarchicalView%2A> methods, when the node tree that is returned by these methods is populated.       The value of the ShowStartingNode property is stored in view state."
+  summary: "Opgehaald of ingesteld van een waarde die aangeeft of het beginknooppunt is opgehaald en weergegeven."
+  remarks: "De eigenschap ShowStartingNode wordt geëvalueerd tijdens het aanroepen van de <xref:System.Web.UI.WebControls.SiteMapDataSource.GetView%2A>en <xref:System.Web.UI.WebControls.SiteMapDataSource.GetHierarchicalView%2A>methoden, wanneer de knooppunt-structuur die wordt geretourneerd door deze methoden is gevuld.</xref:System.Web.UI.WebControls.SiteMapDataSource.GetHierarchicalView%2A> </xref:System.Web.UI.WebControls.SiteMapDataSource.GetView%2A>       De waarde van de eigenschap is ShowStartingNode opgeslagen in de weergave status."
   syntax:
     content: public virtual bool ShowStartingNode { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the starting node is displayed; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als het eerste knooppunt wordt weergegeven. anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. De standaardwaarde is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.SiteMapDataSource.ShowStartingNode*
   exceptions: []
   platform:
@@ -384,15 +384,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets or sets the name of the site map provider that the data source binds to."
-  remarks: "The value of the SiteMapProvider property is stored in view state."
+  summary: "Opgehaald of ingesteld van de naam van de provider van de site-toewijzing waaraan de gegevensbron is gebonden."
+  remarks: "De waarde van de SiteMapProvider die eigenschap is opgeslagen in de weergave status."
   example:
   - "The following code example demonstrates how to declaratively bind a <xref:System.Web.UI.WebControls.TreeView> control to site map data that is provided by an <xref:System.Web.SiteMapProvider> object other than the default provider. The Web.config file makes a custom <xref:System.Web.SiteMapProvider> object available to the `SiteMapDataSource` control:  \n  \n```  \n<system.web>      \n  <siteMap>  \n    <providers>  \n      <add name=\"AsciiTextProvider\"  \n        description=\"SiteMap provider which reads in .sitemap text files.\"  \n        type=\"Samples.AspNet.CS.SimpleTextSiteMapProvider\"  \n      siteMapFile=\"test.txt\"/>  \n    </providers>  \n  </siteMap>  \n</system.web>  \n```  \n  \n The code for the `SimpleTextSiteMapProvider` class that this Web.config file example references can be found in the <xref:System.Web.SiteMapProvider> class overview. If you use the Visual Basic example, the namespace ends in \"VB\" instead of \"CS\". You can also find sample content for the \"text.txt\" site map file in the <xref:System.Web.SiteMapProvider> class overview.  \n  \n> [!NOTE]\n>  The `AsciiTextProvider` is not the default provider for the site, which (in this case) remains the <xref:System.Web.XmlSiteMapProvider> object. The SiteMapProvider property of the <xref:System.Web.UI.WebControls.SiteMapDataSource> control is set to the name of a custom site map provider, and the <xref:System.Web.UI.WebControls.TreeView> binds to the corresponding site map data.  \n  \n [!code-vb[System.Web.UI.WebControls.SiteMapDataSource_decl_3#1](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_865_1.aspx)]\n [!code-cs[System.Web.UI.WebControls.SiteMapDataSource_decl_3#1](~/add/codesnippet/csharp/p-system.web.ui.webcontr_865_1.aspx)]"
   syntax:
     content: public virtual string SiteMapProvider { get; set; }
     return:
       type: System.String
-      description: "The name of the site map provider that the <xref href=&quot;System.Web.UI.WebControls.SiteMapDataSource&quot;></xref> binds to. By default, the value is <xref:System.String.Empty>, and the default site map provider for the site is used."
+      description: "De naam van de provider van de kaart site die de <xref href=&quot;System.Web.UI.WebControls.SiteMapDataSource&quot;> </xref> koppelt aan. De waarde is standaard <xref:System.String.Empty>, en de standaardprovider voor het toewijzen van site voor de site wordt gebruikt.</xref:System.String.Empty>"
   overload: System.Web.UI.WebControls.SiteMapDataSource.SiteMapProvider*
   exceptions: []
   platform:
@@ -409,13 +409,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets or sets a value indicating whether the site map node tree is retrieved using the node that represents the current page."
-  remarks: "The StartFromCurrentNode property is evaluated during calls to the <xref:System.Web.UI.WebControls.SiteMapDataSource.GetView%2A> and the <xref:System.Web.UI.WebControls.SiteMapDataSource.GetHierarchicalView%2A> methods to help determine which site map node to use as a starting point to build the node tree. The StartFromCurrentNode and <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl%2A> properties are mutually exclusive — if you set the <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl%2A> property, ensure that the StartFromCurrentNode property is `false`.       The value of the StartFromCurrentNode property is stored in view state."
+  summary: "Opgehaald of ingesteld van een waarde die aangeeft of de structuur van site kaart knooppunt is opgehaald met behulp van het knooppunt dat de huidige pagina vertegenwoordigt."
+  remarks: "De eigenschap StartFromCurrentNode wordt geëvalueerd tijdens het aanroepen van de <xref:System.Web.UI.WebControls.SiteMapDataSource.GetView%2A>en de <xref:System.Web.UI.WebControls.SiteMapDataSource.GetHierarchicalView%2A>methoden om te bepalen welk knooppunt van de kaart site moet worden gebruikt als een startpunt voor het bouwen van de structuur van het knooppunt wijst.</xref:System.Web.UI.WebControls.SiteMapDataSource.GetHierarchicalView%2A> </xref:System.Web.UI.WebControls.SiteMapDataSource.GetView%2A> De StartFromCurrentNode en <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl%2A>Eigenschappen sluiten elkaar wederzijds uit — als u de <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl%2A>eigenschap, zorg ervoor dat de eigenschap StartFromCurrentNode `false`.</xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl%2A> </xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl%2A>       De waarde van de eigenschap is StartFromCurrentNode opgeslagen in de weergave status."
   syntax:
     content: public virtual bool StartFromCurrentNode { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the node tree is retrieved relative to the current page; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de structuur van het knooppunt wordt opgehaald ten opzichte van de huidige pagina. anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. De standaardwaarde is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.SiteMapDataSource.StartFromCurrentNode*
   exceptions: []
   platform:
@@ -432,15 +432,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets or sets a positive or negative integer offset from the starting node that determines the root hierarchy that is exposed by the data source control."
-  remarks: "If the StartingNodeOffset property is set to a value other than 0, it affects the starting node and with it the site map data hierarchy that is exposed by the <xref:System.Web.UI.WebControls.SiteMapDataSource> control. The negative or positive integer value of the StartingNodeOffset identifies the number of levels up or down the site map hierarchy from the starting node that is identified by the <xref:System.Web.UI.WebControls.SiteMapDataSource.StartFromCurrentNode%2A> and <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl%2A> properties to offset the starting node of the subtree that is exposed by data source control.       If the identified starting node is the node that represents the currently requested page, the StartingNodeOffset is ignored.       If the StartingNodeOffset property is set to a negative number -*n*, the starting node of the subtree that is exposed by the data source control is the ancestor node *n* hierarchical levels above the identified starting node. If the value *n* is greater than the number of ancestor levels in the hierarchical tree, the starting node of the subtree is the root node of the site map hierarchy.       If the StartingNodeOffset property is set to a positive number +*n*, the starting node of the subtree that is exposed is a child node *n* levels below the identified starting node. Because more than one branch of child nodes might exist in the hierarchy, the <xref:System.Web.UI.WebControls.SiteMapDataSource> attempts to resolve a child node directly on the path between the identified starting node and the node that represents the currently requested page, if possible. If the node that represents the currently requested page is not in the subtree of the identified starting node, the value of the StartingNodeOffset property is ignored. If the node that represents the currently requested page is less than *n* levels below the identified starting node, the currently requested page node is used as the starting node.       The value of the StartingNodeOffset property is stored in view state."
+  summary: "Opgehaald of ingesteld van een positieve of negatieve integer-verschuiving van het eerste knooppunt die de basis-hiërarchie die wordt blootgelegd door het gegevensbronbesturingselement bepaalt."
+  remarks: "Als de eigenschap StartingNodeOffset is ingesteld op een andere waarde dan 0, is van invloed op het eerste knooppunt en aan de site toewijzen gegevens hiërarchie die wordt blootgelegd door de <xref:System.Web.UI.WebControls.SiteMapDataSource>besturingselement.</xref:System.Web.UI.WebControls.SiteMapDataSource> De waarde negatief of positief geheel getal van de StartingNodeOffset identificeert het aantal niveaus omhoog of omlaag kaart hiërarchie van de site van het beginknooppunt die wordt geïdentificeerd door de <xref:System.Web.UI.WebControls.SiteMapDataSource.StartFromCurrentNode%2A>en <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl%2A>besturingselement voor de eigenschappen van het eerste knooppunt van de substructuur die wordt blootgelegd door de gegevens wordt verschoven ten opzichte van de gegevensbron.</xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl%2A> </xref:System.Web.UI.WebControls.SiteMapDataSource.StartFromCurrentNode%2A>       Als het geïdentificeerde beginknooppunt het knooppunt dat de momenteel aangevraagde pagina vertegenwoordigt is, wordt de StartingNodeOffset genegeerd.       Als de eigenschap StartingNodeOffset is ingesteld op een negatief getal -*n*, het eerste knooppunt van de substructuur die wordt blootgelegd door besturingselement voor de gegevensbron is het bovenliggende knooppunt *n* hiërarchische niveaus boven het geïdentificeerde beginknooppunt. Als de waarde *n* is groter dan het aantal niveaus in de hiërarchische structuur van het eerste knooppunt van de substructuur bovenliggend element het hoofdknooppunt van de kaart sitehiërarchie is.       Als de eigenschap StartingNodeOffset is ingesteld op een positief getal +*n*, het eerste knooppunt van de substructuur die wordt blootgelegd is een onderliggend knooppunt *n* niveaus onder de geïdentificeerde beginknooppunt. Omdat meer dan een vertakking van onderliggende knooppunten in de hiërarchie bestaat mogelijk de <xref:System.Web.UI.WebControls.SiteMapDataSource>probeert een onderliggend knooppunt rechtstreeks op het pad tussen de geïdentificeerde beginknooppunt en het knooppunt de momenteel aangevraagde pagina, indien mogelijk oplossen.</xref:System.Web.UI.WebControls.SiteMapDataSource> Als het knooppunt dat staat voor de momenteel aangevraagde pagina niet in de substructuur van het geïdentificeerde beginknooppunt, wordt de waarde van de eigenschap StartingNodeOffset genegeerd. Als het knooppunt dat staat voor de momenteel gevraagde pagina is minder dan *n* niveaus onder de geïdentificeerde beginknooppunt, het knooppunt momenteel aangevraagde pagina wordt gebruikt als het beginknooppunt.       De waarde van de eigenschap is StartingNodeOffset opgeslagen in de weergave status."
   example:
   - "The following code example demonstrates the effect of the <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl%2A> and StartingNodeOffset properties. The example consists of several ASP.NET pages, a master page, master page section, and a Web.sitemap file. The Web.sitemap file defines the hierarchical structure of the site. For this code example, it defines a number of pages identified by unique URLs, such as 1.aspx, 2.aspx, A.aspx, and B.aspx, as follows:  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]  \n  \n The Site.master page contains the <xref:System.Web.UI.WebControls.SiteMapDataSource> and a <xref:System.Web.UI.WebControls.TreeView> controls inside a <xref:System.Web.UI.WebControls.ContentPlaceHolder> control. It identifies the starting node of the exposed hierarchy as Default.aspx, using the <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl%2A> property. The Site.master file is used by the Default.aspx page only.  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]  \n  \n All other pages, such as 1.aspx, 2.aspx, A.aspx, and so on, use the Section.master master page. This master page is very similar to Site.master, however it contains several <xref:System.Web.UI.WebControls.SiteMapDataSource> controls that you can experiment with. The <xref:System.Web.UI.WebControls.TreeView> control that displays site map data is initially bound to `SiteMapDataSource1`, which specifies a StartingNodeOffset of 1. This indicates that the parent node of the currently requested page is displayed. If you view page 1.aspx, the hierarchy displayed by the <xref:System.Web.UI.WebControls.TreeView> is A, 1, 2. However, if you view page 4.aspx, the hierarchy is B, 3, 4.  \n  \n If you change the <xref:System.Web.UI.WebControls.HierarchicalDataBoundControl.DataSourceID%2A> for the <xref:System.Web.UI.WebControls.TreeView> to `SiteMapDataSource2`, the <xref:System.Web.UI.WebControls.TreeView> control displays site map data differently. When you use `SiteMapDataSource2`, the <xref:System.Web.UI.WebControls.SiteMapDataSource.StartFromCurrentNode%2A> property is set to `true`, which means that the site map data is displayed relative to the currently requested page and the StartingNodeOffset property is set to -1, indicating that one level of child nodes is displayed, when possible.  When you view the A.aspx page, the hierarchy that is displayed is the hierarchy of the current level, including all siblings, such as B and C. When you view 1.aspx, the parent nodes are no longer displayed.  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]  \n  \n The following code example demonstrates one of the ASP.NET pages you can use with the other components of this code example.  \n  \n```  \n<%@ Page MasterPageFile=\"~/Section.master\" Title=\"Untitled Page\" %>  \n  \n<asp:Content ID=\"Content1\" ContentPlaceHolderID=MainBody Runat=Server>  \n  <h2>1.aspx</h2>  \n</asp:Content>  \n```"
   syntax:
     content: public virtual int StartingNodeOffset { get; set; }
     return:
       type: System.Int32
-      description: "The default is 0, which indicates that the root hierarchy exposed by the <xref href=&quot;System.Web.UI.WebControls.SiteMapDataSource&quot;></xref> is the same as the starting node."
+      description: "De standaardwaarde is 0, waarmee wordt aangegeven dat de basis-hiërarchie die worden weergegeven door de <xref href=&quot;System.Web.UI.WebControls.SiteMapDataSource&quot;> </xref> is hetzelfde als het beginknooppunt."
   overload: System.Web.UI.WebControls.SiteMapDataSource.StartingNodeOffset*
   exceptions: []
   platform:
@@ -457,15 +457,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets or sets a node in the site map that the data source then uses as a reference point to retrieve nodes from a hierarchical site map."
-  remarks: "The <xref:System.Web.UI.WebControls.SiteMapDataSource> property binds to site map data and presents its view based on a specified starting node in the site map hierarchy. By default, the starting node is the root node of the hierarchy, but you can set the starting node to any node with the StartingNodeUrl property or set the <xref:System.Web.UI.WebControls.SiteMapDataSource.StartFromCurrentNode%2A> property to `true`.       The value of the StartingNodeUrl property is stored in view state."
+  summary: "Opgehaald of ingesteld van een knooppunt in de sitekaart, dat de gegevensbron wordt ingesteld als een referentiepunt knooppunten ophalen uit een hiërarchische site-toewijzing."
+  remarks: "De <xref:System.Web.UI.WebControls.SiteMapDataSource>eigenschap wordt gekoppeld aan de site kaartgegevens en geeft u de weergave op basis van een opgegeven eerste knooppunt in de sitehiërarchie kaart.</xref:System.Web.UI.WebControls.SiteMapDataSource> Het eerste knooppunt is standaard het hoofdknooppunt van de hiërarchie, maar u kunt het beginknooppunt instellen naar een willekeurig knooppunt met de eigenschap StartingNodeUrl of stel de <xref:System.Web.UI.WebControls.SiteMapDataSource.StartFromCurrentNode%2A>eigenschap `true`.</xref:System.Web.UI.WebControls.SiteMapDataSource.StartFromCurrentNode%2A>       De waarde van de eigenschap is StartingNodeUrl opgeslagen in de weergave status."
   example:
   - "The following code example demonstrates how to declaratively set the StartingNodeUrl property and bind a <xref:System.Web.UI.WebControls.TreeView> control to a <xref:System.Web.UI.WebControls.SiteMapDataSource> control.  \n  \n [!code-vb[System.Web.UI.WebControls.SiteMapDataSource_decl_6#1](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_342_1.aspx)]\n [!code-cs[System.Web.UI.WebControls.SiteMapDataSource_decl_6#1](~/add/codesnippet/csharp/p-system.web.ui.webcontr_342_1.aspx)]"
   syntax:
     content: public virtual string StartingNodeUrl { get; set; }
     return:
       type: System.String
-      description: "The URL of a node in the site map. The <xref href=&quot;System.Web.UI.WebControls.SiteMapDataSource&quot;></xref> retrieves the identified <xref href=&quot;System.Web.SiteMapNode&quot;></xref> and any child nodes from the site map. The default is an <xref:System.String.Empty>."
+      description: "De URL van een knooppunt in de sitekaart. De <xref href=&quot;System.Web.UI.WebControls.SiteMapDataSource&quot;> </xref> haalt de geïdentificeerde <xref href=&quot;System.Web.SiteMapNode&quot;> </xref> en eventuele onderliggende knooppunten van de sitekaart. De standaardwaarde is een <xref:System.String.Empty>.</xref:System.String.Empty>"
   overload: System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl*
   exceptions: []
   platform:
@@ -483,13 +483,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets a value that indicates whether the collection is a collection of <xref:System.Collections.IList> objects."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.SiteMapDataSource> instance is cast to an <xref:System.ComponentModel.IListSource> interface."
+  summary: "Hiermee wordt een waarde die aangeeft of de verzameling een verzameling van is <xref:System.Collections.IList>objecten.</xref:System.Collections.IList>"
+  remarks: "Dit lid is een expliciete interface lid-implementatie. Het kan worden gebruikt alleen wanneer de <xref:System.Web.UI.WebControls.SiteMapDataSource>exemplaar is geconverteerd naar een <xref:System.ComponentModel.IListSource>interface.</xref:System.ComponentModel.IListSource> </xref:System.Web.UI.WebControls.SiteMapDataSource>"
   syntax:
     content: bool System.ComponentModel.IListSource.ContainsListCollection { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <xref href=&quot;System.Web.UI.WebControls.SiteMapDataSource&quot;></xref> is associated with one or more <xref href=&quot;System.Web.UI.WebControls.SiteMapDataSourceView&quot;></xref> objects; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de <xref href=&quot;System.Web.UI.WebControls.SiteMapDataSource&quot;> </xref> is gekoppeld aan een of meer <xref href=&quot;System.Web.UI.WebControls.SiteMapDataSourceView&quot;> </xref> objecten; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.SiteMapDataSource.System#ComponentModel#IListSource#ContainsListCollection*
   exceptions: []
   platform:
@@ -507,14 +507,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "For a description of this member, see <xref:System.ComponentModel.IListSource.GetList*>."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.SiteMapDataSource> instance is cast to an <xref:System.ComponentModel.IListSource> interface."
+  summary: "Zie voor een beschrijving van dit lid, <xref:System.ComponentModel.IListSource.GetList*>.</xref:System.ComponentModel.IListSource.GetList*>"
+  remarks: "Dit lid is een expliciete interface lid-implementatie. Het kan worden gebruikt alleen wanneer de <xref:System.Web.UI.WebControls.SiteMapDataSource>exemplaar is geconverteerd naar een <xref:System.ComponentModel.IListSource>interface.</xref:System.ComponentModel.IListSource> </xref:System.Web.UI.WebControls.SiteMapDataSource>"
   syntax:
     content: System.Collections.IList IListSource.GetList ();
     parameters: []
     return:
       type: System.Collections.IList
-      description: "An <xref:System.Collections.IList> of data source controls that can be used as sources of lists of data."
+      description: "Een <xref:System.Collections.IList>van besturingselementen voor gegevensbronnen die kunnen worden gebruikt als bronnen van lijsten met gegevens.</xref:System.Collections.IList>"
   overload: System.Web.UI.WebControls.SiteMapDataSource.System#ComponentModel#IListSource#GetList*
   exceptions: []
   platform:
@@ -532,22 +532,22 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "For a description of this member, see <xref:System.Web.UI.IDataSource.GetView*>."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.SiteMapDataSource> instance is cast to an <xref:System.Web.UI.IDataSource> interface."
+  summary: "Zie voor een beschrijving van dit lid, <xref:System.Web.UI.IDataSource.GetView*>.</xref:System.Web.UI.IDataSource.GetView*>"
+  remarks: "Dit lid is een expliciete interface lid-implementatie. Het kan worden gebruikt alleen wanneer de <xref:System.Web.UI.WebControls.SiteMapDataSource>exemplaar is geconverteerd naar een <xref:System.Web.UI.IDataSource>interface.</xref:System.Web.UI.IDataSource> </xref:System.Web.UI.WebControls.SiteMapDataSource>"
   syntax:
     content: System.Web.UI.DataSourceView IDataSource.GetView (string viewName);
     parameters:
     - id: viewName
       type: System.String
-      description: "The URL of the root node of the view."
+      description: "De URL van het hoofdknooppunt van de weergave."
     return:
       type: System.Web.UI.DataSourceView
-      description: "A <xref href=&quot;System.Web.UI.HierarchicalDataSourceView&quot;></xref> helper object on the site map data, according to the starting node identified by the <xref:System.Web.UI.WebControls.SiteMapDataSource.StartingNodeUrl*> property or its child, if the <xref:System.Web.UI.WebControls.SiteMapDataSource.ShowStartingNode*> is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "Een <xref href=&quot;System.Web.UI.HierarchicalDataSourceView&quot;> </xref> helperobject op de kaart sitegegevens volgens het beginknooppunt geïdentificeerd door de <> </> *> eigenschap of het onderliggende als de <> </> *> is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.SiteMapDataSource.System#Web#UI#IDataSource#GetView*
   exceptions:
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "No <xref href=&quot;System.Web.SiteMapProvider&quot;></xref> is configured or available for the site."
+    description: "Geen <xref href=&quot;System.Web.SiteMapProvider&quot;> </xref> is geconfigureerd of beschikbaar is voor de site."
   platform:
   - net462
 - uid: System.Web.UI.WebControls.SiteMapDataSource.System#Web#UI#IDataSource#GetViewNames
@@ -563,14 +563,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "For a description of this member, see <xref:System.Web.UI.IDataSource.GetViewNames*>."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.SiteMapDataSource> instance is cast to an <xref:System.Web.UI.IDataSource> interface."
+  summary: "Zie voor een beschrijving van dit lid, <xref:System.Web.UI.IDataSource.GetViewNames*>.</xref:System.Web.UI.IDataSource.GetViewNames*>"
+  remarks: "Dit lid is een expliciete interface lid-implementatie. Het kan worden gebruikt alleen wanneer de <xref:System.Web.UI.WebControls.SiteMapDataSource>exemplaar is geconverteerd naar een <xref:System.Web.UI.IDataSource>interface.</xref:System.Web.UI.IDataSource> </xref:System.Web.UI.WebControls.SiteMapDataSource>"
   syntax:
     content: System.Collections.ICollection IDataSource.GetViewNames ();
     parameters: []
     return:
       type: System.Collections.ICollection
-      description: "An <xref:System.Collections.ICollection> of named <xref href=&quot;System.Web.UI.WebControls.SiteMapDataSourceView&quot;></xref> objects associated with the <xref href=&quot;System.Web.UI.WebControls.SiteMapDataSource&quot;></xref>. Because the <xref href=&quot;System.Web.UI.WebControls.SiteMapDataSource&quot;></xref> supports only one named view, the <xref:System.Web.UI.WebControls.SiteMapDataSource.GetViewNames*> returns a collection containing one element set to &lt;xref:System.String.Empty?displayProperty=fullName&gt;."
+      description: "Een <xref:System.Collections.ICollection>van benoemde <xref href=&quot;System.Web.UI.WebControls.SiteMapDataSourceView&quot;> </xref> objecten gekoppeld aan de <xref href=&quot;System.Web.UI.WebControls.SiteMapDataSource&quot;> </xref>.</xref:System.Collections.ICollection> Omdat de <xref href=&quot;System.Web.UI.WebControls.SiteMapDataSource&quot;> </xref> ondersteunt slechts één weergave met de naam, de <xref:System.Web.UI.WebControls.SiteMapDataSource.GetViewNames*>retourneert een verzameling met één element worden ingesteld op &lt;xref:System.String.Empty?displayProperty=fullName&gt;.</xref:System.Web.UI.WebControls.SiteMapDataSource.GetViewNames*>"
   overload: System.Web.UI.WebControls.SiteMapDataSource.System#Web#UI#IDataSource#GetViewNames*
   exceptions: []
   platform:

@@ -15,8 +15,8 @@ items:
   nameWithType: IRawElementProviderFragment
   fullName: System.Windows.Automation.Provider.IRawElementProviderFragment
   type: Interface
-  summary: "Exposes methods and properties on [!INCLUDE[TLA#tla_ui](~/add/includes/tlasharptla-ui-md.md)] elements that are part of a structure more than one level deep, such as a list box or a list item. Implemented by UI Automation providers."
-  remarks: "The root node of the fragment must support the <xref:System.Windows.Automation.Provider.IRawElementProviderFragmentRoot> interface, which inherits from IRawElementProviderFragment."
+  summary: "Beschrijft de eigenschappen en methoden op [!INCLUDE[TLA#tla_ui](~/add/includes/tlasharptla-ui-md.md)] elementen die deel van een structuur die meer dan één uitmaken niveau diep, zoals een keuzelijst met invoervak of een item in de lijst. Door providers UI Automation geïmplementeerd."
+  remarks: "Het hoofdknooppunt van het fragment moet ondersteunen de <xref:System.Windows.Automation.Provider.IRawElementProviderFragmentRoot>interface, waardoor neemt over van IRawElementProviderFragment.</xref:System.Windows.Automation.Provider.IRawElementProviderFragmentRoot>"
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -42,15 +42,15 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Gets the bounding rectangle of this element."
-  remarks: "No clipping is required if the element is partly obscured or partly off-screen. The <xref:System.Windows.Automation.AutomationElement.AutomationElementInformation.IsOffscreen%2A> property should be set to indicate whether the rectangle is actually visible.       Not all points within the bounding rectangle are necessarily clickable."
+  summary: "Hiermee haalt u het kader van dit element."
+  remarks: "Er is geen elementknipsel is vereist als het element gedeeltelijk bedekt of gedeeltelijk buiten het scherm is. De <xref:System.Windows.Automation.AutomationElement.AutomationElementInformation.IsOffscreen%2A>eigenschap moet worden ingesteld om aan te geven of de rechthoek daadwerkelijk zichtbaar is.</xref:System.Windows.Automation.AutomationElement.AutomationElementInformation.IsOffscreen%2A>       Niet alle punten in het begrenzingsvak zijn noodzakelijkerwijs klikbaar."
   example:
   - "In the following example code, the internal state of the bounding rectangle is kept in a <xref:System.Drawing.Rectangle?displayProperty=fullName>, which is converted to a <xref:System.Windows.Rect?displayProperty=fullName> before being returned.  \n  \n [!code-vb[UIAFragmentProvider_snip#104](~/add/codesnippet/visualbasic/UIAFragmentProviderVB/ListItemFragment.vb#104)]\n [!code-cs[UIAFragmentProvider_snip#104](~/add/codesnippet/csharp/UIAFragmentProvider_snip.ElementProvider/ListItemFragment.cs#104)]"
   syntax:
     content: public System.Windows.Rect BoundingRectangle { get; }
     return:
       type: System.Windows.Rect
-      description: "The bounding rectangle, in screen coordinates."
+      description: "De begrenzingsrechthoek in schermcoördinaten."
   overload: System.Windows.Automation.Provider.IRawElementProviderFragment.BoundingRectangle*
   exceptions: []
   platform:
@@ -67,15 +67,15 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Retrieves the root node of the fragment."
-  remarks: "A provider that implements <xref:System.Windows.Automation.Provider.IRawElementProviderFragmentRoot> should return itself."
+  summary: "Haalt het hoofdknooppunt van het fragment."
+  remarks: "Een provider die wordt geïmplementeerd <xref:System.Windows.Automation.Provider.IRawElementProviderFragmentRoot>zelf moet retourneren.</xref:System.Windows.Automation.Provider.IRawElementProviderFragmentRoot>"
   example:
   - "The following code example shows an implementation for an element in a fragment, such as a list item within a list box.  \n  \n [!code-vb[UIAFragmentProvider_snip#105](~/add/codesnippet/visualbasic/UIAFragmentProviderVB/ListItemFragment.vb#105)]\n [!code-cs[UIAFragmentProvider_snip#105](~/add/codesnippet/csharp/UIAFragmentProvider_snip.ElementProvider/ListItemFragment.cs#105)]"
   syntax:
     content: public System.Windows.Automation.Provider.IRawElementProviderFragmentRoot FragmentRoot { get; }
     return:
       type: System.Windows.Automation.Provider.IRawElementProviderFragmentRoot
-      description: "The root node."
+      description: "Het hoofdknooppunt."
   overload: System.Windows.Automation.Provider.IRawElementProviderFragment.FragmentRoot*
   exceptions: []
   platform:
@@ -92,14 +92,14 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Retrieves an array of fragment roots that are embedded in the [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] element tree rooted at the current element."
-  remarks: "This method returns an array of fragments only if the current element is hosting another [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] framework. Most providers return `null`."
+  summary: "Haalt een matrix van fragment toegangspunten die zijn ingesloten in de [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] element structuur met bron in het huidige element."
+  remarks: "Deze methode retourneert een matrix van fragmenten alleen als het huidige element als host voor een andere fungeert [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] framework. De meeste providers retourneren `null`."
   syntax:
     content: public System.Windows.Automation.Provider.IRawElementProviderSimple[] GetEmbeddedFragmentRoots ();
     parameters: []
     return:
       type: System.Windows.Automation.Provider.IRawElementProviderSimple[]
-      description: "An array of root fragments, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Een matrix van root-fragmenten of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Automation.Provider.IRawElementProviderFragment.GetEmbeddedFragmentRoots*
   exceptions: []
   platform:
@@ -116,8 +116,8 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Retrieves the runtime identifier of an element."
-  remarks: "Implementations should return `null` for an element that corresponds to a window handle. Other elements should return an array that contains <xref:System.Windows.Automation.Provider.AutomationInteropProvider.AppendRuntimeId>, followed by a value that is unique within the fragment.       It is the provider&quot;s responsibility to ensure uniqueness within the fragment; for example, each item in a list must be individually numbered. The [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] engine ensures that the identifier is unique among all instances, by translating the <xref:System.Windows.Automation.Provider.AutomationInteropProvider.AppendRuntimeId>value."
+  summary: "Haalt de runtime-id van een element."
+  remarks: "Implementaties als resultaat moeten geven `null` voor een element dat overeenkomt met een vensterkoppeling. Andere elementen als resultaat moeten een matrix met <xref:System.Windows.Automation.Provider.AutomationInteropProvider.AppendRuntimeId>, gevolgd door een waarde die uniek is binnen het fragment.</xref:System.Windows.Automation.Provider.AutomationInteropProvider.AppendRuntimeId>       Het is de verantwoordelijkheid van de provider om ervoor te zorgen uniekheid in het fragment; bijvoorbeeld, moet elk item in een lijst worden afzonderlijk genummerd. De [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] engine zorgt ervoor dat de id uniek zijn in alle exemplaren van het vertalen van de <xref:System.Windows.Automation.Provider.AutomationInteropProvider.AppendRuntimeId>waarde.</xref:System.Windows.Automation.Provider.AutomationInteropProvider.AppendRuntimeId>"
   example:
   - "The following example code shows an implementation of this method by an element within a fragment, such as an item within a list box. The item has its own unique identifier within this instance of the fragment, and the <xref:System.Windows.Automation.Provider.AutomationInteropProvider.AppendRuntimeId> value ensures that the identifier returned by the method is unique in the [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] tree.  \n  \n [!code-vb[UIAFragmentProvider_snip#101](~/add/codesnippet/visualbasic/UIAFragmentProviderVB/ListItemFragment.vb#101)]\n [!code-cs[UIAFragmentProvider_snip#101](~/add/codesnippet/csharp/UIAFragmentProvider_snip.ElementProvider/ListItemFragment.cs#101)]"
   syntax:
@@ -125,7 +125,7 @@ items:
     parameters: []
     return:
       type: System.Int32[]
-      description: "The unique run-time identifier of the element."
+      description: "De unieke runtime-id van het element."
   overload: System.Windows.Automation.Provider.IRawElementProviderFragment.GetRuntimeId*
   exceptions: []
   platform:
@@ -142,8 +142,8 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Retrieves the [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] element in a specified direction within the tree."
-  remarks: "The [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] server&quot;s implementations of this method define the structure of the [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] element tree.       Navigation must be supported upward to the parent, downward to the first and last child, and laterally to the next and previous siblings, as applicable.       Each child node has only one parent and must be placed in the chain of siblings reached from the parent by <xref:System.Windows.Automation.Provider.NavigateDirection> and <xref:System.Windows.Automation.Provider.NavigateDirection>.       Relationships among siblings must be identical in both directions: if A is B&quot;s <xref:System.Windows.Automation.Provider.NavigateDirection>, then B is A&quot;s <xref:System.Windows.Automation.Provider.NavigateDirection>. A <xref:System.Windows.Automation.Provider.NavigateDirection> has no <xref:System.Windows.Automation.Provider.NavigateDirection>, and a <xref:System.Windows.Automation.Provider.NavigateDirection> has no <xref:System.Windows.Automation.Provider.NavigateDirection>.       Fragment roots do not enable navigation to a parent or siblings; navigation among fragment roots is handled by the default window providers. Elements in fragments must navigate only to other elements within that fragment."
+  summary: "Haalt de [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] element in een opgegeven richting binnen de structuur."
+  remarks: "De [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] serverimplementaties van deze methode definiëren de structuur van de [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] element structuur.       Navigatie moet ondersteunde naar boven aan het bovenliggende omlaag naar de eerste en laatste onderliggende en lateraal naar de volgende en vorige elementen op hetzelfde niveau, indien van toepassing zijn.       Elk knooppunt van de onderliggende heeft slechts één bovenliggend en moet worden geplaatst in de keten van bereikt van het bovenliggende object <xref:System.Windows.Automation.Provider.NavigateDirection>en <xref:System.Windows.Automation.Provider.NavigateDirection>.</xref:System.Windows.Automation.Provider.NavigateDirection> </xref:System.Windows.Automation.Provider.NavigateDirection> gelijke niveaus       Relaties tussen gelijke niveaus moeten identiek zijn in beide richtingen: als een van de B <xref:System.Windows.Automation.Provider.NavigateDirection>, dan is de B <xref:System.Windows.Automation.Provider.NavigateDirection>.</xref:System.Windows.Automation.Provider.NavigateDirection> </xref:System.Windows.Automation.Provider.NavigateDirection> Een <xref:System.Windows.Automation.Provider.NavigateDirection>heeft geen <xref:System.Windows.Automation.Provider.NavigateDirection>, en een <xref:System.Windows.Automation.Provider.NavigateDirection>heeft geen <xref:System.Windows.Automation.Provider.NavigateDirection>.</xref:System.Windows.Automation.Provider.NavigateDirection> </xref:System.Windows.Automation.Provider.NavigateDirection> </xref:System.Windows.Automation.Provider.NavigateDirection> </xref:System.Windows.Automation.Provider.NavigateDirection>       Fragment hoofdmappen inschakelen navigatie naar een bovenliggende of afstammelingen; niet navigatie tussen fragment hoofdmappen wordt verwerkt door de standaard venster providers. Elementen in fragmenten moeten alleen naar andere elementen in dit fragment gaan."
   example:
   - "The following example code shows the implementation of Navigate by a fragment root that has a single child element. Because the implementing element is a fragment root, it does not enable navigation to a parent element or sibling elements.  \n  \n [!code-cs[UIAProvider_snip#105](~/add/codesnippet/csharp/UIAProvider/FragmentRoot.cs#105)]\n [!code-vb[UIAProvider_snip#105](~/add/codesnippet/visualbasic/UIAProviderVB/FragmentRoot.vb#105)]  \n  \n The following example shows an implementation by a fragment that represents a single item within a list box. In this case, the element enables navigation to its parent and siblings, but not to any children.  \n  \n [!code-vb[UIAFragmentProvider_snip#103](~/add/codesnippet/visualbasic/UIAFragmentProviderVB/ListItemFragment.vb#103)]\n [!code-cs[UIAFragmentProvider_snip#103](~/add/codesnippet/csharp/UIAFragmentProvider_snip.ElementProvider/ListItemFragment.cs#103)]"
   syntax:
@@ -151,10 +151,10 @@ items:
     parameters:
     - id: direction
       type: System.Windows.Automation.Provider.NavigateDirection
-      description: "The direction in which to navigate."
+      description: "De richting waarin om te navigeren."
     return:
       type: System.Windows.Automation.Provider.IRawElementProviderFragment
-      description: "The element in the specified direction, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if there is no element in that direction"
+      description: "Het element in de opgegeven richting of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> als er geen element in die richting is"
   overload: System.Windows.Automation.Provider.IRawElementProviderFragment.Navigate*
   exceptions: []
   platform:
@@ -171,8 +171,8 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Sets the focus to this element."
-  remarks: "The [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] framework will ensure that the part of the interface that hosts this fragment is already focused before calling this method. Your implementation should update only its internal focus state; for example, by repainting a list item to show that it has the focus. If you prefer that [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] not focus the parent window, set the <xref:System.Windows.Automation.Provider.ProviderOptions> option in <xref:System.Windows.Automation.Provider.ProviderOptions> for the fragment root."
+  summary: "Hiermee stelt u de focus tot dit element."
+  remarks: "De [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] framework zorgt ervoor dat het deel van de interface die als host fungeert voor dit fragment al is gericht voordat u deze methode aanroept. Uw implementatie moet alleen de interne focus staat; bijwerken bijvoorbeeld door het bijwerken van een item in de lijst om weer te geven dat het de focus heeft. Als u liever die [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] niet het bovenliggende venster gericht, stelt u de <xref:System.Windows.Automation.Provider.ProviderOptions>optie in <xref:System.Windows.Automation.Provider.ProviderOptions>voor de basis-fragment.</xref:System.Windows.Automation.Provider.ProviderOptions> </xref:System.Windows.Automation.Provider.ProviderOptions>"
   syntax:
     content: public void SetFocus ();
     parameters: []

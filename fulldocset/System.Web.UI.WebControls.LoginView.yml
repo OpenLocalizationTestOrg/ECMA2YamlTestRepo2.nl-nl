@@ -29,8 +29,8 @@ items:
   nameWithType: LoginView
   fullName: System.Web.UI.WebControls.LoginView
   type: Class
-  summary: "Displays the appropriate content template for a given user, based on the user&quot;s authentication status and role membership."
-  remarks: "In this topic:      -   [Introduction](#introduction)      -   [Declarative Syntax](#declarative_syntax)      <a name=&quot;introduction&quot;></a>    ## Introduction    The LoginView control displays different Web site content templates (or &quot;views&quot;) for different users, based on whether the user is authenticated and, if so, which Web site roles he or she belongs to.      > [!NOTE] >  If you are not familiar with the set of login controls available in ASP.NET, see [ASP.NET Login Controls Overview](~/add/includes/ajax-current-ext-md.md) before continuing. For a list of other topics related to login controls and membership, see [Managing Users by Using Membership](~/add/includes/ajax-current-ext-md.md).       The template stored in the <xref:System.Web.UI.WebControls.LoginView.AnonymousTemplate%2A> property is displayed to any visitor to the Web site who has not logged in. Once a user is logged in, the site displays either a template associated with one of the user&quot;s roles in the <xref:System.Web.UI.WebControls.LoginView.RoleGroups%2A> property or the default template specified in the <xref:System.Web.UI.WebControls.LoginView.LoggedInTemplate%2A> property.       The LoginView control manages switching among the various templates once you assign templates to any of the three template properties of the LoginView class:      -   <xref:System.Web.UI.WebControls.LoginView.AnonymousTemplate%2A> - Specifies the template to display to users who are not logged in to the Web site. Users who are logged in will never see this template.      -   <xref:System.Web.UI.WebControls.LoginView.LoggedInTemplate%2A> - Specifies the default template to display to users who are logged in to the Web site but do not belong to any role groups with defined templates.      -   <xref:System.Web.UI.WebControls.LoginView.RoleGroups%2A> - Specifies the template to display to logged-in users who are members of roles with defined role-group templates. Content templates are associated with particular sets of roles in <xref:System.Web.UI.WebControls.RoleGroup> instances.       Role-group templates are searched in the order they are defined in the source. The first matching role-group template is displayed to the user. If a user is a member of more than one role, the first role-group template that matches any of the user&quot;s roles is used. If more than one template is associated with a single role, only the first defined template is used.       The following table describes the behavior of the LoginView control when various combinations of templates are used.      |LoggedIn Template Property|Anonymous Template Property|RoleGroups Property|LoginView behavior|   |--------------------------------|---------------------------------|-------------------------|------------------------|   |Not set|Not set|Not set|Displays no content.|   |Set|Not set|Not set|Displays content only when the user is logged in.|   |Not set|Set|Not set|Displays content only when the user is not logged in.|   |Not set|Not set|Set|Displays the first template in the <xref:System.Web.UI.WebControls.LoginView.RoleGroups%2A> collection that matches one of the user&quot;s roles. If no match is found, displays no content.|   |Set|Set|Not set|If the user is logged in, displays the template specified in the <xref:System.Web.UI.WebControls.LoginView.LoggedInTemplate%2A> property. If the user in not logged in, displays the template specified in the <xref:System.Web.UI.WebControls.LoginView.AnonymousTemplate%2A> property.|   |Set|Set|Set|If the user is logged in, displays the first template in the <xref:System.Web.UI.WebControls.LoginView.RoleGroups%2A> collection that matches one of the user&quot;s roles. If no match is found, displays the template specified in the <xref:System.Web.UI.WebControls.LoginView.LoggedInTemplate%2A> property. If the user is not logged in, displays the template specified in the <xref:System.Web.UI.WebControls.LoginView.AnonymousTemplate%2A> property.|   |Set|Not set|Set|If the user is logged in, displays the first template in the <xref:System.Web.UI.WebControls.LoginView.RoleGroups%2A> collection that matches one of the user&quot;s roles. If no match is found, displays the template specified in the <xref:System.Web.UI.WebControls.LoginView.LoggedInTemplate%2A> property. If the user is not logged in, nothing is displayed.|   |Not set|Set|Set|If the user is logged in, displays the first template in the <xref:System.Web.UI.WebControls.LoginView.RoleGroups%2A> collection that matches one of the user&quot;s roles. If no match is found, nothing is displayed. If the user is not logged in, displays the template specified in the <xref:System.Web.UI.WebControls.LoginView.AnonymousTemplate%2A> property.|       The <xref:System.Web.UI.WebControls.LoginView.AnonymousTemplate%2A> and <xref:System.Web.UI.WebControls.LoginView.LoggedInTemplate%2A> can be used with any authentication scheme that sets the <xref:System.Security.Principal.IIdentity.Name%2A> property of the <xref:System.Web.UI.Page> object&quot;s <xref:System.Web.UI.Page.User%2A> property. You must configure role management to use the <xref:System.Web.UI.WebControls.LoginView.RoleGroups%2A> property to define templates base on the user&quot;s role on the Web site. For more information, see [Understanding Role Management](~/add/includes/ajax-current-ext-md.md).       The <xref:System.Web.UI.Control.Focus%2A> method does not set the initial focus of the Web page to the LoginView control, or any of its child controls. Controls contained in the LoginView control are created after the <xref:System.Web.UI.Control.PreRender> event. To set the focus to a child control contained by the LoginView, handle the `On_PreRender` and call its <xref:System.Web.UI.Control.Focus%2A> method.  You can also use the <xref:System.Web.UI.WebControls.LoginView.ViewChanging> and <xref:System.Web.UI.WebControls.LoginView.ViewChanged> events to programmatically access the controls in the LoginView control templates.      <a name=&quot;declarative_syntax&quot;></a>    ## Declarative Syntax      ```   <asp:LoginView       EnableTheming=&quot;True|False&quot;       EnableViewState=&quot;True|False&quot;       ID=&quot;string&quot;       OnDataBinding=&quot;DataBinding event handler&quot;       OnDisposed=&quot;Disposed event handler&quot;       OnInit=&quot;Init event handler&quot;       OnLoad=&quot;Load event handler&quot;       OnPreRender=&quot;PreRender event handler&quot;       OnUnload=&quot;Unload event handler&quot;       OnViewChanged=&quot;ViewChanged event handler&quot;       OnViewChanging=&quot;ViewChanging event handler&quot;       runat=&quot;server&quot;       SkinID=&quot;string&quot;       Visible=&quot;True|False&quot;   >           <AnonymousTemplate>               <!-- child controls -->           </AnonymousTemplate>           <LoggedInTemplate>               <!-- child controls -->           </LoggedInTemplate>           <RoleGroups>                   <asp:RoleGroup                       Roles=&quot;string&quot;                   >                           <ContentTemplate>                               <!-- child controls -->                           </ContentTemplate>                   </asp:RoleGroup>           </RoleGroups>   </asp:LoginView>   ```"
+  summary: "Geeft de juiste inhoudssjabloon voor een bepaalde gebruiker, op basis van de verificatie status en de rol lidmaatschap van de gebruiker."
+  remarks: "In dit onderwerp:- [inleiding](#introduction)      -   [declaratieve syntaxis](#declarative_syntax) <a name=&quot;introduction&quot;> </a> ## van het besturingselement de LoginView inleiding bevat verschillende website inhoud sjablonen (of &quot;weergaven&quot;) voor verschillende gebruikers op basis van of de gebruiker is geverifieerd en als het geval is, welke website rollen hij of zij behoort.            > [!NOTE] > Als u niet bekend met de reeks aanmelding besturingselementen in ASP.NET bent, Zie [gebruikersbesturingselementen voor ASP.NET-aanmelding overzicht](~/add/includes/ajax-current-ext-md.md) voordat u doorgaat. Zie voor een lijst van de andere onderwerpen over lidmaatschap van en aanmelding besturingselementen [gebruikers beheren door gebruik van het lidmaatschap](~/add/includes/ajax-current-ext-md.md).       De sjabloon die is opgeslagen in de <xref:System.Web.UI.WebControls.LoginView.AnonymousTemplate%2A>eigenschap wordt weergegeven voor elke gebruiker naar de website die is niet aangemeld.</xref:System.Web.UI.WebControls.LoginView.AnonymousTemplate%2A> Wanneer een gebruiker is aangemeld, de site wordt weergegeven van een sjabloon die is gekoppeld aan een van de gebruikersrollen in de <xref:System.Web.UI.WebControls.LoginView.RoleGroups%2A>eigenschap of de standaard-sjabloon opgegeven in de <xref:System.Web.UI.WebControls.LoginView.LoggedInTemplate%2A>eigenschap.</xref:System.Web.UI.WebControls.LoginView.LoggedInTemplate%2A> </xref:System.Web.UI.WebControls.LoginView.RoleGroups%2A>       Het besturingselement LoginView beheert schakelen tussen de verschillende sjablonen wanneer u sjablonen aan een van de drie Sjablooneigenschappen van de klasse LoginView toewijzen:- <xref:System.Web.UI.WebControls.LoginView.AnonymousTemplate%2A>-Hiermee geeft u de sjabloon weer te geven voor gebruikers die niet zijn aangemeld bij de website.</xref:System.Web.UI.WebControls.LoginView.AnonymousTemplate%2A> Gebruikers die zijn aangemeld, ziet deze sjabloon nooit.      - <xref:System.Web.UI.WebControls.LoginView.LoggedInTemplate%2A>-Hiermee geeft u de standaardsjabloon weer te geven voor gebruikers die zijn aangemeld bij de website, maar geen deel uitmaken van een rolgroepen met gedefinieerde sjablonen.</xref:System.Web.UI.WebControls.LoginView.LoggedInTemplate%2A>      - <xref:System.Web.UI.WebControls.LoginView.RoleGroups%2A>-Hiermee geeft u de sjabloon op te geven voor aangemelde gebruikers die lid van functies met sjablonen gedefinieerde rol-groep zijn.</xref:System.Web.UI.WebControls.LoginView.RoleGroups%2A> Inhoud sjablonen zijn gekoppeld aan bepaalde sets van rollen in <xref:System.Web.UI.WebControls.RoleGroup>exemplaren.</xref:System.Web.UI.WebControls.RoleGroup>       Functie groep-sjablonen worden doorzocht in de volgorde waarin die ze zijn gedefinieerd in de bron. De eerste, overeenkomende functie groep-sjabloon wordt voor de gebruiker weergegeven. Als een gebruiker lid van meer dan één rol is, wordt de eerste sjabloon voor de rol-groep die overeenkomt met een van de rollen van de gebruiker gebruikt. Als meer dan één sjabloon gekoppeld aan één functie is, wordt alleen de eerste gedefinieerde sjabloon gebruikt.       De volgende tabel beschrijft het gedrag van het besturingselement LoginView wanneer verschillende combinaties van sjablonen worden gebruikt.      | LoggedIn sjablooneigenschap | Anonieme sjablooneigenschap | De eigenschap RoleGroups | LoginView gedrag |   |--------------------------------|---------------------------------|-------------------------|------------------------|   | Niet ingesteld | Niet ingesteld | Niet ingesteld | Er is geen inhoud wordt weergegeven. |   | Stel | Niet ingesteld | Niet ingesteld | Geeft inhoud weer die alleen wanneer de gebruiker is aangemeld. |   | Niet ingesteld | Stel | Niet ingesteld | Geeft inhoud weer die alleen wanneer de gebruiker niet aangemeld. |   | Niet ingesteld | Niet ingesteld | Stel | Geeft de eerste sjabloon in de <xref:System.Web.UI.WebControls.LoginView.RoleGroups%2A>verzameling die overeenkomt met een van de rollen van de gebruiker.</xref:System.Web.UI.WebControls.LoginView.RoleGroups%2A> Als er geen overeenkomst is gevonden, wordt geen inhoud. |   | Stel | Stel | Niet ingesteld | Als de gebruiker is aangemeld, geeft u de sjabloon die is opgegeven in de <xref:System.Web.UI.WebControls.LoginView.LoggedInTemplate%2A>eigenschap.</xref:System.Web.UI.WebControls.LoginView.LoggedInTemplate%2A> Als de gebruiker niet aangemeld, geeft u de sjabloon die is opgegeven in de eigenschap <xref:System.Web.UI.WebControls.LoginView.AnonymousTemplate%2A>. |   | Stel | Stel | Stel | Als de gebruiker is aangemeld, wordt de eerste sjabloon in de <xref:System.Web.UI.WebControls.LoginView.RoleGroups%2A>verzameling die overeenkomt met een van de rollen van de gebruiker.</xref:System.Web.UI.WebControls.LoginView.RoleGroups%2A> </xref:System.Web.UI.WebControls.LoginView.AnonymousTemplate%2A> Als er geen overeenkomst is gevonden, geeft u de sjabloon die is opgegeven in de <xref:System.Web.UI.WebControls.LoginView.LoggedInTemplate%2A>eigenschap.</xref:System.Web.UI.WebControls.LoginView.LoggedInTemplate%2A> Als de gebruiker niet is aangemeld, geeft u de sjabloon die is opgegeven in de eigenschap <xref:System.Web.UI.WebControls.LoginView.AnonymousTemplate%2A>. |   | Stel | Niet ingesteld | Stel | Als de gebruiker is aangemeld, wordt de eerste sjabloon in de <xref:System.Web.UI.WebControls.LoginView.RoleGroups%2A>verzameling die overeenkomt met een van de rollen van de gebruiker.</xref:System.Web.UI.WebControls.LoginView.RoleGroups%2A> </xref:System.Web.UI.WebControls.LoginView.AnonymousTemplate%2A> Als er geen overeenkomst is gevonden, geeft u de sjabloon die is opgegeven in de <xref:System.Web.UI.WebControls.LoginView.LoggedInTemplate%2A>eigenschap.</xref:System.Web.UI.WebControls.LoginView.LoggedInTemplate%2A> Als de gebruiker niet is aangemeld, wordt niets weergegeven. |   | Niet ingesteld | Stel | Stel | Als de gebruiker is aangemeld, wordt de eerste sjabloon in de <xref:System.Web.UI.WebControls.LoginView.RoleGroups%2A>verzameling die overeenkomt met een van de rollen van de gebruiker.</xref:System.Web.UI.WebControls.LoginView.RoleGroups%2A> Als er geen overeenkomst is gevonden, wordt niets weergegeven. Als de gebruiker niet is aangemeld, geeft u de sjabloon die is opgegeven in de eigenschap <xref:System.Web.UI.WebControls.LoginView.AnonymousTemplate%2A>. |       De <xref:System.Web.UI.WebControls.LoginView.AnonymousTemplate%2A>en <xref:System.Web.UI.WebControls.LoginView.LoggedInTemplate%2A>kan worden gebruikt met een verificatieschema dat Hiermee stelt u de <xref:System.Security.Principal.IIdentity.Name%2A>eigenschap van de <xref:System.Web.UI.Page>van het object <xref:System.Web.UI.Page.User%2A>eigenschap.</xref:System.Web.UI.Page.User%2A> </xref:System.Web.UI.Page> </xref:System.Security.Principal.IIdentity.Name%2A> </xref:System.Web.UI.WebControls.LoginView.LoggedInTemplate%2A> </xref:System.Web.UI.WebControls.LoginView.AnonymousTemplate%2A> </xref:System.Web.UI.WebControls.LoginView.AnonymousTemplate%2A> Rollen beheren te gebruiken moet u de <xref:System.Web.UI.WebControls.LoginView.RoleGroups%2A>eigenschap in op basis van sjablonen definiëren voor de rol van de gebruiker op de website.</xref:System.Web.UI.WebControls.LoginView.RoleGroups%2A> Zie voor meer informatie [Understanding rollenbeheer](~/add/includes/ajax-current-ext-md.md).       De <xref:System.Web.UI.Control.Focus%2A>methode stelt niet de eerste focus van de webpagina op het besturingselement LoginView of een van de onderliggende besturingselementen.</xref:System.Web.UI.Control.Focus%2A> Besturingselementen die zijn opgenomen in het besturingselement LoginView zijn gemaakt na de <xref:System.Web.UI.Control.PreRender>gebeurtenis.</xref:System.Web.UI.Control.PreRender> Om de focus instelt op een onderliggend besturingselement deel uitmaken van de LoginView, verwerkt de `On_PreRender` en roept u de <xref:System.Web.UI.Control.Focus%2A>methode.</xref:System.Web.UI.Control.Focus%2A>  U kunt ook de <xref:System.Web.UI.WebControls.LoginView.ViewChanging>en <xref:System.Web.UI.WebControls.LoginView.ViewChanged>gebeurtenissen programmatisch toegang verkrijgen tot de besturingselementen in de LoginView beheren van sjablonen.</xref:System.Web.UI.WebControls.LoginView.ViewChanged> </xref:System.Web.UI.WebControls.LoginView.ViewChanging>      <a name=&quot;declarative_syntax&quot;></a>## Declaratieve syntaxis```   <asp:LoginView       EnableTheming=&quot;True|False&quot;       EnableViewState=&quot;True|False&quot;       ID=&quot;string&quot;       OnDataBinding=&quot;DataBinding event handler&quot;       OnDisposed=&quot;Disposed event handler&quot;       OnInit=&quot;Init event handler&quot;       OnLoad=&quot;Load event handler&quot;       OnPreRender=&quot;PreRender event handler&quot;       OnUnload=&quot;Unload event handler&quot;       OnViewChanged=&quot;ViewChanged event handler&quot;       OnViewChanging=&quot;ViewChanging event handler&quot;       runat=&quot;server&quot;       SkinID=&quot;string&quot;       Visible=&quot;True|False&quot;   >           <AnonymousTemplate>               <!-- child controls -->           </AnonymousTemplate>           <LoggedInTemplate>               <!-- child controls -->           </LoggedInTemplate>           <RoleGroups>                   <asp:RoleGroup                       Roles=&quot;string&quot;                   >                           <ContentTemplate>                               <!-- child controls -->                           </ContentTemplate>                   </asp:RoleGroup>           </RoleGroups>   </asp:LoginView>   ```"
   example:
   - "The following code example shows how to set templates for each of the three template types supported by the LoginView control.  \n  \n [!code-vb[LoginViewClass#1](~/add/codesnippet/visualbasic/t-system.web.ui.webcontr_335_1.aspx)]\n [!code-cs[LoginViewClass#1](~/add/codesnippet/csharp/t-system.web.ui.webcontr_335_1.aspx)]"
   syntax:
@@ -167,7 +167,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.UI.WebControls.LoginView&quot;></xref> control."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Web.UI.WebControls.LoginView&quot;> </xref> besturingselement."
   syntax:
     content: public LoginView ();
     parameters: []
@@ -187,15 +187,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets or sets the template to display to users who are not logged in to the Web site."
-  remarks: "The AnonymousTemplate property specifies the content template to display to Web site users when they are not logged in to the Web site. This template is displayed when the <xref:System.Security.Principal.IIdentity.Name%2A> property of the <xref:System.Web.UI.Page><xref:System.Web.UI.Page.User%2A> property is `null`.       The AnonymousTemplate template is never displayed to authenticated users. If the AnonymousTemplate property is empty, no content is displayed to users who are not logged in."
+  summary: "Opgehaald of ingesteld van de sjabloon worden weergegeven voor gebruikers die niet zijn aangemeld bij de website."
+  remarks: "De eigenschap AnonymousTemplate geeft de inhoudssjabloon moet worden weergegeven voor gebruikers van de website als ze niet zijn aangemeld bij de website. Deze sjabloon wordt weergegeven wanneer de <xref:System.Security.Principal.IIdentity.Name%2A>eigenschap van de <xref:System.Web.UI.Page><xref:System.Web.UI.Page.User%2A>eigenschap is `null`.</xref:System.Web.UI.Page.User%2A></xref:System.Web.UI.Page> </xref:System.Security.Principal.IIdentity.Name%2A>       De sjabloon AnonymousTemplate wordt nooit voor geverifieerde gebruikers weergegeven. Als de eigenschap AnonymousTemplate leeg is, wordt geen inhoud wordt weergegeven voor gebruikers die niet is aangemeld."
   example:
   - "The following code example uses the template specified in the AnonymousTemplate template to display an invitation to sign up for personalized services.  \n  \n [!code-vb[LoginViewAnonymousTemplate#1](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_899_1.aspx)]\n [!code-cs[LoginViewAnonymousTemplate#1](~/add/codesnippet/csharp/p-system.web.ui.webcontr_899_1.aspx)]"
   syntax:
     content: public virtual System.Web.UI.ITemplate AnonymousTemplate { get; set; }
     return:
       type: System.Web.UI.ITemplate
-      description: "The <xref href=&quot;System.Web.UI.ITemplate&quot;></xref> to display."
+      description: "De <xref href=&quot;System.Web.UI.ITemplate&quot;> </xref> om weer te geven."
   overload: System.Web.UI.WebControls.LoginView.AnonymousTemplate*
   exceptions: []
   platform:
@@ -212,12 +212,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets the <xref href=&quot;System.Web.UI.ControlCollection&quot;></xref> object that contains the child controls for the <xref href=&quot;System.Web.UI.WebControls.LoginView&quot;></xref> control."
+  summary: "Haalt de <xref href=&quot;System.Web.UI.ControlCollection&quot;> </xref> object met de onderliggende besturingselementen voor de <xref href=&quot;System.Web.UI.WebControls.LoginView&quot;> </xref> besturingselement."
   syntax:
     content: public override System.Web.UI.ControlCollection Controls { get; }
     return:
       type: System.Web.UI.ControlCollection
-      description: "The collection of child controls for the <xref href=&quot;System.Web.UI.WebControls.LoginView&quot;></xref> control."
+      description: "De verzameling onderliggende besturingselementen voor de <xref href=&quot;System.Web.UI.WebControls.LoginView&quot;> </xref> besturingselement."
   overload: System.Web.UI.WebControls.LoginView.Controls*
   exceptions: []
   platform:
@@ -234,8 +234,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Creates the child controls that make up the <xref href=&quot;System.Web.UI.WebControls.LoginView&quot;></xref> control."
-  remarks: "The CreateChildControls method creates the individual controls that make up the <xref:System.Web.UI.WebControls.LoginView> control. The set of controls created varies according to the content template displayed for the user. For example, when a user is not logged in to the Web site, only the controls contained in the template specified in the <xref:System.Web.UI.WebControls.LoginView.AnonymousTemplate%2A> property are created."
+  summary: "Hiermee maakt u de onderliggende besturingselementen die gezamenlijk de <xref href=&quot;System.Web.UI.WebControls.LoginView&quot;> </xref> besturingselement."
+  remarks: "De methode CreateChildControls maakt u de afzonderlijke besturingselementen die gezamenlijk de <xref:System.Web.UI.WebControls.LoginView>besturingselement.</xref:System.Web.UI.WebControls.LoginView> De set met besturingselementen die zijn gemaakt, is afhankelijk van de inhoudssjabloon voor de gebruiker weergegeven. Bijvoorbeeld, wanneer een gebruiker is niet aangemeld bij de website, alleen de besturingselementen die zijn opgenomen in de sjabloon opgegeven de <xref:System.Web.UI.WebControls.LoginView.AnonymousTemplate%2A>eigenschap worden gemaakt.</xref:System.Web.UI.WebControls.LoginView.AnonymousTemplate%2A>"
   syntax:
     content: protected override void CreateChildControls ();
     parameters: []
@@ -255,8 +255,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Binds a data source to <xref href=&quot;System.Web.UI.WebControls.LoginView&quot;></xref> and all its child controls."
-  remarks: "Use the DataBind method to bind data from a source to the <xref:System.Web.UI.WebControls.LoginView> control and its children. This method resolves all data-binding expressions in the <xref:System.Web.UI.WebControls.LoginView> control and any child controls in the active template."
+  summary: "Een gegevensbron wordt gebonden <xref href=&quot;System.Web.UI.WebControls.LoginView&quot;> </xref> en de onderliggende besturingselementen."
+  remarks: "Gebruik de methode DataBind gegevens binden van een bron voor de <xref:System.Web.UI.WebControls.LoginView>besturingselement en de onderliggende.</xref:System.Web.UI.WebControls.LoginView> Deze methode is opgelost alle expressies voor gegevensbinding in de <xref:System.Web.UI.WebControls.LoginView>besturingselement en eventuele onderliggende besturingselementen in de actieve sjabloon.</xref:System.Web.UI.WebControls.LoginView>"
   syntax:
     content: public override void DataBind ();
     parameters: []
@@ -276,13 +276,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets or sets a value indicating whether themes can be applied to the <xref href=&quot;System.Web.UI.WebControls.LoginView&quot;></xref> control."
-  remarks: "The EnableTheming property indicates whether themes are enabled for the <xref:System.Web.UI.WebControls.LoginView> control. The EnableTheming property also affects whether themes are enabled for the controls contained in its <xref:System.Web.UI.WebControls.LoginView.Controls%2A> collection. When the EnableTheming property is `true`, the application&quot;s theme directory is searched for control skins to apply. If no skin for the particular control exists in the theme directory, a skin is not applied. When the EnableTheming property is `false`, the theme directory is not searched and the contents of the <xref:System.Web.UI.WebControls.LoginView.SkinID%2A> property are not used.       A control can override the EnableTheming value set by its parent control, or the containing page. For example, if a parent control has EnableTheming set to `false`, you can selectively apply themes to child controls contained within the parent by setting the EnableTheming property to `true` on the individual child controls."
+  summary: "Opgehaald of ingesteld van een waarde die aangeeft of thema&quot;s kunnen worden toegepast op de <xref href=&quot;System.Web.UI.WebControls.LoginView&quot;> </xref> besturingselement."
+  remarks: "De eigenschap EnableTheming geeft aan of thema&quot;s zijn ingeschakeld voor de <xref:System.Web.UI.WebControls.LoginView>besturingselement.</xref:System.Web.UI.WebControls.LoginView> De eigenschap EnableTheming ook van invloed op of de thema&quot;s zijn ingeschakeld voor de besturingselementen die zijn opgenomen in de <xref:System.Web.UI.WebControls.LoginView.Controls%2A>verzameling.</xref:System.Web.UI.WebControls.LoginView.Controls%2A> Als de eigenschap EnableTheming is `true`, van de toepassing thema directory wordt gezocht naar Besturingselementweergaven om toe te passen. Als er geen weergave voor het besturingselement bepaald in de themamap bestaat, wordt een skin niet toegepast. Als de eigenschap EnableTheming is `false`, is niet in de themamap gezocht en de inhoud van de <xref:System.Web.UI.WebControls.LoginView.SkinID%2A>eigenschap niet worden gebruikt.</xref:System.Web.UI.WebControls.LoginView.SkinID%2A>       Een besturingselement kunt u de waarde EnableTheming is ingesteld door het bovenliggende besturingselement of de inhoudspagina overschrijven. Bijvoorbeeld, als het bovenliggendbesturingselement heeft EnableTheming ingesteld op `false`, kunt u selectief thema&quot;s toepassen op onderliggende besturingselementen die zijn opgenomen in de bovenliggende door de eigenschap EnableTheming in te stellen op `true` op de afzonderlijke onderliggende besturingselementen."
   syntax:
     content: public override bool EnableTheming { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to use themes; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>gebruik van thema; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. De standaardwaarde is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.LoginView.EnableTheming*
   exceptions: []
   platform:
@@ -299,8 +299,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Sets input focus to a control."
-  remarks: "The Focus method does not set the initial focus of the Web page to the <xref:System.Web.UI.WebControls.LoginView> control or to any of its child controls. Controls that are contained in the <xref:System.Web.UI.WebControls.LoginView> control are created after the <xref:System.Web.UI.Control.PreRender> event. To set the focus to a child control contained by the <xref:System.Web.UI.WebControls.LoginView>, handle the `On_PreRender` and call its <xref:System.Web.UI.Control.Focus%2A> method."
+  summary: "Sets invoer focus naar een besturingselement."
+  remarks: "De methode Focus niet is ingesteld op de eerste focus van de webpagina voor de <xref:System.Web.UI.WebControls.LoginView>besturingselement of aan een van de onderliggende besturingselementen.</xref:System.Web.UI.WebControls.LoginView> Besturingselementen die zijn opgenomen in de <xref:System.Web.UI.WebControls.LoginView>besturingselement zijn gemaakt na de <xref:System.Web.UI.Control.PreRender>gebeurtenis.</xref:System.Web.UI.Control.PreRender> </xref:System.Web.UI.WebControls.LoginView> De focus instellen op een onderliggend besturingselement deel uitmaken van de <xref:System.Web.UI.WebControls.LoginView>, verwerkt de `On_PreRender` en roept u de <xref:System.Web.UI.Control.Focus%2A>methode.</xref:System.Web.UI.Control.Focus%2A> </xref:System.Web.UI.WebControls.LoginView>"
   syntax:
     content: public override void Focus ();
     parameters: []
@@ -308,7 +308,7 @@ items:
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "You call the Focus method."
+    description: "U aanroept de Focus-methode."
   platform:
   - net462
 - uid: System.Web.UI.WebControls.LoginView.LoadControlState(System.Object)
@@ -323,13 +323,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "This method implements <xref:System.Web.UI.Control.LoadControlState*>."
+  summary: "Deze methode implementeert <xref:System.Web.UI.Control.LoadControlState*>.</xref:System.Web.UI.Control.LoadControlState*>"
   syntax:
     content: protected override void LoadControlState (object savedState);
     parameters:
     - id: savedState
       type: System.Object
-      description: "An <xref:System.Object> that represents the control state to be restored."
+      description: "Een <xref:System.Object>die staat voor de status te herstellen.</xref:System.Object>"
   overload: System.Web.UI.WebControls.LoginView.LoadControlState*
   exceptions: []
   platform:
@@ -346,15 +346,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets or sets the template to display to Web site users who are logged in to the Web site but are not members of one of the role groups specified in the <xref:System.Web.UI.WebControls.LoginView.RoleGroups*> property."
-  remarks: "The LoggedInTemplate property is displayed to Web site users when both of the following conditions are met:      -   The <xref:System.Security.Principal.IIdentity.Name%2A> property of the <xref:System.Web.UI.Page><xref:System.Web.UI.Page.User%2A> property is not `null`      -   The user does not belong to a role group defined in the <xref:System.Web.UI.WebControls.LoginView.RoleGroups%2A> property.       The LoggedInTemplate property specifies a default template for authenticated Web site users. If you have not configured role management, the LoggedInTemplate is the only template available for authenticated users. For more information about configuring role management, see [Understanding Role Management](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Opgehaald of ingesteld van de sjabloon weer te geven voor de website van gebruikers die zijn aangemeld bij de website, maar geen deel uitmaken van een van de van rolgroepen die zijn opgegeven de <xref:System.Web.UI.WebControls.LoginView.RoleGroups*>eigenschap.</xref:System.Web.UI.WebControls.LoginView.RoleGroups*>"
+  remarks: "De eigenschap LoggedInTemplate voor gebruikers van de website wordt weergegeven wanneer beide volgende voorwaarden wordt voldaan: - de <xref:System.Security.Principal.IIdentity.Name%2A>eigenschap van de <xref:System.Web.UI.Page><xref:System.Web.UI.Page.User%2A>eigenschap is niet `null` -de gebruiker behoort niet tot een rolgroep is gedefinieerd in de <xref:System.Web.UI.WebControls.LoginView.RoleGroups%2A>eigenschap.</xref:System.Web.UI.WebControls.LoginView.RoleGroups%2A> </xref:System.Web.UI.Page.User%2A></xref:System.Web.UI.Page> </xref:System.Security.Principal.IIdentity.Name%2A>       De eigenschap LoggedInTemplate geeft een standaardsjabloon voor de website van geverifieerde gebruikers. Als u geen rollen beheren hebt geconfigureerd, is de LoggedInTemplate de sjabloon die alleen beschikbaar voor geverifieerde gebruikers. Zie voor meer informatie over het configureren van rollenbeheer [Understanding rollenbeheer](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following code example uses the LoggedInTemplate template to display links to personalized information for logged-in users.  \n  \n [!code-vb[LoginViewAnonymousTemplate#1](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_127_1.aspx)]\n [!code-cs[LoginViewAnonymousTemplate#1](~/add/codesnippet/csharp/p-system.web.ui.webcontr_127_1.aspx)]"
   syntax:
     content: public virtual System.Web.UI.ITemplate LoggedInTemplate { get; set; }
     return:
       type: System.Web.UI.ITemplate
-      description: "The <xref href=&quot;System.Web.UI.ITemplate&quot;></xref> to display."
+      description: "De <xref href=&quot;System.Web.UI.ITemplate&quot;> </xref> om weer te geven."
   overload: System.Web.UI.WebControls.LoginView.LoggedInTemplate*
   exceptions: []
   platform:
@@ -371,14 +371,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Raises the <xref href=&quot;System.Web.UI.Control.Init&quot;></xref> event."
-  remarks: "The OnInit method performs initialization for the <xref:System.Web.UI.WebControls.LoginView> control.       Raising an event invokes the event handler through a delegate. For more information, see [NIB: Raising an Event](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2).       The OnInit method also allows derived classes to handle the event without attaching a delegate. This is the preferred technique for handling the event in a derived class."
+  summary: "Geeft de <xref href=&quot;System.Web.UI.Control.Init&quot;> </xref> gebeurtenis."
+  remarks: "De OnInit-methode voert de initialisatie van de <xref:System.Web.UI.WebControls.LoginView>besturingselement.</xref:System.Web.UI.WebControls.LoginView>       Een gebeurtenis te verhogen, roept de gebeurtenis-handler via een gemachtigde. Zie voor meer informatie [KROONTJESPEN: verhogen van een gebeurtenis](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2).       De OnInit-methode kan afgeleide klassen de gebeurtenis te verwerken zonder te koppelen van een gemachtigde. Dit is de voorkeur voor het afhandelen van de gebeurtenis in een afgeleide klasse."
   syntax:
     content: protected override void OnInit (EventArgs e);
     parameters:
     - id: e
       type: System.EventArgs
-      description: "An <xref:System.EventArgs> object that contains the event data."
+      description: "Een <xref:System.EventArgs>object waarin de gebeurtenisgegevens.</xref:System.EventArgs>"
   overload: System.Web.UI.WebControls.LoginView.OnInit*
   exceptions: []
   platform:
@@ -395,14 +395,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Determines which role-group template to display, based on the roles of the logged-in user."
-  remarks: "The OnPreRender method is called during the <xref:System.Web.UI.Control.PreRender> event to determine which content template to display to the user. If the <xref:System.Security.Principal.IIdentity.Name%2A> property of the <xref:System.Web.UI.Page><xref:System.Web.UI.Page.User%2A> property is `null`, the template specified in the <xref:System.Web.UI.WebControls.LoginView.AnonymousTemplate%2A> property is displayed; otherwise, the template associated with the user&quot;s role is displayed. If the user does not belong to a defined role group, or if you have not configured role management, the <xref:System.Web.UI.WebControls.LoginView> control displays the template specified in the <xref:System.Web.UI.WebControls.LoginView.LoggedInTemplate%2A> property. For more information about configuring role management, see [Role Management Providers](~/add/includes/ajax-current-ext-md.md).       Raising an event invokes the event handler through a delegate. For more information, see [NIB: Raising an Event](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2).       The OnPreRender method also allows derived classes to handle the event without attaching a delegate. This is the preferred technique for handling the event in a derived class."
+  summary: "Hiermee wordt bepaald welke sjabloon rol groep weer te geven op basis van de functies van de aangemelde gebruiker."
+  remarks: "De methode OnPreRender wordt aangeroepen tijdens de <xref:System.Web.UI.Control.PreRender>gebeurtenis om te bepalen welke inhoudssjabloon weer te geven voor de gebruiker.</xref:System.Web.UI.Control.PreRender> Als de <xref:System.Security.Principal.IIdentity.Name%2A>eigenschap van de <xref:System.Web.UI.Page><xref:System.Web.UI.Page.User%2A>eigenschap is `null`, de sjabloon die is opgegeven in de <xref:System.Web.UI.WebControls.LoginView.AnonymousTemplate%2A>eigenschap wordt weergegeven; anders wordt de sjabloon die is gekoppeld aan de rol van de gebruiker weergegeven.</xref:System.Web.UI.WebControls.LoginView.AnonymousTemplate%2A> </xref:System.Web.UI.Page.User%2A></xref:System.Web.UI.Page> </xref:System.Security.Principal.IIdentity.Name%2A> Als de gebruiker behoort niet tot een groep gedefinieerde rol, of als u geen rollen beheren, hebt geconfigureerd de <xref:System.Web.UI.WebControls.LoginView>besturingselement weergegeven in de sjabloon die is opgegeven in de <xref:System.Web.UI.WebControls.LoginView.LoggedInTemplate%2A>eigenschap.</xref:System.Web.UI.WebControls.LoginView.LoggedInTemplate%2A> </xref:System.Web.UI.WebControls.LoginView> Zie voor meer informatie over het configureren van rollenbeheer [rol Management Providers](~/add/includes/ajax-current-ext-md.md).       Een gebeurtenis te verhogen, roept de gebeurtenis-handler via een gemachtigde. Zie voor meer informatie [KROONTJESPEN: verhogen van een gebeurtenis](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2).       De methode OnPreRender kan afgeleide klassen de gebeurtenis te verwerken zonder te koppelen van een gemachtigde. Dit is de voorkeur voor het afhandelen van de gebeurtenis in een afgeleide klasse."
   syntax:
     content: protected override void OnPreRender (EventArgs e);
     parameters:
     - id: e
       type: System.EventArgs
-      description: "An <xref:System.EventArgs> object that contains the event data."
+      description: "Een <xref:System.EventArgs>object waarin de gebeurtenisgegevens.</xref:System.EventArgs>"
   overload: System.Web.UI.WebControls.LoginView.OnPreRender*
   exceptions: []
   platform:
@@ -419,14 +419,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Raises the <xref href=&quot;System.Web.UI.WebControls.LoginView.ViewChanged&quot;></xref> event after the <xref href=&quot;System.Web.UI.WebControls.LoginView&quot;></xref> control switches views."
-  remarks: "When the <xref:System.Web.UI.WebControls.LoginView> control switches views, it removes the controls from the previous template and creates new child controls from the new template. The OnViewChanged method is called after the new child controls are created.       Use the OnViewChanged method to perform any processing, such as data binding, necessary to initialize the controls on the new view.       Raising an event invokes the event handler through a delegate. For more information, see [NIB: Raising an Event](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2).       The OnViewChanged method also allows derived classes to handle the event without attaching a delegate. This is the preferred technique for handling the event in a derived class."
+  summary: "Geeft de <xref href=&quot;System.Web.UI.WebControls.LoginView.ViewChanged&quot;> </xref> na de <xref href=&quot;System.Web.UI.WebControls.LoginView&quot;> </xref> besturingselement verandert weergaven."
+  remarks: "Wanneer de <xref:System.Web.UI.WebControls.LoginView>besturingselement verandert weergaven, verwijdert u de besturingselementen van de vorige sjabloon en maakt u nieuwe onderliggende besturingselementen van de nieuwe sjabloon.</xref:System.Web.UI.WebControls.LoginView> De methode OnViewChanged wordt aangeroepen nadat de nieuwe onderliggende besturingselementen worden gemaakt.       Gebruik de methode OnViewChanged om uit te voeren van de verwerking, zoals gegevens die nodig zijn voor het initialiseren van de besturingselementen op de nieuwe weergave binding.       Een gebeurtenis te verhogen, roept de gebeurtenis-handler via een gemachtigde. Zie voor meer informatie [KROONTJESPEN: verhogen van een gebeurtenis](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2).       De methode OnViewChanged kan afgeleide klassen de gebeurtenis te verwerken zonder te koppelen van een gemachtigde. Dit is de voorkeur voor het afhandelen van de gebeurtenis in een afgeleide klasse."
   syntax:
     content: protected virtual void OnViewChanged (EventArgs e);
     parameters:
     - id: e
       type: System.EventArgs
-      description: "An <xref:System.EventArgs> object that contains the event data."
+      description: "Een <xref:System.EventArgs>object waarin de gebeurtenisgegevens.</xref:System.EventArgs>"
   overload: System.Web.UI.WebControls.LoginView.OnViewChanged*
   exceptions: []
   platform:
@@ -443,14 +443,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Raises the <xref href=&quot;System.Web.UI.WebControls.LoginView.ViewChanging&quot;></xref> event before the <xref href=&quot;System.Web.UI.WebControls.LoginView&quot;></xref> control switches views."
-  remarks: "When the <xref:System.Web.UI.WebControls.LoginView> controls switches views, it removes the controls from the previous template and creates new child controls from the new template. The OnViewChanging method is called before the previous controls are removed.       Use the OnViewChanging method to perform any necessary processing, such as saving control information, before the controls are removed.       Raising an event invokes the event handler through a delegate. For more information, see [NIB: Raising an Event](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2).       The OnViewChanging method also allows derived classes to handle the event without attaching a delegate. This is the preferred technique for handling the event in a derived class."
+  summary: "Geeft de <xref href=&quot;System.Web.UI.WebControls.LoginView.ViewChanging&quot;> </xref> gebeurtenis voordat de <xref href=&quot;System.Web.UI.WebControls.LoginView&quot;> </xref> besturingselement verandert weergaven."
+  remarks: "Wanneer de <xref:System.Web.UI.WebControls.LoginView>besturingselementen verandert weergaven, verwijdert u de besturingselementen van de vorige sjabloon en maakt u nieuwe onderliggende besturingselementen van de nieuwe sjabloon.</xref:System.Web.UI.WebControls.LoginView> De methode OnViewChanging wordt aangeroepen voordat de vorige besturingselementen worden verwijderd.       Gebruik de methode OnViewChanging om uit te voeren van de benodigde verwerking, zoals het opslaan van informatie over het beheer, voordat de besturingselementen worden verwijderd.       Een gebeurtenis te verhogen, roept de gebeurtenis-handler via een gemachtigde. Zie voor meer informatie [KROONTJESPEN: verhogen van een gebeurtenis](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2).       De methode OnViewChanging kan afgeleide klassen de gebeurtenis te verwerken zonder te koppelen van een gemachtigde. Dit is de voorkeur voor het afhandelen van de gebeurtenis in een afgeleide klasse."
   syntax:
     content: protected virtual void OnViewChanging (EventArgs e);
     parameters:
     - id: e
       type: System.EventArgs
-      description: "An <xref:System.EventArgs> object that contains the event data."
+      description: "Een <xref:System.EventArgs>object waarin de gebeurtenisgegevens.</xref:System.EventArgs>"
   overload: System.Web.UI.WebControls.LoginView.OnViewChanging*
   exceptions: []
   platform:
@@ -467,14 +467,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Renders the Web server control content to the client&quot;s browser using the specified <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;></xref> object."
-  remarks: "The Render method is used to render the server control content to the client&quot;s browser using the specified <xref:System.Web.UI.HtmlTextWriter?displayProperty=fullName> object.       **Note** This method is used primarily by control developers to extend the <xref:System.Web.UI.WebControls.LoginView> control."
+  summary: "Hiermee maakt u de webinhoud voor het beheer van server naar de clientbrowser met behulp van de opgegeven <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;> </xref> object."
+  remarks: "De methode Render wordt gebruikt voor het weergeven van de inhoud voor het beheer van server naar de clientbrowser met behulp van de opgegeven <xref:System.Web.UI.HtmlTextWriter?displayProperty=fullName>object.</xref:System.Web.UI.HtmlTextWriter?displayProperty=fullName>       **Opmerking** deze methode wordt hoofdzakelijk gebruikt door ontwikkelaars besturingselement uit te breiden de <xref:System.Web.UI.WebControls.LoginView>besturingselement.</xref:System.Web.UI.WebControls.LoginView>"
   syntax:
     content: protected override void Render (System.Web.UI.HtmlTextWriter writer);
     parameters:
     - id: writer
       type: System.Web.UI.HtmlTextWriter
-      description: "The <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;></xref> used to render the server control content on the client&quot;s browser."
+      description: "De <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;> </xref> gebruikt voor het weergeven van de inhoud van het besturingselement server op de clientbrowser."
   overload: System.Web.UI.WebControls.LoginView.Render*
   exceptions: []
   platform:
@@ -491,15 +491,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets a collection of role groups that associate content templates with particular roles."
-  remarks: "The RoleGroups property contains the content templates associated with various roles on the Web site. The collection in the RoleGroups property is searched in the order in which templates are defined in the source. The first matching role-group template is displayed to the user. If a user is a member of more than one role, the first role-group template that matches any of the user&quot;s roles is used. If more than one template is associated with a single role, only the first defined template will be used.       If a logged-in user does not belong to any role contained in the role-group collection, the site displays the content template specified in the <xref:System.Web.UI.WebControls.LoginView.LoggedInTemplate%2A> property. Anonymous users are never shown any template contained in the RoleGroups collection.       You must configure role management to use the RoleGroups property to define templates based on the user&quot;s role on the Web site. For more information, see [Understanding Role Management](~/add/includes/ajax-current-ext-md.md).       This property cannot be set by themes or style sheet themes. For more information, see <xref:System.Web.UI.ThemeableAttribute> and [ASP.NET Themes and Skins](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Hiermee wordt een verzameling functiegroepen die inhoud sjablonen aan bepaalde rollen koppelen."
+  remarks: "De eigenschap RoleGroups bevat de inhoud sjablonen die zijn gekoppeld aan verschillende rollen op de website. De verzameling in de eigenschap RoleGroups gezocht in de volgorde waarin de sjablonen zijn gedefinieerd in de bron. De eerste, overeenkomende functie groep-sjabloon wordt voor de gebruiker weergegeven. Als een gebruiker lid van meer dan één rol is, wordt de eerste sjabloon voor de rol-groep die overeenkomt met een van de rollen van de gebruiker gebruikt. Als meer dan één sjabloon gekoppeld aan één functie is, worden alleen de eerste gedefinieerde sjabloon wordt gebruikt.       Als een aangemelde gebruiker niet tot een rol die is opgenomen in de verzameling rol groep behoort, de site wordt weergegeven voor de inhoud sjabloon opgegeven in de <xref:System.Web.UI.WebControls.LoginView.LoggedInTemplate%2A>eigenschap.</xref:System.Web.UI.WebControls.LoginView.LoggedInTemplate%2A> Elke sjabloon die is opgenomen in de verzameling RoleGroups worden nooit door anonieme gebruikers worden weergegeven.       Rollen beheren voor het gebruik van de eigenschap RoleGroups voor het definiëren van sjablonen op basis van de rol van de gebruiker op de website, moet u configureren. Zie voor meer informatie [Understanding rollenbeheer](~/add/includes/ajax-current-ext-md.md).       Deze eigenschap kan niet worden ingesteld door thema&quot;s of stijl blad thema&quot;s. Zie voor meer informatie <xref:System.Web.UI.ThemeableAttribute>en [ASP.NET thema&quot;s en weergaven](~/add/includes/ajax-current-ext-md.md).</xref:System.Web.UI.ThemeableAttribute>"
   example:
   - "The following code example demonstrates using the RoleGroups collection. Because the <xref:System.Web.UI.WebControls.LoginView.AnonymousTemplate%2A> and <xref:System.Web.UI.WebControls.LoginView.LoggedInTemplate%2A> properties are not set, the content is displayed only to users who belong to roles with a defined content template.  \n  \n [!code-vb[LoginViewRoleGroups#1](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_566_1.aspx)]\n [!code-cs[LoginViewRoleGroups#1](~/add/codesnippet/csharp/p-system.web.ui.webcontr_566_1.aspx)]"
   syntax:
     content: public virtual System.Web.UI.WebControls.RoleGroupCollection RoleGroups { get; }
     return:
       type: System.Web.UI.WebControls.RoleGroupCollection
-      description: "A <xref href=&quot;System.Web.UI.WebControls.RoleGroupCollection&quot;></xref> object that contains the defined role-group templates."
+      description: "Een <xref href=&quot;System.Web.UI.WebControls.RoleGroupCollection&quot;> </xref> object met de gedefinieerde functie groep-sjablonen."
   overload: System.Web.UI.WebControls.LoginView.RoleGroups*
   exceptions: []
   platform:
@@ -516,13 +516,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Saves any server control state changes that have occurred since the time the page was posted back to the server."
+  summary: "Hiermee slaat u eventuele serverbesturingselement statuswijzigingen die hebben plaatsgevonden sinds de tijd waarop die de pagina naar de server is geplaatst."
   syntax:
     content: protected override object SaveControlState ();
     parameters: []
     return:
       type: System.Object
-      description: "Returns the server control&quot;s current state. If there is no state associated with the control, this method returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Retourneert de server van de huidige status van het besturingselement. Als er geen status die is gekoppeld aan het besturingselement is, wordt deze methode retourneert <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.LoginView.SaveControlState*
   exceptions: []
   platform:
@@ -539,13 +539,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Sets design-time data for a control."
+  summary: "Hiermee stelt u ontwerptijd gegevens voor een besturingselement."
   syntax:
     content: protected override void SetDesignModeState (System.Collections.IDictionary data);
     parameters:
     - id: data
       type: System.Collections.IDictionary
-      description: "An <xref:System.Collections.IDictionary> containing the design-time data for the control."
+      description: "Een <xref:System.Collections.IDictionary>met het gegevenstype ontwerp-tijd voor het besturingselement.</xref:System.Collections.IDictionary>"
   overload: System.Web.UI.WebControls.LoginView.SetDesignModeState*
   exceptions: []
   platform:
@@ -562,18 +562,18 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets or sets the skin to apply to the <xref href=&quot;System.Web.UI.WebControls.LoginView&quot;></xref> control."
-  remarks: "Skins available to a control are contained in one or more skin files in a theme directory. The SkinID property specifies which of these skins to apply to the control. A skin is specific to a particular control; you cannot share skin settings between controls of different types.       If you do not set the SkinID property, a control uses the default skin if one is defined. For example, if a skin without an ID is defined for an <xref:System.Web.UI.WebControls.Image> control, then that skin applies to all <xref:System.Web.UI.WebControls.Image> controls that do not explicitly reference a skin by ID and that are not set to disable theming. If a skin with an ID is defined for an <xref:System.Web.UI.WebControls.Image> control, then that skin applies only to <xref:System.Web.UI.WebControls.Image> controls whose <xref:System.Web.UI.WebControls.WebControl.SkinID%2A> is set to that ID.       If the skin files in a theme directory do not contain a skin with the specified SkinID, an <xref:System.ArgumentException> exception is thrown at run time."
+  summary: "Opgehaald of ingesteld van de weergave wilt toepassen op de <xref href=&quot;System.Web.UI.WebControls.LoginView&quot;> </xref> besturingselement."
+  remarks: "Weergaven die beschikbaar zijn voor een besturingselement zijn opgenomen in een of meer weergavebestanden in een themamap. De eigenschap SkinID bepaalt welke van deze weergaven moeten worden toegepast op het besturingselement. Een weergave is specifiek voor een bepaald besturingselement; u kunt de instellingen van de randweergave tussen besturingselementen van verschillende typen niet delen.       Als de eigenschap SkinID niet is ingesteld, gebruikt een besturingselement de standaardweergave als die is opgegeven. Bijvoorbeeld, als een skin zonder een ID is gedefinieerd voor een <xref:System.Web.UI.WebControls.Image>beheren, en vervolgens die skin van toepassing op alle <xref:System.Web.UI.WebControls.Image>besturingselementen die niet expliciet verwijzen naar een skin door-ID en die niet zijn ingesteld voor het leveren van thema&quot;s uitschakelen.</xref:System.Web.UI.WebControls.Image> </xref:System.Web.UI.WebControls.Image> Als een weergave met een ID die is gedefinieerd voor een <xref:System.Web.UI.WebControls.Image>besturingselement vervolgens dat skin alleen voor <xref:System.Web.UI.WebControls.Image>besturingselementen waarvan <xref:System.Web.UI.WebControls.WebControl.SkinID%2A>is ingesteld op ID. geldt</xref:System.Web.UI.WebControls.WebControl.SkinID%2A> </xref:System.Web.UI.WebControls.Image> </xref:System.Web.UI.WebControls.Image>       Als de bestanden in een themamap met skin geen een weergave met de opgegeven SkinID bevatten een <xref:System.ArgumentException>uitzondering gegenereerd tijdens runtime.</xref:System.ArgumentException>"
   syntax:
     content: public override string SkinID { get; set; }
     return:
       type: System.String
-      description: "The name of the skin to apply to the <xref href=&quot;System.Web.UI.WebControls.LoginView&quot;></xref> control. The default value is an empty string (&quot;&quot;)."
+      description: "De naam van de weergave wilt toepassen op de <xref href=&quot;System.Web.UI.WebControls.LoginView&quot;> </xref> besturingselement. De standaardwaarde is een lege tekenreeks (&quot;&quot;)."
   overload: System.Web.UI.WebControls.LoginView.SkinID*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The skin specified in the SkinID property does not exist in the theme."
+    description: "De weergave die is opgegeven in de eigenschap SkinID bestaat niet in het thema."
   platform:
   - net462
 - uid: System.Web.UI.WebControls.LoginView.ViewChanged
@@ -588,13 +588,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Occurs after the view is changed."
-  remarks: "When the <xref:System.Web.UI.WebControls.LoginView> control switches views, it removes the controls from the previous template and creates new child controls from the new template. The ViewChanged event is raised after the new child controls are created.       Use the ViewChanged event to perform any processing, such as data binding, necessary to initialize the controls on the new view.      > [!NOTE] >  The ViewChanged event is only raised if the login status for a user changes during a postback to the page. The ViewChanged event will not be raised if a user logs in using the <xref:System.Web.UI.WebControls.Login> control, or if the user logs out using the <xref:System.Web.UI.WebControls.LoginStatus> control. The ViewChanged event will also not occur if a user is logged in or out followed by a redirect. An example of when the ViewChanged event will occur is when a user is logged out by calling the <xref:System.Web.Security.FormsAuthentication.SignOut%2A> method without being redirected to another page. During the next postback to the page, the <xref:System.Web.UI.WebControls.LoginView> control will detect the change in the login status for the user, and then raise the ViewChanged event.       For more information about handling events, see [Events](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Deze gebeurtenis treedt op nadat de weergave is gewijzigd."
+  remarks: "Wanneer de <xref:System.Web.UI.WebControls.LoginView>besturingselement verandert weergaven, verwijdert u de besturingselementen van de vorige sjabloon en maakt u nieuwe onderliggende besturingselementen van de nieuwe sjabloon.</xref:System.Web.UI.WebControls.LoginView> De gebeurtenis ViewChanged treedt op nadat de nieuwe onderliggende besturingselementen worden gemaakt.       De gebeurtenis ViewChanged gebruiken om uit te voeren van de verwerking, zoals gegevens die nodig zijn voor het initialiseren van de besturingselementen op de nieuwe weergave binding.      > [!NOTE] > De ViewChanged gebeurtenis wordt alleen geactiveerd als de status van de aanmelding van een gebruiker wordt gewijzigd tijdens een terugpostactie naar de pagina. De gebeurtenis ViewChanged niet verschijnt als een gebruiker zich bij het gebruik van aanmeldt de <xref:System.Web.UI.WebControls.Login>besturingselement, of als de gebruiker zich afmeldt met behulp van de <xref:System.Web.UI.WebControls.LoginStatus>besturingselement.</xref:System.Web.UI.WebControls.LoginStatus> </xref:System.Web.UI.WebControls.Login> De gebeurtenis ViewChanged wordt ook niet uitgevoerd als een gebruiker is aangemeld of gevolgd door een omleiding uit. Een voorbeeld van wanneer de gebeurtenis ViewChanged plaatsvindt is wanneer een gebruiker is afgemeld door het aanroepen van de <xref:System.Web.Security.FormsAuthentication.SignOut%2A>methode zonder wordt omgeleid naar een andere pagina.</xref:System.Web.Security.FormsAuthentication.SignOut%2A> Tijdens de volgende terugpostactie naar de pagina de <xref:System.Web.UI.WebControls.LoginView>besturingselement detecteert de wijziging in de status van de aanmelding voor de gebruiker, en kunt u de gebeurtenis ViewChanged verhogen.</xref:System.Web.UI.WebControls.LoginView>       Zie voor meer informatie over het verwerken van gebeurtenissen [gebeurtenissen](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public event EventHandler ViewChanged;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -610,13 +610,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Occurs before the view is changed."
-  remarks: "When the <xref:System.Web.UI.WebControls.LoginView> control switches views, it removes the controls from the previous template and creates new child controls from the new template. The ViewChanging event is raised before the previous controls are removed.       Use the ViewChanging event to perform any processing, such as saving control information, necessary before the controls are removed.      > [!NOTE] >  The ViewChanging event is only raised if the login status for a user changes during a postback to the page. The ViewChanging event will not be raised if a user logs in using the <xref:System.Web.UI.WebControls.Login> control, or if the user logs out using the <xref:System.Web.UI.WebControls.LoginStatus> control. The ViewChanging event will also not occur if a user is logged in or out followed by a redirect. An example of when the ViewChanging event will occur is when a user is logged out by calling the <xref:System.Web.Security.FormsAuthentication.SignOut%2A> method without being redirected to another page. During the next postback to the page, the <xref:System.Web.UI.WebControls.LoginView> control will detect the change in the login status for the user, and then raise the ViewChanging event.       For more information about handling events, see [Events](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Deze gebeurtenis treedt op voordat de weergave is gewijzigd."
+  remarks: "Wanneer de <xref:System.Web.UI.WebControls.LoginView>besturingselement verandert weergaven, verwijdert u de besturingselementen van de vorige sjabloon en maakt u nieuwe onderliggende besturingselementen van de nieuwe sjabloon.</xref:System.Web.UI.WebControls.LoginView> De ViewChanging gebeurtenis treedt op voordat de vorige besturingselementen worden verwijderd.       De gebeurtenis ViewChanging gebruiken om uit te voeren van de verwerking, zoals het opslaan van informatie over beheer, nodig voordat de besturingselementen worden verwijderd.      > [!NOTE] > De ViewChanging gebeurtenis wordt alleen geactiveerd als de status van de aanmelding van een gebruiker wordt gewijzigd tijdens een terugpostactie naar de pagina. De gebeurtenis ViewChanging niet verschijnt als een gebruiker zich bij het gebruik van aanmeldt de <xref:System.Web.UI.WebControls.Login>besturingselement, of als de gebruiker zich afmeldt met behulp van de <xref:System.Web.UI.WebControls.LoginStatus>besturingselement.</xref:System.Web.UI.WebControls.LoginStatus> </xref:System.Web.UI.WebControls.Login> De gebeurtenis ViewChanging wordt ook niet uitgevoerd als een gebruiker is aangemeld of gevolgd door een omleiding uit. Een voorbeeld van het moment waarop de gebeurtenis ViewChanging wordt uitgevoerd is wanneer een gebruiker is afgemeld door het aanroepen van de <xref:System.Web.Security.FormsAuthentication.SignOut%2A>methode zonder wordt omgeleid naar een andere pagina.</xref:System.Web.Security.FormsAuthentication.SignOut%2A> Tijdens de volgende terugpostactie naar de pagina de <xref:System.Web.UI.WebControls.LoginView>besturingselement detecteert de wijziging in de status van de aanmelding voor de gebruiker, en kunt u de gebeurtenis ViewChanging verhogen.</xref:System.Web.UI.WebControls.LoginView>       Zie voor meer informatie over het verwerken van gebeurtenissen [gebeurtenissen](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public event EventHandler ViewChanging;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
