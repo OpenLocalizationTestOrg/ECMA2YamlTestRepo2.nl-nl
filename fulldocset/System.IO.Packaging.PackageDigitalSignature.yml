@@ -22,8 +22,8 @@ items:
   nameWithType: PackageDigitalSignature
   fullName: System.IO.Packaging.PackageDigitalSignature
   type: Class
-  summary: "Represents a digital signature that is applied to a set of package parts and relationships."
-  remarks: "A PackageDigitalSignature object is immutable and cannot be altered after it is created.       For security, a PackageDigitalSignature can be associated with parts within a <xref:System.IO.Packaging.Package>. A PackageDigitalSignature incorporates an X.509 certificate that provides two features:      -   Identifies and authenticates the originator of the part.      -   Validates that the part has not been modified.       The digital signature does not preclude a part from being modified, but a validation check against the signature fails if the part has changed in any way. The application can then take appropriate action—for example, it can prevent the part from opening or it can notify the user that the part has been modified and is not secure.       For more information about package digital signatures, see the MSDN article [Digital Signing Framework of the Open Packaging Conventions](http://go.microsoft.com/fwlink/?LinkId=74494)."
+  summary: "Hiermee geeft u een digitale handtekening in die wordt toegepast op een reeks pakketonderdelen en relaties."
+  remarks: "Een object PackageDigitalSignature is onveranderbaar en kan niet worden gewijzigd nadat deze is gemaakt.       Voor beveiliging, kan een PackageDigitalSignature worden gekoppeld aan delen binnen een <xref:System.IO.Packaging.Package>.</xref:System.IO.Packaging.Package> Een PackageDigitalSignature opgenomen met een X.509-certificaat dat twee functies biedt: - identificeert en verifieert u de oorspronkelijke aanvrager van het onderdeel.      -Valideert of het onderdeel niet is gewijzigd.       De digitale handtekening vormt geen belemmering voor een onderdeel wordt gewijzigd, maar een met de handtekening kan worden gevalideerd als het onderdeel op een manier is gewijzigd. Neem de toepassing kunt geëigende maatregelen — bijvoorbeeld het gedeelte kan verhinderen niet kan worden geopend of het kan de gebruiker waarschuwen dat het onderdeel is gewijzigd en niet beveiligd is.       Zie het MSDN-artikel voor meer informatie over digitale handtekeningen van pakketten, [digitale ondertekening Framework van de Open Packaging Conventions](http://go.microsoft.com/fwlink/?LinkId=74494)."
   syntax:
     content: public class PackageDigitalSignature
   inheritance:
@@ -44,18 +44,18 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.IO.Packaging
-  summary: "Gets the X.509 certificate embedding option."
-  remarks: "X.509 certificates used to validate a package may be stored in one of three locations:      |||   |-|-|   |<xref:System.IO.Packaging.CertificateEmbeddingOption>|In its own certificate <xref:System.IO.Packaging.PackagePart> in the package.<br /><br /> The X.509 certificate can be obtained through the <xref:System.IO.Packaging.PackageDigitalSignature.Signer%2A> property.|   |<xref:System.IO.Packaging.CertificateEmbeddingOption>|Within the content of the <xref:System.IO.Packaging.PackageDigitalSignature.SignaturePart%2A> in the package.<br /><br /> The X.509 certificate can be obtained through the <xref:System.IO.Packaging.PackageDigitalSignature.Signer%2A> property.|   |<xref:System.IO.Packaging.CertificateEmbeddingOption>|External to the package in a location known by both the application that creates the signature and the application that later uses the signature for validation.|"
+  summary: "Hiermee haalt u de optie insluiten X.509-certificaat."
+  remarks: "X.509-certificaten gebruikt voor het valideren van een pakket kunnen worden opgeslagen in een van drie locaties: |||   |-|-|   | <xref:System.IO.Packaging.CertificateEmbeddingOption>| In het eigen certificaat <xref:System.IO.Packaging.PackagePart>in het pakket.</xref:System.IO.Packaging.PackagePart> </xref:System.IO.Packaging.CertificateEmbeddingOption><br /><br /> Het X.509-certificaat kan worden verkregen via de eigenschap <xref:System.IO.Packaging.PackageDigitalSignature.Signer%2A>. |   | <xref:System.IO.Packaging.CertificateEmbeddingOption>| In de inhoud van de <xref:System.IO.Packaging.PackageDigitalSignature.SignaturePart%2A>in het pakket.</xref:System.IO.Packaging.PackageDigitalSignature.SignaturePart%2A> </xref:System.IO.Packaging.CertificateEmbeddingOption> </xref:System.IO.Packaging.PackageDigitalSignature.Signer%2A><br /><br /> Het X.509-certificaat kan worden verkregen via de eigenschap <xref:System.IO.Packaging.PackageDigitalSignature.Signer%2A>. |   | <xref:System.IO.Packaging.CertificateEmbeddingOption>| Extern voor het pakket op een locatie die bekend is bij zowel de toepassing waarmee de handtekening gemaakt en de toepassing die gebruikmaakt van de handtekening later voor validatie. |</xref:System.IO.Packaging.CertificateEmbeddingOption> </xref:System.IO.Packaging.PackageDigitalSignature.Signer%2A>"
   syntax:
     content: public System.IO.Packaging.CertificateEmbeddingOption CertificateEmbeddingOption { get; }
     return:
       type: System.IO.Packaging.CertificateEmbeddingOption
-      description: "One of the <xref href=&quot;System.IO.Packaging.CertificateEmbeddingOption&quot;></xref> values that specifies the option for the digital signature."
+      description: "Een van de <xref href=&quot;System.IO.Packaging.CertificateEmbeddingOption&quot;> </xref> waarden die aangeeft welke optie voor de digitale handtekening."
   overload: System.IO.Packaging.PackageDigitalSignature.CertificateEmbeddingOption*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The digital <xref:System.IO.Packaging.PackageDigitalSignature.Signature*> has been deleted."
+    description: "De digitale <xref:System.IO.Packaging.PackageDigitalSignature.Signature*>is verwijderd.</xref:System.IO.Packaging.PackageDigitalSignature.Signature*>"
   platform:
   - net462
 - uid: System.IO.Packaging.PackageDigitalSignature.GetPartTransformList(System.Uri)
@@ -70,21 +70,21 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.IO.Packaging
-  summary: "Returns an ordered list of the <xref href=&quot;System.Security.Cryptography.Xml.Transform&quot;></xref> operations applied to a given part."
+  summary: "Retourneert een geordende lijst met de <xref href=&quot;System.Security.Cryptography.Xml.Transform&quot;> </xref> bewerkingen die worden toegepast op een bepaald onderdeel."
   syntax:
     content: public System.Collections.Generic.List<string> GetPartTransformList (Uri partName);
     parameters:
     - id: partName
       type: System.Uri
-      description: "The <xref:System.Uri> of the <xref href=&quot;System.IO.Packaging.PackagePart&quot;></xref> to return the transform list for."
+      description: "De <xref:System.Uri>van de <xref href=&quot;System.IO.Packaging.PackagePart&quot;> </xref> te retourneren van de transformatie lijst for.</xref:System.Uri>"
     return:
       type: System.Collections.Generic.List{System.String}
-      description: "An ordered list of URI strings, such as <xref href=&quot;System.Security.Cryptography.Xml.SignedXml.XmlDsigCanonicalizationUrl&quot;></xref> or <xref href=&quot;System.Security.Cryptography.Xml.SignedXml.XmlDsigC14NTransformUrl&quot;></xref>, that represents the canonical XML transformations applied to the part with the given <code>partName</code> URI."
+      description: "Een geordende lijst met URI tekenreeksen, zoals <xref href=&quot;System.Security.Cryptography.Xml.SignedXml.XmlDsigCanonicalizationUrl&quot;> </xref> of <xref href=&quot;System.Security.Cryptography.Xml.SignedXml.XmlDsigC14NTransformUrl&quot;> </xref>, die staat voor de canonieke XML-transformaties toegepast op het onderdeel met de opgegeven <code> partName </code> URI."
   overload: System.IO.Packaging.PackageDigitalSignature.GetPartTransformList*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The digital <xref:System.IO.Packaging.PackageDigitalSignature.Signature*> has been deleted."
+    description: "De digitale <xref:System.IO.Packaging.PackageDigitalSignature.Signature*>is verwijderd.</xref:System.IO.Packaging.PackageDigitalSignature.Signature*>"
   platform:
   - net462
 - uid: System.IO.Packaging.PackageDigitalSignature.Signature
@@ -99,18 +99,18 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.IO.Packaging
-  summary: "Gets or sets the XML digital signature."
-  remarks: "Signature provides access to the foundation class that performs type-specific signature cryptographic functions and serialization to and from the <xref:System.IO.Packaging.PackagePart> that hosts the signature."
+  summary: "Opgehaald of ingesteld van de digitale handtekening van de XML."
+  remarks: "Signature biedt toegang tot de foundation-klasse die cryptografiefuncties typespecifieke handtekening en serialisatie wordt uitgevoerd en naar de <xref:System.IO.Packaging.PackagePart>die als host fungeert voor de handtekening.</xref:System.IO.Packaging.PackagePart>"
   syntax:
     content: public System.Security.Cryptography.Xml.Signature Signature { get; set; }
     return:
       type: System.Security.Cryptography.Xml.Signature
-      description: "The XML digital signature."
+      description: "De digitale handtekening van de XML."
   overload: System.IO.Packaging.PackageDigitalSignature.Signature*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The digital Signature has been deleted."
+    description: "De digitale handtekening is verwijderd."
   platform:
   - net462
 - uid: System.IO.Packaging.PackageDigitalSignature.SignaturePart
@@ -125,18 +125,18 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.IO.Packaging
-  summary: "Gets the <xref href=&quot;System.IO.Packaging.PackagePart&quot;></xref> that contains the signature."
-  remarks: "The signature&quot;s package part is frequently accessed when the signature is countersigned."
+  summary: "Haalt de <xref href=&quot;System.IO.Packaging.PackagePart&quot;> </xref> die de handtekening bevat."
+  remarks: "De handtekening pakketonderdeel is vaak toegankelijk wanneer de handtekening is medeondertekend."
   syntax:
     content: public System.IO.Packaging.PackagePart SignaturePart { get; }
     return:
       type: System.IO.Packaging.PackagePart
-      description: "The package part that contains the signature."
+      description: "Het gedeelte van het pakket met de handtekening."
   overload: System.IO.Packaging.PackageDigitalSignature.SignaturePart*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The digital <xref:System.IO.Packaging.PackageDigitalSignature.Signature*> has been deleted."
+    description: "De digitale <xref:System.IO.Packaging.PackageDigitalSignature.Signature*>is verwijderd.</xref:System.IO.Packaging.PackageDigitalSignature.Signature*>"
   platform:
   - net462
 - uid: System.IO.Packaging.PackageDigitalSignature.SignatureType
@@ -151,17 +151,17 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.IO.Packaging
-  summary: "Gets the [!INCLUDE[TLA2#tla_uri](~/add/includes/tla2sharptla-uri-md.md)] string that identifies the signature type."
+  summary: "Haalt de [!INCLUDE[TLA2#tla_uri](~/add/includes/tla2sharptla-uri-md.md)] tekenreeks die welk Handtekeningtype aangeeft."
   syntax:
     content: public string SignatureType { get; }
     return:
       type: System.String
-      description: "A [!INCLUDE[TLA2#tla_uri](~/add/includes/tla2sharptla-uri-md.md)] string that identifies the signature type. The default is <xref href=&quot;System.Security.Cryptography.Xml.SignedXml.XmlDsigC14NTransformUrl&quot;></xref>."
+      description: "Een [!INCLUDE[TLA2#tla_uri](~/add/includes/tla2sharptla-uri-md.md)] tekenreeks die welk Handtekeningtype aangeeft. De standaardwaarde is <xref href=&quot;System.Security.Cryptography.Xml.SignedXml.XmlDsigC14NTransformUrl&quot;> </xref>."
   overload: System.IO.Packaging.PackageDigitalSignature.SignatureType*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The digital <xref:System.IO.Packaging.PackageDigitalSignature.Signature*> has been deleted."
+    description: "De digitale <xref:System.IO.Packaging.PackageDigitalSignature.Signature*>is verwijderd.</xref:System.IO.Packaging.PackageDigitalSignature.Signature*>"
   platform:
   - net462
 - uid: System.IO.Packaging.PackageDigitalSignature.SignatureValue
@@ -176,17 +176,17 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.IO.Packaging
-  summary: "Gets the encrypted hash value of the <xref:System.IO.Packaging.PackageDigitalSignature.Signature*>."
+  summary: "De versleutelde hash-waarde van de <xref:System.IO.Packaging.PackageDigitalSignature.Signature*>.</xref:System.IO.Packaging.PackageDigitalSignature.Signature*> opgehaald"
   syntax:
     content: public byte[] SignatureValue { get; }
     return:
       type: System.Byte[]
-      description: "A byte array that contains the encrypted hash value of the <xref:System.IO.Packaging.PackageDigitalSignature.Signature*>."
+      description: "Een bytematrix die de versleutelde hashwaarde van de <xref:System.IO.Packaging.PackageDigitalSignature.Signature*>.</xref:System.IO.Packaging.PackageDigitalSignature.Signature*> bevat"
   overload: System.IO.Packaging.PackageDigitalSignature.SignatureValue*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The digital <xref:System.IO.Packaging.PackageDigitalSignature.Signature*> has been deleted."
+    description: "De digitale <xref:System.IO.Packaging.PackageDigitalSignature.Signature*>is verwijderd.</xref:System.IO.Packaging.PackageDigitalSignature.Signature*>"
   platform:
   - net462
 - uid: System.IO.Packaging.PackageDigitalSignature.SignedParts
@@ -201,17 +201,17 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.IO.Packaging
-  summary: "Gets a collection of all the <xref href=&quot;System.IO.Packaging.PackagePart&quot;></xref> objects signed with the signature."
+  summary: "Hiermee wordt een verzameling van alle de <xref href=&quot;System.IO.Packaging.PackagePart&quot;> </xref> objecten die zijn ondertekend met de handtekening."
   syntax:
     content: public System.Collections.ObjectModel.ReadOnlyCollection<Uri> SignedParts { get; }
     return:
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.Uri}
-      description: "A collection that contains all the package parts signed with the signature."
+      description: "Een verzameling met alle pakketonderdelen is ondertekend met de handtekening."
   overload: System.IO.Packaging.PackageDigitalSignature.SignedParts*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The digital <xref:System.IO.Packaging.PackageDigitalSignature.Signature*> has been deleted."
+    description: "De digitale <xref:System.IO.Packaging.PackageDigitalSignature.Signature*>is verwijderd.</xref:System.IO.Packaging.PackageDigitalSignature.Signature*>"
   platform:
   - net462
 - uid: System.IO.Packaging.PackageDigitalSignature.SignedRelationshipSelectors
@@ -226,17 +226,17 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.IO.Packaging
-  summary: "Gets the list of the <xref href=&quot;System.IO.Packaging.PackageRelationship&quot;></xref> parts that have been signed with the signature."
+  summary: "Hiermee haalt u de lijst van de <xref href=&quot;System.IO.Packaging.PackageRelationship&quot;> </xref> onderdelen die zijn ondertekend met de handtekening."
   syntax:
     content: public System.Collections.ObjectModel.ReadOnlyCollection<System.IO.Packaging.PackageRelationshipSelector> SignedRelationshipSelectors { get; }
     return:
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Packaging.PackageRelationshipSelector}
-      description: "The list of the <xref href=&quot;System.IO.Packaging.PackageRelationship&quot;></xref> parts that have been signed with the signature."
+      description: "De lijst met de <xref href=&quot;System.IO.Packaging.PackageRelationship&quot;> </xref> onderdelen die zijn ondertekend met de handtekening."
   overload: System.IO.Packaging.PackageDigitalSignature.SignedRelationshipSelectors*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The digital <xref:System.IO.Packaging.PackageDigitalSignature.Signature*> has been deleted."
+    description: "De digitale <xref:System.IO.Packaging.PackageDigitalSignature.Signature*>is verwijderd.</xref:System.IO.Packaging.PackageDigitalSignature.Signature*>"
   platform:
   - net462
 - uid: System.IO.Packaging.PackageDigitalSignature.Signer
@@ -251,18 +251,18 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.IO.Packaging
-  summary: "Gets the X.509 certificate of the signer."
-  remarks: "Signer returns the X.509 certificate of the signer when the digital certificate is stored within the package (that is, when <xref:System.IO.Packaging.PackageDigitalSignature.CertificateEmbeddingOption%2A> is <xref:System.IO.Packaging.CertificateEmbeddingOption> or <xref:System.IO.Packaging.CertificateEmbeddingOption>).       Signer returns `null` when the X.509 certificate is not stored in the package (that is, when <xref:System.IO.Packaging.PackageDigitalSignature.CertificateEmbeddingOption%2A> is <xref:System.IO.Packaging.CertificateEmbeddingOption>)."
+  summary: "Het X.509-certificaat van de ondertekenaar opgehaald."
+  remarks: "Ondertekenaar retourneert het X.509-certificaat van de ondertekenaar als het digitale certificaat wordt opgeslagen in het pakket (dat wil zeggen, wanneer <xref:System.IO.Packaging.PackageDigitalSignature.CertificateEmbeddingOption%2A>is <xref:System.IO.Packaging.CertificateEmbeddingOption>of <xref:System.IO.Packaging.CertificateEmbeddingOption>).</xref:System.IO.Packaging.CertificateEmbeddingOption> </xref:System.IO.Packaging.CertificateEmbeddingOption> </xref:System.IO.Packaging.PackageDigitalSignature.CertificateEmbeddingOption%2A>       Ondertekenaar retourneert `null` wanneer het X.509-certificaat niet is opgeslagen in het pakket (dat wil zeggen, wanneer <xref:System.IO.Packaging.PackageDigitalSignature.CertificateEmbeddingOption%2A>is <xref:System.IO.Packaging.CertificateEmbeddingOption>).</xref:System.IO.Packaging.CertificateEmbeddingOption> </xref:System.IO.Packaging.PackageDigitalSignature.CertificateEmbeddingOption%2A>"
   syntax:
     content: public System.Security.Cryptography.X509Certificates.X509Certificate Signer { get; }
     return:
       type: System.Security.Cryptography.X509Certificates.X509Certificate
-      description: "The digital certificate of the signer, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the certificate is not stored in the <xref href=&quot;System.IO.Packaging.Package&quot;></xref>."
+      description: "Het digitale certificaat van de ondertekenaar of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> als het certificaat is niet opgeslagen in de <xref href=&quot;System.IO.Packaging.Package&quot;> </xref>."
   overload: System.IO.Packaging.PackageDigitalSignature.Signer*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The digital <xref:System.IO.Packaging.PackageDigitalSignature.Signature*> has been deleted."
+    description: "De digitale <xref:System.IO.Packaging.PackageDigitalSignature.Signature*>is verwijderd.</xref:System.IO.Packaging.PackageDigitalSignature.Signature*>"
   platform:
   - net462
 - uid: System.IO.Packaging.PackageDigitalSignature.SigningTime
@@ -277,18 +277,18 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.IO.Packaging
-  summary: "Gets the date and time that the signature was created."
-  remarks: "The <xref:System.IO.Packaging.PackageDigitalSignature.TimeFormat%2A> property specifies the format of the date.  The format of the SigningTime string is based on the <xref:System.IO.Packaging.PackageDigitalSignatureManager.TimeFormat%2A?displayProperty=fullName> property in effect when the signature was created.       SigningTime is based on the system time of the computer where the signing took place.       SigningTime is not a &quot;secure TimeStamp&quot; and is not from trusted Time Stamp Authority.  A secure TimeStamp must be obtained and applied through a trusted Time Stamp Authority."
+  summary: "Hiermee haalt u de datum en tijd waarop de handtekening is gemaakt."
+  remarks: "De <xref:System.IO.Packaging.PackageDigitalSignature.TimeFormat%2A>eigenschap geeft u de indeling van de datum.</xref:System.IO.Packaging.PackageDigitalSignature.TimeFormat%2A>  De indeling van tekenreeks voor SigningTime is gebaseerd op de <xref:System.IO.Packaging.PackageDigitalSignatureManager.TimeFormat%2A?displayProperty=fullName>eigenschap van kracht wanneer de handtekening is gemaakt.</xref:System.IO.Packaging.PackageDigitalSignatureManager.TimeFormat%2A?displayProperty=fullName>       SigningTime is gebaseerd op de systeemtijd van de computer waar de ondertekening plaatsgevonden heeft.       SigningTime is niet een &quot;beveiligde tijdstempel&quot; en is niet afkomstig van vertrouwde tijdstempel instantie.  Een tijdstempel voor een veilige moet worden verkregen en via een vertrouwde instantie van tijdstempel toegepast."
   syntax:
     content: public DateTime SigningTime { get; }
     return:
       type: System.DateTime
-      description: "The date and time that the signature was created."
+      description: "De datum en tijd waarop de handtekening is gemaakt."
   overload: System.IO.Packaging.PackageDigitalSignature.SigningTime*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The digital <xref:System.IO.Packaging.PackageDigitalSignature.Signature*> has been deleted."
+    description: "De digitale <xref:System.IO.Packaging.PackageDigitalSignature.Signature*>is verwijderd.</xref:System.IO.Packaging.PackageDigitalSignature.Signature*>"
   platform:
   - net462
 - uid: System.IO.Packaging.PackageDigitalSignature.TimeFormat
@@ -303,18 +303,18 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.IO.Packaging
-  summary: "Gets the format of the date and time returned by the <xref:System.IO.Packaging.PackageDigitalSignature.SigningTime*> property."
-  remarks: "Date/time formats follow the syntax of the W3C [Date and Time Formats](http://go.microsoft.com/fwlink/?LinkId=84446) note.  The components shown in the following table must use the syntax and punctuation shown.      |TimeFormat|Description|Example|   |----------------|-----------------|-------------|   |YYYY|Year|2005|   |YYYY-MM|Year and month|2005-07|   |YYYY-MM-DD|Complete date|2005-07-28|   |YYYY-MM-DDThh:mmTZD|Complete date plus hours and minutes|2005-07-28T19:20-01:00|   |YYYY-MM-DDThh:mm:ssTZD|Complete date plus hours, minutes, and seconds|2005-07-28T19:20:45-01:00|   |YYYY-MM-DDThh:mm:ss.sTZD|Complete date plus hours, minutes, and seconds with a decimal fraction|2005-07-28T19:20:45.75-01:00|       where:      |||   |-|-|   |YYYY|four-digit year (for example 2006)|   |MM|two-digit month (01=January)|   |DD|two-digit day of month (01 through 31)|   |Thh|two-digit hour (00 through 23, 24-hour time)|   |mm|two digits of minutes (00 through 59)|   |ss|two digits of seconds (00 through 59)|   |s|one or more digits representing a decimal fraction of a second|   |TZD|time zone designator (Z or +hh:mm or -hh:mm)|"
+  summary: "Met deze eigenschap wordt de indeling van de datum en tijd die wordt geretourneerd door de <xref:System.IO.Packaging.PackageDigitalSignature.SigningTime*>eigenschap.</xref:System.IO.Packaging.PackageDigitalSignature.SigningTime*>"
+  remarks: "Datum/tijd indelingen Ga als volgt de syntaxis van het W3C [datum- en tijdnotatie](http://go.microsoft.com/fwlink/?LinkId=84446) opmerking.  De onderdelen die wordt weergegeven in de volgende tabel moeten gebruiken de syntaxis en leestekens weergegeven.      | TimeFormat | Beschrijving | Voorbeeld |   |----------------|-----------------|-------------|   | JJJJ | Jaar | 2005 |   | JJJJ-MM | Jaar en maand | 2005-07 |   | JJJJ-MM-DD | Datum voltooid | 2005-07-28 |   | JJJJ-MM-DDThh:mmTZD | Datum plus uren en minuten voltooien | 2005-07-28T19:20-01:00 uur |   | JJJJ-MM-DDThh:mm:ssTZD | Datum plus uren, minuten en seconden worden voltooid | 2005-07-28T19:20:45-01:00 uur |   | JJJJ-MM-DDThh:mm:ss.sTZD| Datum plus uren, minuten en seconden met een decimale fractie voltooien | 2005-07-28T19:20:45.75-01:00 uur |       waarbij: |||   |-|-|   | JJJJ | jaar met vier cijfers (bijvoorbeeld 2006) |   | MM | jaartallen met twee maand (01 januari =) |   | DD | jaartallen met twee dag van de maand (01 tot en met 31) |   | Thh | jaartallen met twee uur (00 tot 23, 24-uurs notatie) |   | mm | twee cijfers van minuten (00 tot en met 59) |   | ss | twee cijfers van seconden (00 tot en met 59) |   | s | een of meer cijfers die vertegenwoordigt een decimaal gedeelte van een tweede |   | TZD | tijdzone eenheidsaanduiding (Z of + uu: mm- of - uu: mm) |"
   syntax:
     content: public string TimeFormat { get; }
     return:
       type: System.String
-      description: "The format of the date and time returned by the <xref:System.IO.Packaging.PackageDigitalSignature.SigningTime*> property."
+      description: "De indeling van de datum en tijd die wordt geretourneerd door de <xref:System.IO.Packaging.PackageDigitalSignature.SigningTime*>eigenschap.</xref:System.IO.Packaging.PackageDigitalSignature.SigningTime*>"
   overload: System.IO.Packaging.PackageDigitalSignature.TimeFormat*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The digital <xref:System.IO.Packaging.PackageDigitalSignature.Signature*> has been deleted."
+    description: "De digitale <xref:System.IO.Packaging.PackageDigitalSignature.Signature*>is verwijderd.</xref:System.IO.Packaging.PackageDigitalSignature.Signature*>"
   platform:
   - net462
 - uid: System.IO.Packaging.PackageDigitalSignature.Verify
@@ -329,19 +329,19 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.IO.Packaging
-  summary: "Verifies the digital signature against an X.509 certificate."
-  remarks: "This method verifies the signature against an embedded X.509 certificate stored in the <xref:System.IO.Packaging.Package>."
+  summary: "Controleert of de digitale handtekening op basis van een X.509-certificaat."
+  remarks: "Deze methode verifieert de handtekening op basis van een ingesloten X.509-certificaat dat is opgeslagen in de <xref:System.IO.Packaging.Package>.</xref:System.IO.Packaging.Package>"
   syntax:
     content: public System.IO.Packaging.VerifyResult Verify ();
     parameters: []
     return:
       type: System.IO.Packaging.VerifyResult
-      description: "<xref href=&quot;System.IO.Packaging.VerifyResult&quot;></xref> if the verification succeeded; otherwise, one of the <xref href=&quot;System.IO.Packaging.VerifyResult&quot;></xref> values that identifies a problem."
+      description: "<xref href=&quot;System.IO.Packaging.VerifyResult&quot;></xref>Als de verificatie is voltooid; anders wordt een van de <xref href=&quot;System.IO.Packaging.VerifyResult&quot;> </xref> waarden die u identificeert een probleem."
   overload: System.IO.Packaging.PackageDigitalSignature.Verify*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The digital <xref:System.IO.Packaging.PackageDigitalSignature.Signature*> has been deleted."
+    description: "De digitale <xref:System.IO.Packaging.PackageDigitalSignature.Signature*>is verwijderd.</xref:System.IO.Packaging.PackageDigitalSignature.Signature*>"
   platform:
   - net462
 - uid: System.IO.Packaging.PackageDigitalSignature.Verify(System.Security.Cryptography.X509Certificates.X509Certificate)
@@ -356,21 +356,21 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.IO.Packaging
-  summary: "Verifies the digital signature against a given X.509 certificate."
+  summary: "Controleert of de digitale handtekening op basis van een bepaald X.509-certificaat."
   syntax:
     content: public System.IO.Packaging.VerifyResult Verify (System.Security.Cryptography.X509Certificates.X509Certificate signingCertificate);
     parameters:
     - id: signingCertificate
       type: System.Security.Cryptography.X509Certificates.X509Certificate
-      description: "The signer&quot;s X.509 certificate to verify the digital signature against."
+      description: "Om te controleren of de digitale handtekening op basis van de ondertekenaar X.509-certificaat."
     return:
       type: System.IO.Packaging.VerifyResult
-      description: "<xref href=&quot;System.IO.Packaging.VerifyResult&quot;></xref> if the verification succeeded; otherwise, one of the <xref href=&quot;System.IO.Packaging.VerifyResult&quot;></xref> values that identifies a problem."
+      description: "<xref href=&quot;System.IO.Packaging.VerifyResult&quot;></xref>Als de verificatie is voltooid; anders wordt een van de <xref href=&quot;System.IO.Packaging.VerifyResult&quot;> </xref> waarden die u identificeert een probleem."
   overload: System.IO.Packaging.PackageDigitalSignature.Verify*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The digital <xref:System.IO.Packaging.PackageDigitalSignature.Signature*> has been deleted."
+    description: "De digitale <xref:System.IO.Packaging.PackageDigitalSignature.Signature*>is verwijderd.</xref:System.IO.Packaging.PackageDigitalSignature.Signature*>"
   platform:
   - net462
 references:

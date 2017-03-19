@@ -14,7 +14,7 @@ items:
   nameWithType: IActivationObject
   fullName: Microsoft.JScript.IActivationObject
   type: Interface
-  summary: "Defines methods for resolving scope. This interface is implemented by all objects that take part in a scope hierarchy."
+  summary: "Methoden voor het oplossen van bereik definieert. Deze interface is geïmplementeerd door alle objecten die deel uitmaken van een scope-hiërarchie."
   syntax:
     content: public interface IActivationObject
   implements: []
@@ -32,13 +32,13 @@ items:
   assemblies:
   - Microsoft.JScript
   namespace: Microsoft.JScript
-  summary: "When implemented in a class, gets the current default scope. Either the contained object of a <xref uid=&quot;langword_csharp_with&quot; name=&quot;with&quot; href=&quot;&quot;></xref> statement scope, or the global scope."
+  summary: "Wanneer u geïmplementeerd in een klasse, krijgt de huidige standaardscope. Het ingesloten object van een <xref uid=&quot;langword_csharp_with&quot; name=&quot;with&quot; href=&quot;&quot;> </xref> instructie scope of het globale bereik."
   syntax:
     content: public object GetDefaultThisObject ();
     parameters: []
     return:
       type: System.Object
-      description: "The current default scope."
+      description: "Het huidige standaardbereik."
   overload: Microsoft.JScript.IActivationObject.GetDefaultThisObject*
   exceptions: []
   platform:
@@ -55,20 +55,20 @@ items:
   assemblies:
   - Microsoft.JScript
   namespace: Microsoft.JScript
-  summary: "When implemented in a class, returns a field that has the specified name by searching the scope hierarchy. This method searches only the scope that is specified by the lexical level."
-  remarks: "This method applies to fields that cannot be resolved at compile time. This happens when an `eval` expression refers to a field in the outer scope. Because the `eval` expression can declare a local field with the same name, the field cannot be early bound to the outer scope field."
+  summary: "Wanneer u geïmplementeerd in een klasse, retourneert een veld met de opgegeven naam door te zoeken in de Bereikhiërarchie. Deze methode wordt alleen het bereik dat is opgegeven door het lexicale niveau gezocht."
+  remarks: "Deze methode is van toepassing op de velden die tijdens de compilatie kunnen niet omgezet worden. Dit gebeurt wanneer een `eval` expressie verwijst naar een veld in de buitenste bereik. Omdat de `eval` expressie kunt declareren een lokaal veld met dezelfde naam, het veld mag niet vroege gebonden aan het veld buitenste bereik."
   syntax:
     content: public System.Reflection.FieldInfo GetField (string name, int lexLevel);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the field to search for."
+      description: "De naam van het veld om te zoeken."
     - id: lexLevel
       type: System.Int32
-      description: "The lexical level to search."
+      description: "Het lexicale niveau om te zoeken."
     return:
       type: System.Reflection.FieldInfo
-      description: "A <xref:System.Reflection.FieldInfo> object that has the specified name."
+      description: "Een <xref:System.Reflection.FieldInfo>-object dat de opgegeven naam.</xref:System.Reflection.FieldInfo>"
   overload: Microsoft.JScript.IActivationObject.GetField*
   exceptions: []
   platform:
@@ -85,13 +85,13 @@ items:
   assemblies:
   - Microsoft.JScript
   namespace: Microsoft.JScript
-  summary: "When implemented in a class, gets the global scope by searching the scope hierarchy until it finds a scope that includes static variables, for example, a module scope."
+  summary: "Wanneer geïmplementeerd in een klasse, krijgt het globale bereik door te zoeken in de Bereikhiërarchie totdat er een bereik met statische variabelen, bijvoorbeeld, een modulebereik wordt gevonden."
   syntax:
     content: public Microsoft.JScript.GlobalScope GetGlobalScope ();
     parameters: []
     return:
       type: Microsoft.JScript.GlobalScope
-      description: "The global scope."
+      description: "Het globale bereik."
   overload: Microsoft.JScript.IActivationObject.GetGlobalScope*
   exceptions: []
   platform:
@@ -108,16 +108,16 @@ items:
   assemblies:
   - Microsoft.JScript
   namespace: Microsoft.JScript
-  summary: "When implemented in a class, gets the local declaration of a field that has the specified name. This is used at compile time for error checking."
+  summary: "Wanneer u geïmplementeerd in een klasse, krijgt de lokale declaratie van een veld met de opgegeven naam. Dit wordt gebruikt tijdens de compilatie voor foutcontrole."
   syntax:
     content: public System.Reflection.FieldInfo GetLocalField (string name);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the field."
+      description: "De naam van het veld."
     return:
       type: System.Reflection.FieldInfo
-      description: "The local declaration of the field."
+      description: "De lokale declaratie van het veld."
   overload: Microsoft.JScript.IActivationObject.GetLocalField*
   exceptions: []
   platform:
@@ -134,20 +134,20 @@ items:
   assemblies:
   - Microsoft.JScript
   namespace: Microsoft.JScript
-  summary: "When implemented in a class, gets the value of the specified member by searching the scope hierarchy. This method searches only the scope that is specified by the lexical level."
-  remarks: "This method applies to members that cannot be resolved at compile time. This occurs when an `eval` expression refers to a member in the outer scope. Because the `eval` expression can declare a local member with the same name, the member cannot be early bound to the outer scope member."
+  summary: "Wanneer geïmplementeerd in een klasse, krijgt de waarde van het opgegeven lid door te zoeken in de Bereikhiërarchie. Deze methode wordt alleen het bereik dat is opgegeven door het lexicale niveau gezocht."
+  remarks: "Deze methode is van toepassing op leden die tijdens de compilatie kunnen niet omgezet worden. Dit gebeurt wanneer een `eval` expressie verwijst naar een lid in de buitenste bereik. Omdat de `eval` expressie kunt declareren lokale lid met dezelfde naam, het lid kan niet worden vroege gebonden aan het buitenste bereik lid."
   syntax:
     content: public object GetMemberValue (string name, int lexlevel);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the member to search for."
+      description: "De naam van het lid om naar te zoeken."
     - id: lexlevel
       type: System.Int32
-      description: "The lexical level to search."
+      description: "Het lexicale niveau om te zoeken."
     return:
       type: System.Object
-      description: "The value of the member <code>name</code>."
+      description: "De waarde van het lid <code> name </code>."
   overload: Microsoft.JScript.IActivationObject.GetMemberValue*
   exceptions: []
   platform:
