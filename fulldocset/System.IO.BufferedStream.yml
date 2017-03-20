@@ -31,7 +31,7 @@ items:
   nameWithType: BufferedStream
   fullName: System.IO.BufferedStream
   type: Class
-  summary: "Adds a buffering layer to read and write operations on another stream. This class cannot be inherited."
+  summary: "Voegt een buffer laag lees-en schrijfbewerkingen in een andere stroom. Deze klasse kan niet worden overgenomen."
   remarks: "A buffer is a block of bytes in memory used to cache data, thereby reducing the number of calls to the operating system. Buffers improve read and write performance. A buffer can be used for either reading or writing, but never both simultaneously. The [Read(Byte\\[\\], Int32, Int32)](assetId:///M:System.IO.BufferedStream.Read(System.Byte[],System.Int32,System.Int32)?qualifyHint=False&autoUpgrade=True) and [Write(Byte\\[\\], Int32, Int32)](assetId:///M:System.IO.BufferedStream.Write(System.Byte[],System.Int32,System.Int32)?qualifyHint=False&autoUpgrade=True) methods of `BufferedStream` automatically maintain the buffer.  \n  \n> [!IMPORTANT]\n>  This type implements the <xref:System.IDisposable> interface. When you have finished using the type, you should dispose of it either directly or indirectly. To dispose of the type directly, call its <xref:System.IDisposable.Dispose%2A> method in a `try`/`catch` block. To dispose of it indirectly, use a language construct such as `using` (in C#) or `Using` (in Visual Basic). For more information, see the “Using an Object that Implements IDisposable” section in the <xref:System.IDisposable> interface topic.  \n  \n `BufferedStream` can be composed around certain types of streams. It provides implementations for reading and writing bytes to an underlying data source or repository. Use <xref:System.IO.BinaryReader> and <xref:System.IO.BinaryWriter> for reading and writing other data types. `BufferedStream` is designed to prevent the buffer from slowing down input and output when the buffer is not needed. If you always read and write for sizes greater than the internal buffer size, then `BufferedStream` might not even allocate the internal buffer. `BufferedStream` also buffers reads and writes in a shared buffer. It is assumed that you will almost always be doing a series of reads or writes, but rarely alternate between the two of them."
   example:
   - "The following code examples show how to use the `BufferedStream` class over the `NetworkStream` class to increase the performance of certain I/O operations. Start the server on a remote computer before starting the client. Specify the remote computer name as a command-line argument when starting the client. Vary the `dataArraySize` and `streamBufferSize` constants to view their effect on performance.  \n  \n The first example shows the code that runs on the client, and the second example shows the code that runs on the server.  \n  \n **Example 1: Code that runs on the client**  \n  \n [!code-cs[System.IO.BufferedStream1#1](~/add/codesnippet/csharp/t-system.io.bufferedstream_1.cs)]\n [!code-cpp[System.IO.BufferedStream1#1](~/add/codesnippet/cpp/t-system.io.bufferedstream_1.cpp)]\n [!code-vb[System.IO.BufferedStream1#1](~/add/codesnippet/visualbasic/t-system.io.bufferedstream_1.vb)]  \n  \n **Example 2: Code that runs on the server**  \n  \n [!code-vb[System.IO.BufferedStream2#1](~/add/codesnippet/visualbasic/t-system.io.bufferedstream_2.vb)]\n [!code-cs[System.IO.BufferedStream2#1](~/add/codesnippet/csharp/t-system.io.bufferedstream_2.cs)]\n [!code-cpp[System.IO.BufferedStream2#1](~/add/codesnippet/cpp/t-system.io.bufferedstream_2.cpp)]"
@@ -58,19 +58,19 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Initializes a new instance of the <xref href=&quot;System.IO.BufferedStream&quot;></xref> class with a default buffer size of 4096 bytes."
-  remarks: "A shared read/write buffer is allocated the first time a `BufferedStream` object is initialized with this constructor. The shared buffer is not used if all reads and writes are greater than or equal to `bufferSize`."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.IO.BufferedStream&quot;> </xref> klasse met een standaardbuffergrootte van 4096 bytes."
+  remarks: "Een gedeelde lezen/schrijven-buffer is toegewezen voor het eerst een `BufferedStream` -object met deze constructor is geïnitialiseerd. De gedeelde buffer wordt niet gebruikt als alle lees- en schrijfbewerkingen groter zijn dan of gelijk zijn aan `bufferSize`."
   syntax:
     content: public BufferedStream (System.IO.Stream stream);
     parameters:
     - id: stream
       type: System.IO.Stream
-      description: "The current stream."
+      description: "De huidige stroom."
   overload: System.IO.BufferedStream.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>stream</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>stream</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.IO.BufferedStream.#ctor(System.IO.Stream,System.Int32)
@@ -85,8 +85,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Initializes a new instance of the <xref href=&quot;System.IO.BufferedStream&quot;></xref> class with the specified buffer size."
-  remarks: "A shared read/write buffer is allocated the first time a `BufferedStream` object is initialized with this constructor. The shared buffer is not used if all reads and writes are greater than or equal to `bufferSize`."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.IO.BufferedStream&quot;> </xref> klasse met de opgegeven buffergrootte."
+  remarks: "Een gedeelde lezen/schrijven-buffer is toegewezen voor het eerst een `BufferedStream` -object met deze constructor is geïnitialiseerd. De gedeelde buffer wordt niet gebruikt als alle lees- en schrijfbewerkingen groter zijn dan of gelijk zijn aan `bufferSize`."
   example:
   - "This code example is part of a larger example provided for the <xref:System.IO.BufferedStream> class.  \n  \n [!code-cs[System.IO.BufferedStream1#2](~/add/codesnippet/csharp/m-system.io.bufferedstre_2_1.cs)]\n [!code-cpp[System.IO.BufferedStream1#2](~/add/codesnippet/cpp/m-system.io.bufferedstre_2_1.cpp)]\n [!code-vb[System.IO.BufferedStream1#2](~/add/codesnippet/visualbasic/m-system.io.bufferedstre_2_1.vb)]"
   syntax:
@@ -94,18 +94,18 @@ items:
     parameters:
     - id: stream
       type: System.IO.Stream
-      description: "The current stream."
+      description: "De huidige stroom."
     - id: bufferSize
       type: System.Int32
-      description: "The buffer size in bytes."
+      description: "De buffergrootte in bytes."
   overload: System.IO.BufferedStream.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>stream</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>stream</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>bufferSize</code> is negative."
+    description: "<code>bufferSize</code>is negatief."
   platform:
   - net462
 - uid: System.IO.BufferedStream.BeginRead(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)
@@ -120,46 +120,46 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Begins an asynchronous read operation. (Consider using <xref:System.IO.BufferedStream.ReadAsync*> instead; see the Remarks section.)"
-  remarks: "In the .NET Framework 4 and earlier versions, you have to use methods such as <xref:System.IO.Stream.BeginRead%2A> and <xref:System.IO.Stream.EndRead%2A> to implement asynchronous file operations. These methods are still available in the [!INCLUDE[net_v45](~/add/includes/ajax-current-ext-md.md)] to support legacy code; however, the new async methods, such as <xref:System.IO.BufferedStream.ReadAsync%2A>, <xref:System.IO.BufferedStream.WriteAsync%2A>, and <xref:System.IO.BufferedStream.FlushAsync%2A>, help you implement asynchronous file operations more easily.       <xref:System.IO.BufferedStream.EndWrite%2A> must be called exactly once for every call to BeginRead. Failing to end a read process before beginning another read can cause undesirable behavior such as deadlock.      > [!NOTE] >  Use the <xref:System.IO.BufferedStream.CanRead%2A> property to determine whether the current instance supports reading.       <xref:System.IO.BufferedStream.EndRead%2A> must be called with this <xref:System.IAsyncResult> to find out how many bytes were read."
+  summary: "Een asynchrone leesbewerking gestart. (Overweeg het gebruik van <xref:System.IO.BufferedStream.ReadAsync*>in plaats daarvan; Zie de sectie met opmerkingen.)</xref:System.IO.BufferedStream.ReadAsync*>"
+  remarks: "In de .NET Framework 4 en eerdere versies, die u hebt methoden te gebruiken, zoals <xref:System.IO.Stream.BeginRead%2A>en <xref:System.IO.Stream.EndRead%2A>voor het implementeren van asynchrone bestandsbewerkingen.</xref:System.IO.Stream.EndRead%2A> </xref:System.IO.Stream.BeginRead%2A> Deze methoden zijn nog steeds beschikbaar in de [!INCLUDE[net_v45](~/add/includes/ajax-current-ext-md.md)] ter ondersteuning van verouderde code; echter, de nieuwe async-methoden zoals <xref:System.IO.BufferedStream.ReadAsync%2A>, <xref:System.IO.BufferedStream.WriteAsync%2A>, en <xref:System.IO.BufferedStream.FlushAsync%2A>, help asynchrone bestandsbewerkingen eenvoudiger te implementeren.</xref:System.IO.BufferedStream.FlushAsync%2A> </xref:System.IO.BufferedStream.WriteAsync%2A> </xref:System.IO.BufferedStream.ReadAsync%2A>       <xref:System.IO.BufferedStream.EndWrite%2A>moet precies één keer worden aangeroepen voor elke aanroep van BeginRead.</xref:System.IO.BufferedStream.EndWrite%2A> Een proces te beëindigen lezen voordat u begint met een andere lezen is mislukt, kan ongewenst gedrag zoals impasse veroorzaken.      > [!NOTE] > Gebruik de <xref:System.IO.BufferedStream.CanRead%2A>eigenschap om te bepalen of de huidige instantie lezen ondersteunt.</xref:System.IO.BufferedStream.CanRead%2A>       <xref:System.IO.BufferedStream.EndRead%2A>moet worden aangeroepen met deze <xref:System.IAsyncResult>om erachter te komen hoeveel bytes zijn gelezen.</xref:System.IAsyncResult></xref:System.IO.BufferedStream.EndRead%2A>"
   syntax:
     content: public override IAsyncResult BeginRead (byte[] buffer, int offset, int count, AsyncCallback callback, object state);
     parameters:
     - id: buffer
       type: System.Byte[]
-      description: "The buffer to read the data into."
+      description: "De buffer om de gegevens in te lezen."
     - id: offset
       type: System.Int32
-      description: "The byte offset in `buffer` at which to begin writing data read from the stream."
+      description: "De byte-offset in `buffer` waarop u wilt beginnen met het schrijven van gegevens uit de stroom lezen."
     - id: count
       type: System.Int32
-      description: "The maximum number of bytes to read."
+      description: "Het maximum aantal bytes te lezen."
     - id: callback
       type: System.AsyncCallback
-      description: "An optional asynchronous callback, to be called when the read is complete."
+      description: "Een optionele asynchrone terugpostactie, moet worden aangeroepen wanneer de leesbewerking voltooid is."
     - id: state
       type: System.Object
-      description: "A user-provided object that distinguishes this particular asynchronous read request from other requests."
+      description: "Een gebruiker gemaakte object dat deze bepaalde asynchrone leesaanvraag van andere aanvragen onderscheidt."
     return:
       type: System.IAsyncResult
-      description: "An object that represents the asynchronous read, which could still be pending."
+      description: "Een object met de asynchrone leesbewerking die nog steeds in behandeling kan worden."
   overload: System.IO.BufferedStream.BeginRead*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>buffer</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>buffer</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>offset</code> or <code>count</code> is negative."
+    description: "<code>offset</code>of <code>count</code> negatief is."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "Attempted an asynchronous read past the end of the stream."
+    description: "Er is geprobeerd een asynchrone leesbewerking voorbij het einde van de stroom."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The buffer length minus <code>offset</code> is less than <code>count</code>."
+    description: "De bufferlengte min <code> offset </code> is minder dan <code> count </code>."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The current stream does not support the read operation."
+    description: "De huidige stroom biedt geen ondersteuning voor de leesbewerking."
   platform:
   - net462
 - uid: System.IO.BufferedStream.BeginWrite(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)
@@ -174,43 +174,43 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Begins an asynchronous write operation. (Consider using <xref:System.IO.BufferedStream.WriteAsync*> instead; see the Remarks section.)"
-  remarks: "In the .NET Framework 4 and earlier versions, you have to use methods such as <xref:System.IO.Stream.BeginWrite%2A> and <xref:System.IO.Stream.EndWrite%2A> to implement asynchronous file operations. These methods are still available in the [!INCLUDE[net_v45](~/add/includes/ajax-current-ext-md.md)] to support legacy code; however, the new async methods, such as <xref:System.IO.BufferedStream.ReadAsync%2A>, <xref:System.IO.BufferedStream.WriteAsync%2A>, and <xref:System.IO.BufferedStream.FlushAsync%2A>, help you implement asynchronous file operations more easily.       <xref:System.IO.BufferedStream.EndWrite%2A> must be called exactly once on every <xref:System.IAsyncResult> from BeginWrite. <xref:System.IO.BufferedStream.EndWrite%2A> will block until the I/O operation has completed."
+  summary: "Een asynchrone schrijfbewerking begint. (Overweeg het gebruik van <xref:System.IO.BufferedStream.WriteAsync*>in plaats daarvan; Zie de sectie met opmerkingen.)</xref:System.IO.BufferedStream.WriteAsync*>"
+  remarks: "In de .NET Framework 4 en eerdere versies, die u hebt methoden te gebruiken, zoals <xref:System.IO.Stream.BeginWrite%2A>en <xref:System.IO.Stream.EndWrite%2A>voor het implementeren van asynchrone bestandsbewerkingen.</xref:System.IO.Stream.EndWrite%2A> </xref:System.IO.Stream.BeginWrite%2A> Deze methoden zijn nog steeds beschikbaar in de [!INCLUDE[net_v45](~/add/includes/ajax-current-ext-md.md)] ter ondersteuning van verouderde code; echter, de nieuwe async-methoden zoals <xref:System.IO.BufferedStream.ReadAsync%2A>, <xref:System.IO.BufferedStream.WriteAsync%2A>, en <xref:System.IO.BufferedStream.FlushAsync%2A>, help asynchrone bestandsbewerkingen eenvoudiger te implementeren.</xref:System.IO.BufferedStream.FlushAsync%2A> </xref:System.IO.BufferedStream.WriteAsync%2A> </xref:System.IO.BufferedStream.ReadAsync%2A>       <xref:System.IO.BufferedStream.EndWrite%2A>moet precies één keer worden aangeroepen voor elke <xref:System.IAsyncResult>van BeginWrite.</xref:System.IAsyncResult></xref:System.IO.BufferedStream.EndWrite%2A> <xref:System.IO.BufferedStream.EndWrite%2A>wordt geblokkeerd tot de i/o-bewerking is voltooid.</xref:System.IO.BufferedStream.EndWrite%2A>"
   syntax:
     content: public override IAsyncResult BeginWrite (byte[] buffer, int offset, int count, AsyncCallback callback, object state);
     parameters:
     - id: buffer
       type: System.Byte[]
-      description: "The buffer containing data to write to the current stream."
+      description: "De buffer die gegevens naar de huidige stroom schrijven."
     - id: offset
       type: System.Int32
-      description: "The zero-based byte offset in `buffer` at which to begin copying bytes to the current stream."
+      description: "De op nul gebaseerde byte-offset in `buffer` waarop u wilt beginnen met het kopiëren van bytes naar de huidige stroom."
     - id: count
       type: System.Int32
-      description: "The maximum number of bytes to write."
+      description: "Het maximum aantal bytes te schrijven."
     - id: callback
       type: System.AsyncCallback
-      description: "The method to be called when the asynchronous write operation is completed."
+      description: "De methode die moet worden aangeroepen wanneer de asynchrone schrijfbewerking is voltooid."
     - id: state
       type: System.Object
-      description: "A user-provided object that distinguishes this particular asynchronous write request from other requests."
+      description: "Een gebruiker gemaakte object dat deze aanvraag bepaalde asynchrone schrijfactie van andere aanvragen onderscheidt."
     return:
       type: System.IAsyncResult
-      description: "An object that references the asynchronous write which could still be pending."
+      description: "Een object dat verwijst naar de asynchrone schrijfactie die nog steeds in behandeling kan worden."
   overload: System.IO.BufferedStream.BeginWrite*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>buffer</code> length minus <code>offset</code> is less than <code>count</code>."
+    description: "<code>buffer</code>lengte min <code>offset</code> is minder dan <code>count</code>."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>buffer</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>buffer</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>offset</code> or <code>count</code> is negative."
+    description: "<code>offset</code>of <code>count</code> negatief is."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The stream does not support writing."
+    description: "De stroom biedt geen ondersteuning voor schrijven."
   platform:
   - net462
 - uid: System.IO.BufferedStream.CanRead
@@ -225,15 +225,15 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Gets a value indicating whether the current stream supports reading."
-  remarks: "If a class derived from <xref:System.IO.Stream> does not support reading, calls to the <xref:System.IO.BufferedStream.Read%2A>, <xref:System.IO.BufferedStream.ReadByte%2A>, <xref:System.IO.Stream.BeginRead%2A>, <xref:System.IO.Stream.EndRead%2A>, and the `Peek` methods of <xref:System.IO.StreamReader>, <xref:System.IO.StringReader>, and <xref:System.IO.TextReader> throw a <xref:System.NotSupportedException>.       If the stream is closed, this property returns `false`."
+  summary: "Hiermee wordt een waarde die aangeeft of de huidige stroom lezen ondersteunt."
+  remarks: "Als een klasse wordt afgeleid van <xref:System.IO.Stream>lezen wordt niet ondersteund, aanroepen naar de <xref:System.IO.BufferedStream.Read%2A>, <xref:System.IO.BufferedStream.ReadByte%2A>, <xref:System.IO.Stream.BeginRead%2A>, <xref:System.IO.Stream.EndRead%2A>, en de `Peek` methoden van <xref:System.IO.StreamReader>, <xref:System.IO.StringReader>, en <xref:System.IO.TextReader>genereert een <xref:System.NotSupportedException>.</xref:System.NotSupportedException> </xref:System.IO.TextReader> </xref:System.IO.StringReader> </xref:System.IO.StreamReader> </xref:System.IO.Stream.EndRead%2A> </xref:System.IO.Stream.BeginRead%2A> </xref:System.IO.BufferedStream.ReadByte%2A> </xref:System.IO.BufferedStream.Read%2A> </xref:System.IO.Stream>       Als de stroom is gesloten, retourneert deze eigenschap `false`."
   example:
   - "This code example is part of a larger example provided for the <xref:System.IO.BufferedStream> class.  \n  \n [!code-cs[System.IO.BufferedStream1#5](~/add/codesnippet/csharp/p-system.io.bufferedstre_2_1.cs)]\n [!code-cpp[System.IO.BufferedStream1#5](~/add/codesnippet/cpp/p-system.io.bufferedstre_2_1.cpp)]\n [!code-vb[System.IO.BufferedStream1#5](~/add/codesnippet/visualbasic/p-system.io.bufferedstre_2_1.vb)]"
   syntax:
     content: public override bool CanRead { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the stream supports reading; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the stream is closed or was opened with write-only access."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de stroom lezen ondersteunt; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> als de stroom is gesloten of is geopend met alleen-schrijven toegang."
   overload: System.IO.BufferedStream.CanRead*
   exceptions: []
   platform:
@@ -250,15 +250,15 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Gets a value indicating whether the current stream supports seeking."
-  remarks: "If a class derived from <xref:System.IO.Stream> does not support seeking, calls to <xref:System.IO.BufferedStream.Length%2A>, <xref:System.IO.BufferedStream.SetLength%2A>, <xref:System.IO.BufferedStream.Position%2A>, and <xref:System.IO.BufferedStream.Seek%2A> throw a <xref:System.NotSupportedException>.       If the stream is closed, this property returns `false`."
+  summary: "Hiermee wordt een waarde die aangeeft of de huidige stroom zoekbewerkingen ondersteunt."
+  remarks: "Als een klasse wordt afgeleid van <xref:System.IO.Stream>Zoeken niet ondersteunt, roept naar <xref:System.IO.BufferedStream.Length%2A>, <xref:System.IO.BufferedStream.SetLength%2A>, <xref:System.IO.BufferedStream.Position%2A>, en <xref:System.IO.BufferedStream.Seek%2A>genereert een <xref:System.NotSupportedException>.</xref:System.NotSupportedException> </xref:System.IO.BufferedStream.Seek%2A> </xref:System.IO.BufferedStream.Position%2A> </xref:System.IO.BufferedStream.SetLength%2A> </xref:System.IO.BufferedStream.Length%2A> </xref:System.IO.Stream>       Als de stroom is gesloten, retourneert deze eigenschap `false`."
   example:
   - "This code example is part of a larger example provided for the <xref:System.IO.BufferedStream> class.  \n  \n [!code-cs[System.IO.BufferedStream1#3](~/add/codesnippet/csharp/p-system.io.bufferedstre_0_1.cs)]\n [!code-cpp[System.IO.BufferedStream1#3](~/add/codesnippet/cpp/p-system.io.bufferedstre_0_1.cpp)]\n [!code-vb[System.IO.BufferedStream1#3](~/add/codesnippet/visualbasic/p-system.io.bufferedstre_0_1.vb)]"
   syntax:
     content: public override bool CanSeek { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the stream supports seeking; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the stream is closed or if the stream was constructed from an operating system handle such as a pipe or output to the console."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de stroom zoekbewerkingen ondersteunt; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> als de stroom is gesloten of als de stroom is gemaakt van een besturingssysteem-ingang, zoals een pipe of uitvoer naar de console."
   overload: System.IO.BufferedStream.CanSeek*
   exceptions: []
   platform:
@@ -275,15 +275,15 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Gets a value indicating whether the current stream supports writing."
-  remarks: "If a class derived from <xref:System.IO.Stream> does not support writing, a call to <xref:System.IO.BufferedStream.SetLength%2A>, <xref:System.IO.BufferedStream.Write%2A>, or <xref:System.IO.BufferedStream.WriteByte%2A> throws a <xref:System.NotSupportedException>.       If the stream is closed, this property returns `false`."
+  summary: "Hiermee wordt een waarde die aangeeft of de huidige stroom schrijven ondersteunt."
+  remarks: "Als een klasse wordt afgeleid van <xref:System.IO.Stream>biedt geen ondersteuning voor het schrijven van een aanroep van <xref:System.IO.BufferedStream.SetLength%2A>, <xref:System.IO.BufferedStream.Write%2A>, of <xref:System.IO.BufferedStream.WriteByte%2A>er een <xref:System.NotSupportedException>.</xref:System.NotSupportedException> </xref:System.IO.BufferedStream.WriteByte%2A> </xref:System.IO.BufferedStream.Write%2A> </xref:System.IO.BufferedStream.SetLength%2A> </xref:System.IO.Stream>       Als de stroom is gesloten, retourneert deze eigenschap `false`."
   example:
   - "This code example is part of a larger example provided for the <xref:System.IO.BufferedStream> class.  \n  \n [!code-cs[System.IO.BufferedStream1#4](~/add/codesnippet/csharp/p-system.io.bufferedstre_1_1.cs)]\n [!code-cpp[System.IO.BufferedStream1#4](~/add/codesnippet/cpp/p-system.io.bufferedstre_1_1.cpp)]\n [!code-vb[System.IO.BufferedStream1#4](~/add/codesnippet/visualbasic/p-system.io.bufferedstre_1_1.vb)]"
   syntax:
     content: public override bool CanWrite { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the stream supports writing; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the stream is closed or was opened with read-only access."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de stroom schrijven ondersteunt; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> als de stroom is gesloten of is geopend met alleen-lezen toegang."
   overload: System.IO.BufferedStream.CanWrite*
   exceptions: []
   platform:
@@ -305,7 +305,7 @@ items:
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   overload: System.IO.BufferedStream.Dispose*
   exceptions: []
   platform:
@@ -322,25 +322,25 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Waits for the pending asynchronous read operation to complete. (Consider using <xref:System.IO.BufferedStream.ReadAsync*> instead; see the Remarks section.)"
-  remarks: "In the .NET Framework 4 and earlier versions, you have to use methods such as <xref:System.IO.Stream.BeginRead%2A> and <xref:System.IO.Stream.EndRead%2A> to implement asynchronous file operations. These methods are still available in the [!INCLUDE[net_v45](~/add/includes/ajax-current-ext-md.md)] to support legacy code; however, the new async methods, such as <xref:System.IO.BufferedStream.ReadAsync%2A>, <xref:System.IO.BufferedStream.WriteAsync%2A>, and <xref:System.IO.BufferedStream.FlushAsync%2A>, help you implement asynchronous file operations more easily.       EndRead must be called with this <xref:System.IAsyncResult> to find out how many bytes were read."
+  summary: "Wacht tot de in behandeling asynchrone leesbewerking te voltooien. (Overweeg het gebruik van <xref:System.IO.BufferedStream.ReadAsync*>in plaats daarvan; Zie de sectie met opmerkingen.)</xref:System.IO.BufferedStream.ReadAsync*>"
+  remarks: "In de .NET Framework 4 en eerdere versies, die u hebt methoden te gebruiken, zoals <xref:System.IO.Stream.BeginRead%2A>en <xref:System.IO.Stream.EndRead%2A>voor het implementeren van asynchrone bestandsbewerkingen.</xref:System.IO.Stream.EndRead%2A> </xref:System.IO.Stream.BeginRead%2A> Deze methoden zijn nog steeds beschikbaar in de [!INCLUDE[net_v45](~/add/includes/ajax-current-ext-md.md)] ter ondersteuning van verouderde code; echter, de nieuwe async-methoden zoals <xref:System.IO.BufferedStream.ReadAsync%2A>, <xref:System.IO.BufferedStream.WriteAsync%2A>, en <xref:System.IO.BufferedStream.FlushAsync%2A>, help asynchrone bestandsbewerkingen eenvoudiger te implementeren.</xref:System.IO.BufferedStream.FlushAsync%2A> </xref:System.IO.BufferedStream.WriteAsync%2A> </xref:System.IO.BufferedStream.ReadAsync%2A>       EndRead moet worden aangeroepen met deze <xref:System.IAsyncResult>om erachter te komen hoeveel bytes zijn gelezen.</xref:System.IAsyncResult>"
   syntax:
     content: public override int EndRead (IAsyncResult asyncResult);
     parameters:
     - id: asyncResult
       type: System.IAsyncResult
-      description: "The reference to the pending asynchronous request to wait for."
+      description: "De verwijzing naar de asynchrone aanvraag in behandeling te wachten."
     return:
       type: System.Int32
-      description: "The number of bytes read from the stream, between 0 (zero) and the number of bytes you requested. Streams only return 0 only at the end of the stream, otherwise, they should block until at least 1 byte is available."
+      description: "Het aantal bytes gelezen uit de stroom, tussen 0 (nul) en het aantal bytes dat u hebt aangevraagd. Streams alleen 0 alleen aan het einde van de stream retourneren, kunt u ze moeten anders blokkeren totdat ten minste 1 byte beschikbaar is."
   overload: System.IO.BufferedStream.EndRead*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>asyncResult</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>asyncResult</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "This <xref:System.IAsyncResult> object was not created by calling <xref:System.IO.BufferedStream.BeginRead*> on this class."
+    description: "Dit <xref:System.IAsyncResult>object is niet gemaakt door het aanroepen <xref:System.IO.BufferedStream.BeginRead*>van deze klasse.</xref:System.IO.BufferedStream.BeginRead*> </xref:System.IAsyncResult>"
   platform:
   - net462
 - uid: System.IO.BufferedStream.EndWrite(System.IAsyncResult)
@@ -355,22 +355,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Ends an asynchronous write operation and blocks until the I/O operation is complete. (Consider using <xref:System.IO.BufferedStream.WriteAsync*> instead; see the Remarks section.)"
-  remarks: "In the .NET Framework 4 and earlier versions, you have to use methods such as <xref:System.IO.Stream.BeginWrite%2A> and <xref:System.IO.Stream.EndWrite%2A> to implement asynchronous file operations. These methods are still available in the [!INCLUDE[net_v45](~/add/includes/ajax-current-ext-md.md)] to support legacy code; however, the new async methods, such as <xref:System.IO.BufferedStream.ReadAsync%2A>, <xref:System.IO.BufferedStream.WriteAsync%2A>, and <xref:System.IO.BufferedStream.FlushAsync%2A>, help you implement asynchronous file operations more easily.       EndWrite must be called exactly once for every call to <xref:System.IO.BufferedStream.BeginRead%2A>. Failing to end a read process before beginning another read operation can cause deadlock or other undesirable behavior."
+  summary: "Een asynchrone schrijfbewerking en -blokken eindigt totdat de i/o-bewerking voltooid is. (Overweeg het gebruik van <xref:System.IO.BufferedStream.WriteAsync*>in plaats daarvan; Zie de sectie met opmerkingen.)</xref:System.IO.BufferedStream.WriteAsync*>"
+  remarks: "In de .NET Framework 4 en eerdere versies, die u hebt methoden te gebruiken, zoals <xref:System.IO.Stream.BeginWrite%2A>en <xref:System.IO.Stream.EndWrite%2A>voor het implementeren van asynchrone bestandsbewerkingen.</xref:System.IO.Stream.EndWrite%2A> </xref:System.IO.Stream.BeginWrite%2A> Deze methoden zijn nog steeds beschikbaar in de [!INCLUDE[net_v45](~/add/includes/ajax-current-ext-md.md)] ter ondersteuning van verouderde code; echter, de nieuwe async-methoden zoals <xref:System.IO.BufferedStream.ReadAsync%2A>, <xref:System.IO.BufferedStream.WriteAsync%2A>, en <xref:System.IO.BufferedStream.FlushAsync%2A>, help asynchrone bestandsbewerkingen eenvoudiger te implementeren.</xref:System.IO.BufferedStream.FlushAsync%2A> </xref:System.IO.BufferedStream.WriteAsync%2A> </xref:System.IO.BufferedStream.ReadAsync%2A>       EndWrite moet exact één keer worden aangeroepen voor elke aanroep van <xref:System.IO.BufferedStream.BeginRead%2A>.</xref:System.IO.BufferedStream.BeginRead%2A> Failover naar een lezen proces beëindigen voordat u een andere leesbewerking kan leiden tot impasse of andere ongewenst gedrag."
   syntax:
     content: public override void EndWrite (IAsyncResult asyncResult);
     parameters:
     - id: asyncResult
       type: System.IAsyncResult
-      description: "The pending asynchronous request."
+      description: "De asynchrone aanvraag in behandeling."
   overload: System.IO.BufferedStream.EndWrite*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>asyncResult</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>asyncResult</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "This <xref:System.IAsyncResult> object was not created by calling <xref:System.IO.BufferedStream.BeginWrite*> on this class."
+    description: "Dit <xref:System.IAsyncResult>object is niet gemaakt door het aanroepen <xref:System.IO.BufferedStream.BeginWrite*>van deze klasse.</xref:System.IO.BufferedStream.BeginWrite*> </xref:System.IAsyncResult>"
   platform:
   - net462
 - uid: System.IO.BufferedStream.Flush
@@ -385,8 +385,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Clears all buffers for this stream and causes any buffered data to be written to the underlying device."
-  remarks: "Flushing the stream will not flush its underlying encoder unless you explicitly call `Flush` or <xref:System.IO.Stream.Close%2A>.       If you use the <xref:System.IO.BufferedStream.%23ctor%2A> constructor, thus specifying the buffer size while creating the `BufferedStream` object, the content is flushed when it reaches the buffer size. For example, code such as `BufferedStream bs = new BufferedStream(bs, 5)` will flush the content when the buffer size reaches 5 bytes.       All the read and write methods of `BufferedStream` automatically maintain the buffer, so there is no need to invoke `Flush` when switching back and forth between reading and writing."
+  summary: "Hiermee wist u alle buffers voor deze stroom en zorgt ervoor dat de gegevens naar de onderliggende apparaat moeten worden geschreven."
+  remarks: "Leegmaken van de stroom wordt niet leegmaken van de onderliggende encoder tenzij u expliciet aanroepen `Flush` of <xref:System.IO.Stream.Close%2A>.</xref:System.IO.Stream.Close%2A>       Als u de <xref:System.IO.BufferedStream.%23ctor%2A>-constructor aan, dus de buffergrootte geven tijdens het maken van de `BufferedStream` object, de inhoud moet worden leeggemaakt wanneer het de buffergrootte is bereikt.</xref:System.IO.BufferedStream.%23ctor%2A> Bijvoorbeeld code zoals `BufferedStream bs = new BufferedStream(bs, 5)` de inhoud wordt leeggemaakt wanneer de buffergrootte 5 bytes is bereikt.       Alle lees- en methoden voor `BufferedStream` automatisch de buffer die wordt onderhouden zodat is niet nodig om aan te roepen `Flush` wanneer heen en weer schakelen tussen lezen en schrijven."
   example:
   - "This code example is part of a larger example provided for the <xref:System.IO.BufferedStream> class.  \n  \n [!code-cs[System.IO.BufferedStream1#6](~/add/codesnippet/csharp/m-system.io.bufferedstre_0_1.cs)]\n [!code-cpp[System.IO.BufferedStream1#6](~/add/codesnippet/cpp/m-system.io.bufferedstre_0_1.cpp)]\n [!code-vb[System.IO.BufferedStream1#6](~/add/codesnippet/visualbasic/m-system.io.bufferedstre_0_1.vb)]"
   syntax:
@@ -396,10 +396,10 @@ items:
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The stream has been disposed."
+    description: "De stroom is verwijderd."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The data source or repository is not open."
+    description: "De gegevensbron of de opslagplaats is niet geopend."
   platform:
   - net462
 - uid: System.IO.BufferedStream.FlushAsync(System.Threading.CancellationToken)
@@ -414,21 +414,21 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Asynchronously clears all buffers for this stream, causes any buffered data to be written to the underlying device, and monitors cancellation requests."
+  summary: "Asynchroon alle buffers voor deze stroom wordt gewist, zorgt ervoor dat de gegevens worden geschreven naar de onderliggende apparaat en controleert annulering aanvragen."
   syntax:
     content: public override System.Threading.Tasks.Task FlushAsync (System.Threading.CancellationToken cancellationToken);
     parameters:
     - id: cancellationToken
       type: System.Threading.CancellationToken
-      description: "The token to monitor for cancellation requests."
+      description: "Het token voor annulering aanvragen bewaken."
     return:
       type: System.Threading.Tasks.Task
-      description: "A task that represents the asynchronous flush operation."
+      description: "Een taak die staat voor de asynchrone bewerking leegmaken."
   overload: System.IO.BufferedStream.FlushAsync*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The stream has been disposed."
+    description: "De stroom is verwijderd."
   platform:
   - net462
 - uid: System.IO.BufferedStream.Length
@@ -443,23 +443,23 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Gets the stream length in bytes."
+  summary: "Hiermee haalt de stream-lengte in bytes."
   syntax:
     content: public override long Length { get; }
     return:
       type: System.Int64
-      description: "The stream length in bytes."
+      description: "De stream-lengte in bytes."
   overload: System.IO.BufferedStream.Length*
   exceptions:
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The underlying stream is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or closed."
+    description: "De onderliggende stroom <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> of gesloten."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The stream does not support seeking."
+    description: "De stroom biedt geen ondersteuning voor zoekbewerkingen."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "Methods were called after the stream was closed."
+    description: "Methoden zijn aangeroepen nadat de stroom is gesloten."
   platform:
   - net462
 - uid: System.IO.BufferedStream.Position
@@ -474,27 +474,27 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Gets the position within the current stream."
-  remarks: "The `get` accessor invokes <xref:System.IO.BufferedStream.Seek%2A> to obtain the current position within the underlying stream and then adjusts this value according to the current position within the buffer.       The `set` accessor copies any data previously written to the buffer to the underlying stream, and then invokes <xref:System.IO.BufferedStream.Seek%2A>.       Seeking to any location beyond the length of the stream is supported."
+  summary: "Hiermee wordt de positie binnen de huidige stroom opgehaald."
+  remarks: "De `get` accessor roept <xref:System.IO.BufferedStream.Seek%2A>om op te halen van de huidige positie in de onderliggende stroom en vervolgens past u deze waarde volgens de huidige positie binnen de buffer.</xref:System.IO.BufferedStream.Seek%2A>       De `set` accessor kopieert geen gegevens die eerder naar de buffer naar de onderliggende stroom is geschreven en roept vervolgens <xref:System.IO.BufferedStream.Seek%2A>.</xref:System.IO.BufferedStream.Seek%2A>       Zoeken naar andere locaties dan de lengte van de stroom wordt ondersteund."
   syntax:
     content: public override long Position { get; set; }
     return:
       type: System.Int64
-      description: "The position within the current stream."
+      description: "De positie binnen de huidige stroom."
   overload: System.IO.BufferedStream.Position*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The value passed to <xref:System.IO.BufferedStream.Seek*> is negative."
+    description: "De waarde die is doorgegeven aan <xref:System.IO.BufferedStream.Seek*>is negatief.</xref:System.IO.BufferedStream.Seek*>"
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurs, such as the stream being closed."
+    description: "Een i/o-fout optreedt, zoals de stroom wordt gesloten."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The stream does not support seeking."
+    description: "De stroom biedt geen ondersteuning voor zoekbewerkingen."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "Methods were called after the stream was closed."
+    description: "Methoden zijn aangeroepen nadat de stroom is gesloten."
   platform:
   - net462
 - uid: System.IO.BufferedStream.Read(System.Byte[],System.Int32,System.Int32)
@@ -509,8 +509,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Copies bytes from the current buffered stream to an array."
-  remarks: "The `Read` method will return 0 only if the end of the stream is reached. In all other cases, `Read` always reads at least one byte from the stream before returning. By definition, if no data is available from the stream upon a call to `Read`, the `Read` method returns 0 (the end of the stream is reached automatically). An implementation is free to return fewer bytes than requested even if the end of the stream has not been reached.       Use <xref:System.IO.BinaryReader> for reading primitive data types."
+  summary: "Kopieën bytes uit de huidige buffer stroom om in een matrix."
+  remarks: "De `Read` methode retourneert 0 alleen als het einde van de stroom is bereikt. In andere gevallen `Read` altijd ten minste één byte leest uit de stroom voordat u terugkeert. Per definitie als gegevens niet beschikbaar vanuit de stroom van een aanroep van `Read`, wordt de `Read` methode retourneert 0 (het einde van de stroom bereikt automatisch). Een implementatie is gratis minder bytes dan aangevraagde retourneren, zelfs als het einde van de stroom niet is bereikt.       Gebruik <xref:System.IO.BinaryReader>voor het lezen van primitieve gegevenstypen.</xref:System.IO.BinaryReader>"
   example:
   - "This code example is part of a larger example provided for the <xref:System.IO.BufferedStream> class.  \n  \n [!code-cs[System.IO.BufferedStream1#7](~/add/codesnippet/csharp/m-system.io.bufferedstre_3_1.cs)]\n [!code-cpp[System.IO.BufferedStream1#7](~/add/codesnippet/cpp/m-system.io.bufferedstre_3_1.cpp)]\n [!code-vb[System.IO.BufferedStream1#7](~/add/codesnippet/visualbasic/m-system.io.bufferedstre_3_1.vb)]"
   syntax:
@@ -518,16 +518,16 @@ items:
     parameters:
     - id: array
       type: System.Byte[]
-      description: "The buffer to which bytes are to be copied."
+      description: "De buffer waarnaar bytes zijn moeten worden gekopieerd."
     - id: offset
       type: System.Int32
-      description: "The byte offset in the buffer at which to begin reading bytes."
+      description: "De byteoffset in de buffer waarop u wilt beginnen met bytes zijn gelezen."
     - id: count
       type: System.Int32
-      description: "The number of bytes to be read."
+      description: "Het aantal bytes dat moet worden gelezen."
     return:
       type: System.Int32
-      description: "The total number of bytes read into <code>array</code>. This can be less than the number of bytes requested if that many bytes are not currently available, or 0 if the end of the stream has been reached before any data can be read."
+      description: "Het totale aantal bytes gelezen <code> array </code>. Dit kan zijn dat kleiner is dan het aantal bytes aangevraagd dat veel bytes zijn momenteel niet beschikbaar of 0 als het einde van de stroom is bereikt voordat alle gegevens kunnen worden gelezen."
   overload: System.IO.BufferedStream.Read*
   exceptions:
   - type: System.ArgumentException
@@ -535,19 +535,19 @@ items:
     description: "Length of <code>array</code> minus <code>offset</code> is less than <code>count</code>."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>array</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>array</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>offset</code> or <code>count</code> is negative."
+    description: "<code>offset</code>of <code>count</code> negatief is."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The stream is not open or is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "De stroom is niet geopend of is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The stream does not support reading."
+    description: "De stroom biedt geen ondersteuning voor lezen."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "Methods were called after the stream was closed."
+    description: "Methoden zijn aangeroepen nadat de stroom is gesloten."
   platform:
   - net462
 - uid: System.IO.BufferedStream.ReadAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)
@@ -562,46 +562,46 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Asynchronously reads a sequence of bytes from the current stream, advances the position within the stream by the number of bytes read, and monitors cancellation requests."
-  remarks: "You can create a cancellation token by creating an instance of the <xref:System.Threading.CancellationTokenSource> class and passing the <xref:System.Threading.CancellationTokenSource.Token%2A> property as the `cancellationToken` parameter."
+  summary: "Asynchroon een reeks bytes leest uit de huidige stroom verplaatst van de positie binnen de stroom door het aantal bytes dat is gelezen, en controleert annulering-aanvragen."
+  remarks: "U kunt een token annulering maken door het maken van een exemplaar van de <xref:System.Threading.CancellationTokenSource>klasse en geven de <xref:System.Threading.CancellationTokenSource.Token%2A>eigenschap als de `cancellationToken` parameter.</xref:System.Threading.CancellationTokenSource.Token%2A> </xref:System.Threading.CancellationTokenSource>"
   syntax:
     content: public override System.Threading.Tasks.Task<int> ReadAsync (byte[] buffer, int offset, int count, System.Threading.CancellationToken cancellationToken);
     parameters:
     - id: buffer
       type: System.Byte[]
-      description: "The buffer to write the data into."
+      description: "De buffer om de gegevens in te schrijven."
     - id: offset
       type: System.Int32
-      description: "The byte offset in `buffer` at which to begin writing data from the stream."
+      description: "De byte-offset in `buffer` waarop u wilt beginnen met het schrijven van gegevens uit de stroom."
     - id: count
       type: System.Int32
-      description: "The maximum number of bytes to read."
+      description: "Het maximum aantal bytes te lezen."
     - id: cancellationToken
       type: System.Threading.CancellationToken
-      description: "The token to monitor for cancellation requests."
+      description: "Het token voor annulering aanvragen bewaken."
     return:
       type: System.Threading.Tasks.Task{System.Int32}
-      description: "A task that represents the asynchronous read operation. The value of the <code>TResult</code> parameter contains the total number of bytes read into the buffer. The result value can be less than the number of bytes requested if the number of bytes currently available is less than the requested number, or it can be 0 (zero) if the end of the stream has been reached."
+      description: "Een taak die staat voor de asynchrone leesbewerking. De waarde van de <code> TResult </code> parameter bevat het totale aantal bytes dat is gelezen in de buffer. De resultaatwaarde kan zijn dat kleiner is dan het aantal bytes aangevraagd als het aantal bytes momenteel beschikbaar kleiner dan het gevraagde aantal is of kan de waarde 0 (nul) als het einde van de stroom is bereikt."
   overload: System.IO.BufferedStream.ReadAsync*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>buffer</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>buffer</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>offset</code> or <code>count</code> is negative."
+    description: "<code>offset</code>of <code>count</code> negatief is."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The sum of <code>offset</code> and <code>count</code> is larger than the buffer length."
+    description: "De som van <code> offset </code> en <code> count </code> groter is dan de bufferlengte."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The stream does not support reading."
+    description: "De stroom biedt geen ondersteuning voor lezen."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The stream has been disposed."
+    description: "De stroom is verwijderd."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The stream is currently in use by a previous read operation."
+    description: "De stroom wordt momenteel gebruikt door een eerdere bewerking met lezen."
   platform:
   - net462
 - uid: System.IO.BufferedStream.ReadByte
@@ -616,24 +616,24 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Reads a byte from the underlying stream and returns the byte cast to an <xref uid=&quot;langword_csharp_int&quot; name=&quot;int&quot; href=&quot;&quot;></xref>, or returns -1 if reading from the end of the stream."
+  summary: "Een byte leest uit de onderliggende stroom en retourneert de byte geconverteerd naar een <xref uid=&quot;langword_csharp_int&quot; name=&quot;int&quot; href=&quot;&quot;> </xref>, of retourneert-1 als het lezen van het einde van de stroom."
   syntax:
     content: public override int ReadByte ();
     parameters: []
     return:
       type: System.Int32
-      description: "The byte cast to an <xref uid=&quot;langword_csharp_int&quot; name=&quot;int&quot; href=&quot;&quot;></xref>, or -1 if reading from the end of the stream."
+      description: "De byte geconverteerd naar een <xref uid=&quot;langword_csharp_int&quot; name=&quot;int&quot; href=&quot;&quot;> </xref>, of -1 als het lezen van het einde van de stroom."
   overload: System.IO.BufferedStream.ReadByte*
   exceptions:
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurs, such as the stream being closed."
+    description: "Een i/o-fout optreedt, zoals de stroom wordt gesloten."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The stream does not support reading."
+    description: "De stroom biedt geen ondersteuning voor lezen."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "Methods were called after the stream was closed."
+    description: "Methoden zijn aangeroepen nadat de stroom is gesloten."
   platform:
   - net462
 - uid: System.IO.BufferedStream.Seek(System.Int64,System.IO.SeekOrigin)
@@ -648,31 +648,31 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Sets the position within the current buffered stream."
-  remarks: "If `offset` is negative, the new position will precede the position specified by `origin` by the number of bytes specified by `offset`. If `offset` is 0, the new position will be the position specified by `origin`. If `offset` is positive, the new position will follow the position specified by `origin` by the number of bytes specified by `offset`.       When a <xref:System.IO.BufferedStream> object is the base stream for a <xref:System.IO.StreamReader> object, calling the Seek method can cause the position of the stream to no longer match the position of the internal buffer in the reader. To reset the internal buffer, call the <xref:System.IO.StreamReader.DiscardBufferedData%2A?displayProperty=fullName> method; however, this method slows performance and should be called only when absolutely necessary.       Seeking to any location beyond the length of the stream is supported."
+  summary: "Hiermee stelt de positie in de huidige buffer stroom."
+  remarks: "Als `offset` is negatief, de nieuwe positie voorafgaat aan de positie die is opgegeven door `origin` door het aantal bytes dat is opgegeven door `offset`. Als `offset` 0 is, kunnen de nieuwe positie, de positie die is opgegeven door `origin`. Als `offset` positief is, de positie die is opgegeven door de nieuwe positie volgen `origin` door het aantal bytes dat is opgegeven door `offset`.       Wanneer een <xref:System.IO.BufferedStream>-object is de basisstroom voor een <xref:System.IO.StreamReader>object, aanroepen van de methode Seek kan leiden tot de positie van de stroom niet langer overeenkomen met de positie van de interne buffer in de reader.</xref:System.IO.StreamReader> </xref:System.IO.BufferedStream> Aanroepen als de interne buffer herstellen, de <xref:System.IO.StreamReader.DiscardBufferedData%2A?displayProperty=fullName>methode; echter deze methode wordt vertraagd prestaties en mag alleen worden aangeroepen als dit echt nodig.</xref:System.IO.StreamReader.DiscardBufferedData%2A?displayProperty=fullName>       Zoeken naar andere locaties dan de lengte van de stroom wordt ondersteund."
   syntax:
     content: public override long Seek (long offset, System.IO.SeekOrigin origin);
     parameters:
     - id: offset
       type: System.Int64
-      description: "A byte offset relative to `origin`."
+      description: "Een byte-offset relatief `origin`."
     - id: origin
       type: System.IO.SeekOrigin
-      description: "A value of type <xref:System.IO.SeekOrigin> indicating the reference point from which to obtain the new position."
+      description: "Een waarde van het type <xref:System.IO.SeekOrigin>die wijzen op het referentiepunt waaruit u de nieuwe positie te verkrijgen.</xref:System.IO.SeekOrigin>"
     return:
       type: System.Int64
-      description: "The new position within the current buffered stream."
+      description: "De nieuwe positie binnen de huidige buffer stroom."
   overload: System.IO.BufferedStream.Seek*
   exceptions:
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The stream is not open or is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "De stroom is niet geopend of is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The stream does not support seeking."
+    description: "De stroom biedt geen ondersteuning voor zoekbewerkingen."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "Methods were called after the stream was closed."
+    description: "Methoden zijn aangeroepen nadat de stroom is gesloten."
   platform:
   - net462
 - uid: System.IO.BufferedStream.SetLength(System.Int64)
@@ -687,28 +687,28 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Sets the length of the buffered stream."
-  remarks: "The buffer is flushed before setting the length of the underlying data source or repository. If the specified value is less than the current length of the buffered stream, the buffered stream is truncated. If the specified value is larger than the current length of the buffered stream, the buffered stream is expanded. If the buffered stream is expanded, the contents of the buffered stream between the old and the new lengths are not defined.       `SetLength` flushes any buffered writes if necessary.       A stream must support both writing and seeking for `SetLength` to work."
+  summary: "Hiermee stelt u de lengte van de buffer stroom."
+  remarks: "De buffer moet worden leeggemaakt voordat de lengte van de onderliggende gegevensbron of opslagplaats instelt. Als de opgegeven waarde kleiner dan de huidige lengte van de buffer stroom is, wordt de buffer stroom wordt afgekapt. Als de opgegeven waarde groter dan de huidige lengte van de buffer stroom is, wordt de buffer stroom uitgebreid. Als de stroom van de buffer is uitgevouwen, wordt de inhoud van de buffer stroom tussen de oude en de nieuwe lengten zijn niet gedefinieerd.       `SetLength`Er gebufferde schrijfbewerkingen leegmaakacties indien nodig.       Een stroom moet ondersteunen zowel schrijven en zoeken voor `SetLength` om te werken."
   syntax:
     content: public override void SetLength (long value);
     parameters:
     - id: value
       type: System.Int64
-      description: "An integer indicating the desired length of the current buffered stream in bytes."
+      description: "Een geheel getal dat de gewenste lengte van de huidige buffer stroom in bytes aangeeft."
   overload: System.IO.BufferedStream.SetLength*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>value</code> is negative."
+    description: "<code>value</code>is negatief."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The stream is not open or is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "De stroom is niet geopend of is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The stream does not support both writing and seeking."
+    description: "De stroom biedt geen ondersteuning voor schrijven en het zoeken naar."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "Methods were called after the stream was closed."
+    description: "Methoden zijn aangeroepen nadat de stroom is gesloten."
   platform:
   - net462
 - uid: System.IO.BufferedStream.Write(System.Byte[],System.Int32,System.Int32)
@@ -723,7 +723,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Copies bytes to the buffered stream and advances the current position within the buffered stream by the number of bytes written."
+  summary: "Bytes kopieert naar de buffer stroom en de huidige positie binnen de buffer stroom wordt bestuurd door het aantal geschreven bytes."
   remarks: ''
   example:
   - "This code example is part of a larger example provided for the <xref:System.IO.BufferedStream> class.  \n  \n [!code-cs[System.IO.BufferedStream1#6](~/add/codesnippet/csharp/m-system.io.bufferedstre_1_1.cs)]\n [!code-cpp[System.IO.BufferedStream1#6](~/add/codesnippet/cpp/m-system.io.bufferedstre_1_1.cpp)]\n [!code-vb[System.IO.BufferedStream1#6](~/add/codesnippet/visualbasic/m-system.io.bufferedstre_1_1.vb)]"
@@ -732,13 +732,13 @@ items:
     parameters:
     - id: array
       type: System.Byte[]
-      description: "The byte array from which to copy `count` bytes to the current buffered stream."
+      description: "De bytematrix waaruit u wilt kopiëren `count` bytes naar de huidige buffer stroom."
     - id: offset
       type: System.Int32
-      description: "The offset in the buffer at which to begin copying bytes to the current buffered stream."
+      description: "De offset in de buffer waarop u wilt beginnen met het kopiëren van bytes naar de huidige buffer stroom."
     - id: count
       type: System.Int32
-      description: "The number of bytes to be written to the current buffered stream."
+      description: "Het aantal bytes dat moet worden geschreven naar de huidige buffer stroom."
   overload: System.IO.BufferedStream.Write*
   exceptions:
   - type: System.ArgumentException
@@ -746,19 +746,19 @@ items:
     description: "Length of <code>array</code> minus <code>offset</code> is less than <code>count</code>."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>array</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>array</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>offset</code> or <code>count</code> is negative."
+    description: "<code>offset</code>of <code>count</code> negatief is."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The stream is closed or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "De stroom is gesloten of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The stream does not support writing."
+    description: "De stroom biedt geen ondersteuning voor schrijven."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "Methods were called after the stream was closed."
+    description: "Methoden zijn aangeroepen nadat de stroom is gesloten."
   platform:
   - net462
 - uid: System.IO.BufferedStream.WriteAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)
@@ -773,46 +773,46 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Asynchronously writes a sequence of bytes to the current stream, advances the current position within this stream by the number of bytes written, and monitors cancellation requests."
-  remarks: "You can create a cancellation token by creating an instance of the <xref:System.Threading.CancellationTokenSource> class and passing the <xref:System.Threading.CancellationTokenSource.Token%2A> property as the `cancellationToken` parameter."
+  summary: "Asynchroon een reeks bytes geschreven naar de huidige stroom, verplaatst de huidige positie binnen deze stroom door het aantal geschreven bytes en controleert annulering-aanvragen."
+  remarks: "U kunt een token annulering maken door het maken van een exemplaar van de <xref:System.Threading.CancellationTokenSource>klasse en geven de <xref:System.Threading.CancellationTokenSource.Token%2A>eigenschap als de `cancellationToken` parameter.</xref:System.Threading.CancellationTokenSource.Token%2A> </xref:System.Threading.CancellationTokenSource>"
   syntax:
     content: public override System.Threading.Tasks.Task WriteAsync (byte[] buffer, int offset, int count, System.Threading.CancellationToken cancellationToken);
     parameters:
     - id: buffer
       type: System.Byte[]
-      description: "The buffer to write data from."
+      description: "De buffer om gegevens uit te schrijven."
     - id: offset
       type: System.Int32
-      description: "The zero-based byte offset in `buffer` from which to begin copying bytes to the stream."
+      description: "De op nul gebaseerde byte-offset in `buffer` waaruit u wilt beginnen met het kopiëren van bytes naar de stroom."
     - id: count
       type: System.Int32
-      description: "The maximum number of bytes to write."
+      description: "Het maximum aantal bytes te schrijven."
     - id: cancellationToken
       type: System.Threading.CancellationToken
-      description: "The token to monitor for cancellation requests."
+      description: "Het token voor annulering aanvragen bewaken."
     return:
       type: System.Threading.Tasks.Task
-      description: "A task that represents the asynchronous write operation."
+      description: "Een taak die de asynchrone schrijfbewerking vertegenwoordigt."
   overload: System.IO.BufferedStream.WriteAsync*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>buffer</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>buffer</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>offset</code> or <code>count</code> is negative."
+    description: "<code>offset</code>of <code>count</code> negatief is."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The sum of <code>offset</code> and <code>count</code> is larger than the buffer length."
+    description: "De som van <code> offset </code> en <code> count </code> groter is dan de bufferlengte."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The stream does not support writing."
+    description: "De stroom biedt geen ondersteuning voor schrijven."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The stream has been disposed."
+    description: "De stroom is verwijderd."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The stream is currently in use by a previous write operation."
+    description: "De stroom wordt momenteel gebruikt door een eerdere bewerking met schrijven."
   platform:
   - net462
 - uid: System.IO.BufferedStream.WriteByte(System.Byte)
@@ -827,24 +827,24 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Writes a byte to the current position in the buffered stream."
+  summary: "Een byte schrijft naar de huidige positie in de buffer-stroom."
   syntax:
     content: public override void WriteByte (byte value);
     parameters:
     - id: value
       type: System.Byte
-      description: "A byte to write to the stream."
+      description: "Een byte wordt ingesteld op het schrijven naar de stroom."
   overload: System.IO.BufferedStream.WriteByte*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The stream does not support writing."
+    description: "De stroom biedt geen ondersteuning voor schrijven."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>value</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "Methods were called after the stream was closed."
+    description: "Methoden zijn aangeroepen nadat de stroom is gesloten."
   platform:
   - net462
 references:
