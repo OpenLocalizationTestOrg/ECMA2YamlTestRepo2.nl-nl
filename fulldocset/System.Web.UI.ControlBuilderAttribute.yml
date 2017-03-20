@@ -15,8 +15,8 @@ items:
   nameWithType: ControlBuilderAttribute
   fullName: System.Web.UI.ControlBuilderAttribute
   type: Class
-  summary: "Specifies a <xref href=&quot;System.Web.UI.ControlBuilder&quot;></xref> class for building a custom control within the ASP.NET parser. This class cannot be inherited."
-  remarks: "This attribute specifies the builder <xref:System.Type> to be used to create a custom control as shown in the following code:      ```   [ControlBuilderAttribute(typeof(ControlBuilderType))]   ```"
+  summary: "Hiermee geeft u een <xref href=&quot;System.Web.UI.ControlBuilder&quot;> </xref> klasse voor het bouwen van een aangepast besturingselement binnen de ASP.NET-parser. Deze klasse kan niet worden overgenomen."
+  remarks: "Dit kenmerk bepaalt de opbouwfunctie voor <xref:System.Type>moeten worden gebruikt voor het maken van een aangepast besturingselement zoals wordt weergegeven in de volgende code: ```   [ControlBuilderAttribute(typeof(ControlBuilderType))]   ``` </xref:System.Type>"
   example:
   - "The following code example creates a customized selection list that is used to display a message based on the `SelectedIndex` and the `Message` values defined at run time. The following command line is used to build the executable.  \n  \n```vb#  \nvbc /r:System.dll /r:System.Web.dll /r:System.Drawing.dll /t:library /out:myWebAppPath/Bin/vb_MyControlBuilderAtt.dll ControlBuilderAtt.vb  \n```  \n  \n```c#  \ncsc /t:library /out:myWebAppPath/Bin/cs_MyControlBuilderAtt.dll ControlBuilderAtt.cs  \n```  \n  \n [!code-cs[SystemWebUI_ControlBuilderAttribute_2#1](~/add/codesnippet/csharp/t-system.web.ui.controlb_0_1.cs)]\n [!code-vb[SystemWebUI_ControlBuilderAttribute_2#1](~/add/codesnippet/visualbasic/t-system.web.ui.controlb_0_1.vb)]  \n  \n The following example uses the custom control defined above. In particular, it assigns the `SelectedIndex` and `Message` values at run time to determine the message to be rendered. Notice that the values shown in the `Register` directive reflect the previous command line.  \n  \n```vb#  \n<%@ Register TagPrefix=\"custom\" Assembly=\"myControlBuilderAtt\" Namespace=\"CustomControls\" %>  \n <h4>Using ControlBuilderAttribute Class<h4>  \n <form runat=\"server\">  \n  <custom:MyVB_CustomParse SelectedIndex=\"3\" runat=server>  \n  <customitem Message=\"Visual Basic version. Item One selected\"/>  \n  <customitem Message=\"Visual Basic version. Item Two selected\"/>  \n  <customitem Message=\"Visual Basic version. Item Three selected\"/>  \n  <customitem Message=\"Visual Basic version. Item Four selected\"/>  \n  </custom:MyVB_CustomParse>  \n </form>  \n```  \n  \n```c#  \n<%@ Register TagPrefix=\"custom\" Assembly=\"myControlBuilderAtt\" Namespace=\"CustomControls\" %>  \n <h4>Using ControlBuilderAttribute Class<h4>  \n <form runat=\"server\">  \n  <custom:MyCS_CustomParse SelectedIndex=\"2\" runat=server>  \n  <customitem Message=\"C# version. Item One selected\"/>  \n  <customitem Message=\"C# version. Item Two selected\"/>  \n  <customitem Message=\"C# version. Item Three selected\"/>  \n  <customitem Message=\"C# version. Item Four selected\"/>  \n  </custom:MyCS_CustomParse>  \n </form>  \n```"
   syntax:
@@ -42,14 +42,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Specifies the control builder for a custom control."
-  remarks: "The association of the control builder type with a custom control is obtained by preceding the custom control builder class with the following attribute definition:      ```   [ControlBuilderAttribute(typeof(controlbuildertype))]   ```"
+  summary: "Hiermee geeft u de opbouwfunctie voor het besturingselement voor een aangepast besturingselement."
+  remarks: "Koppeling van het type besturingselement builder met een aangepast besturingselement wordt verkregen door voorafgaand aan de klasse van de opbouwfunctie voor aangepast besturingselement met de volgende kenmerkdefinitie:```   [ControlBuilderAttribute(typeof(controlbuildertype))]   ```"
   syntax:
     content: public ControlBuilderAttribute (Type builderType);
     parameters:
     - id: builderType
       type: System.Type
-      description: "The control builder type"
+      description: "Het type besturingselement builder"
   overload: System.Web.UI.ControlBuilderAttribute.#ctor*
   exceptions: []
   platform:
@@ -66,7 +66,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets the <xref:System.Type> of the control associated with the attribute. This property is read-only."
+  summary: "Haalt de <xref:System.Type>van het besturingselement dat met het kenmerk is gekoppeld.</xref:System.Type> Deze eigenschap is alleen-lezen."
   remarks: ''
   example:
   - >-
@@ -76,7 +76,7 @@ items:
     content: public Type BuilderType { get; }
     return:
       type: System.Type
-      description: "The <xref:System.Type> of the control associated with the attribute."
+      description: "De <xref:System.Type>van het besturingselement dat met het kenmerk is gekoppeld.</xref:System.Type>"
   overload: System.Web.UI.ControlBuilderAttribute.BuilderType*
   exceptions: []
   platform:
@@ -93,12 +93,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Specifies the new <xref href=&quot;System.Web.UI.ControlBuilderAttribute&quot;></xref> object. By default, the new object is set to null. This field is read-only."
+  summary: "Hiermee geeft u de nieuwe <xref href=&quot;System.Web.UI.ControlBuilderAttribute&quot;> </xref> object. Standaard het nieuwe object is ingesteld op null. Dit veld is alleen-lezen."
   syntax:
     content: public static readonly System.Web.UI.ControlBuilderAttribute Default;
     return:
       type: System.Web.UI.ControlBuilderAttribute
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -114,16 +114,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets a value indicating whether the current <xref href=&quot;System.Web.UI.ControlBuilderAttribute&quot;></xref> is identical to the specified object."
+  summary: "Haalt een waarde die aangeeft of de huidige <xref href=&quot;System.Web.UI.ControlBuilderAttribute&quot;> </xref> is identiek aan het opgegeven object."
   syntax:
     content: public override bool Equals (object obj);
     parameters:
     - id: obj
       type: System.Object
-      description: "An object to compare to the current <xref href=&quot;System.Web.UI.ControlBuilderAttribute&quot;></xref>."
+      description: "Een object om te vergelijken met de huidige <xref href=&quot;System.Web.UI.ControlBuilderAttribute&quot;> </xref>."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <code>obj</code> is a <xref href=&quot;System.Web.UI.ControlBuilderAttribute&quot;></xref> and is identical to the current <xref href=&quot;System.Web.UI.ControlBuilderAttribute&quot;></xref>; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>if <code>obj</code> is a <xref href=&quot;System.Web.UI.ControlBuilderAttribute&quot;></xref> and is identical to the current <xref href=&quot;System.Web.UI.ControlBuilderAttribute&quot;></xref>; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
   overload: System.Web.UI.ControlBuilderAttribute.Equals*
   exceptions: []
   platform:
@@ -140,13 +140,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Returns the hash code of the <xref href=&quot;System.Web.UI.ControlBuilderAttribute&quot;></xref> object."
+  summary: "Retourneert de hash-code van de <xref href=&quot;System.Web.UI.ControlBuilderAttribute&quot;> </xref> object."
   syntax:
     content: public override int GetHashCode ();
     parameters: []
     return:
       type: System.Int32
-      description: "A 32-bit signed integer representing the hash code; otherwise, 0, if the <xref:System.Web.UI.ControlBuilderAttribute.BuilderType*> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Een 32-bits geheel getal met teken voor de hash-code; anders wordt 0 als de <xref:System.Web.UI.ControlBuilderAttribute.BuilderType*>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>.</xref:System.Web.UI.ControlBuilderAttribute.BuilderType*>"
   overload: System.Web.UI.ControlBuilderAttribute.GetHashCode*
   exceptions: []
   platform:
@@ -163,13 +163,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Determines whether the current control builder is the default."
+  summary: "Hiermee wordt bepaald of de opbouwfunctie voor het huidige besturingselement de standaardinstelling is."
   syntax:
     content: public override bool IsDefaultAttribute ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the current control builder is the default."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de opbouwfunctie voor het huidige besturingselement de standaardinstelling is."
   overload: System.Web.UI.ControlBuilderAttribute.IsDefaultAttribute*
   exceptions: []
   platform:

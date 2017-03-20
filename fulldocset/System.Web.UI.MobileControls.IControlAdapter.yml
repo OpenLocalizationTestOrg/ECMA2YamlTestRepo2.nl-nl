@@ -23,8 +23,8 @@ items:
   nameWithType: IControlAdapter
   fullName: System.Web.UI.MobileControls.IControlAdapter
   type: Interface
-  summary: "Defines the interface to a control adapter. For information about how to develop ASP.NET mobile applications, see the [www.asp.net/mobile](http://go.microsoft.com/fwlink/?LinkID=182900) Web site."
-  remarks: "All control adapters must implement the IControlAdapter interface. Usually, a control adapter inherits directly or indirectly from the <xref:System.Web.UI.MobileControls.Adapters.ControlAdapter> base class, which provides a default implementation of this interface."
+  summary: "Hiermee definieert u de interface aan een besturingselement-adapter. Zie voor meer informatie over het ontwikkelen van mobiele toepassingen van ASP.NET de [www.asp.net/mobile](http://go.microsoft.com/fwlink/?LinkID=182900) website."
+  remarks: "Alle adapters van het besturingselement moeten de IControlAdapter-interface implementeren. Normaal gesproken een besturingselement netwerkadapter direct of indirect overneemt van de <xref:System.Web.UI.MobileControls.Adapters.ControlAdapter>basisklasse die een standaardimplementatie van deze interface biedt.</xref:System.Web.UI.MobileControls.Adapters.ControlAdapter>"
   syntax:
     content: >-
       [System.Obsolete("The System.Web.Mobile.dll assembly has been deprecated and should no longer be used. For information about how to develop ASP.NET mobile applications, see http://go.microsoft.com/fwlink/?LinkId=157231.")]
@@ -45,12 +45,12 @@ items:
   assemblies:
   - System.Web.Mobile
   namespace: System.Web.UI.MobileControls
-  summary: "Returns a strongly typed reference to the associated control. This API is obsolete. For information about how to develop ASP.NET mobile applications, see the [www.asp.net/mobile](http://go.microsoft.com/fwlink/?LinkID=182900) Web site."
+  summary: "Retourneert een sterk getypeerde verwijzing naar het bijbehorende besturingselement. Deze API is verouderd. Zie voor meer informatie over het ontwikkelen van mobiele toepassingen van ASP.NET de [www.asp.net/mobile](http://go.microsoft.com/fwlink/?LinkID=182900) website."
   syntax:
     content: public System.Web.UI.MobileControls.MobileControl Control { get; set; }
     return:
       type: System.Web.UI.MobileControls.MobileControl
-      description: "A strongly typed reference to the associated control."
+      description: "Een sterk getypeerde verwijzing naar het bijbehorende besturingselement."
   overload: System.Web.UI.MobileControls.IControlAdapter.Control*
   exceptions: []
   platform:
@@ -67,13 +67,13 @@ items:
   assemblies:
   - System.Web.Mobile
   namespace: System.Web.UI.MobileControls
-  summary: "Called by base classes to create a templated UI."
+  summary: "Aangeroepen door basisklassen aan een geen gebruikersinterface maken."
   syntax:
     content: public void CreateTemplatedUI (bool doDataBind);
     parameters:
     - id: doDataBind
       type: System.Boolean
-      description: "Returns <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the instantiated templates must bind to available data (which usually happens on the first request). Returns <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the templates must not bind to data, and instead rely on view state to fill them in (which usually happens on subsequent postbacks)."
+      description: "Retourneert <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> als de geïnstantieerd sjablonen aan beschikbare gegevens binden moeten (dit gebeurt meestal op de eerste aanvraag). Retourneert <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> als de sjablonen niet aan gegevens binden, en moeten in plaats daarvan afhankelijk van de weergavestatus zijn te vullen ze in (dit meestal op latere terugpostacties gebeurt)."
   overload: System.Web.UI.MobileControls.IControlAdapter.CreateTemplatedUI*
   exceptions: []
   platform:
@@ -90,17 +90,17 @@ items:
   assemblies:
   - System.Web.Mobile
   namespace: System.Web.UI.MobileControls
-  summary: "Returns <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the event was handled. This API is obsolete. For information about how to develop ASP.NET mobile applications, see the [www.asp.net/mobile](http://go.microsoft.com/fwlink/?LinkID=182900) Web site."
-  remarks: "This method is called by a control when it receives a postback event notification, to check whether the event is adapter specific. If the control implements <xref:System.Web.UI.IPostBackEventHandler> and receives a postback event, the <xref:System.Web.UI.IPostBackEventHandler.RaisePostBackEvent%2A> method of the control adapter is called. If events sent to the control can vary depending on the target device, the control implementation of this method must call the HandlePostBackEvent method of the control adapter. This method returns `true` or `false`, indicating whether the device adapter handled the event. It returns `false` by default."
+  summary: "Retourneert <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> als de gebeurtenis is verwerkt. Deze API is verouderd. Zie voor meer informatie over het ontwikkelen van mobiele toepassingen van ASP.NET de [www.asp.net/mobile](http://go.microsoft.com/fwlink/?LinkID=182900) website."
+  remarks: "Deze methode wordt aangeroepen door een besturingselement wanneer er een melding gebeurtenis terugposten om te controleren of de gebeurtenis specifieke netwerkadapter worden ontvangen. Als het besturingselement implementeert <xref:System.Web.UI.IPostBackEventHandler>en ontvangt van een gebeurtenis terugposten de <xref:System.Web.UI.IPostBackEventHandler.RaisePostBackEvent%2A>methode van de adapter van het besturingselement wordt aangeroepen.</xref:System.Web.UI.IPostBackEventHandler.RaisePostBackEvent%2A> </xref:System.Web.UI.IPostBackEventHandler> Als de gebeurtenissen die worden verzonden naar het besturingselement kunnen variëren, afhankelijk van het doelapparaat, de implementatie van het besturingselement van deze methode moet de methode aanroept HandlePostBackEvent van de adapter van het besturingselement. Deze methode retourneert `true` of `false`, waarmee wordt aangegeven of de apparaatadapter de gebeurtenis verwerkt. Deze retourneert `false` standaard."
   syntax:
     content: public bool HandlePostBackEvent (string eventArgument);
     parameters:
     - id: eventArgument
       type: System.String
-      description: "Name of the event."
+      description: "De naam van de gebeurtenis."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the postback event was handled; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de gebeurtenis terugposten is afgehandeld; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.MobileControls.IControlAdapter.HandlePostBackEvent*
   exceptions: []
   platform:
@@ -117,13 +117,13 @@ items:
   assemblies:
   - System.Web.Mobile
   namespace: System.Web.UI.MobileControls
-  summary: "Accesses the approximate weight of a single item in the control. This API is obsolete. For information about how to develop ASP.NET mobile applications, see the [www.asp.net/mobile](http://go.microsoft.com/fwlink/?LinkID=182900) Web site."
-  remarks: "A value of `-1` indicates that the default weight for the element must be used. The inheriting class must override this property. For further information about overriding this property, see [Pagination](http://msdn.microsoft.com/en-us/b4f4c4bc-226b-46ec-ae46-00497a32f4f2)."
+  summary: "Heeft toegang tot de geschatte gewicht van één item in het besturingselement. Deze API is verouderd. Zie voor meer informatie over het ontwikkelen van mobiele toepassingen van ASP.NET de [www.asp.net/mobile](http://go.microsoft.com/fwlink/?LinkID=182900) website."
+  remarks: "Een waarde van `-1` geeft aan dat het standaardgewicht voor het element moet worden gebruikt. De klasse Traceringstabellen moet deze eigenschap te overschrijven. Zie voor meer informatie over het overschrijven van deze eigenschap [paginering](http://msdn.microsoft.com/en-us/b4f4c4bc-226b-46ec-ae46-00497a32f4f2)."
   syntax:
     content: public int ItemWeight { get; }
     return:
       type: System.Int32
-      description: "The approximate weight of a single item in the control."
+      description: "De geschatte gewicht van één item in het besturingselement."
   overload: System.Web.UI.MobileControls.IControlAdapter.ItemWeight*
   exceptions: []
   platform:
@@ -140,14 +140,14 @@ items:
   assemblies:
   - System.Web.Mobile
   namespace: System.Web.UI.MobileControls
-  summary: "Returns the adapter-specific view for a control. This API is obsolete. For information about how to develop ASP.NET mobile applications, see the [www.asp.net/mobile](http://go.microsoft.com/fwlink/?LinkID=182900) Web site."
-  remarks: "This method is called when the control loads its private view state. A device adapter can save the adapter-specific view for a control."
+  summary: "Retourneert de adapter specifieke-weergave voor een besturingselement. Deze API is verouderd. Zie voor meer informatie over het ontwikkelen van mobiele toepassingen van ASP.NET de [www.asp.net/mobile](http://go.microsoft.com/fwlink/?LinkID=182900) website."
+  remarks: "Deze methode wordt aangeroepen wanneer het besturingselement de status van de privé-weergave wordt geladen. Een apparaatadapter kunt opslaan van de adapter specifieke-weergave voor een besturingselement."
   syntax:
     content: public void LoadAdapterState (object state);
     parameters:
     - id: state
       type: System.Object
-      description: "The current view state."
+      description: "De huidige weergavestatus."
   overload: System.Web.UI.MobileControls.IControlAdapter.LoadAdapterState*
   exceptions: []
   platform:
@@ -164,26 +164,26 @@ items:
   assemblies:
   - System.Web.Mobile
   namespace: System.Web.UI.MobileControls
-  summary: "Returns <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the adapter handles loading the post data. This API is obsolete. For information about how to develop ASP.NET mobile applications, see the [www.asp.net/mobile](http://go.microsoft.com/fwlink/?LinkID=182900) Web site."
-  remarks: "This method is called when a control that implements the <xref:System.Web.UI.IPostBackDataHandler> interface has its own <xref:System.Web.UI.IPostBackDataHandler.LoadPostData%2A> method invoked.      > [!NOTE] >  Different devices might provide their data back to the calling server in different ways. An example is the difference between how WML and HTML report back the results of a <xref:System.Web.UI.MobileControls.SelectionList>."
+  summary: "Retourneert <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> als de adapter verwerkt bij het laden van de post-gegevens. Deze API is verouderd. Zie voor meer informatie over het ontwikkelen van mobiele toepassingen van ASP.NET de [www.asp.net/mobile](http://go.microsoft.com/fwlink/?LinkID=182900) website."
+  remarks: "Deze methode wordt aangeroepen wanneer een besturingselement dat implementeert de <xref:System.Web.UI.IPostBackDataHandler>interface heeft zijn eigen <xref:System.Web.UI.IPostBackDataHandler.LoadPostData%2A>methode aangeroepen.</xref:System.Web.UI.IPostBackDataHandler.LoadPostData%2A> </xref:System.Web.UI.IPostBackDataHandler>      > [!NOTE] > Verschillende apparaten mogelijk hun gegevens terug naar de aanroepende server bieden op verschillende manieren. Een voorbeeld is het verschil tussen hoe WML en HTML-code de resultaten van een <xref:System.Web.UI.MobileControls.SelectionList>.</xref:System.Web.UI.MobileControls.SelectionList> rapporteren"
   syntax:
     content: public bool LoadPostData (string postDataKey, System.Collections.Specialized.NameValueCollection postCollection, object controlPrivateData, out bool dataChanged);
     parameters:
     - id: postDataKey
       type: System.String
-      description: "Identifies the control."
+      description: "Identificeert het besturingselement."
     - id: postCollection
       type: System.Collections.Specialized.NameValueCollection
-      description: "Contains the collection of all incoming name values."
+      description: "Bevat de verzameling van alle binnenkomende waarden."
     - id: controlPrivateData
       type: System.Object
-      description: "Provides a place to send private data to the control that might be required for loading of post data. The control determines the type that is passed to the parameter."
+      description: "Hier kunt u persoonlijke gegevens verzenden naar het besturingselement die mogelijk vereist zijn voor het laden van post-gegevens. Het besturingselement bepaalt het type dat wordt doorgegeven aan de parameter."
     - id: dataChanged
       type: System.Boolean
-      description: "Returns <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the required the object in `privateControlData` was changed, so the <xref:System.Web.UI.IPostBackDataHandler.RaisePostDataChangedEvent*> event can be raised."
+      description: "Retourneert <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> als de vereiste van het object in `privateControlData` is gewijzigd, zodat de <xref:System.Web.UI.IPostBackDataHandler.RaisePostDataChangedEvent*>gebeurtenis kan worden verhoogd.</xref:System.Web.UI.IPostBackDataHandler.RaisePostDataChangedEvent*>"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the adapter handles loading the post data; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de adapter verwerkt bij het laden van de post-gegevens anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.MobileControls.IControlAdapter.LoadPostData*
   exceptions: []
   platform:
@@ -200,14 +200,14 @@ items:
   assemblies:
   - System.Web.Mobile
   namespace: System.Web.UI.MobileControls
-  summary: "Called after an object, such as a form or a page, is initialized. This API is obsolete. For information about how to develop ASP.NET mobile applications, see the [www.asp.net/mobile](http://go.microsoft.com/fwlink/?LinkID=182900) Web site."
-  remarks: "You can override this method to set device-specific properties. Inheriting classes can override this method to perform other tasks. If this method is overridden in an inheriting class, you must call the base implementation."
+  summary: "Na een object aangeroepen, zoals een formulier of een pagina is geïnitialiseerd. Deze API is verouderd. Zie voor meer informatie over het ontwikkelen van mobiele toepassingen van ASP.NET de [www.asp.net/mobile](http://go.microsoft.com/fwlink/?LinkID=182900) website."
+  remarks: "U kunt deze methode om in te stellen van apparaat-specifieke eigenschappen overschrijven. Overnemen van klassen kunt u deze methode voor het uitvoeren van andere taken overschrijven. Als deze methode moet worden overschreven in een Traceringstabellen klasse kunt u de basisimplementatie moet aanroepen."
   syntax:
     content: public void OnInit (EventArgs e);
     parameters:
     - id: e
       type: System.EventArgs
-      description: "An object (defined by <xref:System.EventArgs>) that contains event data."
+      description: "Een object (gedefinieerd door <xref:System.EventArgs>) die gebeurtenisgegevens bevat.</xref:System.EventArgs>"
   overload: System.Web.UI.MobileControls.IControlAdapter.OnInit*
   exceptions: []
   platform:
@@ -224,14 +224,14 @@ items:
   assemblies:
   - System.Web.Mobile
   namespace: System.Web.UI.MobileControls
-  summary: "Loads data that pertains to a control, a page, or a device adapter. This API is obsolete. For information about how to develop ASP.NET mobile applications, see the [www.asp.net/mobile](http://go.microsoft.com/fwlink/?LinkID=182900) Web site."
-  remarks: "The OnLoad method is inherited from the control&quot;s parent. If the control is a MobileControl control, then this method is inherited from the <xref:System.Web.UI.Control?displayProperty=fullName> class; if the control is a <xref:System.Web.UI.MobileControls.MobilePage> control, then this method is inherited from the <xref:System.Web.UI.Page?displayProperty=fullName> class."
+  summary: "Gegevens die betrekking op een besturingselement, een pagina of een apparaatadapter hebben worden geladen. Deze API is verouderd. Zie voor meer informatie over het ontwikkelen van mobiele toepassingen van ASP.NET de [www.asp.net/mobile](http://go.microsoft.com/fwlink/?LinkID=182900) website."
+  remarks: "De methode OnLoad wordt overgenomen van bovenliggend object van het besturingselement. Als het besturingselement een besturingselement MobileControl is, wordt klikt u vervolgens deze methode overgenomen van de <xref:System.Web.UI.Control?displayProperty=fullName>klasse; als het besturingselement een <xref:System.Web.UI.MobileControls.MobilePage>beheren, klikt u vervolgens deze methode is overgenomen van de <xref:System.Web.UI.Page?displayProperty=fullName>klasse is.</xref:System.Web.UI.Page?displayProperty=fullName> </xref:System.Web.UI.MobileControls.MobilePage> </xref:System.Web.UI.Control?displayProperty=fullName>"
   syntax:
     content: public void OnLoad (EventArgs e);
     parameters:
     - id: e
       type: System.EventArgs
-      description: "An object (defined by <xref:System.EventArgs>) that contains event data."
+      description: "Een object (gedefinieerd door <xref:System.EventArgs>) die gebeurtenisgegevens bevat.</xref:System.EventArgs>"
   overload: System.Web.UI.MobileControls.IControlAdapter.OnLoad*
   exceptions: []
   platform:
@@ -248,13 +248,13 @@ items:
   assemblies:
   - System.Web.Mobile
   namespace: System.Web.UI.MobileControls
-  summary: "Called by the control&quot;s OnPreRender method, to perform adapter-specific work prior to rendering. This API is obsolete. For information about how to develop ASP.NET mobile applications, see the [www.asp.net/mobile](http://go.microsoft.com/fwlink/?LinkID=182900) Web site."
+  summary: "Aangeroepen door het besturingselement OnPreRender methode voor het uitvoeren adapter-specifieke werk voordat de rendering. Deze API is verouderd. Zie voor meer informatie over het ontwikkelen van mobiele toepassingen van ASP.NET de [www.asp.net/mobile](http://go.microsoft.com/fwlink/?LinkID=182900) website."
   syntax:
     content: public void OnPreRender (EventArgs e);
     parameters:
     - id: e
       type: System.EventArgs
-      description: "An object (defined by <xref:System.EventArgs>) that contains event data."
+      description: "Een object (gedefinieerd door <xref:System.EventArgs>) die gebeurtenisgegevens bevat.</xref:System.EventArgs>"
   overload: System.Web.UI.MobileControls.IControlAdapter.OnPreRender*
   exceptions: []
   platform:
@@ -271,14 +271,14 @@ items:
   assemblies:
   - System.Web.Mobile
   namespace: System.Web.UI.MobileControls
-  summary: "Unloads data that pertains to a control, a page, or a device adapter. This API is obsolete. For information about how to develop ASP.NET mobile applications, see the [www.asp.net/mobile](http://go.microsoft.com/fwlink/?LinkID=182900) Web site."
-  remarks: "This method is called by the control&quot;s OnUnload method to perform adapter-specific unloading."
+  summary: "Gegevens die betrekking op een besturingselement, een pagina of een netwerkadapter met apparaat hebben verwijderd. Deze API is verouderd. Zie voor meer informatie over het ontwikkelen van mobiele toepassingen van ASP.NET de [www.asp.net/mobile](http://go.microsoft.com/fwlink/?LinkID=182900) website."
+  remarks: "Deze methode wordt aangeroepen door het besturingselement bij uit geheugen methode om uit te voeren met het verwijderen van de specifieke netwerkadapter."
   syntax:
     content: public void OnUnload (EventArgs e);
     parameters:
     - id: e
       type: System.EventArgs
-      description: "An object (defined by <xref:System.EventArgs>) that contains event data."
+      description: "Een object (gedefinieerd door <xref:System.EventArgs>) die gebeurtenisgegevens bevat.</xref:System.EventArgs>"
   overload: System.Web.UI.MobileControls.IControlAdapter.OnUnload*
   exceptions: []
   platform:
@@ -295,13 +295,13 @@ items:
   assemblies:
   - System.Web.Mobile
   namespace: System.Web.UI.MobileControls
-  summary: "Returns the page associated with the device adapter. This API is obsolete. For information about how to develop ASP.NET mobile applications, see the [www.asp.net/mobile](http://go.microsoft.com/fwlink/?LinkID=182900) Web site."
-  remarks: "Equivalent to calling the <xref:System.Web.UI.MobileControls.MobileControl.MobilePage%2A>."
+  summary: "Retourneert de pagina die is gekoppeld aan de apparaatadapter. Deze API is verouderd. Zie voor meer informatie over het ontwikkelen van mobiele toepassingen van ASP.NET de [www.asp.net/mobile](http://go.microsoft.com/fwlink/?LinkID=182900) website."
+  remarks: "Komt overeen met het aanroepen van de <xref:System.Web.UI.MobileControls.MobileControl.MobilePage%2A>.</xref:System.Web.UI.MobileControls.MobileControl.MobilePage%2A>"
   syntax:
     content: public System.Web.UI.MobileControls.MobilePage Page { get; }
     return:
       type: System.Web.UI.MobileControls.MobilePage
-      description: "The page associated with the device adapter."
+      description: "De pagina die is gekoppeld aan de apparaatadapter."
   overload: System.Web.UI.MobileControls.IControlAdapter.Page*
   exceptions: []
   platform:
@@ -318,14 +318,14 @@ items:
   assemblies:
   - System.Web.Mobile
   namespace: System.Web.UI.MobileControls
-  summary: "Called by the control&quot;s Render method to perform rendering. This API is obsolete. For information about how to develop ASP.NET mobile applications, see the [www.asp.net/mobile](http://go.microsoft.com/fwlink/?LinkID=182900) Web site."
-  remarks: "For the <xref:System.Web.UI.MobileControls.Adapters.ControlAdapter> class, this method renders all the children of the control."
+  summary: "Aangeroepen door het besturingselement Render-methode om uit te voeren rendering. Deze API is verouderd. Zie voor meer informatie over het ontwikkelen van mobiele toepassingen van ASP.NET de [www.asp.net/mobile](http://go.microsoft.com/fwlink/?LinkID=182900) website."
+  remarks: "Voor de <xref:System.Web.UI.MobileControls.Adapters.ControlAdapter>klasse, deze methode worden alle onderliggende elementen van het besturingselement.</xref:System.Web.UI.MobileControls.Adapters.ControlAdapter>"
   syntax:
     content: public void Render (System.Web.UI.HtmlTextWriter writer);
     parameters:
     - id: writer
       type: System.Web.UI.HtmlTextWriter
-      description: "The text writer to receive output."
+      description: "De tekstschrijver voor het ontvangen van de uitvoer."
   overload: System.Web.UI.MobileControls.IControlAdapter.Render*
   exceptions: []
   platform:
@@ -342,14 +342,14 @@ items:
   assemblies:
   - System.Web.Mobile
   namespace: System.Web.UI.MobileControls
-  summary: "This method is called when the control saves its private view state. This API is obsolete. For information about how to develop ASP.NET mobile applications, see the [www.asp.net/mobile](http://go.microsoft.com/fwlink/?LinkID=182900) Web site."
-  remarks: "An adapter can save adapter-specific state for a control. If no such functionality is required, the adapter returns `null` (`Nothing` in Visual Basic)."
+  summary: "Deze methode wordt aangeroepen wanneer het besturingselement de status van de privé-weergave wordt opgeslagen. Deze API is verouderd. Zie voor meer informatie over het ontwikkelen van mobiele toepassingen van ASP.NET de [www.asp.net/mobile](http://go.microsoft.com/fwlink/?LinkID=182900) website."
+  remarks: "Een adapter kunt opslaan specifieke status voor een besturingselement. Als er geen dergelijke functionaliteit vereist is, de adapter retourneert `null` (`Nothing` in Visual Basic)."
   syntax:
     content: public object SaveAdapterState ();
     parameters: []
     return:
       type: System.Object
-      description: "The newly saved adapter state."
+      description: "De status van de nieuw opgeslagen adapter."
   overload: System.Web.UI.MobileControls.IControlAdapter.SaveAdapterState*
   exceptions: []
   platform:
@@ -366,13 +366,13 @@ items:
   assemblies:
   - System.Web.Mobile
   namespace: System.Web.UI.MobileControls
-  summary: "Returns the approximate weight of the control, in characters. This API is obsolete. For information about how to develop ASP.NET mobile applications, see the [www.asp.net/mobile](http://go.microsoft.com/fwlink/?LinkID=182900) Web site."
-  remarks: "This property is used for form pagination. A value of `-1` indicates that the default weight for the element must be used. For further information, see [Pagination Support](http://msdn.microsoft.com/en-us/78f2786d-0b5b-4760-9616-5027357713c2)."
+  summary: "Retourneert het geschatte gewicht van het besturingselement, uitgedrukt in tekens. Deze API is verouderd. Zie voor meer informatie over het ontwikkelen van mobiele toepassingen van ASP.NET de [www.asp.net/mobile](http://go.microsoft.com/fwlink/?LinkID=182900) website."
+  remarks: "Deze eigenschap wordt gebruikt voor paginering van een formulier. Een waarde van `-1` geeft aan dat het standaardgewicht voor het element moet worden gebruikt. Zie voor meer informatie [ondersteuning voor paginering](http://msdn.microsoft.com/en-us/78f2786d-0b5b-4760-9616-5027357713c2)."
   syntax:
     content: public int VisibleWeight { get; }
     return:
       type: System.Int32
-      description: "The approximate weight of the control, in characters."
+      description: "De geschatte gewicht van het besturingselement, uitgedrukt in tekens."
   overload: System.Web.UI.MobileControls.IControlAdapter.VisibleWeight*
   exceptions: []
   platform:
