@@ -16,8 +16,8 @@ items:
   nameWithType: WebApplicationInformation
   fullName: System.Web.Management.WebApplicationInformation
   type: Class
-  summary: "Provides information associated with health events."
-  remarks: "ASP.NET health monitoring allows production and operations staff to manage deployed Web applications. The <xref:System.Web.Management?displayProperty=fullName> namespace contains the health-event types responsible for packaging application health-status data and the provider types responsible for processing this data. It also contains supporting types that help during the management of health events.       Instances of the WebApplicationInformation class contain information that is obtained using any of the types derived from the <xref:System.Web.Management.WebManagementEvent> type.       Your application needs the appropriate permissions to access protected information provided by this type.       The following is an excerpt of a configuration file you could use to enable ASP.NET to log error events that contain application information.      ```   <healthMonitoring      enabled=&quot;true&quot; heartBeatInterval=&quot;0&quot;>          <rules>        <add           name=&quot;All Errors Default&quot;          eventName=&quot;All Errors&quot;          provider=&quot;EventLogProvider&quot;          profile=&quot;Default&quot;          minInterval=&quot;00:01:00&quot; />       </rules>      </healthMonitoring>   ```      > [!NOTE] >  In most cases you will be able to use the ASP.NET health-monitoring types as implemented, and you will control the health-monitoring system by specifying values in the `healthMonitoring` configuration section. You can also derive from the health-monitoring types to create your own custom events and providers. For an example of creating a custom event class, see the example provided in this topic."
+  summary: "Bevat informatie die is gekoppeld aan de health-gebeurtenissen."
+  remarks: "ASP.NET-statuscontrole kunt personeel voor productie en bewerkingen voor het beheren van de geïmplementeerde Web-Apps. De <xref:System.Web.Management?displayProperty=fullName>-naamruimte bevat de typen van de health-gebeurtenissen die verantwoordelijk is voor het verpakken van de toepassingsgegevens van de health-status en de providertypen verantwoordelijk voor het verwerken van deze gegevens.</xref:System.Web.Management?displayProperty=fullName> Het bevat ook ondersteunende typen die bij het beheer van health-gebeurtenissen helpen.       Instanties van de klasse WebApplicationInformation bevatten informatie die wordt verkregen met behulp van een van de typen die zijn afgeleid van de <xref:System.Web.Management.WebManagementEvent>type.</xref:System.Web.Management.WebManagementEvent>       Uw toepassing moet de juiste machtigingen voor toegang tot beveiligde informatie die door dit type.       Hier volgt een fragment van een configuratiebestand dat die u kunt ASP.NET inschakelen fout gebeurtenissen kan loggen die toepassingsinformatie bevatten.      ```   <healthMonitoring      enabled=&quot;true&quot; heartBeatInterval=&quot;0&quot;>          <rules>        <add           name=&quot;All Errors Default&quot;          eventName=&quot;All Errors&quot;          provider=&quot;EventLogProvider&quot;          profile=&quot;Default&quot;          minInterval=&quot;00:01:00&quot; />       </rules>      </healthMonitoring>   ```      > [!NOTE]> In de meeste gevallen kunt u zich de ASP.NET-statuscontrole typen gebruiken als ze zijn geïmplementeerd en u de system health monitoring te regelen door te geven waarden in de `healthMonitoring` configuratiesectie. U kunt ook afgeleid van de statuscontrole typen voor het maken van uw eigen aangepaste gebeurtenissen en providers. Zie het voorbeeld in dit onderwerp voor een voorbeeld van een aangepaste gebeurtenisklasse maken."
   example:
   - "The following code example has two parts. The first part is an excerpt of the configuration file that enables ASP.NET to use a custom event. The second shows how to create that custom event by using the WebApplicationInformation class.  \n  \n Ensure that your custom event is raised at the proper time, that is, when the equivalent system health event it replaces would be raised.  \n  \n```  \n<healthMonitoring   \n  enabled=\"true\" heartBeatInterval=\"0\">  \n  \n  <eventMappings>   \n    <add name=\"SampleApplicationInformation\"   \n        type=\"SamplesAspNet.SampleWebApplicationInformation, webapplicationinformation, Version=1.0.1585.27289, Culture=neutral, PublicKeyToken=3648e5c763a8239f, processorArchitecture=MSIL\"/>   \n  </eventMappings>  \n  \n  <rules>   \n    <add name=\"Custom Application Information\"  \n      eventName=\"SampleApplicationInformation\"   \n      provider=\"EventLogProvider\"    \n      profile=\"Default\"/>   \n</rules>  \n  \n</healthMonitoring>  \n```  \n  \n [!code-vb[System.Web.Management.WebApplicationInformation#1](~/add/codesnippet/visualbasic/t-system.web.management._26_1.vb)]\n [!code-cs[System.Web.Management.WebApplicationInformation#1](~/add/codesnippet/csharp/t-system.web.management._26_1.cs)]"
   syntax:
@@ -40,7 +40,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets the current application domain name."
+  summary: "Hiermee haalt u de naam van de huidige toepassing-domein."
   remarks: ''
   example:
   - "The following code example shows how to obtain the application domain name.  \n  \n [!code-vb[System.Web.Management.WebApplicationInformation#4](~/add/codesnippet/visualbasic/p-system.web.management._46_1.vb)]\n [!code-cs[System.Web.Management.WebApplicationInformation#4](~/add/codesnippet/csharp/p-system.web.management._46_1.cs)]"
@@ -48,7 +48,7 @@ items:
     content: public string ApplicationDomain { get; }
     return:
       type: System.String
-      description: "Gets the application domain name."
+      description: "Hiermee haalt u de domeinnaam van de toepassing."
   overload: System.Web.Management.WebApplicationInformation.ApplicationDomain*
   exceptions: []
   platform:
@@ -65,15 +65,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets the application physical path."
-  remarks: "This property requires appropriate permissions to be accessed. Refer to the Permissions section."
+  summary: "Hiermee haalt u het fysieke pad van de toepassing."
+  remarks: "Deze eigenschap moet de juiste machtigingen om te worden geopend. Raadpleeg de sectie machtigingen."
   example:
   - "The following code example shows how to obtain the application physical path.  \n  \n [!code-vb[System.Web.Management.WebApplicationInformation#5](~/add/codesnippet/visualbasic/p-system.web.management._44_1.vb)]\n [!code-cs[System.Web.Management.WebApplicationInformation#5](~/add/codesnippet/csharp/p-system.web.management._44_1.cs)]"
   syntax:
     content: public string ApplicationPath { get; }
     return:
       type: System.String
-      description: "The application physical path."
+      description: "Het fysieke pad van de toepassing."
   overload: System.Web.Management.WebApplicationInformation.ApplicationPath*
   exceptions: []
   platform:
@@ -90,7 +90,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets the application logical path."
+  summary: "Hiermee haalt u het logische pad van de toepassing."
   remarks: ''
   example:
   - "The following code example shows how to obtain the application logical path.  \n  \n [!code-vb[System.Web.Management.WebApplicationInformation#6](~/add/codesnippet/visualbasic/p-system.web.management._36_1.vb)]\n [!code-cs[System.Web.Management.WebApplicationInformation#6](~/add/codesnippet/csharp/p-system.web.management._36_1.cs)]"
@@ -98,7 +98,7 @@ items:
     content: public string ApplicationVirtualPath { get; }
     return:
       type: System.String
-      description: "The application logical path."
+      description: "Het logische pad van de toepassing."
   overload: System.Web.Management.WebApplicationInformation.ApplicationVirtualPath*
   exceptions: []
   platform:
@@ -115,8 +115,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Formats the application information."
-  remarks: "The FormatToString method provides a uniform format for event information, which is useful if the event data must be logged and later presented to the user. It is called internally when the provider invokes one of the <xref:System.Web.Management.WebBaseEvent.ToString%2A> methods.      > [!NOTE] >  When formatting your custom event information for display, override the FormatToString method rather than the <xref:System.Web.Management.WebApplicationInformation.ToString%2A> method. This will avoid overwriting or tampering with sensitive system information."
+  summary: "Informatie over de toepassing wordt opgemaakt."
+  remarks: "De methode FormatToString biedt een uniforme indeling voor gebeurtenisinformatie nuttig is als de gegevens van de gebeurtenis moet zijn aangemeld en later weergegeven voor de gebruiker. Intern wordt aangeroepen wanneer de provider wordt aangeroepen in een van de <xref:System.Web.Management.WebBaseEvent.ToString%2A>methoden.</xref:System.Web.Management.WebBaseEvent.ToString%2A>      > [!NOTE] > Bij het opmaken van uw aangepaste gebeurtenisgegevens om weer te geven, vervangt u de methode FormatToString in plaats van de <xref:System.Web.Management.WebApplicationInformation.ToString%2A>methode.</xref:System.Web.Management.WebApplicationInformation.ToString%2A> Hiermee worden overschreven of knoeien met gevoelige systeemgegevens voorkomen."
   example:
   - "The following code example shows how to format custom information.  \n  \n [!code-vb[System.Web.Management.WebApplicationInformation#9](~/add/codesnippet/visualbasic/e7244ae1-98b8-46f8-b4c6-_1.vb)]\n [!code-cs[System.Web.Management.WebApplicationInformation#9](~/add/codesnippet/csharp/e7244ae1-98b8-46f8-b4c6-_1.cs)]"
   syntax:
@@ -124,7 +124,7 @@ items:
     parameters:
     - id: formatter
       type: System.Web.Management.WebEventFormatter
-      description: "The <xref href=&quot;System.Web.Management.WebEventFormatter&quot;></xref> that contains the tab and indentation settings used to format the Web health event information."
+      description: "De <xref href=&quot;System.Web.Management.WebEventFormatter&quot;> </xref> die de tabs en inspringingen instellingen gebruikt om de health-gebeurtenisinformatie bevat."
   overload: System.Web.Management.WebApplicationInformation.FormatToString*
   exceptions: []
   platform:
@@ -141,7 +141,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets the application machine name."
+  summary: "Hiermee haalt u de naam van de toepassing-machine."
   remarks: ''
   example:
   - "The following code example shows how to obtain the machine name.  \n  \n [!code-vb[System.Web.Management.WebApplicationInformation#7](~/add/codesnippet/visualbasic/p-system.web.management._25_1.vb)]\n [!code-cs[System.Web.Management.WebApplicationInformation#7](~/add/codesnippet/csharp/p-system.web.management._25_1.cs)]"
@@ -149,7 +149,7 @@ items:
     content: public string MachineName { get; }
     return:
       type: System.String
-      description: "The name of the machine where the application is running."
+      description: "De naam van de computer waarop de toepassing wordt uitgevoerd."
   overload: System.Web.Management.WebApplicationInformation.MachineName*
   exceptions: []
   platform:
@@ -166,8 +166,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Formats event information for display purposes."
-  remarks: "The <xref:System.Web.Management.WebBaseEvent.ToString%2A> method formats event information by calling the <xref:System.Web.Management.WebApplicationInformation.FormatToString%2A> method.      > [!NOTE] >  When formatting your custom event information for display, override the <xref:System.Web.Management.WebApplicationInformation.FormatToString%2A> method rather than this ToString method. This will avoid overwriting or tampering with sensitive system information."
+  summary: "Indelingen gebeurtenisgegevens om weer te geven."
+  remarks: "De <xref:System.Web.Management.WebBaseEvent.ToString%2A>methode indelingen gebeurtenisgegevens door het aanroepen van de <xref:System.Web.Management.WebApplicationInformation.FormatToString%2A>methode.</xref:System.Web.Management.WebApplicationInformation.FormatToString%2A> </xref:System.Web.Management.WebBaseEvent.ToString%2A>      > [!NOTE] > Bij het opmaken van uw aangepaste gebeurtenisgegevens om weer te geven, overschrijven de <xref:System.Web.Management.WebApplicationInformation.FormatToString%2A>methode in plaats van deze methode ToString.</xref:System.Web.Management.WebApplicationInformation.FormatToString%2A> Hiermee worden overschreven of knoeien met gevoelige systeemgegevens voorkomen."
   example:
   - For an example of using the ToString method, see <xref:System.Web.Management.WebEventProvider>.
   syntax:
@@ -175,7 +175,7 @@ items:
     parameters: []
     return:
       type: System.String
-      description: "The event information."
+      description: "De gegevens van de gebeurtenis."
   overload: System.Web.Management.WebApplicationInformation.ToString*
   exceptions: []
   platform:
@@ -192,15 +192,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets the application trust level."
-  remarks: "This property requires appropriate permissions to be accessed. Refer to the Permissions section."
+  summary: "Hiermee haalt u het vertrouwensniveau van toepassing."
+  remarks: "Deze eigenschap moet de juiste machtigingen om te worden geopend. Raadpleeg de sectie machtigingen."
   example:
   - "The following example shows how to obtain the application-trust-level information.  \n  \n [!code-vb[System.Web.Management.WebApplicationInformation#8](~/add/codesnippet/visualbasic/p-system.web.management._2_1.vb)]\n [!code-cs[System.Web.Management.WebApplicationInformation#8](~/add/codesnippet/csharp/p-system.web.management._2_1.cs)]"
   syntax:
     content: public string TrustLevel { get; }
     return:
       type: System.String
-      description: "The application trust level."
+      description: "Het vertrouwensniveau van de toepassing."
   overload: System.Web.Management.WebApplicationInformation.TrustLevel*
   exceptions: []
   platform:

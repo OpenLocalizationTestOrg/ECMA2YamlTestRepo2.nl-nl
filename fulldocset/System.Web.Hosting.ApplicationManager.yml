@@ -24,8 +24,8 @@ items:
   nameWithType: ApplicationManager
   fullName: System.Web.Hosting.ApplicationManager
   type: Class
-  summary: "Manages ASP.NET application domains for an ASP.NET hosting application."
-  remarks: "The ApplicationManager object provides lifetime management of objects in the hosting environment for an ASP.NET application. It is responsible for:      -   Activating and initializing ASP.NET applications.      -   Managing the application lifetime and the lifetime of objects registered in the application.      -   Exposing objects used by the hosting environment to process ASP.NET application requests.      -   Providing a list of applications running in the hosting process at any given moment."
+  summary: "ASP.NET-toepassing-domeinen beheert voor een ASP.NET-toepassing te hosten."
+  remarks: "Het object ApplicationManager biedt beheer van de levensduur van objecten in de hosting-omgeving voor een ASP.NET-toepassing. Is verantwoordelijk voor: - activeren en tijdens de initialisatie van ASP.NET-toepassingen.      -Het beheren van de levensduur van de toepassing en de levensduur van objecten in de toepassing worden geregistreerd.      -Objecten die door de hosting-omgeving wordt gebruikt voor het verwerken van aanvragen voor ASP.NET-toepassing weergeeft.      -Het bieden van een lijst met toepassingen die in het hostproces op elk gewenst moment worden uitgevoerd."
   syntax:
     content: 'public sealed class ApplicationManager : MarshalByRefObject'
   inheritance:
@@ -50,8 +50,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Hosting
-  summary: "Shuts down all application domains."
-  remarks: "If a call to the Close method reduces the reference count of applications using the application manager to 0, the Close method calls the <xref:System.Web.Hosting.ApplicationManager.ShutdownAll%2A> method."
+  summary: "Hiermee sluit u alle toepassingsdomeinen."
+  remarks: "Als een aanroep van de methode Close wordt beperkt door het aantal van toepassingen met behulp van de manager van toepassing op 0, de methode Close roept de <xref:System.Web.Hosting.ApplicationManager.ShutdownAll%2A>methode.</xref:System.Web.Hosting.ApplicationManager.ShutdownAll%2A>"
   syntax:
     content: public void Close ();
     parameters: []
@@ -71,25 +71,25 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Hosting
-  summary: "Creates an object for the specified application domain, based on type."
-  remarks: "CreateObject is introduced in the .NET Framework version 3.5.  For more information, see [Versions and Dependencies](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Maakt een object voor het domein opgegeven toepassing, op basis van het type."
+  remarks: "CreateObject is opgenomen in de .NET Framework versie 3.5.  Zie voor meer informatie [versies en afhankelijkheden](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public System.Web.Hosting.IRegisteredObject CreateObject (System.Web.Hosting.IApplicationHost appHost, Type type);
     parameters:
     - id: appHost
       type: System.Web.Hosting.IApplicationHost
-      description: "An <xref href=&quot;System.Web.Hosting.IApplicationHost&quot;></xref> object."
+      description: "Een <xref href=&quot;System.Web.Hosting.IApplicationHost&quot;> </xref> object."
     - id: type
       type: System.Type
-      description: "The type of the object to create."
+      description: "Het type van het object te maken."
     return:
       type: System.Web.Hosting.IRegisteredObject
-      description: "A new object of the type specified in <code>type</code>."
+      description: "Een nieuw object van het opgegeven type in <code> type </code>."
   overload: System.Web.Hosting.ApplicationManager.CreateObject*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "A physical path for the application does not exist."
+    description: "Een fysiek pad voor de toepassing bestaat niet."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: "<code>appHost</code> is <xref uid=\"langword_csharp_null\" name=\"null\" href=\"\"></xref>.  \n  \n \\- or -  \n  \n <code>type</code> is <xref uid=\"langword_csharp_null\" name=\"null\" href=\"\"></xref>."
@@ -107,8 +107,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Hosting
-  summary: "Creates an object for the specified application domain based on type, virtual and physical paths, and a Boolean value indicating failure behavior when an object of the specified type already exists."
-  remarks: "The CreateObject method is used to create and register objects in the application. Only one object of each type can be created. If you need to create multiple objects of the same type, you must implement an object factory. For more information, see the code example in this topic.       Each application, identified by a unique application identifier, runs in its own application domain. The CreateObject method creates an object of the specified type in the application domain of the application specified in the `appID` parameter. If an application domain does not exist for the specified application, one is created before the object is created.       The `failIfExists` parameter controls the behavior of the CreateObject method when an object of the specified type already exists in the application. When `failIfExists` is `true`, the CreateObject method throws an <xref:System.InvalidOperationException> exception.       When `failIfExists` is `false`, the CreateObject method returns the existing registered object of the specified type.       The CreateObject method calls the overload that takes an additional `throwOnError` parameter with `throwOnError` set to `false`."
+  summary: "Maakt een object voor de opgegeven toepassingsdomein op basis van het type virtuele en fysieke paden en een Boolean die aangeeft fout gedrag wanneer een object van het opgegeven type al bestaat."
+  remarks: "De methode CreateObject wordt gebruikt voor het maken en registreren van objecten in de toepassing. Slechts één object van elk type kan worden gemaakt. Als u meerdere objecten van hetzelfde type maken wilt, moet u de fabrieksinstellingen van een object te implementeren. Zie het voorbeeld in dit onderwerp voor meer informatie.       Elke toepassing, geïdentificeerd door een unieke toepassings-id in het eigen toepassingsdomein wordt uitgevoerd. De functie CreateObject-methode maakt u een object van het opgegeven type in het toepassingsdomein van de toepassing die is opgegeven in de `appID` parameter. Als een toepassingsdomein voor de opgegeven toepassing niet bestaat, wordt een gemaakt voordat het object is gemaakt.       De `failIfExists` parameter bepaalt het gedrag van de methode CreateObject wanneer een object van het opgegeven type al in de toepassing bestaat. Wanneer `failIfExists` is `true`, genereert de methode CreateObject een <xref:System.InvalidOperationException>uitzondering.</xref:System.InvalidOperationException>       Wanneer `failIfExists` is `false`, de functie CreateObject-methode retourneert het bestaande geregistreerde object van het opgegeven type.       De methode CreateObject roept de overbelasting waarvoor een extra `throwOnError` parameter met `throwOnError` ingesteld op `false`."
   example:
   - "The following code example is an implementation of the object-factory design pattern for registered objects. Using the factory pattern enables you to register multiple instances of an object. The example contains two objects: `SampleComponent`, which is the object the application will use multiple instances of, and `SampleComponentFactory`, which manages a list of `SampleComponent` instances.  \n  \n [!code-cs[System.Web.Hosting.ApplicationManager#1](~/add/codesnippet/csharp/37d6d853-1462-44e9-b1c3-_1.cs)]\n [!code-vb[System.Web.Hosting.ApplicationManager#1](~/add/codesnippet/visualbasic/37d6d853-1462-44e9-b1c3-_1.vb)]"
   syntax:
@@ -116,22 +116,22 @@ items:
     parameters:
     - id: appId
       type: System.String
-      description: "The unique identifier for the application that owns the object."
+      description: "De unieke id voor de toepassing die eigenaar is van het object."
     - id: type
       type: System.Type
-      description: "The type of the object to create."
+      description: "Het type van het object te maken."
     - id: virtualPath
       type: System.String
-      description: "The virtual path to the application."
+      description: "Het virtuele pad naar de toepassing."
     - id: physicalPath
       type: System.String
-      description: "The physical path to the application."
+      description: "Het fysieke pad naar de toepassing."
     - id: failIfExists
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to throw an exception if an object of the specified type is currently registered; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to return the existing registered object of the specified type."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als u wilt een uitzondering als een object van het opgegeven type is momenteel geregistreerd; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> om de bestaande geregistreerde object van het opgegeven type te retourneren."
     return:
       type: System.Web.Hosting.IRegisteredObject
-      description: "A new object of the specified <code>type</code>."
+      description: "Een nieuw object van het opgegeven <code> type </code>."
   overload: System.Web.Hosting.ApplicationManager.CreateObject*
   exceptions:
   - type: System.ArgumentException
@@ -142,7 +142,7 @@ items:
     description: "<code>appID</code> is <xref uid=\"langword_csharp_null\" name=\"null\" href=\"\"></xref>.  \n  \n \\- or -  \n  \n <code>type</code> is <xref uid=\"langword_csharp_null\" name=\"null\" href=\"\"></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<code>failIfExists</code> is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> and an object of the specified type is already registered."
+    description: "<code>failIfExists</code>is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> en een object van het opgegeven type is al geregistreerd."
   platform:
   - net462
 - uid: System.Web.Hosting.ApplicationManager.CreateObject(System.String,System.Type,System.String,System.String,System.Boolean,System.Boolean)
@@ -157,32 +157,32 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Hosting
-  summary: "Creates an object for the specified application domain based on type, virtual and physical paths, a Boolean value indicating failure behavior when an object of the specified type already exists, and a Boolean value indicating whether hosting initialization error exceptions are thrown."
-  remarks: "This overload of the <xref:System.Web.Hosting.ApplicationManager.CreateObject%2A> method provides the `throwOnError` parameter, which allows you to control whether hosting initialization exceptions are thrown. The overload of the <xref:System.Web.Hosting.ApplicationManager.CreateObject%2A> method that does not provide `throwOnError` calls this overload with the parameter set to `false`."
+  summary: "Maakt een object voor de opgegeven toepassingsdomein op basis van het type, virtuele en fysieke paden, een Boolean die aangeeft fout gedrag wanneer een object van het opgegeven type bestaat al en een Boolean die aangeeft of hosting initialisatie fout uitzonderingen worden veroorzaakt."
+  remarks: "Deze overbelasting van de <xref:System.Web.Hosting.ApplicationManager.CreateObject%2A>methode biedt de `throwOnError` parameter u bepalen kunt of hosting initialisatie-uitzonderingen worden veroorzaakt.</xref:System.Web.Hosting.ApplicationManager.CreateObject%2A> De overbelasting van de <xref:System.Web.Hosting.ApplicationManager.CreateObject%2A>methode die geen biedt `throwOnError` deze overbelasting aanroepen met de parameter die is ingesteld op `false`.</xref:System.Web.Hosting.ApplicationManager.CreateObject%2A>"
   syntax:
     content: public System.Web.Hosting.IRegisteredObject CreateObject (string appId, Type type, string virtualPath, string physicalPath, bool failIfExists, bool throwOnError);
     parameters:
     - id: appId
       type: System.String
-      description: "The unique identifier for the application that owns the object."
+      description: "De unieke id voor de toepassing die eigenaar is van het object."
     - id: type
       type: System.Type
-      description: "The type of the object to create."
+      description: "Het type van het object te maken."
     - id: virtualPath
       type: System.String
-      description: "The virtual path to the application."
+      description: "Het virtuele pad naar de toepassing."
     - id: physicalPath
       type: System.String
-      description: "The physical path to the application."
+      description: "Het fysieke pad naar de toepassing."
     - id: failIfExists
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to throw an exception if an object of the specified type is currently registered; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to return the existing registered object of the specified type."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als u wilt een uitzondering als een object van het opgegeven type is momenteel geregistreerd; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> om de bestaande geregistreerde object van het opgegeven type te retourneren."
     - id: throwOnError
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to throw exceptions for hosting initialization errors; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to not throw hosting initialization exceptions."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>uitzonderingen voor het hosten van de initialisatie van de fouten; genereert <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> naar niet throw die als host fungeert voor initialisatie van de uitzonderingen."
     return:
       type: System.Web.Hosting.IRegisteredObject
-      description: "A new object of the specified <code>type</code>."
+      description: "Een nieuw object van het opgegeven <code> type </code>."
   overload: System.Web.Hosting.ApplicationManager.CreateObject*
   exceptions:
   - type: System.ArgumentException
@@ -193,7 +193,7 @@ items:
     description: "<code>appID</code> is <xref uid=\"langword_csharp_null\" name=\"null\" href=\"\"></xref>.  \n  \n \\- or -  \n  \n <code>type</code> is <xref uid=\"langword_csharp_null\" name=\"null\" href=\"\"></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<code>failIfExists</code> is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> and an object of the specified type is already registered."
+    description: "<code>failIfExists</code>is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> en een object van het opgegeven type is al geregistreerd."
   platform:
   - net462
 - uid: System.Web.Hosting.ApplicationManager.GetAppDomain(System.String)
@@ -208,16 +208,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Hosting
-  summary: "Gets the application domain of the specified application."
+  summary: "Hiermee haalt u het toepassingsdomein van de opgegeven toepassing."
   syntax:
     content: public AppDomain GetAppDomain (string appId);
     parameters:
     - id: appId
       type: System.String
-      description: "The unique identifier for the application."
+      description: "De unieke id voor de toepassing."
     return:
       type: System.AppDomain
-      description: "The application domain of the application."
+      description: "Het toepassingsdomein van de toepassing."
   overload: System.Web.Hosting.ApplicationManager.GetAppDomain*
   exceptions: []
   platform:
@@ -234,16 +234,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Hosting
-  summary: "Gets the application domain of an application using the specified host."
+  summary: "Hiermee haalt u het toepassingsdomein van een toepassing met de opgegeven host."
   syntax:
     content: public AppDomain GetAppDomain (System.Web.Hosting.IApplicationHost appHost);
     parameters:
     - id: appHost
       type: System.Web.Hosting.IApplicationHost
-      description: "The host to get the application domain for."
+      description: "De host om op te halen van het toepassingsdomein voor."
     return:
       type: System.AppDomain
-      description: "The application domain of the application."
+      description: "Het toepassingsdomein van de toepassing."
   overload: System.Web.Hosting.ApplicationManager.GetAppDomain*
   exceptions: []
   platform:
@@ -260,8 +260,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Hosting
-  summary: "Returns the single instance of the <xref href=&quot;System.Web.Hosting.ApplicationManager&quot;></xref> object associated with this ASP.NET host process."
-  remarks: "Only one instance of the <xref:System.Web.Hosting.ApplicationManager> object is created by an ASP.NET host process in the default application domain. If an instance of the <xref:System.Web.Hosting.ApplicationManager> class is not available, the GetApplicationManager method first creates an instance of the <xref:System.Web.Hosting.ApplicationManager> class and then returns the newly created object. If an instance of the <xref:System.Web.Hosting.ApplicationManager> class was previously created, the GetApplicationManager method returns the existing object."
+  summary: "Retourneert het enkele exemplaar van de <xref href=&quot;System.Web.Hosting.ApplicationManager&quot;> </xref> object dat is gekoppeld met dit proces ASP.NET-host."
+  remarks: "Slechts één exemplaar van de <xref:System.Web.Hosting.ApplicationManager>object is gemaakt door een proces van de ASP.NET-host in het standaardtoepassingsdomein.</xref:System.Web.Hosting.ApplicationManager> Als u een exemplaar van de <xref:System.Web.Hosting.ApplicationManager>klasse is niet beschikbaar, de methode GetApplicationManager maakt eerst een exemplaar van de <xref:System.Web.Hosting.ApplicationManager>klasse en retourneert vervolgens het gemaakte object.</xref:System.Web.Hosting.ApplicationManager> </xref:System.Web.Hosting.ApplicationManager> Als u een exemplaar van de <xref:System.Web.Hosting.ApplicationManager>klasse eerder is gemaakt, de methode GetApplicationManager retourneert het bestaande object.</xref:System.Web.Hosting.ApplicationManager>"
   example:
   - "The following code example uses the GetApplicationManager method to retrieve the <xref:System.Web.Hosting.ApplicationManager> instance for a Web application.  \n  \n [!code-vb[System.Web.Hosting.ApplicationInfo#1](~/add/codesnippet/visualbasic/m-system.web.hosting.app_0_1.aspx)]\n [!code-cs[System.Web.Hosting.ApplicationInfo#1](~/add/codesnippet/csharp/m-system.web.hosting.app_0_1.aspx)]"
   syntax:
@@ -269,7 +269,7 @@ items:
     parameters: []
     return:
       type: System.Web.Hosting.ApplicationManager
-      description: "The single instance of the <xref href=&quot;System.Web.Hosting.ApplicationManager&quot;></xref> object associated with the ASP.NET host process that is running."
+      description: "Het exemplaar van de <xref href=&quot;System.Web.Hosting.ApplicationManager&quot;> </xref> object dat is gekoppeld met het hostproces van ASP.NET die wordt uitgevoerd."
   overload: System.Web.Hosting.ApplicationManager.GetApplicationManager*
   exceptions: []
   platform:
@@ -286,24 +286,24 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Hosting
-  summary: "Returns the registered object of the specified type from the specified application."
+  summary: "Retourneert het geregistreerde object van het opgegeven type van de opgegeven toepassing."
   syntax:
     content: public System.Web.Hosting.IRegisteredObject GetObject (string appId, Type type);
     parameters:
     - id: appId
       type: System.String
-      description: "The unique identifier for the application that owns the object."
+      description: "De unieke id voor de toepassing die eigenaar is van het object."
     - id: type
       type: System.Type
-      description: "The type of the object to return."
+      description: "Het type van het object te retourneren."
     return:
       type: System.Web.Hosting.IRegisteredObject
-      description: "The registered object of the specified type; or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the type has not been registered through a call to the <xref:System.Web.Hosting.ApplicationManager.CreateObject*> method."
+      description: "Het geregistreerde object van het opgegeven type; of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> als het type is niet geregistreerd via een aanroep van de <xref:System.Web.Hosting.ApplicationManager.CreateObject*>methode.</xref:System.Web.Hosting.ApplicationManager.CreateObject*>"
   overload: System.Web.Hosting.ApplicationManager.GetObject*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>appId</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       —or—       <code>type</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>appId</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       —or—       <code>type</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Web.Hosting.ApplicationManager.GetRunningApplications
@@ -318,7 +318,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Hosting
-  summary: "Returns a snapshot of running applications."
+  summary: "Retourneert een momentopname van het uitvoeren van toepassingen."
   remarks: ''
   example:
   - "The following code example uses the GetRunningApplications method to display information about the applications managed by an <xref:System.Web.Hosting.ApplicationManager> instance.  \n  \n [!code-vb[System.Web.Hosting.ApplicationInfo#1](~/add/codesnippet/visualbasic/m-system.web.hosting.app_1_1.aspx)]\n [!code-cs[System.Web.Hosting.ApplicationInfo#1](~/add/codesnippet/csharp/m-system.web.hosting.app_1_1.aspx)]"
@@ -327,7 +327,7 @@ items:
     parameters: []
     return:
       type: System.Web.Hosting.ApplicationInfo[]
-      description: "An array of <xref href=&quot;System.Web.Hosting.ApplicationInfo&quot;></xref> objects that contain information about the applications managed by this <xref href=&quot;System.Web.Hosting.ApplicationManager&quot;></xref> instance."
+      description: "Een matrix van <xref href=&quot;System.Web.Hosting.ApplicationInfo&quot;> </xref> objecten die informatie over de toepassingen die worden beheerd door dit bevatten <xref href=&quot;System.Web.Hosting.ApplicationManager&quot;> </xref> exemplaar."
   overload: System.Web.Hosting.ApplicationManager.GetRunningApplications*
   exceptions: []
   platform:
@@ -344,8 +344,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Hosting
-  summary: "Gives the application domain an infinite lifetime by preventing a lease from being created."
-  remarks: "This method overrides the <xref:System.MarshalByRefObject.InitializeLifetimeService%2A> method in its base class. It always returns `null` and thereby prevents a lease from being created that would limit the application domain&quot;s lifetime."
+  summary: "Geeft het toepassingsdomein een oneindig levensduur door te voorkomen dat een lease wordt gemaakt."
+  remarks: "Deze methode overschrijft de <xref:System.MarshalByRefObject.InitializeLifetimeService%2A>methode in de basis-klasse.</xref:System.MarshalByRefObject.InitializeLifetimeService%2A> Retourneert altijd `null` en waardoor wordt voorkomen dat een lease van wordt gemaakt die de levensduur van het toepassingsdomein wilt beperken."
   syntax:
     content: public override object InitializeLifetimeService ();
     parameters: []
@@ -368,14 +368,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Hosting
-  summary: "Returns a value indicating whether all applications hosted by the process are idle and not processing requests."
-  remarks: "The IsIdle method returns `true` if all applications hosted by the process are idle."
+  summary: "Retourneert een waarde die aangeeft of alle toepassingen die worden gehost door het proces niet actief zijn en geen aanvragen verwerkt."
+  remarks: "De methode IsIdle retourneert `true` als alle toepassingen die worden gehost door het proces niet actief zijn."
   syntax:
     content: public bool IsIdle ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if all applications in the process are idle; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als alle toepassingen in het proces niet-actieve; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.Hosting.ApplicationManager.IsIdle*
   exceptions: []
   platform:
@@ -392,7 +392,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Hosting
-  summary: "Makes a thread-safe increment to the user reference count of the application manager instance."
+  summary: "Maakt een thread-veilige verhoging voor het aantal gebruikers verwijzing van het toepassingsexemplaar manager."
   syntax:
     content: public void Open ();
     parameters: []
@@ -412,8 +412,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Hosting
-  summary: "Unloads all application resources."
-  remarks: "Calling the ShutdownAll method is equivalent to calling the <xref:System.Web.Hosting.HostingEnvironment.InitiateShutdown%2A?displayProperty=fullName> method in all application domains managed by this <xref:System.Web.Hosting.ApplicationManager> instance; however, the ShutdownAll method can be called from outside the managed application domains."
+  summary: "Alle toepassingsresources wordt verwijderd."
+  remarks: "Aanroepen van de methode ShutdownAll is gelijk aan het aanroepen van de <xref:System.Web.Hosting.HostingEnvironment.InitiateShutdown%2A?displayProperty=fullName>methode in alle toepassingsdomeinen beheerd door dit <xref:System.Web.Hosting.ApplicationManager>exemplaar; echter, de methode ShutdownAll kan worden aangeroepen buiten de domeinen van beheerde toepassingsservices.</xref:System.Web.Hosting.ApplicationManager> </xref:System.Web.Hosting.HostingEnvironment.InitiateShutdown%2A?displayProperty=fullName>"
   syntax:
     content: public void ShutdownAll ();
     parameters: []
@@ -433,19 +433,19 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Hosting
-  summary: "Unloads the specified application."
-  remarks: "Calling the ShutdownApplication method is equivalent to calling the <xref:System.Web.Hosting.HostingEnvironment.InitiateShutdown%2A?displayProperty=fullName> method for a specific application domain; however, the ShutdownApplication method can be called from outside managed application domains."
+  summary: "Hiermee wordt de opgegeven toepassing."
+  remarks: "Aanroepen van de methode ShutdownApplication is gelijk aan het aanroepen van de <xref:System.Web.Hosting.HostingEnvironment.InitiateShutdown%2A?displayProperty=fullName>methode voor een specifieke toepassingsdomein; echter de methode ShutdownApplication kan worden aangeroepen vanuit externe beheerde toepassingsdomeinen.</xref:System.Web.Hosting.HostingEnvironment.InitiateShutdown%2A?displayProperty=fullName>"
   syntax:
     content: public void ShutdownApplication (string appId);
     parameters:
     - id: appId
       type: System.String
-      description: "The unique identifier of the application to unload."
+      description: "De unieke id van de toepassing verwijderen (Unload)."
   overload: System.Web.Hosting.ApplicationManager.ShutdownApplication*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>appId</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>appId</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Web.Hosting.ApplicationManager.StopObject(System.String,System.Type)
@@ -460,16 +460,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Hosting
-  summary: "Removes the specified object from the list of registered objects in an application. If the object to be removed is the last remaining object in the list of registered objects in an application, the application is unloaded."
+  summary: "Hiermee verwijdert u het opgegeven object in de lijst met geregistreerde objecten in een toepassing. Als het object dat moet worden verwijderd, het laatste resterende object in de lijst met geregistreerde objecten in een toepassing is, is de toepassing is verwijderd."
   syntax:
     content: public void StopObject (string appId, Type type);
     parameters:
     - id: appId
       type: System.String
-      description: "The unique identifier for the application that owns the object."
+      description: "De unieke id voor de toepassing die eigenaar is van het object."
     - id: type
       type: System.Type
-      description: "The type of the object to unload."
+      description: "Het type van het object verwijderen (Unload)."
   overload: System.Web.Hosting.ApplicationManager.StopObject*
   exceptions:
   - type: System.ArgumentNullException

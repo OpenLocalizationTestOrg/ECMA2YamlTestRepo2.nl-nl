@@ -41,8 +41,8 @@ items:
   nameWithType: FieldTemplateUserControl
   fullName: System.Web.DynamicData.FieldTemplateUserControl
   type: Class
-  summary: "Represents the base class for all field template controls."
-  remarks: "ASP.NET Dynamic Data field templates are ASP.NET user controls that map data controls to data types in a data model. Field templates derive from FieldTemplateUserControl, the class that enables access to data fields, data columns, and metadata in data models. Dynamic Data projects provide field templates by default. You can modify the field templates provided by default or create custom field templates.       This class inherits from the <xref:System.Web.UI.UserControl> Class."
+  summary: "Hiermee geeft u de basisklasse van alle veld sjabloon besturingselementen."
+  remarks: "ASP.NET dynamische gegevens Veldsjablonen zijn gebruikersbesturingselementen voor ASP.NET dat Gegevensbesturingselementen worden toegewezen aan de gegevenstypen in een gegevensmodel. Veldsjablonen worden afgeleid van FieldTemplateUserControl, de klasse waarmee toegang tot de gegevensvelden, kolommen met gegevens en metagegevens in gegevensmodellen. Dynamische gegevens projecten bieden Veldsjablonen standaard. U kunt wijzigen van het Veldsjablonen standaard of aangepast Veldsjablonen maken.       Deze klasse neemt over van de <xref:System.Web.UI.UserControl>klasse.</xref:System.Web.UI.UserControl>"
   example:
   - "The following code example creates a field template that displays data fields that have a many-to-one relationship and renders a <xref:System.Web.UI.WebControls.HyperLink> control that redirects the user to the relationship page.  \n  \n The following example shows the code file for the ForeignKey.ascx user control.  \n  \n```vb#  \nPublic Partial Class ForeignKeyField   \n    Inherits System.Web.DynamicData.FieldTemplateUserControl   \n  \n    Protected Function GetDisplayString() As String   \n        Return FormatFieldValue( _  \n            ForeignKeyColumn.ParentTable.GetDisplayString(FieldValue))   \n    End Function   \n  \n    Public Overloads Overrides ReadOnly Property DataControl() As Control   \n        Get   \n            Return HyperLink1   \n        End Get   \n    End Property   \nEnd Class   \n```  \n  \n```c#  \npublic partial class ForeignKeyField :   \n                        System.Web.DynamicData.FieldTemplateUserControl   \n{  \n    protected string GetDisplayString()   \n    {  \n       Return         FormatFieldValue(ForeignKeyColumn.ParentTable.GetDisplayString(FieldValue));  \n  \n    public override Control DataControl   \n    {  \n        get   \n        {  \n          return HyperLink1;  \n    }  \n}  \n```  \n  \n The following example shows the ForeignKey.aspx file.  \n  \n```vb#  \n<%@ Control Language=\"VB\" CodeFile=\"ForeignKey.ascx.vb\" Inherits=\"ForeignKeyField\" %>  \n  \n<asp:HyperLink ID=\"HyperLink1\" runat=\"server\"  \n    Text=\"<%# GetDisplayString() %>\" />  \n```  \n  \n```c#  \n<%@ Control Language=\"C#\" CodeFile=\"ForeignKey.ascx.cs\" Inherits=\"ForeignKeyField\" %>  \n  \n<asp:HyperLink ID=\"HyperLink1\" runat=\"server\"  \n    Text=\"<%# GetDisplayString() %>\" />  \n```  \n  \n To compile the example code, you need the following:  \n  \n-   [!INCLUDE[vs_dev10_long](~/add/includes/vs-dev10-long-md.md)] or [!INCLUDE[vwd_exp_dev10_long](~/add/includes/vwd-exp-dev10-long-md.md)].  \n  \n-   A Dynamic Data Web site. For more information, see [Walkthrough: Creating a New Dynamic Data Web Site Using Scaffolding](~/add/includes/ajax-current-ext-md.md)."
   syntax:
@@ -236,7 +236,7 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.DynamicData.FieldTemplateUserControl&quot;></xref> class."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Web.DynamicData.FieldTemplateUserControl&quot;> </xref> klasse."
   syntax:
     content: public FieldTemplateUserControl ();
     parameters: []
@@ -256,17 +256,17 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets the URL that links to the page that displays the list of children entities and allows the path to be overridden."
-  remarks: "This method is similar to <xref:System.Web.DynamicData.FieldTemplateUserControl.ChildrenPath%2A>, except that it allows the path part of the URL to be overridden. This method is used if the pages are not located in the DynamicData\\CustomPages folder of the Dynamic Data project. This method applies to Children columns only."
+  summary: "Hiermee haalt u de URL die verwijst naar de pagina die wordt weergegeven de lijst met onderliggende entiteiten en kunt het pad moet worden overschreven."
+  remarks: "Deze methode is vergelijkbaar met <xref:System.Web.DynamicData.FieldTemplateUserControl.ChildrenPath%2A>, behalve dat kunt u het pad deel van de URL moet worden overschreven.</xref:System.Web.DynamicData.FieldTemplateUserControl.ChildrenPath%2A> Deze methode wordt gebruikt als de pagina&quot;s zich niet in de map DynamicData\\CustomPages van het project dynamische gegevens. Deze methode is van toepassing op alleen onderliggende kolommen."
   syntax:
     content: protected string BuildChildrenPath (string path);
     parameters:
     - id: path
       type: System.String
-      description: "The path to override."
+      description: "Het pad naar het overschrijven."
     return:
       type: System.String
-      description: "The URL that links the displayed page to the children page."
+      description: "De URL die is gekoppeld aan de weergegeven pagina naar de onderliggende pagina."
   overload: System.Web.DynamicData.FieldTemplateUserControl.BuildChildrenPath*
   exceptions: []
   platform:
@@ -283,17 +283,17 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Get the URL that links the current page to the page that displays the details of the foreign key entity and allows the path to be overridden."
-  remarks: "This method is similar to <xref:System.Web.DynamicData.FieldTemplateUserControl.ForeignKeyPath%2A> except that it allows the path of the URL to be overridden. This property is used if the page is not located in the DynamicData\\CustomPages folder your the Dynamic Data project."
+  summary: "De URL die is gekoppeld aan de huidige pagina naar de pagina die de details van de refererende sleutel entiteit weergegeven, en het pad moet worden overschreven kunt ophalen."
+  remarks: "Deze methode is vergelijkbaar met <xref:System.Web.DynamicData.FieldTemplateUserControl.ForeignKeyPath%2A>, behalve dat kunt u het pad van de URL moet worden overschreven.</xref:System.Web.DynamicData.FieldTemplateUserControl.ForeignKeyPath%2A> Deze eigenschap wordt gebruikt als de pagina niet gevonden is in de map DynamicData\\CustomPages bent u het project dynamische gegevens."
   syntax:
     content: protected string BuildForeignKeyPath (string path);
     parameters:
     - id: path
       type: System.String
-      description: "The path to override."
+      description: "Het pad naar het overschrijven."
     return:
       type: System.String
-      description: "The URL that links to the page that displays the details of the foreign key page."
+      description: "De URL die is gekoppeld aan de pagina die u de details van de refererende sleutel pagina weergegeven."
   overload: System.Web.DynamicData.FieldTemplateUserControl.BuildForeignKeyPath*
   exceptions: []
   platform:
@@ -310,18 +310,18 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets the <xref href=&quot;System.Web.DynamicData.MetaChildrenColumn&quot;></xref> object associated with a field template."
-  remarks: "This property casts a <xref:System.Web.DynamicData.MetaColumn> to a <xref:System.Web.DynamicData.MetaChildrenColumn>. If the <xref:System.Web.DynamicData.MetaColumn> class is not a children column, this property throws an exception."
+  summary: "Haalt de <xref href=&quot;System.Web.DynamicData.MetaChildrenColumn&quot;> </xref> object dat is gekoppeld aan een veldsjabloon voor het."
+  remarks: "Deze eigenschap cast een <xref:System.Web.DynamicData.MetaColumn>op een <xref:System.Web.DynamicData.MetaChildrenColumn>.</xref:System.Web.DynamicData.MetaChildrenColumn> </xref:System.Web.DynamicData.MetaColumn> Als de <xref:System.Web.DynamicData.MetaColumn>klasse is geen onderliggende kolom, deze eigenschap er een uitzondering gegenereerd.</xref:System.Web.DynamicData.MetaColumn>"
   syntax:
     content: public System.Web.DynamicData.MetaChildrenColumn ChildrenColumn { get; }
     return:
       type: System.Web.DynamicData.MetaChildrenColumn
-      description: "A column that represents a one-to-many relationship."
+      description: "Een kolom waarin een een-op-veel-relatie vertegenwoordigt."
   overload: System.Web.DynamicData.FieldTemplateUserControl.ChildrenColumn*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "ChildrenColumn is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "ChildrenColumn is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   platform:
   - net462
 - uid: System.Web.DynamicData.FieldTemplateUserControl.ChildrenPath
@@ -336,13 +336,13 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets the URL that links to a page that displays a list of children entities."
-  remarks: "This method returns a URL that links to a page that displays a list of children entities. For example, the products column in the ProductCategories table in the AdventureWorksLT sample database has URLs that link to the list of product that are in the selected category. This property only applies to children columns."
+  summary: "Hiermee haalt u de URL die verwijst naar een pagina met een lijst van onderliggende items entiteiten."
+  remarks: "Deze methode retourneert een URL die is gekoppeld aan een pagina met een lijst van onderliggende items entiteiten. De kolom producten in de tabel ProductCategories in de voorbeelddatabase van AdventureWorksLT heeft bijvoorbeeld de URL&quot;s die zijn gekoppeld aan de lijst van producten die zich in de geselecteerde categorie. Deze eigenschap is alleen van toepassing op de onderliggende kolommen."
   syntax:
     content: protected string ChildrenPath { get; }
     return:
       type: System.String
-      description: "The URL that links the displayed page to the children entities."
+      description: "De URL die is gekoppeld aan de weergegeven pagina naar de onderliggende entiteiten."
   overload: System.Web.DynamicData.FieldTemplateUserControl.ChildrenPath*
   exceptions: []
   platform:
@@ -359,12 +359,12 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets the <xref href=&quot;System.Web.DynamicData.MetaColumn&quot;></xref> associated with a field template."
+  summary: "Haalt de <xref href=&quot;System.Web.DynamicData.MetaColumn&quot;> </xref> die zijn gekoppeld aan een veldsjabloon."
   syntax:
     content: public System.Web.DynamicData.MetaColumn Column { get; }
     return:
       type: System.Web.DynamicData.MetaColumn
-      description: "An object that represents a database column."
+      description: "Een object dat een databasekolom vertegenwoordigt."
   overload: System.Web.DynamicData.FieldTemplateUserControl.Column*
   exceptions: []
   platform:
@@ -381,12 +381,12 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets the type of the data-bound control that contains the <xref href=&quot;System.Web.DynamicData.FieldTemplateUserControl&quot;></xref> class."
+  summary: "Hiermee wordt het type van het gegevensgebonden besturingselement met de <xref href=&quot;System.Web.DynamicData.FieldTemplateUserControl&quot;> </xref> klasse."
   syntax:
     content: public virtual System.Web.DynamicData.ContainerType ContainerType { get; }
     return:
       type: System.Web.DynamicData.ContainerType
-      description: "The container control type."
+      description: "Het type van de container-besturingselement."
   overload: System.Web.DynamicData.FieldTemplateUserControl.ContainerType*
   exceptions: []
   platform:
@@ -403,17 +403,17 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets either an input value or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> based on <xref:System.Web.DynamicData.MetaColumn.ConvertEmptyStringToNull*> and <xref:System.Web.DynamicData.DynamicField.NullDisplayText*>."
-  remarks: "This method returns <xref:System.Web.DynamicData.DynamicControl.ConvertEmptyStringToNull%2A> property and <xref:System.Web.DynamicData.DynamicField.NullDisplayText%2A> property which can be set via metadata or the <xref:System.Web.DynamicData.DynamicField> class or <xref:System.Web.DynamicData.DynamicControl>."
+  summary: "Een invoerwaarde opgehaald of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> op basis van <> </> *> en <> </> *>."
+  remarks: "Deze methode retourneert <xref:System.Web.DynamicData.DynamicControl.ConvertEmptyStringToNull%2A>Eigenschappen en <xref:System.Web.DynamicData.DynamicField.NullDisplayText%2A>die kan worden ingesteld via de metagegevens of de <xref:System.Web.DynamicData.DynamicField>klasse of <xref:System.Web.DynamicData.DynamicControl>.</xref:System.Web.DynamicData.DynamicControl> </xref:System.Web.DynamicData.DynamicField> </xref:System.Web.DynamicData.DynamicField.NullDisplayText%2A> </xref:System.Web.DynamicData.DynamicControl.ConvertEmptyStringToNull%2A>"
   syntax:
     content: protected virtual object ConvertEditedValue (string value);
     parameters:
     - id: value
       type: System.String
-      description: "The input value."
+      description: "De invoerwaarde."
     return:
       type: System.Object
-      description: "The converted value."
+      description: "De geconverteerde waarde."
   overload: System.Web.DynamicData.FieldTemplateUserControl.ConvertEditedValue*
   exceptions: []
   platform:
@@ -430,12 +430,12 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets the data control that handles the data field in a field template."
+  summary: "Hiermee wordt het gegevensbesturingselement die verantwoordelijk is voor het gegevensveld in een veldsjabloon voor het opgehaald."
   syntax:
     content: public virtual System.Web.UI.Control DataControl { get; }
     return:
       type: System.Web.UI.Control
-      description: "A data control that handles the data field in a field template."
+      description: "Een gegevensbesturingselement die verantwoordelijk is voor het gegevensveld in de veldsjabloon voor een."
   overload: System.Web.DynamicData.FieldTemplateUserControl.DataControl*
   exceptions: []
   platform:
@@ -452,17 +452,17 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Saves the value of foreign keys."
-  remarks: "This method is used when saving foreign key columns. The value of the foreign key is selected from the <xref:System.Web.UI.WebControls.ListControl.SelectedValue%2A> property of a drop down list."
+  summary: "Hiermee slaat u de waarde van refererende sleutels."
+  remarks: "Deze methode wordt gebruikt bij het opslaan van afwijkende sleutelkolommen. De waarde van de refererende sleutel is geselecteerd in de <xref:System.Web.UI.WebControls.ListControl.SelectedValue%2A>eigenschap van een vervolgkeuzelijst.</xref:System.Web.UI.WebControls.ListControl.SelectedValue%2A>"
   syntax:
     content: protected virtual void ExtractForeignKey (System.Collections.IDictionary dictionary, string selectedValue);
     parameters:
     - id: dictionary
       type: System.Collections.IDictionary
-      description: "The dictionary that contains all the new values."
+      description: "De woordenlijst die de nieuwe waarden bevat."
     - id: selectedValue
       type: System.String
-      description: "The value to save."
+      description: "De waarde op te slaan."
   overload: System.Web.DynamicData.FieldTemplateUserControl.ExtractForeignKey*
   exceptions: []
   platform:
@@ -479,14 +479,14 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Provides dictionary access to all data in the current row."
-  remarks: "This method implements the <xref:System.Web.UI.IBindableControl.ExtractValues%2A> method."
+  summary: "Biedt toegang tot alle gegevens in de huidige rij woordenlijst."
+  remarks: "Deze methode implementeert de <xref:System.Web.UI.IBindableControl.ExtractValues%2A>methode.</xref:System.Web.UI.IBindableControl.ExtractValues%2A>"
   syntax:
     content: protected virtual void ExtractValues (System.Collections.Specialized.IOrderedDictionary dictionary);
     parameters:
     - id: dictionary
       type: System.Collections.Specialized.IOrderedDictionary
-      description: "The dictionary that contains all the new values."
+      description: "De woordenlijst die de nieuwe waarden bevat."
   overload: System.Web.DynamicData.FieldTemplateUserControl.ExtractValues*
   exceptions: []
   platform:
@@ -503,12 +503,12 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets or sets the value of a column in a current row."
+  summary: "Opgehaald of ingesteld van de waarde van een kolom in een huidige rij."
   syntax:
     content: public virtual object FieldValue { get; set; }
     return:
       type: System.Object
-      description: "An object that represents the value of the column in the current row."
+      description: "Een object dat de waarde van de kolom in de huidige rij vertegenwoordigt."
   overload: System.Web.DynamicData.FieldTemplateUserControl.FieldValue*
   exceptions: []
   platform:
@@ -525,13 +525,13 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets the string representation of the value of a column in the current row when the row is in edit mode."
-  remarks: "If formatting is enabled the string is formatted after editing."
+  summary: "Hiermee wordt de tekenreeksrepresentatie van de waarde van een kolom in de huidige rij opgehaald wanneer de rij in de bewerkingsmodus."
+  remarks: "Als de opmaak is ingeschakeld. de tekenreeks wordt geformatteerd na het bewerken van."
   syntax:
     content: public virtual string FieldValueEditString { get; }
     return:
       type: System.String
-      description: "The value of the column in the row that is edited."
+      description: "De waarde van de kolom in de rij die wordt bewerkt."
   overload: System.Web.DynamicData.FieldTemplateUserControl.FieldValueEditString*
   exceptions: []
   platform:
@@ -548,12 +548,12 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets the formatted string representation of the value of a column in the current row."
+  summary: "Hiermee haalt de weergave opgemaakte tekenreeks van de waarde van een kolom in de huidige rij."
   syntax:
     content: public virtual string FieldValueString { get; }
     return:
       type: System.String
-      description: "The formatted value of the column in the current row."
+      description: "De ingedeelde waarde van de kolom in de huidige rij."
   overload: System.Web.DynamicData.FieldTemplateUserControl.FieldValueString*
   exceptions: []
   platform:
@@ -570,16 +570,16 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Determines the field template that is used to render a specified data column."
+  summary: "Hiermee bepaalt u het veldsjabloon die wordt gebruikt om een opgegeven kolom weer te geven."
   syntax:
     content: protected System.Web.DynamicData.FieldTemplateUserControl FindOtherFieldTemplate (string columnName);
     parameters:
     - id: columnName
       type: System.String
-      description: "The data column the field template renders."
+      description: "De kolom in de veldsjabloon wordt gerenderd."
     return:
       type: System.Web.DynamicData.FieldTemplateUserControl
-      description: "The field template that is used to render a specified data column."
+      description: "De veldsjabloon dat wordt gebruikt om een opgegeven kolom weer te geven."
   overload: System.Web.DynamicData.FieldTemplateUserControl.FindOtherFieldTemplate*
   exceptions: []
   platform:
@@ -596,18 +596,18 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets the <xref href=&quot;System.Web.DynamicData.MetaForeignKeyColumn&quot;></xref> that is associated with a foreign key column."
-  remarks: "This class converts the <xref:System.Web.DynamicData.MetaColumn> to a <xref:System.Web.DynamicData.MetaForeignKeyColumn>. The class throws an exception if <xref:System.Web.DynamicData.MetaColumn> is not a foreign key column."
+  summary: "Haalt de <xref href=&quot;System.Web.DynamicData.MetaForeignKeyColumn&quot;> </xref> dat is gekoppeld aan een refererende-sleutelkolom."
+  remarks: "Deze klasse wordt geconverteerd <xref:System.Web.DynamicData.MetaColumn>naar een <xref:System.Web.DynamicData.MetaForeignKeyColumn>.</xref:System.Web.DynamicData.MetaForeignKeyColumn> </xref:System.Web.DynamicData.MetaColumn> De klasse genereert een uitzondering als <xref:System.Web.DynamicData.MetaColumn>is niet een refererende-sleutelkolom.</xref:System.Web.DynamicData.MetaColumn>"
   syntax:
     content: public System.Web.DynamicData.MetaForeignKeyColumn ForeignKeyColumn { get; }
     return:
       type: System.Web.DynamicData.MetaForeignKeyColumn
-      description: "A column that represents a many-to-one relationship."
+      description: "Een kolom waarin een veel-op-een-relatie vertegenwoordigt."
   overload: System.Web.DynamicData.FieldTemplateUserControl.ForeignKeyColumn*
   exceptions:
   - type: System.Exception
     commentId: T:System.Exception
-    description: "If the <xref href=&quot;System.Web.DynamicData.MetaForeignKeyColumn&quot;></xref> is not a foreign key column."
+    description: "Als de <xref href=&quot;System.Web.DynamicData.MetaForeignKeyColumn&quot;> </xref> is niet een refererende-sleutelkolom."
   platform:
   - net462
 - uid: System.Web.DynamicData.FieldTemplateUserControl.ForeignKeyPath
@@ -622,13 +622,13 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Get the URL that links the current page to the page that displays the details of the foreign key entity."
-  remarks: "If the data column has a many-to-one relationship, this property returns a URL that links to the page that displays the details of the foreign key entity. For example, in the Category column of the Product table in the Northwind Database, this method can return a link that goes to the details of the category that the product belongs to. This property applies to foreign key columns only."
+  summary: "De URL die de huidige pagina naar de pagina die u ziet u de details van de refererende sleutel entiteit is gekoppeld ophalen."
+  remarks: "Als de kolom in een veel-op-een-relatie heeft, retourneert deze eigenschap een URL die verwijst naar de pagina die de details van de refererende sleutel entiteit weergegeven. Deze methode kan bijvoorbeeld in de kolom categorie van de Product-tabel in de Northwind Database retourneren een koppeling naar de details van de categorie die het product bij hoort. Deze eigenschap geldt alleen afwijkende sleutelkolommen."
   syntax:
     content: protected string ForeignKeyPath { get; }
     return:
       type: System.String
-      description: "The URL that links to the details of the foreign key data."
+      description: "De URL die is gekoppeld aan de details van de gegevens van de refererende sleutel."
   overload: System.Web.DynamicData.FieldTemplateUserControl.ForeignKeyPath*
   exceptions: []
   platform:
@@ -645,16 +645,16 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Applies HTML encoding and formatting to a string that will be displayed."
+  summary: "Van toepassing is HTML-codering en opmaak in een tekenreeks die wordt weergegeven."
   syntax:
     content: public virtual string FormatFieldValue (object fieldValue);
     parameters:
     - id: fieldValue
       type: System.Object
-      description: "The value from the data field to format."
+      description: "De waarde van het gegevensveld om te formatteren."
     return:
       type: System.String
-      description: "The formatted value."
+      description: "De ingedeelde waarde."
   overload: System.Web.DynamicData.FieldTemplateUserControl.FormatFieldValue*
   exceptions: []
   platform:
@@ -671,12 +671,12 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets or sets the HTML encoding and formatting options to apply to a field template."
+  summary: "Opgehaald of ingesteld van de HTML-codering en opmaakopties toepassen op een veldsjabloon."
   syntax:
     content: public System.Web.DynamicData.IFieldFormattingOptions FormattingOptions { get; }
     return:
       type: System.Web.DynamicData.IFieldFormattingOptions
-      description: "The interface that exposes the HTML encoding and formatting options to apply to a field template."
+      description: "De interface die de HTML beschrijft-codering en opmaakopties toepassen op een veldsjabloon."
   overload: System.Web.DynamicData.FieldTemplateUserControl.FormattingOptions*
   exceptions: []
   platform:
@@ -693,16 +693,16 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets the value of a specified column in the current row."
+  summary: "Hiermee haalt de waarde van een opgegeven kolom in de huidige rij."
   syntax:
     content: protected virtual object GetColumnValue (System.Web.DynamicData.MetaColumn column);
     parameters:
     - id: column
       type: System.Web.DynamicData.MetaColumn
-      description: "The column to get the value from."
+      description: "De kolom waaruit de waarde moet worden."
     return:
       type: System.Object
-      description: "An object that represents the value of a specified column in the current row."
+      description: "Een object dat de waarde van een opgegeven kolom in de huidige rij vertegenwoordigt."
   overload: System.Web.DynamicData.FieldTemplateUserControl.GetColumnValue*
   exceptions: []
   platform:
@@ -719,14 +719,14 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Returns the string representation of the column&quot;s value."
-  remarks: "The GetSelectedValueString method is used to return a string representation of foreign-key or enumeration column types."
+  summary: "Retourneert de tekenreeksrepresentatie van de waarde van de kolom."
+  remarks: "De methode GetSelectedValueString wordt gebruikt om te retourneren een tekenreeksrepresentatie van de refererende sleutel of opsommingstypen kolomtypen."
   syntax:
     content: protected string GetSelectedValueString ();
     parameters: []
     return:
       type: System.String
-      description: "If the column&quot;s current value is a foreign-key column or an enumeration column, a string representation of the selected value; otherwise, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Als de kolom van het huidige is waarde een refererende-sleutelkolom of een opsomming-kolom een tekenreeksrepresentatie van de geselecteerde waarde; anders <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.DynamicData.FieldTemplateUserControl.GetSelectedValueString*
   exceptions: []
   platform:
@@ -743,12 +743,12 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets or sets the host that provides context to this <xref href=&quot;System.Web.DynamicData.FieldTemplateUserControl&quot;></xref> class."
+  summary: "Opgehaald of ingesteld van de host die voorzien in context hierop <xref href=&quot;System.Web.DynamicData.FieldTemplateUserControl&quot;> </xref> klasse."
   syntax:
     content: public System.Web.DynamicData.IFieldTemplateHost Host { get; }
     return:
       type: System.Web.DynamicData.IFieldTemplateHost
-      description: "The object that provides context to this field template class."
+      description: "Het object dat de context voor de sjabloonklasse van dit veld biedt."
   overload: System.Web.DynamicData.FieldTemplateUserControl.Host*
   exceptions: []
   platform:
@@ -765,14 +765,14 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Allows a <xref href=&quot;System.Web.DynamicData.DynamicValidator&quot;></xref> to ignore a specific type of model validation attribute."
-  remarks: "This method allows a <xref:System.Web.DynamicData.DynamicValidator> to ignore a specific type of model Validation attributes. This method is called when the attribute type is already handled by an ASP.NET validation controls. Without this call, the validation can occur two times, resulting in a duplicate error message."
+  summary: "Kan een <xref href=&quot;System.Web.DynamicData.DynamicValidator&quot;> </xref> voor het negeren van een specifiek type model validatiekenmerk."
+  remarks: "Met deze methode kan een <xref:System.Web.DynamicData.DynamicValidator>voor het negeren van een specifiek type model validatie kenmerken.</xref:System.Web.DynamicData.DynamicValidator> Deze methode wordt aangeroepen wanneer het kenmerktype al door een ASP.NET verwerkt is-validatiebesturingselementen. Zonder deze aanroep de validatie kan zich voordoen tweemaal, wat resulteert in een dubbele foutbericht."
   syntax:
     content: protected void IgnoreModelValidationAttribute (Type attributeType);
     parameters:
     - id: attributeType
       type: System.Type
-      description: "The attribute to ignore."
+      description: "Het kenmerk te negeren."
   overload: System.Web.DynamicData.FieldTemplateUserControl.IgnoreModelValidationAttribute*
   exceptions: []
   platform:
@@ -789,12 +789,12 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets the collection of metadata attributes that apply to the current column."
+  summary: "Hiermee haalt u de verzameling van metagegevenskenmerken die betrekking hebben op de huidige kolom."
   syntax:
     content: public System.ComponentModel.AttributeCollection MetadataAttributes { get; }
     return:
       type: System.ComponentModel.AttributeCollection
-      description: "The collection of metadata attributes that apply to the column."
+      description: "De verzameling van metagegevenskenmerken die betrekking hebben op de kolom."
   overload: System.Web.DynamicData.FieldTemplateUserControl.MetadataAttributes*
   exceptions: []
   platform:
@@ -811,13 +811,13 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets the mode a field template uses."
-  remarks: "The <xref:System.Web.UI.WebControls.DataBoundControlMode> that field templates uses include `Insert`, `Edit`, and `ReadOnly`."
+  summary: "Hiermee wordt de modus voor die een in de veldsjabloon wordt opgehaald."
+  remarks: "De <xref:System.Web.UI.WebControls.DataBoundControlMode>dat veld sjablonen toepassingen zijn onder andere `Insert`, `Edit`, en `ReadOnly`.</xref:System.Web.UI.WebControls.DataBoundControlMode>"
   syntax:
     content: public System.Web.UI.WebControls.DataBoundControlMode Mode { get; }
     return:
       type: System.Web.UI.WebControls.DataBoundControlMode
-      description: "The current mode of the field template."
+      description: "De huidige modus van de veldsjabloon."
   overload: System.Web.DynamicData.FieldTemplateUserControl.Mode*
   exceptions: []
   platform:
@@ -834,14 +834,14 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Populates a list control with all the values from a parent table."
-  remarks: "This method works with only foreign key columns."
+  summary: "Het besturingselement van een lijst met de waarden van een bovenliggende tabel vult."
+  remarks: "Deze methode werkt met alleen refererende-sleutelkolommen."
   syntax:
     content: protected void PopulateListControl (System.Web.UI.WebControls.ListControl listControl);
     parameters:
     - id: listControl
       type: System.Web.UI.WebControls.ListControl
-      description: "The list control to populate."
+      description: "Het lijstbesturingselement te vullen."
   overload: System.Web.DynamicData.FieldTemplateUserControl.PopulateListControl*
   exceptions: []
   platform:
@@ -858,13 +858,13 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets the current data row object."
-  remarks: "The object returned by this the property and the <xref:System.Web.UI.Page.GetDataItem%2A> method are equivalent. This property uses the `Page.GetDataItem` method to return the data row object."
+  summary: "Hiermee haalt u het object voor de huidige rij."
+  remarks: "Het object dat is geretourneerd door de eigenschap en de <xref:System.Web.UI.Page.GetDataItem%2A>methode equivalent zijn.</xref:System.Web.UI.Page.GetDataItem%2A> Deze eigenschap maakt gebruik van de `Page.GetDataItem` methode om te retourneren van het object voor de rij."
   syntax:
     content: public virtual object Row { get; }
     return:
       type: System.Object
-      description: "The current data row object."
+      description: "Het huidige object in de rij gegevens."
   overload: System.Web.DynamicData.FieldTemplateUserControl.Row*
   exceptions: []
   platform:
@@ -881,14 +881,14 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Sets up a <xref:System.Web.DynamicData.IFieldTemplateHost.ValidationGroup*> on all validation controls."
-  remarks: "This method performs additional logic for specific validation control such as the <xref:System.Web.UI.WebControls.RangeValidator> and sets up a <xref:System.Web.DynamicData.DynamicControl.ValidationGroup%2A> on all validation controls."
+  summary: "Stelt een <xref:System.Web.DynamicData.IFieldTemplateHost.ValidationGroup*>op alle validatiebesturingselementen.</xref:System.Web.DynamicData.IFieldTemplateHost.ValidationGroup*>"
+  remarks: "Deze methode voert extra logica voor specifieke validatie besturingselement, zoals de <xref:System.Web.UI.WebControls.RangeValidator>en stelt u een <xref:System.Web.DynamicData.DynamicControl.ValidationGroup%2A>op alle validatiebesturingselementen.</xref:System.Web.DynamicData.DynamicControl.ValidationGroup%2A> </xref:System.Web.UI.WebControls.RangeValidator>"
   syntax:
     content: protected virtual void SetUpValidator (System.Web.UI.WebControls.BaseValidator validator);
     parameters:
     - id: validator
       type: System.Web.UI.WebControls.BaseValidator
-      description: "The validation control to set up."
+      description: "Het besturingselement validatie om in te stellen."
   overload: System.Web.DynamicData.FieldTemplateUserControl.SetUpValidator*
   exceptions: []
   platform:
@@ -905,17 +905,17 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Sets up a <xref href=&quot;System.Web.DynamicData.DynamicValidator&quot;></xref> using the type of validator and the column to validate."
-  remarks: "This method used to set up <xref:System.Web.DynamicData.DynamicControl.ValidationGroup%2A> on all validators.       It performs additional logic for specific validator types in this method. For example, if range values exit in the data model this method sets up <xref:System.Web.UI.WebControls.RangeValidator>."
+  summary: "Stelt een <xref href=&quot;System.Web.DynamicData.DynamicValidator&quot;> </xref> met behulp van het type validator en de kolom te valideren."
+  remarks: "Deze methode gebruikt voor het instellen van <xref:System.Web.DynamicData.DynamicControl.ValidationGroup%2A>op alle validatiefuncties.</xref:System.Web.DynamicData.DynamicControl.ValidationGroup%2A>       Deze voert extra logica voor validatie van specifieke typen in deze methode. Bijvoorbeeld, als de waarden in het gegevensmodel afsluit stelt deze methode <xref:System.Web.UI.WebControls.RangeValidator>.</xref:System.Web.UI.WebControls.RangeValidator>"
   syntax:
     content: protected virtual void SetUpValidator (System.Web.UI.WebControls.BaseValidator validator, System.Web.DynamicData.MetaColumn column);
     parameters:
     - id: validator
       type: System.Web.UI.WebControls.BaseValidator
-      description: "The type of validator to set up."
+      description: "Het type van de validatiefunctie om in te stellen."
     - id: column
       type: System.Web.DynamicData.MetaColumn
-      description: "The column for which to validator is set."
+      description: "De kolom waarvoor de validatiefunctie is ingesteld."
   overload: System.Web.DynamicData.FieldTemplateUserControl.SetUpValidator*
   exceptions: []
   platform:
@@ -933,14 +933,14 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Associates a field template with the object that controls how the field template is used."
-  remarks: "This method implements the <xref:System.Web.DynamicData.IFieldTemplate.SetHost%2A> interface."
+  summary: "Een veldsjabloon koppelt aan het object dat bepaalt hoe de veldsjabloon wordt gebruikt."
+  remarks: "Deze methode implementeert de <xref:System.Web.DynamicData.IFieldTemplate.SetHost%2A>interface.</xref:System.Web.DynamicData.IFieldTemplate.SetHost%2A>"
   syntax:
     content: void IFieldTemplate.SetHost (System.Web.DynamicData.IFieldTemplateHost host);
     parameters:
     - id: host
       type: System.Web.DynamicData.IFieldTemplateHost
-      description: "The object that hosts the field template class. Controls the use of the field template."
+      description: "Het object dat als host fungeert voor de sjabloonklasse veld. Bepaalt het gebruik van de veldsjabloon."
   overload: System.Web.DynamicData.FieldTemplateUserControl.System#Web#DynamicData#IFieldTemplate#SetHost*
   exceptions: []
   platform:
@@ -958,13 +958,13 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Retrieves a set of name/value pairs to implement two-way data-binding in field template controls."
+  summary: "Hiermee haalt u een set van naam/waarde-paren wederzijdse gegevensbinding in veld sjabloon besturingselementen implementeren."
   syntax:
     content: void IBindableControl.ExtractValues (System.Collections.Specialized.IOrderedDictionary dictionary);
     parameters:
     - id: dictionary
       type: System.Collections.Specialized.IOrderedDictionary
-      description: "The dictionary that contains name/values pairs."
+      description: "De woordenlijst met de naam en-waarden paren."
   overload: System.Web.DynamicData.FieldTemplateUserControl.System#Web#UI#IBindableControl#ExtractValues*
   exceptions: []
   platform:
@@ -981,12 +981,12 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets the <xref href=&quot;System.Web.DynamicData.MetaTable&quot;></xref> that a column of a field template belongs to."
+  summary: "Haalt de <xref href=&quot;System.Web.DynamicData.MetaTable&quot;> </xref> die deel uitmaakt van een kolom van een veldsjabloon voor het aan."
   syntax:
     content: public System.Web.DynamicData.MetaTable Table { get; }
     return:
       type: System.Web.DynamicData.MetaTable
-      description: "The table that the column that is associated with the field template belongs to."
+      description: "De tabel die de kolom die is gekoppeld aan het veldsjabloon behoort."
   overload: System.Web.DynamicData.FieldTemplateUserControl.Table*
   exceptions: []
   platform:

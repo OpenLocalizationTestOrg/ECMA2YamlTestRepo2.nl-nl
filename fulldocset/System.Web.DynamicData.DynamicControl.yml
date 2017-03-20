@@ -29,8 +29,8 @@ items:
   nameWithType: DynamicControl
   fullName: System.Web.DynamicData.DynamicControl
   type: Class
-  summary: "Displays the content that is defined for the field in templated data-bound controls, using ASP.NET Dynamic Data features."
-  remarks: "In this topic:      -   [Introduction](#introduction)      -   [Declarative Syntax](#declarative_syntax)      <a name=&quot;introduction&quot;></a>    ## Introduction    The DynamicControl control is used by templated data-bound controls, such as <xref:System.Web.UI.WebControls.FormView> or <xref:System.Web.UI.WebControls.ListView>, to display a data field that uses ASP.NET Dynamic Data features in a custom page. You can also use a DynamicControl control in a <xref:System.Web.UI.WebControls.TemplateField> field of a <xref:System.Web.UI.WebControls.GridView> or a <xref:System.Web.UI.WebControls.DetailsView> control.       The DynamicControl control provides functionality that is similar to that of the <xref:System.Web.DynamicData.DynamicField> field. However, because the DynamicControl control is only used inside templates, it gives you more flexibility in controlling how the data is displayed since you can add other HTML elements around the field. When you use a DynamicControl control, you can take advantage of the following Dynamic Data features:      -   Automatically rendering the proper control for a field by using field templates, based on the data type. The field templates can be globally modified for the entire application.      -   Providing built-in data validation based on the database schema. You can also add validation types by customizing the data model.      -   Customizing data rendering for individual fields by using attributes in the data model or by using the <xref:System.Web.DynamicData.DynamicField.UIHint%2A> property.       To specify the field to display in a DynamicControl control, set the <xref:System.Web.DynamicData.DynamicControl.DataField%2A> property to the field name. You can apply a custom formatting string to the field value by setting the <xref:System.Web.DynamicData.DynamicControl.DataFormatString%2A> property. By default, the formatting string is applied to field values only when the data-bound control is in read-only mode. To apply the formatting string to values displayed while the data-bound control is in edit mode, set the <xref:System.Web.DynamicData.DynamicControl.ApplyFormatInEditMode%2A> property to `true`. If a field value is `null`, you can display a custom caption by setting the <xref:System.Web.DynamicData.DynamicControl.NullDisplayText%2A> property. The DynamicControl control can also automatically convert empty string (&quot;&quot;) field values to null values by setting the <xref:System.Web.DynamicData.DynamicControl.ConvertEmptyStringToNull%2A> property to `true`.       The DynamicControl control supports different display modes. To specify the mode in which to display the DynamicControl control, set the <xref:System.Web.DynamicData.DynamicControl.Mode%2A> property. The following table shows the different modes.       <xref:System.Web.UI.WebControls.DataBoundControlMode>    for display mode. This prevents the user from modifying the values of a record or a data field. It can be used in any of the templates.       <xref:System.Web.UI.WebControls.DataBoundControlMode>    for edit mode. This enables users to update the values of an existing record. It is used in the edit template (typically named `EditItemTemplate`).       <xref:System.Web.UI.WebControls.DataBoundControlMode>    for insert mode. This enables users to enter values for a new record. It is used in the insert template (typically named `InsertItemTemplate`).       You can hide a DynamicControl control in a data-bound control by setting the <xref:System.Web.UI.Control.Visible%2A> property to `false`.      <a name=&quot;declarative_syntax&quot;></a>    ## Declarative Syntax      ```   <asp:DynamicControl       ApplyFormatInEditMode=&quot;True|False&quot;       ConvertEmptyStringToNull=&quot;True|False&quot;       CssClass=&quot;string&quot;       DataField=&quot;string&quot;       DataFormatString=&quot;string&quot;       EnableViewState=&quot;True|False&quot;       HtmlEncode=&quot;True|False&quot;       ID=&quot;string&quot;       Mode=&quot;Edit|Insert|ReadOnly&quot;       NullDisplayText=&quot;string&quot;       OnDataBinding=&quot;DataBinding event handler&quot;       OnDisposed=&quot;Disposed event handler&quot;       OnInit=&quot;Init event handler&quot;       OnLoad=&quot;Load event handler&quot;       OnPreRender=&quot;PreRender event handler&quot;       OnUnload=&quot;Unload event handler&quot;       runat=&quot;server&quot;       UIHint=&quot;string&quot;       ValidationGroup=&quot;string&quot;       Visible=&quot;True|False&quot;   >   </asp:DynamicControl>   ```"
+  summary: "De inhoud die is gedefinieerd voor het veld in sjablonen gegevensgebonden besturingselementen, gebruik van functies van ASP.NET dynamische gegevens weergegeven."
+  remarks: "In dit onderwerp:- [inleiding](#introduction)      -   [declaratieve syntaxis](#declarative_syntax) <a name=&quot;introduction&quot;> </a> ## inleiding de DynamicControl-besturingselement wordt gebruikt door sjablonen gegevensgebonden besturingselementen, zoals <xref:System.Web.UI.WebControls.FormView>of <xref:System.Web.UI.WebControls.ListView>, om een gegevensveld dat gebruikmaakt van de functies van ASP.NET dynamische gegevens in een aangepaste pagina weer te geven.</xref:System.Web.UI.WebControls.ListView> </xref:System.Web.UI.WebControls.FormView>       U kunt ook een DynamicControl-besturingselement in een <xref:System.Web.UI.WebControls.TemplateField>veld van een <xref:System.Web.UI.WebControls.GridView>of een <xref:System.Web.UI.WebControls.DetailsView>besturingselement.</xref:System.Web.UI.WebControls.DetailsView> </xref:System.Web.UI.WebControls.GridView> </xref:System.Web.UI.WebControls.TemplateField>       Het DynamicControl-besturingselement wordt functionaliteit geboden die vergelijkbaar met die van de <xref:System.Web.DynamicData.DynamicField>veld.</xref:System.Web.DynamicData.DynamicField> Echter, omdat het DynamicControl-besturingselement alleen in sjablonen gebruikt wordt, dit biedt u meer flexibiliteit bij het beheren van hoe de gegevens worden weergegeven omdat u andere HTML-elementen om het veld kunt toevoegen. Wanneer u een DynamicControl-besturingselement gebruikt, kunt u profiteren van de volgende functies van dynamische gegevens: - automatisch opbouwen van het juiste besturingselement voor een veld met behulp van Veldsjablonen, op basis van het gegevenstype. De Veldsjablonen kunnen globaal worden gewijzigd voor de gehele toepassing.      -Het bieden van ingebouwde gegevensvalidatie op basis van het schema van de database. U kunt ook validatietypen toevoegen door aan te passen van het gegevensmodel.      -Rendering van rapportgegevens voor afzonderlijke velden aanpassen met behulp van kenmerken in het gegevensmodel of met behulp van de <xref:System.Web.DynamicData.DynamicField.UIHint%2A>eigenschap.</xref:System.Web.DynamicData.DynamicField.UIHint%2A>       Als het veld moet worden weergegeven in een DynamicControl-besturingselement opgeven, stelt u de <xref:System.Web.DynamicData.DynamicControl.DataField%2A>eigenschap in op de veldnaam.</xref:System.Web.DynamicData.DynamicControl.DataField%2A> U kunt een aangepaste tekenreeks voor opmaak toepassen op de veldwaarde door in te stellen de <xref:System.Web.DynamicData.DynamicControl.DataFormatString%2A>eigenschap.</xref:System.Web.DynamicData.DynamicControl.DataFormatString%2A> Standaard wordt de opmaaktekenreeks toegepast op veldwaarden alleen wanneer het gegevensgebonden besturingselement in de modus alleen-lezen. Om toe te passen de opmaaktekenreeks aan waarden terwijl het gegevensgebonden besturingselement in de bewerkingsmodus wordt weergegeven, stelt de <xref:System.Web.DynamicData.DynamicControl.ApplyFormatInEditMode%2A>eigenschap `true`.</xref:System.Web.DynamicData.DynamicControl.ApplyFormatInEditMode%2A> Als een veldwaarde `null`, kunt u een aangepaste bijschrift weergeven door het instellen van de <xref:System.Web.DynamicData.DynamicControl.NullDisplayText%2A>eigenschap.</xref:System.Web.DynamicData.DynamicControl.NullDisplayText%2A> Het DynamicControl-besturingselement kan ook automatisch worden geconverteerd lege tekenreeks (&quot;&quot;) veldwaarden voor null-waarden door in te stellen de <xref:System.Web.DynamicData.DynamicControl.ConvertEmptyStringToNull%2A>eigenschap `true`.</xref:System.Web.DynamicData.DynamicControl.ConvertEmptyStringToNull%2A>       Het DynamicControl-besturingselement ondersteunt verschillende modi. Als de modus waarin het DynamicControl-besturingselement weergegeven opgeven, stelt u de <xref:System.Web.DynamicData.DynamicControl.Mode%2A>eigenschap.</xref:System.Web.DynamicData.DynamicControl.Mode%2A> De volgende tabel bevat de verschillende modi.       <xref:System.Web.UI.WebControls.DataBoundControlMode>voor weergavemodus.</xref:System.Web.UI.WebControls.DataBoundControlMode> Dit voorkomt dat de gebruiker wijzigen de waarden van een record of een gegevensveld. Het kan worden gebruikt in een van de sjablonen.       <xref:System.Web.UI.WebControls.DataBoundControlMode>voor de bewerkingsmodus.</xref:System.Web.UI.WebControls.DataBoundControlMode> Hierdoor kunnen gebruikers de waarden van een bestaande record bijwerken. Het wordt gebruikt in de sjabloon bewerken (meestal onder de naam `EditItemTemplate`).       <xref:System.Web.UI.WebControls.DataBoundControlMode>voor de invoegmodus.</xref:System.Web.UI.WebControls.DataBoundControlMode> Hierdoor kunnen gebruikers waarden op te geven voor een nieuwe record. Het wordt gebruikt in de sjabloon invoegen (meestal onder de naam `InsertItemTemplate`).       U kunt een DynamicControl-besturingselement in een gegevensgebonden besturingselement verbergen door de <xref:System.Web.UI.Control.Visible%2A>eigenschap `false`.</xref:System.Web.UI.Control.Visible%2A>      <a name=&quot;declarative_syntax&quot;></a>## Declaratieve syntaxis```   <asp:DynamicControl       ApplyFormatInEditMode=&quot;True|False&quot;       ConvertEmptyStringToNull=&quot;True|False&quot;       CssClass=&quot;string&quot;       DataField=&quot;string&quot;       DataFormatString=&quot;string&quot;       EnableViewState=&quot;True|False&quot;       HtmlEncode=&quot;True|False&quot;       ID=&quot;string&quot;       Mode=&quot;Edit|Insert|ReadOnly&quot;       NullDisplayText=&quot;string&quot;       OnDataBinding=&quot;DataBinding event handler&quot;       OnDisposed=&quot;Disposed event handler&quot;       OnInit=&quot;Init event handler&quot;       OnLoad=&quot;Load event handler&quot;       OnPreRender=&quot;PreRender event handler&quot;       OnUnload=&quot;Unload event handler&quot;       runat=&quot;server&quot;       UIHint=&quot;string&quot;       ValidationGroup=&quot;string&quot;       Visible=&quot;True|False&quot;   >   </asp:DynamicControl>   ```"
   example:
   - "See a run-time code example of this feature: [Run](http://go.microsoft.com/fwlink/?LinkId=120736&sref=System.Web.DynamicData.DynamicControl).  \n  \n The following example demonstrates how to use the DynamicControl control in a <xref:System.Web.UI.WebControls.ListView> control to display, insert, delete and edit values from a database table. It is important to notice that in order to make the insert operation to work, the <xref:System.Data.Linq.Mapping.ColumnAttribute.IsDbGenerated%2A> property of the `rowguid` and `ModifiedDate` columns are set to `true`.  \n  \n [!code-vb[System.Web.DynamicData.DynamicControl#1](~/add/codesnippet/visualbasic/t-system.web.dynamicdata_0_1.aspx)]\n [!code-cs[System.Web.DynamicData.DynamicControl#1](~/add/codesnippet/csharp/t-system.web.dynamicdata_0_1.aspx)]"
   syntax:
@@ -167,7 +167,7 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.DynamicData.DynamicControl&quot;></xref> class."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Web.DynamicData.DynamicControl&quot;> </xref> klasse."
   syntax:
     content: public DynamicControl ();
     parameters: []
@@ -187,13 +187,13 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.DynamicData.DynamicControl&quot;></xref> class with the specified mode."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Web.DynamicData.DynamicControl&quot;> </xref> klasse met de opgegeven modus."
   syntax:
     content: public DynamicControl (System.Web.UI.WebControls.DataBoundControlMode mode);
     parameters:
     - id: mode
       type: System.Web.UI.WebControls.DataBoundControlMode
-      description: "One of the enumeration values that specifies the mode of the control."
+      description: "Een van de opsommingswaarden die Hiermee wordt de modus van het besturingselement."
   overload: System.Web.DynamicData.DynamicControl.#ctor*
   exceptions: []
   platform:
@@ -210,13 +210,13 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets or sets a value that indicates whether the formatting string specified by the <xref:System.Web.DynamicData.DynamicControl.DataFormatString*> property is applied to field values when the field is in edit mode."
-  remarks: "The <xref:System.Web.DynamicData.DynamicControl> control has different display modes that allow the user to read, edit, or insert a field. By default, the formatting string specified by the <xref:System.Web.DynamicData.DynamicControl.DataFormatString%2A> property is applied to a field value only when the <xref:System.Web.DynamicData.DynamicControl> control is in read-only mode. To apply the formatting string to values displayed while the data-bound control is in edit mode, set the ApplyFormatInEditMode property to `true`.      > [!NOTE] >  The <xref:System.Web.DynamicData.DynamicControl> control does not automatically remove the formatting when the field is updated in the data source. If you do not want the formatting as part of the value stored, you will need to remove the formatting programmatically."
+  summary: "Opgehaald of ingesteld van een waarde die aangeeft of de opmaaktekenreeks opgegeven door de <xref:System.Web.DynamicData.DynamicControl.DataFormatString*>eigenschap wordt toegepast op veldwaarden als het veld in de bewerkingsmodus.</xref:System.Web.DynamicData.DynamicControl.DataFormatString*>"
+  remarks: "De <xref:System.Web.DynamicData.DynamicControl>besturingselement heeft verschillende modi die de gebruiker toestaan om te lezen, bewerken of een veld invoegen.</xref:System.Web.DynamicData.DynamicControl> Standaard, de opmaaktekenreeks die is opgegeven door de <xref:System.Web.DynamicData.DynamicControl.DataFormatString%2A>eigenschap wordt toegepast op een veldwaarde alleen wanneer de <xref:System.Web.DynamicData.DynamicControl>besturingselement is in de modus alleen-lezen.</xref:System.Web.DynamicData.DynamicControl> </xref:System.Web.DynamicData.DynamicControl.DataFormatString%2A> Als u wilt de opmaaktekenreeks toepassen op waarden die worden weergegeven terwijl het gegevensgebonden besturingselement in de bewerkingsmodus, stelt u de eigenschap ApplyFormatInEditMode op `true`.      > [!NOTE] > De <xref:System.Web.DynamicData.DynamicControl>besturingselement verwijdert niet automatisch de opmaak wanneer het veld in de gegevensbron wordt bijgewerkt.</xref:System.Web.DynamicData.DynamicControl> Als u niet de opmaak als onderdeel van de waarde die is opgeslagen wilt, moet u de opmaak die via een programma verwijderen."
   syntax:
     content: public bool ApplyFormatInEditMode { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the formatting string is applied; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de opmaaktekenreeks is toegepast. anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. De standaardwaarde is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.DynamicData.DynamicControl.ApplyFormatInEditMode*
   exceptions: []
   platform:
@@ -233,13 +233,13 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets or sets the column object that is associated with the control."
-  remarks: "You can use the Column property to obtain metadata information about a specific column. The Column property is automatically set by the <xref:System.Web.DynamicData.DynamicControl> control based on the field name provided for the <xref:System.Web.DynamicData.DynamicControl.DataField%2A> property."
+  summary: "Opgehaald of ingesteld van de column-object dat is gekoppeld aan het besturingselement."
+  remarks: "U kunt de eigenschap Column verkrijgen van informatie over metagegevens over een specifieke kolom. De eigenschap Column automatisch ingesteld door de <xref:System.Web.DynamicData.DynamicControl>beheer op basis van de naam van het veld opgegeven voor de <xref:System.Web.DynamicData.DynamicControl.DataField%2A>eigenschap.</xref:System.Web.DynamicData.DynamicControl.DataField%2A> </xref:System.Web.DynamicData.DynamicControl>"
   syntax:
     content: public System.Web.DynamicData.MetaColumn Column { get; set; }
     return:
       type: System.Web.DynamicData.MetaColumn
-      description: "The column object that is associated with the control."
+      description: "De kolomobject dat is gekoppeld aan het besturingselement."
   overload: System.Web.DynamicData.DynamicControl.Column*
   exceptions: []
   platform:
@@ -256,13 +256,13 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets or sets a value that indicates whether empty string values (&quot;&quot;) are automatically converted to null values when the data field is updated in the data source."
-  remarks: "The <xref:System.Web.UI.WebControls.Parameter> object of the data source control also has a property named <xref:System.Web.UI.WebControls.Parameter.ConvertEmptyStringToNull%2A?displayProperty=fullName>. This property performs the same function. Make sure that both properties are set appropriately."
+  summary: "Opgehaald of ingesteld van een waarde die aangeeft of lege tekenreeksen (&quot;&quot;) automatisch worden geconverteerd naar null-waarden als het gegevensveld in de gegevensbron wordt bijgewerkt."
+  remarks: "Het <xref:System.Web.UI.WebControls.Parameter>object van het besturingselement voor de gegevensbron heeft ook een eigenschap genaamd <xref:System.Web.UI.WebControls.Parameter.ConvertEmptyStringToNull%2A?displayProperty=fullName>.</xref:System.Web.UI.WebControls.Parameter.ConvertEmptyStringToNull%2A?displayProperty=fullName> </xref:System.Web.UI.WebControls.Parameter> Deze eigenschap voert dezelfde functie uit. Zorg ervoor dat beide eigenschappen op de juiste wijze zijn ingesteld."
   syntax:
     content: public bool ConvertEmptyStringToNull { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if empty string values are automatically converted to null values; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als lege tekenreekswaarden automatisch in null-waarden omgezet worden; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. De standaardwaarde is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.DynamicData.DynamicControl.ConvertEmptyStringToNull*
   exceptions: []
   platform:
@@ -279,12 +279,12 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets or sets the Cascading Style Sheet (CSS) class that specifies the display styles for the <xref href=&quot;System.Web.DynamicData.DynamicControl&quot;></xref> control content."
+  summary: "Opgehaald of ingesteld van de klasse trapsgewijze opmaakmodel (CSS) waarmee de stijlen voor het weergeven de <xref href=&quot;System.Web.DynamicData.DynamicControl&quot;> </xref> inhoud beheren."
   syntax:
     content: public virtual string CssClass { get; set; }
     return:
       type: System.String
-      description: "The name of the CSS class."
+      description: "De naam van de CSS-klasse."
   overload: System.Web.DynamicData.DynamicControl.CssClass*
   exceptions: []
   platform:
@@ -301,15 +301,15 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets or sets the name of the data field that the <xref href=&quot;System.Web.DynamicData.DynamicControl&quot;></xref> control is bound to."
-  remarks: "Use the DataField property to specify the data field to bind to the <xref:System.Web.DynamicData.DynamicControl> control. The data field can be the column name or, for foreign key columns, the relationship name.       By default, the specified data field is displayed by the <xref:System.Web.DynamicData.DynamicControl> control using the field template that is associated with the field data type. You can change the field template that is rendered for the data field by setting the <xref:System.Web.DynamicData.DynamicControl.UIHint%2A> property. You can also format the displayed text by setting the <xref:System.Web.DynamicData.DynamicControl.DataFormatString%2A> property.       **Note** If you want to change the display and behavior of a data field globally, you must apply attributes to your data model instead of setting this in a particular instance of the <xref:System.Web.DynamicData.DynamicControl> control. For more information, see [ASP.NET Dynamic Data](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Opgehaald of ingesteld van de naam van het gegevensveld die de <xref href=&quot;System.Web.DynamicData.DynamicControl&quot;> </xref> besturingselement is gebonden."
+  remarks: "De eigenschap DataField gebruiken om op te geven van het gegevensveld binden aan de <xref:System.Web.DynamicData.DynamicControl>besturingselement.</xref:System.Web.DynamicData.DynamicControl> Het veld mag de kolom naam of, voor afwijkende sleutelkolommen, de naam van de relatie.       Het opgegeven gegevensveld wordt standaard weergegeven door de <xref:System.Web.DynamicData.DynamicControl>beheren met behulp van het veldsjabloon die is gekoppeld aan het gegevenstype van het veld.</xref:System.Web.DynamicData.DynamicControl> Kunt u het veldsjabloon die wordt weergegeven voor het gegevensveld door in te stellen de <xref:System.Web.DynamicData.DynamicControl.UIHint%2A>eigenschap.</xref:System.Web.DynamicData.DynamicControl.UIHint%2A> U kunt ook de weergegeven tekst opmaken door in te stellen de <xref:System.Web.DynamicData.DynamicControl.DataFormatString%2A>eigenschap.</xref:System.Web.DynamicData.DynamicControl.DataFormatString%2A>       **Opmerking** als u de weergave en het gedrag van een gegevensveld globaal wijzigen wilt, moet u de kenmerken toepassen op uw gegevensmodel in plaats van in te stellen in een bepaalde instantie van de <xref:System.Web.DynamicData.DynamicControl>besturingselement.</xref:System.Web.DynamicData.DynamicControl> Zie voor meer informatie [ASP.NET dynamische gegevens](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following example demonstrates how to use the DataField property to specify which field to display in a <xref:System.Web.DynamicData.DynamicControl> control.  \n  \n [!code-cs[System.Web.DynamicData.DynamicControl.DataField#1](~/add/codesnippet/csharp/p-system.web.dynamicdata_4_1.aspx)]\n [!code-vb[System.Web.DynamicData.DynamicControl.DataField#1](~/add/codesnippet/visualbasic/p-system.web.dynamicdata_4_1.aspx)]"
   syntax:
     content: public string DataField { get; set; }
     return:
       type: System.String
-      description: "The name of the data field to bind the <xref href=&quot;System.Web.DynamicData.DynamicControl&quot;></xref> control to. The default is an empty string (&quot;&quot;), which indicates that this property is not set."
+      description: "De naam van het gegevensveld binden de <xref href=&quot;System.Web.DynamicData.DynamicControl&quot;> </xref> tot beheren. De standaardwaarde is een lege tekenreeks (&quot;&quot;), wat aangeeft dat deze eigenschap niet is ingesteld."
   overload: System.Web.DynamicData.DynamicControl.DataField*
   exceptions: []
   platform:
@@ -326,13 +326,13 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets or sets a string that specifies the display format for the value of the field."
-  remarks: "Use the DataFormatString property to specify a custom display format for the values displayed in the <xref:System.Web.DynamicData.DynamicControl> control. If the DataFormatString property is not set, the field value is displayed without any special formatting.       By default, the formatting string is applied to the field value only when the <xref:System.Web.DynamicData.DynamicControl.Mode%2A> property is set to <xref:System.Web.UI.WebControls.DataBoundControlMode>. To apply the formatting string to the field value while in edit mode, set the <xref:System.Web.DynamicData.DynamicControl.ApplyFormatInEditMode%2A> property to `true`.       The display format that you specify using the DataFormatString property is specific to this instance of the <xref:System.Web.DynamicData.DynamicControl> control. You can also change the display format for a data field across the entire application by applying the <xref:System.ComponentModel.DataAnnotations.DisplayFormatAttribute> to your data model and setting the <xref:System.ComponentModel.DataAnnotations.DisplayFormatAttribute.DataFormatString%2A?displayProperty=fullName> named parameter in the constructor. For more information, see [ASP.NET Dynamic Data](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Opgehaald of ingesteld van een tekenreeks waarmee de notatie voor de waarde van het veld."
+  remarks: "De eigenschap DataFormatString gebruiken om op te geven van een aangepaste weergave-indeling voor de waarden die worden weergegeven de <xref:System.Web.DynamicData.DynamicControl>besturingselement.</xref:System.Web.DynamicData.DynamicControl> Als de DataFormatString-eigenschap niet is ingesteld, wordt de veldwaarde weergegeven zonder speciale opmaak.       De opmaaktekenreeks wordt standaard toegepast op de veldwaarde alleen wanneer de <xref:System.Web.DynamicData.DynamicControl.Mode%2A>eigenschap is ingesteld op <xref:System.Web.UI.WebControls.DataBoundControlMode>.</xref:System.Web.UI.WebControls.DataBoundControlMode> </xref:System.Web.DynamicData.DynamicControl.Mode%2A> Als u wilt de opmaaktekenreeks toepassen op de waarde van het veld in de bewerkingsmodus, stelt de <xref:System.Web.DynamicData.DynamicControl.ApplyFormatInEditMode%2A>eigenschap `true`.</xref:System.Web.DynamicData.DynamicControl.ApplyFormatInEditMode%2A>       De weergave-indeling die u opgeeft met de eigenschap DataFormatString is specifiek voor dit exemplaar van de <xref:System.Web.DynamicData.DynamicControl>besturingselement.</xref:System.Web.DynamicData.DynamicControl> U kunt ook de notatie voor een gegevensveld wijzigen in de gehele toepassing door toe te passen de <xref:System.ComponentModel.DataAnnotations.DisplayFormatAttribute>voor uw gegevensmodel en de instelling voor de <xref:System.ComponentModel.DataAnnotations.DisplayFormatAttribute.DataFormatString%2A?displayProperty=fullName>benoemde parameter in de constructor.</xref:System.ComponentModel.DataAnnotations.DisplayFormatAttribute.DataFormatString%2A?displayProperty=fullName> </xref:System.ComponentModel.DataAnnotations.DisplayFormatAttribute> Zie voor meer informatie [ASP.NET dynamische gegevens](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public string DataFormatString { get; set; }
     return:
       type: System.String
-      description: "A formatting string that specifies the display format for the value of the field. The default is an empty string (&quot;&quot;), which indicates that no special formatting is applied to the field value."
+      description: "Een opmaak tekenreeks waarmee de notatie voor de waarde van het veld. De standaardwaarde is een lege tekenreeks (&quot;&quot;), wat aangeeft dat er geen speciale opmaak wordt toegepast op de veldwaarde."
   overload: System.Web.DynamicData.DynamicControl.DataFormatString*
   exceptions: []
   platform:
@@ -349,12 +349,12 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets the field template that is created for the <xref href=&quot;System.Web.DynamicData.DynamicControl&quot;></xref> control."
+  summary: "Haalt de veldsjabloon die is gemaakt voor de <xref href=&quot;System.Web.DynamicData.DynamicControl&quot;> </xref> besturingselement."
   syntax:
     content: public System.Web.UI.Control FieldTemplate { get; }
     return:
       type: System.Web.UI.Control
-      description: "The field template that is created for the <xref href=&quot;System.Web.DynamicData.DynamicControl&quot;></xref> control."
+      description: "Het veldsjabloon dat is gemaakt voor de <xref href=&quot;System.Web.DynamicData.DynamicControl&quot;> </xref> besturingselement."
   overload: System.Web.DynamicData.DynamicControl.FieldTemplate*
   exceptions: []
   platform:
@@ -371,17 +371,17 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Retrieves the attribute value by using the specified key."
-  remarks: "If the attributes collection is `null`, this method returns an empty string."
+  summary: "De kenmerkwaarde met behulp van de opgegeven sleutel opgehaald."
+  remarks: "Als de verzameling kenmerken `null`, deze methode retourneert een lege tekenreeks."
   syntax:
     content: public string GetAttribute (string key);
     parameters:
     - id: key
       type: System.String
-      description: "The name of the attribute."
+      description: "De naam van het kenmerk."
     return:
       type: System.String
-      description: "The value of the attribute."
+      description: "De waarde van het kenmerk."
   overload: System.Web.DynamicData.DynamicControl.GetAttribute*
   exceptions: []
   platform:
@@ -398,13 +398,13 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets or sets a value that indicates whether the data for the control is HTML-encoded before rendering."
-  remarks: "Use the HtmlEncode property to specify whether field values are HTML-encoded to their respective string representations before they are displayed.      > [!NOTE] >  HTML-encoding field values helps to prevent cross-site scripting attacks and malicious content from being displayed. This property should be enabled whenever possible. For more information, see [Script Exploits Overview](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Opgehaald of ingesteld van een waarde die aangeeft of de gegevens voor het besturingselement HTML-codering voordat er wordt gerenderd is."
+  remarks: "Gebruik de eigenschap HtmlEncode om op te geven of veldwaarden HTML-codering hun respectieve tekenreeks opmerkingen zijn voordat ze worden weergegeven.      > [!NOTE] > HTML-codering veldwaarden helpt voorkomen dat aanvallen via cross-site scripting en schadelijke inhoud wordt weergegeven. Deze eigenschap moet worden ingeschakeld, indien mogelijk. Zie voor meer informatie [aanvallen op de Script-overzicht](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public bool HtmlEncode { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the data for the control is HTML-encoded before rendering; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de gegevens voor het besturingselement HTML-codering voor rendering; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. De standaardwaarde is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.DynamicData.DynamicControl.HtmlEncode*
   exceptions: []
   platform:
@@ -421,13 +421,13 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets or sets the rendering mode."
-  remarks: "Use the Mode property to specify which rendering mode to use to display the <xref:System.Web.DynamicData.DynamicControl> control. The following table shows the different modes.      |Mode|Description|   |----------|-----------------|   |<xref:System.Web.UI.WebControls.DataBoundControlMode>|for display mode. This prevents the user from modifying the values of a record or a data field. It can be used in any of the templates. This is the default value.|   |<xref:System.Web.UI.WebControls.DataBoundControlMode>|for edit mode. This enables users to update the values of an existing record. It is used in the `EditItemTemplate` template.|   |<xref:System.Web.UI.WebControls.DataBoundControlMode>|for insert mode. This enables users to enter values for a new record. It is used in the `InsertItemTemplate` template.|"
+  summary: "Opgehaald of ingesteld van de modus voor rendering."
+  remarks: "De eigenschap Mode gebruiken om op te geven welke modus rendering te gebruiken om weer te geven de <xref:System.Web.DynamicData.DynamicControl>besturingselement.</xref:System.Web.DynamicData.DynamicControl> De volgende tabel bevat de verschillende modi.      | Modus | Beschrijving |   |----------|-----------------|   | <xref:System.Web.UI.WebControls.DataBoundControlMode>| voor weergavemodus.</xref:System.Web.UI.WebControls.DataBoundControlMode> Dit voorkomt dat de gebruiker wijzigen de waarden van een record of een gegevensveld. Het kan worden gebruikt in een van de sjablonen. Dit is de standaardwaarde. |   | <xref:System.Web.UI.WebControls.DataBoundControlMode>| voor de bewerkingsmodus.</xref:System.Web.UI.WebControls.DataBoundControlMode> Hierdoor kunnen gebruikers de waarden van een bestaande record bijwerken. Het wordt gebruikt in de `EditItemTemplate` sjabloon. |   | <xref:System.Web.UI.WebControls.DataBoundControlMode>| voor de invoegmodus.</xref:System.Web.UI.WebControls.DataBoundControlMode> Hierdoor kunnen gebruikers waarden op te geven voor een nieuwe record. Het wordt gebruikt in de `InsertItemTemplate` sjabloon. |"
   syntax:
     content: public System.Web.UI.WebControls.DataBoundControlMode Mode { get; set; }
     return:
       type: System.Web.UI.WebControls.DataBoundControlMode
-      description: "One of the enumeration values that specifies the rendering mode for the control. The default is <xref href=&quot;System.Web.UI.WebControls.DataBoundControlMode&quot;></xref>."
+      description: "Een van de opsommingswaarden die Hiermee wordt de modus weergave voor het besturingselement. De standaardwaarde is <xref href=&quot;System.Web.UI.WebControls.DataBoundControlMode&quot;> </xref>."
   overload: System.Web.DynamicData.DynamicControl.Mode*
   exceptions: []
   platform:
@@ -444,13 +444,13 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets or sets the caption that is displayed for a data field when the field value is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
-  remarks: "Sometimes a field value is stored as null in the data source. You can specify a custom caption to display for fields that have a null value by setting the NullDisplayText property. If this property is not set, null field values are displayed as empty strings (&quot;&quot;)."
+  summary: "Opgehaald of ingesteld van het bijschrift dat wordt weergegeven als de veldwaarde is voor een gegevensveld <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
+  remarks: "Soms wordt een veldwaarde opgeslagen als null in de gegevensbron. U kunt een aangepaste bijschrift voor velden met een null-waarde door de eigenschap NullDisplayText opgeven. Als deze eigenschap niet is ingesteld, null-veldwaarden worden weergegeven als lege tekenreeksen (&quot;&quot;)."
   syntax:
     content: public string NullDisplayText { get; set; }
     return:
       type: System.String
-      description: "The caption that is displayed for a data field when the field value is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>. The default is an empty string (&quot;&quot;), which indicates that this property is not set."
+      description: "Het bijschrift dat wordt weergegeven als de veldwaarde is voor een gegevensveld <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>. De standaardwaarde is een lege tekenreeks (&quot;&quot;), wat aangeeft dat deze eigenschap niet is ingesteld."
   overload: System.Web.DynamicData.DynamicControl.NullDisplayText*
   exceptions: []
   platform:
@@ -467,19 +467,19 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Raises the <xref href=&quot;System.Web.UI.Control.Init&quot;></xref> event."
-  remarks: "Raising an event invokes the event handler through a delegate. For more information, see [NIB: Raising an Event](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2).       The OnInit method also allows derived classes to handle the event without attaching a delegate. This is the preferred technique for handling the event in a derived class."
+  summary: "Geeft de <xref href=&quot;System.Web.UI.Control.Init&quot;> </xref> gebeurtenis."
+  remarks: "Een gebeurtenis te verhogen, roept de gebeurtenis-handler via een gemachtigde. Zie voor meer informatie [KROONTJESPEN: verhogen van een gebeurtenis](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2).       De OnInit-methode kan afgeleide klassen de gebeurtenis te verwerken zonder te koppelen van een gemachtigde. Dit is de voorkeur voor het afhandelen van de gebeurtenis in een afgeleide klasse."
   syntax:
     content: protected override void OnInit (EventArgs e);
     parameters:
     - id: e
       type: System.EventArgs
-      description: "The event data."
+      description: "De gebeurtenisgegevens worden opgeslagen."
   overload: System.Web.DynamicData.DynamicControl.OnInit*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref:System.Web.DynamicData.DynamicControl.DataField*> property is not set."
+    description: "De <xref:System.Web.DynamicData.DynamicControl.DataField*>eigenschap is niet ingesteld.</xref:System.Web.DynamicData.DynamicControl.DataField*>"
   platform:
   - net462
 - uid: System.Web.DynamicData.DynamicControl.Render(System.Web.UI.HtmlTextWriter)
@@ -494,14 +494,14 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Renders the <xref href=&quot;System.Web.DynamicData.DynamicControl&quot;></xref> control content to the client&quot;s browser by using the specified <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;></xref> object."
-  remarks: "The Render method is primarily used by control developers to extend the <xref:System.Web.DynamicData.DynamicControl> control."
+  summary: "Hiermee maakt u de <xref href=&quot;System.Web.DynamicData.DynamicControl&quot;> </xref> inhoud naar de clientbrowser beheren met behulp van de opgegeven <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;> </xref> object."
+  remarks: "De methode Render wordt voornamelijk gebruikt door ontwikkelaars besturingselement uit te breiden de <xref:System.Web.DynamicData.DynamicControl>besturingselement.</xref:System.Web.DynamicData.DynamicControl>"
   syntax:
     content: protected override void Render (System.Web.UI.HtmlTextWriter writer);
     parameters:
     - id: writer
       type: System.Web.UI.HtmlTextWriter
-      description: "The object that is used to render the <xref href=&quot;System.Web.DynamicData.DynamicControl&quot;></xref> control content on the client&quot;s browser."
+      description: "Het object dat wordt gebruikt om weer te geven de <xref href=&quot;System.Web.DynamicData.DynamicControl&quot;> </xref> beheren van inhoud op de clientbrowser."
   overload: System.Web.DynamicData.DynamicControl.Render*
   exceptions: []
   platform:
@@ -518,16 +518,16 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Sets the specified attribute to the specified value."
+  summary: "Het opgegeven kenmerk ingesteld op de opgegeven waarde."
   syntax:
     content: public void SetAttribute (string key, string value);
     parameters:
     - id: key
       type: System.String
-      description: "The name of the attribute to set."
+      description: "De naam van het kenmerk in te stellen."
     - id: value
       type: System.String
-      description: "The value to assign to the attribute."
+      description: "De waarde toewijzen aan het kenmerk."
   overload: System.Web.DynamicData.DynamicControl.SetAttribute*
   exceptions: []
   platform:
@@ -545,12 +545,12 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "For a description of this member, see <xref:System.Web.DynamicData.IFieldTemplateHost.FormattingOptions*>."
+  summary: "Zie voor een beschrijving van dit lid, <xref:System.Web.DynamicData.IFieldTemplateHost.FormattingOptions*>.</xref:System.Web.DynamicData.IFieldTemplateHost.FormattingOptions*>"
   syntax:
     content: System.Web.DynamicData.IFieldFormattingOptions System.Web.DynamicData.IFieldTemplateHost.FormattingOptions { get; }
     return:
       type: System.Web.DynamicData.IFieldFormattingOptions
-      description: "The formatting options to be applied to the field template."
+      description: "De opmaakopties moet worden toegepast op de veldsjabloon."
   overload: System.Web.DynamicData.DynamicControl.System#Web#DynamicData#IFieldTemplateHost#FormattingOptions*
   exceptions: []
   platform:
@@ -567,18 +567,18 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets the table object that is associated with the control."
-  remarks: "Use the Table property to access metadata information about the table that is associated with the data-bound control that contains the <xref:System.Web.DynamicData.DynamicControl> control."
+  summary: "Hiermee wordt het table-object dat is gekoppeld aan het besturingselement opgehaald."
+  remarks: "Gebruik de eigenschap tabel om toegang tot informatie over metagegevens over de tabel die is gekoppeld aan het gegevensgebonden besturingselement met de <xref:System.Web.DynamicData.DynamicControl>besturingselement.</xref:System.Web.DynamicData.DynamicControl>"
   syntax:
     content: public virtual System.Web.DynamicData.MetaTable Table { get; }
     return:
       type: System.Web.DynamicData.MetaTable
-      description: "The table object that is associated with the control."
+      description: "Het table-object dat is gekoppeld aan het besturingselement."
   overload: System.Web.DynamicData.DynamicControl.Table*
   exceptions:
   - type: System.Exception
     commentId: T:System.Exception
-    description: "The <xref href=&quot;System.Web.DynamicData.DynamicControl&quot;></xref> control is inside a data-bound control that is not bound to a data source control that implements the <xref href=&quot;System.Web.DynamicData.IDynamicDataSource&quot;></xref> interface."
+    description: "De <xref href=&quot;System.Web.DynamicData.DynamicControl&quot;> </xref> besturingselement zich binnen een gegevensgebonden besturingselement dat niet is gebonden aan een gegevensbronbesturingselement waarmee de <xref href=&quot;System.Web.DynamicData.IDynamicDataSource&quot;> </xref> interface."
   platform:
   - net462
 - uid: System.Web.DynamicData.DynamicControl.UIHint
@@ -593,15 +593,15 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets or sets the name of the field template that is used to render the data field."
-  remarks: "Use the UIHint property to specify the field template to use to display the UI for a data field. Field templates by default are user controls and their names contain a suffix to identify field templates that are used for edit operations and insert operations. The suffixes are _edit and _insert, respectively. When you set a value to the UIHint property, you set the name without the suffixes. Dynamic Data will identify the correct mode by evaluating the <xref:System.Web.DynamicData.DynamicControl.Mode%2A> property value and will render the correct field template.       If the UIHint property is not set, by default Dynamic Data will render the field template based on the field type. For more information, see [ASP.NET Dynamic Data Scaffolding](~/add/includes/ajax-current-ext-md.md).       The field template that you specify using the UIHint property is specific to this instance of the <xref:System.Web.DynamicData.DynamicControl> control. You can also change the field template used by a data field across the entire application by applying the <xref:System.ComponentModel.DataAnnotations.UIHintAttribute> to your data model. Setting the UIHint property overrides the metadata applied to the data model. For more information about metadata attributes, see [ASP.NET Dynamic Data](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Opgehaald of ingesteld van de naam van het veldsjabloon die wordt gebruikt om het gegevensveld weer te geven."
+  remarks: "Gebruik de eigenschap UIHint om op te geven van de veldsjabloon gebruiken om de gebruikersinterface voor een gegevensveld weer te geven. Veldsjablonen standaard gebruikersbesturingselementen en hun namen bevatten een achtervoegsel om aan te duiden Veldsjablonen die worden gebruikt voor bewerkingen bewerken en bewerkingen invoegen. De achtervoegsels zijn _edit en _Kolom, respectievelijk. Als u een waarde op voor de eigenschap UIHint instelt, kunt u de naam zonder de achtervoegsels instellen. Dynamische gegevens de juiste modus wordt geïdentificeerd door te evalueren de <xref:System.Web.DynamicData.DynamicControl.Mode%2A>eigenschap waarde en de juiste veld-sjabloon, worden weergegeven.</xref:System.Web.DynamicData.DynamicControl.Mode%2A>       Als de eigenschap UIHint niet is ingesteld, standaard worden dynamische gegevens weergegeven de veldsjabloon op basis van het veldtype. Zie voor meer informatie [ASP.NET dynamische gegevens steigers](~/add/includes/ajax-current-ext-md.md).       Het veldsjabloon die u opgeeft met de eigenschap UIHint is specifiek voor dit exemplaar van de <xref:System.Web.DynamicData.DynamicControl>besturingselement.</xref:System.Web.DynamicData.DynamicControl> U kunt ook de veldsjabloon gebruikt door een gegevensveld via de gehele toepassing door toe te passen wijzigen de <xref:System.ComponentModel.DataAnnotations.UIHintAttribute>naar uw gegevensmodel.</xref:System.ComponentModel.DataAnnotations.UIHintAttribute> De eigenschap UIHint overschrijft de metagegevens van het gegevensmodel. Zie voor meer informatie over metagegevenskenmerken [ASP.NET dynamische gegevens](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "See a run-time code example of this feature: [Run](http://go.microsoft.com/fwlink/?LinkId=120736&sref=System.Web.DynamicData.DynamicControl.UIHint).  \n  \n The following example shows how you can specify a data field to use a different field template to render its contents. The second example shows the custom field template specified by the UIHint property.  \n  \n [!code-cs[System.Web.DynamicData.DynamicControl.UIHint#1](~/add/codesnippet/csharp/p-system.web.dynamicdata_2_1.aspx)]\n [!code-vb[System.Web.DynamicData.DynamicControl.UIHint#1](~/add/codesnippet/visualbasic/p-system.web.dynamicdata_2_1.aspx)]  \n  \n [!code-vb[System.Web.DynamicData.DynamicControl.UIHint#2](~/add/codesnippet/visualbasic/p-system.web.dynamicdata_2_2.ascx)]\n [!code-cs[System.Web.DynamicData.DynamicControl.UIHint#2](~/add/codesnippet/csharp/p-system.web.dynamicdata_2_2.ascx)]"
   syntax:
     content: public virtual string UIHint { get; set; }
     return:
       type: System.String
-      description: "The name of the field template that is used to render the data field. The default is an empty string (&quot;&quot;), which indicates that the field template will be rendered based on the data field type or on metadata information applied to the data model."
+      description: "De naam van het veldsjabloon die wordt gebruikt om het gegevensveld weer te geven. De standaardwaarde is een lege tekenreeks (&quot;&quot;), wat aangeeft dat de veldsjabloon wordt weergegeven op basis van het gegevenstype van het veld of op metagegevens die zijn toegepast op het gegevensmodel."
   overload: System.Web.DynamicData.DynamicControl.UIHint*
   exceptions: []
   platform:
@@ -618,13 +618,13 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets or sets the validation group name for the control."
-  remarks: "Validation groups allow you to assign validation controls on a page to a specific category. Each validation group can be validated independently from other validation groups on the page. Use the ValidationGroup property to specify the name of the validation group for which the <xref:System.Web.DynamicData.DynamicControl> control causes validation when the page posts back to the server."
+  summary: "Opgehaald of ingesteld van de naam van de validatiegroep voor het besturingselement."
+  remarks: "Van validatiegroepen kunnen u validatiebesturingselementen op een pagina toewijzen aan een specifieke categorie. Elke validatiegroep kan onafhankelijk van andere validatiegroepen op de pagina worden gevalideerd. Gebruik de eigenschap ValidationGroup Geef de naam van de validatiegroep waarvoor de <xref:System.Web.DynamicData.DynamicControl>besturingselement validatie zorgt ervoor dat wanneer de pagina naar de server teruggepost.</xref:System.Web.DynamicData.DynamicControl>"
   syntax:
     content: public virtual string ValidationGroup { get; set; }
     return:
       type: System.String
-      description: "The validation group name for the control."
+      description: "De naam van de groep validatie voor het besturingselement."
   overload: System.Web.DynamicData.DynamicControl.ValidationGroup*
   exceptions: []
   platform:

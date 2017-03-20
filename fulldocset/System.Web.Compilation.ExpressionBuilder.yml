@@ -14,8 +14,8 @@ items:
   nameWithType: ExpressionBuilder
   fullName: System.Web.Compilation.ExpressionBuilder
   type: Class
-  summary: "Evaluates expressions during page parsing."
-  remarks: "The ExpressionBuilder class is the base class for expression builders, such as the <xref:System.Web.Compilation.AppSettingsExpressionBuilder> class, that create code expressions during page parsing.       Expression builders parse declarative expressions and create code to retrieve values bound to a control property. In no-compile scenarios, an expression builder that supports a no-compile feature evaluates the expression during run time.       When the page parser encounters an expression that is delimited with the string `<%$ %>`, it creates an expression builder for the expression based on the prefix in the string. The prefix is the portion of the string that is to the left of the colon (:). For example, when the parser encounters the string `<%$ ConnectionStrings:MessageDB %>`, it creates a <xref:System.Web.Compilation.ConnectionStringsExpressionBuilder> object. Prefixes are associated with expression builders in the Web.config file in the <xref:System.Web.Configuration.CompilationSection.ExpressionBuilders%2A> section.       The right side of the declarative expression is passed to the expression builder for evaluation. Override the <xref:System.Web.Compilation.ExpressionBuilder.GetCodeExpression%2A> method to generate code that will be compiled with the page.       If you want the custom expression builder to be active on pages that are not compiled, you must also override the <xref:System.Web.Compilation.ExpressionBuilder.EvaluateExpression%2A> method to return an object that represents the results of the expression. You also must override the <xref:System.Web.Compilation.ExpressionBuilder.SupportsEvaluate%2A> property to indicate that the custom expression builder does support no-compile pages.       You can define a set of properties and methods for selecting and evaluating an expression that is associated with a control property at design time by implementing an expression editor. The editor is marked on the expression builder through class-level metadata. For more information, see <xref:System.Web.UI.Design.ExpressionEditor>."
+  summary: "Evalueert expressies tijdens het parseren van de pagina."
+  remarks: "De klasse ExpressionBuilder is de basisklasse van expressie-opbouwfuncties, zoals de <xref:System.Web.Compilation.AppSettingsExpressionBuilder>klasse, die code-expressies maken tijdens het parseren van de pagina.</xref:System.Web.Compilation.AppSettingsExpressionBuilder>       Expressie-opbouwfuncties expressies declaratieve parseren en maak een code voor het ophalen van waarden die zijn gebonden aan een eigenschap van het besturingselement. In scenario&quot;s geen compileren evalueert een opbouwfunctie die ondersteuning biedt voor een functie niet compileren de expressie tijdens runtime.       Wanneer de parser pagina aangetroffen met een expressie die is gescheiden van de tekenreeks `<%$ %>`, een opbouwfunctie voor de expressie op basis van het voorvoegsel op in de tekenreeks wordt gemaakt. Het voorvoegsel is het gedeelte van de tekenreeks die is aan de linkerkant van de dubbele punt (:). Bijvoorbeeld, wanneer de parser de tekenreeks aangetroffen `<%$ ConnectionStrings:MessageDB %>`, het maken van een <xref:System.Web.Compilation.ConnectionStringsExpressionBuilder>object.</xref:System.Web.Compilation.ConnectionStringsExpressionBuilder> Voorvoegsels zijn gekoppeld aan een expressie-opbouwfuncties in het bestand Web.config in de <xref:System.Web.Configuration.CompilationSection.ExpressionBuilders%2A>sectie.</xref:System.Web.Configuration.CompilationSection.ExpressionBuilders%2A>       Aan de rechterkant van de declaratieve expressie wordt doorgegeven aan de opbouwfunctie voor evaluatie. Overschrijf de <xref:System.Web.Compilation.ExpressionBuilder.GetCodeExpression%2A>methode voor het genereren van code die met de pagina wordt gecompileerd.</xref:System.Web.Compilation.ExpressionBuilder.GetCodeExpression%2A>       Als u wilt dat de aangepaste opbouwfunctie moet actief zijn op de pagina&quot;s die niet worden gecompileerd, moet u ook overschrijven de <xref:System.Web.Compilation.ExpressionBuilder.EvaluateExpression%2A>methode om te retourneren van een object dat de resultaten van de expressie vertegenwoordigt.</xref:System.Web.Compilation.ExpressionBuilder.EvaluateExpression%2A> U moet ook overschrijven de <xref:System.Web.Compilation.ExpressionBuilder.SupportsEvaluate%2A>eigenschap om aan te geven dat de aangepaste opbouwfunctie geen compileren&quot;s ondersteunt.</xref:System.Web.Compilation.ExpressionBuilder.SupportsEvaluate%2A>       U kunt een set eigenschappen en methoden voor het selecteren en de geëvalueerde expressie die is gekoppeld aan de eigenschap van een besturingselement in de ontwerpfase door het implementeren van een expressie-editor definiëren. De editor is gemarkeerd op de opbouwfunctie via klasseniveau metagegevens. Zie voor meer informatie <xref:System.Web.UI.Design.ExpressionEditor>.</xref:System.Web.UI.Design.ExpressionEditor>"
   example:
   - "The following code examples demonstrate how to build a custom expression builder by implementing the ExpressionBuilder abstract class. This implementation of ExpressionBuilder returns an evaluated statement that is passed to the expression. To run this example, you must first register the custom expression builder in the Web.config file. The first code example demonstrates how to register the custom expression builder in the Web.config file.  \n  \n```  \n<configuration>  \n    <system.web>  \n       <compilation>  \n          <expressionBuilders>  \n              <add expressionPrefix=\"MyCustomExpression\"  \n               type=\"MyCustomExpressionBuilder\"/>  \n          </expressionBuilders>  \n       </compilation>  \n    </system.web>  \n</configuration>  \n```  \n  \n The second code example demonstrates how to reference the expression in an .aspx file.  \n  \n```  \n<asp:Label ID=\"Label1\" runat=\"server\"   \nText=\"<%$ MyCustomExpression:Hello, world! %>\" />  \n```  \n  \n The third code example demonstrates how to develop a customized expression builder by deriving from ExpressionBuilder. To run this code example, you must place the class in the App_Code folder.  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]"
   syntax:
@@ -38,8 +38,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.Compilation.ExpressionBuilder&quot;></xref> class."
-  remarks: "Because the <xref:System.Web.Compilation.ExpressionBuilder> class is abstract, you cannot create an instance of <xref:System.Web.Compilation.ExpressionBuilder> directly by using the ExpressionBuilder constructor."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Web.Compilation.ExpressionBuilder&quot;> </xref> klasse."
+  remarks: "Omdat de <xref:System.Web.Compilation.ExpressionBuilder>klasse is abstract, kunt u een exemplaar van maken <xref:System.Web.Compilation.ExpressionBuilder>via de constructor ExpressionBuilder.</xref:System.Web.Compilation.ExpressionBuilder> </xref:System.Web.Compilation.ExpressionBuilder>"
   syntax:
     content: protected ExpressionBuilder ();
     parameters: []
@@ -59,8 +59,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "When overridden in a derived class, returns an object that represents an evaluated expression."
-  remarks: "If you want your <xref:System.Web.Compilation.ExpressionBuilder> object to be active on a page that supports the no-compile feature, you can override the EvaluateExpression method and the <xref:System.Web.Compilation.ExpressionBuilder.SupportsEvaluate%2A> property. The EvaluateExpression method should return the evaluation of the current expression."
+  summary: "Wanneer in een afgeleide klasse genegeerd, retourneert een object dat een geëvalueerde expressie vertegenwoordigt."
+  remarks: "Als u wilt dat uw <xref:System.Web.Compilation.ExpressionBuilder>object actief op een pagina die ondersteuning biedt voor de functie niet compileren, kunt u de methode EvaluateExpression overschrijven en de <xref:System.Web.Compilation.ExpressionBuilder.SupportsEvaluate%2A>eigenschap.</xref:System.Web.Compilation.ExpressionBuilder.SupportsEvaluate%2A> </xref:System.Web.Compilation.ExpressionBuilder> De evaluatie van de huidige expressie moet worden geretourneerd door de methode EvaluateExpression."
   example:
   - "The following code example demonstrates how to use the overridden EvaluateExpression method to return an evaluated expression.  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]"
   syntax:
@@ -68,19 +68,19 @@ items:
     parameters:
     - id: target
       type: System.Object
-      description: "The object containing the expression."
+      description: "Het object met de expressie."
     - id: entry
       type: System.Web.UI.BoundPropertyEntry
-      description: "The object that represents information about the property bound to by the expression."
+      description: "Het object waarmee informatie over de eigenschap gebonden aan door de expressie."
     - id: parsedData
       type: System.Object
-      description: "The object containing parsed data as returned by <xref:System.Web.Compilation.ExpressionBuilder.ParseExpression*>."
+      description: "Het object bevat gegevens geparseerd geretourneerd door <xref:System.Web.Compilation.ExpressionBuilder.ParseExpression*>.</xref:System.Web.Compilation.ExpressionBuilder.ParseExpression*>"
     - id: context
       type: System.Web.Compilation.ExpressionBuilderContext
-      description: "Contextual information for the evaluation of the expression."
+      description: "Contextuele informatie voor het evalueren van de expressie."
     return:
       type: System.Object
-      description: "An object that represents the evaluated expression; otherwise, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the inheritor does not implement EvaluateExpression."
+      description: "Een object met de geëvalueerde expressie; anders <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> als de inheritor EvaluateExpression niet implementeert."
   overload: System.Web.Compilation.ExpressionBuilder.EvaluateExpression*
   exceptions: []
   platform:
@@ -97,8 +97,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "When overridden in a derived class, returns code that is used during page execution to obtain the evaluated expression."
-  remarks: "Classes that inherit from the <xref:System.Web.Compilation.ExpressionBuilder> class must implement the GetCodeExpression abstract method."
+  summary: "Wanneer in een afgeleide klasse genegeerd, retourneert de code die wordt gebruikt tijdens het uitvoeren van de pagina voor het verkrijgen van de geëvalueerde expressie."
+  remarks: "Klassen die van overnemen de <xref:System.Web.Compilation.ExpressionBuilder>klasse de GetCodeExpression abstracte methode moet geïmplementeerd.</xref:System.Web.Compilation.ExpressionBuilder>"
   example:
   - "The following code example demonstrates how to return a <xref:System.CodeDom.CodeExpression> object by overriding the GetCodeExpression method.  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]"
   syntax:
@@ -106,16 +106,16 @@ items:
     parameters:
     - id: entry
       type: System.Web.UI.BoundPropertyEntry
-      description: "The object that represents information about the property bound to by the expression."
+      description: "Het object waarmee informatie over de eigenschap gebonden aan door de expressie."
     - id: parsedData
       type: System.Object
-      description: "The object containing parsed data as returned by <xref:System.Web.Compilation.ExpressionBuilder.ParseExpression*>."
+      description: "Het object bevat gegevens geparseerd geretourneerd door <xref:System.Web.Compilation.ExpressionBuilder.ParseExpression*>.</xref:System.Web.Compilation.ExpressionBuilder.ParseExpression*>"
     - id: context
       type: System.Web.Compilation.ExpressionBuilderContext
-      description: "Contextual information for the evaluation of the expression."
+      description: "Contextuele informatie voor het evalueren van de expressie."
     return:
       type: System.CodeDom.CodeExpression
-      description: "A <xref href=&quot;System.CodeDom.CodeExpression&quot;></xref> that is used for property assignment."
+      description: "Een <xref href=&quot;System.CodeDom.CodeExpression&quot;> </xref> die wordt gebruikt voor eigenschapstoewijzing."
   overload: System.Web.Compilation.ExpressionBuilder.GetCodeExpression*
   exceptions: []
   platform:
@@ -132,23 +132,23 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "When overridden in a derived class, returns an object that represents the parsed expression."
-  remarks: "When overridden in a derived class, this method parses the expression and returns it as an object that can be used as the `parsedData` parameter in a <xref:System.Web.Compilation.ExpressionBuilder.GetCodeExpression%2A> or <xref:System.Web.Compilation.ExpressionBuilder.EvaluateExpression%2A> method."
+  summary: "Wanneer in een afgeleide klasse genegeerd, retourneert een object dat de geparseerde expressie vertegenwoordigt."
+  remarks: "Wanneer in een afgeleide klasse genegeerd, deze methode parseert de expressie en wordt geretourneerd als een object dat kan worden gebruikt als de `parsedData` parameter in een <xref:System.Web.Compilation.ExpressionBuilder.GetCodeExpression%2A>of <xref:System.Web.Compilation.ExpressionBuilder.EvaluateExpression%2A>methode.</xref:System.Web.Compilation.ExpressionBuilder.EvaluateExpression%2A> </xref:System.Web.Compilation.ExpressionBuilder.GetCodeExpression%2A>"
   syntax:
     content: public virtual object ParseExpression (string expression, Type propertyType, System.Web.Compilation.ExpressionBuilderContext context);
     parameters:
     - id: expression
       type: System.String
-      description: "The value of the declarative expression."
+      description: "De waarde van de declaratieve expressie."
     - id: propertyType
       type: System.Type
-      description: "The type of the property bound to by the expression."
+      description: "Het type van de eigenschap gebonden aan door de expressie."
     - id: context
       type: System.Web.Compilation.ExpressionBuilderContext
-      description: "Contextual information for the evaluation of the expression."
+      description: "Contextuele informatie voor het evalueren van de expressie."
     return:
       type: System.Object
-      description: "An <xref:System.Object> containing the parsed representation of the expression; otherwise, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if ParseExpression is not implemented."
+      description: "Een <xref:System.Object>met de geparseerde weergave van de expressie; anders <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> als ParseExpression is niet geïmplementeerd.</xref:System.Object>"
   overload: System.Web.Compilation.ExpressionBuilder.ParseExpression*
   exceptions: []
   platform:
@@ -165,15 +165,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "When overridden in a derived class, returns a value indicating whether the current <xref href=&quot;System.Web.Compilation.ExpressionBuilder&quot;></xref> object supports no-compile pages."
-  remarks: "The default value for the SupportsEvaluate property is `false`. To support no-compile pages, you must override both the <xref:System.Web.Compilation.ExpressionBuilder.EvaluateExpression%2A> method and the SupportsEvaluate property."
+  summary: "Wanneer in een afgeleide klasse genegeerd, retourneert een waarde die aangeeft of de huidige <xref href=&quot;System.Web.Compilation.ExpressionBuilder&quot;> </xref> object ondersteunt geen compileren pagina&quot;s."
+  remarks: "De standaardwaarde voor de eigenschap SupportsEvaluate is `false`. Ter ondersteuning van Nee compileren pagina&quot;s, moet u beide overschrijven de <xref:System.Web.Compilation.ExpressionBuilder.EvaluateExpression%2A>methode en de eigenschap SupportsEvaluate.</xref:System.Web.Compilation.ExpressionBuilder.EvaluateExpression%2A>"
   example:
   - "The following code example demonstrates how to use the SupportsEvaluate property.  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]"
   syntax:
     content: public virtual bool SupportsEvaluate { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <xref href=&quot;System.Web.Compilation.ExpressionBuilder&quot;></xref> supports expression evaluation; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de <xref href=&quot;System.Web.Compilation.ExpressionBuilder&quot;> </xref> ondersteuning biedt voor evaluatie van expressies; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.Compilation.ExpressionBuilder.SupportsEvaluate*
   exceptions: []
   platform:
