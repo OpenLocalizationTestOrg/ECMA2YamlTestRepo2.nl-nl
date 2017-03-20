@@ -14,8 +14,8 @@ items:
   nameWithType: AggregateTokenResolver
   fullName: System.IdentityModel.Tokens.AggregateTokenResolver
   type: Class
-  summary: "Represents a security token resolver that can wrap multiple token resolvers and resolve tokens across all of the wrapped resolvers."
-  remarks: "A <xref:System.IdentityModel.Selectors.SecurityTokenResolver> object represents a utility class that can retrieve security tokens or keys when you have a key identifier or key identifier clause. The AggregateTokenResolver wraps several <xref:System.IdentityModel.Selectors.SecurityTokenResolver> objects. The token resolvers to be wrapped are specified in the constructor. The <xref:System.IdentityModel.Tokens.AggregateTokenResolver.TokenResolvers%2A> property returns the collection of token resolvers that are wrapped by the aggregate resolver."
+  summary: "Hiermee geeft u een beveiligingstokenomzetter waarmee kan meerdere token resolvers Inpakken en tokens voor alle van de ingepakte resolvers omgezet."
+  remarks: "Een <xref:System.IdentityModel.Selectors.SecurityTokenResolver>object vertegenwoordigt een Hulpprogrammaklasse die beveiligingstokens of sleutels ophalen kan als er een sleutel-id of ID-clausule.</xref:System.IdentityModel.Selectors.SecurityTokenResolver> De AggregateTokenResolver verpakt diverse <xref:System.IdentityModel.Selectors.SecurityTokenResolver>objecten.</xref:System.IdentityModel.Selectors.SecurityTokenResolver> De token resolvers moeten worden ingepakt worden in de constructor opgegeven. De <xref:System.IdentityModel.Tokens.AggregateTokenResolver.TokenResolvers%2A>eigenschap retourneert de verzameling van token resolvers die zijn ingepakt door de cumulatieve resolver.</xref:System.IdentityModel.Tokens.AggregateTokenResolver.TokenResolvers%2A>"
   syntax:
     content: 'public class AggregateTokenResolver : System.IdentityModel.Selectors.SecurityTokenResolver'
   inheritance:
@@ -45,19 +45,19 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Tokens.AggregateTokenResolver&quot;></xref> class by using the specified list of token resolvers."
-  remarks: "The <xref:System.IdentityModel.Tokens.AggregateTokenResolver.TokenResolvers%2A> property is initialized with the specified list of token resolvers."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.IdentityModel.Tokens.AggregateTokenResolver&quot;> </xref> klasse met behulp van de opgegeven lijst met token resolvers."
+  remarks: "De <xref:System.IdentityModel.Tokens.AggregateTokenResolver.TokenResolvers%2A>eigenschap is geïnitialiseerd met de opgegeven lijst met token resolvers.</xref:System.IdentityModel.Tokens.AggregateTokenResolver.TokenResolvers%2A>"
   syntax:
     content: public AggregateTokenResolver (System.Collections.Generic.IEnumerable<System.IdentityModel.Selectors.SecurityTokenResolver> tokenResolvers);
     parameters:
     - id: tokenResolvers
       type: System.Collections.Generic.IEnumerable{System.IdentityModel.Selectors.SecurityTokenResolver}
-      description: "A list of the security token resolvers to be wrapped by this instance."
+      description: "Een lijst met de security token resolvers moeten worden ingepakt door dit exemplaar."
   overload: System.IdentityModel.Tokens.AggregateTokenResolver.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>tokenResolvers</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>tokenResolvers</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.IdentityModel.Tokens.AggregateTokenResolver.TokenResolvers
@@ -72,12 +72,12 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets the security token resolvers that are wrapped by this instance."
+  summary: "Hiermee haalt u de beveiliging token resolvers die zijn ingepakt door dit exemplaar."
   syntax:
     content: public System.Collections.ObjectModel.ReadOnlyCollection<System.IdentityModel.Selectors.SecurityTokenResolver> TokenResolvers { get; }
     return:
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.IdentityModel.Selectors.SecurityTokenResolver}
-      description: "A read-only collection that contains the token resolvers that are wrapped by this instance."
+      description: "Een alleen-lezen verzameling die de token resolvers die zijn ingepakt door dit exemplaar bevat."
   overload: System.IdentityModel.Tokens.AggregateTokenResolver.TokenResolvers*
   exceptions: []
   platform:
@@ -94,25 +94,25 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Attempts to retrieve the key that is referenced in the specified key identifier clause."
-  remarks: "The TryResolveSecurityKeyCore method is called by the <xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveSecurityKey%2A> and <xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveSecurityKey%2A> methods."
+  summary: "Probeert op te halen van de sleutel waarnaar wordt verwezen in de opgegeven sleutel-id-component."
+  remarks: "De methode TryResolveSecurityKeyCore wordt aangeroepen door de <xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveSecurityKey%2A>en <xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveSecurityKey%2A>methoden.</xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveSecurityKey%2A> </xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveSecurityKey%2A>"
   syntax:
     content: protected override bool TryResolveSecurityKeyCore (System.IdentityModel.Tokens.SecurityKeyIdentifierClause keyIdentifierClause, out System.IdentityModel.Tokens.SecurityKey key);
     parameters:
     - id: keyIdentifierClause
       type: System.IdentityModel.Tokens.SecurityKeyIdentifierClause
-      description: "The key identifier clause to retrieve the key for."
+      description: "De sleutel-id-component voor het ophalen van de sleutel voor."
     - id: key
       type: System.IdentityModel.Tokens.SecurityKey
-      description: "When this method returns, contains the key that is referenced in the specified key identifier clause. This parameter is passed uninitialized."
+      description: "Wanneer deze methode retourneert, bevat de sleutel waarnaar wordt verwezen in de opgegeven sleutel-id-component. Deze parameter wordt doorgegeven niet geïnitialiseerd."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> when a key can be retrieved for the specified key identifier clause; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Wanneer een sleutel kan worden opgehaald voor de opgegeven sleutel-id-component; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.IdentityModel.Tokens.AggregateTokenResolver.TryResolveSecurityKeyCore*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>keyIdentifierClause</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>keyIdentifierClause</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.IdentityModel.Tokens.AggregateTokenResolver.TryResolveTokenCore(System.IdentityModel.Tokens.SecurityKeyIdentifier,System.IdentityModel.Tokens.SecurityToken@)
@@ -127,25 +127,25 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Attempts to retrieve the security token that matches at least one of the key identifier clauses contained within the specified key identifier."
-  remarks: "The TryResolveTokenCore method is called by the <xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveToken%2A> and <xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveToken%2A> methods."
+  summary: "Probeert op te halen van het beveiligingstoken dat overeenkomt met ten minste een van de sleutel-ID clausules binnen de opgegeven sleutel-id."
+  remarks: "De methode TryResolveTokenCore wordt aangeroepen door de <xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveToken%2A>en <xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveToken%2A>methoden.</xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveToken%2A> </xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveToken%2A>"
   syntax:
     content: protected override bool TryResolveTokenCore (System.IdentityModel.Tokens.SecurityKeyIdentifier keyIdentifier, out System.IdentityModel.Tokens.SecurityToken token);
     parameters:
     - id: keyIdentifier
       type: System.IdentityModel.Tokens.SecurityKeyIdentifier
-      description: "The security key identifier to retrieve the token for."
+      description: "De beveiligingssleutel-ID voor het ophalen van het token voor."
     - id: token
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "When this method returns, contains a token that represents the specified key identifier. This parameter is passed uninitialized."
+      description: "Wanneer deze methode retourneert, bevat een token dat de opgegeven sleutel-id vertegenwoordigt. Deze parameter wordt doorgegeven niet geïnitialiseerd."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> when a token can be retrieved for the specified key identifier; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Wanneer een token kan worden opgehaald voor de opgegeven sleutel-id; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.IdentityModel.Tokens.AggregateTokenResolver.TryResolveTokenCore*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>keyIdentifier</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>keyIdentifier</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.IdentityModel.Tokens.AggregateTokenResolver.TryResolveTokenCore(System.IdentityModel.Tokens.SecurityKeyIdentifierClause,System.IdentityModel.Tokens.SecurityToken@)
@@ -160,25 +160,25 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Attempts to resolve the security token that matches the specified key identifier clause."
-  remarks: "The TryResolveTokenCore method is called by the <xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveToken%2A> and <xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveToken%2A> methods."
+  summary: "Pogingen tot het oplossen van het beveiligingstoken dat overeenkomt met de opgegeven sleutel-id-component."
+  remarks: "De methode TryResolveTokenCore wordt aangeroepen door de <xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveToken%2A>en <xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveToken%2A>methoden.</xref:System.IdentityModel.Selectors.SecurityTokenResolver.ResolveToken%2A> </xref:System.IdentityModel.Selectors.SecurityTokenResolver.TryResolveToken%2A>"
   syntax:
     content: protected override bool TryResolveTokenCore (System.IdentityModel.Tokens.SecurityKeyIdentifierClause keyIdentifierClause, out System.IdentityModel.Tokens.SecurityToken token);
     parameters:
     - id: keyIdentifierClause
       type: System.IdentityModel.Tokens.SecurityKeyIdentifierClause
-      description: "The key identifier clause to create a security token for."
+      description: "De sleutel-id-component voor het maken van een beveiligingstoken voor."
     - id: token
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "When this method returns, contains a security token that represents the specified key identifier clause. This parameter is passed uninitialized."
+      description: "Wanneer deze methode retourneert, bevat een beveiligingstoken dat staat voor de opgegeven sleutel-id-component. Deze parameter wordt doorgegeven niet geïnitialiseerd."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> when a security token can be retrieved for the specified key identifier clause; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Wanneer een beveiligingstoken worden opgehaald voor de opgegeven sleutel-id-component; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.IdentityModel.Tokens.AggregateTokenResolver.TryResolveTokenCore*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>keyIdentifierClause</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>keyIdentifierClause</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 references:

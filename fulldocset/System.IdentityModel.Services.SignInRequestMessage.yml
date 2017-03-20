@@ -25,8 +25,8 @@ items:
   nameWithType: SignInRequestMessage
   fullName: System.IdentityModel.Services.SignInRequestMessage
   type: Class
-  summary: "Represents a WS-Federation Sign-In Request message."
-  remarks: "A WS-Federation sign-in message is sent by a relying party (RP) to a security token service (STS) to request a security token. The wa parameter must be set to “wsignout1.0” and the wtrealm parameter should be set to the security realm of the requested resource (this is often the URL of the requested resource). Other optional parameters may also be specified in the request.       A <xref:System.IdentityModel.Services.SignOutRequestMessage> message is created by the static methods of the <xref:System.IdentityModel.Services.SignOutRequestMessage> class, for example the <xref:System.IdentityModel.Services.WSFederationMessage.CreateFromUri%2A> method, when the wa parameter is set to “wsignin1.0”, there is no wresult or wresultptr parameter present, and either a wtrealm parameter or a wreply parameter is present.      > [!IMPORTANT] >  For backward compatibility with Active Directory Federation Services (AD FS) version 1.0, Windows Identity Foundation (WIF) allows either the wtrealm parameter or the wreply parameter to be set (or both) for a sign-in message to be valid; however, the WS-Federation protocol requires that the wtrealm parameter be present in a sign-in request. In most scenarios, you should ensure that the wtrealm parameter is specified.       The SignInRequestMessage class exposes several properties that can be used to set or access individual message parameters. These parameters can also be set or accessed through the <xref:System.IdentityModel.Services.FederationMessage.Parameters%2A> dictionary. For example, you can read the wtrealm parameter in the message either through the <xref:System.IdentityModel.Services.SignInRequestMessage.Realm%2A> property or by specifying “wtrealm” as the key to the <xref:System.IdentityModel.Services.FederationMessage.Parameters%2A> dictionary.       [!INCLUDE[wif_wsfed_ref](~/add/includes/wif-wsfed-ref-md.md)]"
+  summary: "Vertegenwoordigt een WS-Federation aanmelden Request-bericht."
+  remarks: "Een WS-Federation-in bericht is verzonden door een relying party (RP) naar een beveiligingstokenservice (STS) om aan te vragen van een beveiligingstoken. De parameter wa moet worden ingesteld op &quot;wsignout1.0&quot; en de parameter wtrealm moet worden ingesteld op de realm van de beveiliging van de aangevraagde bron (dit is vaak de URL van de aangevraagde bron). Andere optionele parameters kunnen ook worden opgegeven in de aanvraag.       Een <xref:System.IdentityModel.Services.SignOutRequestMessage>bericht is gemaakt door de statische methoden van de <xref:System.IdentityModel.Services.SignOutRequestMessage>klasse, bijvoorbeeld de <xref:System.IdentityModel.Services.WSFederationMessage.CreateFromUri%2A>methode, wanneer de parameter wa is ingesteld op &quot;wsignin1.0&quot;, er geen parameter wresult of wresultptr aanwezig is is en een parameter wtrealm of wreply zijn opgenomen parameter aanwezig is.</xref:System.IdentityModel.Services.WSFederationMessage.CreateFromUri%2A> </xref:System.IdentityModel.Services.SignOutRequestMessage> </xref:System.IdentityModel.Services.SignOutRequestMessage>      > [!IMPORTANT] > Voor achterwaartse compatibiliteit met Active Directory Federation Services (AD FS) versie 1.0 Windows Identity Foundation (WIF) kunt u ofwel de parameter wtrealm of wreply zijn opgenomen-parameter moet worden ingesteld (of beide) een bericht aanmelden om geldig te zijn; het protocol WS-Federation vereist echter dat de parameter wtrealm aanwezig in een aanvraag voor aanmelden zijn. In de meeste gevallen moet u ervoor zorgen dat de parameter wtrealm is opgegeven.       De klasse SignInRequestMessage beschrijft de verschillende eigenschappen die kunnen worden ingesteld of afzonderlijk berichtparameters worden gebruikt. Deze parameters kunnen ook worden ingesteld of toegankelijk is via de <xref:System.IdentityModel.Services.FederationMessage.Parameters%2A>woordenlijst.</xref:System.IdentityModel.Services.FederationMessage.Parameters%2A> Bijvoorbeeld, vindt u de parameter wtrealm in het bericht hetzij via de <xref:System.IdentityModel.Services.SignInRequestMessage.Realm%2A>eigenschap of door te geven &quot;wtrealm&quot; als de sleutel voor de <xref:System.IdentityModel.Services.FederationMessage.Parameters%2A>woordenlijst.</xref:System.IdentityModel.Services.FederationMessage.Parameters%2A> </xref:System.IdentityModel.Services.SignInRequestMessage.Realm%2A>       [!INCLUDE[wif_wsfed_ref](~/add/includes/wif-wsfed-ref-md.md)]"
   example:
   - '[!code-cs[WifSignInMessage#2](~/add/codesnippet/csharp/signinrequestmessage/default.aspx.cs#2)]'
   syntax:
@@ -68,22 +68,22 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Services.SignInRequestMessage&quot;></xref> class with the specified base URL and wtrealm parameter."
-  remarks: "The wa message parameter (the <xref:System.IdentityModel.Services.WSFederationMessage.Action%2A> property) is initialized to “wsignin1.0”."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.IdentityModel.Services.SignInRequestMessage&quot;> </xref> klasse met de opgegeven basis-URL en wtrealm parameter."
+  remarks: "De parameter wa-bericht (de <xref:System.IdentityModel.Services.WSFederationMessage.Action%2A>eigenschap) is geïnitialiseerd op &quot;wsignin1.0&quot;.</xref:System.IdentityModel.Services.WSFederationMessage.Action%2A>"
   syntax:
     content: public SignInRequestMessage (Uri baseUrl, string realm);
     parameters:
     - id: baseUrl
       type: System.Uri
-      description: "The base URL to which the sign-in message applies."
+      description: "De basis-URL waarop het bericht aanmelden van toepassing is."
     - id: realm
       type: System.String
-      description: "The value of the wtrealm message parameter. Sets the <xref:System.IdentityModel.Services.SignInRequestMessage.Realm*> property."
+      description: "De waarde van de parameter wtrealm-bericht. Stelt de <xref:System.IdentityModel.Services.SignInRequestMessage.Realm*>eigenschap.</xref:System.IdentityModel.Services.SignInRequestMessage.Realm*>"
   overload: System.IdentityModel.Services.SignInRequestMessage.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>realm</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or an empty string."
+    description: "<code>realm</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> of een lege tekenreeks."
   platform:
   - net462
 - uid: System.IdentityModel.Services.SignInRequestMessage.#ctor(System.Uri,System.String,System.String)
@@ -98,20 +98,20 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Services.SignInRequestMessage&quot;></xref> class using the specified base URI, wtrealm parameter, and wreply parameter. Supports non-standard message creation for backward compatibility."
-  remarks: "The wa message parameter (the <xref:System.IdentityModel.Services.WSFederationMessage.Action%2A> property) is initialized to “wsignin1.0”.       Supports non-standard message creation for backward compatibility. In the typical case, a wtrealm message parameter must be specified. This constructor allows only a wreply message parameter to be specified for backward compatibility with Active Directory Federation Service (AD FS) version 1.0."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.IdentityModel.Services.SignInRequestMessage&quot;> </xref> klasse met de opgegeven basis-URI, de parameter wtrealm en de parameter wreply zijn opgenomen. Ondersteunt het maken van niet-standaard bericht voor achterwaartse compatibiliteit."
+  remarks: "De parameter wa-bericht (de <xref:System.IdentityModel.Services.WSFederationMessage.Action%2A>eigenschap) is geïnitialiseerd op &quot;wsignin1.0&quot;.</xref:System.IdentityModel.Services.WSFederationMessage.Action%2A>       Ondersteunt het maken van niet-standaard bericht voor achterwaartse compatibiliteit. In de meest voorkomende gevallen moet een message-parameter wtrealm worden opgegeven. Deze constructor kan alleen een wreply zijn opgenomen message-parameter worden opgegeven voor neerwaartse compatibiliteit met Active Directory Federation Service (AD FS) versie 1.0."
   syntax:
     content: public SignInRequestMessage (Uri baseUrl, string realm, string reply);
     parameters:
     - id: baseUrl
       type: System.Uri
-      description: "The Base URL to which the sign-in message applies."
+      description: "De basis-URL waarop het bericht aanmelden van toepassing is."
     - id: realm
       type: System.String
-      description: "The value of the wtrealm message parameter. If not <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or empty, sets the <xref:System.IdentityModel.Services.SignInRequestMessage.Realm*> property."
+      description: "De waarde van de parameter wtrealm-bericht. Als dat niet het <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> of leeg is, stelt de <xref:System.IdentityModel.Services.SignInRequestMessage.Realm*>eigenschap.</xref:System.IdentityModel.Services.SignInRequestMessage.Realm*>"
     - id: reply
       type: System.String
-      description: "The URI to which to reply. (The value of the wreply message parameter.) If not null or empty, sets the <xref:System.IdentityModel.Services.SignInRequestMessage.Reply*> property."
+      description: "De URI waarop te beantwoorden. (De waarde van de bericht-parameter wreply zijn opgenomen.) Als niet null of leeg is, stelt de <xref:System.IdentityModel.Services.SignInRequestMessage.Reply*>eigenschap.</xref:System.IdentityModel.Services.SignInRequestMessage.Reply*>"
   overload: System.IdentityModel.Services.SignInRequestMessage.#ctor*
   exceptions:
   - type: System.ArgumentNullException
@@ -131,18 +131,18 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
-  summary: "Gets or sets the wauth parameter of the message."
-  remarks: "The wauth parameter is like the wst:AuthenticationType element defined in WS-Trust. The value should be set to a string that contains a URI that identifies the type of authentication that is used.       The wauth parameter is optional. Set the AuthenticationType property to `null` or an empty string to remove the wauth parameter from the message."
+  summary: "Opgehaald of ingesteld van de parameter wauth van het bericht."
+  remarks: "De parameter wauth is vergelijkbaar met het wst:AuthenticationType element gedefinieerd in de WS-Trust. De waarde moet worden ingesteld op een tekenreeks met een URI die aangeeft welk type verificatie dat wordt gebruikt.       De parameter wauth is optioneel. Stel de eigenschap AuthenticationType op `null` of een lege tekenreeks met de parameter wauth verwijderen uit het bericht."
   syntax:
     content: public string AuthenticationType { get; set; }
     return:
       type: System.String
-      description: "The authentication type. This is specified as a URI."
+      description: "Het verificatietype. Dit is opgegeven als een URI."
   overload: System.IdentityModel.Services.SignInRequestMessage.AuthenticationType*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "An attempt to set a value that is not a valid, absolute URI occurs."
+    description: "Er treedt een poging tot het instellen van een waarde die is geen geldige, absolute URI op."
   platform:
   - net462
 - uid: System.IdentityModel.Services.SignInRequestMessage.CurrentTime
@@ -157,18 +157,18 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
-  summary: "Gets or sets the wct parameter of the message."
-  remarks: "The wct parameter specifies the current time at the instant that the message was created. The wct parameter is optional. Set to the CurrentTime property `null` or an empty string to remove the wct parameter from the message."
+  summary: "Opgehaald of ingesteld van de parameter wct van het bericht."
+  remarks: "De parameter wct geeft de huidige tijd op het moment dat het bericht is gemaakt. De parameter wct is optioneel. Ingesteld op de eigenschap CurrentTime `null` of een lege tekenreeks met de parameter wct verwijderen uit het bericht."
   syntax:
     content: public string CurrentTime { get; set; }
     return:
       type: System.String
-      description: "The value of the wct parameter specified as a datetime string in UTC."
+      description: "De waarde van de wct-parameter die is opgegeven als een datum/tijd-tekenreeks in UTC."
   overload: System.IdentityModel.Services.SignInRequestMessage.CurrentTime*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "An attempt to set a value that is not a valid datetime string occurs."
+    description: "Er treedt een poging tot het instellen van een waarde die is geen geldige datum/tijd-tekenreeks op."
   platform:
   - net462
 - uid: System.IdentityModel.Services.SignInRequestMessage.Federation
@@ -183,13 +183,13 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
-  summary: "Gets or sets the wfed parameter of the message."
-  remarks: "The wfed parameter specifies the federation context for the message. The wfed parameter is optional. Set to the Federation property `null` or an empty string to remove the wfed parameter from the message."
+  summary: "Opgehaald of ingesteld van de parameter wfed van het bericht."
+  remarks: "De parameter wfed geeft de federation-context voor het bericht. De parameter wfed is optioneel. Ingesteld op de Federation-eigenschap `null` of een lege tekenreeks met de parameter wfed verwijderen uit het bericht."
   syntax:
     content: public string Federation { get; set; }
     return:
       type: System.String
-      description: "The value of the wfed parameter. This is specified as a URI."
+      description: "De waarde van de parameter wfed. Dit is opgegeven als een URI."
   overload: System.IdentityModel.Services.SignInRequestMessage.Federation*
   exceptions: []
   platform:
@@ -206,18 +206,18 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
-  summary: "Gets or sets the wfresh parameter of the message."
-  remarks: "The wfresh parameter indicates the maximum age in minutes that the authentication is valid. The wfresh parameter is optional. Set the Freshness property to `null` or an empty string to remove the wfresh parameter from the message."
+  summary: "Opgehaald of ingesteld van de parameter wfresh van het bericht."
+  remarks: "De parameter wfresh geeft de maximale leeftijd in minuten die de verificatie ongeldig is. De parameter wfresh is optioneel. Stel de eigenschap nieuwheid op `null` of een lege tekenreeks met de parameter wfresh verwijderen uit het bericht."
   syntax:
     content: public string Freshness { get; set; }
     return:
       type: System.String
-      description: "The value of the wfresh parameter. This should be an integer represented as a string. It specifies the maximum age in minutes that the authentication is valid. Zero indicates that the user should be prompted before the token is issued."
+      description: "De waarde van de parameter wfresh. Dit moet een geheel getal weergegeven als een tekenreeks zijn. Dit geeft de maximale leeftijd in minuten die de verificatie ongeldig is. Nul geeft aan dat de gebruiker moet worden gevraagd voordat het token is uitgegeven."
   overload: System.IdentityModel.Services.SignInRequestMessage.Freshness*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "An attempt to set a value that is not a string representation of an integer."
+    description: "Een poging tot het instellen van een waarde die is niet een tekenreeksrepresentatie van een geheel getal."
   platform:
   - net462
 - uid: System.IdentityModel.Services.SignInRequestMessage.HomeRealm
@@ -232,13 +232,13 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
-  summary: "Gets or sets the whr parameter of the message."
-  remarks: "The whr parameter identifies the security realm of the identity provider to use for the request. It can be specified as the URL of the IP-STS to use or as an identifier that is understood by the receiver of the request. The whr parameter is optional Set the HomeRealm property to `null` or an empty string to remove the whr parameter from the message."
+  summary: "Opgehaald of ingesteld van de parameter w / van het bericht."
+  remarks: "De parameter w / identificeert de realm van de beveiliging van de id-provider te gebruiken voor de aanvraag. Worden kan opgegeven als de URL van de IP-STS gebruiken of als een id die wordt begrepen door de ontvanger van de aanvraag. De parameter w / optionele Set is de eigenschap HomeRealm op `null` of een lege tekenreeks met de parameter w / verwijderen uit het bericht."
   syntax:
     content: public string HomeRealm { get; set; }
     return:
       type: System.String
-      description: "The value of the whr parameter. This is specified as a URI."
+      description: "De waarde van de parameter w /. Dit is opgegeven als een URI."
   overload: System.IdentityModel.Services.SignInRequestMessage.HomeRealm*
   exceptions: []
   platform:
@@ -255,18 +255,18 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
-  summary: "Gets or sets the wp parameter of the message."
-  remarks: "Identifies the policy to be used for the request. It typically applies to the action (wa parameter), but may have broader implications. The wp parameter is optional. Set the Policy property to `null` or an empty string to remove the wp parameter from the message."
+  summary: "Opgehaald of ingesteld van de wp-parameter van het bericht."
+  remarks: "Identificeert het beleid moet worden gebruikt voor de aanvraag. Meestal is van toepassing op de actie (parameter wa) maar breder gevolgen kunnen hebben. De wp-parameter is optioneel. Stel de eigenschap beleid op `null` of een lege tekenreeks met de parameter wp verwijderen uit het bericht."
   syntax:
     content: public string Policy { get; set; }
     return:
       type: System.String
-      description: "The value of the wp parameter. This is specified as a URI."
+      description: "De waarde van de wp-parameter. Dit is opgegeven als een URI."
   overload: System.IdentityModel.Services.SignInRequestMessage.Policy*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "An attempt to set a value that is not a valid, absolute URI occurs."
+    description: "Er treedt een poging tot het instellen van een waarde die is geen geldige, absolute URI op."
   platform:
   - net462
 - uid: System.IdentityModel.Services.SignInRequestMessage.Realm
@@ -281,18 +281,18 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
-  summary: "Gets or sets the wtrealm parameter of the message."
-  remarks: "The wtrealm parameter specifies the security realm to which the requested resource belongs. This is often the URL of the requested resource.      > [!IMPORTANT] >  For backward compatibility with Active Directory Federation Services (AD FS) version 1.0, Windows Identity Foundation (WIF) allows either the wtrealm parameter or the wreply parameter to be set (or both) for a sign-in message to be valid; however, the WS-Federation protocol requires that the wtrealm parameter be present in a sign-in request. In most scenarios, you should ensure that the wtrealm parameter is specified.       Set the Realm property to `null` or an empty string to remove the wtrealm parameter from the message."
+  summary: "Opgehaald of ingesteld van de parameter wtrealm van het bericht."
+  remarks: "De parameter wtrealm geeft de beveiliging realm waartoe de aangevraagde bron behoort. Dit is vaak de URL van de aangevraagde bron.      > [!IMPORTANT] > Voor achterwaartse compatibiliteit met Active Directory Federation Services (AD FS) versie 1.0 Windows Identity Foundation (WIF) kunt u ofwel de parameter wtrealm of wreply zijn opgenomen-parameter moet worden ingesteld (of beide) een bericht aanmelden om geldig te zijn; het protocol WS-Federation vereist echter dat de parameter wtrealm aanwezig in een aanvraag voor aanmelden zijn. In de meeste gevallen moet u ervoor zorgen dat de parameter wtrealm is opgegeven.       Stel de eigenschap Realm op `null` of een lege tekenreeks met de parameter wtrealm verwijderen uit het bericht."
   syntax:
     content: public string Realm { get; set; }
     return:
       type: System.String
-      description: "The value of the wtrealm parameter. This is specified as a URI."
+      description: "De waarde van de parameter wtrealm. Dit is opgegeven als een URI."
   overload: System.IdentityModel.Services.SignInRequestMessage.Realm*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "An attempt to set a value that is not a valid, absolute URI occurs."
+    description: "Er treedt een poging tot het instellen van een waarde die is geen geldige, absolute URI op."
   platform:
   - net462
 - uid: System.IdentityModel.Services.SignInRequestMessage.Reply
@@ -307,18 +307,18 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
-  summary: "Gets or sets the wreply parameter of the message."
-  remarks: "Contains the URI to which responses should be directed. The wtrealm parameter is often used to specify this URI. However, in more complex scenarios, the wtrealm parameter can be used to specify the security realm for the request, for example, the entire web site, and the wreply parameter can be used to specify a specific resource within that realm, for example, a document, page, or endpoint. The wreply parameter is optional. Set the Reply property to `null` or an empty string to remove the wreply parameter from the message.      > [!IMPORTANT] >  For backward compatibility with Active Directory Federation Services (AD FS) version 1.0, Windows Identity Foundation (WIF) allows either the wtrealm parameter or the wreply parameter to be set (or both) for a sign-in message to be valid; however, the WS-Federation protocol requires that the wtrealm parameter be present in a sign-in request. In most scenarios, you should ensure that the wtrealm parameter is specified."
+  summary: "Opgehaald of ingesteld van de parameter wreply zijn opgenomen van het bericht."
+  remarks: "Bevat de URI waarnaar antwoorden moeten worden omgeleid. De parameter wtrealm wordt vaak gebruikt om op te geven deze URI. Echter, in complexere scenario&quot;s, de parameter wtrealm kan worden gebruikt om op te geven van de realm van de beveiliging voor de aanvraag, bijvoorbeeld met de volledige website, en de parameter wreply zijn opgenomen, kan worden gebruikt om op te geven van een specifieke bron binnen die realm, bijvoorbeeld een document, de pagina of de endpoint. De parameter wreply zijn opgenomen, is optioneel. Stel de eigenschap van het antwoord op `null` of een lege tekenreeks voor het verwijderen van de parameter wreply zijn opgenomen uit het bericht.      > [!IMPORTANT] > Voor achterwaartse compatibiliteit met Active Directory Federation Services (AD FS) versie 1.0 Windows Identity Foundation (WIF) kunt u ofwel de parameter wtrealm of wreply zijn opgenomen-parameter moet worden ingesteld (of beide) een bericht aanmelden om geldig te zijn; het protocol WS-Federation vereist echter dat de parameter wtrealm aanwezig in een aanvraag voor aanmelden zijn. In de meeste gevallen moet u ervoor zorgen dat de parameter wtrealm is opgegeven."
   syntax:
     content: public string Reply { get; set; }
     return:
       type: System.String
-      description: "The value of the wreply parameter. This is specified as a URI."
+      description: "De waarde van de parameter wreply zijn opgenomen. Dit is opgegeven als een URI."
   overload: System.IdentityModel.Services.SignInRequestMessage.Reply*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "An attempt to set a value that is not a valid, absolute URI occurs."
+    description: "Er treedt een poging tot het instellen van een waarde die is geen geldige, absolute URI op."
   platform:
   - net462
 - uid: System.IdentityModel.Services.SignInRequestMessage.Request
@@ -333,13 +333,13 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
-  summary: "Gets or sets the wreq parameter of the message."
-  remarks: "The wreq parameter specifies a token request using either a `<wst:RequestSecurityToken>` element or a full request message as described in WS-Trust. The wreq parameter is optional. Set the Request property to `null` or an empty string to remove the wreq parameter from the message.       If the Request property is specified, the <xref:System.IdentityModel.Services.SignInRequestMessage.RequestPtr%2A> property cannot be specified."
+  summary: "Opgehaald of ingesteld van de parameter wreq van het bericht."
+  remarks: "De parameter wreq specificeert een tokenaanvraag met behulp van een `<wst:RequestSecurityToken>` element of een volledige aanvraagbericht zoals beschreven in de WS-Trust. De parameter wreq is optioneel. De aanvraag-eigenschap instelt op `null` of een lege tekenreeks met de parameter wreq verwijderen uit het bericht.       Als de eigenschap Request is opgegeven, de <xref:System.IdentityModel.Services.SignInRequestMessage.RequestPtr%2A>eigenschap kan niet worden opgegeven.</xref:System.IdentityModel.Services.SignInRequestMessage.RequestPtr%2A>"
   syntax:
     content: public string Request { get; set; }
     return:
       type: System.String
-      description: "The value of the wreq parameter."
+      description: "De waarde van de parameter wreq."
   overload: System.IdentityModel.Services.SignInRequestMessage.Request*
   exceptions: []
   platform:
@@ -356,18 +356,18 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
-  summary: "Gets or sets the wreqptr parameter of the message."
-  remarks: "Specifies a URL that indicates where to find the request expressed as a `<wst:RequestSecurityToken>` element. The wreqptr parameter is optional. Set the RequestPtr property to `null` or an empty string to remove the wreqptr parameter from the message.       If the RequestPtr property is specified, the <xref:System.IdentityModel.Services.SignInRequestMessage.Request%2A> property cannot be specified."
+  summary: "Opgehaald of ingesteld van de parameter wreqptr van het bericht."
+  remarks: "Hiermee geeft u een URL die waar vind ik de aanvraag die is uitgedrukt aangeeft als een `<wst:RequestSecurityToken>` element. De parameter wreqptr is optioneel. Stel de eigenschap RequestPtr op `null` of een lege tekenreeks met de parameter wreqptr verwijderen uit het bericht.       Als de eigenschap RequestPtr is opgegeven, de <xref:System.IdentityModel.Services.SignInRequestMessage.Request%2A>eigenschap kan niet worden opgegeven.</xref:System.IdentityModel.Services.SignInRequestMessage.Request%2A>"
   syntax:
     content: public string RequestPtr { get; set; }
     return:
       type: System.String
-      description: "The value of the wreqptr parameter."
+      description: "De waarde van de parameter wreqptr."
   overload: System.IdentityModel.Services.SignInRequestMessage.RequestPtr*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "An attempt to set a value that is not a valid, absolute URI occurs."
+    description: "Er treedt een poging tot het instellen van een waarde die is geen geldige, absolute URI op."
   platform:
   - net462
 - uid: System.IdentityModel.Services.SignInRequestMessage.RequestUrl
@@ -382,13 +382,13 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
-  summary: "Gets a string representation of the URL that corresponds to this message."
-  remarks: "The string contains a URL (including query parameters) that is created by serializing the current instance. The <xref:System.IdentityModel.Services.SignInRequestMessage.Write%2A> method is invoked to perform the serialization."
+  summary: "Hiermee haalt u een tekenreeksrepresentatie van de URL die overeenkomt met dit bericht."
+  remarks: "De tekenreeks bevat een URL (met inbegrip van de queryparameters) die is gemaakt door het serialiseren van het huidige exemplaar. De <xref:System.IdentityModel.Services.SignInRequestMessage.Write%2A>methode wordt aangeroepen om uit te voeren van de serialisatie.</xref:System.IdentityModel.Services.SignInRequestMessage.Write%2A>"
   syntax:
     content: public string RequestUrl { get; }
     return:
       type: System.String
-      description: "A URL serialized from the current instance."
+      description: "Een URL van de huidige sessie is geserialiseerd."
   overload: System.IdentityModel.Services.SignInRequestMessage.RequestUrl*
   exceptions: []
   platform:
@@ -405,18 +405,18 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
-  summary: "Gets or sets the wres parameter of the message."
-  remarks: "Specifies the URL for the resource to be accessed. The wres parameter is a legacy parameter. Typically, the wtrealm parameter (the <xref:System.IdentityModel.Services.SignInRequestMessage.Realm%2A> property) is used instead. The wres parameter is optional. Set to the Resource property to `null` or an empty string to remove the wres parameter from the message."
+  summary: "Opgehaald of ingesteld van de parameter wres van het bericht."
+  remarks: "Hiermee geeft u de URL van de resource moet worden geopend. De parameter wres is een verouderde parameter. Normaal gesproken de parameter wtrealm (de <xref:System.IdentityModel.Services.SignInRequestMessage.Realm%2A>eigenschap) in plaats daarvan wordt gebruikt.</xref:System.IdentityModel.Services.SignInRequestMessage.Realm%2A> De parameter wres is optioneel. Ingesteld op de Resource-eigenschap op `null` of een lege tekenreeks met de parameter wres verwijderen uit het bericht."
   syntax:
     content: public string Resource { get; set; }
     return:
       type: System.String
-      description: "The value of the wres parameter."
+      description: "De waarde van de parameter wres."
   overload: System.IdentityModel.Services.SignInRequestMessage.Resource*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "An attempt to set a value that is not a valid, absolute URI occurs."
+    description: "Er treedt een poging tot het instellen van een waarde die is geen geldige, absolute URI op."
   platform:
   - net462
 - uid: System.IdentityModel.Services.SignInRequestMessage.Validate
@@ -431,7 +431,7 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
-  summary: "Validates the current instance."
+  summary: "Hiermee valideert u het huidige exemplaar."
   remarks: >-
     > [!IMPORTANT]
 
@@ -443,10 +443,10 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The wa parameter (the <xref:System.IdentityModel.Services.WSFederationMessage.Action*> property) is not set to “wsignin1.0”."
+    description: "De parameter wa (de <xref:System.IdentityModel.Services.WSFederationMessage.Action*>eigenschap) niet is ingesteld op &quot;wsignin1.0&quot;.</xref:System.IdentityModel.Services.WSFederationMessage.Action*>"
   - type: System.IdentityModel.Services.WSFederationMessageException
     commentId: T:System.IdentityModel.Services.WSFederationMessageException
-    description: "Neither the wtrealm parameter nor the wreply parameter is present. (The <xref:System.IdentityModel.Services.SignInRequestMessage.Realm*> property and the <xref:System.IdentityModel.Services.SignInRequestMessage.Reply*> property are <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or empty.)       -or-       Both the wreq parameter and the wreqptr parameter are present. (The <xref:System.IdentityModel.Services.SignInRequestMessage.Request*> property and the <xref:System.IdentityModel.Services.SignInRequestMessage.RequestPtr*> property are both set.)"
+    description: "De parameter wtrealm noch de parameter wreply zijn opgenomen is aanwezig. (De <> </> *> eigenschap en de <> </> *> eigenschap zijn <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> of leeg.)       - of - zowel de wreq parameter en de parameter wreqptr aanwezig zijn. (De <> </> *> eigenschap en de <> </> *> eigenschap beide zijn ingesteld.)"
   platform:
   - net462
 - uid: System.IdentityModel.Services.SignInRequestMessage.Write(System.IO.TextWriter)
@@ -461,19 +461,19 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
-  summary: "Writes this message in query string form to the specified text writer."
-  remarks: "This method calls the <xref:System.IdentityModel.Services.SignInRequestMessage.Validate%2A> method before writing the message."
+  summary: "Dit bericht schrijft in de query-tekenreeks naar de schrijver van de opgegeven tekst."
+  remarks: "Deze methode roept de <xref:System.IdentityModel.Services.SignInRequestMessage.Validate%2A>methode voordat het bericht worden geschreven.</xref:System.IdentityModel.Services.SignInRequestMessage.Validate%2A>"
   syntax:
     content: public override void Write (System.IO.TextWriter writer);
     parameters:
     - id: writer
       type: System.IO.TextWriter
-      description: "The <xref:System.IO.TextWriter> to which to write the message."
+      description: "De <xref:System.IO.TextWriter>waaraan het bericht schrijven.</xref:System.IO.TextWriter>"
   overload: System.IdentityModel.Services.SignInRequestMessage.Write*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>writer</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>writer</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 references:

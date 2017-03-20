@@ -37,7 +37,7 @@ items:
   nameWithType: SessionSecurityTokenHandler
   fullName: System.IdentityModel.Tokens.SessionSecurityTokenHandler
   type: Class
-  summary: "A <xref href=&quot;System.IdentityModel.Tokens.SecurityTokenHandler&quot;></xref> that processes security tokens of type <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref>."
+  summary: "Een <xref href=&quot;System.IdentityModel.Tokens.SecurityTokenHandler&quot;> </xref> processen beveiligingstokens van het type <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref>."
   remarks: "The SessionSecurityTokenHandler class serializes, deserializes, and validates session tokens. Session tokens are tokens of type <xref:System.IdentityModel.Tokens.SessionSecurityToken>. The SessionSecurityTokenHandler class serializes the tokens to and from cookie format. By default, the class serializes tokens into WS-Secure Conversation Feb2005 or WS-Secure Conversation 1.3 `<wsc:SecurityContextToken>` elements. Session tokens are used by the <xref:System.IdentityModel.Services.WSFederationAuthenticationModule> (WSFAM) and the <xref:System.IdentityModel.Services.SessionAuthenticationModule> (SAM) to store information about a session, this is primarily the <xref:System.Security.Claims.ClaimsPrincipal> associated with the authenticated user and the session start and expiration times.  \n  \n In passive scenarios, the <xref:System.IdentityModel.Services.WSFederationAuthenticationModule> calls into the <xref:System.IdentityModel.Services.SessionAuthenticationModule> (SAM) from the authentication pipeline to create a session token from the <xref:System.Security.Claims.ClaimsPrincipal> that represents the authenticated user. The SAM uses its configured SessionSecurityTokenHandler to create the token and to serialize it into a cookie (and to deserialize the token from a cookie on subsequent requests). The SAM uses an instance of its configured <xref:System.IdentityModel.Services.CookieHandler> class to write the cookie back to the HTTP Response. This cookie is then returned to the client and on subsequent requests the client can present the cookie rather than making a round trip back to the identity provider to re-obtain a security token. For more information about how sessions operate with WIF, see [WIF Session Management](~/add/includes/ajax-current-ext-md.md).  \n  \n> [!NOTE]\n>  The \\<securityTokenHandlers> configuration element can be used to specify a SessionSecurityTokenHandler that has the responsibility for securing the application’s sessions. Developers should use caution when changing this configuration setting, as a misconfigured system could result in application compromise. For example, specifying a derived  HYPERLINK \"http://msdn.microsoft.com/en-us/library/hh193426%28v=vs.110%29.aspx\" \\t \"_blank\" SessionSecurityTokenHandler and passing an empty Transforms (CookieTransform) collection to the base, would result in the users identity being serialized into a cookie that was not protected. This could allow an attacker to modify the identity and therefore change access privileges.  \n  \n If the session token is in reference mode, that is, its <xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A?displayProperty=fullName> property is `true`, the session token handler only serializes properties of the session token that are needed to regenerate its key in the <xref:System.IdentityModel.Tokens.SessionSecurityTokenCache>. In the default case, the <xref:System.IdentityModel.Tokens.SessionSecurityTokenCacheKey> class is used to represent cache keys, and the token handler writes the <xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A?displayProperty=fullName> and <xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration%2A?displayProperty=fullName> properties of the token. If the session token is not in reference mode, that is, the <xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A?displayProperty=fullName> property is `false`, then, in addition to the properties mentioned previously, the handler invokes the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ApplyTransforms%2A> method on a byte array serialized from the token and stores the resulting value in the cookie as well. For more details about how the token is serialized, see the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.WriteToken%28System.Xml.XmlWriter%2CSystem.IdentityModel.Tokens.SecurityToken%29?displayProperty=fullName> method.  \n  \n The <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.Transforms%2A> property gets the list of transforms that are applied to the session token in the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ApplyTransforms%2A> method. All transforms derive from the <xref:System.IdentityModel.CookieTransform> class. In the default case the <xref:System.IdentityModel.DeflateCookieTransform> and the <xref:System.IdentityModel.ProtectedDataCookieTransform> are applied. The <xref:System.IdentityModel.ProtectedDataCookieTransform> uses the Data Protection API (DPAPI) to protect the cookie material. DPAPI uses a key that is specific to the computer on which it is running in its protection algorithms. For this reason, the default session token handler is not usable in Web farm scenarios because, in such scenarios, tokens written on one computer may need to be read on another computer. You can use many strategies to circumvent this issue. For example, you can:  \n  \n-   Replace the default SessionSecurityTokenHandler with the <xref:System.IdentityModel.Services.Tokens.MachineKeySessionSecurityTokenHandler>. The <xref:System.IdentityModel.Services.Tokens.MachineKeySessionSecurityTokenHandler> enables you to specify signing and encryption keys under the ASP.NET `<machineKey>` element in the configuration file.  \n  \n-   Provide a handler for the <xref:System.IdentityModel.Services.FederatedAuthentication.FederationConfigurationCreated?displayProperty=fullName> event in the global.asax.cs file and replace the default session token handler with an instance of SessionSecurityTokenHandler that has a list of transforms that includes the <xref:System.IdentityModel.RsaSignatureCookieTransform> and the <xref:System.IdentityModel.RsaEncryptionCookieTransform>. You can create the new instance by invoking one of the constructors that takes a list of transforms.  \n  \n-   Derive a custom transform from the <xref:System.IdentityModel.CookieTransform> base class and use the method above to include it in the list of transforms to be applied.  \n  \n-   Derive a custom token handler from SessionSecurityTokenHandler and implement your own mechanism.  \n  \n For more information about using sessions in Web farm scenarios, see [WIF and Web Farms](~/add/includes/ajax-current-ext-md.md).  \n  \n The SessionSecurityTokenHandler is included in the default token handler collection; however, you can replace it with a custom session token handler by first specifying a [\\&lt;remove\\&gt;](../Topic/%3Cremove%3E.md) element under the [\\&lt;securityTokenHandlers\\&gt;](../Topic/%3CsecurityTokenHandlers%3E.md) element to remove the default handler from the collection and then adding your custom token handler using the [\\&lt;add\\&gt;](../Topic/%3Cadd%3E.md) element. By default, you can specify the default token lifetime by including the [\\&lt;sessionTokenRequirement\\&gt;](../Topic/%3CsessionTokenRequirement%3E.md) element under the `<add>` element. You can design a custom token handler to take custom configuration elements under the `<add>` element by overriding the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.LoadCustomConfiguration%2A> method to provide the logic to process them."
   example:
   - "The following XML shows how to replace the default session security token handler in a token handler collection with an instance of the <xref:System.IdentityModel.Services.Tokens.MachineKeySessionSecurityTokenHandler> class in configuration.  \n  \n```xml  \n<securityTokenHandlers>  \n  <remove type=\"System.IdentityModel.Tokens.SessionSecurityTokenHandler, System.IdentityModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\" />  \n  <add type=\"System.IdentityModel.Services.Tokens.MachineKeySessionSecurityTokenHandler, System.IdentityModel.Services, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\" />  \n</securityTokenHandlers>  \n```"
@@ -75,8 +75,8 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityTokenHandler&quot;></xref> class that uses the default cookie transforms and token lifetime."
-  remarks: "The <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.TokenLifetime%2A> and <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.Transforms%2A> properties are initialized to <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultLifetime> and <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultCookieTransforms>."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityTokenHandler&quot;> </xref> klasse die gebruikmaakt van de standaard cookie transformaties en de levensduur van token."
+  remarks: "De <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.TokenLifetime%2A>en <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.Transforms%2A>Eigenschappen worden geïnitialiseerd en <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultLifetime> <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultCookieTransforms>.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultCookieTransforms> </xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultLifetime> </xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.Transforms%2A> </xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.TokenLifetime%2A>"
   syntax:
     content: public SessionSecurityTokenHandler ();
     parameters: []
@@ -96,19 +96,19 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityTokenHandler&quot;></xref> class that uses the specified cookie transforms."
-  remarks: "The <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.TokenLifetime%2A> property is initialized to <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultLifetime>."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityTokenHandler&quot;> </xref> klasse die gebruikmaakt van de cookie opgegeven transformaties."
+  remarks: "De <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.TokenLifetime%2A>eigenschap wordt geïnitialiseerd als <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultLifetime>.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultLifetime> </xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.TokenLifetime%2A>"
   syntax:
     content: public SessionSecurityTokenHandler (System.Collections.ObjectModel.ReadOnlyCollection<System.IdentityModel.CookieTransform> transforms);
     parameters:
     - id: transforms
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.IdentityModel.CookieTransform}
-      description: "The transforms to apply when encoding or decoding the cookie. Sets the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.Transforms*> property."
+      description: "De transformaties toe te passen wanneer coderen of decoderen van de cookie. Stelt de <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.Transforms*>eigenschap.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.Transforms*>"
   overload: System.IdentityModel.Tokens.SessionSecurityTokenHandler.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>transforms</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>transforms</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.IdentityModel.Tokens.SessionSecurityTokenHandler.#ctor(System.Collections.ObjectModel.ReadOnlyCollection{System.IdentityModel.CookieTransform},System.TimeSpan)
@@ -123,24 +123,24 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityTokenHandler&quot;></xref> class that uses the specified cookie transforms and token lifetime."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityTokenHandler&quot;> </xref> klasse die gebruikmaakt van de opgegeven cookie transformaties en de levensduur van token."
   syntax:
     content: public SessionSecurityTokenHandler (System.Collections.ObjectModel.ReadOnlyCollection<System.IdentityModel.CookieTransform> transforms, TimeSpan tokenLifetime);
     parameters:
     - id: transforms
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.IdentityModel.CookieTransform}
-      description: "The transforms to apply when encoding or decoding the cookie. Sets the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.Transforms*> property."
+      description: "De transformaties toe te passen wanneer coderen of decoderen van de cookie. Stelt de <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.Transforms*>eigenschap.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.Transforms*>"
     - id: tokenLifetime
       type: System.TimeSpan
-      description: "The default lifetime for a token. Sets the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.TokenLifetime*> property."
+      description: "De standaardlevensduur voor een token. Stelt de <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.TokenLifetime*>eigenschap.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.TokenLifetime*>"
   overload: System.IdentityModel.Tokens.SessionSecurityTokenHandler.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>transforms</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>transforms</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<code>tokenLifetime</code> is less than or equal to &lt;xref:System.TimeSpan.Zero?displayProperty=fullName&gt;."
+    description: "<code>tokenLifetime</code>is kleiner dan of gelijk zijn aan &lt;xref:System.TimeSpan.Zero?displayProperty=fullName&gt;."
   platform:
   - net462
 - uid: System.IdentityModel.Tokens.SessionSecurityTokenHandler.ApplyTransforms(System.Byte[],System.Boolean)
@@ -155,25 +155,25 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Applies the transforms specified by the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.Transforms*> property to either encode or decode the specified cookie."
-  remarks: "When encoding a cookie transforms are applied in the order in which they appear in the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.Transforms%2A> property. When decoding a cookie, they are applied in the reverse order.       Called from the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.WriteToken%2A> and [qualifyHint=False&autoUpgrade=True](~/add/includes/ajax-current-ext-md.md) methods to encode and decode the cookie material."
+  summary: "Van toepassing is de transformaties die is opgegeven door de <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.Transforms*>eigenschap coderen of de opgegeven cookie decoderen.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.Transforms*>"
+  remarks: "Wanneer een cookie codering transformaties worden toegepast in de volgorde waarin ze worden weergegeven in de <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.Transforms%2A>eigenschap.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.Transforms%2A> Bij het decoderen van een cookie, worden ze in omgekeerde volgorde toegepast.       Aangeroepen vanuit de <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.WriteToken%2A>en [qualifyHint = False & autoUpgrade = True](~/add/includes/ajax-current-ext-md.md) methoden voor het coderen en decoderen van het cookie materiaal.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.WriteToken%2A>"
   syntax:
     content: protected virtual byte[] ApplyTransforms (byte[] cookie, bool outbound);
     parameters:
     - id: cookie
       type: System.Byte[]
-      description: "The cookie that will be transformed."
+      description: "De cookie die zal worden getransformeerd."
     - id: outbound
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the cookie should be encoded; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the cookie should be decoded."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de cookie moet worden gecodeerd; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> als de cookie moet worden gedecodeerd."
     return:
       type: System.Byte[]
-      description: "The encoded or decoded cookie."
+      description: "De gecodeerde of gedecodeerde cookie."
   overload: System.IdentityModel.Tokens.SessionSecurityTokenHandler.ApplyTransforms*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.Transforms*> property is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "De <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.Transforms*>eigenschap is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.Transforms*>"
   platform:
   - net462
 - uid: System.IdentityModel.Tokens.SessionSecurityTokenHandler.CanReadToken(System.Xml.XmlReader)
@@ -188,21 +188,21 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Returns a value that indicates whether the reader is positioned at a <xref uid=&quot;langword_csharp_&lt;wsc:SecurityContextToken&gt;&quot; name=&quot;&lt;wsc:SecurityContextToken&gt;&quot; href=&quot;&quot;></xref> element."
+  summary: "Retourneert een waarde die aangeeft of de lezer is geplaatst op een <xref uid=&quot;langword_csharp_&lt;wsc:SecurityContextToken&gt;&quot; name=&quot;&lt;wsc:SecurityContextToken&gt;&quot; href=&quot;&quot;> </xref> element."
   syntax:
     content: public override bool CanReadToken (System.Xml.XmlReader reader);
     parameters:
     - id: reader
       type: System.Xml.XmlReader
-      description: "The <xref:System.Xml.XmlReader> over the incoming <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref>. The reader should be positioned at a <xref uid=&quot;langword_csharp_&lt;wsc:SecurityContextToken&gt;&quot; name=&quot;&lt;wsc:SecurityContextToken&gt;&quot; href=&quot;&quot;></xref> element."
+      description: "De <xref:System.Xml.XmlReader>via de binnenkomende <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref>.</xref:System.Xml.XmlReader> De lezer moet worden geplaatst op een <xref uid=&quot;langword_csharp_&lt;wsc:SecurityContextToken&gt;&quot; name=&quot;&lt;wsc:SecurityContextToken&gt;&quot; href=&quot;&quot;> </xref> element."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the reader points to a <xref uid=&quot;langword_csharp_&lt;wsc:SecurityContextToken&gt;&quot; name=&quot;&lt;wsc:SecurityContextToken&gt;&quot; href=&quot;&quot;></xref> element; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de lezer naar verwijst een <xref uid=&quot;langword_csharp_&lt;wsc:SecurityContextToken&gt;&quot; name=&quot;&lt;wsc:SecurityContextToken&gt;&quot; href=&quot;&quot;> </xref> element; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.IdentityModel.Tokens.SessionSecurityTokenHandler.CanReadToken*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>reader</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>reader</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.IdentityModel.Tokens.SessionSecurityTokenHandler.CanValidateToken
@@ -217,12 +217,12 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets a value that indicates whether this handler supports validation of tokens of type <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref>."
+  summary: "Hiermee wordt een waarde die aangeeft of validatie van tokens van het type ondersteuning biedt voor deze handler <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref>."
   syntax:
     content: public override bool CanValidateToken { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the handler supports validation of tokens of type <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref>; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. Always <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de handler validatie van tokens van het type ondersteunt <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref>; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Always <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
   overload: System.IdentityModel.Tokens.SessionSecurityTokenHandler.CanValidateToken*
   exceptions: []
   platform:
@@ -239,12 +239,12 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets a value that indicates whether this handler can write tokens of type <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref>."
+  summary: "Hiermee wordt een waarde die aangeeft of deze handler tokens van het type kan schrijven <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref>."
   syntax:
     content: public override bool CanWriteToken { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the handler can write tokens of type <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref>; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. Always <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als u de handler kan tokens van het type schrijven <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref>; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Always <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
   overload: System.IdentityModel.Tokens.SessionSecurityTokenHandler.CanWriteToken*
   exceptions: []
   platform:
@@ -261,13 +261,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets the name for the cookie element."
-  remarks: "This property is used in the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.WriteToken%2A> and <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ReadToken%2A> methods to determine the element under which the encoded token material should be written or read."
+  summary: "Hiermee haalt u de naam voor het element cookie."
+  remarks: "Deze eigenschap wordt gebruikt de <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.WriteToken%2A>en <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ReadToken%2A>methoden om te bepalen van het element waarmee het gecodeerde token materiaal moet worden geschreven of gelezen.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ReadToken%2A> </xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.WriteToken%2A>"
   syntax:
     content: public virtual string CookieElementName { get; }
     return:
       type: System.String
-      description: "The name for the cookie element. The default element name is “Cookie”."
+      description: "De naam voor het element cookie. De naam van de standaard-element is &quot;Cookie&quot;."
   overload: System.IdentityModel.Tokens.SessionSecurityTokenHandler.CookieElementName*
   exceptions: []
   platform:
@@ -284,13 +284,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets the namespace for the cookie element."
-  remarks: "This property is used in the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.WriteToken%2A> and <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ReadToken%2A> methods to determine the namespace of the element under which the encoded token material should be written or read."
+  summary: "Hiermee wordt de naamruimte voor het element cookie."
+  remarks: "Deze eigenschap wordt gebruikt de <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.WriteToken%2A>en <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ReadToken%2A>methoden om te bepalen van de naamruimte van het element waarmee het gecodeerde token materiaal moet worden geschreven of gelezen.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ReadToken%2A> </xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.WriteToken%2A>"
   syntax:
     content: public virtual string CookieNamespace { get; }
     return:
       type: System.String
-      description: "The namespace for the cookie element. The default namespace is “http://schemas.microsoft.com/ws/2006/05/security”."
+      description: "De naamruimte voor het element cookie. De standaardnaamruimte is &quot;http://schemas.microsoft.com/ws/2006/05/security&quot;."
   overload: System.IdentityModel.Tokens.SessionSecurityTokenHandler.CookieNamespace*
   exceptions: []
   platform:
@@ -307,36 +307,36 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Creates a <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref> based on the specified claims principal and time range during which the token is valid."
+  summary: "Maakt een <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref> op basis van de hoofd- en bereik van opgegeven claims waarover het token geldig is."
   syntax:
     content: public virtual System.IdentityModel.Tokens.SessionSecurityToken CreateSessionSecurityToken (System.Security.Claims.ClaimsPrincipal principal, string context, string endpointId, DateTime validFrom, DateTime validTo);
     parameters:
     - id: principal
       type: System.Security.Claims.ClaimsPrincipal
-      description: "The claims principal."
+      description: "De principal van claims."
     - id: context
       type: System.String
-      description: "A caller-defined context string."
+      description: "Een aanroeper gedefinieerde contexttekenreeks."
     - id: endpointId
       type: System.String
-      description: "The identifier of the endpoint to which the token is scoped."
+      description: "De id van het eindpunt waarmee het token heeft een bereik."
     - id: validFrom
       type: System.DateTime
-      description: "The time instant at which the token becomes valid."
+      description: "De tijd instant waarmee het token geldig wordt."
     - id: validTo
       type: System.DateTime
-      description: "The time instant after which the token is no longer valid."
+      description: "De directe na hoeveel tijd is het token niet meer geldig."
     return:
       type: System.IdentityModel.Tokens.SessionSecurityToken
-      description: "The session security token that was created. The properties on the new session token are set according to the specified parameters."
+      description: "Het beveiligingstoken sessie die is gemaakt. De eigenschappen op het nieuwe sessietoken zijn volgens de opgegeven parameters ingesteld."
   overload: System.IdentityModel.Tokens.SessionSecurityTokenHandler.CreateSessionSecurityToken*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>principal</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>principal</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref:System.IdentityModel.Tokens.SecurityTokenHandler.Configuration*> property is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "De <xref:System.IdentityModel.Tokens.SecurityTokenHandler.Configuration*>eigenschap is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>.</xref:System.IdentityModel.Tokens.SecurityTokenHandler.Configuration*>"
   platform:
   - net462
 - uid: System.IdentityModel.Tokens.SessionSecurityTokenHandler.CreateToken(System.IdentityModel.Tokens.SecurityTokenDescriptor)
@@ -351,25 +351,25 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Creates a security token based on the specified token descriptor."
-  remarks: 'Creates and returns a session security token by using the following properties in the token descriptor: <xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.Subject%2A?displayProperty=fullName>, and <xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.Lifetime%2A?displayProperty=fullName>. If the <xref:System.IdentityModel.Tokens.SecurityTokenHandlerConfiguration.SaveBootstrapContext%2A?displayProperty=fullName> property is set `true` on the token handler configuration specified by the <xref:System.IdentityModel.Tokens.SecurityTokenHandler.Configuration%2A> property, the bootstrap context is created from the <xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.Token%2A?displayProperty=fullName> property and is saved in the session token.'
+  summary: "Maakt een beveiligingstoken op basis van de opgegeven token descriptor."
+  remarks: 'Maakt en een beveiligingstoken sessie retourneert met behulp van de volgende eigenschappen in het token descriptor: <xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.Subject%2A?displayProperty=fullName>, en <xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.Lifetime%2A?displayProperty=fullName>.</xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.Lifetime%2A?displayProperty=fullName> </xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.Subject%2A?displayProperty=fullName> Als de <xref:System.IdentityModel.Tokens.SecurityTokenHandlerConfiguration.SaveBootstrapContext%2A?displayProperty=fullName>eigenschap is ingesteld `true` van de configuratie beveiligingstoken-handler is opgegeven door de <xref:System.IdentityModel.Tokens.SecurityTokenHandler.Configuration%2A>eigenschap, de bootstrap-context is gemaakt op basis van de <xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.Token%2A?displayProperty=fullName>eigenschap en wordt opgeslagen in het sessietoken.</xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.Token%2A?displayProperty=fullName> </xref:System.IdentityModel.Tokens.SecurityTokenHandler.Configuration%2A> </xref:System.IdentityModel.Tokens.SecurityTokenHandlerConfiguration.SaveBootstrapContext%2A?displayProperty=fullName>'
   syntax:
     content: public override System.IdentityModel.Tokens.SecurityToken CreateToken (System.IdentityModel.Tokens.SecurityTokenDescriptor tokenDescriptor);
     parameters:
     - id: tokenDescriptor
       type: System.IdentityModel.Tokens.SecurityTokenDescriptor
-      description: "The token descriptor from which to create the token."
+      description: "De token descriptor waaruit u wilt maken van het token."
     return:
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The security token that was created. This will be an instance of <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref>."
+      description: "Het beveiligingstoken dat is gemaakt. Dit is een exemplaar van <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref>."
   overload: System.IdentityModel.Tokens.SessionSecurityTokenHandler.CreateToken*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>tokenDescriptor</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>tokenDescriptor</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref:System.IdentityModel.Tokens.SecurityTokenHandler.Configuration*> property is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "De <xref:System.IdentityModel.Tokens.SecurityTokenHandler.Configuration*>eigenschap is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>.</xref:System.IdentityModel.Tokens.SecurityTokenHandler.Configuration*>"
   platform:
   - net462
 - uid: System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultCookieTransforms
@@ -384,12 +384,12 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "A read only collection that contains the list of default transforms to be applied to cookies, the <xref href=&quot;System.IdentityModel.DeflateCookieTransform&quot;></xref> and the <xref href=&quot;System.IdentityModel.ProtectedDataCookieTransform&quot;></xref>."
+  summary: "A lezen alleen de verzameling die de lijst met standaard transformaties moet worden toegepast op cookies, bevat de <xref href=&quot;System.IdentityModel.DeflateCookieTransform&quot;> </xref> en de <xref href=&quot;System.IdentityModel.ProtectedDataCookieTransform&quot;> </xref>."
   syntax:
     content: public static readonly System.Collections.ObjectModel.ReadOnlyCollection<System.IdentityModel.CookieTransform> DefaultCookieTransforms;
     return:
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.IdentityModel.CookieTransform}
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -405,12 +405,12 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "A constant that specifies the default lifetime for cookies, ten hours."
+  summary: "Een constante waarmee de standaardlevensduur voor cookies, tien uur."
   syntax:
     content: public static readonly TimeSpan DefaultLifetime;
     return:
       type: System.TimeSpan
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -426,12 +426,12 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets the default token lifetime."
+  summary: "Hiermee haalt u de levensduur van het standaard-token."
   syntax:
     content: public static TimeSpan DefaultTokenLifetime { get; }
     return:
       type: System.TimeSpan
-      description: "The default token lifetime. Always <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultLifetime&quot;></xref>."
+      description: "De levensduur van de standaard-tokens. Always <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultLifetime&quot;></xref>."
   overload: System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultTokenLifetime*
   exceptions: []
   platform:
@@ -448,14 +448,14 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets the token type URIs for the token types that can be processed by this handler."
-  remarks: 'The following type URIs are supported: &quot;http://schemas.microsoft.com/ws/2006/05/servicemodel/tokens/SecureConversation&quot;, &quot;http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512/sct&quot;, and &quot;http://schemas.xmlsoap.org/ws/2005/02/sc/sct&quot;.'
+  summary: "Hiermee wordt het tokentype URI&quot;s voor de token typen die kunnen worden verwerkt door deze handler."
+  remarks: 'Het volgende type URI&quot;s worden ondersteund: &quot;http://schemas.microsoft.com/ws/2006/05/servicemodel/tokens/SecureConversation&quot;, &quot;http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512/sct&quot; en &quot;http://schemas.xmlsoap.org/ws/2005/02/sc/sct&quot;.'
   syntax:
     content: public override string[] GetTokenTypeIdentifiers ();
     parameters: []
     return:
       type: System.String[]
-      description: "The token type identifier URIs for token types that can be processed by this handler."
+      description: "Het type token id URI&quot;s voor de tokentypen die kunnen worden verwerkt door deze handler."
   overload: System.IdentityModel.Tokens.SessionSecurityTokenHandler.GetTokenTypeIdentifiers*
   exceptions: []
   platform:
@@ -472,22 +472,22 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Loads custom configuration from XML."
-  remarks: "Called by the configuration infrastructure to initialize the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler> instance. Initializes the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.TokenLifetime%2A> property from the `lifetime` attribute of the [\\&lt;sessionTokenRequirement\\&gt;](../Topic/%3CsessionTokenRequirement%3E.md) element in the configuration file."
+  summary: "Aangepaste configuratie laden van XML."
+  remarks: "Aangeroepen door de infrastructuur van de configuratie initialiseren de <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler>exemplaar.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler> Initialiseert de <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.TokenLifetime%2A>eigenschap uit de `lifetime` kenmerk van de [ \\&lt; sessionTokenRequirement\\&gt;](../Topic/%3CsessionTokenRequirement%3E.md) element in het configuratiebestand.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.TokenLifetime%2A>"
   syntax:
     content: public override void LoadCustomConfiguration (System.Xml.XmlNodeList customConfigElements);
     parameters:
     - id: customConfigElements
       type: System.Xml.XmlNodeList
-      description: "The custom configuration elements."
+      description: "Aangepaste configuratie-elementen."
   overload: System.IdentityModel.Tokens.SessionSecurityTokenHandler.LoadCustomConfiguration*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>customConfigElements</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>customConfigElements</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The configuration specified by <code>customConfigElements</code> is not valid. For example, it does not contain a <xref uid=&quot;langword_csharp_&lt;sessionTokenRequirement&gt;&quot; name=&quot;&lt;sessionTokenRequirement&gt;&quot; href=&quot;&quot;></xref> element, it contains more than one <xref uid=&quot;langword_csharp_&lt;sessionTokenRequirement&gt;&quot; name=&quot;&lt;sessionTokenRequirement&gt;&quot; href=&quot;&quot;></xref> element, a valid <xref:System.TimeSpan> value cannot be read from the <xref uid=&quot;langword_csharp_lifetime&quot; name=&quot;lifetime&quot; href=&quot;&quot;></xref> attribute, or the <xref uid=&quot;langword_csharp_lifetime&quot; name=&quot;lifetime&quot; href=&quot;&quot;></xref> attribute specifies a value that is less than &lt;xref:System.TimeSpan.Zero?displayProperty=fullName&gt;."
+    description: "De configuratie wordt opgegeven door <code> customConfigElements </code> is niet geldig. Bijvoorbeeld, bevat geen een <xref uid=&quot;langword_csharp_&lt;sessionTokenRequirement&gt;&quot; name=&quot;&lt;sessionTokenRequirement&gt;&quot; href=&quot;&quot;> </xref> element, het bevat meer dan één <xref uid=&quot;langword_csharp_&lt;sessionTokenRequirement&gt;&quot; name=&quot;&lt;sessionTokenRequirement&gt;&quot; href=&quot;&quot;> </xref> element, een geldige <xref:System.TimeSpan>waarde kan niet worden gelezen uit de <xref uid=&quot;langword_csharp_lifetime&quot; name=&quot;lifetime&quot; href=&quot;&quot;> </xref> kenmerk, of de <xref uid=&quot;langword_csharp_lifetime&quot; name=&quot;lifetime&quot; href=&quot;&quot;> </xref> kenmerk bevat een waarde die kleiner is dan &lt;xref:System.TimeSpan.Zero?displayProperty=fullName&gt;.</xref:System.TimeSpan>"
   platform:
   - net462
 - uid: System.IdentityModel.Tokens.SessionSecurityTokenHandler.ReadToken(System.Xml.XmlReader)
@@ -502,25 +502,25 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Reads the <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref> using the specified XML reader."
-  remarks: "The reader must be positioned at either a WS-Secure Conversation Feb2005 or a WS-Secure Conversation 1.3 `<wsc:SecurityContextToken>` element.       The default implementation invokes the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ReadToken%28System.Xml.XmlReader%2CSystem.IdentityModel.Selectors.SecurityTokenResolver%29?displayProperty=fullName> method using a default token resolver."
+  summary: "Leest de <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref> met behulp van de opgegeven XML-lezer."
+  remarks: "De lezer moet worden geplaatst op een Feb2005 WS veilige conversatie of een 1.3 WS veilige conversatie `<wsc:SecurityContextToken>` element.       De standaardimplementatie roept de <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ReadToken%28System.Xml.XmlReader%2CSystem.IdentityModel.Selectors.SecurityTokenResolver%29?displayProperty=fullName>methode met behulp van een token standaardconflictoplosser.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ReadToken%28System.Xml.XmlReader%2CSystem.IdentityModel.Selectors.SecurityTokenResolver%29?displayProperty=fullName>"
   syntax:
     content: public override System.IdentityModel.Tokens.SecurityToken ReadToken (System.Xml.XmlReader reader);
     parameters:
     - id: reader
       type: System.Xml.XmlReader
-      description: "The <xref:System.Xml.XmlReader> over the incoming <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref>."
+      description: "De <xref:System.Xml.XmlReader>via de binnenkomende <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref>.</xref:System.Xml.XmlReader>"
     return:
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The session security token that was read, an instance of <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref>."
+      description: "De sessie van een beveiligingstoken dat is gelezen, een exemplaar van <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref>."
   overload: System.IdentityModel.Tokens.SessionSecurityTokenHandler.ReadToken*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>reader</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>reader</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.IdentityModel.Tokens.SecurityTokenException
     commentId: T:System.IdentityModel.Tokens.SecurityTokenException
-    description: "The reader is not positioned at a <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref> or the <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref> cannot be read."
+    description: "De lezer is niet gepositioneerd op een <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref> of de <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref> kan niet worden gelezen."
   platform:
   - net462
 - uid: System.IdentityModel.Tokens.SessionSecurityTokenHandler.ReadToken(System.Byte[],System.IdentityModel.Selectors.SecurityTokenResolver)
@@ -535,20 +535,20 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Reads the <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref> from a stream of bytes by using the specified token resolver."
-  remarks: "The default implementation creates an <xref:System.Xml.XmlDictionaryReader> over the token and invokes the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ReadToken%28System.Xml.XmlReader%2CSystem.IdentityModel.Selectors.SecurityTokenResolver%29?displayProperty=fullName> method."
+  summary: "Leest de <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref> uit een stroom bytes met behulp van de opgegeven token resolver."
+  remarks: "De standaardimplementatie maakt een <xref:System.Xml.XmlDictionaryReader>via het token en roept de <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ReadToken%28System.Xml.XmlReader%2CSystem.IdentityModel.Selectors.SecurityTokenResolver%29?displayProperty=fullName>methode.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ReadToken%28System.Xml.XmlReader%2CSystem.IdentityModel.Selectors.SecurityTokenResolver%29?displayProperty=fullName> </xref:System.Xml.XmlDictionaryReader>"
   syntax:
     content: public virtual System.IdentityModel.Tokens.SecurityToken ReadToken (byte[] token, System.IdentityModel.Selectors.SecurityTokenResolver tokenResolver);
     parameters:
     - id: token
       type: System.Byte[]
-      description: "The stream of bytes that contains the token."
+      description: "De stroom van de bytes die de token bevat."
     - id: tokenResolver
       type: System.IdentityModel.Selectors.SecurityTokenResolver
-      description: "The token resolver to use."
+      description: "De token-omzetter te gebruiken."
     return:
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref> that was read."
+      description: "De <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref> die is gelezen."
   overload: System.IdentityModel.Tokens.SessionSecurityTokenHandler.ReadToken*
   exceptions: []
   platform:
@@ -565,28 +565,28 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Reads the <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref> using the specified XML reader and token resolver."
-  remarks: "The reader must be positioned at either a WS-Secure Conversation Feb2005 or a WS-Secure Conversation 1.3 `<wsc:SecurityContextToken>` element.       If the token material is cached, it is read from the token cache, which is an instance of the <xref:System.IdentityModel.Tokens.SessionSecurityTokenCache> class. Otherwise, the token material is read from the child element of the `<wsc:SecurityContextToken>` element that is specified by the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.CookieElementName%2A> and <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.CookieNamespace%2A> properties and the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ApplyTransforms%2A> method is invoked to decode the cookie.       For more information about how session tokens are serialized into a `<SecurityContextToken` element, see the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.WriteToken%28System.Xml.XmlWriter%2CSystem.IdentityModel.Tokens.SecurityToken%29?displayProperty=fullName> method."
+  summary: "Leest de <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref> conflictoplosser opgegeven XML-lezer en -token."
+  remarks: "De lezer moet worden geplaatst op een Feb2005 WS veilige conversatie of een 1.3 WS veilige conversatie `<wsc:SecurityContextToken>` element.       Als het token materiaal in de cache geplaatst, is het lezen van de tokencache een exemplaar van de <xref:System.IdentityModel.Tokens.SessionSecurityTokenCache>klasse is.</xref:System.IdentityModel.Tokens.SessionSecurityTokenCache> Anders wordt het token materiaal wordt gelezen uit het onderliggende element van de `<wsc:SecurityContextToken>` element dat is opgegeven door de <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.CookieElementName%2A>en <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.CookieNamespace%2A>Eigenschappen en de <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ApplyTransforms%2A>methode wordt aangeroepen voor het decoderen van de cookie.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ApplyTransforms%2A> </xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.CookieNamespace%2A> </xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.CookieElementName%2A>       Voor meer informatie over hoe sessie tokens worden geserialiseerd in een `<SecurityContextToken` element, Zie de <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.WriteToken%28System.Xml.XmlWriter%2CSystem.IdentityModel.Tokens.SecurityToken%29?displayProperty=fullName>methode.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.WriteToken%28System.Xml.XmlWriter%2CSystem.IdentityModel.Tokens.SecurityToken%29?displayProperty=fullName>"
   syntax:
     content: public override System.IdentityModel.Tokens.SecurityToken ReadToken (System.Xml.XmlReader reader, System.IdentityModel.Selectors.SecurityTokenResolver tokenResolver);
     parameters:
     - id: reader
       type: System.Xml.XmlReader
-      description: "The <xref:System.Xml.XmlReader> over the incoming <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref>."
+      description: "De <xref:System.Xml.XmlReader>via de binnenkomende <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref>.</xref:System.Xml.XmlReader>"
     - id: tokenResolver
       type: System.IdentityModel.Selectors.SecurityTokenResolver
-      description: "A <xref href=&quot;System.IdentityModel.Selectors.SecurityTokenResolver&quot;></xref> that can used to resolve the <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref>."
+      description: "Een <xref href=&quot;System.IdentityModel.Selectors.SecurityTokenResolver&quot;> </xref> die kan worden gebruikt om op te lossen de <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref>."
     return:
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The session security token that was read, an instance of <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref>."
+      description: "De sessie van een beveiligingstoken dat is gelezen, een exemplaar van <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref>."
   overload: System.IdentityModel.Tokens.SessionSecurityTokenHandler.ReadToken*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>reader</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>tokenResolver</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>reader</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>tokenResolver</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.IdentityModel.Tokens.SecurityTokenException
     commentId: T:System.IdentityModel.Tokens.SecurityTokenException
-    description: "The reader is not positioned at a <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref> or the <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref> cannot be read."
+    description: "De lezer is niet gepositioneerd op een <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref> of de <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref> kan niet worden gelezen."
   platform:
   - net462
 - uid: System.IdentityModel.Tokens.SessionSecurityTokenHandler.SetTransforms(System.Collections.Generic.IEnumerable{System.IdentityModel.CookieTransform})
@@ -601,14 +601,14 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Sets the transforms that will be applied to cookies."
-  remarks: "Sets the list of transforms returned by the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.Transforms%2A> property. Transforms will be applied in the order in which they appear in the list when encoding a cookie and in the reverse order when decoding a cookie.      > [!WARNING] >  If the `transforms` parameter is `null`, an exception will be thrown from the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ApplyTransforms%2A> method when it is called to encode or decode the cookie."
+  summary: "Hiermee stelt u de transformaties die om cookies te worden toegepast."
+  remarks: "Hiermee stelt u de lijst van transformaties geretourneerd door de <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.Transforms%2A>eigenschap.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.Transforms%2A> Transformaties worden toegepast in de volgorde waarin ze worden weergegeven in de lijst wanneer een cookie codering en in omgekeerde volgorde bij het decoderen van een cookie.      > [!WARNING] > Als de `transforms` parameter `null`, wordt een uitzondering worden gegenereerd vanuit de <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ApplyTransforms%2A>methode wanneer deze wordt aangeroepen om te coderen of decoderen van de cookie.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ApplyTransforms%2A>"
   syntax:
     content: protected void SetTransforms (System.Collections.Generic.IEnumerable<System.IdentityModel.CookieTransform> transforms);
     parameters:
     - id: transforms
       type: System.Collections.Generic.IEnumerable{System.IdentityModel.CookieTransform}
-      description: "The transforms to use."
+      description: "De transformaties te gebruiken."
   overload: System.IdentityModel.Tokens.SessionSecurityTokenHandler.SetTransforms*
   exceptions: []
   platform:
@@ -625,18 +625,18 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets or sets the token lifetime."
-  remarks: "By default, if the [\\&lt;sessionTokenRequirement\\&gt;](../Topic/%3CsessionTokenRequirement%3E.md) element is specified in the configuration file, the TokenLifetime property is initialized to the value of the `lifetime` attribute by the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.LoadCustomConfiguration%2A> method."
+  summary: "Opgehaald of ingesteld van de levensduur van tokens."
+  remarks: "Standaard, als de [ \\&lt; sessionTokenRequirement\\&gt;](../Topic/%3CsessionTokenRequirement%3E.md) element is opgegeven in het configuratiebestand de eigenschap TokenLifetime is geïnitialiseerd met de waarde van de `lifetime` kenmerk door de <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.LoadCustomConfiguration%2A>methode.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.LoadCustomConfiguration%2A>"
   syntax:
     content: public virtual TimeSpan TokenLifetime { get; set; }
     return:
       type: System.TimeSpan
-      description: "The token lifetime. The default is <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultLifetime&quot;></xref>."
+      description: "De levensduur van het token. De standaardwaarde is <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultLifetime&quot;> </xref>."
   overload: System.IdentityModel.Tokens.SessionSecurityTokenHandler.TokenLifetime*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "An attempt to set a time span that is less than or equal to zero occurs."
+    description: "Een poging tot het instellen van een tijdsspanne die kleiner is dan of gelijk is aan nul optreedt."
   platform:
   - net462
 - uid: System.IdentityModel.Tokens.SessionSecurityTokenHandler.TokenType
@@ -651,12 +651,12 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets the type of the tokens that this handler processes."
+  summary: "Hiermee wordt het type van de tokens die deze handler verwerkt."
   syntax:
     content: public override Type TokenType { get; }
     return:
       type: System.Type
-      description: "The <xref:System.Type> of <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref>."
+      description: "The <xref:System.Type> of <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref>.</xref:System.Type>"
   overload: System.IdentityModel.Tokens.SessionSecurityTokenHandler.TokenType*
   exceptions: []
   platform:
@@ -673,13 +673,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets the transforms that will be applied to the cookie."
-  remarks: "The transforms are applied in the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ApplyTransforms%2A> method."
+  summary: "Hiermee haalt u de transformaties die worden toegepast op de cookie."
+  remarks: "De transformaties worden toegepast de <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ApplyTransforms%2A>methode.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ApplyTransforms%2A>"
   syntax:
     content: public System.Collections.ObjectModel.ReadOnlyCollection<System.IdentityModel.CookieTransform> Transforms { get; }
     return:
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.IdentityModel.CookieTransform}
-      description: "The list of transforms that will be applied to the cookie."
+      description: "De lijst met transformaties die wordt toegepast op de cookie."
   overload: System.IdentityModel.Tokens.SessionSecurityTokenHandler.Transforms*
   exceptions: []
   platform:
@@ -696,28 +696,28 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Determines whether the session associated with the specified token is still valid. Validity is determined by checking the <xref:System.IdentityModel.Tokens.SecurityToken.ValidFrom*> and <xref:System.IdentityModel.Tokens.SecurityToken.ValidTo*> properties of the specified token. An exception is thrown if the session is no longer valid."
-  remarks: "The token is not valid if its <xref:System.IdentityModel.Tokens.SecurityToken.ValidFrom%2A> property is set to a value that occurs later than <xref:System.DateTime.UtcNow%2A>, or if its <xref:System.IdentityModel.Tokens.SecurityToken.ValidTo%2A> property is set to a value that occurs earlier than <xref:System.DateTime.UtcNow%2A>.       Called from the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ValidateToken%2A> methods to validate the session."
+  summary: "Bepaalt of de sessie die is gekoppeld aan het opgegeven token nog geldig is. Geldigheid wordt bepaald door het controleren van de <> </> *> en <> </> *> eigenschappen van het opgegeven token. Een uitzondering gegenereerd als de sessie niet meer geldig is."
+  remarks: "Het token is niet geldig als de <xref:System.IdentityModel.Tokens.SecurityToken.ValidFrom%2A>eigenschap is ingesteld op een waarde die hoger dan <xref:System.DateTime.UtcNow%2A>, of als de <xref:System.IdentityModel.Tokens.SecurityToken.ValidTo%2A>eigenschap is ingesteld op een waarde die deze gebeurtenis treedt op vóór <xref:System.DateTime.UtcNow%2A>.</xref:System.DateTime.UtcNow%2A> </xref:System.IdentityModel.Tokens.SecurityToken.ValidTo%2A> </xref:System.DateTime.UtcNow%2A> </xref:System.IdentityModel.Tokens.SecurityToken.ValidFrom%2A>       Aangeroepen vanuit de <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ValidateToken%2A>methoden voor het valideren van de sessie.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ValidateToken%2A>"
   syntax:
     content: protected virtual void ValidateSession (System.IdentityModel.Tokens.SessionSecurityToken securityToken);
     parameters:
     - id: securityToken
       type: System.IdentityModel.Tokens.SessionSecurityToken
-      description: "The token to be checked."
+      description: "Het token moet worden gecontroleerd."
   overload: System.IdentityModel.Tokens.SessionSecurityTokenHandler.ValidateSession*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>securityToken</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>securityToken</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref:System.IdentityModel.Tokens.SecurityTokenHandler.Configuration*> property is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "De <xref:System.IdentityModel.Tokens.SecurityTokenHandler.Configuration*>eigenschap is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>.</xref:System.IdentityModel.Tokens.SecurityTokenHandler.Configuration*>"
   - type: System.IdentityModel.Tokens.SecurityTokenNotYetValidException
     commentId: T:System.IdentityModel.Tokens.SecurityTokenNotYetValidException
-    description: "The <xref:System.IdentityModel.Tokens.SecurityToken.ValidFrom*> property of the token is later than <xref:System.DateTime.UtcNow*>."
+    description: "De <> </> *> eigenschap van het token is hoger dan <> </> *>."
   - type: System.IdentityModel.Tokens.SecurityTokenExpiredException
     commentId: T:System.IdentityModel.Tokens.SecurityTokenExpiredException
-    description: "The <xref:System.IdentityModel.Tokens.SecurityToken.ValidTo*> property of the token is earlier than <xref:System.DateTime.UtcNow*>."
+    description: "De <> </> *> eigenschap van het token is ouder dan <> </> *>."
   platform:
   - net462
 - uid: System.IdentityModel.Tokens.SessionSecurityTokenHandler.ValidateToken(System.IdentityModel.Tokens.SecurityToken)
@@ -732,17 +732,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Validates the specified token and returns its claims."
-  remarks: "Invokes the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ValidateSession%2A> method to validate the token."
+  summary: "Het opgegeven token valideert en retourneert de claims."
+  remarks: "Roept de <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ValidateSession%2A>methode voor het valideren van het token.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ValidateSession%2A>"
   syntax:
     content: public override System.Collections.ObjectModel.ReadOnlyCollection<System.Security.Claims.ClaimsIdentity> ValidateToken (System.IdentityModel.Tokens.SecurityToken token);
     parameters:
     - id: token
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The token to be validated. Must be assignable from <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref>."
+      description: "Het token moet worden gevalideerd. Moet worden toegewezen vanuit <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref>."
     return:
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.Security.Claims.ClaimsIdentity}
-      description: "The identities that are contained in the token."
+      description: "De identiteiten die zijn opgenomen in het token."
   overload: System.IdentityModel.Tokens.SessionSecurityTokenHandler.ValidateToken*
   exceptions:
   - type: System.ArgumentNullException
@@ -752,7 +752,7 @@ items:
           <xref uid="langword_csharp_null" name="null" href=""></xref>.
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<code>token</code> is not assignable from <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref>."
+    description: "<code>token</code>is niet toewijsbaar vanuit <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref>."
   platform:
   - net462
 - uid: System.IdentityModel.Tokens.SessionSecurityTokenHandler.ValidateToken(System.IdentityModel.Tokens.SessionSecurityToken,System.String)
@@ -767,31 +767,31 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Validates the specified session token and returns its claims."
-  remarks: "Performs a check to make sure that the specified token is scoped for the specified endpoint ID and, if so, invokes the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ValidateToken%28System.IdentityModel.Tokens.SecurityToken%29?displayProperty=fullName> method; otherwise, throws a <xref:System.IdentityModel.Tokens.SecurityTokenException>.      > [!IMPORTANT] >  Session tokens that have an <xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId%2A> property that is `null` or empty are considered to be globally scoped. This presents a potential security risk. For this reason you should make sure that the <xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId%2A> property is set in your session tokens."
+  summary: "Valideert het token opgegeven sessie en retourneert de claims."
+  remarks: "Voert een uit om te controleren of het opgegeven token is binnen het bereik van de opgegeven eindpunt-ID en zo ja, roept de <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ValidateToken%28System.IdentityModel.Tokens.SecurityToken%29?displayProperty=fullName>methode; anders genereert een <xref:System.IdentityModel.Tokens.SecurityTokenException>.</xref:System.IdentityModel.Tokens.SecurityTokenException> </xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ValidateToken%28System.IdentityModel.Tokens.SecurityToken%29?displayProperty=fullName>      > [!IMPORTANT] > Sessie-tokens die u hebt een <xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId%2A>-eigenschap `null` of leeg worden beschouwd als worden een globaal bereik.</xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId%2A> Dit vormt een beveiligingsrisico met zich mee. Daarom moet u ervoor zorgen dat de <xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId%2A>eigenschap is ingesteld in uw sessie-tokens.</xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId%2A>"
   syntax:
     content: public virtual System.Collections.ObjectModel.ReadOnlyCollection<System.Security.Claims.ClaimsIdentity> ValidateToken (System.IdentityModel.Tokens.SessionSecurityToken token, string endpointId);
     parameters:
     - id: token
       type: System.IdentityModel.Tokens.SessionSecurityToken
-      description: "The token to be validated. Must be assignable from <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref>."
+      description: "Het token moet worden gevalideerd. Moet worden toegewezen vanuit <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref>."
     - id: endpointId
       type: System.String
-      description: "The identifier of the endpoint to which the token is scoped."
+      description: "De id van het eindpunt waarmee het token heeft een bereik."
     return:
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.Security.Claims.ClaimsIdentity}
-      description: "The identities that are contained in the token."
+      description: "De identiteiten die zijn opgenomen in het token."
   overload: System.IdentityModel.Tokens.SessionSecurityTokenHandler.ValidateToken*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>token</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>endpointId</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>token</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>endpointId</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<code>token</code> is not assignable from <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref>."
+    description: "<code>token</code>is niet toewijsbaar vanuit <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref>."
   - type: System.IdentityModel.Tokens.SecurityTokenException
     commentId: T:System.IdentityModel.Tokens.SecurityTokenException
-    description: "The <xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId*> property of the specified token is not <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or empty and its value is different than that specified by the <code>endpointId</code> parameter."
+    description: "De <xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId*>eigenschap van het opgegeven token is niet <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> of leeg en de waarde ervan is anders dan die opgegeven door de <code> endpointId </code> parameter.</xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId*>"
   platform:
   - net462
 - uid: System.IdentityModel.Tokens.SessionSecurityTokenHandler.WriteToken(System.IdentityModel.Tokens.SessionSecurityToken)
@@ -806,22 +806,22 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Serializes the specified token into a byte array."
-  remarks: "Serializes the specified token by creating and XML writer over a <xref:System.IO.MemoryStream> and invoking the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.WriteToken%28System.Xml.XmlWriter%2CSystem.IdentityModel.Tokens.SecurityToken%29?displayProperty=fullName> method. See that overload for more details."
+  summary: "Het opgegeven token serialiseert in een byte-matrix."
+  remarks: "Het opgegeven token door het maken en XML-schrijver serialiseert via een <xref:System.IO.MemoryStream>en aanroepen van de <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.WriteToken%28System.Xml.XmlWriter%2CSystem.IdentityModel.Tokens.SecurityToken%29?displayProperty=fullName>methode.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.WriteToken%28System.Xml.XmlWriter%2CSystem.IdentityModel.Tokens.SecurityToken%29?displayProperty=fullName> </xref:System.IO.MemoryStream> Zie die overbelasting voor meer informatie."
   syntax:
     content: public virtual byte[] WriteToken (System.IdentityModel.Tokens.SessionSecurityToken sessionToken);
     parameters:
     - id: sessionToken
       type: System.IdentityModel.Tokens.SessionSecurityToken
-      description: "The token to write."
+      description: "Het token te schrijven."
     return:
       type: System.Byte[]
-      description: "An encoded byte array."
+      description: "Een gecodeerde bytematrix."
   overload: System.IdentityModel.Tokens.SessionSecurityTokenHandler.WriteToken*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>sessiontoken</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>sessiontoken</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.IdentityModel.Tokens.SessionSecurityTokenHandler.WriteToken(System.Xml.XmlWriter,System.IdentityModel.Tokens.SecurityToken)
@@ -836,25 +836,25 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Serializes the specified token by using the specified XML writer."
-  remarks: "The default implementation serializes the specified token as either a WS-Secure Conversation Feb2005 or WS-Secure Conversation 1.3 `<wsc:SecurityContextToken>` element, depending on the value of the <xref:System.IdentityModel.Tokens.SessionSecurityToken.SecureConversationVersion%2A?displayProperty=fullName> property. The <xref:System.IdentityModel.Tokens.SessionSecurityToken.Id%2A?displayProperty=fullName> property is serialized as the `Id` attribute. The <xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A?displayProperty=fullName> property is serialized as the `<Identifier>` child element. If not `null` the <xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration%2A?displayProperty=fullName> property is serialized as an `<Instance>` element. Finally, if the <xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A?displayProperty=fullName> property is `false`, the entire token is serialized into binary array which is passed to the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ApplyTransforms%2A> method to be encoded. The encoded token is then written as a base64 encoded value to the element and namespace specified by the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.CookieElementName%2A> and <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.CookieNamespace%2A> properties. If the <xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A?displayProperty=fullName> property is `true`, the token is not serialized."
+  summary: "Het opgegeven token serialiseert met behulp van de opgegeven XML-schrijver."
+  remarks: "De standaardimplementatie serialiseert u het opgegeven token als WS veilige conversatie Feb2005 of WS veilige conversatie 1.3 `<wsc:SecurityContextToken>` element, afhankelijk van de waarde van de <xref:System.IdentityModel.Tokens.SessionSecurityToken.SecureConversationVersion%2A?displayProperty=fullName>eigenschap.</xref:System.IdentityModel.Tokens.SessionSecurityToken.SecureConversationVersion%2A?displayProperty=fullName> De <xref:System.IdentityModel.Tokens.SessionSecurityToken.Id%2A?displayProperty=fullName>eigenschap wordt geserialiseerd als de `Id` kenmerk.</xref:System.IdentityModel.Tokens.SessionSecurityToken.Id%2A?displayProperty=fullName> De <xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A?displayProperty=fullName>eigenschap wordt geserialiseerd als de `<Identifier>` onderliggend element.</xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A?displayProperty=fullName> Als dat niet het `null` de <xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration%2A?displayProperty=fullName>eigenschap wordt geserialiseerd als een `<Instance>` element.</xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration%2A?displayProperty=fullName> Ten slotte, als de <xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A?displayProperty=fullName>eigenschap is `false`, het gehele token wordt omgezet in binaire matrix die wordt doorgegeven aan de <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ApplyTransforms%2A>methode om te worden gecodeerd.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.ApplyTransforms%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A?displayProperty=fullName> Het gecodeerde token vervolgens als een base64-gecodeerde waarde wordt geschreven naar het element en de naamruimte die is opgegeven door de <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.CookieElementName%2A>en <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.CookieNamespace%2A>Eigenschappen.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.CookieNamespace%2A> </xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.CookieElementName%2A> Als de <xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A?displayProperty=fullName>eigenschap is `true`, het token is niet geserialiseerd.</xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A?displayProperty=fullName>"
   syntax:
     content: public override void WriteToken (System.Xml.XmlWriter writer, System.IdentityModel.Tokens.SecurityToken token);
     parameters:
     - id: writer
       type: System.Xml.XmlWriter
-      description: "The XML writer with which to serialize the token."
+      description: "De XML-schrijver met die voor het serialiseren van het token."
     - id: token
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The token to serialize. An instance of <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref>."
+      description: "Het token te serialiseren. Een exemplaar van <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref>."
   overload: System.IdentityModel.Tokens.SessionSecurityTokenHandler.WriteToken*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>writer</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>token</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>writer</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>token</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<code>token</code> is not assignable from <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref>.       -or-       The <xref:System.IdentityModel.Tokens.SessionSecurityToken.SecureConversationVersion*> of the token specifies a version of WS-Secure Conversation that is not supported by the handler."
+    description: "<code>token</code>is niet toewijsbaar vanuit <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref>.       - of - de <xref:System.IdentityModel.Tokens.SessionSecurityToken.SecureConversationVersion*> Hiermee wordt een versie van WS-veilige conversatie die niet wordt ondersteund door de handler van het token."
   platform:
   - net462
 references:

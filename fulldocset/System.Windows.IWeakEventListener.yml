@@ -10,8 +10,8 @@ items:
   nameWithType: IWeakEventListener
   fullName: System.Windows.IWeakEventListener
   type: Interface
-  summary: "Provides event listening support for classes that expect to receive events through the WeakEvent pattern and a <xref href=&quot;System.Windows.WeakEventManager&quot;></xref>."
-  remarks: "The <xref:System.Windows.WeakEventManager> (a dispatcher) forwards an event by calling the <xref:System.Windows.IWeakEventListener.ReceiveWeakEvent%2A> method on classes that implement this interface, and that have been added as listeners by calling <xref:System.Windows.WeakEventManager> methods beforehand.       The principal reason for following the WeakEvent pattern is when the event source has an object lifetime that is potentially independent of the event listeners. Using the central event dispatching of a <xref:System.Windows.WeakEventManager> enables the handlers for listeners to be garbage collected (or manually purged) even if the source object lifetime extends beyond the listeners. By contrast, a normal event hookup using `+=` or equivalent language-specific event syntax causes the potentially still-connected source to hold a strong reference to the handlers. This keeps the listener references from being garbage collected in a timely fashion.       One common situation where the relationships between sources and listeners suggests the use of this pattern is the handling of update events coming from sources for data bindings.       You can use the WeakEvent pattern to listen for events that are external to your application. You only need to define a <xref:System.Windows.WeakEventManager> for it, provide listening behavior in <xref:System.Windows.IWeakEventListener.ReceiveWeakEvent%2A>, and use the <xref:System.Windows.WeakEventManager> to attach the handler references rather than `+=`."
+  summary: "Gebeurtenis luisterende ondersteuning biedt voor klassen die u verwacht te ontvangen van gebeurtenissen tot en met het patroon WeakEvent en een <xref href=&quot;System.Windows.WeakEventManager&quot;> </xref>."
+  remarks: "De <xref:System.Windows.WeakEventManager>(een dispatcher) stuurt u een gebeurtenis door het aanroepen van de <xref:System.Windows.IWeakEventListener.ReceiveWeakEvent%2A>methode voor klassen die deze interface is geïmplementeerd en die zijn toegevoegd als listeners door aan te roepen <xref:System.Windows.WeakEventManager>methoden tevoren.</xref:System.Windows.WeakEventManager> </xref:System.Windows.IWeakEventListener.ReceiveWeakEvent%2A> </xref:System.Windows.WeakEventManager>       De principal reden voor het volgen van het patroon WeakEvent is wanneer de bron van de gebeurtenis heeft een levensduur van objecten die mogelijk onafhankelijk is van de gebeurtenislisteners. Met behulp van de centrale gebeurtenis inschakeling van een <xref:System.Windows.WeakEventManager>kan de handlers voor listeners garbagecollection zijn verzameld (of handmatig worden opgeschoond) zelfs als de levensduur van de bron-object de listeners overschrijdt.</xref:System.Windows.WeakEventManager> Daarentegen is een normale gebeurtenis aansluiten met `+=` of de syntaxis van de equivalente taalspecifieke gebeurtenis zorgt ervoor dat de bron mogelijk nog verbonden voor het opslaan van een sterke verwijzing naar de handlers. Hierdoor blijft de listener-verwijzingen van de garbage collector zijn verzameld op tijdige wijze wordt.       Een algemene situatie waarin de relaties tussen bronnen en listeners stelt het gebruik van dit patroon is de verwerking van de update-gebeurtenissen die afkomstig zijn van bronnen voor gegevensbindingen.       U kunt het patroon WeakEvent gebruiken om te luisteren naar gebeurtenissen die extern voor uw toepassing zijn. U hoeft alleen te definiëren een <xref:System.Windows.WeakEventManager>, bieden luisterende gedrag in <xref:System.Windows.IWeakEventListener.ReceiveWeakEvent%2A>, en gebruiken de <xref:System.Windows.WeakEventManager>koppelen van de handler verwijst naar plaats `+=`.</xref:System.Windows.WeakEventManager> </xref:System.Windows.IWeakEventListener.ReceiveWeakEvent%2A> </xref:System.Windows.WeakEventManager>"
   syntax:
     content: public interface IWeakEventListener
   implements: []
@@ -29,7 +29,7 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows
-  summary: "Receives events from the centralized event manager."
+  summary: "Gebeurtenissen ontvangt uit het gecentraliseerde gebeurtenisbeheer."
   remarks: ''
   example:
   - "The following example implements ReceiveWeakEvent to provide WeakEvent pattern support for two hypothetical events `ClockwiseSpin` and `CounterclockwiseSpin` that each have a dedicated <xref:System.Windows.WeakEventManager> (not shown). This implementation calls class handler stubs for each supported event, casting the event data (in this case the two events share an event data type `SpinEventArgs`). The implementation returns `false` if the event received is not one that is expected.  \n  \n [!code-cs[CorePseudocode#IWeakEventListener](~/add/codesnippet/csharp/CorePseudocode/corepseudocode.cs#iweakeventlistener)]\n [!code-vb[CorePseudocode#IWeakEventListener](~/add/codesnippet/visualbasic/corepseudocode/corepseudocode.vb#iweakeventlistener)]"
@@ -38,16 +38,16 @@ items:
     parameters:
     - id: managerType
       type: System.Type
-      description: "The type of the <xref href=&quot;System.Windows.WeakEventManager&quot;></xref> calling this method."
+      description: "Het type van de <xref href=&quot;System.Windows.WeakEventManager&quot;> </xref> u deze methode aanroept."
     - id: sender
       type: System.Object
-      description: "Object that originated the event."
+      description: "Object dat afkomstig is van de gebeurtenis."
     - id: e
       type: System.EventArgs
-      description: "Event data."
+      description: "Gebeurtenisgegevens."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the listener handled the event. It is considered an error by the <xref href=&quot;System.Windows.WeakEventManager&quot;></xref> handling in [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)] to register a listener for an event that the listener does not handle. Regardless, the method should return <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if it receives an event that it does not recognize or handle."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de listener de gebeurtenis verwerkt. Dit wordt beschouwd als een fout door de <xref href=&quot;System.Windows.WeakEventManager&quot;> </xref> verwerken bij [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)] een listener voor een gebeurtenis die de listener niet verwerkt registreren. Ongeacht, de methode moet retourneren <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> als er een gebeurtenis die deze niet herkent of verwerken."
   overload: System.Windows.IWeakEventListener.ReceiveWeakEvent*
   exceptions: []
   platform:

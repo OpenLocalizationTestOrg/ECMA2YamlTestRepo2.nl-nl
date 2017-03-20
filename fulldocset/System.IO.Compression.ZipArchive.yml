@@ -20,7 +20,7 @@ items:
   nameWithType: ZipArchive
   fullName: System.IO.Compression.ZipArchive
   type: Class
-  summary: "Represents a package of compressed files in the zip archive format."
+  summary: "Hiermee geeft u een pakket van gecomprimeerde bestanden die in de indeling van het zip-archief."
   remarks: "The methods for manipulating zip archives and their file entries are spread across three classes: <xref:System.IO.Compression.ZipFile>, ZipArchive, and <xref:System.IO.Compression.ZipArchiveEntry>.  \n  \n|To|Use|  \n|--------|---------|  \n|Create a zip archive from a directory|<xref:System.IO.Compression.ZipFile.CreateFromDirectory%2A?displayProperty=fullName>|  \n|Extract the contents of a zip archive to a directory|<xref:System.IO.Compression.ZipFile.ExtractToDirectory%2A?displayProperty=fullName>|  \n|Add new files to an existing zip archive|<xref:System.IO.Compression.ZipArchive.CreateEntry%2A?displayProperty=fullName>|  \n|Retrieve a file from a zip archive|<xref:System.IO.Compression.ZipArchive.GetEntry%2A?displayProperty=fullName>|  \n|Retrieve all the files from a zip archive|<xref:System.IO.Compression.ZipArchive.Entries%2A?displayProperty=fullName>|  \n|Open a stream to a single file contained in a zip archive|<xref:System.IO.Compression.ZipArchiveEntry.Open%2A?displayProperty=fullName>|  \n|Delete a file from a zip archive|<xref:System.IO.Compression.ZipArchiveEntry.Delete%2A?displayProperty=fullName>|  \n  \n When you create a new entry, the file is compressed and added to the zip package. The <xref:System.IO.Compression.ZipArchive.CreateEntry%2A> method enables you to specify a directory hierarchy when adding the entry. You include the relative path of the new entry within the zip package. For example, creating a new entry with a relative path of `AddedFolder\\NewFile.txt` creates a compressed text file in a directory named AddedFolder.  \n  \n If you reference the `System.IO.Compression.FileSystem` assembly in your project, you can access three extension methods (from the <xref:System.IO.Compression.ZipFileExtensions> class) for the ZipArchive class: <xref:System.IO.Compression.ZipFileExtensions.CreateEntryFromFile%2A>, <xref:System.IO.Compression.ZipFileExtensions.CreateEntryFromFile%2A>, and <xref:System.IO.Compression.ZipFileExtensions.ExtractToDirectory%2A>. These extension methods enable you to compress and decompress the contents of the entry to a file. The `System.IO.Compression.FileSystem` assembly is not available for [!INCLUDE[win8_appname_long](~/add/includes/win8-appname-long-md.md)] apps. In [!INCLUDE[win8_appname_long](~/add/includes/win8-appname-long-md.md)] apps, you can compress and decompress files by using the <xref:System.IO.Compression.DeflateStream> or <xref:System.IO.Compression.GZipStream> class, or you can use the [!INCLUDE[wrt](~/add/includes/wrt-md.md)] types [Compressor](http://go.microsoft.com/fwlink/p/?LinkID=246357) and [Decompressor](http://go.microsoft.com/fwlink/p/?LinkID=246358)."
   example:
   - "The first example shows how to create a new entry and write to it by using a stream.  \n  \n [!code-cs[System.IO.Compression.ZipArchiveMode#1](~/add/codesnippet/csharp/t-system.io.compression._1_1.cs)]\n [!code-vb[System.IO.Compression.ZipArchiveMode#1](~/add/codesnippet/visualbasic/t-system.io.compression._1_1.vb)]  \n  \n The following example shows how to open a zip archive and iterate through the collection of entries.  \n  \n [!code-cs[System.IO.Compression.ZipArchive#1](~/add/codesnippet/csharp/t-system.io.compression._1_2.cs)]\n [!code-vb[System.IO.Compression.ZipArchive#1](~/add/codesnippet/visualbasic/t-system.io.compression._1_2.vb)]  \n  \n The third example shows how to use extension methods to create a new entry in a zip archive from an existing file and extract the archive contents. You must reference the `System.IO.Compression.FileSystem` assembly to execute the code.  \n  \n [!code-cs[System.IO.Compression.ZipArchive#3](~/add/codesnippet/csharp/t-system.io.compression._1_3.cs)]\n [!code-vb[System.IO.Compression.ZipArchive#3](~/add/codesnippet/visualbasic/t-system.io.compression._1_3.vb)]"
@@ -45,24 +45,24 @@ items:
   assemblies:
   - System.IO.Compression
   namespace: System.IO.Compression
-  summary: "Initializes a new instance of the <xref href=&quot;System.IO.Compression.ZipArchive&quot;></xref> class from the specified stream."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.IO.Compression.ZipArchive&quot;> </xref> klasse vanuit de opgegeven stroom."
   syntax:
     content: public ZipArchive (System.IO.Stream stream);
     parameters:
     - id: stream
       type: System.IO.Stream
-      description: "The stream that contains the archive to be read."
+      description: "De stroom waarin het archief worden gelezen."
   overload: System.IO.Compression.ZipArchive.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The stream is already closed or does not support reading."
+    description: "De stroom is al afgesloten of lezen wordt niet ondersteund."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>stream</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>stream</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.IO.InvalidDataException
     commentId: T:System.IO.InvalidDataException
-    description: "The contents of the stream are not in the zip archive format."
+    description: "De inhoud van de stroom zijn niet in de indeling van het zip-archief."
   platform:
   - net462
 - uid: System.IO.Compression.ZipArchive.#ctor(System.IO.Stream,System.IO.Compression.ZipArchiveMode)
@@ -77,31 +77,31 @@ items:
   assemblies:
   - System.IO.Compression
   namespace: System.IO.Compression
-  summary: "Initializes a new instance of the <xref href=&quot;System.IO.Compression.ZipArchive&quot;></xref> class from the specified stream and with the specified mode."
-  remarks: "If the `mode` parameter is set to <xref:System.IO.Compression.ZipArchiveMode>, the stream must support reading. If the `mode` parameter is set to <xref:System.IO.Compression.ZipArchiveMode>, the stream must support writing. If the `mode` parameter is set to <xref:System.IO.Compression.ZipArchiveMode>, the stream must support reading, writing, and seeking."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.IO.Compression.ZipArchive&quot;> </xref> klasse van de opgegeven stroom en met de opgegeven modus."
+  remarks: "Als de `mode` parameter is ingesteld op <xref:System.IO.Compression.ZipArchiveMode>, de stroom moet lezen ondersteunen.</xref:System.IO.Compression.ZipArchiveMode> Als de `mode` parameter is ingesteld op <xref:System.IO.Compression.ZipArchiveMode>, de stroom moet schrijfbewerkingen ondersteunen.</xref:System.IO.Compression.ZipArchiveMode> Als de `mode` parameter is ingesteld op <xref:System.IO.Compression.ZipArchiveMode>, de stroom moet lezen, schrijven en zoekbewerkingen ondersteunen.</xref:System.IO.Compression.ZipArchiveMode>"
   syntax:
     content: public ZipArchive (System.IO.Stream stream, System.IO.Compression.ZipArchiveMode mode);
     parameters:
     - id: stream
       type: System.IO.Stream
-      description: "The input or output stream."
+      description: "De invoer- of -stroom."
     - id: mode
       type: System.IO.Compression.ZipArchiveMode
-      description: "One of the enumeration values that indicates whether the zip archive is used to read, create, or update entries."
+      description: "Een van de opsommingswaarden die aangeeft of het zip-archief is gebruikt om te lezen, maken of bijwerken van vermeldingen."
   overload: System.IO.Compression.ZipArchive.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The stream is already closed, or the capabilities of the stream do not match the mode."
+    description: "De stroom is al afgesloten of de mogelijkheden van de stroom komen niet overeen met de modus."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>stream</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>stream</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>mode</code> is an invalid value."
+    description: "<code>mode</code>is een ongeldige waarde."
   - type: System.IO.InvalidDataException
     commentId: T:System.IO.InvalidDataException
-    description: "The contents of the stream could not be interpreted as a zip archive.       -or-       <code>mode</code> is <xref href=&quot;System.IO.Compression.ZipArchiveMode&quot;></xref> and an entry is missing from the archive or is corrupt and cannot be read.       -or-       <code>mode</code> is <xref href=&quot;System.IO.Compression.ZipArchiveMode&quot;></xref> and an entry is too large to fit into memory."
+    description: "De inhoud van de stroom kunnen niet worden geïnterpreteerd als een zip-archief.       - of - <code> mode </code> is <xref href=&quot;System.IO.Compression.ZipArchiveMode&quot;> </xref> een vermelding uit het archief ontbreekt of is beschadigd en kan niet worden gelezen.       - of - <code> mode </code> is <xref href=&quot;System.IO.Compression.ZipArchiveMode&quot;> </xref> en een vermelding is te groot voor in het geheugen."
   platform:
   - net462
 - uid: System.IO.Compression.ZipArchive.#ctor(System.IO.Stream,System.IO.Compression.ZipArchiveMode,System.Boolean)
@@ -116,34 +116,34 @@ items:
   assemblies:
   - System.IO.Compression
   namespace: System.IO.Compression
-  summary: "Initializes a new instance of the <xref href=&quot;System.IO.Compression.ZipArchive&quot;></xref> class on the specified stream for the specified mode, and optionally leaves the stream open."
-  remarks: "If the `mode` parameter is set to <xref:System.IO.Compression.ZipArchiveMode>, the stream must support reading. If the `mode` parameter is set to <xref:System.IO.Compression.ZipArchiveMode>, the stream must support writing. If the `mode` parameter is set to <xref:System.IO.Compression.ZipArchiveMode>, the stream must support reading, writing, and seeking."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.IO.Compression.ZipArchive&quot;> </xref> klasse op de opgegeven stroom voor de opgegeven modus en eventueel, blijft de stroom is open."
+  remarks: "Als de `mode` parameter is ingesteld op <xref:System.IO.Compression.ZipArchiveMode>, de stroom moet lezen ondersteunen.</xref:System.IO.Compression.ZipArchiveMode> Als de `mode` parameter is ingesteld op <xref:System.IO.Compression.ZipArchiveMode>, de stroom moet schrijfbewerkingen ondersteunen.</xref:System.IO.Compression.ZipArchiveMode> Als de `mode` parameter is ingesteld op <xref:System.IO.Compression.ZipArchiveMode>, de stroom moet lezen, schrijven en zoekbewerkingen ondersteunen.</xref:System.IO.Compression.ZipArchiveMode>"
   syntax:
     content: public ZipArchive (System.IO.Stream stream, System.IO.Compression.ZipArchiveMode mode, bool leaveOpen);
     parameters:
     - id: stream
       type: System.IO.Stream
-      description: "The input or output stream."
+      description: "De invoer- of -stroom."
     - id: mode
       type: System.IO.Compression.ZipArchiveMode
-      description: "One of the enumeration values that indicates whether the zip archive is used to read, create, or update entries."
+      description: "Een van de opsommingswaarden die aangeeft of het zip-archief is gebruikt om te lezen, maken of bijwerken van vermeldingen."
     - id: leaveOpen
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to leave the stream open after the <xref href=&quot;System.IO.Compression.ZipArchive&quot;></xref> object is disposed; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>om te laten de stroom openen na de <xref href=&quot;System.IO.Compression.ZipArchive&quot;> </xref> -object is verwijderd, anders wordt <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.IO.Compression.ZipArchive.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The stream is already closed, or the capabilities of the stream do not match the mode."
+    description: "De stroom is al afgesloten of de mogelijkheden van de stroom komen niet overeen met de modus."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>stream</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>stream</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>mode</code> is an invalid value."
+    description: "<code>mode</code>is een ongeldige waarde."
   - type: System.IO.InvalidDataException
     commentId: T:System.IO.InvalidDataException
-    description: "The contents of the stream could not be interpreted as a zip archive.       -or-       <code>mode</code> is <xref href=&quot;System.IO.Compression.ZipArchiveMode&quot;></xref> and an entry is missing from the archive or is corrupt and cannot be read.       -or-       <code>mode</code> is <xref href=&quot;System.IO.Compression.ZipArchiveMode&quot;></xref> and an entry is too large to fit into memory."
+    description: "De inhoud van de stroom kunnen niet worden geïnterpreteerd als een zip-archief.       - of - <code> mode </code> is <xref href=&quot;System.IO.Compression.ZipArchiveMode&quot;> </xref> een vermelding uit het archief ontbreekt of is beschadigd en kan niet worden gelezen.       - of - <code> mode </code> is <xref href=&quot;System.IO.Compression.ZipArchiveMode&quot;> </xref> en een vermelding is te groot voor in het geheugen."
   platform:
   - net462
 - uid: System.IO.Compression.ZipArchive.#ctor(System.IO.Stream,System.IO.Compression.ZipArchiveMode,System.Boolean,System.Text.Encoding)
@@ -158,37 +158,37 @@ items:
   assemblies:
   - System.IO.Compression
   namespace: System.IO.Compression
-  summary: "Initializes a new instance of the <xref href=&quot;System.IO.Compression.ZipArchive&quot;></xref> class on the specified stream for the specified mode, uses the specified encoding for entry names, and optionally leaves the stream open."
-  remarks: "If the `mode` parameter is set to <xref:System.IO.Compression.ZipArchiveMode>, the stream must support reading. If the `mode` parameter is set to <xref:System.IO.Compression.ZipArchiveMode>, the stream must support writing. If the `mode` parameter is set to <xref:System.IO.Compression.ZipArchiveMode>, the stream must support reading, writing, and seeking.       When you open a zip archive file for reading and `entryNameEncoding` is set to `null`, entry names are decoded according to the following rules:      -   When the language encoding flag (in the general-purpose bit flag of the local file header) is not set, the current system default code page is used to decode the entry name.      -   When the language encoding flag is set, UTF-8 is used to decode the entry name.       When you open a zip archive file for reading and `entryNameEncoding` is set to a value other than `null`, entry names are decoded according to the following rules:      -   When the language encoding flag is not set, the specified `entryNameEncoding` is used to decode the entry name.      -   When the language encoding flag is set, UTF-8 is used to decode the entry name.       When you write to archive files and `entryNameEncoding` is set to `null`, entry names are encoded according to the following rules:      -   For entry names that contain characters outside the ASCII range, the language encoding flag is set, and entry names are encoded by using UTF-8.      -   For entry names that contain only ASCII characters, the language encoding flag is not set, and entry names are encoded by using the current system default code page.       When you write to archive files and `entryNameEncoding` is set to a value other than `null`, the specified `entryNameEncoding` is used to encode the entry names into bytes. The language encoding flag (in the general-purpose bit flag of the local file header) is set only when the specified encoding is a UTF-8 encoding."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.IO.Compression.ZipArchive&quot;> </xref> klasse op de opgegeven stroom voor de opgegeven modus maakt gebruik van de opgegeven codering voor namen van vermeldingen en optioneel verlaat de stroom openen."
+  remarks: "Als de `mode` parameter is ingesteld op <xref:System.IO.Compression.ZipArchiveMode>, de stroom moet lezen ondersteunen.</xref:System.IO.Compression.ZipArchiveMode> Als de `mode` parameter is ingesteld op <xref:System.IO.Compression.ZipArchiveMode>, de stroom moet schrijfbewerkingen ondersteunen.</xref:System.IO.Compression.ZipArchiveMode> Als de `mode` parameter is ingesteld op <xref:System.IO.Compression.ZipArchiveMode>, de stroom moet lezen, schrijven en zoekbewerkingen ondersteunen.</xref:System.IO.Compression.ZipArchiveMode>       Wanneer u een zip-archief-bestand voor lezen opent en `entryNameEncoding` is ingesteld op `null`, namen van vermeldingen worden gedecodeerd volgens de volgende regels: - als de taal codering vlag (in de vlag voor algemene doeleinden bits van de lokale bestandsheader) niet is ingesteld, de huidige system standaardcodetabel decoderen van de naam van de vermelding wordt gebruikt.      -Wanneer de taal codering vlag is ingesteld, worden UTF-8 wordt gebruikt voor het decoderen van de vermeldingsnaam.       Wanneer u een zip-archief-bestand voor lezen opent en `entryNameEncoding` is ingesteld op een andere waarde dan `null`, namen van vermeldingen worden gedecodeerd volgens de volgende regels:: wanneer de taal vlag codering niet is ingesteld, de opgegeven `entryNameEncoding` wordt gebruikt voor het decoderen van de vermeldingsnaam.      -Wanneer de taal codering vlag is ingesteld, worden UTF-8 wordt gebruikt voor het decoderen van de vermeldingsnaam.       Wanneer u schrijft om bestanden te archiveren en `entryNameEncoding` is ingesteld op `null`, namen van vermeldingen moeten worden gecodeerd volgens de volgende regels: - voor invoer van namen met tekens buiten de ASCII-bereik, de taal codering vlag is ingesteld, en de namen van vermeldingen zijn gecodeerd met UTF-8.      -De vlag voor het coderen van taal is niet ingesteld voor namen van vermeldingen die alleen ASCII-tekens bevatten, en namen van vermeldingen zijn gecodeerd met behulp van de huidige system standaardcodetabel.       Wanneer u schrijft om bestanden te archiveren en `entryNameEncoding` is ingesteld op een andere waarde dan `null`, de opgegeven `entryNameEncoding` wordt gebruikt voor het coderen van de namen van vermeldingen in bytes. De vlag (in de vlag voor algemene doeleinden bits van de lokale bestandsheader) codering taal wordt alleen ingesteld als de opgegeven codering een UTF-8-codering is."
   syntax:
     content: public ZipArchive (System.IO.Stream stream, System.IO.Compression.ZipArchiveMode mode, bool leaveOpen, System.Text.Encoding entryNameEncoding);
     parameters:
     - id: stream
       type: System.IO.Stream
-      description: "The input or output stream."
+      description: "De invoer- of -stroom."
     - id: mode
       type: System.IO.Compression.ZipArchiveMode
-      description: "One of the enumeration values that indicates whether the zip archive is used to read, create, or update entries."
+      description: "Een van de opsommingswaarden die aangeeft of het zip-archief is gebruikt om te lezen, maken of bijwerken van vermeldingen."
     - id: leaveOpen
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to leave the stream open after the <xref href=&quot;System.IO.Compression.ZipArchive&quot;></xref> object is disposed; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>om te laten de stroom openen na de <xref href=&quot;System.IO.Compression.ZipArchive&quot;> </xref> -object is verwijderd, anders wordt <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     - id: entryNameEncoding
       type: System.Text.Encoding
-      description: "The encoding to use when reading or writing entry names in this archive. Specify a value for this parameter only when an encoding is required for interoperability with zip archive tools and libraries that do not support UTF-8 encoding for entry names."
+      description: "De codering die moet worden gebruikt bij het lezen of schrijven van namen van vermeldingen in dit archief. Geef een waarde voor deze parameter alleen als u een codering is vereist voor compatibiliteit met zip-archief-hulpprogramma&quot;s en -bibliotheken die bieden geen ondersteuning voor UTF-8-codering voor namen van vermeldingen."
   overload: System.IO.Compression.ZipArchive.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The stream is already closed, or the capabilities of the stream do not match the mode."
+    description: "De stroom is al afgesloten of de mogelijkheden van de stroom komen niet overeen met de modus."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>stream</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>stream</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>mode</code> is an invalid value."
+    description: "<code>mode</code>is een ongeldige waarde."
   - type: System.IO.InvalidDataException
     commentId: T:System.IO.InvalidDataException
-    description: "The contents of the stream could not be interpreted as a zip archive.       -or-       <code>mode</code> is <xref href=&quot;System.IO.Compression.ZipArchiveMode&quot;></xref> and an entry is missing from the archive or is corrupt and cannot be read.       -or-       <code>mode</code> is <xref href=&quot;System.IO.Compression.ZipArchiveMode&quot;></xref> and an entry is too large to fit into memory."
+    description: "De inhoud van de stroom kunnen niet worden geïnterpreteerd als een zip-archief.       - of - <code> mode </code> is <xref href=&quot;System.IO.Compression.ZipArchiveMode&quot;> </xref> een vermelding uit het archief ontbreekt of is beschadigd en kan niet worden gelezen.       - of - <code> mode </code> is <xref href=&quot;System.IO.Compression.ZipArchiveMode&quot;> </xref> en een vermelding is te groot voor in het geheugen."
   platform:
   - net462
 - uid: System.IO.Compression.ZipArchive.CreateEntry(System.String)
@@ -203,8 +203,8 @@ items:
   assemblies:
   - System.IO.Compression
   namespace: System.IO.Compression
-  summary: "Creates an empty entry that has the specified path and entry name in the zip archive."
-  remarks: "The `entryName` string should reflect the relative path of the entry you want to create within the zip archive. There is no restriction on the string you provide. However, if it is not formatted as a relative path, the entry is created, but you may get an exception when you extract the contents of the zip archive. If an entry with the specified path and name already exists in the archive, a second entry is created with the same path and name.       The value of the <xref:System.IO.Compression.ZipArchiveEntry.LastWriteTime%2A> property for the new entry is set to the current time. The entry is compressed using the default compression level of the underlying compression algorithm. If you want to specify a different compression level, use the <xref:System.IO.Compression.ZipArchive.CreateEntry%2A> method."
+  summary: "Maakt een lege vermelding met de naam van de opgegeven pad en de vermelding in het zip-archief."
+  remarks: "De `entryName` tekenreeks moet overeenkomen met het relatieve pad van het item dat u wilt maken in het zip-archief. Er is geen beperking voor de tekenreeks die u opgeeft. Echter, als deze niet is opgemaakt als een relatief pad, de vermelding is gemaakt, maar mogelijk dat u een uitzondering opgetreden bij het ophalen van de inhoud van het zip-archief. Als er al een item met het opgegeven pad en de naam in het archief bestaat, wordt een tweede vermelding gemaakt met het pad en de naam.       De waarde van de <xref:System.IO.Compression.ZipArchiveEntry.LastWriteTime%2A>eigenschap voor de nieuwe vermelding is ingesteld op de huidige tijd.</xref:System.IO.Compression.ZipArchiveEntry.LastWriteTime%2A> De vermelding is gecomprimeerd met behulp van het standaardniveau voor de compressie van de onderliggende compressiealgoritme. Als u een andere compressieniveau opgeven wilt, gebruikt u de <xref:System.IO.Compression.ZipArchive.CreateEntry%2A>methode.</xref:System.IO.Compression.ZipArchive.CreateEntry%2A>"
   example:
   - "The following example shows how to create an entry and write to it by using a stream.  \n  \n [!code-cs[System.IO.Compression.ZipArchiveMode#1](~/add/codesnippet/csharp/m-system.io.compression._1_1.cs)]\n [!code-vb[System.IO.Compression.ZipArchiveMode#1](~/add/codesnippet/visualbasic/m-system.io.compression._1_1.vb)]"
   syntax:
@@ -212,24 +212,24 @@ items:
     parameters:
     - id: entryName
       type: System.String
-      description: "A path, relative to the root of the archive, that specifies the name of the entry to be created."
+      description: "Een pad relatief ten opzichte van de hoofdmap van het archief met de naam van het item moet worden gemaakt."
     return:
       type: System.IO.Compression.ZipArchiveEntry
-      description: "An empty entry in the zip archive."
+      description: "Een lege vermelding in het zip-archief."
   overload: System.IO.Compression.ZipArchive.CreateEntry*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>entryName</code> is <xref:System.String>."
+    description: "<code>entryName</code>is <xref:System.String>."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>entryName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>entryName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The zip archive does not support writing."
+    description: "Schrijven wordt niet ondersteund in het zip-archief."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The zip archive has been disposed."
+    description: "Het zip-archief is verwijderd."
   platform:
   - net462
 - uid: System.IO.Compression.ZipArchive.CreateEntry(System.String,System.IO.Compression.CompressionLevel)
@@ -244,8 +244,8 @@ items:
   assemblies:
   - System.IO.Compression
   namespace: System.IO.Compression
-  summary: "Creates an empty entry that has the specified entry name and compression level in the zip archive."
-  remarks: "The `entryName` string should reflect the relative path of the entry you want to create within the zip archive. There is no restriction on the string you provide. However, if it is not formatted as a relative path, the entry is created, but you may get an exception when you extract the contents of the zip archive. If an entry with the specified name already exists in the archive, a second entry is created with the same name.       The value of the <xref:System.IO.Compression.ZipArchiveEntry.LastWriteTime%2A> property for the new entry is set to the current time. Set the `compressionLevel` parameter to <xref:System.IO.Compression.CompressionLevel> if you want the file to be compressed as much as possible. Set the `compressionLevel` parameter to <xref:System.IO.Compression.CompressionLevel> only if you are concerned that the compression operation will not complete quickly enough for your scenario."
+  summary: "Maakt een lege vermelding met de opgegeven naam en compressie niveau in het zip-archief."
+  remarks: "De `entryName` tekenreeks moet overeenkomen met het relatieve pad van het item dat u wilt maken in het zip-archief. Er is geen beperking voor de tekenreeks die u opgeeft. Echter, als deze niet is opgemaakt als een relatief pad, de vermelding is gemaakt, maar mogelijk dat u een uitzondering opgetreden bij het ophalen van de inhoud van het zip-archief. Als een item met de opgegeven naam al in het archief bestaat, wordt een tweede vermelding gemaakt met dezelfde naam.       De waarde van de <xref:System.IO.Compression.ZipArchiveEntry.LastWriteTime%2A>eigenschap voor de nieuwe vermelding is ingesteld op de huidige tijd.</xref:System.IO.Compression.ZipArchiveEntry.LastWriteTime%2A> Stel de `compressionLevel` -parameter voor <xref:System.IO.Compression.CompressionLevel>Als u wilt dat het bestand moeten worden gecomprimeerd zo veel mogelijk.</xref:System.IO.Compression.CompressionLevel> Stel de `compressionLevel` -parameter voor <xref:System.IO.Compression.CompressionLevel>alleen als u zich zorgen dat de compressie-bewerking wordt niet snel genoeg voltooid voor uw scenario.</xref:System.IO.Compression.CompressionLevel>"
   example:
   - "The following example shows how to create an entry with the optimal compression level. It also writes to the new entry by using a stream.  \n  \n [!code-cs[System.IO.Compression.ZipArchiveMode#2](~/add/codesnippet/csharp/356fbc42-2094-4738-b1de-_1.cs)]\n [!code-vb[System.IO.Compression.ZipArchiveMode#2](~/add/codesnippet/visualbasic/356fbc42-2094-4738-b1de-_1.vb)]"
   syntax:
@@ -253,27 +253,27 @@ items:
     parameters:
     - id: entryName
       type: System.String
-      description: "A path, relative to the root of the archive, that specifies the name of the entry to be created."
+      description: "Een pad relatief ten opzichte van de hoofdmap van het archief met de naam van het item moet worden gemaakt."
     - id: compressionLevel
       type: System.IO.Compression.CompressionLevel
-      description: "One of the enumeration values that indicates whether to emphasize speed or compression effectiveness when creating the entry."
+      description: "Een van de opsommingswaarden die aangeeft of benadrukken snelheid of compressie effectiviteit bij het maken van de vermelding."
     return:
       type: System.IO.Compression.ZipArchiveEntry
-      description: "An empty entry in the zip archive."
+      description: "Een lege vermelding in het zip-archief."
   overload: System.IO.Compression.ZipArchive.CreateEntry*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>entryName</code> is <xref:System.String>."
+    description: "<code>entryName</code>is <xref:System.String>."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>entryName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>entryName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The zip archive does not support writing."
+    description: "Schrijven wordt niet ondersteund in het zip-archief."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The zip archive has been disposed."
+    description: "Het zip-archief is verwijderd."
   platform:
   - net462
 - uid: System.IO.Compression.ZipArchive.Dispose
@@ -288,8 +288,8 @@ items:
   assemblies:
   - System.IO.Compression
   namespace: System.IO.Compression
-  summary: "Releases the resources used by the current instance of the <xref href=&quot;System.IO.Compression.ZipArchive&quot;></xref> class."
-  remarks: "This method finishes writing the archive and releases all resources used by the <xref:System.IO.Compression.ZipArchive> object. Unless you construct the object by using the <xref:System.IO.Compression.ZipArchive.%23ctor%28System.IO.Stream%2CSystem.IO.Compression.ZipArchiveMode%2CSystem.Boolean%29> constructor overload and set its `leaveOpen` parameter to `true`, all underlying streams are closed and no longer available for subsequent write operations.       When you are finished using this instance of <xref:System.IO.Compression.ZipArchive>, call Dispose to release all resources used by this instance. You should eliminate further references to this <xref:System.IO.Compression.ZipArchive> instance so that the garbage collector can reclaim the memory of the instance instead of keeping it alive for finalization.       Dispose calls the <xref:System.IO.Compression.ZipArchive.Dispose%28System.Boolean%29> method, which contains the code to release managed and unmanaged resources. For more information, see ."
+  summary: "Heft de bronnen die worden gebruikt door het huidige exemplaar van de <xref href=&quot;System.IO.Compression.ZipArchive&quot;> </xref> klasse."
+  remarks: "Deze methode is voltooid voor het schrijven van het archief en releases van alle resources die worden gebruikt door de <xref:System.IO.Compression.ZipArchive>object.</xref:System.IO.Compression.ZipArchive> Tenzij u het object met behulp van opgeven de <xref:System.IO.Compression.ZipArchive.%23ctor%28System.IO.Stream%2CSystem.IO.Compression.ZipArchiveMode%2CSystem.Boolean%29>constructor overbelasting en stel de `leaveOpen` -parameter voor `true`, alle onderliggende gegevensstromen zijn gesloten en niet langer beschikbaar voor opeenvolgende schrijfbewerkingen.</xref:System.IO.Compression.ZipArchive.%23ctor%28System.IO.Stream%2CSystem.IO.Compression.ZipArchiveMode%2CSystem.Boolean%29>       Wanneer u klaar bent met dit exemplaar van <xref:System.IO.Compression.ZipArchive>, roepen Dispose release van alle resources die worden gebruikt door dit exemplaar.</xref:System.IO.Compression.ZipArchive> U moet meer verwijzingen naar deze elimineren <xref:System.IO.Compression.ZipArchive>zodat het geheugen van het exemplaar in plaats van deze alive voor voltooiing te houden kunt vrijmaken door de garbage collector-instantie.</xref:System.IO.Compression.ZipArchive>       Verwijderen van aanroepen de <xref:System.IO.Compression.ZipArchive.Dispose%28System.Boolean%29>methode, waarmee bevat de code om beheerde en onbeheerde bronnen vrij te geven.</xref:System.IO.Compression.ZipArchive.Dispose%28System.Boolean%29> Zie voor meer informatie."
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -309,14 +309,14 @@ items:
   assemblies:
   - System.IO.Compression
   namespace: System.IO.Compression
-  summary: "Called by the <xref href=&quot;System.IO.Compression.ZipArchive.Dispose&quot;></xref> and <xref:System.Object.Finalize> methods to release the unmanaged resources used by the current instance of the <xref href=&quot;System.IO.Compression.ZipArchive&quot;></xref> class, and optionally finishes writing the archive and releases the managed resources."
-  remarks: "If `disposing` is set to `true`, all underlying streams are closed and no longer available for subsequent write operations, unless you construct the object by using the <xref:System.IO.Compression.ZipArchive.%23ctor%28System.IO.Stream%2CSystem.IO.Compression.ZipArchiveMode%2CSystem.Boolean%29> constructor overload and set its `leaveOpen` parameter to `true`.       This method is called only by the public <xref:System.IO.Compression.ZipArchive.Dispose> and <xref:System.Object.Finalize> methods; do not call this method directly.       When you implement the dispose pattern, the Boolean parameter of the Dispose method should be used as follows:      -   The <xref:System.IO.Compression.ZipArchive.Dispose> method of the current object should call Dispose with the Boolean parameter set to `true` to release both managed and unmanaged resources.      -   The <xref:System.Object.Finalize> method of the current object should call Dispose with the Boolean parameter set to `false` to release only unmanaged resources.       For more information, see ."
+  summary: "Aangeroepen door de <xref href=&quot;System.IO.Compression.ZipArchive.Dispose&quot;> </xref> en <xref:System.Object.Finalize>methoden voor het vrijgeven van de niet-beheerde bronnen worden gebruikt door het huidige exemplaar van de <xref href=&quot;System.IO.Compression.ZipArchive&quot;> </xref> klasse, en desgewenst klaar is met het schrijven van het archief en de beheerde bronnen vrij.</xref:System.Object.Finalize>"
+  remarks: "Als `disposing` is ingesteld op `true`, alle onderliggende gegevensstromen zijn gesloten en niet langer beschikbaar voor opeenvolgende schrijfbewerkingen, tenzij u het object met behulp van opgeven de <xref:System.IO.Compression.ZipArchive.%23ctor%28System.IO.Stream%2CSystem.IO.Compression.ZipArchiveMode%2CSystem.Boolean%29>constructor overbelasting en stel de `leaveOpen` -parameter voor `true`.</xref:System.IO.Compression.ZipArchive.%23ctor%28System.IO.Stream%2CSystem.IO.Compression.ZipArchiveMode%2CSystem.Boolean%29>       Deze methode wordt aangeroepen door het publiek alleen <xref:System.IO.Compression.ZipArchive.Dispose>en <xref:System.Object.Finalize>methoden; deze methode niet rechtstreeks aangeroepen.</xref:System.Object.Finalize> </xref:System.IO.Compression.ZipArchive.Dispose>       Wanneer u het patroon dispose implementeert, de Booleaanse parameter van de methode Dispose dient te worden als volgt: - de <xref:System.IO.Compression.ZipArchive.Dispose>methode van het huidige object Dispose moet aanroepen met de Booleaanse parameter die is ingesteld op `true` om zowel beheerde als onbeheerde bronnen vrij te geven.</xref:System.IO.Compression.ZipArchive.Dispose>      -De <xref:System.Object.Finalize>methode van het huidige object Dispose moet aanroepen met de Booleaanse parameter die is ingesteld op `false` om alleen niet-beheerde bronnen vrij te geven.</xref:System.Object.Finalize>       Zie voor meer informatie."
   syntax:
     content: protected virtual void Dispose (bool disposing);
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to finish writing the archive and release unmanaged and managed resources; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to release only unmanaged resources."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>schrijven van het archief is voltooid en niet-beheerde en beheerde bronnen; vrijgeven <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> om alleen niet-beheerde bronnen vrij te geven."
   overload: System.IO.Compression.ZipArchive.Dispose*
   exceptions: []
   platform:
@@ -333,26 +333,26 @@ items:
   assemblies:
   - System.IO.Compression
   namespace: System.IO.Compression
-  summary: "Gets the collection of entries that are currently in the zip archive."
-  remarks: "Use the Entries property to retrieve the entire collection of entries. Use the <xref:System.IO.Compression.ZipArchive.GetEntry%2A> method to retrieve a single entry by name."
+  summary: "Hiermee haalt u het verzamelen van gegevens die zich momenteel in het zip-archief."
+  remarks: "Gebruik de eigenschap vermeldingen voor het ophalen van de volledige verzameling vermeldingen. Gebruik de <xref:System.IO.Compression.ZipArchive.GetEntry%2A>methode voor het ophalen van een afzonderlijke vermelding met de naam.</xref:System.IO.Compression.ZipArchive.GetEntry%2A>"
   example:
   - "The following example shows how to open a zip archive and iterate through the collection of entries.  \n  \n [!code-cs[System.IO.Compression.ZipArchive#1](~/add/codesnippet/csharp/p-system.io.compression._5_1.cs)]\n [!code-vb[System.IO.Compression.ZipArchive#1](~/add/codesnippet/visualbasic/p-system.io.compression._5_1.vb)]"
   syntax:
     content: public System.Collections.ObjectModel.ReadOnlyCollection<System.IO.Compression.ZipArchiveEntry> Entries { get; }
     return:
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.IO.Compression.ZipArchiveEntry}
-      description: "The collection of entries that are currently in the zip archive."
+      description: "De verzameling items die zich momenteel in het zip-archief."
   overload: System.IO.Compression.ZipArchive.Entries*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The zip archive does not support reading."
+    description: "Lezen wordt niet ondersteund in het zip-archief."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The zip archive has been disposed."
+    description: "Het zip-archief is verwijderd."
   - type: System.IO.InvalidDataException
     commentId: T:System.IO.InvalidDataException
-    description: "The zip archive is corrupt, and its entries cannot be retrieved."
+    description: "Het zip-archief is beschadigd en de vermeldingen kunnen niet worden opgehaald."
   platform:
   - net462
 - uid: System.IO.Compression.ZipArchive.GetEntry(System.String)
@@ -367,8 +367,8 @@ items:
   assemblies:
   - System.IO.Compression
   namespace: System.IO.Compression
-  summary: "Retrieves a wrapper for the specified entry in the zip archive."
-  remarks: "If multiple entries that have the specified name exist in the archive, the first one is returned. The name of the entry is compared to `entryName` using ordinal comparison."
+  summary: "Haalt een wrapper voor het opgegeven item in het zip-archief."
+  remarks: "Als meerdere vermeldingen met de opgegeven naam in het archief bestaat, wordt het eerste werd geretourneerd. De naam van de vermelding wordt vergeleken met `entryName` met rangtelwoord vergelijking."
   example:
   - "The following example shows how to use the GetEntry method to retrieve an entry.  \n  \n [!code-cs[System.IO.Compression.ZipArchiveEntry#2](~/add/codesnippet/csharp/m-system.io.compression._4_1.cs)]\n [!code-vb[System.IO.Compression.ZipArchiveEntry#2](~/add/codesnippet/visualbasic/m-system.io.compression._4_1.vb)]"
   syntax:
@@ -376,27 +376,27 @@ items:
     parameters:
     - id: entryName
       type: System.String
-      description: "A path, relative to the root of the archive, that identifies the entry to retrieve."
+      description: "Een pad relatief ten opzichte van de hoofdmap van het archief waarin het item ophalen."
     return:
       type: System.IO.Compression.ZipArchiveEntry
-      description: "A wrapper for the specified entry in the archive; <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the entry does not exist in the archive."
+      description: "Een wrapper voor het opgegeven item in het archief; <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> als de vermelding niet in het archief bestaat."
   overload: System.IO.Compression.ZipArchive.GetEntry*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>entryName</code> is <xref:System.String>."
+    description: "<code>entryName</code>is <xref:System.String>."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>entryName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>entryName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The zip archive does not support reading."
+    description: "Lezen wordt niet ondersteund in het zip-archief."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The zip archive has been disposed."
+    description: "Het zip-archief is verwijderd."
   - type: System.IO.InvalidDataException
     commentId: T:System.IO.InvalidDataException
-    description: "The zip archive is corrupt, and its entries cannot be retrieved."
+    description: "Het zip-archief is beschadigd en de vermeldingen kunnen niet worden opgehaald."
   platform:
   - net462
 - uid: System.IO.Compression.ZipArchive.Mode
@@ -411,13 +411,13 @@ items:
   assemblies:
   - System.IO.Compression
   namespace: System.IO.Compression
-  summary: "Gets a value that describes the type of action the zip archive can perform on entries."
-  remarks: "You specify a value for the <xref:System.IO.Compression.ZipArchive> property when you create an instance of the <xref:System.IO.Compression.ZipArchive> class. Use the <xref:System.IO.Compression.ZipArchive.%23ctor%28System.IO.Stream%2CSystem.IO.Compression.ZipArchiveMode%29> or <xref:System.IO.Compression.ZipArchive.%23ctor%28System.IO.Stream%2CSystem.IO.Compression.ZipArchiveMode%2CSystem.Boolean%29> constructor to provide a value for the Mode property."
+  summary: "Hiermee wordt een waarde die worden beschreven van het type actie dat het zip-archief op vermeldingen kunt uitvoeren."
+  remarks: "U opgeven een waarde voor de <xref:System.IO.Compression.ZipArchive>eigenschap bij het maken van een exemplaar van de <xref:System.IO.Compression.ZipArchive>klasse.</xref:System.IO.Compression.ZipArchive> </xref:System.IO.Compression.ZipArchive> Gebruik de <xref:System.IO.Compression.ZipArchive.%23ctor%28System.IO.Stream%2CSystem.IO.Compression.ZipArchiveMode%29>of <xref:System.IO.Compression.ZipArchive.%23ctor%28System.IO.Stream%2CSystem.IO.Compression.ZipArchiveMode%2CSystem.Boolean%29>constructor een waarde opgeven voor de eigenschap Mode.</xref:System.IO.Compression.ZipArchive.%23ctor%28System.IO.Stream%2CSystem.IO.Compression.ZipArchiveMode%2CSystem.Boolean%29> </xref:System.IO.Compression.ZipArchive.%23ctor%28System.IO.Stream%2CSystem.IO.Compression.ZipArchiveMode%29>"
   syntax:
     content: public System.IO.Compression.ZipArchiveMode Mode { get; }
     return:
       type: System.IO.Compression.ZipArchiveMode
-      description: "One of the enumeration values that describes the type of action (read, create, or update) the zip archive can perform on entries."
+      description: "Een van de opsommingswaarden die worden beschreven van het type actie (lezen, maken of bijwerken) het zip-archief op vermeldingen kunt uitvoeren."
   overload: System.IO.Compression.ZipArchive.Mode*
   exceptions: []
   platform:

@@ -32,8 +32,8 @@ items:
   nameWithType: Clock
   fullName: System.Windows.Media.Animation.Clock
   type: Class
-  summary: "Maintains run-time timing state for a <xref href=&quot;System.Windows.Media.Animation.Timeline&quot;></xref>."
-  remarks: "A <xref:System.Windows.Media.Animation.Timeline>, by itself, doesn&quot;t actually do anything other than describe a segment of time. It&quot;s the timeline&quot;s Clock object that does the real work: it maintains timing-related run-time state for the timeline.       In most cases, a clock is created automatically for your timeline. When you animate by using a <xref:System.Windows.Media.Animation.Storyboard> or the <xref:System.Windows.Media.Animation.Animatable.BeginAnimation%2A> method, clocks are automatically created for your timelines and animations and applied to their targeted properties. For examples, see [How to: Animate a Property by Using a Storyboard](~/add/includes/ajax-current-ext-md.md) and [How to: Animate a Property Without Using a Storyboard](~/add/includes/ajax-current-ext-md.md).       You can also create a Clock explicitly by using the <xref:System.Windows.Media.Animation.Timeline.CreateClock%2A> method. In performance-intensive scenarios, such as animating large numbers of similar objects, managing your own Clock use can provide performance benefits.       Clocks are arranged in trees that match the structure of the <xref:System.Windows.Media.Animation.Timeline> objects tree from which they are created. The root clock of such a timing tree can be interactively manipulated (paused, resumed, stopped, and so on) by retrieving its <xref:System.Windows.Media.Animation.Clock.Controller%2A>. Non-root clocks cannot be directly controlled.       Once created, a clock cannot be modified (but it can be manipulated).      ## Using a Timeline as a Timer    A timeline&quot;s clock will only progress when there&quot;s an event handler associated with it or (in the case of an <xref:System.Windows.Media.Animation.AnimationClock> object) it is associated with a property. For this reason (and others), it&quot;s not recommended that you use a <xref:System.Windows.Media.Animation.Timeline> as a timer."
+  summary: "Timing van de runtime-status voor onderhoudt een <xref href=&quot;System.Windows.Media.Animation.Timeline&quot;> </xref>."
+  remarks: "A <xref:System.Windows.Media.Animation.Timeline>, zelfstandig gebruikt, daadwerkelijk doet nog niets anders dan een segment van de tijd te beschrijven.</xref:System.Windows.Media.Animation.Timeline> Het object in de tijdlijn Clock die het echte werk is: de timing-gerelateerde runtime-status voor de tijdlijn wordt bijgehouden.       Meestal wordt een klok automatisch gemaakt voor de tijdlijn. Wanneer u animeren met behulp van een <xref:System.Windows.Media.Animation.Storyboard>of de <xref:System.Windows.Media.Animation.Animatable.BeginAnimation%2A>methode klokken automatisch worden gemaakt voor uw tijdlijnen en animaties en toegepast op de betreffende eigenschappen.</xref:System.Windows.Media.Animation.Animatable.BeginAnimation%2A> </xref:System.Windows.Media.Animation.Storyboard> Zie voor voorbeelden [hoe: een eigenschap animeren met behulp van een Storyboard](~/add/includes/ajax-current-ext-md.md) en [hoe: een eigenschap zonder met behulp van een Storyboard animeren](~/add/includes/ajax-current-ext-md.md).       U kunt ook een klok expliciet maken met behulp van de <xref:System.Windows.Media.Animation.Timeline.CreateClock%2A>methode.</xref:System.Windows.Media.Animation.Timeline.CreateClock%2A> Het beheren van uw eigen gebruik klok bieden prestatievoordelen in prestatie-intensieve scenario&quot;s, zoals het animeren van grote aantallen soortgelijke objecten.       Klokken worden gerangschikt in structuren die overeenkomen met de structuur van de <xref:System.Windows.Media.Animation.Timeline>objecten boomstructuur van dat ze worden gemaakt.</xref:System.Windows.Media.Animation.Timeline> De klok hoofdmap van deze een boomstructuur van de timing interactief kan worden gemanipuleerd (onderbroken, hervat, gestopt en enzovoort) door op te halen van de <xref:System.Windows.Media.Animation.Clock.Controller%2A>.</xref:System.Windows.Media.Animation.Clock.Controller%2A> Niet-basismappen klokken worden niet rechtstreeks beheerd.       Zodra u hebt gemaakt, een klok kan niet worden gewijzigd, maar deze kan worden bewerkt.      ## Met behulp van een tijdlijn een Timer A-tijdlijn klok wordt alleen de voortgang wanneer er een gebeurtenis-handler is gekoppeld of (in het geval van een <xref:System.Windows.Media.Animation.AnimationClock>object) is gekoppeld aan een eigenschap.</xref:System.Windows.Media.Animation.AnimationClock> Voor deze reden (en andere), wordt niet aanbevolen dat u een <xref:System.Windows.Media.Animation.Timeline>als een timer.</xref:System.Windows.Media.Animation.Timeline>"
   syntax:
     content: 'public class Clock : System.Windows.Threading.DispatcherObject'
   inheritance:
@@ -58,13 +58,13 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Media.Animation.Clock&quot;></xref> class, using the specified <xref:System.Windows.Media.Animation.Clock.Timeline*> as a template. The new <xref href=&quot;System.Windows.Media.Animation.Clock&quot;></xref> object has no children."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Windows.Media.Animation.Clock&quot;> </xref> klasse, met behulp van de opgegeven <xref:System.Windows.Media.Animation.Clock.Timeline*>als sjabloon.</xref:System.Windows.Media.Animation.Clock.Timeline*> De nieuwe <xref href=&quot;System.Windows.Media.Animation.Clock&quot;> </xref> object heeft geen onderliggende elementen."
   syntax:
     content: protected Clock (System.Windows.Media.Animation.Timeline timeline);
     parameters:
     - id: timeline
       type: System.Windows.Media.Animation.Timeline
-      description: "The <xref:System.Windows.Media.Animation.Clock.Timeline*> from which this clock should be constructed. Clocks are not created for any child <xref:System.Windows.Media.Animation.Clock.Timeline*> objects, if they exist."
+      description: "De <> </> *> van deze clock moet worden samengesteld. Klokken worden niet gemaakt voor alle onderliggende <> </> *> objecten, indien aanwezig."
   overload: System.Windows.Media.Animation.Clock.#ctor*
   exceptions: []
   platform:
@@ -81,13 +81,13 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Occurs when this clock has completely finished playing."
-  remarks: "If this clock is the root clock of a clock tree, it has completed playing after it reaches the end of its active duration (which includes repeats) and all its children have reached the end of their active durations. If this clock is a child clock, it is considered to have completely finished playing when the root clock of the clock tree to which it belongs reaches the end of its active duration and all its child clocks have finished playing.       Stopping a clock does not trigger its completed event, but advancing it to its fill period does."
+  summary: "Treedt op wanneer deze clock is volledig afgespeeld."
+  remarks: "Als deze clock de klok hoofdmap van een structuur klok is, is het voltooid afspelen nadat het einde van de actieve duur (met herhalingen) is bereikt en alle onderliggende het einde van de bijbehorende active duur is bereikt. Als deze clock de klok van een onderliggend is, wordt dit beschouwd als afspelen wanneer de klok hoofdmap van de klok structuur waarvan deze deel bereikt uitmaakt het einde van de actieve duur en alle bijbehorende onderliggende klokken hebt opgegeven spelen volledig hebt voltooid.       Een klok wordt gestopt, wordt de voltooide gebeurtenis niet geactiveerd, maar deze geavanceerde naar opvulperiode doet."
   syntax:
     content: public event EventHandler Completed;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -103,13 +103,13 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Gets a <xref href=&quot;System.Windows.Media.Animation.ClockController&quot;></xref> that can be used to start, pause, resume, seek, skip, stop, or remove this <xref href=&quot;System.Windows.Media.Animation.Clock&quot;></xref>."
-  remarks: "Only root clocks can be interactively controlled."
+  summary: "Haalt een <xref href=&quot;System.Windows.Media.Animation.ClockController&quot;> </xref> die kunnen worden gebruikt om te starten, onderbreken, hervatten, zoeken, overslaan, stoppen, of verwijder deze <xref href=&quot;System.Windows.Media.Animation.Clock&quot;> </xref>."
+  remarks: "Alleen hoofdmap klokken kunnen interactief worden beheerd."
   syntax:
     content: public System.Windows.Media.Animation.ClockController Controller { get; }
     return:
       type: System.Windows.Media.Animation.ClockController
-      description: "A <xref href=&quot;System.Windows.Media.Animation.ClockController&quot;></xref> if this is a root clock; otherwise, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Een <xref href=&quot;System.Windows.Media.Animation.ClockController&quot;> </xref> als dit een klok hoofdmap; anders <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Media.Animation.Clock.Controller*
   exceptions: []
   platform:
@@ -126,12 +126,12 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Gets the rate at which the clock&quot;s time is currently progressing, compared to real-world time."
+  summary: "De snelheid waarmee de klok momenteel verloopt, vergeleken met de werkelijke tijd opgehaald."
   syntax:
     content: public Nullable<double> CurrentGlobalSpeed { get; }
     return:
       type: System.Nullable{System.Double}
-      description: "The rate at which this clock&quot;s time is current progressing, compared to real-world time. If the clock is stopped, this property returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "De snelheid waarmee deze klok huidige voortgang is vergeleken met de werkelijke tijd. Als de klok is gestopt, retourneert deze eigenschap <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Media.Animation.Clock.CurrentGlobalSpeed*
   exceptions: []
   platform:
@@ -148,13 +148,13 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Occurs when the clock&quot;s speed is updated."
-  remarks: "Pausing, resuming, reversing, accelerating, decelerating, seeking, stopping, or changing a clock&quot;s interactive speed using a <xref:System.Windows.Media.Animation.ClockController> triggers this event.       Although this event occurs when the <xref:System.Windows.Media.Animation.Clock.CurrentGlobalSpeed%2A> property becomes invalid, that doesn&quot;t necessarily mean the property changed."
+  summary: "Deze gebeurtenis treedt op wanneer de klok snelheid wordt bijgewerkt."
+  remarks: "Onderbreken, hervatten, om te keren, versnellen, afnemende, zoeken, gestopt of een klok wijzigen de interactieve snelheid met behulp van een <xref:System.Windows.Media.Animation.ClockController>Deze gebeurtenis wordt geactiveerd.</xref:System.Windows.Media.Animation.ClockController>       Hoewel deze gebeurtenis treedt op wanneer de <xref:System.Windows.Media.Animation.Clock.CurrentGlobalSpeed%2A>eigenschap is ongeldig, die niet noodzakelijkerwijs voor de eigenschap gewijzigd dat.</xref:System.Windows.Media.Animation.Clock.CurrentGlobalSpeed%2A>"
   syntax:
     content: public event EventHandler CurrentGlobalSpeedInvalidated;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -170,12 +170,12 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Gets the current global time, as established by the [!INCLUDE[TLA2#tla_wpf](~/add/includes/ajax-current-ext-md.md)] timing system."
+  summary: "De huidige tijd van de globale opgehaald die door de [!INCLUDE[TLA2#tla_wpf](~/add/includes/ajax-current-ext-md.md)] timing systeem."
   syntax:
     content: protected TimeSpan CurrentGlobalTime { get; }
     return:
       type: System.TimeSpan
-      description: "The current global time for the [!INCLUDE[TLA2#tla_wpf](~/add/includes/ajax-current-ext-md.md)] timing system."
+      description: "De huidige globale tijd voor de [!INCLUDE[TLA2#tla_wpf](~/add/includes/ajax-current-ext-md.md)] timing systeem."
   overload: System.Windows.Media.Animation.Clock.CurrentGlobalTime*
   exceptions: []
   platform:
@@ -192,13 +192,13 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Get the current iteration of this clock."
-  remarks: "A clock&quot;s first iteration has a value of 1.       If this clock&quot;s timeline has an <xref:System.Windows.Media.Animation.Timeline.AutoReverse%2A> setting of `true`, a full iteration consists of a forward-reverse pair, not just one of these segments.       Regardless of its current iteration, seeking a clock returns its current iteration to 1. Restarting a clock also returns its current iteration to 1."
+  summary: "De huidige herhaling van deze clock ophalen."
+  remarks: "De eerste iteratie een klok heeft een waarde van 1.       Als deze clock tijdlijn heeft een <xref:System.Windows.Media.Animation.Timeline.AutoReverse%2A>instellen van `true`, een volledige iteratie bestaat uit een combinatie van zone voor forward-reverse, niet alleen een van deze segmenten.</xref:System.Windows.Media.Animation.Timeline.AutoReverse%2A>       Ongeacht de huidige herhaling retourneert een klok zoeken de huidige herhaling op 1. Retourneert de huidige herhaling opnieuw starten van een klok ook op 1."
   syntax:
     content: public Nullable<int> CurrentIteration { get; }
     return:
       type: System.Nullable{System.Int32}
-      description: "This clock&quot;s current iteration within its current active period, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if this clock is stopped."
+      description: "Deze clock huidige herhaling binnen de huidige actieve periode of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> als deze clock is gestopt."
   overload: System.Windows.Media.Animation.Clock.CurrentIteration*
   exceptions: []
   platform:
@@ -215,13 +215,13 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Gets the current progress of this <xref href=&quot;System.Windows.Media.Animation.Clock&quot;></xref> within its current iteration."
-  remarks: "The value of this property indicates the <xref:System.Windows.Media.Animation.Clock.CurrentTime%2A> normalized by the <xref:System.Windows.Media.Animation.Timeline.Duration%2A> of this clock&quot;s <xref:System.Windows.Media.Animation.Clock.Timeline%2A>.       A clock that is <xref:System.Windows.Media.Animation.ClockState> has a CurrentProgress of 1.0.      ## Using a Timeline as a Timer    A timeline&quot;s clock will only progress when there&quot;s an event hander associated with it or (in the case of an <xref:System.Windows.Media.Animation.AnimationClock> object) it is associated with a property. For this reason (and others), it&quot;s not recommended that you use a <xref:System.Windows.Media.Animation.Timeline> as a timer."
+  summary: "De huidige voortgang van deze opgehaald <xref href=&quot;System.Windows.Media.Animation.Clock&quot;> </xref> binnen de huidige herhaling."
+  remarks: "De waarde van deze eigenschap geeft aan dat de <xref:System.Windows.Media.Animation.Clock.CurrentTime%2A>genormaliseerde door de <xref:System.Windows.Media.Animation.Timeline.Duration%2A>van deze clock <xref:System.Windows.Media.Animation.Clock.Timeline%2A>.</xref:System.Windows.Media.Animation.Clock.Timeline%2A> </xref:System.Windows.Media.Animation.Timeline.Duration%2A> </xref:System.Windows.Media.Animation.Clock.CurrentTime%2A>       Een clock die <xref:System.Windows.Media.Animation.ClockState>heeft een CurrentProgress van 1.0.</xref:System.Windows.Media.Animation.ClockState>      ## Met behulp van een tijdlijn een Timer A-tijdlijn klok wordt alleen de voortgang wanneer er een gebeurtenis-handler is gekoppeld of (in het geval van een <xref:System.Windows.Media.Animation.AnimationClock>object) is gekoppeld aan een eigenschap.</xref:System.Windows.Media.Animation.AnimationClock> Voor deze reden (en andere), wordt niet aanbevolen dat u een <xref:System.Windows.Media.Animation.Timeline>als een timer.</xref:System.Windows.Media.Animation.Timeline>"
   syntax:
     content: public Nullable<double> CurrentProgress { get; }
     return:
       type: System.Nullable{System.Double}
-      description: "<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if this clock is <xref href=&quot;System.Windows.Media.Animation.ClockState&quot;></xref>, or 0.0 if this clock is active and its <xref:System.Windows.Media.Animation.Clock.Timeline*> has a <xref:System.Windows.Media.Animation.Timeline.Duration*> of <xref:System.Windows.Duration.Forever*>; otherwise, a value between 0.0 and 1.0 that indicates the current progress of this Clock within its current iteration. A value of 0.0 indicates no progress, and a value of 1.0 indicates that the clock is at the end of its current iteration."
+      description: "<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>Als deze clock <xref href=&quot;System.Windows.Media.Animation.ClockState&quot;> </xref>, of 0,0 als deze clock actief is en de bijbehorende <> </> *> heeft een <> </> *> van <xref:System.Windows.Duration.Forever*>; anders wordt een waarde tussen 0,0 en 1,0 die aangeeft van de huidige voortgang van deze Clock binnen de huidige herhaling.</xref:System.Windows.Duration.Forever*> De waarde van 0,0 geeft geen voortgang, en een waarde van 1,0 geeft aan dat de klok aan het einde van de huidige herhaling."
   overload: System.Windows.Media.Animation.Clock.CurrentProgress*
   exceptions: []
   platform:
@@ -238,13 +238,13 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Gets a value indicating whether the clock is currently <xref href=&quot;System.Windows.Media.Animation.ClockState&quot;></xref>, <xref href=&quot;System.Windows.Media.Animation.ClockState&quot;></xref>, or <xref href=&quot;System.Windows.Media.Animation.ClockState&quot;></xref>."
-  remarks: "Note the clock&quot;s CurrentState property doesn&quot;t tell you whether it&quot;s paused. To determine whether a clock is paused, use the <xref:System.Windows.Media.Animation.Clock.IsPaused%2A> property.       The <xref:System.Windows.Media.Animation.Clock.CurrentStateInvalidated> occurs whenever the value of this property changes."
+  summary: "Hiermee wordt een waarde die aangeeft of de klok momenteel <xref href=&quot;System.Windows.Media.Animation.ClockState&quot;> </xref>, <xref href=&quot;System.Windows.Media.Animation.ClockState&quot;> </xref>, of <xref href=&quot;System.Windows.Media.Animation.ClockState&quot;> </xref>."
+  remarks: "Houd er rekening mee dat van de klok HuidigeStatus eigenschap ziet u niet of het programma is onderbroken. Om te bepalen of een klok is onderbroken, gebruikt de <xref:System.Windows.Media.Animation.Clock.IsPaused%2A>eigenschap.</xref:System.Windows.Media.Animation.Clock.IsPaused%2A>       De <xref:System.Windows.Media.Animation.Clock.CurrentStateInvalidated>treedt op wanneer de waarde van deze eigenschap wordt gewijzigd.</xref:System.Windows.Media.Animation.Clock.CurrentStateInvalidated>"
   syntax:
     content: public System.Windows.Media.Animation.ClockState CurrentState { get; }
     return:
       type: System.Windows.Media.Animation.ClockState
-      description: 'The current state of the clock: <xref href=&quot;System.Windows.Media.Animation.ClockState&quot;></xref>, <xref href=&quot;System.Windows.Media.Animation.ClockState&quot;></xref>, or <xref href=&quot;System.Windows.Media.Animation.ClockState&quot;></xref>.'
+      description: 'De huidige status van de klok: <xref href=&quot;System.Windows.Media.Animation.ClockState&quot;> </xref>, <xref href=&quot;System.Windows.Media.Animation.ClockState&quot;> </xref>, of <xref href=&quot;System.Windows.Media.Animation.ClockState&quot;> </xref>.'
   overload: System.Windows.Media.Animation.Clock.CurrentState*
   exceptions: []
   platform:
@@ -261,13 +261,13 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Occurs when the clock&quot;s <xref:System.Windows.Media.Animation.Clock.CurrentState*> property is updated."
-  remarks: "Use the <xref:System.Windows.Media.Animation.Timeline.CurrentStateInvalidated> event when you want to be notified if when the clock starts, stops, or fills. The <xref:System.Object> parameter of the <xref:System.EventHandler> event handler is the <xref:System.Windows.Media.Animation.Clock> whose state was invalidated.       Pausing a <xref:System.Windows.Media.Animation.Clock> does not change its <xref:System.Windows.Media.Animation.Clock.CurrentState%2A>. To be notified when a clock becomes paused, use the <xref:System.Windows.Media.Animation.Timeline.CurrentGlobalSpeedInvalidated> event.       Although this event occurs when the <xref:System.Windows.Media.Animation.ClockState> becomes invalid, that doesn&quot;t necessarily mean the <xref:System.Windows.Media.Animation.ClockState> changed: a <xref:System.Windows.Media.Animation.Clock> that switches from <xref:System.Windows.Media.Animation.ClockState> to <xref:System.Windows.Media.Animation.ClockState> and then back to <xref:System.Windows.Media.Animation.ClockState> in the same tick will cause this event to fire, but its <xref:System.Windows.Media.Animation.Clock.CurrentState%2A> property won&quot;t actually change."
+  summary: "Deze gebeurtenis treedt op wanneer de klok <xref:System.Windows.Media.Animation.Clock.CurrentState*>eigenschap wordt bijgewerkt.</xref:System.Windows.Media.Animation.Clock.CurrentState*>"
+  remarks: "Gebruik de <xref:System.Windows.Media.Animation.Timeline.CurrentStateInvalidated>gebeurtenis als u wilt worden gewaarschuwd als wanneer de klok wordt gestart, gestopt of vult.</xref:System.Windows.Media.Animation.Timeline.CurrentStateInvalidated> De <xref:System.Object>parameter van de <xref:System.EventHandler>gebeurtenis-handler is de <xref:System.Windows.Media.Animation.Clock>waarvan de status is ongeldig gemaakt.</xref:System.Windows.Media.Animation.Clock> </xref:System.EventHandler> </xref:System.Object>       Een <xref:System.Windows.Media.Animation.Clock>verandert de <xref:System.Windows.Media.Animation.Clock.CurrentState%2A>.</xref:System.Windows.Media.Animation.Clock.CurrentState%2A> niet</xref:System.Windows.Media.Animation.Clock> onderbreken Als u wilt worden gewaarschuwd wanneer er wordt een klok onderbroken, gebruiken de <xref:System.Windows.Media.Animation.Timeline.CurrentGlobalSpeedInvalidated>gebeurtenis.</xref:System.Windows.Media.Animation.Timeline.CurrentGlobalSpeedInvalidated>       Hoewel deze gebeurtenis treedt op wanneer de <xref:System.Windows.Media.Animation.ClockState>is ongeldig, die niet noodzakelijkerwijs dat de <xref:System.Windows.Media.Animation.ClockState>gewijzigd: een <xref:System.Windows.Media.Animation.Clock>die verandert van <xref:System.Windows.Media.Animation.ClockState>naar <xref:System.Windows.Media.Animation.ClockState>en vervolgens weer terug naar <xref:System.Windows.Media.Animation.ClockState>in de dezelfde maatstreepjes wordt deze gebeurtenis wordt gestart, maar de <xref:System.Windows.Media.Animation.Clock.CurrentState%2A>eigenschap daadwerkelijk niet wijzigt.</xref:System.Windows.Media.Animation.Clock.CurrentState%2A> </xref:System.Windows.Media.Animation.ClockState> </xref:System.Windows.Media.Animation.ClockState> </xref:System.Windows.Media.Animation.ClockState> </xref:System.Windows.Media.Animation.Clock> </xref:System.Windows.Media.Animation.ClockState> </xref:System.Windows.Media.Animation.ClockState>"
   syntax:
     content: public event EventHandler CurrentStateInvalidated;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -283,13 +283,13 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Gets this clock&quot;s current time within its current iteration."
-  remarks: "## Using a Timeline as a Timer    A timeline&quot;s clock will only progress when there&quot;s an event hander associated with it or (in the case of an <xref:System.Windows.Media.Animation.AnimationClock> object) it is associated with a property. For this reason (and others), it&quot;s not recommended that you use a <xref:System.Windows.Media.Animation.Timeline> as a timer."
+  summary: "Haalt deze clock de huidige tijd binnen de huidige herhaling."
+  remarks: "## Met behulp van een tijdlijn een Timer A-tijdlijn klok wordt alleen de voortgang wanneer er een gebeurtenis-handler is gekoppeld of (in het geval van een <xref:System.Windows.Media.Animation.AnimationClock>object) is gekoppeld aan een eigenschap.</xref:System.Windows.Media.Animation.AnimationClock> Voor deze reden (en andere), wordt niet aanbevolen dat u een <xref:System.Windows.Media.Animation.Timeline>als een timer.</xref:System.Windows.Media.Animation.Timeline>"
   syntax:
     content: public Nullable<TimeSpan> CurrentTime { get; }
     return:
       type: System.Nullable{System.TimeSpan}
-      description: "<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if this clock is <xref href=&quot;System.Windows.Media.Animation.ClockState&quot;></xref>; otherwise, the current time of this clock."
+      description: "<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>Als deze clock <xref href=&quot;System.Windows.Media.Animation.ClockState&quot;> </xref>; anders wordt de huidige tijd van deze klok."
   overload: System.Windows.Media.Animation.Clock.CurrentTime*
   exceptions: []
   platform:
@@ -306,13 +306,13 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Occurs when this clock&quot;s <xref:System.Windows.Media.Animation.Clock.CurrentTime*> becomes invalid."
+  summary: "Deze gebeurtenis treedt op wanneer deze clock <xref:System.Windows.Media.Animation.Clock.CurrentTime*>is ongeldig.</xref:System.Windows.Media.Animation.Clock.CurrentTime*>"
   remarks: 'A clock''s <xref:System.Windows.Media.Animation.Clock.CurrentTime%2A> becomes invalid when the clock progresses. The following interactive operations also trigger the CurrentTimeInvalidated event: <xref:System.Windows.Media.Animation.ClockController.Begin%2A>, <xref:System.Windows.Media.Animation.ClockController.SkipToFill%2A>, <xref:System.Windows.Media.Animation.ClockController.Seek%2A>, <xref:System.Windows.Media.Animation.ClockController.SeekAlignedToLastTick%2A>, and <xref:System.Windows.Media.Animation.ClockController.Stop%2A>.'
   syntax:
     content: public event EventHandler CurrentTimeInvalidated;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -328,7 +328,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "When implemented in a derived class, will be invoked whenever a clock repeats, skips, or seeks."
+  summary: "Wanneer in een afgeleide klasse geïmplementeerd, wordt aangeroepen wanneer een klok wordt herhaald, slaat of zoekt."
   syntax:
     content: protected virtual void DiscontinuousTimeMovement ();
     parameters: []
@@ -348,14 +348,14 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Returns whether the <xref href=&quot;System.Windows.Media.Animation.Clock&quot;></xref> has its own external time source, which may require synchronization with the timing system."
-  remarks: "Media being played using <xref:System.Windows.Media.MediaTimeline> within a <xref:System.Windows.Media.Animation.Storyboard> is an example of creating a <xref:System.Windows.Media.Animation.Clock> that would have an external time source (a video clip for example) which may require synchronization with other timelines within the <xref:System.Windows.Media.Animation.Storyboard>. See <xref:System.Windows.Media.Animation.ParallelTimeline.SlipBehavior%2A> for more information."
+  summary: "Retourneert of de <xref href=&quot;System.Windows.Media.Animation.Clock&quot;> </xref> heeft een eigen externe tijdsbron, waarin u mogelijk synchronisatie met het systeem timing."
+  remarks: "Media worden afgespeeld met behulp van <xref:System.Windows.Media.MediaTimeline>binnen een <xref:System.Windows.Media.Animation.Storyboard>is een voorbeeld van het maken van een <xref:System.Windows.Media.Animation.Clock>die een externe tijdsbron (bijvoorbeeld een video clip) waarvoor synchronisatie met andere tijdlijnen binnen de <xref:System.Windows.Media.Animation.Storyboard>.</xref:System.Windows.Media.Animation.Storyboard> zou hebben</xref:System.Windows.Media.Animation.Clock> </xref:System.Windows.Media.Animation.Storyboard> </xref:System.Windows.Media.MediaTimeline> Zie <xref:System.Windows.Media.Animation.ParallelTimeline.SlipBehavior%2A>voor meer informatie.</xref:System.Windows.Media.Animation.ParallelTimeline.SlipBehavior%2A>"
   syntax:
     content: protected virtual bool GetCanSlip ();
     parameters: []
     return:
       type: System.Boolean
-      description: "Returns **true** if the <xref href=&quot;System.Windows.Media.Animation.Clock&quot;></xref> has its own external source for time, which may require synchronization with the timing system; otherwise, **false**."
+      description: "Retourneert **true** als de <xref href=&quot;System.Windows.Media.Animation.Clock&quot;> </xref> heeft een eigen externe bron voor de tijd waarin u mogelijk synchronisatie met het systeem timing; anders **false**."
   overload: System.Windows.Media.Animation.Clock.GetCanSlip*
   exceptions: []
   platform:
@@ -372,14 +372,14 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Gets this clock&quot;s current time within its current iteration."
-  remarks: "This method is used in the implementation of the <xref:System.Windows.Media.Animation.Clock.CurrentTime%2A> method and should not be called directly from your code."
+  summary: "Haalt deze clock de huidige tijd binnen de huidige herhaling."
+  remarks: "Deze methode wordt gebruikt in de implementatie van de <xref:System.Windows.Media.Animation.Clock.CurrentTime%2A>methode en niet rechtstreeks vanuit uw code moet worden aangeroepen.</xref:System.Windows.Media.Animation.Clock.CurrentTime%2A>"
   syntax:
     content: protected virtual TimeSpan GetCurrentTimeCore ();
     parameters: []
     return:
       type: System.TimeSpan
-      description: "The current time of this clock if it is active or filling; otherwise, <xref:System.TimeSpan>."
+      description: "De huidige tijd van deze clock als het actief of invullen; anders <xref:System.TimeSpan>.</xref:System.TimeSpan>"
   overload: System.Windows.Media.Animation.Clock.GetCurrentTimeCore*
   exceptions: []
   platform:
@@ -396,12 +396,12 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Gets a value that indicates whether this <xref href=&quot;System.Windows.Media.Animation.Clock&quot;></xref> is part of a controllable clock tree."
+  summary: "Hiermee wordt een waarde die aangeeft of dit <xref href=&quot;System.Windows.Media.Animation.Clock&quot;> </xref> maakt deel uit van een instelbare klok-structuur."
   syntax:
     content: public bool HasControllableRoot { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if this clock belongs to a clock tree with a controllable root clock or if this clock is itself a controllable root; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als deze clock tot een klok-boomstructuur met een klok instelbare hoofdmap behoort of als deze clock zelf een instelbare basis; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Media.Animation.Clock.HasControllableRoot*
   exceptions: []
   platform:
@@ -418,12 +418,12 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Gets a value that indicates whether this <xref href=&quot;System.Windows.Media.Animation.Clock&quot;></xref>, or any of its parents, is paused."
+  summary: "Hiermee wordt een waarde die aangeeft of dit <xref href=&quot;System.Windows.Media.Animation.Clock&quot;> </xref>, of een van de bovenliggende items, is onderbroken."
   syntax:
     content: public bool IsPaused { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if this <xref href=&quot;System.Windows.Media.Animation.Clock&quot;></xref> or any of its parents is paused; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als dit <xref href=&quot;System.Windows.Media.Animation.Clock&quot;> </xref> of een van de bovenliggende items is onderbroken, anders, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Media.Animation.Clock.IsPaused*
   exceptions: []
   platform:
@@ -440,13 +440,13 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Gets the natural duration of this clock&quot;s <xref:System.Windows.Media.Animation.Clock.Timeline*>."
-  remarks: "For more information about natural duration, see the <xref:System.Windows.Media.Animation.Timeline.GetNaturalDuration%2A?displayProperty=fullName> method."
+  summary: "De natuurlijke duur van deze clock <xref:System.Windows.Media.Animation.Clock.Timeline*>.</xref:System.Windows.Media.Animation.Clock.Timeline*> opgehaald"
+  remarks: "Zie voor meer informatie over de duur van de natuurlijke de <xref:System.Windows.Media.Animation.Timeline.GetNaturalDuration%2A?displayProperty=fullName>methode.</xref:System.Windows.Media.Animation.Timeline.GetNaturalDuration%2A?displayProperty=fullName>"
   syntax:
     content: public System.Windows.Duration NaturalDuration { get; }
     return:
       type: System.Windows.Duration
-      description: "The natural duration of this clock, as determined by its <xref:System.Windows.Media.Animation.Clock.Timeline*>."
+      description: "De natuurlijke duur van deze clock, zoals wordt bepaald door de <xref:System.Windows.Media.Animation.Clock.Timeline*>.</xref:System.Windows.Media.Animation.Clock.Timeline*>"
   overload: System.Windows.Media.Animation.Clock.NaturalDuration*
   exceptions: []
   platform:
@@ -463,12 +463,12 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Gets the clock that is the parent of this clock."
+  summary: "Hiermee haalt u de klok die het bovenliggende lid van deze klok."
   syntax:
     content: public System.Windows.Media.Animation.Clock Parent { get; }
     return:
       type: System.Windows.Media.Animation.Clock
-      description: "The parent of this clock or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if this clock is a root."
+      description: "Het bovenliggende lid van deze clock of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> als deze clock een toegangspunt is."
   overload: System.Windows.Media.Animation.Clock.Parent*
   exceptions: []
   platform:
@@ -485,12 +485,12 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Occurs when the <xref:System.Windows.Media.Animation.ClockController.Remove*> method is called on this <xref href=&quot;System.Windows.Media.Animation.Clock&quot;></xref> or one of its parent clocks."
+  summary: "Deze gebeurtenis treedt op wanneer de <xref:System.Windows.Media.Animation.ClockController.Remove*>methode wordt aangeroepen op dit <xref href=&quot;System.Windows.Media.Animation.Clock&quot;> </xref> of een van de bovenliggende klokken.</xref:System.Windows.Media.Animation.ClockController.Remove*>"
   syntax:
     content: public event EventHandler RemoveRequested;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -506,7 +506,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "When implemented in a derived class, will be invoked whenever a clock begins, skips, pauses, resumes, or when the clock&quot;s <xref:System.Windows.Media.Animation.ClockController.SpeedRatio*> is modified."
+  summary: "Wanneer in een afgeleide klasse is geïmplementeerd, wordt aangeroepen wanneer een klok begint, overslaat, onderbreekt, hervat, of wanneer de klok <xref:System.Windows.Media.Animation.ClockController.SpeedRatio*>is gewijzigd.</xref:System.Windows.Media.Animation.ClockController.SpeedRatio*>"
   syntax:
     content: protected virtual void SpeedChanged ();
     parameters: []
@@ -526,7 +526,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "When implemented in a derived class, will be invoked whenever a clock is stopped using the <xref:System.Windows.Media.Animation.ClockController.Stop*> method."
+  summary: "Wanneer in een afgeleide klasse geïmplementeerd, wordt aangeroepen wanneer een klok wordt gestopt met de <xref:System.Windows.Media.Animation.ClockController.Stop*>methode.</xref:System.Windows.Media.Animation.ClockController.Stop*>"
   syntax:
     content: protected virtual void Stopped ();
     parameters: []
@@ -546,13 +546,13 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Gets the Timeline from which this <xref href=&quot;System.Windows.Media.Animation.Clock&quot;></xref> was created."
-  remarks: "Modifying a clock&quot;s <xref:System.Windows.Media.MediaTimeline> does not update the clock; a new clock must be created from the modified <xref:System.Windows.Media.Animation.Timeline>."
+  summary: "Haalt de tijdlijn van waarop dit <xref href=&quot;System.Windows.Media.Animation.Clock&quot;> </xref> is gemaakt."
+  remarks: "Wijzigen van een klok <xref:System.Windows.Media.MediaTimeline>werkt de klok; niet bij een nieuwe klok moet worden gemaakt vanuit de gewijzigde <xref:System.Windows.Media.Animation.Timeline>.</xref:System.Windows.Media.Animation.Timeline> </xref:System.Windows.Media.MediaTimeline>"
   syntax:
     content: public System.Windows.Media.Animation.Timeline Timeline { get; }
     return:
       type: System.Windows.Media.Animation.Timeline
-      description: "The Timeline from which this <xref href=&quot;System.Windows.Media.Animation.Clock&quot;></xref> was created."
+      description: "De tijdlijn van waarop dit <xref href=&quot;System.Windows.Media.Animation.Clock&quot;> </xref> is gemaakt."
   overload: System.Windows.Media.Animation.Clock.Timeline*
   exceptions: []
   platform:
