@@ -12,8 +12,8 @@ items:
   nameWithType: ProcessModelInfo
   fullName: System.Web.ProcessModelInfo
   type: Class
-  summary: "Contains methods that return information about worker processes."
-  remarks: "The ProcessModelInfo class is not meant to be instantiated in your own code. Use the static <xref:System.Web.ProcessModelInfo.GetCurrentProcessInfo%2A> and <xref:System.Web.ProcessModelInfo.GetHistory%2A> methods to populate <xref:System.Web.ProcessInfo> objects, and then use the properties of the <xref:System.Web.ProcessInfo> objects to obtain information about the processes.      > [!NOTE] >  The <xref:System.Web.ProcessModelInfo.GetCurrentProcessInfo%2A> and <xref:System.Web.ProcessModelInfo.GetHistory%2A> methods can be used only with Microsoft Internet Information Services (IIS) version 5.0 on Microsoft Windows 2000 and Windows XP or with IIS 6.0 on Windows Server 2003 and using IIS 5.0 isolation mode. For more information, see [NIB: How to: Configure ASP.NET Applications for an ASP.NET Version](http://msdn.microsoft.com/en-us/3e2037d2-61aa-44f3-b84e-d4dab3572ad3)."
+  summary: "Bevat de methoden die gegevens over werkprocessen retourneren."
+  remarks: "De klasse ProcessModelInfo is niet bedoeld voor gebruik in uw eigen code. Gebruik de statische <xref:System.Web.ProcessModelInfo.GetCurrentProcessInfo%2A>en <xref:System.Web.ProcessModelInfo.GetHistory%2A>methoden voor het vullen van <xref:System.Web.ProcessInfo>objecten en gebruik vervolgens de eigenschappen van de <xref:System.Web.ProcessInfo>objecten om informatie over de processen te verkrijgen.</xref:System.Web.ProcessInfo> </xref:System.Web.ProcessInfo> </xref:System.Web.ProcessModelInfo.GetHistory%2A> </xref:System.Web.ProcessModelInfo.GetCurrentProcessInfo%2A>      > [!NOTE] > De <xref:System.Web.ProcessModelInfo.GetCurrentProcessInfo%2A>en <xref:System.Web.ProcessModelInfo.GetHistory%2A>methoden kunnen worden gebruikt, alleen met Microsoft Internet Information Services (IIS) versie 5.0 op Microsoft Windows 2000 en Windows XP of in IIS 6.0 op Windows Server 2003 en met behulp van IIS 5.0-isolatiemodus.</xref:System.Web.ProcessModelInfo.GetHistory%2A> </xref:System.Web.ProcessModelInfo.GetCurrentProcessInfo%2A> Zie voor meer informatie [KROONTJESPEN: hoe: ASP.NET-toepassingen configureren voor ASP.NET-versies](http://msdn.microsoft.com/en-us/3e2037d2-61aa-44f3-b84e-d4dab3572ad3)."
   example:
   - "The following code example demonstrates how to call the <xref:System.Web.ProcessModelInfo.GetCurrentProcessInfo%2A> method to display statistics about the currently executing ASP.NET process on a Web page. This example will work with Internet Information Services 5.0 on Windows 2000 and Windows XP or with IIS 6.0 on Windows Server 2003 and using IIS 5.0 isolation mode.  \n  \n [!code-vb[System.Web.ProcessModelInfo#1](~/add/codesnippet/visualbasic/t-system.web.processmode_1.aspx)]\n [!code-cs[System.Web.ProcessModelInfo#1](~/add/codesnippet/csharp/t-system.web.processmode_1.aspx)]"
   syntax:
@@ -36,7 +36,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.ProcessModelInfo&quot;></xref> class."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Web.ProcessModelInfo&quot;> </xref> klasse."
   syntax:
     content: public ProcessModelInfo ();
     parameters: []
@@ -56,8 +56,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns information about the worker process that is executing the current request."
-  remarks: "The GetCurrentProcessInfo method is applicable only for applications that are running under the ASP.NET process model."
+  summary: "Retourneert informatie over het werkproces waarin de huidige aanvraag wordt uitgevoerd."
+  remarks: "De methode GetCurrentProcessInfo geldt alleen voor toepassingen die worden uitgevoerd onder de ASP.NET-procesmodel."
   example:
   - "The following code example demonstrates how to call the GetCurrentProcessInfo method to display statistics about the currently executing ASP.NET process on a Web page.  \n  \n [!code-vb[System.Web.ProcessModelInfo#1](~/add/codesnippet/visualbasic/m-system.web.processmode_1.aspx)]\n [!code-cs[System.Web.ProcessModelInfo#1](~/add/codesnippet/csharp/m-system.web.processmode_1.aspx)]"
   syntax:
@@ -65,12 +65,12 @@ items:
     parameters: []
     return:
       type: System.Web.ProcessInfo
-      description: "A <xref href=&quot;System.Web.ProcessInfo&quot;></xref> that contains information about the current process."
+      description: "Een <xref href=&quot;System.Web.ProcessInfo&quot;> </xref> bevat informatie over het huidige proces."
   overload: System.Web.ProcessModelInfo.GetCurrentProcessInfo*
   exceptions:
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "Process information is not available for the current request."
+    description: "Procesinformatie is niet beschikbaar voor de huidige aanvraag."
   platform:
   - net462
 - uid: System.Web.ProcessModelInfo.GetHistory(System.Int32)
@@ -85,22 +85,22 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns information about recent worker processes."
-  remarks: "The GetHistory method is applicable only for applications that are running under the ASP.NET process model."
+  summary: "Retourneert informatie over recente werkprocessen."
+  remarks: "De methode GetHistory geldt alleen voor toepassingen die worden uitgevoerd onder de ASP.NET-procesmodel."
   syntax:
     content: public static System.Web.ProcessInfo[] GetHistory (int numRecords);
     parameters:
     - id: numRecords
       type: System.Int32
-      description: "The number of processes for which information is requested."
+      description: "Het aantal processen waarvoor informatie wordt aangevraagd."
     return:
       type: System.Web.ProcessInfo[]
-      description: "An array of the most recent <xref href=&quot;System.Web.ProcessInfo&quot;></xref> objects (up to 100); otherwise, if the number of available objects is less than <code>numRecords</code>, all available objects."
+      description: "Een matrix van de meest recente <xref href=&quot;System.Web.ProcessInfo&quot;> </xref> objecten (maximaal 100); anders wordt als het aantal beschikbare objecten is minder dan <code> numRecords </code>, alle beschikbare objecten."
   overload: System.Web.ProcessModelInfo.GetHistory*
   exceptions:
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "Process information is not available."
+    description: "Procesinformatie is niet beschikbaar."
   platform:
   - net462
 references:
