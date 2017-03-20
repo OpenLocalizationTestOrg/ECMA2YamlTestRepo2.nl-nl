@@ -28,8 +28,8 @@ items:
   nameWithType: DataSourceProvider
   fullName: System.Windows.Data.DataSourceProvider
   type: Class
-  summary: "Common base class and contract for DataSourceProvider objects, which are factories that execute some queries to produce a single object or a list of objects that you can use as binding source objects."
-  remarks: "DataSourceProvider is a convenience wrapper around an existing data model; it does not replace any data model. A data provider does not attempt to condense the complexity and versatility of a data model such as [!INCLUDE[TLA2#tla_ado](~/add/includes/tla2sharptla-ado-md.md)] into one single object with a few properties.       DataSourceProvider is an abstract class. Use one of the derived classes, which are <xref:System.Windows.Data.XmlDataProvider> and <xref:System.Windows.Data.ObjectDataProvider>. The DataSourceProvider is aware of the [!INCLUDE[TLA#tla_winclient](~/add/includes/ajax-current-ext-md.md)] threading and dispatcher model. It assumes the thread at creation time to be the [!INCLUDE[TLA2#tla_ui](~/add/includes/ajax-current-ext-md.md)] thread. Events will get marshaled from a worker thread to the UI thread of the application."
+  summary: "Algemene basisklasse en contract voor DataSourceProvider-objecten fabrieken dat sommige query&quot;s voor het produceren van een enkel object of een lijst met objecten die u als de bronobjecten van de binding gebruiken kunt worden uitgevoerd."
+  remarks: "DataSourceProvider is een gemak wrapper rond een bestaande gegevensmodel; Er is geen vervanging voor een gegevensmodel. Gegevensprovider probeert niet te verkleinen van de complexiteit en veelzijdigheid van een gegevensmodel zoals [!INCLUDE[TLA2#tla_ado](~/add/includes/tla2sharptla-ado-md.md)] in één enkel object met een paar eigenschappen.       DataSourceProvider is een abstracte klasse. Gebruik een van de afgeleide klassen en <xref:System.Windows.Data.XmlDataProvider> <xref:System.Windows.Data.ObjectDataProvider>.</xref:System.Windows.Data.ObjectDataProvider> </xref:System.Windows.Data.XmlDataProvider> De DataSourceProvider is op de hoogte van de [!INCLUDE[TLA#tla_winclient](~/add/includes/ajax-current-ext-md.md)] threading en van de verzender model. Wordt ervan uitgegaan dat de thread tijdens het maken worden de [!INCLUDE[TLA2#tla_ui](~/add/includes/ajax-current-ext-md.md)] thread. Gebeurtenissen worden van een werkthread ophalen gemarshald naar de UI-thread van de toepassing."
   syntax:
     content: 'public abstract class DataSourceProvider : System.ComponentModel.INotifyPropertyChanged, System.ComponentModel.ISupportInitialize'
   inheritance:
@@ -52,7 +52,7 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Data
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Data.DataSourceProvider&quot;></xref> class. This is a protected constructor."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Windows.Data.DataSourceProvider&quot;> </xref> klasse. Dit is een beveiligde constructor."
   syntax:
     content: protected DataSourceProvider ();
     parameters: []
@@ -72,7 +72,7 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Data
-  summary: "Indicates that initialization of this object is about to begin; no implicit <xref:System.Windows.Data.DataSourceProvider.Refresh*> occurs until the matched <xref:System.Windows.Data.DataSourceProvider.EndInit*> method is called."
+  summary: "Hiermee wordt aangegeven dat de initialisatie van dit object wordt naar; geen impliciete <> </> *> deze gebeurtenis treedt op voordat de overeenkomende <> </> *> methode wordt aangeroepen."
   syntax:
     content: protected virtual void BeginInit ();
     parameters: []
@@ -92,8 +92,8 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Data
-  summary: "When overridden in a derived class, this base class calls this method when <xref:System.Windows.Data.DataSourceProvider.InitialLoad*> or <xref:System.Windows.Data.DataSourceProvider.Refresh*> has been called. The base class delays the call if refresh is deferred or initial load is disabled."
-  remarks: '**Notes to Implementers:** You can choose to execute the query on the same thread or on a background thread or using `IsAsynchronous`. When the query is complete, call <xref:System.Windows.Data.DataSourceProvider.OnQueryFinished%2A> to have the public properties updated.'
+  summary: "Wanneer in een afgeleide klasse genegeerd, deze basisklasse roept deze methode wanneer <> </> *> of <> </> *> is aangeroepen. De aanroep van een basisklasse vertraging als refresh wordt uitgesteld of initiële laden is uitgeschakeld."
+  remarks: '**Opmerkingen voor implementeerders:** kunt u de query wordt uitgevoerd op dezelfde thread of op een achtergrond-thread of met behulp van `IsAsynchronous`. Wanneer de query voltooid is, roept <xref:System.Windows.Data.DataSourceProvider.OnQueryFinished%2A>om de openbare eigenschappen bijgewerkt.</xref:System.Windows.Data.DataSourceProvider.OnQueryFinished%2A>'
   syntax:
     content: protected virtual void BeginQuery ();
     parameters: []
@@ -113,13 +113,13 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Data
-  summary: "Gets the underlying data object."
-  remarks: "When the <xref:System.Windows.Data.DataSourceProvider> is used as the source of a binding, this is the resulting binding source object."
+  summary: "Het onderliggende object opgehaald."
+  remarks: "Wanneer de <xref:System.Windows.Data.DataSourceProvider>wordt gebruikt als de bron van een binding die dit is het resulterende binding-bronobject.</xref:System.Windows.Data.DataSourceProvider>"
   syntax:
     content: public object Data { get; }
     return:
       type: System.Object
-      description: "A value of type <xref:System.Object> that is the underlying data object."
+      description: "Een waarde van het type <xref:System.Object>dat het onderliggende gegevensobject.</xref:System.Object>"
   overload: System.Windows.Data.DataSourceProvider.Data*
   exceptions: []
   platform:
@@ -136,13 +136,13 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Data
-  summary: "Occurs when the <xref:System.Windows.Data.DataSourceProvider.Data*> property has a new value."
-  remarks: '**Notes to implementers:** Raise this event when a new data object becomes available on the <xref:System.Windows.Data.DataSourceProvider.Data%2A> property.'
+  summary: "Deze gebeurtenis treedt op wanneer de <xref:System.Windows.Data.DataSourceProvider.Data*>eigenschap heeft een nieuwe waarde.</xref:System.Windows.Data.DataSourceProvider.Data*>"
+  remarks: '**Opmerkingen voor implementeerders:** verhogen van deze gebeurtenis wanneer er een nieuw gegevensobject beschikbaar op de <xref:System.Windows.Data.DataSourceProvider.Data%2A>eigenschap.</xref:System.Windows.Data.DataSourceProvider.Data%2A>'
   syntax:
     content: public event EventHandler DataChanged;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -158,14 +158,14 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Data
-  summary: "Enters a defer cycle that you can use to change properties of the provider and delay automatic refresh."
-  remarks: "The typical usage is to create a `using` scope with this method and then place multiple property changes within the scope. This delays automatic refresh until the defer cycle is exited."
+  summary: "Voert een cyclus uitstellen die u gebruiken kunt om eigenschappen van de provider en vertraging automatische vernieuwing te wijzigen."
+  remarks: "De gemiddelde gebruiksduur is het maken van een `using` bereik met deze methode en plaatst vervolgens meerdere eigenschapswijzigingen binnen het bereik. Deze vertragingen bij het automatisch vernieuwen totdat de cyclus uitstellen is afgesloten."
   syntax:
     content: public virtual IDisposable DeferRefresh ();
     parameters: []
     return:
       type: System.IDisposable
-      description: "An <xref:System.IDisposable> object that you can use to dispose of the calling object."
+      description: "Een <xref:System.IDisposable>object die u gebruiken kunt bij het verwijderen van het object aanroepen.</xref:System.IDisposable>"
   overload: System.Windows.Data.DataSourceProvider.DeferRefresh*
   exceptions: []
   platform:
@@ -182,12 +182,12 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Data
-  summary: "Gets or sets the current <xref href=&quot;System.Windows.Threading.Dispatcher&quot;></xref> object to the [!INCLUDE[TLA2#tla_ui](~/add/includes/ajax-current-ext-md.md)] thread to use."
+  summary: "Opgehaald of ingesteld van de huidige <xref href=&quot;System.Windows.Threading.Dispatcher&quot;> </xref> object toe aan de [!INCLUDE[TLA2#tla_ui](~/add/includes/ajax-current-ext-md.md)] thread te gebruiken."
   syntax:
     content: protected System.Windows.Threading.Dispatcher Dispatcher { get; set; }
     return:
       type: System.Windows.Threading.Dispatcher
-      description: "The current <xref href=&quot;System.Windows.Threading.Dispatcher&quot;></xref> object to the [!INCLUDE[TLA2#tla_ui](~/add/includes/ajax-current-ext-md.md)] thread to use. By default, this is the <xref href=&quot;System.Windows.Threading.Dispatcher&quot;></xref> object that is associated with the thread on which this instance was created."
+      description: "De huidige <xref href=&quot;System.Windows.Threading.Dispatcher&quot;> </xref> object toe aan de [!INCLUDE[TLA2#tla_ui](~/add/includes/ajax-current-ext-md.md)] thread te gebruiken. Dit is standaard de <xref href=&quot;System.Windows.Threading.Dispatcher&quot;> </xref> -object dat is gekoppeld aan de thread waarop dit exemplaar is gemaakt."
   overload: System.Windows.Data.DataSourceProvider.Dispatcher*
   exceptions: []
   platform:
@@ -204,7 +204,7 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Data
-  summary: "Indicates that the initialization of this object has completed; this causes a <xref:System.Windows.Data.DataSourceProvider.Refresh*> if no other <xref:System.Windows.Data.DataSourceProvider.DeferRefresh*> is outstanding."
+  summary: "Hiermee wordt aangegeven dat de initialisatie van dit object is voltooid; Dit zorgt ervoor dat een <> </> *> als geen andere <> </> *> openstaande is."
   syntax:
     content: protected virtual void EndInit ();
     parameters: []
@@ -224,12 +224,12 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Data
-  summary: "Gets the error of the last query operation."
+  summary: "Hiermee haalt u de fout van de laatste querybewerking."
   syntax:
     content: public Exception Error { get; }
     return:
       type: System.Exception
-      description: "A value of type <xref:System.Exception> that is the error of the last query operation, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if there was no error."
+      description: "Een waarde van het type <xref:System.Exception>die de fout van de laatste querybewerking of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> als er geen fout is.</xref:System.Exception>"
   overload: System.Windows.Data.DataSourceProvider.Error*
   exceptions: []
   platform:
@@ -246,8 +246,8 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Data
-  summary: "Starts the initial query to the underlying data model. The result is returned on the <xref:System.Windows.Data.DataSourceProvider.Data*> property."
-  remarks: "This method is typically called by the binding engine when dependent data bindings are activated. Set <xref:System.Windows.Data.DataSourceProvider.IsInitialLoadEnabled%2A> to `false` to prevent or delay the automatic loading of data.       The InitialLoad method can be called multiple times. The provider ignores subsequent calls once it is busy executing the initial query; the provider does not restart an already running query when InitialLoad is called again. When the query finishes successfully, any InitialLoad call still does not re-query data. The InitialLoad operation is typically asynchronous, a <xref:System.Windows.Data.DataSourceProvider.DataChanged> event is raised when the <xref:System.Windows.Data.DataSourceProvider.Data%2A> property assumed a new value.       The application calls <xref:System.Windows.Data.DataSourceProvider.Refresh%2A> to cause a refresh of the data."
+  summary: "Start de eerste query voor het onderliggende gegevensmodel. Het resultaat wordt teruggezonden op de <xref:System.Windows.Data.DataSourceProvider.Data*>eigenschap.</xref:System.Windows.Data.DataSourceProvider.Data*>"
+  remarks: "Deze methode wordt doorgaans aangeroepen door het bindingprogramma wanneer afhankelijke gegevensbindingen worden geactiveerd. Stel <xref:System.Windows.Data.DataSourceProvider.IsInitialLoadEnabled%2A>naar `false` om te voorkomen of de automatische laden van gegevens uit te stellen.</xref:System.Windows.Data.DataSourceProvider.IsInitialLoadEnabled%2A>       De methode InitialLoad kan meerdere keren worden aangeroepen. Volgende aanroepen van de provider wordt genegeerd wanneer het uitvoeren van de eerste query; de provider niet opnieuw wordt opgestart een query al actief wanneer InitialLoad opnieuw wordt aangeroepen. Wanneer de query voltooid wordt, wordt geen enkele aanroep InitialLoad nog steeds niet opnieuw opvragen. De bewerking InitialLoad doorgaans asynchroon is, is een <xref:System.Windows.Data.DataSourceProvider.DataChanged>gebeurtenis treedt op wanneer de <xref:System.Windows.Data.DataSourceProvider.Data%2A>eigenschap uitgegaan van een nieuwe waarde.</xref:System.Windows.Data.DataSourceProvider.Data%2A> </xref:System.Windows.Data.DataSourceProvider.DataChanged>       Het aanroepen van de toepassing <xref:System.Windows.Data.DataSourceProvider.Refresh%2A>leiden dat een vernieuwing van de gegevens.</xref:System.Windows.Data.DataSourceProvider.Refresh%2A>"
   syntax:
     content: public void InitialLoad ();
     parameters: []
@@ -267,13 +267,13 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Data
-  summary: "Gets or sets a value that indicates whether to prevent or delay the automatic loading of data."
-  remarks: "Typically the <xref:System.Windows.Data.DataSourceProvider> runs its query and sets its <xref:System.Windows.Data.DataSourceProvider.Data%2A> property the first time it is used by a binding or a <xref:System.Windows.Data.CollectionViewSource>. You can omit this step by setting the IsInitialLoadEnabled property to `false`. In this case, the application must explicitly call <xref:System.Windows.Data.DataSourceProvider.Refresh%2A> to cause the provider to obtain its data."
+  summary: "Opgehaald of ingesteld van een waarde die aangeeft of om te voorkomen of de automatische laden van gegevens uit te stellen."
+  remarks: "Normaal gesproken de <xref:System.Windows.Data.DataSourceProvider>de query wordt uitgevoerd en wordt de <xref:System.Windows.Data.DataSourceProvider.Data%2A>eigenschap die de eerste keer dat deze wordt gebruikt door een binding of een <xref:System.Windows.Data.CollectionViewSource>.</xref:System.Windows.Data.CollectionViewSource> </xref:System.Windows.Data.DataSourceProvider.Data%2A> </xref:System.Windows.Data.DataSourceProvider> U kunt deze stap overslaat door de eigenschap IsInitialLoadEnabled naar `false`. In dit geval wordt de toepassing moet expliciet worden aangeroepen <xref:System.Windows.Data.DataSourceProvider.Refresh%2A>leiden dat de provider om de gegevens te verkrijgen.</xref:System.Windows.Data.DataSourceProvider.Refresh%2A>"
   syntax:
     content: public bool IsInitialLoadEnabled { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to prevent or delay the automatic loading of data; otherwise, <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>. The default value is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>om te voorkomen of vertraging van het automatisch laden van gegevens. anders <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>. De standaardwaarde is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Data.DataSourceProvider.IsInitialLoadEnabled*
   exceptions: []
   platform:
@@ -290,13 +290,13 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Data
-  summary: "Gets a value that indicates whether there is an outstanding <xref:System.Windows.Data.DataSourceProvider.DeferRefresh*> in use."
-  remarks: '**Notes to implementers:** To get the best use out of refresh deferral, do not call <xref:System.Windows.Data.DataSourceProvider.Refresh%2A> when this property is `true`.'
+  summary: "Hiermee wordt een waarde die aangeeft of er een uitstekende is <xref:System.Windows.Data.DataSourceProvider.DeferRefresh*>in gebruik.</xref:System.Windows.Data.DataSourceProvider.DeferRefresh*>"
+  remarks: '**Opmerkingen voor implementeerders:** als u het beste gebruik buiten de uitgestelde vernieuwen, niet aanroepen <xref:System.Windows.Data.DataSourceProvider.Refresh%2A>Als deze eigenschap is `true`.</xref:System.Windows.Data.DataSourceProvider.Refresh%2A>'
   syntax:
     content: protected bool IsRefreshDeferred { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if there is an outstanding <xref:System.Windows.Data.DataSourceProvider.DeferRefresh*> in use; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als er een uitstaande <xref:System.Windows.Data.DataSourceProvider.DeferRefresh*>in gebruik is; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>.</xref:System.Windows.Data.DataSourceProvider.DeferRefresh*>"
   overload: System.Windows.Data.DataSourceProvider.IsRefreshDeferred*
   exceptions: []
   platform:
@@ -313,13 +313,13 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Data
-  summary: "Raises the <xref href=&quot;System.Windows.Data.DataSourceProvider.PropertyChanged&quot;></xref> event with the provided arguments."
+  summary: "Geeft de <xref href=&quot;System.Windows.Data.DataSourceProvider.PropertyChanged&quot;> </xref> gebeurtenis met de opgegeven argumenten."
   syntax:
     content: protected virtual void OnPropertyChanged (System.ComponentModel.PropertyChangedEventArgs e);
     parameters:
     - id: e
       type: System.ComponentModel.PropertyChangedEventArgs
-      description: "Arguments of the event being raised."
+      description: "De argumenten van de gebeurtenis die wordt geactiveerd."
   overload: System.Windows.Data.DataSourceProvider.OnPropertyChanged*
   exceptions: []
   platform:
@@ -336,14 +336,14 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Data
-  summary: "Derived classes call this method to indicate that a query has finished."
-  remarks: "This callback can be called from any thread. This implementation marshals back the result to the [!INCLUDE[TLA2#tla_ui](~/add/includes/ajax-current-ext-md.md)] thread before setting any of the public properties and before raising any events."
+  summary: "Afgeleide klassen Roep deze methode om aan te geven dat een query is voltooid."
+  remarks: "Deze callback kan worden aangeroepen vanuit een willekeurige thread. Deze implementatie gemarshald terug het resultaat dat de [!INCLUDE[TLA2#tla_ui](~/add/includes/ajax-current-ext-md.md)] thread voor het instellen van een van de openbare eigenschappen en voordat u alle gebeurtenissen."
   syntax:
     content: protected void OnQueryFinished (object newData);
     parameters:
     - id: newData
       type: System.Object
-      description: "The data that is the result of the query."
+      description: "De gegevens die het resultaat van de query."
   overload: System.Windows.Data.DataSourceProvider.OnQueryFinished*
   exceptions: []
   platform:
@@ -360,23 +360,23 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Data
-  summary: "Derived classes call this method to indicate that a query has finished."
-  remarks: "This callback can be called from any thread. This implementation marshals back the result to the [!INCLUDE[TLA2#tla_ui](~/add/includes/ajax-current-ext-md.md)] thread before setting any of the public properties and before raising any events."
+  summary: "Afgeleide klassen Roep deze methode om aan te geven dat een query is voltooid."
+  remarks: "Deze callback kan worden aangeroepen vanuit een willekeurige thread. Deze implementatie gemarshald terug het resultaat dat de [!INCLUDE[TLA2#tla_ui](~/add/includes/ajax-current-ext-md.md)] thread voor het instellen van een van de openbare eigenschappen en voordat u alle gebeurtenissen."
   syntax:
     content: protected virtual void OnQueryFinished (object newData, Exception error, System.Windows.Threading.DispatcherOperationCallback completionWork, object callbackArguments);
     parameters:
     - id: newData
       type: System.Object
-      description: "The data that is the result of the query."
+      description: "De gegevens die het resultaat van de query."
     - id: error
       type: System.Exception
-      description: "The error that occurred while running the query. This value is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if there is no error."
+      description: "De volgende fout is opgetreden tijdens het uitvoeren van de query. Deze waarde is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> als er geen fout."
     - id: completionWork
       type: System.Windows.Threading.DispatcherOperationCallback
-      description: "Optional delegate that is used to execute completion work on the [!INCLUDE[TLA2#tla_ui](~/add/includes/ajax-current-ext-md.md)] thread, for example, to set additional properties."
+      description: "Optionele gemachtigde die wordt gebruikt voor het uitvoeren van voltooiing werk op de [!INCLUDE[TLA2#tla_ui](~/add/includes/ajax-current-ext-md.md)] thread, bijvoorbeeld extra eigenschappen instellen."
     - id: callbackArguments
       type: System.Object
-      description: "Optional arguments to send as a parameter with the `completionWork` delegate."
+      description: "Optionele argumenten moeten worden verzonden als een parameter met de `completionWork` delegeren."
   overload: System.Windows.Data.DataSourceProvider.OnQueryFinished*
   exceptions: []
   platform:
@@ -393,12 +393,12 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Data
-  summary: "Occurs when a property value changes."
+  summary: "Deze gebeurtenis treedt op wanneer de waarde van een eigenschap wordt gewijzigd."
   syntax:
     content: protected virtual event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
     return:
       type: System.ComponentModel.PropertyChangedEventHandler
-      description: "To be added."
+      description: "Moet worden toegevoegd."
   exceptions: []
   platform:
   - net462
@@ -414,8 +414,8 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Data
-  summary: "Initiates a refresh operation to the underlying data model. The result is returned on the <xref:System.Windows.Data.DataSourceProvider.Data*> property."
-  remarks: "A refresh operation is typically asynchronous, a <xref:System.Windows.Data.DataSourceProvider.DataChanged> event is raised when the <xref:System.Windows.Data.DataSourceProvider.Data%2A> property assumed a new value. If the refresh operation fails, the <xref:System.Windows.Data.DataSourceProvider.Data%2A> property is set to `null`; the <xref:System.Windows.Data.DataSourceProvider.Error%2A> property is set with the error exception. The application can call Refresh while a previous refresh is still underway. Calling Refresh twice raises the <xref:System.Windows.Data.DataSourceProvider.DataChanged> event twice."
+  summary: "Initieert een vernieuwingsbewerking aan het onderliggende gegevensmodel. Het resultaat wordt teruggezonden op de <xref:System.Windows.Data.DataSourceProvider.Data*>eigenschap.</xref:System.Windows.Data.DataSourceProvider.Data*>"
+  remarks: "Een vernieuwingsbewerking doorgaans asynchroon is, is een <xref:System.Windows.Data.DataSourceProvider.DataChanged>gebeurtenis treedt op wanneer de <xref:System.Windows.Data.DataSourceProvider.Data%2A>eigenschap uitgegaan van een nieuwe waarde.</xref:System.Windows.Data.DataSourceProvider.Data%2A> </xref:System.Windows.Data.DataSourceProvider.DataChanged> Als tijdens het vernieuwen is mislukt, de <xref:System.Windows.Data.DataSourceProvider.Data%2A>eigenschap is ingesteld op `null`; de <xref:System.Windows.Data.DataSourceProvider.Error%2A>eigenschap is ingesteld met de fout-uitzondering.</xref:System.Windows.Data.DataSourceProvider.Error%2A> </xref:System.Windows.Data.DataSourceProvider.Data%2A> De toepassing kunt vernieuwen niet aanroepen terwijl een vorige vernieuwing nog actief is. Vernieuwen twee keer aanroepen genereert de <xref:System.Windows.Data.DataSourceProvider.DataChanged>gebeurtenis tweemaal.</xref:System.Windows.Data.DataSourceProvider.DataChanged>"
   syntax:
     content: public void Refresh ();
     parameters: []
@@ -436,7 +436,7 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Data
-  summary: "This member supports the [!INCLUDE[TLA#tla_winclient](~/add/includes/ajax-current-ext-md.md)] infrastructure and is not intended to be used directly from your code."
+  summary: "Dit lid ondersteunt de [!INCLUDE[TLA#tla_winclient](~/add/includes/ajax-current-ext-md.md)] infrastructuur en is niet bedoeld voor rechtstreeks gebruik vanuit uw code."
   syntax:
     content: void ISupportInitialize.BeginInit ();
     parameters: []
@@ -457,7 +457,7 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Data
-  summary: "This member supports the [!INCLUDE[TLA#tla_winclient](~/add/includes/ajax-current-ext-md.md)] infrastructure and is not intended to be used directly from your code."
+  summary: "Dit lid ondersteunt de [!INCLUDE[TLA#tla_winclient](~/add/includes/ajax-current-ext-md.md)] infrastructuur en is niet bedoeld voor rechtstreeks gebruik vanuit uw code."
   syntax:
     content: void ISupportInitialize.EndInit ();
     parameters: []
