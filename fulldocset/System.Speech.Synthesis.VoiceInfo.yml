@@ -19,8 +19,8 @@ items:
   nameWithType: VoiceInfo
   fullName: System.Speech.Synthesis.VoiceInfo
   type: Class
-  summary: "Represents an installed speech synthesis engine."
-  remarks: "A voice is an installed speech synthesis engine, which is also referred to as a text-to-speech engine or a TTS engine. The <xref:System.Speech.Synthesis.SpeechSynthesizer> object uses a voice to generate speech from text. The properties of the VoiceInfo object identify a voice and describe its characteristics. The most defining characteristic of a voice is its <xref:System.Speech.Synthesis.VoiceInfo.Culture%2A>, which defines the single language that a voice can speak.       The <xref:System.Speech.Synthesis.SpeechSynthesizer.Voice%2A> property returns a VoiceInfo object that contains information about the current voice in use by the <xref:System.Speech.Synthesis.SpeechSynthesizer>. You can also use a VoiceInfo object to get information about any of the voices that are installed on the system, as returned by the <xref:System.Speech.Synthesis.SpeechSynthesizer.GetInstalledVoices> method. See <xref:System.Speech.Synthesis.InstalledVoice> for more information."
+  summary: "Vertegenwoordigt een geïnstalleerde spraak synthese-engine."
+  remarks: "Een stem is een geïnstalleerde spraak synthese-engine, die ook wordt aangeduid als een spraak of een TTS-engine. De <xref:System.Speech.Synthesis.SpeechSynthesizer>object gebruikt een stem spraakherkenning uit tekst wordt gegenereerd.</xref:System.Speech.Synthesis.SpeechSynthesizer> De eigenschappen van het object VoiceInfo een stem identificeren en de kenmerken beschreven. De meest definiërende kenmerk van een stem is de <xref:System.Speech.Synthesis.VoiceInfo.Culture%2A>, definieert de één taal die een stem kan spreken.</xref:System.Speech.Synthesis.VoiceInfo.Culture%2A>       De <xref:System.Speech.Synthesis.SpeechSynthesizer.Voice%2A>eigenschap retourneert een VoiceInfo-object informatie over de huidige stem in gebruik door de <xref:System.Speech.Synthesis.SpeechSynthesizer>.</xref:System.Speech.Synthesis.SpeechSynthesizer> bevat</xref:System.Speech.Synthesis.SpeechSynthesizer.Voice%2A> U kunt ook een VoiceInfo object gebruiken voor informatie over een van de stemmen die zijn geïnstalleerd op het systeem wordt geretourneerd door de <xref:System.Speech.Synthesis.SpeechSynthesizer.GetInstalledVoices>methode.</xref:System.Speech.Synthesis.SpeechSynthesizer.GetInstalledVoices> Zie <xref:System.Speech.Synthesis.InstalledVoice>voor meer informatie.</xref:System.Speech.Synthesis.InstalledVoice>"
   example:
   - "The following example is part of a console application that initializes a <xref:System.Speech.Synthesis.SpeechSynthesizer> object and outputs to the console a list of the installed voices (engines for speech synthesis) and demonstrates the information that is available for each voice.  \n  \n```c#  \nusing System;  \nusing System.Speech.Synthesis;  \nusing System.Speech.AudioFormat;  \n  \nnamespace SampleSynthesis  \n{  \n  class Program  \n  {  \n    static void Main(string[] args)  \n    {  \n  \n      // Initialize a new instance of the SpeechSynthesizer.  \n      using (SpeechSynthesizer synth = new SpeechSynthesizer())  \n      {  \n  \n        // Output information about all of the installed voices.   \n        Console.WriteLine(\"Installed voices -\");  \n        foreach (InstalledVoice voice in synth.GetInstalledVoices())  \n        {  \n          VoiceInfo info = voice.VoiceInfo;  \n          string AudioFormats = \"\";  \n          foreach (SpeechAudioFormatInfo fmt in info.SupportedAudioFormats)  \n          {  \n            AudioFormats += String.Format(\"{0}\\n\",  \n            fmt.EncodingFormat.ToString());  \n          }  \n  \n          Console.WriteLine(\" Name:          \" + info.Name);  \n          Console.WriteLine(\" Culture:       \" + info.Culture);  \n          Console.WriteLine(\" Age:           \" + info.Age);  \n          Console.WriteLine(\" Gender:        \" + info.Gender);  \n          Console.WriteLine(\" Description:   \" + info.Description);  \n          Console.WriteLine(\" ID:            \" + info.Id);  \n          Console.WriteLine(\" Enabled:       \" + voice.Enabled);  \n          if (info.SupportedAudioFormats.Count != 0)  \n          {  \n            Console.WriteLine( \" Audio formats: \" + AudioFormats);  \n          }  \n          else  \n          {  \n            Console.WriteLine(\" No supported audio formats found\");  \n          }  \n  \n          string AdditionalInfo = \"\";  \n          foreach (string key in info.AdditionalInfo.Keys)  \n          {  \n            AdditionalInfo += String.Format(\"  {0}: {1}\\n\", key, info.AdditionalInfo[key]);  \n          }  \n  \n          Console.WriteLine(\" Additional Info - \" + AdditionalInfo);  \n          Console.WriteLine();  \n        }  \n      }  \n      Console.WriteLine(\"Press any key to exit...\");  \n      Console.ReadKey();  \n    }  \n  }  \n}  \n  \n```"
   syntax:
@@ -46,12 +46,12 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis
-  summary: "Gets additional information about the voice."
+  summary: "Hiermee haalt u aanvullende informatie over de stem."
   syntax:
     content: public System.Collections.Generic.IDictionary<string,string> AdditionalInfo { get; }
     return:
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "Returns a collection of name/value pairs that describe and identify the voice."
+      description: "Retourneert een verzameling naam/waarde-paren die beschrijven en de stem te identificeren."
   overload: System.Speech.Synthesis.VoiceInfo.AdditionalInfo*
   exceptions: []
   platform:
@@ -68,13 +68,13 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis
-  summary: "Gets the age of the voice."
-  remarks: "The Age property gets a member of the <xref:System.Speech.Synthesis.VoiceAge> enumeration that indicates the age of the voice."
+  summary: "Hiermee haalt u de leeftijd van de stem."
+  remarks: "De eigenschap Age opgehaald lid is van de <xref:System.Speech.Synthesis.VoiceAge>opsomming die aangeeft van de leeftijd van de stem.</xref:System.Speech.Synthesis.VoiceAge>"
   syntax:
     content: public System.Speech.Synthesis.VoiceAge Age { get; }
     return:
       type: System.Speech.Synthesis.VoiceAge
-      description: "Returns the age of the voice."
+      description: "Retourneert de leeftijd van de stem."
   overload: System.Speech.Synthesis.VoiceInfo.Age*
   exceptions: []
   platform:
@@ -91,13 +91,13 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis
-  summary: "Gets the culture of the voice."
-  remarks: "The <xref:System.Globalization.CultureInfo> class specifies a unique name for each culture. The name is a combination of an ISO 639 two-letter lowercase culture code associated with a language and an ISO 3166 two-letter uppercase subculture code associated with a country or region. Examples of culture names include &quot;es-US&quot; for Spanish as spoken in the US, or &quot;fr-CA&quot; for French as spoken in Canada. You can specify a neutral culture by using only the two-digit lowercase language code. For example, &quot;fr&quot; specifies the neutral culture for French, and &quot;de&quot; specifies the neutral culture for German."
+  summary: "Hiermee wordt de cultuur van de stem opgehaald."
+  remarks: "De <xref:System.Globalization.CultureInfo>klasse bevat een unieke naam voor elke cultuur.</xref:System.Globalization.CultureInfo> De naam is een combinatie van een ISO 639 twee letters kleine cultuur die is gekoppeld aan een taal en een ISO 3166 twee letters, hoofdletters subcultuur code die is gekoppeld aan een land of regio. Voorbeelden van cultuurnamen zijn &quot;es-US&quot; voor Spaans als uitgesproken in de Verenigde Staten of &quot;fr-CA&quot; voor Frans als uitgesproken in Canada. U kunt een neutrale cultuur opgeven met behulp van alleen de twee cijfers in kleine letters taalcode. Bijvoorbeeld &quot;fr&quot; geeft de neutrale cultuur voor Frans en &quot;de&quot; geeft de neutrale cultuur voor Duits."
   syntax:
     content: public System.Globalization.CultureInfo Culture { get; }
     return:
       type: System.Globalization.CultureInfo
-      description: "Returns a <xref:System.Globalization.CultureInfo> object that provides information about a specific culture, such as the names of the culture, the writing system, the calendar used, and how to format dates and sort strings."
+      description: "Retourneert een <xref:System.Globalization.CultureInfo>-object dat informatie bevat over een specifieke cultuur, zoals de naam van de cultuur, het systeem schrijven, de kalender gebruikt, en hoe datumnotatie in te stellen en het sorteren van tekenreeksen.</xref:System.Globalization.CultureInfo>"
   overload: System.Speech.Synthesis.VoiceInfo.Culture*
   exceptions: []
   platform:
@@ -114,12 +114,12 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis
-  summary: "Gets the description of the voice."
+  summary: "Hiermee haalt u de beschrijving van de stem."
   syntax:
     content: public string Description { get; }
     return:
       type: System.String
-      description: "Returns the description of the voice."
+      description: "Retourneert de beschrijving van de stem."
   overload: System.Speech.Synthesis.VoiceInfo.Description*
   exceptions: []
   platform:
@@ -136,17 +136,17 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis
-  summary: "Compares the fields of the voice with the specified <xref href=&quot;System.Speech.Synthesis.VoiceInfo&quot;></xref> object to determine whether they contain the same values."
-  remarks: "The Equals method takes a <xref:System.Object> type as its parameter. If that object is not of the <xref:System.Speech.Synthesis.VoiceInfo> type, the method returns `False`."
+  summary: "De velden van de stem met de opgegeven vergelijkt <xref href=&quot;System.Speech.Synthesis.VoiceInfo&quot;> </xref> object om te bepalen of ze dezelfde waarden bevatten."
+  remarks: "De methode gelijk is aan een <xref:System.Object>type als parameter.</xref:System.Object> Als u dat object is niet van de <xref:System.Speech.Synthesis.VoiceInfo>typt, de methode retourneert `False`.</xref:System.Speech.Synthesis.VoiceInfo>"
   syntax:
     content: public override bool Equals (object obj);
     parameters:
     - id: obj
       type: System.Object
-      description: "The specified <xref href=&quot;System.Speech.Synthesis.VoiceInfo&quot;></xref> object."
+      description: "De opgegeven <xref href=&quot;System.Speech.Synthesis.VoiceInfo&quot;> </xref> object."
     return:
       type: System.Boolean
-      description: "Returns <xref uid=&quot;langword_csharp_True&quot; name=&quot;True&quot; href=&quot;&quot;></xref> if the fields of the two <xref href=&quot;System.Speech.Synthesis.VoiceInfo&quot;></xref> objects are equal; otherwise returns <xref uid=&quot;langword_csharp_False&quot; name=&quot;False&quot; href=&quot;&quot;></xref>."
+      description: "Retourneert <xref uid=&quot;langword_csharp_True&quot; name=&quot;True&quot; href=&quot;&quot;> </xref> als de velden van de twee <xref href=&quot;System.Speech.Synthesis.VoiceInfo&quot;> </xref> objecten gelijk zijn; anders retourneert <xref uid=&quot;langword_csharp_False&quot; name=&quot;False&quot; href=&quot;&quot;> </xref>."
   overload: System.Speech.Synthesis.VoiceInfo.Equals*
   exceptions: []
   platform:
@@ -163,13 +163,13 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis
-  summary: "Gets the gender of the voice."
-  remarks: "The Gender property gets a member of the <xref:System.Speech.Synthesis.VoiceGender> enumeration that indicates the gender of the voice."
+  summary: "Hiermee haalt u het geslacht van de stem."
+  remarks: "De eigenschap geslacht opgehaald lid is van de <xref:System.Speech.Synthesis.VoiceGender>opsomming die het geslacht van de stem aangeeft.</xref:System.Speech.Synthesis.VoiceGender>"
   syntax:
     content: public System.Speech.Synthesis.VoiceGender Gender { get; }
     return:
       type: System.Speech.Synthesis.VoiceGender
-      description: "Returns the gender of the voice."
+      description: "Retourneert het geslacht van de stem."
   overload: System.Speech.Synthesis.VoiceInfo.Gender*
   exceptions: []
   platform:
@@ -186,13 +186,13 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis
-  summary: "Provides a hash code for a `VoiceInfo` object."
+  summary: "Biedt een hashcode voor een `VoiceInfo` object."
   syntax:
     content: public override int GetHashCode ();
     parameters: []
     return:
       type: System.Int32
-      description: "A hash code for the current <xref href=&quot;System.Speech.Synthesis.VoiceInfo&quot;></xref> object."
+      description: "Een hash-code voor de huidige <xref href=&quot;System.Speech.Synthesis.VoiceInfo&quot;> </xref> object."
   overload: System.Speech.Synthesis.VoiceInfo.GetHashCode*
   exceptions: []
   platform:
@@ -209,12 +209,12 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis
-  summary: "Gets the ID of the voice."
+  summary: "Hiermee haalt u de ID van de stem."
   syntax:
     content: public string Id { get; }
     return:
       type: System.String
-      description: "Returns the identifier for the voice."
+      description: "Retourneert de id voor de stem."
   overload: System.Speech.Synthesis.VoiceInfo.Id*
   exceptions: []
   platform:
@@ -231,12 +231,12 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis
-  summary: "Gets the name of the voice."
+  summary: "Hiermee haalt u de naam van de stem."
   syntax:
     content: public string Name { get; }
     return:
       type: System.String
-      description: "Returns the name of the voice."
+      description: "Retourneert de naam van de stem."
   overload: System.Speech.Synthesis.VoiceInfo.Name*
   exceptions: []
   platform:
@@ -253,12 +253,12 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis
-  summary: "Gets the collection of audio formats that the voice supports."
+  summary: "Hiermee haalt u de verzameling van audio-indelingen die ondersteuning biedt voor de stem."
   syntax:
     content: public System.Collections.ObjectModel.ReadOnlyCollection<System.Speech.AudioFormat.SpeechAudioFormatInfo> SupportedAudioFormats { get; }
     return:
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.Speech.AudioFormat.SpeechAudioFormatInfo}
-      description: "Returns a collection of the audio formats that the voice supports."
+      description: "Retourneert een verzameling van de audio-indelingen die ondersteuning biedt voor de stem."
   overload: System.Speech.Synthesis.VoiceInfo.SupportedAudioFormats*
   exceptions: []
   platform:

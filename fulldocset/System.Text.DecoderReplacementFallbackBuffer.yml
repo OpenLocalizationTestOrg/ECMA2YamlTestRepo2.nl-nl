@@ -15,8 +15,8 @@ items:
   nameWithType: DecoderReplacementFallbackBuffer
   fullName: System.Text.DecoderReplacementFallbackBuffer
   type: Class
-  summary: "Represents a substitute output string that is emitted when the original input byte sequence cannot be decoded. This class cannot be inherited."
-  remarks: "It might not be possible to convert an encoded byte sequence to an equivalent character if no suitable decoding exists. A common reason for a decoding to fail is that the conversion operation uses a code page that cannot represent the character to decode.       If the input byte sequence cannot be converted to an output character, a <xref:System.Text.DecoderReplacementFallback?displayProperty=fullName> object provides a replacement string that is substituted for the output character. The replacement string initializes the value of the <xref:System.Text.DecoderReplacementFallback> object, and the value of the <xref:System.Text.DecoderReplacementFallback> object initializes the value of a DecoderReplacementFallbackBuffer object. The value of a DecoderReplacementFallbackBuffer object is called the replacement fallback buffer. The conversion operation uses the replacement fallback buffer to emit a replacement string instead of a decoded character, then continues to process the remainder of the input."
+  summary: "Hiermee geeft u een vervangende uitvoertekenreeks dat wordt verzonden wanneer de oorspronkelijke invoer byte-reeks kan niet worden gedecodeerd. Deze klasse kan niet worden overgenomen."
+  remarks: "Het is niet mogelijk een reeks gecodeerde bytes converteren naar een equivalente teken als er geen geschikte decoderen bestaat. Een veelvoorkomende reden voor een decoderen doen mislukken is dat de conversiebewerking gebruikmaakt van een codetabel die kan niet het teken decoderen vertegenwoordigen.       Als de reeks invoer bytes kan niet worden geconverteerd naar een character uitvoer een <xref:System.Text.DecoderReplacementFallback?displayProperty=fullName>-object biedt u een vervangende tekenreeks die voor de uitvoer-teken is vervangen.</xref:System.Text.DecoderReplacementFallback?displayProperty=fullName> De vervangende tekenreeks initialiseert de waarde van de <xref:System.Text.DecoderReplacementFallback>object en de waarde van de <xref:System.Text.DecoderReplacementFallback>object initialiseert de waarde van een object DecoderReplacementFallbackBuffer.</xref:System.Text.DecoderReplacementFallback> </xref:System.Text.DecoderReplacementFallback> De waarde van een object DecoderReplacementFallbackBuffer heet de terugvalbuffer vervanging. De conversiebewerking de terugvalbuffer vervanging gebruikt voor het verzenden van een vervangende tekenreeks in plaats van een gedecodeerde teken en vervolgens doorgaat met het verwerken van de rest van de invoer."
   syntax:
     content: 'public sealed class DecoderReplacementFallbackBuffer : System.Text.DecoderFallbackBuffer'
   inheritance:
@@ -37,13 +37,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Text
-  summary: "Initializes a new instance of the <xref href=&quot;System.Text.DecoderReplacementFallbackBuffer&quot;></xref> class using the value of a <xref:System.Text.DecoderReplacementFallback> object."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Text.DecoderReplacementFallbackBuffer&quot;> </xref> klasse met behulp van de waarde van een <xref:System.Text.DecoderReplacementFallback>object.</xref:System.Text.DecoderReplacementFallback>"
   syntax:
     content: public DecoderReplacementFallbackBuffer (System.Text.DecoderReplacementFallback fallback);
     parameters:
     - id: fallback
       type: System.Text.DecoderReplacementFallback
-      description: "A <xref:System.Text.DecoderReplacementFallback> object that contains a replacement string."
+      description: "Een <xref:System.Text.DecoderReplacementFallback>-object dat de vervangende tekenreeks bevat.</xref:System.Text.DecoderReplacementFallback>"
   overload: System.Text.DecoderReplacementFallbackBuffer.#ctor*
   exceptions: []
   platform:
@@ -60,25 +60,25 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Text
-  summary: "Prepares the replacement fallback buffer to use the current replacement string."
-  remarks: "The <xref:System.Text.Encoding.GetBytes%2A> and <xref:System.Text.Encoder.Convert%2A> methods call Fallback if they encounter an unknown input byte sequence that cannot be decoded. If the return value of Fallback is `true`, the calling method can invoke the <xref:System.Text.DecoderReplacementFallbackBuffer.GetNextChar%2A> method to obtain each character of the fallback buffer."
+  summary: "Zorgt ervoor dat de vervangende terugvalbuffer gebruik van de huidige vervangende tekenreeks."
+  remarks: "De <xref:System.Text.Encoding.GetBytes%2A>en <xref:System.Text.Encoder.Convert%2A>methoden aanroep terugval als ze een onbekende invoer byte optreden sequentiëren die kan niet worden gedecodeerd.</xref:System.Text.Encoder.Convert%2A> </xref:System.Text.Encoding.GetBytes%2A> Als de retourwaarde van terugval `true`, kan worden aangeroepen door de aanroepende methode de <xref:System.Text.DecoderReplacementFallbackBuffer.GetNextChar%2A>methode om op te halen van elk teken van de terugvalbuffer.</xref:System.Text.DecoderReplacementFallbackBuffer.GetNextChar%2A>"
   syntax:
     content: public override bool Fallback (byte[] bytesUnknown, int index);
     parameters:
     - id: bytesUnknown
       type: System.Byte[]
-      description: "An input byte sequence. This parameter is ignored unless an exception is thrown."
+      description: "Een reeks invoer bytes. Deze parameter wordt genegeerd, tenzij er een uitzondering gegenereerd."
     - id: index
       type: System.Int32
-      description: "The index position of the byte in `bytesUnknown`. This parameter is ignored in this operation."
+      description: "De indexpositie van de byte in `bytesUnknown`. Deze parameter wordt genegeerd in deze bewerking."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the replacement string is not empty; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the replacement string is empty."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de vervangende tekenreeks niet leeg is. <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> als de vervangende tekenreeks leeg is."
   overload: System.Text.DecoderReplacementFallbackBuffer.Fallback*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "This method is called again before the <xref:System.Text.DecoderReplacementFallbackBuffer.GetNextChar*> method has read all the characters in the replacement fallback buffer."
+    description: "Deze methode wordt aangeroepen weer aan voordat u de <xref:System.Text.DecoderReplacementFallbackBuffer.GetNextChar*>methode alle tekens in de terugvalbuffer vervanging is gelezen.</xref:System.Text.DecoderReplacementFallbackBuffer.GetNextChar*>"
   platform:
   - net462
 - uid: System.Text.DecoderReplacementFallbackBuffer.GetNextChar
@@ -93,14 +93,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Text
-  summary: "Retrieves the next character in the replacement fallback buffer."
-  remarks: "The <xref:System.Text.Encoding.GetBytes%2A?displayProperty=fullName> and <xref:System.Text.Decoder.Convert%2A?displayProperty=fullName> methods call <xref:System.Text.DecoderReplacementFallbackBuffer.Fallback%2A> if they encounter an unknown surrogate pair or character in their input. If the return value of <xref:System.Text.DecoderReplacementFallbackBuffer.Fallback%2A> is `true`, the calling method can invoke GetNextChar to obtain each character of the replacement fallback buffer."
+  summary: "Hiermee haalt u het volgende teken in de terugvalbuffer vervanging."
+  remarks: "De <xref:System.Text.Encoding.GetBytes%2A?displayProperty=fullName>en <xref:System.Text.Decoder.Convert%2A?displayProperty=fullName>methoden aanroep <xref:System.Text.DecoderReplacementFallbackBuffer.Fallback%2A>als ze een onbekende surrogaatpaar of teken in de invoer optreden.</xref:System.Text.DecoderReplacementFallbackBuffer.Fallback%2A> </xref:System.Text.Decoder.Convert%2A?displayProperty=fullName> </xref:System.Text.Encoding.GetBytes%2A?displayProperty=fullName> Als de retourwaarde van <xref:System.Text.DecoderReplacementFallbackBuffer.Fallback%2A>is `true`, de aangeroepen methode kunt aanroepen GetNextChar om op te halen van elk teken van de vervangende terugvalbuffer.</xref:System.Text.DecoderReplacementFallbackBuffer.Fallback%2A>"
   syntax:
     content: public override char GetNextChar ();
     parameters: []
     return:
       type: System.Char
-      description: "The next character in the replacement fallback buffer."
+      description: "Het volgende teken in de terugvalbuffer vervanging."
   overload: System.Text.DecoderReplacementFallbackBuffer.GetNextChar*
   exceptions: []
   platform:
@@ -117,13 +117,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Text
-  summary: "Causes the next call to <xref:System.Text.DecoderReplacementFallbackBuffer.GetNextChar*> to access the character position in the replacement fallback buffer prior to the current character position."
+  summary: "Hiermee wordt de volgende aanroep <xref:System.Text.DecoderReplacementFallbackBuffer.GetNextChar*>voor toegang tot de positie van het teken in de vervangende terugvalbuffer vóór de huidige tekenpositie.</xref:System.Text.DecoderReplacementFallbackBuffer.GetNextChar*>"
   syntax:
     content: public override bool MovePrevious ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the MovePrevious operation was successful; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de MovePrevious-bewerking voltooid is; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Text.DecoderReplacementFallbackBuffer.MovePrevious*
   exceptions: []
   platform:
@@ -140,13 +140,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Text
-  summary: "Gets the number of characters in the replacement fallback buffer that remain to be processed."
-  remarks: "The <xref:System.Text.DecoderReplacementFallbackBuffer.Fallback%2A> method returns `true` if the Remaining property is nonzero."
+  summary: "Hiermee haalt het aantal tekens in de vervangende terugvalbuffer die nog moeten worden verwerkt."
+  remarks: "De <xref:System.Text.DecoderReplacementFallbackBuffer.Fallback%2A>methode retourneert `true` als de eigenschap resterend gelijk aan nul is.</xref:System.Text.DecoderReplacementFallbackBuffer.Fallback%2A>"
   syntax:
     content: public override int Remaining { get; }
     return:
       type: System.Int32
-      description: "The number of characters in the replacement fallback buffer that have not yet been processed."
+      description: "Het aantal tekens in de terugvalbuffer vervanging die nog niet zijn verwerkt."
   overload: System.Text.DecoderReplacementFallbackBuffer.Remaining*
   exceptions: []
   platform:
@@ -163,8 +163,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Text
-  summary: "Initializes all internal state information and data in the <xref href=&quot;System.Text.DecoderReplacementFallbackBuffer&quot;></xref> object."
-  remarks: "The Reset method discards any persisted state information and data that govern the emitting of a replacement string. Unpredictable results occur if the decoding operation continues after the Reset method is invoked."
+  summary: "Initialiseert u alle informatie over de interne status en gegevens in de <xref href=&quot;System.Text.DecoderReplacementFallbackBuffer&quot;> </xref> object."
+  remarks: "De methode Reset verwijdert alle informatie van de permanente status en gegevens die van toepassing zijn die van de vervangende tekenreeks. Onvoorspelbare resultaten optreden als de decodering bewerking wordt voortgezet nadat de methode voor opnieuw instellen is aangeroepen."
   syntax:
     content: public override void Reset ();
     parameters: []

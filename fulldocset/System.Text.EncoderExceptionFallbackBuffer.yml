@@ -15,8 +15,8 @@ items:
   nameWithType: EncoderExceptionFallbackBuffer
   fullName: System.Text.EncoderExceptionFallbackBuffer
   type: Class
-  summary: "Throws <xref:System.Text.EncoderFallbackException> when an input character cannot be converted to an encoded output byte sequence. This class cannot be inherited."
-  remarks: "A common reason for an encoding or decoding operation to fail is if the underlying encoding class does not provide a mapping between a character and an equivalent byte sequence. If the input character cannot be converted to an output byte sequence, the encoding operation calls the <xref:System.Text.EncoderExceptionFallbackBuffer.Fallback%2A> method, which throws <xref:System.Text.EncoderFallbackException>.       The <xref:System.Text.EncoderFallbackBuffer?displayProperty=fullName> class, which represents a data buffer used in an encoding operation, is the base class for the EncoderExceptionFallbackBuffer class. However, instead of a data buffer, the EncoderExceptionFallbackBuffer class represents a standard behavior wherein an exception is thrown if an encoding operation fails. No actual data buffer exists, and the members designed to manipulate such a buffer do no significant work."
+  summary: "Genereert <xref:System.Text.EncoderFallbackException>wanneer een invoertekens kan niet worden geconverteerd naar een reeks gecodeerde uitvoer bytes.</xref:System.Text.EncoderFallbackException> Deze klasse kan niet worden overgenomen."
+  remarks: "Een veelvoorkomende reden voor een codering of decoderen van de bewerking mislukken is als de onderliggende klasse codering geen een toewijzing tussen een teken en een volgorde van gelijkwaardige byte biedt. Als het ingevoerde teken kan niet worden geconverteerd naar een reeks uitvoer bytes, roept de coderingsbewerking de <xref:System.Text.EncoderExceptionFallbackBuffer.Fallback%2A>methode die <xref:System.Text.EncoderFallbackException>.</xref:System.Text.EncoderFallbackException> genereert</xref:System.Text.EncoderExceptionFallbackBuffer.Fallback%2A>       De <xref:System.Text.EncoderFallbackBuffer?displayProperty=fullName>klasse, die staat voor een gegevensbuffer gebruikt in een codering bewerking, is de basisklasse voor de klasse EncoderExceptionFallbackBuffer.</xref:System.Text.EncoderFallbackBuffer?displayProperty=fullName> In plaats van een gegevensbuffer echter vertegenwoordigt de klasse EncoderExceptionFallbackBuffer een standaardgedrag waarin een uitzondering gegenereerd als een codering bewerking mislukt. Geen actuele gegevensbuffer bestaat en de leden die zijn ontworpen om te bewerken, zoals een buffer biedt geen aanzienlijke werkbelasting."
   syntax:
     content: 'public sealed class EncoderExceptionFallbackBuffer : System.Text.EncoderFallbackBuffer'
   inheritance:
@@ -37,7 +37,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Text
-  summary: "Initializes a new instance of the <xref href=&quot;System.Text.EncoderExceptionFallbackBuffer&quot;></xref> class."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Text.EncoderExceptionFallbackBuffer&quot;> </xref> klasse."
   syntax:
     content: public EncoderExceptionFallbackBuffer ();
     parameters: []
@@ -57,25 +57,25 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Text
-  summary: "Throws an exception because the input character cannot be encoded. Parameters specify the value and index position of the character that cannot be converted."
-  remarks: "The <xref:System.Text.Encoding.GetBytes%2A> and <xref:System.Text.Encoder.Convert%2A> methods call Fallback if they encounter an unknown character in their input. In response, Fallback always throws <xref:System.Text.EncoderFallbackException>."
+  summary: "Er een uitzondering gegenereerd omdat het ingevoerde teken kan niet worden gecodeerd. Parameters geeft u de waarde en index positie van het teken dat kan niet worden geconverteerd."
+  remarks: "De <xref:System.Text.Encoding.GetBytes%2A>en <xref:System.Text.Encoder.Convert%2A>methoden aanroepen terugval als ze een onbekend teken in de invoer optreden.</xref:System.Text.Encoder.Convert%2A> </xref:System.Text.Encoding.GetBytes%2A> In het antwoord genereert terugval altijd <xref:System.Text.EncoderFallbackException>.</xref:System.Text.EncoderFallbackException>"
   syntax:
     content: public override bool Fallback (char charUnknown, int index);
     parameters:
     - id: charUnknown
       type: System.Char
-      description: "An input character."
+      description: "Een ingevoerde teken."
     - id: index
       type: System.Int32
-      description: "The index position of the character in the input buffer."
+      description: "De indexpositie van het teken in de invoerbuffer."
     return:
       type: System.Boolean
-      description: "None. No value is returned because the Fallback method always throws an exception."
+      description: "Geen. Er is geen waarde wordt geretourneerd omdat de alternatieve methode er altijd een uitzondering gegenereerd."
   overload: System.Text.EncoderExceptionFallbackBuffer.Fallback*
   exceptions:
   - type: System.Text.EncoderFallbackException
     commentId: T:System.Text.EncoderFallbackException
-    description: "<code>charUnknown</code> cannot be encoded. This method always throws an exception that reports the value of the <code>charUnknown</code> and <code>index</code> parameters."
+    description: "<code>charUnknown</code>kan niet worden gecodeerd. Deze methode er altijd een uitzondering gegenereerd die de waarde van rapporteert de <code>charUnknown</code> en <code>index</code> parameters."
   platform:
   - net462
 - uid: System.Text.EncoderExceptionFallbackBuffer.Fallback(System.Char,System.Char,System.Int32)
@@ -90,31 +90,31 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Text
-  summary: "Throws an exception because the input character cannot be encoded. Parameters specify the value and index position of the surrogate pair in the input, and the nominal return value is not used."
-  remarks: "The <xref:System.Text.Encoding.GetBytes%2A> and <xref:System.Text.Encoder.Convert%2A> methods call Fallback if they encounter a surrogate pair in their input. In response, Fallback always throws an exception."
+  summary: "Er een uitzondering gegenereerd omdat het ingevoerde teken kan niet worden gecodeerd. Parameters geeft u de positie van de waarde en de index van het surrogaatpaar in de invoer en de nominaal retourwaarde wordt niet gebruikt."
+  remarks: "De <xref:System.Text.Encoding.GetBytes%2A>en <xref:System.Text.Encoder.Convert%2A>methoden aanroepen terugval als ze een surrogaatpaar in hun invoer optreden.</xref:System.Text.Encoder.Convert%2A> </xref:System.Text.Encoding.GetBytes%2A> In het antwoord wordt terugval altijd een uitzondering veroorzaakt."
   syntax:
     content: public override bool Fallback (char charUnknownHigh, char charUnknownLow, int index);
     parameters:
     - id: charUnknownHigh
       type: System.Char
-      description: "The high surrogate of the input pair."
+      description: "De hoge vervangende van de invoer-paar."
     - id: charUnknownLow
       type: System.Char
-      description: "The low surrogate of the input pair."
+      description: "De lage vervangende van de invoer-paar."
     - id: index
       type: System.Int32
-      description: "The index position of the surrogate pair in the input buffer."
+      description: "De indexpositie van het surrogaatpaar in de invoerbuffer."
     return:
       type: System.Boolean
-      description: "None. No value is returned because the Fallback method always throws an exception."
+      description: "Geen. Er is geen waarde wordt geretourneerd omdat de alternatieve methode er altijd een uitzondering gegenereerd."
   overload: System.Text.EncoderExceptionFallbackBuffer.Fallback*
   exceptions:
   - type: System.Text.EncoderFallbackException
     commentId: T:System.Text.EncoderFallbackException
-    description: "The character represented by <code>charUnknownHigh</code> and <code>charUnknownLow</code> cannot be encoded."
+    description: "Het teken dat wordt vertegenwoordigd door <code> charUnknownHigh </code> en <code> charUnknownLow </code> kan niet worden gecodeerd."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "Either <code>charUnknownHigh</code> or <code>charUnknownLow</code> is invalid. <code>charUnknownHigh</code> is not between U+D800 and U+DBFF, inclusive, or <code>charUnknownLow</code> is not between U+DC00 and U+DFFF, inclusive."
+    description: "Either <code>charUnknownHigh</code> or <code>charUnknownLow</code> is invalid. <code>charUnknownHigh</code>ligt niet tussen U + D800 en U + DBFF, liggen, of <code> charUnknownLow </code> ligt niet tussen U + DC00 en U + DFFF, inclusief."
   platform:
   - net462
 - uid: System.Text.EncoderExceptionFallbackBuffer.GetNextChar
@@ -129,14 +129,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Text
-  summary: "Retrieves the next character in the exception fallback buffer."
-  remarks: "Because <xref:System.Text.EncoderExceptionFallbackBuffer> has no actual exception data buffer, the GetNextChar method always returns the Unicode NULL character."
+  summary: "Hiermee haalt u het volgende teken in de terugvalbuffer uitzondering."
+  remarks: "Omdat <xref:System.Text.EncoderExceptionFallbackBuffer>geen gegevensbuffer werkelijke uitzondering heeft de methode GetNextChar retourneert altijd het NULL Unicode-teken.</xref:System.Text.EncoderExceptionFallbackBuffer>"
   syntax:
     content: public override char GetNextChar ();
     parameters: []
     return:
       type: System.Char
-      description: "The return value is always the Unicode character, NULL (U+0000).       A return value is defined, although it is unchanging, because this method implements an abstract method."
+      description: "De geretourneerde waarde is altijd het Unicode-teken, NULL (U +&0000;).       Een retourwaarde is gedefinieerd, hoewel het onveranderlijke, omdat deze methode wordt geïmplementeerd voor een abstracte methode."
   overload: System.Text.EncoderExceptionFallbackBuffer.GetNextChar*
   exceptions: []
   platform:
@@ -153,14 +153,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Text
-  summary: "Causes the next call to the <xref:System.Text.EncoderExceptionFallbackBuffer.GetNextChar*> method to access the exception data buffer character position that is prior to the current position."
-  remarks: "Because <xref:System.Text.EncoderExceptionFallbackBuffer> has no actual exception data buffer, the MovePrevious method always returns `false`."
+  summary: "De volgende aanroep zorgt ervoor dat de <xref:System.Text.EncoderExceptionFallbackBuffer.GetNextChar*>methode voor toegang tot de uitzondering buffer tekenpositie dat ouder is dan de huidige positie.</xref:System.Text.EncoderExceptionFallbackBuffer.GetNextChar*>"
+  remarks: "Omdat <xref:System.Text.EncoderExceptionFallbackBuffer>geen gegevensbuffer werkelijke uitzondering heeft de methode MovePrevious retourneert altijd `false`.</xref:System.Text.EncoderExceptionFallbackBuffer>"
   syntax:
     content: public override bool MovePrevious ();
     parameters: []
     return:
       type: System.Boolean
-      description: "The return value is always <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>.       A return value is defined, although it is unchanging, because this method implements an abstract method."
+      description: "De geretourneerde waarde is altijd <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>.       Een retourwaarde is gedefinieerd, hoewel het onveranderlijke, omdat deze methode wordt geïmplementeerd voor een abstracte methode."
   overload: System.Text.EncoderExceptionFallbackBuffer.MovePrevious*
   exceptions: []
   platform:
@@ -177,13 +177,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Text
-  summary: "Gets the number of characters in the current <xref href=&quot;System.Text.EncoderExceptionFallbackBuffer&quot;></xref> object that remain to be processed."
-  remarks: "Because <xref:System.Text.EncoderExceptionFallbackBuffer> has no actual exception data buffer, the Remaining property always returns zero."
+  summary: "Hiermee wordt het aantal tekens in de huidige <xref href=&quot;System.Text.EncoderExceptionFallbackBuffer&quot;> </xref> object die nog moeten worden verwerkt."
+  remarks: "Omdat <xref:System.Text.EncoderExceptionFallbackBuffer>geen gegevensbuffer werkelijke uitzondering heeft de eigenschap resterend retourneert altijd nul.</xref:System.Text.EncoderExceptionFallbackBuffer>"
   syntax:
     content: public override int Remaining { get; }
     return:
       type: System.Int32
-      description: "The return value is always zero.       A return value is defined, although it is unchanging, because this method implements an abstract method."
+      description: "De geretourneerde waarde is altijd nul.       Een retourwaarde is gedefinieerd, hoewel het onveranderlijke, omdat deze methode wordt geïmplementeerd voor een abstracte methode."
   overload: System.Text.EncoderExceptionFallbackBuffer.Remaining*
   exceptions: []
   platform:
