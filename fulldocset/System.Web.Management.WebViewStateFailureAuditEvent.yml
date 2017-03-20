@@ -12,8 +12,8 @@ items:
   nameWithType: WebViewStateFailureAuditEvent
   fullName: System.Web.Management.WebViewStateFailureAuditEvent
   type: Class
-  summary: "Provides Web-application view-state-related-failure information."
-  remarks: "ASP.NET health monitoring allows production and operations staff to manage deployed Web applications. The <xref:System.Web.Management?displayProperty=fullName> namespace contains the health-event types responsible for packaging application health-status data and the provider types responsible for processing this data. It also contains supporting types that help during the management of health events.       ASP.NET raises events of type WebViewStateFailureAuditEvent when a view-state failure occurs. This failure indicates either an attempt to tamper with view state or its reuse from another machine with a different key. The related audit event code is <xref:System.Web.Management.WebEventCodes.AuditInvalidViewStateFailure>.      > [!NOTE] >  In most cases you will be able to use the ASP.NET health-monitoring types as implemented, and you will control the health-monitoring system by specifying values in the `healthMonitoring` configuration section. You can also derive from the health-monitoring types to create your own custom events and providers."
+  summary: "Bevat informatie voor webtoepassing weergave-status-gerelateerde-fout."
+  remarks: "ASP.NET-statuscontrole kunt personeel voor productie en bewerkingen voor het beheren van de geïmplementeerde Web-Apps. De <xref:System.Web.Management?displayProperty=fullName>-naamruimte bevat de typen van de health-gebeurtenissen die verantwoordelijk is voor het verpakken van de toepassingsgegevens van de health-status en de providertypen verantwoordelijk voor het verwerken van deze gegevens.</xref:System.Web.Management?displayProperty=fullName> Het bevat ook ondersteunende typen die bij het beheer van health-gebeurtenissen helpen.       ASP.NET worden gebeurtenissen van het type WebViewStateFailureAuditEvent gegeven als een weergavestatus fout optreedt. Deze fout geeft aan een poging te manipuleren weergavestatus hetzij vanaf een andere computer met een andere sleutel opnieuw. De gebeurteniscode gerelateerde audit is <xref:System.Web.Management.WebEventCodes.AuditInvalidViewStateFailure>.</xref:System.Web.Management.WebEventCodes.AuditInvalidViewStateFailure>      > [!NOTE] > In de meeste gevallen kunt u zich de ASP.NET-statuscontrole typen gebruiken als ze zijn geïmplementeerd en u de system health monitoring te regelen door te geven waarden in de `healthMonitoring` configuratiesectie. U kunt ook afgeleid van de statuscontrole typen voor het maken van uw eigen aangepaste gebeurtenissen en providers."
   example:
   - "The following is an excerpt of a configuration file showing how to configure the <xref:System.Web.Management.EventLogWebEventProvider> to capture view-state failures. For completeness we are showing the setup for the `provider` and `eventMappings` sections. They are already set by default. The only thing you need to do is to provide the setup for the `rules` section. Refer to `healthMonitoring` for more information.  \n  \n To generate a view-state error, enter a URL in your browser with the following query string:  \n  \n```  \n?__VIEWSTATEFIELDCOUNT=1&__VIEWSTATE=bogus  \n```  \n  \n The Windows Application Eventlog will capture a view-state failure, if you enter the following configuration settings.  \n  \n```  \n<healthMonitoring  \n  enabled=\"true\"  \n  heartBeatInterval=\"0\">  \n  <providers>  \n    // Configure the provider to process   \n    // the health events.  \n    <add name=\"EventLogProvider\"  \n       type=\"System.Web.Management.EventLogWebEventProvider,  \n       System.Web,Version=2.0.3600.0,Culture=neutral,  \n       PublicKeyToken=b03f5f7f11d50a3a\"/>  \n  </providers>  \n  \n  <eventMappings>  \n    <clear />  \n    // Configure the WebFailureAuditEvent   \n    // object to handle the Viewstate failures.   \n    <add name=\"Failure Audits\"  \n      type=\"System.Web.Management.WebFailureAuditEvent,  \n      System.Web,Version=2.0.3600.0,Culture=neutral,  \n      PublicKeyToken=b03f5f7f11d50a3a\" />  \n  </eventMappings>  \n  \n  <rules>  \n    <clear/>  \n    // Configure the connection between the   \n    // application lifetime event object   \n    // and the provider that must process it.  \n      <add name=\"Viewstate Failure Events \"  \n        eventName=\"Failure Events\"  \n        provider=\"EventLogProvider\"  \n        profile=\"Default\"  \n        minInterval=\"00:01:00\" />  \n  </rules>  \n</healthMonitoring>  \n```"
   syntax:
@@ -58,23 +58,23 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Initializes the <xref href=&quot;System.Web.Management.WebViewStateFailureAuditEvent&quot;></xref> class using the supplied parameters."
-  remarks: "This constructor is used internally by the ASP.NET health-monitoring system. You will never use it to instantiate a <xref:System.Web.Management.WebViewStateFailureAuditEvent> object, but you can call this constructor when implementing your own event type that inherits from this class."
+  summary: "Initialiseert de <xref href=&quot;System.Web.Management.WebViewStateFailureAuditEvent&quot;> </xref> klasse met de opgegeven parameters."
+  remarks: "Deze constructor wordt intern gebruikt door het systeem ASP.NET health monitoring. U wordt nooit gebruikt om het instantiëren van een <xref:System.Web.Management.WebViewStateFailureAuditEvent>object, maar u kunt aanroepen voor deze constructor bij het implementeren van uw eigen gebeurtenistype dat kenmerken van deze klasse overneemt.</xref:System.Web.Management.WebViewStateFailureAuditEvent>"
   syntax:
     content: protected WebViewStateFailureAuditEvent (string message, object eventSource, int eventCode, System.Web.UI.ViewStateException viewStateException);
     parameters:
     - id: message
       type: System.String
-      description: "The event description."
+      description: "De beschrijving van de gebeurtenis."
     - id: eventSource
       type: System.Object
-      description: "The object that is the source of the event."
+      description: "Het object dat de bron van de gebeurtenis."
     - id: eventCode
       type: System.Int32
-      description: "The code associated with the event. When you implement a custom event, the event code must be greater than <xref href=&quot;System.Web.Management.WebEventCodes.WebExtendedBase&quot;></xref>."
+      description: "De code die is gekoppeld aan de gebeurtenis. Wanneer u een aangepaste gebeurtenis implementeert, de gebeurteniscode moet groter dan <xref href=&quot;System.Web.Management.WebEventCodes.WebExtendedBase&quot;> </xref>."
     - id: viewStateException
       type: System.Web.UI.ViewStateException
-      description: "The <xref href=&quot;System.Web.UI.ViewStateException&quot;></xref> caused by the failure."
+      description: "De <xref href=&quot;System.Web.UI.ViewStateException&quot;> </xref> veroorzaakt door een storing."
   overload: System.Web.Management.WebViewStateFailureAuditEvent.#ctor*
   exceptions: []
   platform:
@@ -91,26 +91,26 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.Management.WebViewStateFailureAuditEvent&quot;></xref> class using the supplied parameters."
-  remarks: "This constructor is used internally by the ASP.NET health-monitoring system. You will never use it to instantiate a <xref:System.Web.Management.WebViewStateFailureAuditEvent> object, but you can call this constructor when implementing your own event type that inherits from this class."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Web.Management.WebViewStateFailureAuditEvent&quot;> </xref> klasse met de opgegeven parameters."
+  remarks: "Deze constructor wordt intern gebruikt door het systeem ASP.NET health monitoring. U wordt nooit gebruikt om het instantiëren van een <xref:System.Web.Management.WebViewStateFailureAuditEvent>object, maar u kunt aanroepen voor deze constructor bij het implementeren van uw eigen gebeurtenistype dat kenmerken van deze klasse overneemt.</xref:System.Web.Management.WebViewStateFailureAuditEvent>"
   syntax:
     content: protected WebViewStateFailureAuditEvent (string message, object eventSource, int eventCode, int eventDetailCode, System.Web.UI.ViewStateException viewStateException);
     parameters:
     - id: message
       type: System.String
-      description: "The event description."
+      description: "De beschrijving van de gebeurtenis."
     - id: eventSource
       type: System.Object
-      description: "The object that is the source of the event."
+      description: "Het object dat de bron van de gebeurtenis."
     - id: eventCode
       type: System.Int32
-      description: "The code associated with the event. When you implement a custom event, the event code must be greater than <xref href=&quot;System.Web.Management.WebEventCodes.WebExtendedBase&quot;></xref>."
+      description: "De code die is gekoppeld aan de gebeurtenis. Wanneer u een aangepaste gebeurtenis implementeert, de gebeurteniscode moet groter dan <xref href=&quot;System.Web.Management.WebEventCodes.WebExtendedBase&quot;> </xref>."
     - id: eventDetailCode
       type: System.Int32
-      description: "The <xref href=&quot;System.Web.Management.WebEventCodes&quot;></xref> value that specifies the detailed identifier for the event."
+      description: "De <xref href=&quot;System.Web.Management.WebEventCodes&quot;> </xref> waarde waarmee de gedetailleerde id voor de gebeurtenis."
     - id: viewStateException
       type: System.Web.UI.ViewStateException
-      description: "The <xref href=&quot;System.Web.UI.ViewStateException&quot;></xref> caused by the failure."
+      description: "De <xref href=&quot;System.Web.UI.ViewStateException&quot;> </xref> veroorzaakt door een storing."
   overload: System.Web.Management.WebViewStateFailureAuditEvent.#ctor*
   exceptions: []
   platform:
@@ -127,13 +127,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets the exception caused by the failure."
-  remarks: "The <xref:System.Web.UI.ViewStateException> indicates either an attempt to tamper with view state or its reuse from another machine with a different key."
+  summary: "Hiermee haalt u de uitzondering veroorzaakt door een storing."
+  remarks: "De <xref:System.Web.UI.ViewStateException>geeft een poging te manipuleren weergavestatus hetzij vanaf een andere computer met een andere sleutel opnieuw aan.</xref:System.Web.UI.ViewStateException>"
   syntax:
     content: public System.Web.UI.ViewStateException ViewStateException { get; }
     return:
       type: System.Web.UI.ViewStateException
-      description: "The <xref href=&quot;System.Web.UI.ViewStateException&quot;></xref> caused by the failure."
+      description: "De <xref href=&quot;System.Web.UI.ViewStateException&quot;> </xref> veroorzaakt door een storing."
   overload: System.Web.Management.WebViewStateFailureAuditEvent.ViewStateException*
   exceptions: []
   platform:

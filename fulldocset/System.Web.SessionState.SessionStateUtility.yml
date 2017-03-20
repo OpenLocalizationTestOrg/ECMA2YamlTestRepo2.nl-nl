@@ -17,8 +17,8 @@ items:
   nameWithType: SessionStateUtility
   fullName: System.Web.SessionState.SessionStateUtility
   type: Class
-  summary: "Provides helper methods used by session-state modules and session-state store providers to manage session information for an ASP.NET application. This class cannot be inherited."
-  remarks: "The SessionStateUtility class provides static helper methods that are used by a session-state module or a session-state store provider. Application developers will not need to call these methods from their code.       The following table describes the ways the session-state module and session-state store provider use the methods.      |Method|Use|   |------------|---------|   |<xref:System.Web.SessionState.SessionStateUtility.GetHttpSessionStateFromContext%2A> method|Can be used by custom session-state modules to either retrieve session information for an existing session or create session information for a new session.|   |<xref:System.Web.SessionState.SessionStateUtility.AddHttpSessionStateToContext%2A> method|Called by the session-state module to add the session data to the current <xref:System.Web.HttpContext> and make it available to application code through the <xref:System.Web.HttpContext.Session%2A> property.|   |<xref:System.Web.SessionState.SessionStateUtility.RemoveHttpSessionStateFromContext%2A> method|Called by the session-state module during the <xref:System.Web.HttpApplication.ReleaseRequestState> or <xref:System.Web.HttpApplication.EndRequest> events at the end of a request, to clear session data from the current <xref:System.Web.HttpContext>.|   |<xref:System.Web.SessionState.SessionStateUtility.GetSessionStaticObjects%2A> method|Called by the session-state module to get a reference to the <xref:System.Web.SessionState.HttpSessionState.StaticObjects%2A> collection based on objects defined in the Global.asax file. The <xref:System.Web.HttpStaticObjectsCollection> collection returned is included with the session data added to the current <xref:System.Web.HttpContext>.|       Session data is passed to and retrieved from the current <xref:System.Web.HttpContext> as an <xref:System.Web.SessionState.HttpSessionStateContainer> object or any valid implementation of the <xref:System.Web.SessionState.IHttpSessionState> interface.       For information about implementing a session-state store provider, see [Implementing a Session-State Store Provider](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Biedt methoden die worden gebruikt door de sessiestatus modules en sessiestatus providers voor het beheren van sessie-informatie voor een ASP.NET-toepassing opslaan. Deze klasse kan niet worden overgenomen."
+  remarks: "De klasse SessionStateUtility biedt statische methoden die worden gebruikt door een sessiestatus-module of een sessiestatus opslagprovider. Ontwikkelaars van toepassingen moet niet aanroepen van deze methoden vanuit hun code.       De volgende tabel beschrijft de manieren waarop die de module voor sessiestatus en store sessiestatus-provider de methoden gebruiken.      | Methode | Gebruik |   |------------|---------|   | de methode <xref:System.Web.SessionState.SessionStateUtility.GetHttpSessionStateFromContext%2A>| Sessie-informatie voor een bestaande sessie ophalen of maken van sessie-informatie voor een nieuwe sessie kan worden gebruikt door aangepaste sessiestatus modules. |   | de methode <xref:System.Web.SessionState.SessionStateUtility.AddHttpSessionStateToContext%2A>| Aangeroepen door de module voor sessiestatus sessiegegevens toevoegen aan de huidige <xref:System.Web.HttpContext>en beschikbaar stellen aan toepassingscode via de eigenschap <xref:System.Web.HttpContext.Session%2A>. |   | de methode <xref:System.Web.SessionState.SessionStateUtility.RemoveHttpSessionStateFromContext%2A>| Aangeroepen door de sessiestatus module tijdens de <xref:System.Web.HttpApplication.ReleaseRequestState>of <xref:System.Web.HttpApplication.EndRequest>gebeurtenissen aan het einde van een verzoek om sessiegegevens van de huidige <xref:System.Web.HttpContext>te wissen. |   | de methode <xref:System.Web.SessionState.SessionStateUtility.GetSessionStaticObjects%2A>| Aangeroepen door de sessiestatus module een verwijzing naar de <xref:System.Web.SessionState.HttpSessionState.StaticObjects%2A>verzameling op basis van objecten die zijn gedefinieerd in het bestand Global.asax.</xref:System.Web.SessionState.HttpSessionState.StaticObjects%2A> </xref:System.Web.SessionState.SessionStateUtility.GetSessionStaticObjects%2A> </xref:System.Web.HttpContext> </xref:System.Web.HttpApplication.EndRequest> </xref:System.Web.HttpApplication.ReleaseRequestState> </xref:System.Web.SessionState.SessionStateUtility.RemoveHttpSessionStateFromContext%2A> </xref:System.Web.HttpContext.Session%2A> </xref:System.Web.HttpContext> </xref:System.Web.SessionState.SessionStateUtility.AddHttpSessionStateToContext%2A> </xref:System.Web.SessionState.SessionStateUtility.GetHttpSessionStateFromContext%2A> De verzameling <xref:System.Web.HttpStaticObjectsCollection>geretourneerd is opgenomen in de sessiegegevens zijn toegevoegd aan de huidige <xref:System.Web.HttpContext>. |       Sessiegegevens is doorgegeven aan en opgehaald uit de huidige <xref:System.Web.HttpContext>als een <xref:System.Web.SessionState.HttpSessionStateContainer>object of een geldige implementatie van de <xref:System.Web.SessionState.IHttpSessionState>interface.</xref:System.Web.SessionState.IHttpSessionState> </xref:System.Web.SessionState.HttpSessionStateContainer> </xref:System.Web.HttpContext> </xref:System.Web.HttpContext> </xref:System.Web.HttpStaticObjectsCollection>       Zie voor meer informatie over het implementeren van een sessiestatus opslagprovider [uitvoering van een Provider voor het opslaan van sessiestatus](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following code example shows a custom session-state module implementation that stores session information in memory using a <xref:System.Collections.Hashtable>. The module uses the SessionStateUtility class to reference the current <xref:System.Web.HttpContext> and <xref:System.Web.SessionState.SessionIDManager>, retrieve the current <xref:System.Web.HttpStaticObjectsCollection>, and raise the **Session_OnEnd** event defined in the Global.asax file for the ASP.NET application. This application does not prevent simultaneous Web requests from using the same session identifier.  \n  \n [!code-vb[System.Web.SessionState.SessionStateUtility#1](~/add/codesnippet/visualbasic/t-system.web.sessionstat_6_1.vb)]\n [!code-cs[System.Web.SessionState.SessionStateUtility#1](~/add/codesnippet/csharp/t-system.web.sessionstat_6_1.cs)]  \n  \n To use this custom session-state module in an ASP.NET application, you can replace the existing <xref:System.Web.SessionState.SessionStateModule> reference in the Web.config file, as shown in the following example.  \n  \n```  \n<configuration>  \n  <system.web>  \n    <httpModules>  \n      <remove name=\"Session\" />  \n      <add name=\"Session\"  \n      type=\"Samples.AspNet.SessionState.MySessionStateModule\" />  \n    </httpModules>  \n  </system.web>  \n</configuration>  \n```"
   syntax:
@@ -41,8 +41,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Applies the session data to the context for the current request."
-  remarks: "The AddHttpSessionStateToContext method is used by a session-state module to apply session data to the current request. This occurs during the <xref:System.Web.HttpApplication.AcquireRequestState> event at the beginning of a request. Session data for the current request is either retrieved for an existing session or created for a new session. The session data is then encapsulated in an <xref:System.Web.SessionState.IHttpSessionState> implementation instance, which is passed to the AddHttpSessionStateToContext method along with the current <xref:System.Web.HttpContext>. The supplied session data is then made available to application code through the <xref:System.Web.HttpContext.Session%2A> property of the current context."
+  summary: "De sessiegegevens geldt voor de context voor de huidige aanvraag."
+  remarks: "De methode AddHttpSessionStateToContext wordt gebruikt door een module voor sessiestatus sessiegegevens toepassen op de huidige aanvraag. Dit gebeurt tijdens de <xref:System.Web.HttpApplication.AcquireRequestState>gebeurtenis aan het begin van een aanvraag.</xref:System.Web.HttpApplication.AcquireRequestState> Sessiegegevens voor de huidige aanvraag is opgehaald voor een bestaande sessie of voor een nieuwe sessie gemaakt. De sessiegegevens wordt vervolgens ingekapseld in een <xref:System.Web.SessionState.IHttpSessionState>exemplaar van de implementatie, die is doorgegeven aan de methode AddHttpSessionStateToContext samen met de huidige <xref:System.Web.HttpContext>.</xref:System.Web.HttpContext> </xref:System.Web.SessionState.IHttpSessionState> De opgegeven sessiegegevens vervolgens beschikbaar wordt gesteld aan toepassingscode via de <xref:System.Web.HttpContext.Session%2A>eigenschap van de huidige context.</xref:System.Web.HttpContext.Session%2A>"
   example:
   - "The following code example shows the handler for the <xref:System.Web.HttpApplication.AcquireRequestState> event in a custom session-state module. The custom module retrieves existing session information or creates new session information and uses the AddHttpSessionStateToContext method to add it to the <xref:System.Web.HttpContext> of the current request. This code example is part of a larger example provided for the <xref:System.Web.SessionState.SessionStateUtility> class.  \n  \n [!code-vb[System.Web.SessionState.SessionStateUtility#4](~/add/codesnippet/visualbasic/5c9b7582-11c3-42e9-975d-_1.vb)]\n [!code-cs[System.Web.SessionState.SessionStateUtility#4](~/add/codesnippet/csharp/5c9b7582-11c3-42e9-975d-_1.cs)]"
   syntax:
@@ -50,15 +50,15 @@ items:
     parameters:
     - id: context
       type: System.Web.HttpContext
-      description: "The <xref href=&quot;System.Web.HttpContext&quot;></xref> object to which to add the <xref href=&quot;System.Web.SessionState.HttpSessionState&quot;></xref> object."
+      description: "De <xref href=&quot;System.Web.HttpContext&quot;> </xref> object waarnaar u wilt toevoegen de <xref href=&quot;System.Web.SessionState.HttpSessionState&quot;> </xref> object."
     - id: container
       type: System.Web.SessionState.IHttpSessionState
-      description: "The <xref href=&quot;System.Web.SessionState.IHttpSessionState&quot;></xref> implementation instance to add to the specified HTTP context."
+      description: "De <xref href=&quot;System.Web.SessionState.IHttpSessionState&quot;> </xref> exemplaar van de implementatie toevoegen aan de opgegeven HTTP-context."
   overload: System.Web.SessionState.SessionStateUtility.AddHttpSessionStateToContext*
   exceptions:
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "An <xref href=&quot;System.Web.SessionState.HttpSessionState&quot;></xref> object for the current session has already been added to the specified <code>context</code>."
+    description: "Een <xref href=&quot;System.Web.SessionState.HttpSessionState&quot;> </xref> object van de huidige sessie is al toegevoegd aan de opgegeven <code> context </code>."
   platform:
   - net462
 - uid: System.Web.SessionState.SessionStateUtility.GetHttpSessionStateFromContext(System.Web.HttpContext)
@@ -73,8 +73,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Retrieves session data from the context for the current request."
-  remarks: "The GetHttpSessionStateFromContext method can be used by a session-state module to retrieve session data from the current request. This occurs during the <xref:System.Web.HttpApplication.ReleaseRequestState> event at the end of a request. The returned session data can then be written to the session data store. If the session has been abandoned, the session data can be removed from the data store and <xref:System.Web.HttpContext>, and the **Session_OnEnd** event can be executed."
+  summary: "Sessiegegevens worden opgehaald uit de context voor de huidige aanvraag."
+  remarks: "De methode GetHttpSessionStateFromContext kan worden gebruikt door een module voor sessiestatus sessiegegevens ophalen van de huidige aanvraag. Dit gebeurt tijdens de <xref:System.Web.HttpApplication.ReleaseRequestState>gebeurtenis aan het einde van een aanvraag.</xref:System.Web.HttpApplication.ReleaseRequestState> De geretourneerde sessiegegevens kunnen vervolgens worden geschreven met de gegevensopslag van de sessie. Als de sessie is verbroken, de sessiegegevens kan worden verwijderd uit de gegevensopslag en <xref:System.Web.HttpContext>, en de **Session_OnEnd** gebeurtenis kan worden uitgevoerd.</xref:System.Web.HttpContext>"
   example:
   - "The following code example shows the handler for the <xref:System.Web.HttpApplication.ReleaseRequestState> event in a custom session-state module. The module retrieves session data from the <xref:System.Web.HttpContext> for the current request using the GetHttpSessionStateFromContext method. This code example is part of a larger example provided for the <xref:System.Web.SessionState.SessionStateUtility> class.  \n  \n [!code-vb[System.Web.SessionState.SessionStateUtility#5](~/add/codesnippet/visualbasic/9c400b1a-e4b0-47ca-aaa3-_1.vb)]\n [!code-cs[System.Web.SessionState.SessionStateUtility#5](~/add/codesnippet/csharp/9c400b1a-e4b0-47ca-aaa3-_1.cs)]"
   syntax:
@@ -82,10 +82,10 @@ items:
     parameters:
     - id: context
       type: System.Web.HttpContext
-      description: "The <xref href=&quot;System.Web.HttpContext&quot;></xref> from which to retrieve session data."
+      description: "De <xref href=&quot;System.Web.HttpContext&quot;> </xref> waaruit u sessiegegevens op te halen."
     return:
       type: System.Web.SessionState.IHttpSessionState
-      description: "An <xref href=&quot;System.Web.SessionState.IHttpSessionState&quot;></xref> implementation instance populated with session data from the current request."
+      description: "Een <xref href=&quot;System.Web.SessionState.IHttpSessionState&quot;> </xref> implementatie exemplaar ingevuld met sessiegegevens van de huidige aanvraag."
   overload: System.Web.SessionState.SessionStateUtility.GetHttpSessionStateFromContext*
   exceptions: []
   platform:
@@ -102,8 +102,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Gets a reference to the static objects collection for the specified context."
-  remarks: "The GetSessionStaticObjects method is used to retrieve the collection of static objects defined in the Global.asax file for the ASP.NET application. A session-state module implementation will supply the returned <xref:System.Web.HttpStaticObjectsCollection> collection to the <xref:System.Web.SessionState.IHttpSessionState> implementation instance that is added to the current context using the <xref:System.Web.SessionState.SessionStateUtility.AddHttpSessionStateToContext%2A> method.       A <xref:System.Web.SessionState.SessionStateStoreProviderBase> can also use the GetSessionStaticObjects method when creating a <xref:System.Web.SessionState.SessionStateStoreData> object."
+  summary: "Hiermee haalt u een verwijzing naar de verzameling statische objecten voor de opgegeven context."
+  remarks: "De methode GetSessionStaticObjects wordt gebruikt voor het ophalen van de verzameling van statische objecten die zijn gedefinieerd in het bestand Global.asax voor de ASP.NET-toepassing. De implementatie van een module voor sessiestatus levert de geretourneerde <xref:System.Web.HttpStaticObjectsCollection>verzameling de <xref:System.Web.SessionState.IHttpSessionState>implementatie-exemplaar dat wordt toegevoegd aan de huidige context met behulp van de <xref:System.Web.SessionState.SessionStateUtility.AddHttpSessionStateToContext%2A>methode.</xref:System.Web.SessionState.SessionStateUtility.AddHttpSessionStateToContext%2A> </xref:System.Web.SessionState.IHttpSessionState> </xref:System.Web.HttpStaticObjectsCollection>       Een <xref:System.Web.SessionState.SessionStateStoreProviderBase>kunt u ook de methode GetSessionStaticObjects gebruiken bij het maken van een <xref:System.Web.SessionState.SessionStateStoreData>object.</xref:System.Web.SessionState.SessionStateStoreData> </xref:System.Web.SessionState.SessionStateStoreProviderBase>"
   example:
   - "The following code example shows the handler for the <xref:System.Web.HttpApplication.AcquireRequestState> event in a custom session-state module. The module retrieves existing session information or creates new session information, including the <xref:System.Web.HttpStaticObjectsCollection> collection returned from the GetSessionStaticObjects method, and adds it to the <xref:System.Web.HttpContext> of the current request. This code example is part of a larger example provided for the <xref:System.Web.SessionState.SessionStateUtility> class.  \n  \n [!code-vb[System.Web.SessionState.SessionStateUtility#4](~/add/codesnippet/visualbasic/ce95f35b-c097-49c6-952e-_1.vb)]\n [!code-cs[System.Web.SessionState.SessionStateUtility#4](~/add/codesnippet/csharp/ce95f35b-c097-49c6-952e-_1.cs)]"
   syntax:
@@ -111,10 +111,10 @@ items:
     parameters:
     - id: context
       type: System.Web.HttpContext
-      description: "The <xref href=&quot;System.Web.HttpContext&quot;></xref> from which to get the static objects collection."
+      description: "De <xref href=&quot;System.Web.HttpContext&quot;> </xref> van waaruit de verzameling statische objecten ophalen."
     return:
       type: System.Web.HttpStaticObjectsCollection
-      description: "An <xref href=&quot;System.Web.HttpStaticObjectsCollection&quot;></xref> collection populated with the <xref:System.Web.SessionState.HttpSessionState.StaticObjects*> property value for the specified <xref href=&quot;System.Web.HttpContext&quot;></xref>."
+      description: "Een <xref href=&quot;System.Web.HttpStaticObjectsCollection&quot;> </xref> verzameling gevuld met de <xref:System.Web.SessionState.HttpSessionState.StaticObjects*>eigenschapswaarde voor de opgegeven <xref href=&quot;System.Web.HttpContext&quot;> </xref>.</xref:System.Web.SessionState.HttpSessionState.StaticObjects*>"
   overload: System.Web.SessionState.SessionStateUtility.GetSessionStaticObjects*
   exceptions: []
   platform:
@@ -131,16 +131,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Gets a value which indicates whether the session state is read-only for the specified <xref href=&quot;System.Web.HttpContext&quot;></xref>."
+  summary: "Hiermee wordt een waarde waarmee wordt aangegeven of de sessiestatus alleen-lezen voor het opgegeven is <xref href=&quot;System.Web.HttpContext&quot;> </xref>."
   syntax:
     content: public static bool IsSessionStateReadOnly (System.Web.HttpContext context);
     parameters:
     - id: context
       type: System.Web.HttpContext
-      description: "Specifies the <xref href=&quot;System.Web.HttpContext&quot;></xref> to check."
+      description: "Hiermee geeft u de <xref href=&quot;System.Web.HttpContext&quot;> </xref> om te controleren."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the session state is read-only; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de sessiestatus alleen-lezen is. anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.SessionState.SessionStateUtility.IsSessionStateReadOnly*
   exceptions: []
   platform:
@@ -157,16 +157,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Gets a value which indicates whether the session state is required for the specified <xref href=&quot;System.Web.HttpContext&quot;></xref>."
+  summary: "Hiermee wordt een waarde waarmee wordt aangegeven of de sessiestatus vereist voor de opgegeven is <xref href=&quot;System.Web.HttpContext&quot;> </xref>."
   syntax:
     content: public static bool IsSessionStateRequired (System.Web.HttpContext context);
     parameters:
     - id: context
       type: System.Web.HttpContext
-      description: "Specifies the <xref href=&quot;System.Web.HttpContext&quot;></xref> to check."
+      description: "Hiermee geeft u de <xref href=&quot;System.Web.HttpContext&quot;> </xref> om te controleren."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the session state is required; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de sessiestatus vereist is. anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.SessionState.SessionStateUtility.IsSessionStateRequired*
   exceptions: []
   platform:
@@ -183,8 +183,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Executes the **Session_OnEnd** event defined in the Global.asax file for the ASP.NET application."
-  remarks: "The RaiseSessionEnd method is used by a session-state module to execute the **Session_OnEnd** event defined in the Global.asax file for an ASP.NET application. A session-state module will call the RaiseSessionEnd method when a session has been abandoned, or if the session expires."
+  summary: "Voert de **Session_OnEnd** gebeurtenis gedefinieerd in het bestand Global.asax voor de ASP.NET-toepassing."
+  remarks: "De methode RaiseSessionEnd wordt gebruikt door een module van de sessiestatus uit te voeren de **Session_OnEnd** gebeurtenis gedefinieerd in het bestand Global.asax voor een ASP.NET-toepassing. Een module van de sessiestatus wordt de RaiseSessionEnd-methode aanroepen wanneer een sessie is verbroken, of als de sessie is verlopen."
   example:
   - "The following code example shows the handler for the <xref:System.Web.HttpApplication.ReleaseRequestState> event in a custom session-state module. If the session has been abandoned, the module executes the **Session_OnEnd** event defined in the Global.asax file for the application using the RaiseSessionEnd method. This code example is part of a larger example provided for the <xref:System.Web.SessionState.SessionStateUtility> class.  \n  \n [!code-vb[System.Web.SessionState.SessionStateUtility#5](~/add/codesnippet/visualbasic/cd86aefd-3df6-4b8a-826f-_1.vb)]\n [!code-cs[System.Web.SessionState.SessionStateUtility#5](~/add/codesnippet/csharp/cd86aefd-3df6-4b8a-826f-_1.cs)]"
   syntax:
@@ -192,13 +192,13 @@ items:
     parameters:
     - id: session
       type: System.Web.SessionState.IHttpSessionState
-      description: "The <xref href=&quot;System.Web.SessionState.IHttpSessionState&quot;></xref> implementation instance for the session that has ended."
+      description: "De <xref href=&quot;System.Web.SessionState.IHttpSessionState&quot;> </xref> exemplaar van de implementatie voor de sessie die is beëindigd."
     - id: eventSource
       type: System.Object
-      description: "The event source object to supply to the <xref uid=&quot;langword_csharp_Session_OnEnd&quot; name=&quot;Session_OnEnd&quot; href=&quot;&quot;></xref> event."
+      description: "Het gebeurtenisbronobject op te geven aan de <xref uid=&quot;langword_csharp_Session_OnEnd&quot; name=&quot;Session_OnEnd&quot; href=&quot;&quot;> </xref> gebeurtenis."
     - id: eventArgs
       type: System.EventArgs
-      description: "The <xref:System.EventArgs> object to supply to the <xref uid=&quot;langword_csharp_Session_OnEnd&quot; name=&quot;Session_OnEnd&quot; href=&quot;&quot;></xref> event."
+      description: "De <xref:System.EventArgs>object op te geven aan de <xref uid=&quot;langword_csharp_Session_OnEnd&quot; name=&quot;Session_OnEnd&quot; href=&quot;&quot;> </xref> gebeurtenis.</xref:System.EventArgs>"
   overload: System.Web.SessionState.SessionStateUtility.RaiseSessionEnd*
   exceptions: []
   platform:
@@ -215,8 +215,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Removes session data from the specified context."
-  remarks: "The RemoveHttpSessionStateFromContext method clears session data from the specified <xref:System.Web.HttpContext>. A session-state module will call the RemoveHttpSessionStateFromContext method in the handler for the <xref:System.Web.HttpApplication.ReleaseRequestState> event."
+  summary: "Sessiegegevens verwijdert uit de opgegeven context."
+  remarks: "De methode RemoveHttpSessionStateFromContext wist sessiegegevens uit de opgegeven <xref:System.Web.HttpContext>.</xref:System.Web.HttpContext> Een module voor sessiestatus roept de methode RemoveHttpSessionStateFromContext in de handler voor de <xref:System.Web.HttpApplication.ReleaseRequestState>gebeurtenis.</xref:System.Web.HttpApplication.ReleaseRequestState>"
   example:
   - "The following code example shows the handler for the <xref:System.Web.HttpApplication.ReleaseRequestState> event in a custom session-state module. The event handler removes session data from the current <xref:System.Web.HttpContext>. This code example is part of a larger example provided for the <xref:System.Web.SessionState.SessionStateUtility> class.  \n  \n [!code-vb[System.Web.SessionState.SessionStateUtility#5](~/add/codesnippet/visualbasic/db56662a-8b24-4084-9ec3-_1.vb)]\n [!code-cs[System.Web.SessionState.SessionStateUtility#5](~/add/codesnippet/csharp/db56662a-8b24-4084-9ec3-_1.cs)]"
   syntax:
@@ -224,7 +224,7 @@ items:
     parameters:
     - id: context
       type: System.Web.HttpContext
-      description: "The <xref href=&quot;System.Web.HttpContext&quot;></xref> from which to remove session data."
+      description: "De <xref href=&quot;System.Web.HttpContext&quot;> </xref> waaruit u sessiegegevens te verwijderen."
   overload: System.Web.SessionState.SessionStateUtility.RemoveHttpSessionStateFromContext*
   exceptions: []
   platform:
@@ -241,12 +241,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.SessionState
-  summary: "Gets or sets a serialization surrogate selector that is used for session serialization customization."
+  summary: "Opgehaald of ingesteld van serialisatie surrogaat selector die wordt gebruikt voor aanpassing van de sessie-serialisatie."
   syntax:
     content: public static System.Runtime.Serialization.ISurrogateSelector SerializationSurrogateSelector { get; set; }
     return:
       type: System.Runtime.Serialization.ISurrogateSelector
-      description: "A serialization surrogate selector."
+      description: "Een vervangende selector van serialisatie."
   overload: System.Web.SessionState.SessionStateUtility.SerializationSurrogateSelector*
   exceptions: []
   platform:

@@ -11,8 +11,8 @@ items:
   nameWithType: IImplicitResourceProvider
   fullName: System.Web.Compilation.IImplicitResourceProvider
   type: Interface
-  summary: "Defines methods a class implements to act as an implicit resource provider."
-  remarks: "Resources can be declared explicitly or implicitly within a page. Implicit resources allow the developer to assign a collection of resource values to a control in one statement rather than assigning each value individually. When the page parser encounters an implicit resource in the form of `meta:resourcekey=&quot;WelcomeLabel&quot;`, it assigns all the values with the `WelcomeLabel` resource key prefix to the corresponding values in the control. For example, if a resource file defines values for `WelcomeLabel.Text` and `WelcomeLabel.ToolTip`, those values would be assigned to a `Label` control with an implicit reference to `WelcomeLabel`.       The IImplicitResourceProvider interface defines the methods a resource provider implements to access implicit resources. You can obtain a particular value using the <xref:System.Web.Compilation.IImplicitResourceProvider.GetObject%2A> method.       If you create a custom resource provider, you do not need to provide customized support for implicit resource localization. Implicit localization will work with your resource provider."
+  summary: "Definieert een klasse worden geïmplementeerd om te fungeren als een impliciete resourceprovider methoden."
+  remarks: "Resources kunnen impliciet of expliciet worden gedeclareerd binnen een pagina. Impliciete resources toe dat de ontwikkelaar een verzameling resource waarden toewijzen aan een besturingselement in een instructie in plaats van elke waarde afzonderlijk toe te wijzen. Wanneer de parser pagina aangetroffen met een impliciete resource in de vorm van `meta:resourcekey=&quot;WelcomeLabel&quot;`, wijst de waarden met toe de `WelcomeLabel` resource sleutel voorvoegsel van de bijbehorende waarden in het besturingselement. Bijvoorbeeld, als een bronbestand definieert waarden voor `WelcomeLabel.Text` en `WelcomeLabel.ToolTip`, zou deze waarden worden toegewezen aan een `Label` besturingselement met een impliciete verwijzing naar `WelcomeLabel`.       De interface IImplicitResourceProvider definieert de methoden die een resourceprovider implementeert voor toegang tot impliciete bronnen. U kunt verkrijgen met een bepaalde waarde met de <xref:System.Web.Compilation.IImplicitResourceProvider.GetObject%2A>methode.</xref:System.Web.Compilation.IImplicitResourceProvider.GetObject%2A>       Als u een aangepaste resourceprovider maakt, hoeft u geen aangepaste ondersteuning bieden voor lokalisatie impliciete resource. Impliciete lokalisatie geschikt is voor uw resourceprovider."
   syntax:
     content: public interface IImplicitResourceProvider
   implements: []
@@ -30,17 +30,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Gets a collection of implicit resource keys as specified by the prefix."
-  remarks: "When implemented, the method returns a collection of implicit resource keys for a particular prefix. For example, `WelcomeLabel` is specified as the prefix in the expression `meta:resourcekey=&quot;WelcomeLabel&quot;`. Any properties in a local resource file with `WelcomeLabel` as a prefix should be returned with this method."
+  summary: "Hiermee wordt een verzameling impliciete resource sleutels zoals opgegeven door het voorvoegsel."
+  remarks: "Wanneer een geïmplementeerd, wordt de methode retourneert een verzameling van sleutels voor een bepaalde voorvoegsel impliciete resource. Bijvoorbeeld: `WelcomeLabel` is opgegeven als het voorvoegsel op in de expressie `meta:resourcekey=&quot;WelcomeLabel&quot;`. Alle eigenschappen in een lokale bron-bestand met `WelcomeLabel` als een voorvoegsel met deze methode moet worden geretourneerd."
   syntax:
     content: public System.Collections.ICollection GetImplicitResourceKeys (string keyPrefix);
     parameters:
     - id: keyPrefix
       type: System.String
-      description: "The prefix of the implicit resource keys to be collected."
+      description: "Het voorvoegsel van de impliciete resource sleutels moeten worden verzameld."
     return:
       type: System.Collections.ICollection
-      description: "An <xref:System.Collections.ICollection> of implicit resource keys."
+      description: "Een <xref:System.Collections.ICollection>impliciete resource sleutels.</xref:System.Collections.ICollection>"
   overload: System.Web.Compilation.IImplicitResourceProvider.GetImplicitResourceKeys*
   exceptions: []
   platform:
@@ -57,20 +57,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Gets an object representing the value of the specified resource key."
-  remarks: "When implemented, the method returns the object for the value represented by the implicit resource key."
+  summary: "Hiermee haalt u een object dat de waarde van de sleutel van de opgegeven bron vertegenwoordigt."
+  remarks: "Wanneer een geïmplementeerd, wordt de methode retourneert het object voor de waarde die wordt vertegenwoordigd door de impliciete bronsleutel."
   syntax:
     content: public object GetObject (System.Web.Compilation.ImplicitResourceKey key, System.Globalization.CultureInfo culture);
     parameters:
     - id: key
       type: System.Web.Compilation.ImplicitResourceKey
-      description: "The resource key containing the prefix, filter, and property."
+      description: "De resource-sleutel met het voorvoegsel, het filter en de eigenschap."
     - id: culture
       type: System.Globalization.CultureInfo
-      description: "The <xref:System.Globalization.CultureInfo> that represents the culture for which the resource is localized."
+      description: "De <xref:System.Globalization.CultureInfo>die staat voor de cultuur waarvoor de resource is gelokaliseerd.</xref:System.Globalization.CultureInfo>"
     return:
       type: System.Object
-      description: "An <xref:System.Object> representing the localized value of an implicit resource key."
+      description: "Een <xref:System.Object>voor de gelokaliseerde waarde van een impliciete bronsleutel.</xref:System.Object>"
   overload: System.Web.Compilation.IImplicitResourceProvider.GetObject*
   exceptions: []
   platform:
