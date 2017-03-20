@@ -17,8 +17,8 @@ items:
   nameWithType: SqlPipe
   fullName: Microsoft.SqlServer.Server.SqlPipe
   type: Class
-  summary: "Allows managed stored procedures running in-process on a SQL Server database to return results back to the caller. This class cannot be inherited."
-  remarks: "An instance of this class is made available to managed stored procedures through the <xref:Microsoft.SqlServer.Server.SqlContext.Pipe%2A> property of the <xref:Microsoft.SqlServer.Server.SqlContext> class."
+  summary: "Kan de beheerde opgeslagen procedures actief proces in een SQL Server-database voor het retourneren van resultaten terug naar de aanroeper. Deze klasse kan niet worden overgenomen."
+  remarks: "Een exemplaar van deze klasse wordt beschikbaar gesteld aan beheerde opgeslagen procedures via de <xref:Microsoft.SqlServer.Server.SqlContext.Pipe%2A>eigenschap van de <xref:Microsoft.SqlServer.Server.SqlContext>klasse.</xref:Microsoft.SqlServer.Server.SqlContext> </xref:Microsoft.SqlServer.Server.SqlContext.Pipe%2A>"
   example:
   - "The following example uses <xref:System.Data.SqlClient.SqlConnection> and <xref:System.Data.SqlClient.SqlCommand> to select rows from a data source in a stored procedure. The example then uses a SqlPipe to execute the command and send the results back to the client.  \n  \n [!code-cs[DataWorks SqlPipe#1](~/add/codesnippet/csharp/t-microsoft.sqlserver.se_10_1.cs)]\n [!code-vb[DataWorks SqlPipe#1](~/add/codesnippet/visualbasic/t-microsoft.sqlserver.se_10_1.vb)]"
   syntax:
@@ -41,8 +41,8 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "Executes the command passed as a parameter and sends the results to the client."
-  remarks: "In addition to any actual results, other messages and errors are also sent directly to the client.       Output parameters and return values are not sent to the client; these are available to the caller, through the parameters collection of the command object.       If the command is not bound to an in-process connection, an <xref:System.InvalidOperationException> is thrown. This method is not supported on commands bound to out-of-process connections.       If there are errors in the <xref:System.Data.SqlClient.SqlCommand> object that was submitted, exceptions are sent to the pipe, but a copy is also sent to calling managed code. If the calling code doesn&quot;t catch the exception, it will propagate up the stack to the Transact-SQL code and appear in the output twice. If the calling code does catch the exception, the pipe consumer will still see the error, but there will not be a duplicate error."
+  summary: "De opdracht die is doorgegeven als parameter wordt uitgevoerd en verzendt de resultaten naar de client."
+  remarks: "Naast de werkelijke resultaten, worden andere berichten en fouten ook rechtstreeks naar de client verzonden.       Output-parameters en retourwaarden worden niet verzonden naar de client. Deze zijn beschikbaar voor de aanroeper, via de parameterverzameling van het object command.       Als de opdracht niet aan een in-process-verbinding gebonden is, een <xref:System.InvalidOperationException>gegenereerd.</xref:System.InvalidOperationException> Deze methode wordt niet ondersteund op opdrachten die zijn gebonden aan out of process-verbindingen.       Als er fouten in de <xref:System.Data.SqlClient.SqlCommand>object dat is verzonden naar de pipe uitzonderingen worden verzonden, maar een kopie wordt ook verstuurd naar beheerde code aanroepen.</xref:System.Data.SqlClient.SqlCommand> Als de aanroepende code niet de uitzondering onderschept, wordt de doorgeven van de stack in de Transact-SQL-code en twee keer worden weergegeven in de uitvoer. Als de aanroepende code de uitzondering onderschept, de pipe-consument de fout nog steeds, maar er worden een dubbele fout."
   example:
   - "The following example uses <xref:System.Data.SqlClient.SqlConnection> and <xref:System.Data.SqlClient.SqlCommand> to select rows from a data source in a stored procedure. The example then uses a <xref:Microsoft.SqlServer.Server.SqlPipe> to execute the command and send the results back to the client.  \n  \n [!code-cs[DataWorks SqlPipe.ExecuteAndSend#1](~/add/codesnippet/csharp/8520fc47-4500-47d0-87b3-_1.cs)]\n [!code-vb[DataWorks SqlPipe.ExecuteAndSend#1](~/add/codesnippet/visualbasic/8520fc47-4500-47d0-87b3-_1.vb)]"
   syntax:
@@ -50,7 +50,7 @@ items:
     parameters:
     - id: command
       type: System.Data.SqlClient.SqlCommand
-      description: "The <xref href=&quot;System.Data.SqlClient.SqlCommand&quot;></xref> object to be executed."
+      description: "De <xref href=&quot;System.Data.SqlClient.SqlCommand&quot;> </xref> object dat moet worden uitgevoerd."
   overload: Microsoft.SqlServer.Server.SqlPipe.ExecuteAndSend*
   exceptions:
   - type: System.ArgumentNullException
@@ -58,7 +58,7 @@ items:
     description: "The <code>command</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "This method is not supported on commands bound to out-of-process connections."
+    description: "Deze methode wordt niet ondersteund op opdrachten die zijn gebonden aan out of process-verbindingen."
   platform:
   - net462
 - uid: Microsoft.SqlServer.Server.SqlPipe.IsSendingResults
@@ -73,12 +73,12 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "Gets a value that indicates whether the <xref href=&quot;Microsoft.SqlServer.Server.SqlPipe&quot;></xref> is in the mode of sending single result sets back to the client. This property is read-only."
+  summary: "Hiermee wordt een waarde die aangeeft of de <xref href=&quot;Microsoft.SqlServer.Server.SqlPipe&quot;> </xref> is in de modus van het verzenden van één resultatensets terug naar de client. Deze eigenschap is alleen-lezen."
   syntax:
     content: public bool IsSendingResults { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsStart*> method has been called and the <xref href=&quot;Microsoft.SqlServer.Server.SqlPipe&quot;></xref> is in the mode of sending single result sets back to the client; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsStart*>methode is aangeroepen en de <xref href=&quot;Microsoft.SqlServer.Server.SqlPipe&quot;> </xref> is in de modus van het verzenden van één resultatensets terug naar de client; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>.</xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsStart*>"
   overload: Microsoft.SqlServer.Server.SqlPipe.IsSendingResults*
   exceptions: []
   platform:
@@ -95,13 +95,13 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "Sends a single-row result set directly to the client or current output consumer."
+  summary: "Verzendt een resultatenset van één rij rechtstreeks naar de client of de huidige uitvoer consumer."
   syntax:
     content: public void Send (Microsoft.SqlServer.Server.SqlDataRecord record);
     parameters:
     - id: record
       type: Microsoft.SqlServer.Server.SqlDataRecord
-      description: 'The single-row result set sent to the client: a <xref href=&quot;Microsoft.SqlServer.Server.SqlDataRecord&quot;></xref> object.'
+      description: 'De resultatenset van één rij verzonden naar de client: een <xref href=&quot;Microsoft.SqlServer.Server.SqlDataRecord&quot;> </xref> object.'
   overload: Microsoft.SqlServer.Server.SqlPipe.Send*
   exceptions:
   - type: System.ArgumentNullException
@@ -121,14 +121,14 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "Sends a multirow result set directly to the client or current output consumer."
-  remarks: "If the <xref:System.Data.SqlClient.SqlDataReader> object passed in as a parameter has hidden columns, those columns are not propagated to the result set sent to the client."
+  summary: "Verzendt een multirow resultaatset rechtstreeks naar de client of de huidige uitvoer consumer."
+  remarks: "Als de <xref:System.Data.SqlClient.SqlDataReader>-object doorgegeven een parameter is verborgen kolommen, die kolommen worden niet doorgegeven aan de resultatenset naar de client verzonden.</xref:System.Data.SqlClient.SqlDataReader>"
   syntax:
     content: public void Send (System.Data.SqlClient.SqlDataReader reader);
     parameters:
     - id: reader
       type: System.Data.SqlClient.SqlDataReader
-      description: 'The multirow result set to be sent to the client: a <xref href=&quot;System.Data.SqlClient.SqlDataReader&quot;></xref> object.'
+      description: 'Multirow resultaatset worden verzonden naar de client: een <xref href=&quot;System.Data.SqlClient.SqlDataReader&quot;> </xref> object.'
   overload: Microsoft.SqlServer.Server.SqlPipe.Send*
   exceptions:
   - type: System.ArgumentNullException
@@ -148,8 +148,8 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "Sends a string message directly to the client or current output consumer."
-  remarks: "The message string is sent as an informational message to the client. Client applications can listen to messages through different mechanisms, depending on the data access application programming interface (API) that they use. For example, if the client is using ADO.NET, the messages transmit through the <xref:System.Data.SqlClient.SqlConnection.InfoMessage> event."
+  summary: "Verzendt een Tekenreeksbericht rechtstreeks naar de client of de huidige uitvoer consumer."
+  remarks: "De tekenreeks voor het bericht wordt verzonden als een informatief bericht naar de client. Clienttoepassingen kunnen naar berichten luisteren via andere methoden, afhankelijk van de data access application programming interface (API) die ze gebruiken. Bijvoorbeeld, als de client ADO.NET gebruikt, de berichten verzenden via de <xref:System.Data.SqlClient.SqlConnection.InfoMessage>gebeurtenis.</xref:System.Data.SqlClient.SqlConnection.InfoMessage>"
   example:
   - "The following example uses the Send method to send a message string directly to the client.  \n  \n [!code-vb[DataWorks SqlPipe.Send#1](~/add/codesnippet/visualbasic/m-microsoft.sqlserver.se_4_1.vb)]\n [!code-cs[DataWorks SqlPipe.Send#1](~/add/codesnippet/csharp/m-microsoft.sqlserver.se_4_1.cs)]"
   syntax:
@@ -157,12 +157,12 @@ items:
     parameters:
     - id: message
       type: System.String
-      description: "The message string to be sent to the client."
+      description: "De tekenreeks bericht worden verzonden naar de client."
   overload: Microsoft.SqlServer.Server.SqlPipe.Send*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>message</code> is greater than 4,000 characters."
+    description: "De <code> message </code> is groter dan 4000 tekens."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: "The <code>message</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
@@ -180,8 +180,8 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "Marks the end of a result set, and returns the <xref href=&quot;Microsoft.SqlServer.Server.SqlPipe&quot;></xref> instance back to the initial state."
-  remarks: "Managed stored procedures can send result sets to clients that are not implementing a <xref:System.Data.SqlClient.SqlDataReader>. This method, along with <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsStart%2A> and <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsRow%2A>, allow stored procedures to send custom result sets to the client."
+  summary: "Het markeert het einde van een resultatenset is en retourneert de <xref href=&quot;Microsoft.SqlServer.Server.SqlPipe&quot;> </xref> exemplaar terug naar de beginstatus."
+  remarks: "Beheerde opgeslagen procedures kunnen resultatensets te verzenden naar clients die niet een <xref:System.Data.SqlClient.SqlDataReader>.</xref:System.Data.SqlClient.SqlDataReader> implementeert Deze methode, samen met <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsStart%2A>en <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsRow%2A>, opgeslagen procedures voor het verzenden van aangepaste resultaat wordt ingesteld op de client toestaan.</xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsRow%2A> </xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsStart%2A>"
   example:
   - "The following example creates a new <xref:Microsoft.SqlServer.Server.SqlDataRecord> and its <xref:Microsoft.SqlServer.Server.SqlMetaData>. The example then marks the beginning of a result set using the <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsStart%2A> method, sends records with example data back to the client using the <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsRow%2A> method, and marks the end of the result set with the SendResultsEnd method.  \n  \n [!code-vb[DataWorks SqlPipe.SendResultsEnd#1](~/add/codesnippet/visualbasic/m-microsoft.sqlserver.se_3_1.vb)]\n [!code-cs[DataWorks SqlPipe.SendResultsEnd#1](~/add/codesnippet/csharp/m-microsoft.sqlserver.se_3_1.cs)]"
   syntax:
@@ -191,7 +191,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsStart*> method was not previously called."
+    description: "De <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsStart*>methode niet eerder is aangeroepen.</xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsStart*>"
   platform:
   - net462
 - uid: Microsoft.SqlServer.Server.SqlPipe.SendResultsRow(Microsoft.SqlServer.Server.SqlDataRecord)
@@ -206,8 +206,8 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "Sends a single row of data back to the client."
-  remarks: "Managed stored procedures can send result sets to clients that are not implementing a <xref:System.Data.SqlClient.SqlDataReader>. This method, along with <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsStart%2A> and <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsEnd%2A>, allows stored procedures to send custom result sets to the client.       The SendResultsRow method sends a single row of data back to the client. Rows can subsequently be returned to the caller by calling SendResultsRow, one time for each row being sent. After all the rows have been sent, a call to the <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsEnd%2A> method is required to mark the end of the result set."
+  summary: "Verzendt één rij met gegevens terug naar de client."
+  remarks: "Beheerde opgeslagen procedures kunnen resultatensets te verzenden naar clients die niet een <xref:System.Data.SqlClient.SqlDataReader>.</xref:System.Data.SqlClient.SqlDataReader> implementeert Deze methode, samen met <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsStart%2A>en <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsEnd%2A>, kunt u opgeslagen procedures voor het verzenden van aangepaste resultaat wordt ingesteld op de client.</xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsEnd%2A> </xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsStart%2A>       De methode SendResultsRow verzendt één rij met gegevens terug naar de client. Rijen kunnen vervolgens worden geretourneerd naar de aanroeper door het aanroepen van SendResultsRow, één keer voor elke rij worden verzonden. Nadat alle rijen zijn verzonden, een aanroep van de <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsEnd%2A>methode is vereist voor het markeert het einde van de resultatenset.</xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsEnd%2A>"
   example:
   - "The following example creates a new <xref:Microsoft.SqlServer.Server.SqlDataRecord> and its <xref:Microsoft.SqlServer.Server.SqlMetaData>. The example then marks the beginning of a result set using the <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsStart%2A> method, sends records with example data back to the client using the SendResultsRow method, and marks the end of the result set with the <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsEnd%2A> method.  \n  \n [!code-vb[DataWorks SqlPipe.SendResultsRow#1](~/add/codesnippet/visualbasic/ddfb48e8-078f-4be8-b690-_1.vb)]\n [!code-cs[DataWorks SqlPipe.SendResultsRow#1](~/add/codesnippet/csharp/ddfb48e8-078f-4be8-b690-_1.cs)]"
   syntax:
@@ -215,7 +215,7 @@ items:
     parameters:
     - id: record
       type: Microsoft.SqlServer.Server.SqlDataRecord
-      description: "A <xref href=&quot;Microsoft.SqlServer.Server.SqlDataRecord&quot;></xref> object with the column values for the row to be sent to the client. The schema for the record must match the schema described by the metadata of the <xref href=&quot;Microsoft.SqlServer.Server.SqlDataRecord&quot;></xref> passed to the <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsStart*> method."
+      description: "Een <xref href=&quot;Microsoft.SqlServer.Server.SqlDataRecord&quot;> </xref> object met de kolomwaarden voor de rij moet worden verzonden naar de client. Het schema voor de record moet overeenkomen met het schema beschreven door de metagegevens van de <xref href=&quot;Microsoft.SqlServer.Server.SqlDataRecord&quot;> </xref> doorgegeven aan de <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsStart*>methode.</xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsStart*>"
   overload: Microsoft.SqlServer.Server.SqlPipe.SendResultsRow*
   exceptions:
   - type: System.ArgumentNullException
@@ -223,7 +223,7 @@ items:
     description: "The <code>record</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsStart*> method was not previously called."
+    description: "De <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsStart*>methode niet eerder is aangeroepen.</xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsStart*>"
   platform:
   - net462
 - uid: Microsoft.SqlServer.Server.SqlPipe.SendResultsStart(Microsoft.SqlServer.Server.SqlDataRecord)
@@ -238,8 +238,8 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "Marks the beginning of a result set to be sent back to the client, and uses the record parameter to construct the metadata that describes the result set."
-  remarks: "Managed stored procedures can send result sets to clients that are not implementing a <xref:System.Data.SqlClient.SqlDataReader>. This method, along with <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsRow%2A> and <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsEnd%2A>, allow stored procedures to send custom result sets to the client.       The SendResultsStart method marks the beginning of a result set, and uses the record parameter to construct the metadata that describes the result set. All the subsequent rows, sent using the <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsRow%2A> method, must match that metadata definition.       Note that after calling SendResultsStart, only <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsRow%2A> and <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsEnd%2A> can be called. Any other method in the same instance of <xref:Microsoft.SqlServer.Server.SqlPipe> throws an <xref:System.InvalidOperationException>. <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsEnd%2A> sets <xref:Microsoft.SqlServer.Server.SqlPipe> back to the initial state where other methods can be called.       After control returns to Transact-SQL from CLR execution, do not attempt to use a static or local variable initialized to CLR memory. For example, do not store an instance of an in process class, for example `SQLDataRecord`, which will be used after control returns from CLR. One exception is the `SQLMetaData` in process class."
+  summary: "Het markeert het begin van een resultatenset terug naar de client worden verzonden en de record parameter wordt gebruikt om de metagegevens die de resultaatset beschrijft samen te stellen."
+  remarks: "Beheerde opgeslagen procedures kunnen resultatensets te verzenden naar clients die niet een <xref:System.Data.SqlClient.SqlDataReader>.</xref:System.Data.SqlClient.SqlDataReader> implementeert Deze methode, samen met <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsRow%2A>en <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsEnd%2A>, opgeslagen procedures voor het verzenden van aangepaste resultaat wordt ingesteld op de client toestaan.</xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsEnd%2A> </xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsRow%2A>       De methode SendResultsStart markeert het begin van een resultatenset en de record parameter wordt gebruikt om de metagegevens die de resultaatset beschrijft samen te stellen. Alle volgende rijen, verzonden met behulp van de <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsRow%2A>methode, moet overeenkomen met die definitie van metagegevens.</xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsRow%2A>       Houd er rekening mee dat na het aanroepen van SendResultsStart, alleen <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsRow%2A>en <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsEnd%2A>kan worden aangeroepen.</xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsEnd%2A> </xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsRow%2A> Een andere methode in hetzelfde exemplaar van <xref:Microsoft.SqlServer.Server.SqlPipe>een <xref:System.InvalidOperationException>.</xref:System.InvalidOperationException> genereert</xref:Microsoft.SqlServer.Server.SqlPipe> <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsEnd%2A>Hiermee stelt u <xref:Microsoft.SqlServer.Server.SqlPipe>terug naar de oorspronkelijke status wanneer andere methoden kunnen worden aangeroepen.</xref:Microsoft.SqlServer.Server.SqlPipe></xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsEnd%2A>       Nadat u keert terug naar Transact-SQL uit CLR-uitvoering, probeer niet een lokale of statische variabele geïnitialiseerd op CLR-geheugen gebruiken. Bijvoorbeeld, komen niet opslaat, bijvoorbeeld een exemplaar van een actieve klasse `SQLDataRecord`, die wordt gebruikt nadat u keert terug van CLR. Een uitzondering is de `SQLMetaData` in proces-klasse."
   example:
   - "The following example creates a new <xref:Microsoft.SqlServer.Server.SqlDataRecord> and its <xref:Microsoft.SqlServer.Server.SqlMetaData>. The example then marks the beginning of a result set using the SendResultsStart method, sends records with example data back to the client using the <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsRow%2A> method, and marks the end of the result set with the <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsEnd%2A> method.  \n  \n [!code-vb[DataWorks SqlPipe.SendResultsStart#1](~/add/codesnippet/visualbasic/7934d20a-2ed7-4876-a001-_1.vb)]\n [!code-cs[DataWorks SqlPipe.SendResultsStart#1](~/add/codesnippet/csharp/7934d20a-2ed7-4876-a001-_1.cs)]"
   syntax:
@@ -247,7 +247,7 @@ items:
     parameters:
     - id: record
       type: Microsoft.SqlServer.Server.SqlDataRecord
-      description: "A <xref href=&quot;Microsoft.SqlServer.Server.SqlDataRecord&quot;></xref> object from which metadata is extracted and used to describe the result set."
+      description: "Een <xref href=&quot;Microsoft.SqlServer.Server.SqlDataRecord&quot;> </xref> object waaruit metagegevens worden geëxtraheerd en gebruikt om de resultatenset beschrijven."
   overload: Microsoft.SqlServer.Server.SqlPipe.SendResultsStart*
   exceptions:
   - type: System.ArgumentNullException
@@ -255,10 +255,10 @@ items:
     description: "The <code>record</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>record</code> has no columns or has not been initialized."
+    description: "De <code> record </code> heeft geen kolommen of is niet geïnitialiseerd."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "A method other than <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsRow*> or <xref:Microsoft.SqlServer.Server.SqlPipe.SendResultsEnd*> was called after the SendResultsStart method."
+    description: "Een andere wijze dan <> </> *> of <> </> *> na de SendResultsStart-methode is aangeroepen."
   platform:
   - net462
 references:

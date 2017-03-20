@@ -13,8 +13,8 @@ items:
   nameWithType: SqlMethodAttribute
   fullName: Microsoft.SqlServer.Server.SqlMethodAttribute
   type: Class
-  summary: "Indicates the determinism and data access properties of a method or property on a user-defined type (UDT). The properties on the attribute reflect the physical characteristics that are used when the type is registered with SQL Server."
-  remarks: "For a property, the SqlMethodAttribute should be used on the setter or the getter directly.       SqlMethodAttribute inherits from a <xref:Microsoft.SqlServer.Server.SqlFunctionAttribute>, so SqlMethodAttribute inherits the `FillRowMethodName` and `TableDefinition` fields from <xref:Microsoft.SqlServer.Server.SqlFunctionAttribute>. Note that it is not possible to write a table-valued method, although the names of these fields might suggest that it is possible."
+  summary: "Geeft de eigenschappen van de toegang determinism en gegevens van een methode of eigenschap in een door de gebruiker gedefinieerd type (UDT). De eigenschappen van het kenmerk weerspiegelen de fysieke kenmerken die worden gebruikt bij het type is geregistreerd bij SQL Server."
+  remarks: "Voor een eigenschap, moet de SqlMethodAttribute worden gebruikt op de setter of de getter rechtstreeks.       SqlMethodAttribute neemt over van een <xref:Microsoft.SqlServer.Server.SqlFunctionAttribute>, dus SqlMethodAttribute neemt over de `FillRowMethodName` en `TableDefinition` velden vanuit <xref:Microsoft.SqlServer.Server.SqlFunctionAttribute>.</xref:Microsoft.SqlServer.Server.SqlFunctionAttribute> </xref:Microsoft.SqlServer.Server.SqlFunctionAttribute> Houd er rekening mee dat het is niet mogelijk om te schrijven van een methode met tabelwaarden Hoewel de namen van deze velden wijzen kunnen dat het mogelijk is."
   example:
   - "The following example shows a UDT method that is attributed to indicate that the method will not be invoked on null instances of the type, that the method will not change the state of the type, and that the method will not be called when `null` parameters are supplied to the method invocation.  \n  \n [!code-cs[DataWorks SqlMethodAttribute Sample#1](~/add/codesnippet/csharp/t-microsoft.sqlserver.se_1_1.cs)]\n [!code-vb[DataWorks SqlMethodAttribute Sample#1](~/add/codesnippet/visualbasic/t-microsoft.sqlserver.se_1_1.vb)]"
   syntax:
@@ -48,7 +48,7 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "An attribute on a user-defined type (UDT), used to indicate the determinism and data access properties of a method or a property on a UDT."
+  summary: "Een kenmerk in een door de gebruiker gedefinieerd type (UDT) gebruikt om de eigenschappen van de toegang determinism en gegevens van een methode of eigenschap op een UDT te geven."
   syntax:
     content: public SqlMethodAttribute ();
     parameters: []
@@ -68,13 +68,13 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "Indicates whether SQL Server should invoke the method on null instances."
-  remarks: "The default value for the InvokeIfReceiverIsNull property is `false`.       That is, the method is not invoked on a null instance. If InvokeIfReceiverIsNull is true, the return value of the method depends upon its type. If the return type of the method is nullable, the distinguished null value for the type is returned. If the return type is non-nullable, the default CLR value for the type is returned. The default value for reference types is null. The default value for a value type is the value that is  returned when you call the default constructor for the type."
+  summary: "Hiermee wordt aangegeven of SQL Server moet de methode aangeroepen voor null-exemplaren."
+  remarks: "De standaardwaarde voor de eigenschap InvokeIfReceiverIsNull is `false`.       Dat wil zeggen, is de methode niet geactiveerd op een null exemplaar. Als InvokeIfReceiverIsNull true is, wordt de retourwaarde van de methode is afhankelijk van het type. Als het retourtype van de methode waarvoor null is toegestaan is, wordt de DN null-waarde voor het type geretourneerd. Als het retourtype niet-nullbare is, wordt de standaardwaarde van de CLR voor het type geretourneerd. De standaardwaarde voor verwijzingstypen is null. De standaardwaarde voor een waardetype is de waarde die wordt geretourneerd wanneer u de standaard-constructor voor het type aanroept."
   syntax:
     content: public bool InvokeIfReceiverIsNull { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if SQL Server should invoke the method on null instances; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. If the method cannot be invoked (because of an attribute on the method), the [!INCLUDE[ssNoVersion](~/add/includes/ssnoversion-md.md)]<xref uid=&quot;langword_csharp_DbNull&quot; name=&quot;DbNull&quot; href=&quot;&quot;></xref> is returned."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als SQL Server moet de methode voor null-exemplaren aangeroepen; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Als de methode kan niet worden aangeroepen (vanwege een kenmerk bij de methode), de [!INCLUDE[ssNoVersion](~/add/includes/ssnoversion-md.md)] <xref uid=&quot;langword_csharp_DbNull&quot; name=&quot;DbNull&quot; href=&quot;&quot;> </xref> wordt geretourneerd."
   overload: Microsoft.SqlServer.Server.SqlMethodAttribute.InvokeIfReceiverIsNull*
   exceptions: []
   platform:
@@ -91,13 +91,13 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "Indicates whether a method on a user-defined type (UDT) is a mutator."
-  remarks: "If the IsMutator property is set to `true` and the return type of the method is `void`, SQL Server marks the method as a mutator. A mutator method is one that causes a state change in the UDT instance. Mutator methods can be called in assignment statements or data modification statements, but cannot be used in queries. If a method is marked as a mutator but does not return void, then CREATE TYPE does not fail with an error. Even though a returned value other than `void` does not raise an error, the returned value is not accessible and cannot be used.       The default value of the IsMutator property is `false`.       A property can be a mutator if <xref:Microsoft.SqlServer.Server.SqlMethodAttribute> is used on the setter and IsMutator is set to `true`. However, a property setter is implicitly treated as a mutator, so it is not necessary to set the IsMutator property of the <xref:Microsoft.SqlServer.Server.SqlMethodAttribute> to `true`."
+  summary: "Hiermee wordt aangegeven of een methode op een door de gebruiker gedefinieerd type (UDT) een mutator."
+  remarks: "Als de eigenschap IsMutator is ingesteld op `true` en het retourtype van de methode `void`, SQL Server markeert de methode als een mutator. Een mutatormethode is een zorgt ervoor dat een statuswijziging in het UDT-exemplaar. Mutator methoden kunnen worden aangeroepen in toewijzingsinstructies of gegevens wijziging instructies, maar kunnen niet worden gebruikt in query&quot;s. Als een methode is gemarkeerd als een mutator, maar geen void retourneert, vervolgens mislukt CREATE TYPE niet met een fout. Hoewel een geretourneerde waarde andere dan `void` biedt niet activeren een fout optreedt, wordt de geretourneerde waarde is niet toegankelijk en kan niet worden gebruikt.       De standaardwaarde van de eigenschap IsMutator is `false`.       Een eigenschap is een mutator als <xref:Microsoft.SqlServer.Server.SqlMethodAttribute>wordt gebruikt in de setter en IsMutator is ingesteld op `true`.</xref:Microsoft.SqlServer.Server.SqlMethodAttribute> Echter, eigenschap-setter impliciet beschouwd als een mutator zodat deze niet nodig zijn om in te stellen van de eigenschap IsMutator van de <xref:Microsoft.SqlServer.Server.SqlMethodAttribute>naar `true`.</xref:Microsoft.SqlServer.Server.SqlMethodAttribute>"
   syntax:
     content: public bool IsMutator { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the method is a mutator; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de methode een mutator; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: Microsoft.SqlServer.Server.SqlMethodAttribute.IsMutator*
   exceptions: []
   platform:
@@ -114,13 +114,13 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "Indicates whether the method on a user-defined type (UDT) is called when <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> input arguments are specified in the method invocation."
-  remarks: "The default value of the OnNullCall property is `true`."
+  summary: "Hiermee wordt aangegeven of de methode op een door de gebruiker gedefinieerd type (UDT) wordt aangeroepen wanneer <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> invoerargumenten zijn opgegeven in de methodeaanroep."
+  remarks: "De standaardwaarde van de eigenschap OnNullCall is `true`."
   syntax:
     content: public bool OnNullCall { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the method is called when <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> input arguments are specified in the method invocation; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the method returns a <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> value when any of its input parameters are <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>. If the method cannot be invoked (because of an attribute on the method), the [!INCLUDE[ssNoVersion](~/add/includes/ssnoversion-md.md)]<xref uid=&quot;langword_csharp_DbNull&quot; name=&quot;DbNull&quot; href=&quot;&quot;></xref> is returned."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de methode wordt aangeroepen wanneer <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> invoerargumenten zijn opgegeven in de methodeaanroep; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> als de methode retourneert een <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> waarde als van de invoerparameters een <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>. Als de methode kan niet worden aangeroepen (vanwege een kenmerk bij de methode), de [!INCLUDE[ssNoVersion](~/add/includes/ssnoversion-md.md)] <xref uid=&quot;langword_csharp_DbNull&quot; name=&quot;DbNull&quot; href=&quot;&quot;> </xref> wordt geretourneerd."
   overload: Microsoft.SqlServer.Server.SqlMethodAttribute.OnNullCall*
   exceptions: []
   platform:

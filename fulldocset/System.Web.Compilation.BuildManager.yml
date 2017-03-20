@@ -30,8 +30,8 @@ items:
   nameWithType: BuildManager
   fullName: System.Web.Compilation.BuildManager
   type: Class
-  summary: "Provides a set of methods to help manage the compilation of an ASP.NET application."
-  remarks: "The BuildManager class manages the process of compiling assemblies and pages for an application. It is a sealed class and cannot be inherited.       BuildManager contains static members that provide information about the compiled assemblies."
+  summary: "Biedt een aantal methoden voor het beheer van het compileren van een ASP.NET-toepassing."
+  remarks: "De klasse BuildManager beheert het proces voor het compileren van assembly&quot;s en pagina&quot;s voor een toepassing. Het is van een verzegelde klasse en kan niet worden overgenomen.       BuildManager bevat statische leden die informatie over de gecompileerde assembly&quot;s geven."
   syntax:
     content: public sealed class BuildManager
   inheritance:
@@ -52,22 +52,22 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Specifies a string that represents a dependency that the build manager uses to help determine if a clean build is required."
-  remarks: "The method must be called during the `Application_PreStartInit` stage of the application."
+  summary: "Hiermee geeft u een tekenreeks met een afhankelijkheid opgegeven die de build-manager gebruikt om te bepalen of een schone build vereist is."
+  remarks: "De methode moet worden aangeroepen tijdens de `Application_PreStartInit` fase van de toepassing."
   syntax:
     content: public static void AddCompilationDependency (string dependency);
     parameters:
     - id: dependency
       type: System.String
-      description: "A string that represents a dependency."
+      description: "Een tekenreeks met een afhankelijkheid."
   overload: System.Web.Compilation.BuildManager.AddCompilationDependency*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>dependency</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or an empty string."
+    description: "De <code> dependency </code> parameter <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> of een lege tekenreeks."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The method was called after the <xref uid=&quot;langword_csharp_Application_PreStartInit&quot; name=&quot;Application_PreStartInit&quot; href=&quot;&quot;></xref> stage of the application."
+    description: "De methode is aangeroepen nadat de <xref uid=&quot;langword_csharp_Application_PreStartInit&quot; name=&quot;Application_PreStartInit&quot; href=&quot;&quot;> </xref> fase van de toepassing."
   platform:
   - net462
 - uid: System.Web.Compilation.BuildManager.AddReferencedAssembly(System.Reflection.Assembly)
@@ -82,22 +82,22 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Adds an assembly to the application&quot;s set of referenced assemblies."
-  remarks: "Calling this method is equivalent to adding the assembly to the application-level Web.config file. The method must be called during the `Application_PreStartInit` stage of the application.       The <xref:System.Web.Compilation.BuildManager.GetReferencedAssemblies%2A> method will return the set of assemblies that are determined from configuration files and any assemblies that were added by using this method.       If an attempt is made to add an assembly that has already been added, the duplicate entry is ignored.       This method must be called before the `Application_Start` event in the Global.asax file occurs."
+  summary: "Voegt een assembly toe aan de toepassing verzameling assemblies waarnaar wordt verwezen."
+  remarks: "Deze methode is gelijk aan de assembly toe te voegen aan het Web.config-bestand van het niveau van de toepassing. De methode moet worden aangeroepen tijdens de `Application_PreStartInit` fase van de toepassing.       De <xref:System.Web.Compilation.BuildManager.GetReferencedAssemblies%2A>methode retourneert de set met assembly&quot;s die worden bepaald op basis van de configuratiebestanden en assembly&quot;s die zijn toegevoegd door het gebruik van deze methode.</xref:System.Web.Compilation.BuildManager.GetReferencedAssemblies%2A>       Als wordt geprobeerd het toevoegen van een assembly die al is toegevoegd, wordt de dubbele vermelding wordt genegeerd.       Deze methode moet worden aangeroepen voordat de `Application_Start` gebeurtenis in het bestand Global.asax."
   syntax:
     content: public static void AddReferencedAssembly (System.Reflection.Assembly assembly);
     parameters:
     - id: assembly
       type: System.Reflection.Assembly
-      description: "The assembly to add."
+      description: "De assembly om toe te voegen."
   overload: System.Web.Compilation.BuildManager.AddReferencedAssembly*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The <code>assembly</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or empty."
+    description: "De <code> assembly </code> parameter <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> of leeg."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The method was not called before the <xref uid=&quot;langword_csharp_Application_Start&quot; name=&quot;Application_Start&quot; href=&quot;&quot;></xref> event in the Global.asax file occurred."
+    description: "De methode is niet aangeroepen voordat de <xref uid=&quot;langword_csharp_Application_Start&quot; name=&quot;Application_Start&quot; href=&quot;&quot;> </xref> gebeurtenis in het bestand Global.asax is opgetreden."
   platform:
   - net462
 - uid: System.Web.Compilation.BuildManager.BatchCompilationEnabled
@@ -112,18 +112,18 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Gets or sets a value that indicates whether batch compilation is enabled."
-  remarks: "This property enables you to turn batch compilation on or off programmatically. It corresponds to the `batch` attribute of the `compilation` element in the Web.config file. For more information, see [compilation Element (ASP.NET Settings Schema)](http://msdn.microsoft.com/en-us/7c319582-074a-4d2a-a787-03b9d4541c12).       The property can be set only in the `PreApplicationStart` method. For more information about the `PreApplicationStart` method, see <xref:System.Web.PreApplicationStartMethodAttribute>."
+  summary: "Opgehaald of ingesteld van een waarde die aangeeft of batchcompilatie is ingeschakeld."
+  remarks: "Deze eigenschap kunt u batchcompilatie inschakelen of uitschakelen via een programma. Komt overeen met de `batch` kenmerk van de `compilation` element in het bestand Web.config. Zie voor meer informatie [compilation-Element (ASP.NET-instellingenschema)](http://msdn.microsoft.com/en-us/7c319582-074a-4d2a-a787-03b9d4541c12).       De eigenschap kan worden ingesteld in de `PreApplicationStart` methode. Voor meer informatie over de `PreApplicationStart` methode, Zie <xref:System.Web.PreApplicationStartMethodAttribute>.</xref:System.Web.PreApplicationStartMethodAttribute>"
   syntax:
     content: public static Nullable<bool> BatchCompilationEnabled { get; set; }
     return:
       type: System.Nullable{System.Boolean}
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if batch compilation is always enabled, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if batch compilation is never enabled, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the compilation setting is determined from the configuration file. The default value is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als batchcompilatie altijd is ingeschakeld, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> als batchcompilatie nooit is ingeschakeld, of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> als de compilatie-instelling wordt bepaald uit het configuratiebestand. De standaardwaarde is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.Compilation.BuildManager.BatchCompilationEnabled*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The property was not set in the <xref uid=&quot;langword_csharp_PreApplicationStart&quot; name=&quot;PreApplicationStart&quot; href=&quot;&quot;></xref> method."
+    description: "De eigenschap is niet ingesteld in de <xref uid=&quot;langword_csharp_PreApplicationStart&quot; name=&quot;PreApplicationStart&quot; href=&quot;&quot;> </xref> methode."
   platform:
   - net462
 - uid: System.Web.Compilation.BuildManager.CodeAssemblies
@@ -138,12 +138,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Gets a list of assemblies built from the App_Code directory."
+  summary: "Hiermee wordt een lijst met assembly&quot;s die zijn gebouwd op basis van de map App_Code opgehaald."
   syntax:
     content: public static System.Collections.IList CodeAssemblies { get; }
     return:
       type: System.Collections.IList
-      description: "An <xref:System.Collections.IList> collection that contains the assemblies built from the App_Code directory."
+      description: "Een <xref:System.Collections.IList>verzameling waartoe de assembly is gebouwd op basis van de map App_Code.</xref:System.Collections.IList>"
   overload: System.Web.Compilation.BuildManager.CodeAssemblies*
   exceptions: []
   platform:
@@ -160,17 +160,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Creates a cached file."
-  remarks: "This method and the <xref:System.Web.Compilation.BuildManager.ReadCachedFile%2A> method enable you to perform caching that persists across application domain restarts in partial-trust environments. It is used by the MVC framework to cache results of the controller lookup.       To cache data, you write to the <xref:System.IO.Stream> object that is returned by this method."
+  summary: "Maakt een bestand in cache."
+  remarks: "Deze methode en de <xref:System.Web.Compilation.BuildManager.ReadCachedFile%2A>methode kunt u in de cache die tijdens de toepassing domein opnieuw wordt gestart in een gedeeltelijk vertrouwde omgeving uitvoeren.</xref:System.Web.Compilation.BuildManager.ReadCachedFile%2A> Deze wordt gebruikt door de MVC-framework resultaten van de cache van de domeincontroller zoeken.       Cache-gegevens schrijven naar de <xref:System.IO.Stream>-object dat wordt geretourneerd door deze methode.</xref:System.IO.Stream>"
   syntax:
     content: public static System.IO.Stream CreateCachedFile (string fileName);
     parameters:
     - id: fileName
       type: System.String
-      description: "The name of the file to create."
+      description: "De naam van het bestand te maken."
     return:
       type: System.IO.Stream
-      description: "The <xref:System.IO.Stream> object for the new file."
+      description: "De <xref:System.IO.Stream>-object voor het nieuwe bestand.</xref:System.IO.Stream>"
   overload: System.Web.Compilation.BuildManager.CreateCachedFile*
   exceptions: []
   platform:
@@ -187,20 +187,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Processes a file, given its virtual path, and creates an instance of the result."
-  remarks: "The CreateInstanceFromVirtualPath method works for compiled and non-compile pages."
+  summary: "Een bestand processen gegeven van het virtuele pad, en maakt een exemplaar van het resultaat."
+  remarks: "De methode CreateInstanceFromVirtualPath werkt voor pagina&quot;s gecompileerde en niet compileren."
   syntax:
     content: public static object CreateInstanceFromVirtualPath (string virtualPath, Type requiredBaseType);
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path of the file to create an instance of."
+      description: "Het virtuele pad van het bestand een exemplaar van te maken."
     - id: requiredBaseType
       type: System.Type
-      description: "The base type that defines the object to be created."
+      description: "Het basistype dat het object dat definieert moet worden gemaakt."
     return:
       type: System.Object
-      description: "The <xref:System.Object> that represents the instance of the processed file."
+      description: "De <xref:System.Object>die staat voor het exemplaar van het bestand verwerkte.</xref:System.Object>"
   overload: System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath*
   exceptions: []
   platform:
@@ -217,19 +217,19 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Returns a build dependency set for a virtual path if the path is located in the ASP.NET cache."
+  summary: "Retourneert een build-afhankelijkheid voor een virtueel pad ingesteld als het pad bevindt zich in de ASP.NET-cache."
   syntax:
     content: public static System.Web.Compilation.BuildDependencySet GetCachedBuildDependencySet (System.Web.HttpContext context, string virtualPath);
     parameters:
     - id: context
       type: System.Web.HttpContext
-      description: "The context of the request."
+      description: "De context van de aanvraag."
     - id: virtualPath
       type: System.String
-      description: "The virtual path from which to determine the build dependency set."
+      description: "Het virtuele pad van waaruit de afhankelijkheid build vast te stellen."
     return:
       type: System.Web.Compilation.BuildDependencySet
-      description: "A <xref href=&quot;System.Web.Compilation.BuildDependencySet&quot;></xref> object that is stored in the cache, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the <xref href=&quot;System.Web.Compilation.BuildDependencySet&quot;></xref> object cannot be retrieved from the cache."
+      description: "Een <xref href=&quot;System.Web.Compilation.BuildDependencySet&quot;> </xref> object dat is opgeslagen in de cache of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> als de <xref href=&quot;System.Web.Compilation.BuildDependencySet&quot;> </xref> object kan niet worden opgehaald uit de cache."
   overload: System.Web.Compilation.BuildManager.GetCachedBuildDependencySet*
   exceptions: []
   platform:
@@ -246,23 +246,23 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Returns a build dependency set for a virtual path if the path is located in the ASP.NET cache, even if the content is not current."
-  remarks: "If the `ensureIsUpToDate` parameter value is set to `true`, the GetCachedBuildDependencySet method overload behaves like the <xref:System.Web.Compilation.BuildManager.GetCachedBuildDependencySet%2A?displayProperty=fullName> method overload. Both overloads return a current build dependency set if one exists, otherwise they return `null`.       However, the GetCachedBuildDependencySet method overload includes the option to return any build dependency set that is available, even an outdated one. If the `ensureIsUpToDate` parameter value is set to `false`, the method will return any available build dependency set."
+  summary: "Retourneert een build-afhankelijkheid ingesteld voor een virtueel pad als het pad bevindt zich in de ASP.NET-cache, zelfs als de inhoud niet actueel is."
+  remarks: "Als de `ensureIsUpToDate` parameterwaarde is ingesteld op `true`, de overbelasting van de methode GetCachedBuildDependencySet gedraagt zich als de <xref:System.Web.Compilation.BuildManager.GetCachedBuildDependencySet%2A?displayProperty=fullName>methode-overload.</xref:System.Web.Compilation.BuildManager.GetCachedBuildDependencySet%2A?displayProperty=fullName> Beide overloads retourneren een huidige build-afhankelijkheid ingesteld als er een bestaat, anders ze retourneren `null`.       De overbelasting van de methode GetCachedBuildDependencySet bevat echter een optie om te retourneren van een set van build afhankelijkheid die beschikbaar is, zelfs verouderde een. Als de `ensureIsUpToDate` parameterwaarde is ingesteld op `false`, de methode retourneert een set beschikbaar build-afhankelijkheid."
   syntax:
     content: public static System.Web.Compilation.BuildDependencySet GetCachedBuildDependencySet (System.Web.HttpContext context, string virtualPath, bool ensureIsUpToDate);
     parameters:
     - id: context
       type: System.Web.HttpContext
-      description: "The context of the request."
+      description: "De context van de aanvraag."
     - id: virtualPath
       type: System.String
-      description: "The virtual path from which to determine the build dependency set."
+      description: "Het virtuele pad van waaruit de afhankelijkheid build vast te stellen."
     - id: ensureIsUpToDate
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to specify that only a current build dependency set should be returned, or <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to indicate that any available build dependency set should be returned, even if it is not current. The default is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>om op te geven dat alleen een huidige afhankelijkheid maken set moet worden geretourneerd, of <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> om aan te geven dat een afhankelijkheid beschikbaar build set moet worden geretourneerd, zelfs als deze niet actueel is. De standaardwaarde is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Web.Compilation.BuildDependencySet
-      description: "A <xref href=&quot;System.Web.Compilation.BuildDependencySet&quot;></xref> object that is stored in the cache, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the <xref href=&quot;System.Web.Compilation.BuildDependencySet&quot;></xref> object cannot be retrieved from the cache."
+      description: "Een <xref href=&quot;System.Web.Compilation.BuildDependencySet&quot;> </xref> object dat is opgeslagen in de cache of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> als de <xref href=&quot;System.Web.Compilation.BuildDependencySet&quot;> </xref> object kan niet worden opgehaald uit de cache."
   overload: System.Web.Compilation.BuildManager.GetCachedBuildDependencySet*
   exceptions: []
   platform:
@@ -279,16 +279,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Compiles a file into an assembly using the specified virtual path."
+  summary: "Hiermee wordt een bestand gecompileerd naar een assembly met behulp van het virtuele pad."
   syntax:
     content: public static System.Reflection.Assembly GetCompiledAssembly (string virtualPath);
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path to build into an assembly."
+      description: "Het virtuele pad naar het inbouwen in een assembly."
     return:
       type: System.Reflection.Assembly
-      description: "An <xref:System.Reflection.Assembly> object that is compiled from the specified virtual path, which is cached to either memory or to disk."
+      description: "Een <xref:System.Reflection.Assembly>-object dat uit de opgegeven virtuele pad dat in de cache is opgeslagen op geheugen of schijf wordt gecompileerd.</xref:System.Reflection.Assembly>"
   overload: System.Web.Compilation.BuildManager.GetCompiledAssembly*
   exceptions: []
   platform:
@@ -305,16 +305,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Compiles a file, given its virtual path, and returns a custom string that the build provider persists in cache."
+  summary: "Een bestand wordt gecompileerd gegeven van het virtuele pad en een aangepaste tekenreeks retourneert die de build-provider in de cache zich blijft voordoen."
   syntax:
     content: public static string GetCompiledCustomString (string virtualPath);
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path of the file to build."
+      description: "Het virtuele pad van het bestand om te bouwen."
     return:
       type: System.String
-      description: "A string, as returned by the <xref:System.Web.Compilation.BuildProvider.GetCustomString*> method, that is cached to disk or memory."
+      description: "Een tekenreeks, zoals die wordt geretourneerd door de <xref:System.Web.Compilation.BuildProvider.GetCustomString*>methode die in cache is opgeslagen op schijf of geheugen.</xref:System.Web.Compilation.BuildProvider.GetCustomString*>"
   overload: System.Web.Compilation.BuildManager.GetCompiledCustomString*
   exceptions: []
   platform:
@@ -331,24 +331,24 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Compiles a file, given its virtual path, and returns the compiled type."
+  summary: "Een bestand wordt gecompileerd gegeven van het virtuele pad en de gecompileerde type retourneert."
   syntax:
     content: public static Type GetCompiledType (string virtualPath);
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path to build into a type."
+      description: "Het virtuele pad naar een type bouwen."
     return:
       type: System.Type
-      description: "A <xref:System.Type> object that represents the type generated from compiling the virtual path."
+      description: "Een <xref:System.Type>object die staat voor het type dat is gegenereerd op basis van het compileren van het virtuele pad.</xref:System.Type>"
   overload: System.Web.Compilation.BuildManager.GetCompiledType*
   exceptions:
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "An error occurred when compiling the virtual path."
+    description: "Er is een fout opgetreden bij het compileren van het virtuele pad."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>virtualPath</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>virtualPath</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Web.Compilation.BuildManager.GetGlobalAsaxType
@@ -363,19 +363,19 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Gets an object that represents the compiled type for the Global.asax file."
-  remarks: "An exception is thrown if this method is called before the Global.asax file has been compiled."
+  summary: "Hiermee haalt u een object dat het gecompileerde type voor het bestand Global.asax vertegenwoordigt."
+  remarks: "Als deze methode wordt aangeroepen voordat het bestand Global.asax is gecompileerd, wordt er een uitzondering gegenereerd."
   syntax:
     content: public static Type GetGlobalAsaxType ();
     parameters: []
     return:
       type: System.Type
-      description: "An object that represents the compiled type for the Global.asax file."
+      description: "Een object dat het gecompileerde type voor het bestand Global.asax vertegenwoordigt."
   overload: System.Web.Compilation.BuildManager.GetGlobalAsaxType*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "An attempt was made to call this method before the Global.asax page was compiled."
+    description: "Deze methode is aangeroepen voordat de pagina Global.asax is gecompileerd is een poging gedaan."
   platform:
   - net462
 - uid: System.Web.Compilation.BuildManager.GetObjectFactory(System.String,System.Boolean)
@@ -390,25 +390,25 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Gets an object factory for the specified virtual path."
-  remarks: "This method returns an object that enables you to generate a type by compiling the virtual path. It returns an object regardless of whether the Web site is precompiled."
+  summary: "Hiermee haalt de fabrieksinstellingen van een object voor het virtuele pad."
+  remarks: "Deze methode retourneert een object waarmee u voor het genereren van een type door het compileren van het virtuele pad. Deze retourneert een object ongeacht of de website vooraf is gecompileerd."
   syntax:
     content: public static System.Web.Util.IWebObjectFactory GetObjectFactory (string virtualPath, bool throwIfNotFound);
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path."
+      description: "Het virtuele pad."
     - id: throwIfNotFound
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to throw an error if the virtual path does not exist; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. If the virtual path does not exist and `throwIfNotFound` is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>, this method returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>op dat moet een fout optreden als het virtuele pad niet bestaat. anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Als het virtuele pad niet bestaat en `throwIfNotFound` is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>, deze methode retourneert <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Web.Util.IWebObjectFactory
-      description: "The object factory."
+      description: "De objectfactory."
   overload: System.Web.Compilation.BuildManager.GetObjectFactory*
   exceptions:
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "The virtual path does not exist.       -or-       A higher-level exception already existed when this method was called.       -or-       This method was called while the compilation process was building top-level files.       -or-       This is a precompiled application and the virtual path was not found in the cache.       -or-       A circular reference was detected."
+    description: "Het virtuele pad bestaat niet.       - of - al een hoger niveau uitzondering was toen deze methode is aangeroepen.       - of - deze methode is aangeroepen terwijl de compilatie-proces is op het hoogste niveau bestanden bouwen.       - of - dit is een vooraf gecompileerde toepassing en het virtuele pad is niet gevonden in de cache.       - of - is een kringverwijzing aangetroffen."
   platform:
   - net462
 - uid: System.Web.Compilation.BuildManager.GetReferencedAssemblies
@@ -423,14 +423,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Returns a list of assembly references that all page compilations must reference."
-  remarks: "The collection of assemblies that is returned from the GetReferencedAssemblies method includes assemblies specified in the  element of the Web.config file, assemblies built from custom code in the App_Code directory, and assemblies in other top-level folders.       GetReferencedAssemblies is introduced in the .NET Framework version 3.5.  For more information, see [.NET Framework Versions and Dependencies](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Retourneert een lijst met assembly-verwijzingen moeten verwijzen naar alle pagina compilaties."
+  remarks: "De verzameling van assembly&quot;s die wordt geretourneerd door de methode GetReferencedAssemblies bevat assembly&quot;s die zijn opgegeven in het element van het Web.config-bestand, assembly&quot;s die zijn gebouwd op basis van aangepaste code in de map App_Code en assembly&quot;s in andere mappen op het hoogste niveau.       GetReferencedAssemblies is opgenomen in de .NET Framework versie 3.5.  Zie voor meer informatie [.NET Framework-versies en afhankelijkheden](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public static System.Collections.ICollection GetReferencedAssemblies ();
     parameters: []
     return:
       type: System.Collections.ICollection
-      description: "An <xref:System.Collections.ICollection> collection of assembly references."
+      description: "Een <xref:System.Collections.ICollection>verzameling van assembly-verwijzingen.</xref:System.Collections.ICollection>"
   overload: System.Web.Compilation.BuildManager.GetReferencedAssemblies*
   exceptions: []
   platform:
@@ -447,20 +447,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Finds a type in the top-level assemblies or in assemblies that are defined in configuration, and optionally throws an exception on failure."
-  remarks: "A top-level assembly refers to the Global.asax file, or to a file that is in the App_GlobalResources, App_WebReferences, App_Code, or App_Browsers directory."
+  summary: "Een type zoeken in de site op het hoogste assembly&quot;s of in assembly&quot;s die zijn gedefinieerd in de configuratie en eventueel er een uitzondering gegenereerd bij fouten."
+  remarks: "Een assembly op het hoogste niveau verwijst naar het bestand Global.asax of naar een bestand dat zich in de map App_GlobalResources, App_WebReferences, App_Code of App_Browsers."
   syntax:
     content: public static Type GetType (string typeName, bool throwOnError);
     parameters:
     - id: typeName
       type: System.String
-      description: "The name of the type."
+      description: "De naam van het type."
     - id: throwOnError
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to throw an exception if a <xref:System.Type> object cannot be generated for the type name; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>voor een uitzondering te genereren als een <xref:System.Type>object kan niet worden gegenereerd voor de naam van het type, anders wordt <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>.</xref:System.Type>"
     return:
       type: System.Type
-      description: "A <xref:System.Type> object that represents the requested <code>typeName</code> parameter."
+      description: "Een <xref:System.Type>-object met de gevraagde <code> typeName </code> parameter.</xref:System.Type>"
   overload: System.Web.Compilation.BuildManager.GetType*
   exceptions:
   - type: System.Web.HttpException
@@ -480,23 +480,23 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Finds a type in the top-level assemblies, or in assemblies that are defined in configuration, by using a case-insensitive search and optionally throwing an exception on failure."
-  remarks: "A top-level assembly refers to the Global.asax file, or to a file that is in the App_GlobalResources, App_WebReferences, App_Code, or App_Browsers directory."
+  summary: "Zoeken naar een type in de site op het hoogste assembly&quot;s of in de assembly&quot;s die zijn gedefinieerd in een configuratie met behulp van een hoofdlettergevoelige zoekactie en eventueel uitzondering opgetreden bij fouten."
+  remarks: "Een assembly op het hoogste niveau verwijst naar het bestand Global.asax of naar een bestand dat zich in de map App_GlobalResources, App_WebReferences, App_Code of App_Browsers."
   syntax:
     content: public static Type GetType (string typeName, bool throwOnError, bool ignoreCase);
     parameters:
     - id: typeName
       type: System.String
-      description: "The name of the type."
+      description: "De naam van het type."
     - id: throwOnError
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to throw an exception if a <xref:System.Type> cannot be generated for the type name; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>voor een uitzondering te genereren als een <xref:System.Type>kan niet worden gegenereerd voor de naam van het type, anders wordt <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>.</xref:System.Type>"
     - id: ignoreCase
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if `typeName` is case-sensitive; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als `typeName` is hoofdlettergevoelig, anders, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Type
-      description: "A <xref:System.Type> object that represents the requested <code>typeName</code> parameter."
+      description: "Een <xref:System.Type>-object met de gevraagde <code> typeName </code> parameter.</xref:System.Type>"
   overload: System.Web.Compilation.BuildManager.GetType*
   exceptions:
   - type: System.Web.HttpException
@@ -516,16 +516,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Provides a collection of virtual-path dependencies for a specified virtual path."
+  summary: "Biedt een verzameling van afhankelijkheden van de virtueel-pad voor een opgegeven virtuele pad."
   syntax:
     content: public static System.Collections.ICollection GetVirtualPathDependencies (string virtualPath);
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path used to determine the dependencies."
+      description: "Het virtuele pad dat wordt gebruikt om te bepalen van de afhankelijkheden."
     return:
       type: System.Collections.ICollection
-      description: "An <xref:System.Collections.ICollection> collection of files represented by virtual paths that are caching dependencies for the virtual path."
+      description: "Een <xref:System.Collections.ICollection>verzameling van bestanden die worden vertegenwoordigd door virtuele paden die zijn opslaan in cache afhankelijkheden voor het virtuele pad.</xref:System.Collections.ICollection>"
   overload: System.Web.Compilation.BuildManager.GetVirtualPathDependencies*
   exceptions: []
   platform:
@@ -542,12 +542,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Gets a value that specifies whether the application is precompiled."
+  summary: "Haalt een waarde die aangeeft of de toepassing vooraf is gecompileerd."
   syntax:
     content: public static bool IsPrecompiledApp { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the application is precompiled; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de toepassing vooraf gecompileerde; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.Compilation.BuildManager.IsPrecompiledApp*
   exceptions: []
   platform:
@@ -564,12 +564,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Gets a value that specifies whether the application is precompiled as updatable."
+  summary: "Haalt een waarde die aangeeft of de toepassing is vooraf gecompileerd als bij te werken."
   syntax:
     content: public static bool IsUpdatablePrecompiledApp { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the application is precompiled as updatable; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als de toepassing vooraf gecompileerde als worden bijgewerkt; anders <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.Compilation.BuildManager.IsUpdatablePrecompiledApp*
   exceptions: []
   platform:
@@ -586,17 +586,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Reads a cached file."
-  remarks: "This method and the <xref:System.Web.Compilation.BuildManager.CreateCachedFile%2A> method enable you to perform caching that persists across application domain restarts in partial-trust environments. It is used by the MVC framework to cache results of the controller lookup.       To retrieve cached data, you read from the <xref:System.IO.Stream> object that is returned by this method."
+  summary: "Hiermee wordt een bestand in cache gelezen."
+  remarks: "Deze methode en de <xref:System.Web.Compilation.BuildManager.CreateCachedFile%2A>methode kunt u in de cache die tijdens de toepassing domein opnieuw wordt gestart in een gedeeltelijk vertrouwde omgeving uitvoeren.</xref:System.Web.Compilation.BuildManager.CreateCachedFile%2A> Deze wordt gebruikt door de MVC-framework resultaten van de cache van de domeincontroller zoeken.       Voor het ophalen van gegevens in de cache, kunt u lezen van de <xref:System.IO.Stream>-object dat wordt geretourneerd door deze methode.</xref:System.IO.Stream>"
   syntax:
     content: public static System.IO.Stream ReadCachedFile (string fileName);
     parameters:
     - id: fileName
       type: System.String
-      description: "The name of the file to read."
+      description: "De naam van het bestand te lezen."
     return:
       type: System.IO.Stream
-      description: "The <xref:System.IO.Stream> object for the file, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the file does not exist."
+      description: "De <xref:System.IO.Stream>object voor het bestand of <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> als het bestand niet bestaat.</xref:System.IO.Stream>"
   overload: System.Web.Compilation.BuildManager.ReadCachedFile*
   exceptions: []
   platform:
@@ -613,13 +613,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Gets the target version of the .NET Framework for the current Web site."
-  remarks: "This property supports the ASP.NET multi-targeting feature, which enables you to use the latest version of [!INCLUDE[vsprvs](~/add/includes/vsprvs-md.md)] to develop applications that will run with earlier versions of the .NET Framework. A build provider can use this property to make sure that the provider generates code that is appropriate for the targeted version of the .NET Framework. For example, you might want to generate different code depending on whether a Web site targets the [!INCLUDE[net_v35_short](~/add/includes/net-v35-short-md.md)] or the [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)]. For more information about multi-targeting, see [.NET Framework Multi-Targeting for ASP.NET Web Projects](~/add/includes/ajax-current-ext-md.md).       If the Web site does not have a Web.config file, ASP.NET assumes that the target framework version is the version that is associated with the IIS application pool that the site is running under. For a file-system Web site that is running in Visual Studio, the default framework version is the current version of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)].       If the Web site does have a Web.config file, ASP.NET determines the target framework by examining the Web.config file.      ## Web Sites that Target the .NET Framework 2.0    Web applications that target the [!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)] are compiled as if the target were the [!INCLUDE[net_v30_short](~/add/includes/net-v30-short-md.md)]. The build process does not differentiate between the [!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)] and the [!INCLUDE[net_v30_short](~/add/includes/net-v30-short-md.md)] because the Web.config file does not indicate compiler version or target framework when one of those versions is targeted. (For the [!INCLUDE[net_v35_short](~/add/includes/net-v35-short-md.md)], the Web.config file specifies the compiler version, and for the [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)], the Web.config file specifies the target framework.) Therefore, for Web applications that target the [!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)], this property returns a target framework moniker that indicates the [!INCLUDE[net_v30_short](~/add/includes/net-v30-short-md.md)].       This normally will not cause any problems. [!INCLUDE[vsprvs](~/add/includes/vsprvs-md.md)] prevents you from creating references to [!INCLUDE[net_v30_short](~/add/includes/net-v30-short-md.md)] features in a project that is targeted for the [!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)]. For example, [!INCLUDE[vsprvs](~/add/includes/vsprvs-md.md)] does not provide item templates for WCF services in a project that is targeted for [!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)], because WCF was introduced with the [!INCLUDE[net_v30_short](~/add/includes/net-v30-short-md.md)] and is not compatible with the [!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)].       If you plan to deploy a Web site in a [!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)] run-time environment and you use a tool other than [!INCLUDE[vsprvs](~/add/includes/vsprvs-md.md)] to reference features that are compatible only with [!INCLUDE[net_v30_short](~/add/includes/net-v30-short-md.md)], the project might build without generating errors or warnings. However, the application might generate errors when the Web site runs on the [!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)]."
+  summary: "Hiermee wordt de doelversie van .NET Framework voor de huidige website."
+  remarks: "Deze eigenschap ondersteunt de ASP.NET die gericht is op multi functie, waarmee u de meest recente versie van [!INCLUDE[vsprvs](~/add/includes/vsprvs-md.md)] voor het ontwikkelen van toepassingen die worden uitgevoerd met eerdere versies van .NET Framework. Een build-provider kan deze eigenschap gebruiken om ervoor te zorgen dat de provider genereert code die geschikt is voor de doelversie van .NET Framework. Bijvoorbeeld, u wilt mogelijk genereren van andere code afhankelijk van of een website-doelen de [!INCLUDE[net_v35_short](~/add/includes/net-v35-short-md.md)] of de [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)]. Zie voor meer informatie over meerdere doelen [Multi van .NET Framework als doel voor ASP.NET-webprojecten](~/add/includes/ajax-current-ext-md.md).       Als de website geen een Web.config-bestand heeft, ASP.NET wordt ervan uitgegaan dat de doel-framework-versie is de versie die is gekoppeld aan de IIS-toepassingsgroep waaronder de site wordt uitgevoerd. Voor een website bestandssysteem die worden uitgevoerd in Visual Studio de standaard framework-versie is de huidige versie van de [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)].       Als de website over een Web.config-bestand beschikt, bepaalt ASP.NET de doel-framework aan de hand van het bestand Web.config.      ## Websites die zijn gericht op de .NET Framework 2.0-webtoepassingen die zijn gericht de [!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)] worden gecompileerd alsof het doel de [!INCLUDE[net_v30_short](~/add/includes/net-v30-short-md.md)]. Het buildproces geen onderscheid maken tussen de [!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)] en de [!INCLUDE[net_v30_short](~/add/includes/net-v30-short-md.md)] omdat het bestand Web.config niet compiler versie of doel-framework wordt aangegeven wanneer een van deze versies is gericht. (Voor de [!INCLUDE[net_v35_short](~/add/includes/net-v35-short-md.md)], het bestand Web.config geeft de versie van het compileerprogramma, en voor de [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)], het Web.config-bestand bevat de doel-framework.) Daarom voor webtoepassingen die zijn gericht de [!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)], retourneert een doel-framework moniker waarmee wordt aangegeven voor deze eigenschap de [!INCLUDE[net_v30_short](~/add/includes/net-v30-short-md.md)].       Normaal gesproken hierdoor niet problemen. [!INCLUDE[vsprvs](~/add/includes/vsprvs-md.md)]voorkomen dat u voor het maken van verwijzingen naar [!INCLUDE[net_v30_short](~/add/includes/net-v30-short-md.md)] functies in een project dat is bedoeld voor de [!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)]. Bijvoorbeeld: [!INCLUDE[vsprvs](~/add/includes/vsprvs-md.md)] biedt geen itemsjablonen voor WCF-services in een project dat is bedoeld voor [!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)]omdat WCF is geïntroduceerd in de [!INCLUDE[net_v30_short](~/add/includes/net-v30-short-md.md)] en is niet compatibel met de [!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)].       Als u van plan bent voor het implementeren van een website in een [!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)] runtime-omgeving en u een hulpprogramma gebruiken dan [!INCLUDE[vsprvs](~/add/includes/vsprvs-md.md)] tot verwijzing functies die alleen compatibel met zijn [!INCLUDE[net_v30_short](~/add/includes/net-v30-short-md.md)], het project kan maken zonder dat er fouten of waarschuwingen worden gegenereerd. Echter, de toepassing fouten kan optreden wanneer de website wordt uitgevoerd op de [!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)]."
   syntax:
     content: public static System.Runtime.Versioning.FrameworkName TargetFramework { get; }
     return:
       type: System.Runtime.Versioning.FrameworkName
-      description: "The target version of the .NET Framework for the current Web site."
+      description: "De doelversie van .NET Framework voor de huidige website."
   overload: System.Web.Compilation.BuildManager.TargetFramework*
   exceptions: []
   platform:
