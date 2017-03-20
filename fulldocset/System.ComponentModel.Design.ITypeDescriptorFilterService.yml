@@ -12,8 +12,8 @@ items:
   nameWithType: ITypeDescriptorFilterService
   fullName: System.ComponentModel.Design.ITypeDescriptorFilterService
   type: Interface
-  summary: "Provides an interface to modify the set of member descriptors for a component in design mode."
-  remarks: "The ITypeDescriptorFilterService interface provides an interface that allows modification of the properties, events, and class-level attributes of a component at design time. This modification occurs through the set of descriptors that a component provides through a <xref:System.ComponentModel.TypeDescriptor>. The type descriptor will query a component&quot;s site for the ITypeDescriptorFilterService service and, if it exists, the type descriptor will pass all metadata it has collected to this service. The service can then modify the metadata by adding, removing, and altering existing characteristics of the component.       For example, the properties of a component can be modified through a call to the <xref:System.ComponentModel.Design.ITypeDescriptorFilterService.FilterProperties%2A> method. The filter service obtains a dictionary that contains property names and their property descriptors of type <xref:System.ComponentModel.PropertyDescriptor>. The modifications are implemented using the following logic.      |Modification|Implementation|   |------------------|--------------------|   |Removal|Delete the corresponding entry in the dictionary.|   |Addition|Add the appropriate entry to the dictionary.|   |Alteration|Call existing property descriptor methods, replace the associated property descriptor entry, or replace the entire property key/value pair in the dictionary.|       The return value of <xref:System.ComponentModel.Design.ITypeDescriptorFilterService.FilterProperties%2A> determines if this set of properties is fixed. If this method returns `true`, the <xref:System.ComponentModel.TypeDescriptor> for this component can cache the results. This cache is maintained until either the component is garbage collected or the <xref:System.ComponentModel.TypeDescriptor.Refresh%2A> method of the type descriptor is called."
+  summary: "Biedt een interface voor het wijzigen van de reeks lid descriptors voor een onderdeel in de ontwerpmodus."
+  remarks: "De interface ITypeDescriptorFilterService biedt een interface waarmee de wijziging van de eigenschappen, gebeurtenissen en klasseniveau kenmerken van een onderdeel in de ontwerpfase. Deze wijziging vindt plaats via de set van descriptors die een onderdeel via een <xref:System.ComponentModel.TypeDescriptor>.</xref:System.ComponentModel.TypeDescriptor> biedt De TypeDescriptor een query uit op de site van een onderdeel voor de service ITypeDescriptorFilterService en, indien aanwezig, de TypeDescriptor alle metagegevens die deze heeft verzameld bij deze service wordt doorgegeven. De service kan de metagegevens wijzigen door toe te voegen of te verwijderen of wijzigen van bestaande kenmerken van het onderdeel.       Bijvoorbeeld, de eigenschappen van een onderdeel kunnen worden gewijzigd door een aanroep van de <xref:System.ComponentModel.Design.ITypeDescriptorFilterService.FilterProperties%2A>methode.</xref:System.ComponentModel.Design.ITypeDescriptorFilterService.FilterProperties%2A> De filterservice verkrijgt een woordenlijst met de namen van eigenschappen en hun descriptors eigenschap van het type <xref:System.ComponentModel.PropertyDescriptor>.</xref:System.ComponentModel.PropertyDescriptor> De wijzigingen worden geïmplementeerd met behulp van de volgende logica.      | Wijziging | Implementatie |   |------------------|--------------------|   | Verwijderen | Verwijderen van de bijbehorende vermelding in de woordenlijst. |   | Toevoeging | De desbetreffende vermelding toevoegen aan de woordenlijst. |   | Wijziging | Bestaande eigenschap descriptor methoden aanroepen, de gekoppelde eigenschap descriptor-vermelding vervangen of vervang de volledige eigenschap sleutel-waardepaar in de woordenlijst. |       De retourwaarde van <xref:System.ComponentModel.Design.ITypeDescriptorFilterService.FilterProperties%2A>bepaalt u of deze reeks eigenschappen is opgelost.</xref:System.ComponentModel.Design.ITypeDescriptorFilterService.FilterProperties%2A> Als deze methode retourneert `true`, wordt de <xref:System.ComponentModel.TypeDescriptor>voor dit onderdeel de resultaten in cache.</xref:System.ComponentModel.TypeDescriptor> Deze cache wordt gehandhaafd tot ofwel het onderdeel is de garbage collector zijn verzameld of de <xref:System.ComponentModel.TypeDescriptor.Refresh%2A>methode van het TypeDescriptor wordt aangeroepen.</xref:System.ComponentModel.TypeDescriptor.Refresh%2A>"
   example:
   - "The following code example demonstrates a designer that uses the ITypeDescriptorFilterService to filter the attributes collection of any new or existing <xref:System.Windows.Forms.Button> to add a designer attribute for a new designer before loading or reloading the designer for the button.  \n  \n To use the example, add the code to a Windows Forms project and load the components from the class library into the Toolbox.  \n  \n Also see [Walkthrough: Automatically Populating the Toolbox with Custom Components](http://msdn.microsoft.com/library/fw694kde\\(v=vs.110\\).aspx).  \n  \n Add some buttons to your form. Add a `ButtonDesignerFilterComponent` to your form, and it will appear in the component tray. The `ButtonDesignerFilterComponent` will add a `ButtonDesignerFilterService`, which implements ITypeDescriptorFilterService, as a design mode service provider. Existing or new <xref:System.Windows.Forms.Button> objects on the form will begin color cycling after the `ButtonDesignerFilterService` replaces the designer for each existing and new button with a `ColorCycleButtonDesigner`. The buttons will color cycle when you move the mouse pointer over them, and alternately continue cycling or reset the background and foreground colors on `MouseLeave` events. New <xref:System.Windows.Forms.Button> objects will be given the `ColorCycleButtonDesigner` through the <xref:System.ComponentModel.Design.ITypeDescriptorFilterService.FilterAttributes%2A> method of the `ButtonDesignerFilterService` that has been loaded, until the `ButtonDesignerFilterComponent` is disposed and replaces the original ITypeDescriptorFilterService. The `ColorCycleButton` class in this example is a <xref:System.Windows.Forms.Button> associated with a `ColorCycleButtonDesigner`.  \n  \n [!code-cs[ITypeDescriptorFilterService#1](~/add/codesnippet/csharp/t-system.componentmodel._32_1.cs)]\n [!code-vb[ITypeDescriptorFilterService#1](~/add/codesnippet/visualbasic/t-system.componentmodel._32_1.vb)]\n [!code-cpp[ITypeDescriptorFilterService#1](~/add/codesnippet/cpp/t-system.componentmodel._32_1.cpp)]"
   syntax:
@@ -33,20 +33,20 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Filters the attributes that a component exposes through a <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;></xref>."
-  remarks: "This method is called when a user requests a set of attributes for a component. The attributes are added to the dictionary with the attribute&quot;s <xref:System.Attribute.TypeId%2A> as the keys and the actual attribute as the value. Implementers of this service can add, remove, or alter existing attribute entries in the dictionary."
+  summary: "Filtert de kenmerken die een onderdeel beschikbaar via maakt een <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;> </xref>."
+  remarks: "Deze methode wordt aangeroepen wanneer een gebruiker een set kenmerken voor een component aanvraagt. De kenmerken worden toegevoegd aan het woordenboek met het kenmerk <xref:System.Attribute.TypeId%2A>Als de sleutels en het werkelijke kenmerk als de waarde.</xref:System.Attribute.TypeId%2A> Implementeerders van deze service kunnen toevoegen, verwijderen of aanpassen van bestaande kenmerk vermeldingen in de woordenlijst."
   syntax:
     content: public bool FilterAttributes (System.ComponentModel.IComponent component, System.Collections.IDictionary attributes);
     parameters:
     - id: component
       type: System.ComponentModel.IComponent
-      description: "The component to filter the attributes of."
+      description: "Het onderdeel voor het filteren van de kenmerken van."
     - id: attributes
       type: System.Collections.IDictionary
-      description: "A dictionary of attributes that can be modified."
+      description: "Een woordenlijst van kenmerken die kunnen worden gewijzigd."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the set of filtered attributes is to be cached; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the filter service must query again."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als u de set gefilterde kenmerken op in de cache opgeslagen; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> als de filterservice moet query opnieuw uitvoert."
   overload: System.ComponentModel.Design.ITypeDescriptorFilterService.FilterAttributes*
   exceptions: []
   platform:
@@ -63,20 +63,20 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Filters the events that a component exposes through a <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;></xref>."
-  remarks: "This method is called when a user requests a set of events for a component. The events are added to the dictionary with the event names as the keys and the corresponding <xref:System.ComponentModel.EventDescriptor> objects as the values. Implementers of this service can add, remove, or alter event entries in the dictionary."
+  summary: "De gebeurtenissen gefilterd met een onderdeel via wordt een <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;> </xref>."
+  remarks: "Deze methode wordt aangeroepen wanneer een gebruiker een reeks gebeurtenissen voor een component aanvraagt. De gebeurtenissen worden toegevoegd aan de woordenlijst met de gebeurtenisnamen van de als de sleutels en de bijbehorende <xref:System.ComponentModel.EventDescriptor>objecten als de waarden.</xref:System.ComponentModel.EventDescriptor> Implementeerders van deze service kunnen toevoegen, verwijderen of aanpassen van de gebeurtenisvermeldingen in de woordenlijst."
   syntax:
     content: public bool FilterEvents (System.ComponentModel.IComponent component, System.Collections.IDictionary events);
     parameters:
     - id: component
       type: System.ComponentModel.IComponent
-      description: "The component to filter events for."
+      description: "De component gebeurtenissen voor filteren."
     - id: events
       type: System.Collections.IDictionary
-      description: "A dictionary of events that can be modified."
+      description: "Een woordenlijst van gebeurtenissen die kunnen worden gewijzigd."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the set of filtered events is to be cached; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the filter service must query again."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als u de reeks gebeurtenissen gefilterd op in de cache opgeslagen; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> als de filterservice moet query opnieuw uitvoert."
   overload: System.ComponentModel.Design.ITypeDescriptorFilterService.FilterEvents*
   exceptions: []
   platform:
@@ -93,20 +93,20 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Filters the properties that a component exposes through a <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;></xref>."
-  remarks: "This method is called when a user requests a set of properties for a component. The properties are added to the dictionary with the property names as the keys and the corresponding <xref:System.ComponentModel.PropertyDescriptor> objects as the values. Implementers of this service can add, remove, or alter property entries in the dictionary."
+  summary: "Filtert de eigenschappen die een onderdeel beschikbaar via maakt een <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;> </xref>."
+  remarks: "Deze methode wordt aangeroepen wanneer een gebruiker een set eigenschappen voor een component aanvraagt. De eigenschappen worden toegevoegd aan de woordenlijst met de namen van eigenschappen als de sleutels en de bijbehorende <xref:System.ComponentModel.PropertyDescriptor>objecten als de waarden.</xref:System.ComponentModel.PropertyDescriptor> Implementeerders van deze service kunnen toevoegen, verwijderen of wijzigen van de eigenschap vermeldingen in de woordenlijst."
   syntax:
     content: public bool FilterProperties (System.ComponentModel.IComponent component, System.Collections.IDictionary properties);
     parameters:
     - id: component
       type: System.ComponentModel.IComponent
-      description: "The component to filter properties for."
+      description: "Het onderdeel in de filtereigenschappen van het voor."
     - id: properties
       type: System.Collections.IDictionary
-      description: "A dictionary of properties that can be modified."
+      description: "Een woordenlijst van eigenschappen die kunnen worden gewijzigd."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the set of filtered properties is to be cached; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the filter service must query again."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Als u de set gefilterde eigenschappen op in de cache opgeslagen; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> als de filterservice moet query opnieuw uitvoert."
   overload: System.ComponentModel.Design.ITypeDescriptorFilterService.FilterProperties*
   exceptions: []
   platform:

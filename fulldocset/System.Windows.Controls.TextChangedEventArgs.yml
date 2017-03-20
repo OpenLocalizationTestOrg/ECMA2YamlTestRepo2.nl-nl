@@ -14,7 +14,7 @@ items:
   nameWithType: TextChangedEventArgs
   fullName: System.Windows.Controls.TextChangedEventArgs
   type: Class
-  summary: "Provides data for the <xref href=&quot;System.Windows.Controls.Primitives.TextBoxBase.TextChanged&quot;></xref> event."
+  summary: "Biedt gegevens voor de <xref href=&quot;System.Windows.Controls.Primitives.TextBoxBase.TextChanged&quot;> </xref> gebeurtenis."
   remarks: ''
   example:
   - "The following example displays the number of times the text in a <xref:System.Windows.Controls.TextBox> changes. Below is the XAML code for the example.  \n  \n [!code-xml[TextBoxMiscSnippets_snip#DetectChangedTextExampleWholePage](~/add/codesnippet/xaml/textmiscsnippets_snip/detectchangedtextexample.xaml#detectchangedtextexamplewholepage)]  \n  \n Below is the code behind for the example.  \n  \n [!code-cs[TextBoxMiscSnippets_snip#DetectChangedTextCodeExampleWholePage](~/add/codesnippet/csharp/textmiscsnippets_snip/detectchangedtextexample.xaml.cs#detectchangedtextcodeexamplewholepage)]\n [!code-vb[TextBoxMiscSnippets_snip#DetectChangedTextCodeExampleWholePage](~/add/codesnippet/visualbasic/textmiscsnippets_snip/detectchangedtextexample.xaml.vb#detectchangedtextcodeexamplewholepage)]"
@@ -44,16 +44,16 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Controls.TextChangedEventArgs&quot;></xref> class, using the specified event ID and undo action."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Windows.Controls.TextChangedEventArgs&quot;> </xref> klasse, met behulp van de opgegeven gebeurtenis-ID en het ongedaan maken."
   syntax:
     content: public TextChangedEventArgs (System.Windows.RoutedEvent id, System.Windows.Controls.UndoAction action);
     parameters:
     - id: id
       type: System.Windows.RoutedEvent
-      description: "The event [!INCLUDE[TLA#tla_id](~/add/includes/tlasharptla-id-md.md)]."
+      description: "De gebeurtenis [!INCLUDE[TLA#tla_id](~/add/includes/tlasharptla-id-md.md)]."
     - id: action
       type: System.Windows.Controls.UndoAction
-      description: "The <xref:System.Windows.Controls.TextChangedEventArgs.UndoAction*> caused by the text change."
+      description: "De <xref:System.Windows.Controls.TextChangedEventArgs.UndoAction*>veroorzaakt door een tekstwijziging.</xref:System.Windows.Controls.TextChangedEventArgs.UndoAction*>"
   overload: System.Windows.Controls.TextChangedEventArgs.#ctor*
   exceptions: []
   platform:
@@ -70,20 +70,20 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Controls.TextChangedEventArgs&quot;></xref> class, using the specified event ID, undo action, and text changes."
-  remarks: "TextChangedEventArgs is introduced in the .NET Framework version 3.5.  For more information, see [Versions and Dependencies](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Initialiseert een nieuw exemplaar van de <xref href=&quot;System.Windows.Controls.TextChangedEventArgs&quot;> </xref> klasse, met behulp van de opgegeven gebeurtenis-ID, de actie ongedaan maken en de tekst verandert in."
+  remarks: "TextChangedEventArgs is opgenomen in de .NET Framework versie 3.5.  Zie voor meer informatie [versies en afhankelijkheden](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public TextChangedEventArgs (System.Windows.RoutedEvent id, System.Windows.Controls.UndoAction action, System.Collections.Generic.ICollection<System.Windows.Controls.TextChange> changes);
     parameters:
     - id: id
       type: System.Windows.RoutedEvent
-      description: "The event [!INCLUDE[TLA#tla_id](~/add/includes/tlasharptla-id-md.md)]."
+      description: "De gebeurtenis [!INCLUDE[TLA#tla_id](~/add/includes/tlasharptla-id-md.md)]."
     - id: action
       type: System.Windows.Controls.UndoAction
-      description: "The <xref:System.Windows.Controls.TextChangedEventArgs.UndoAction*> caused by the text change."
+      description: "De <xref:System.Windows.Controls.TextChangedEventArgs.UndoAction*>veroorzaakt door een tekstwijziging.</xref:System.Windows.Controls.TextChangedEventArgs.UndoAction*>"
     - id: changes
       type: System.Collections.Generic.ICollection{System.Windows.Controls.TextChange}
-      description: "The changes that occurred during this event. For more information, see <xref:System.Windows.Controls.TextChangedEventArgs.Changes*>."
+      description: "De wijzigingen die tijdens deze gebeurtenis is opgetreden. Zie voor meer informatie <xref:System.Windows.Controls.TextChangedEventArgs.Changes*>.</xref:System.Windows.Controls.TextChangedEventArgs.Changes*>"
   overload: System.Windows.Controls.TextChangedEventArgs.#ctor*
   exceptions: []
   platform:
@@ -100,13 +100,13 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls
-  summary: "Gets a collection of objects that contains information about the changes that occurred."
-  remarks: "There is one <xref:System.Windows.Controls.TextChange> object for each consecutive change to the control. More than one consecutive change can occur during one occurrence of the <xref:System.Windows.Controls.Primitives.TextBoxBase.TextChanged> event when the change entails changing the structure of the underlying document.       For example, suppose that a <xref:System.Windows.Controls.RichTextBox> contains the string `&quot;This is some text.&quot;` The structure of the <xref:System.Windows.Controls.RichTextBox.Document%2A?displayProperty=fullName> is `<Paragraph><Run>This is some text.</Run></Paragraph>`. If the user bolds the words `&quot;is some&quot;`, the structure of the underlying <xref:System.Windows.Documents.FlowDocument> changes to `<Paragraph><Run>This </Run><Run  FontWeight=&quot;Bold&quot;>is some</Run><Run> text.</Run></Paragraph>`. There are actually four changes that took place as a result of the user&quot;s action:      1.  The `<Run>` symbol is removed and re-added before the word `This`.      2.  The symbols `</Run><Run>` are added after the word `This`.      3.  The symbols `</Run><Run>` are added after the word `some`.      4.  The `</Run>` symbol is removed and re-added after the word `Text`.       In general, the following will always be true:      -   The changes that occur result in the document being in a valid state.      -   The collection is ordered consecutively, related to where the change occurred in the control.  For example, a <xref:System.Windows.Controls.TextChange> object that represents a change at position 2 is before a <xref:System.Windows.Controls.TextChange> object that represents a change at position 10.      -   Two <xref:System.Windows.Controls.TextChange> objects do not represent an overlapping area.  The value of <xref:System.Windows.Controls.TextChange.Offset%2A> plus the value of <xref:System.Windows.Controls.TextChange.AddedLength%2A> of one <xref:System.Windows.Controls.TextChange> object is always less than or equal to the value of <xref:System.Windows.Controls.TextChange.Offset%2A> of the next <xref:System.Windows.Controls.TextChange> object in the collection. Likewise, the value of <xref:System.Windows.Controls.TextChange.Offset%2A> plus the value of <xref:System.Windows.Controls.TextChange.RemovedLength%2A> of one <xref:System.Windows.Controls.TextChange> object is always less than or equal to the value of <xref:System.Windows.Controls.TextChange.Offset%2A> of the next <xref:System.Windows.Controls.TextChange> object in the collection.      -   The collection reflects whatever changes occurred, even if there seems to be no net change. In the preceding example, neither the first or fourth change results in a net change, because each simply removed and re-added the `<Run>` and `</Run>` symbols, respectively. But the symbols were actually removed and added, so they are included in the collection.       If the <xref:System.Windows.Controls.Primitives.TextBoxBase.TextChanged> event occurs as a result of a property change, Changes is an empty collection.  In the preceding example, if the user bolds the entire string, the <xref:System.Windows.Documents.TextElement.FontWeight%2A> property of the <xref:System.Windows.Documents.Run> is set to <xref:System.Windows.FontWeights.Bold%2A>, but nothing is added or removed from the document, so Changes is empty.       Changes is introduced in the .NET Framework version 3.5.  For more information, see [Versions and Dependencies](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Hiermee haalt u een verzameling van objecten dat informatie bevat over de wijzigingen die zijn opgetreden."
+  remarks: "Er is een <xref:System.Windows.Controls.TextChange>object voor elke opeenvolgende wijziging aan het besturingselement.</xref:System.Windows.Controls.TextChange> Meer dan één opeenvolgende wijziging kan optreden tijdens een exemplaar van de <xref:System.Windows.Controls.Primitives.TextBoxBase.TextChanged>-gebeurtenis geactiveerd wanneer de wijziging houdt de structuur van het onderliggende document wijzigen.</xref:System.Windows.Controls.Primitives.TextBoxBase.TextChanged>       Stel bijvoorbeeld dat een <xref:System.Windows.Controls.RichTextBox>bevat de tekenreeks `&quot;This is some text.&quot;` de structuur van de <xref:System.Windows.Controls.RichTextBox.Document%2A?displayProperty=fullName>is `<Paragraph><Run>This is some text.</Run></Paragraph>`.</xref:System.Windows.Controls.RichTextBox.Document%2A?displayProperty=fullName> </xref:System.Windows.Controls.RichTextBox> Als de gebruiker wordt vet gemaakt de woorden `&quot;is some&quot;`, de structuur van de onderliggende <xref:System.Windows.Documents.FlowDocument>wijzigingen in `<Paragraph><Run>This </Run><Run  FontWeight=&quot;Bold&quot;>is some</Run><Run> text.</Run></Paragraph>`.</xref:System.Windows.Documents.FlowDocument> Er zijn daadwerkelijk vier wijzigingen die plaatsgevonden als gevolg van een actie van de gebruiker heeft: 1.  De `<Run>` symbool wordt verwijderd en opnieuw toegevoegd voordat het woord `This`.      2.  De symbolen `</Run><Run>` worden toegevoegd na het woord `This`.      3.  De symbolen `</Run><Run>` worden toegevoegd na het woord `some`.      4.  De `</Run>` symbool wordt verwijderd en opnieuw toegevoegd na het woord `Text`.       In het algemeen de volgende wordt altijd waar zijn:-de wijzigingen die plaatsvinden resultaat in het document wordt een geldige status heeft.      -De verzameling is besteld opeenvolgend, gerelateerd aan waar de wijziging is opgetreden in het besturingselement.  Bijvoorbeeld, een <xref:System.Windows.Controls.TextChange>-object met een wijziging op positie 2 is voordat een <xref:System.Windows.Controls.TextChange>-object met een wijziging op positie 10.</xref:System.Windows.Controls.TextChange> </xref:System.Windows.Controls.TextChange>      -Twee <xref:System.Windows.Controls.TextChange>objecten een overlappende gebied geen vertegenwoordigen.</xref:System.Windows.Controls.TextChange>  De waarde van <xref:System.Windows.Controls.TextChange.Offset%2A>plus de waarde van <xref:System.Windows.Controls.TextChange.AddedLength%2A>van een <xref:System.Windows.Controls.TextChange>object is altijd kleiner zijn dan of gelijk zijn aan de waarde van <xref:System.Windows.Controls.TextChange.Offset%2A>van de volgende <xref:System.Windows.Controls.TextChange>object in de verzameling.</xref:System.Windows.Controls.TextChange> </xref:System.Windows.Controls.TextChange.Offset%2A> </xref:System.Windows.Controls.TextChange> </xref:System.Windows.Controls.TextChange.AddedLength%2A> </xref:System.Windows.Controls.TextChange.Offset%2A> Ook kan de waarde van <xref:System.Windows.Controls.TextChange.Offset%2A>plus de waarde van <xref:System.Windows.Controls.TextChange.RemovedLength%2A>van een <xref:System.Windows.Controls.TextChange>object is altijd kleiner zijn dan of gelijk zijn aan de waarde van <xref:System.Windows.Controls.TextChange.Offset%2A>van de volgende <xref:System.Windows.Controls.TextChange>object in de verzameling.</xref:System.Windows.Controls.TextChange> </xref:System.Windows.Controls.TextChange.Offset%2A> </xref:System.Windows.Controls.TextChange> </xref:System.Windows.Controls.TextChange.RemovedLength%2A> </xref:System.Windows.Controls.TextChange.Offset%2A>      -De verzameling weerspiegelt welke wijzigingen zijn opgetreden, zelfs als er lijkt niet net is gewijzigd. In het voorgaande voorbeeld geen van beide de eerste of vierde wijziging resulteert in een net wijziging, omdat elk gewoon verwijderd en opnieuw toegevoegd de `<Run>` en `</Run>` symbolen, respectievelijk. Terwijl de symbolen zijn daadwerkelijk verwijderd en toegevoegd, zodat ze zijn opgenomen in de verzameling.       Als de <xref:System.Windows.Controls.Primitives.TextBoxBase.TextChanged>gebeurtenis treedt op als gevolg van een wijziging van de eigenschap wijzigingen is een lege collectie.</xref:System.Windows.Controls.Primitives.TextBoxBase.TextChanged>  In het voorgaande voorbeeld, als de gebruiker wordt vet gemaakt de volledige tekenreeks de <xref:System.Windows.Documents.TextElement.FontWeight%2A>eigenschap van de <xref:System.Windows.Documents.Run>is ingesteld op <xref:System.Windows.FontWeights.Bold%2A>, maar niets wordt toegevoegd of verwijderd uit het document, zodat de wijzigingen is leeg.</xref:System.Windows.FontWeights.Bold%2A> </xref:System.Windows.Documents.Run> </xref:System.Windows.Documents.TextElement.FontWeight%2A>       Wijzigingen in de .NET Framework versie 3.5 is geïntroduceerd.  Zie voor meer informatie [versies en afhankelijkheden](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public System.Collections.Generic.ICollection<System.Windows.Controls.TextChange> Changes { get; }
     return:
       type: System.Collections.Generic.ICollection{System.Windows.Controls.TextChange}
-      description: "A collection of objects that contains information about the changes that occurred."
+      description: "Een verzameling van objecten dat informatie bevat over de wijzigingen die zijn opgetreden."
   overload: System.Windows.Controls.TextChangedEventArgs.Changes*
   exceptions: []
   platform:
@@ -123,16 +123,16 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls
-  summary: "Performs the proper type casting to call the type-safe <xref href=&quot;System.Windows.Controls.TextChangedEventHandler&quot;></xref> delegate for the <xref href=&quot;System.Windows.Controls.Primitives.TextBoxBase.TextChanged&quot;></xref> event."
+  summary: "Voert het juiste type casten om aan te roepen de type-safe <xref href=&quot;System.Windows.Controls.TextChangedEventHandler&quot;> </xref> delegeren voor de <xref href=&quot;System.Windows.Controls.Primitives.TextBoxBase.TextChanged&quot;> </xref> gebeurtenis."
   syntax:
     content: protected override void InvokeEventHandler (Delegate genericHandler, object genericTarget);
     parameters:
     - id: genericHandler
       type: System.Delegate
-      description: "The handler to invoke."
+      description: "De handler om aan te roepen."
     - id: genericTarget
       type: System.Object
-      description: "The current object along the event&quot;s route."
+      description: "Het huidige object op van de gebeurtenis route."
   overload: System.Windows.Controls.TextChangedEventArgs.InvokeEventHandler*
   exceptions: []
   platform:
@@ -149,12 +149,12 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls
-  summary: "Gets how the undo stack is caused or affected by this text change"
+  summary: "Hoe de stack is veroorzaakt of beïnvloed door deze tekstwijziging opgehaald"
   syntax:
     content: public System.Windows.Controls.UndoAction UndoAction { get; }
     return:
       type: System.Windows.Controls.UndoAction
-      description: "The <xref href=&quot;System.Windows.Controls.UndoAction&quot;></xref> appropriate for this text change."
+      description: "De <xref href=&quot;System.Windows.Controls.UndoAction&quot;> </xref> geschikt is voor deze tekstwijziging."
   overload: System.Windows.Controls.TextChangedEventArgs.UndoAction*
   exceptions: []
   platform:
